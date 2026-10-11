@@ -119,8 +119,8 @@ const DIVS=[{id:'ar1',country:'Argentina',name:'Primera División',ok:true,teams
 {id:'ar3',country:'Argentina',name:'Primera B Metropolitana',ok:true,teams:mk(R3)},{id:'ar4',country:'Argentina',name:'Primera C',ok:true,teams:mk(R4)}];
 const teams=DIVS.flatMap(x=>x.teams);
 const TM={};teams.forEach(t=>TM[t.id]=t);
-const FM=[[4,4,2],[4,3,3],[3,5,2],[4,5,1],[5,3,2]];
-const FN=FM.map(f=>f.join('-'));
+const FM=[[4,4,2],[4,3,3],[3,5,2],[4,5,1],[5,3,2],[4,5,1],[4,4,2],[3,4,3],[5,4,1]];
+const FN=['4-4-2','4-3-3','3-5-2','4-5-1','5-3-2','4-2-3-1','4-2-2-2','3-4-3','5-4-1'];
 const slots=f=>{const[d,m,a]=FM[f];return['POR',...Array(d).fill('DEF'),...Array(m).fill('MED'),...Array(a).fill('DEL')]};
 function autoXI(sq,f,ban){const u=new Set(),ok=i=>!u.has(i)&&!(ban&&ban.has(i));return slots(f).map(p=>{let b=-1;sq.forEach((x,i)=>{if(ok(i)&&x.p==p&&(b<0||x.r>sq[b].r))b=i});if(b<0)sq.forEach((x,i)=>{if(ok(i)&&(b<0||x.r>sq[b].r))b=i});u.add(b);return b})}
 const rng=s=>{s>>>=0;return()=>{s=s+0x6D2B79F5>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}};
