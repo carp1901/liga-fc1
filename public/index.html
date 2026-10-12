@@ -51,7 +51,7 @@ try{$('#nm').value=localStorage.nm||''}catch(e){}
 const cache={},set=(id,h)=>{if(cache[id]!==h){cache[id]=h;$(id).innerHTML=h}};
 const cr = (id, s = 30) => {
   const t = TM[id];
-  const url = `https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/AR%20-%20Argentina/${encodeURIComponent(t ? t.name : id)}.png`;
+  const url = `https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/AR%20-%20Argentina/${id}.png`;
   return `<span class="cw" style="width:${s}px;height:${Math.round(s*1.1)}px"><span class="cr" style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span><img src="${url}" alt="" onload="this.previousSibling.remove()" onerror="this.remove()"></span>`;
 };
 
