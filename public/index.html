@@ -50,7 +50,6 @@ let pid;try{pid=localStorage.pid||(localStorage.pid=Math.random().toString(36).s
 try{$('#nm').value=localStorage.nm||''}catch(e){}
 const cache={},set=(id,h)=>{if(cache[id]!==h){cache[id]=h;$(id).innerHTML=h}};
 const cr = (id, s = 30) => {
-const cr = (id, s = 30) => {
   const t = TM[id];
   const name = t ? t.name : id;
 
