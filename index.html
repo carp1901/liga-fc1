@@ -72,6 +72,45 @@ jjurquiza:'j-j-urquiza',centralcordobarosario:'central-cordoba-de-rosario',
 gimnasiajujuy:'gimnasia-de-jujuy',union:'union',
 sanmartinburzaco:'san-martin-de-burzaco'
 };
+Object.assign(FL,{
+  estudiantes:'estudiantes-de-la-plata',
+  gimnasia:'gimnasia-y-esgrima-lp',
+  gimnasiajujuy:'gimnasia-de-jujuy',
+  gimnasiajujuy:'gimnasia-de-jujuy',
+  gimnasiamza:'gimnasia-y-esgrima',
+  almirantebrown:'almirante-brown',
+  atlanta:'atlanta',
+  chacarita:'chacarita-juniors',
+  colon:'colon',
+  defensoresbelgrano:'defensores-de-belgrano',
+  madryn:'deportivo-madryn',
+  maipu:'deportivo-maipu',
+  moron:'deportivo-moron',
+  mitre:'mitre-de-santiago-del-estero',
+  defensoresunidos:'defensores-unidos',
+  sportivoitaliano:'sportivo-italiano',
+  villasancarlos:'villa-san-carlos',
+  alem:'leandro-n-alem',
+  estrelladelsur:'estrella-del-sur',
+  victorianoarenas:'victoriano-arenas',
+  paraguayo:'deportivo-paraguayo',
+  jjurquiza:'j-j-urquiza',
+  cambaceres:'defensores-de-cambaceres',
+  atlas:'atlas',
+  centralcordobarosario:'central-cordoba-de-rosario',
+  espanol:'deportivo-espanol',
+  muniz:'muniz',
+  lamadrid:'general-lamadrid',
+  leones:'leones-de-rosario',
+  sportivobarracas:'sportivo-barracas',
+  ferro:'ferro-carril-oeste',
+  sanmartintuc:'san-martin-de-tucuman',
+  sanmartinsj:'san-martin-de-san-juan',
+  talleresre:'talleres-de-remedios-de-escalada',
+  platense:'club-atletico-platense',
+  centralcba:'central-cordoba-se'
+});
+
 const cr=(id,s=30)=>{
 const t=TM[id];
 const slug=FL[id]||t.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
