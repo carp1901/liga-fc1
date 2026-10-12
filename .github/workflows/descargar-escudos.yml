@@ -1,1 +1,147 @@
 
+name: Descargar escudos argentinos
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Descargar escudos disponibles
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const https = require('https');
+          const path = require('path');
+
+          const aliases = {
+            boca: 'boca_juniors',
+            river: 'river_plate',
+            racing: 'racing_club',
+            independiente: 'independiente',
+            sanlorenzo: 'san_lorenzo',
+            estudiantes: 'estudiantes_lp',
+            velez: 'velez_sarsfield',
+            talleres: 'talleres',
+            rosario: 'rosario_central',
+            defensa: 'defensa_y_justicia',
+            argentinos: 'argentinos_juniors',
+            centralcba: 'central_cordoba_sde',
+            rivadavia: 'independiente_rivadavia',
+            atletico: 'atletico_tucuman',
+            barracas: 'barracas_central',
+            riestra: 'deportivo_riestra',
+            gimnasiamza: 'gimnasia_de_mendoza',
+            estudiantesrc: 'estudiantes_rc',
+            allboys: 'all_boys',
+            almirantebrown: 'almirante_brown',
+            centralnorte: 'central_norte',
+            chaco: 'chaco_for_ever',
+            chacarita: 'chacarita_juniors',
+            defensoresbelgrano: 'defensores_de_belgrano',
+            moron: 'deportivo_moron',
+            estudiantesba: 'estudiantes_de_caseros',
+            ferro: 'ferro_carril_oeste',
+            gimnasiajujuy: 'gimnasia_de_jujuy',
+            gimnasiatiro: 'gimnasia_y_tiro',
+            losandes: 'los_andes',
+            nuevachicago: 'nueva_chicago',
+            racingcba: 'racing_de_cordoba',
+            sanmartintuc: 'san_martin_tucuman',
+            santelmo: 'san_telmo',
+            sanmartinsj: 'san_martin_sj',
+            argentinoquilmes: 'argentino_de_quilmes',
+            armenio: 'deportivo_armenio',
+            docksud: 'dock_sud',
+            excursionistas: 'excursionistas',
+            sportivoitaliano: 'sportivo_italiano',
+            talleresre: 'talleres_rde',
+            porvenir: 'el_porvenir',
+            lanus: 'lanus',
+            tigre: 'tigre',
+            temperley: 'temperley',
+            sarmiento: 'sarmiento',
+            union: 'union',
+            platense: 'platense',
+            banfield: 'banfield',
+            aldosivi: 'aldosivi',
+            belgrano: 'belgrano',
+            instituto: 'instituto',
+            huracan: 'huracan',
+            newells: 'newells',
+            colon: 'colon',
+            quilmes: 'quilmes',
+            arsenal: 'arsenal',
+            atlanta: 'atlanta',
+            colegiales: 'colegiales',
+            acassuso: 'acassuso',
+            patronato: 'patronato',
+            godoycruz: 'godoy_cruz',
+            rafaela: 'atletico_rafaela'
+          };
+
+          function get(url) {
+            return new Promise((resolve, reject) => {
+              https.get(url, {
+                headers: { 'User-Agent': 'LigaFC' }
+              }, res => {
+                if (res.statusCode !== 200) {
+                  reject(new Error('HTTP ' + res.statusCode + ': ' + url));
+                  res.resume();
+                  return;
+                }
+                const chunks = [];
+                res.on('data', chunk => chunks.push(chunk));
+                res.on('end', () => resolve(Buffer.concat(chunks)));
+              }).on('error', reject);
+            });
+          }
+
+          async function main() {
+            const api = 'https://api.github.com/repos/futbol-argentino/futbol-argentino/contents/escudos?ref=main';
+            const files = JSON.parse((await get(api)).toString());
+            const available = new Set(files.map(f => f.name));
+            const dir = 'public/crests';
+            fs.mkdirSync(dir, { recursive: true });
+
+            let downloaded = 0;
+            for (const [id, filename] of Object.entries(aliases)) {
+              const file = filename + '.png';
+              if (!available.has(file)) {
+                console.log('No disponible en la fuente:', id);
+                continue;
+              }
+              const url = 'https://raw.githubusercontent.com/futbol-argentino/futbol-argentino/main/escudos/' + encodeURIComponent(file);
+              const data = await get(url);
+              fs.writeFileSync(path.join(dir, id + '.png'), data);
+              console.log('Descargado:', id);
+              downloaded++;
+            }
+
+            console.log('Total descargados:', downloaded);
+          }
+
+          main().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          NODE
+
+      - name: Guardar escudos en GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/crests
+          if ! git diff --cached --quiet; then
+            git commit -m "Agregar escudos de clubes argentinos"
+            git push
+          else
+            echo "No hay cambios para guardar"
+          fi
