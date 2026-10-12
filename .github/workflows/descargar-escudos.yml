@@ -1,8 +1,10 @@
-
 name: Descargar escudos argentinos
 
-on:
+'on':
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/descargar-escudos.yml'
 
 permissions:
   contents: write
@@ -93,12 +95,12 @@ jobs:
                 headers: { 'User-Agent': 'LigaFC' }
               }, res => {
                 if (res.statusCode !== 200) {
-                  reject(new Error('HTTP ' + res.statusCode + ': ' + url));
+                  reject(new Error('HTTP ' + res.statusCode));
                   res.resume();
                   return;
                 }
                 const chunks = [];
-                res.on('data', chunk => chunks.push(chunk));
+                res.on('data', c => chunks.push(c));
                 res.on('end', () => resolve(Buffer.concat(chunks)));
               }).on('error', reject);
             });
@@ -110,26 +112,25 @@ jobs:
             const available = new Set(files.map(f => f.name));
             const dir = 'public/crests';
             fs.mkdirSync(dir, { recursive: true });
+            let count = 0;
 
-            let downloaded = 0;
-            for (const [id, filename] of Object.entries(aliases)) {
-              const file = filename + '.png';
+            for (const [id, name] of Object.entries(aliases)) {
+              const file = name + '.png';
               if (!available.has(file)) {
-                console.log('No disponible en la fuente:', id);
+                console.log('No disponible:', id);
                 continue;
               }
               const url = 'https://raw.githubusercontent.com/futbol-argentino/futbol-argentino/main/escudos/' + encodeURIComponent(file);
-              const data = await get(url);
-              fs.writeFileSync(path.join(dir, id + '.png'), data);
+              fs.writeFileSync(path.join(dir, id + '.png'), await get(url));
               console.log('Descargado:', id);
-              downloaded++;
+              count++;
             }
 
-            console.log('Total descargados:', downloaded);
+            console.log('Total descargados:', count);
           }
 
-          main().catch(err => {
-            console.error(err);
+          main().catch(e => {
+            console.error(e);
             process.exit(1);
           });
           NODE
@@ -140,7 +141,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Agregar escudos de clubes argentinos"
+            git commit -m "Agregar escudos argentinos"
             git push
           else
             echo "No hay cambios para guardar"
