@@ -49,25 +49,7 @@ let DV=[],TM={},S=null,room,sel=null,evAt=0,evKey='',OFF=false,CAL=[],showCal=fa
 let pid;try{pid=localStorage.pid||(localStorage.pid=Math.random().toString(36).slice(2)+Date.now().toString(36))}catch(e){pid=Math.random().toString(36).slice(2)}
 try{$('#nm').value=localStorage.nm||''}catch(e){}
 const cache={},set=(id,h)=>{if(cache[id]!==h){cache[id]=h;$(id).innerHTML=h}};
-const cr = (id, s = 30) => {
-  const t = TM[id];
-  const name = t ? t.name : id;
-
-  // Limpiamos automáticamente cualquier paréntesis, punto o abreviatura del nombre en data.js
-  const cleanName = name
-    .replace(/\s*\([^)]*\)/g, '')
-    .replace(/\./g, '')
-    .trim();
-
-  // URL universal automática basada en el nombre limpio del equipo
-  const url = `https://commons.wikimedia.org/wiki/Special:FilePath/Escudo_del_Club_Atl%C3%A9tico_${encodeURIComponent(cleanName)}.svg`;
-
-  return `<span class="cw" style="width:${s}px;height:${Math.round(s*1.1)}px;display:inline-flex;align-items:center;justify-content:center;">
-    <img src="${url}" alt="${name}" style="max-width:100%;max-height:100%;object-fit:contain;" 
-         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/AR%20-%20Argentina/${encodeURIComponent(cleanName)}.png';">
-  </span>`;
-};
-
+const cr=(id,s=30)=>{const t=TM[id];return`<span class=cw style="width:${s}px;height:${Math.round(s*1.1)}px"><span class=cr style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span><img src="/crests/${id}.png" alt="" onload="this.previousSibling.remove()" onerror="this.remove()"></span>`};
 const rc=q=>{if(!q.s)return'';const m=q.s.match(/^(\d+)-(\d+)/);if(!m)return'';const a=+m[1],b=+m[2];if(a!=b)return a>b?'rw':'rl';return/ganó/.test(q.s)?'rw':/perdió/.test(q.s)?'rl':'rd'};
 const DOR=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
 const nfHtml=(v,me)=>v.nf?`<small class=mu style="margin:0 0 3px">Fecha ${v.round+1} · quién va con cada club</small>`+v.nf.map(p=>p[0]&&p[1]?`<div class="m1 ${p.includes(me.team)?'me':''}"><span>${cr(p[0],18)} ${esc(TM[p[0]].name)} <small class=mu style="display:inline;margin:0">(${esc(v.own[p[0]]||'')})</small></span><b class=num>vs</b><span><small class=mu style="display:inline;margin:0">(${esc(v.own[p[1]]||'')})</small> ${esc(TM[p[1]].name)} ${cr(p[1],18)}</span></div>`:`<div class=mu style="font-size:12px">Descansa: ${esc(TM[p[0]||p[1]].name)}</div>`).join(''):'<span class=mu>Esperando la próxima fecha…</span>';
