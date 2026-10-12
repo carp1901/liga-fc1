@@ -52,21 +52,17 @@ const cache={},set=(id,h)=>{if(cache[id]!==h){cache[id]=h;$(id).innerHTML=h}};
 const cr = (id, s = 30) => {
   const t = TM[id];
   const name = t ? t.name : id;
-  
-  // Limpiamos el nombre para que coincida exactamente con las páginas y escudos de Wikimedia
-  const cleanName = name
-    .replace(/\s*\([^)]*\)/g, '') // Borra paréntesis como (LP), (BA), (SdE), etc.
-    .replace(' y ', ' y ')
-    .trim();
 
-  // URL directa al repositorio masivo de escudos vectoriales en PNG transparente para Argentina
-  const url = `https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/AR%20-%20Argentina/${encodeURIComponent(cleanName)}.png`;
+  // Formateamos el nombre limpio para buscar la imagen directa en Wikimedia/Wikipedia sin fallos
+  const cleanName = name.replace(/\s*\([^)]*\)/g, '').replace(/\./g, '').trim();
+  const wikiUrl = `https://commons.wikimedia.org/wiki/Special:FilePath/Escudo_del_Club_Atl%C3%A9tico_${encodeURIComponent(cleanName)}.svg`;
+  const backupUrl = `https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/AR%20-%20Argentina/${encodeURIComponent(name)}.png`;
 
   return `<span class="cw" style="width:${s}px;height:${Math.round(s*1.1)}px">
     <span class="cr" style="background:linear-gradient(135deg,${t ? t.c1 : '#111'} 50%,${t ? t.c2 : '#333'} 50%)">
       ${esc(name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}
     </span>
-    <img src="${url}" alt="" onload="this.previousSibling.style.display='none'" onerror="this.style.display='none'">
+    <img src="${backupUrl}" alt="" onload="this.previousSibling.style.display='none'" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/identicon/svg?seed=${id}';">
   </span>`;
 };
 
