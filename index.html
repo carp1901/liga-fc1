@@ -123,8 +123,13 @@ const cr=(id,s=30)=>{
 
   return `<span class="cw" style="width:${s}px;height:${Math.round(s*1.1)}px">
     <span class="cr" style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span>
-    <img src="https://www.footylogos.com/dls/logo/${slug}.png"
+    
+<img src="https://www.footylogos.com/dls/logo/${slug}.png"
       alt="${esc(t.name)}"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain"
+      onload="this.previousElementSibling.style.display='none'"
+      onerror="this.style.display='none'">
+
       onload="this.previousElementSibling.style.display='none'"
       onerror="this.style.display='none'">
   </span>`;
