@@ -13,12 +13,10 @@ permissions:
 jobs:
   descargar:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Descargar repositorio
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Descargar escudos faltantes
+      - name: Descargar escudos desde catálogo
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -26,175 +24,146 @@ jobs:
           const path = require('path');
 
           const equipos = {
-            mitre: 'club-atletico-mitre',
-            ciudadbolivar: 'ciudad-de-bolivar',
-            madryn: 'deportivo-madryn',
-            sanmiguel: 'san-miguel',
-            midland: 'ferrocarril-midland',
-            agropecuario: 'agropecuario-argentino',
-            maipu: 'deportivo-maipu',
-            tristan: 'tristan-suarez',
-            guemes: 'guemes',
-            argentinomerlo: 'argentino-de-merlo',
-            brownadrogue: 'brown-de-adrogue',
-            liniers: 'liniers',
-            comunicaciones: 'comunicaciones',
-            defensoresunidos: 'defensores-unidos',
-            camioneros: 'deportivo-camioneros',
-            laferrere: 'deportivo-laferrere',
-            deportivomerlo: 'deportivo-merlo',
-            flandria: 'flandria',
-            ituzaingo: 'ituzaingo',
-            realpilar: 'real-pilar',
-            sanmartinburzaco: 'san-martin-de-burzaco',
-            uai: 'uai-urquiza',
-            villadalmine: 'villa-dalmine',
-            villasancarlos: 'villa-san-carlos',
-            alem: 'leandro-n-alem',
-            mercedes: 'club-mercedes',
-            juventudunida: 'juventud-unida',
-            estrelladelsur: 'estrella-del-sur',
-            argentinorosario: 'argentino-de-rosario',
-            victorianoarenas: 'victoriano-arenas',
-            sacachispas: 'sacachispas',
-            berazategui: 'berazategui',
-            paraguayo: 'deportivo-paraguayo',
-            jjurquiza: 'justo-jose-de-urquiza',
-            cambaceres: 'defensores-de-cambaceres',
-            puertonuevo: 'puerto-nuevo',
-            lugano: 'lugano',
-            centroespanol: 'centro-espanol',
-            atlas: 'atlas',
-            canuelas: 'canuelas',
-            centralballester: 'central-ballester',
-            centralcordobarosario: 'central-cordoba-de-rosario',
-            claypole: 'claypole',
-            espanol: 'deportivo-espanol',
-            muniz: 'deportivo-muniz',
-            fenix: 'fenix',
-            lamadrid: 'general-lamadrid',
-            leones: 'leones-de-rosario',
-            lujan: 'lujan',
-            yupanqui: 'yupanqui'
+            mitre:'club-atletico-mitre',
+            ciudadbolivar:'ciudad-de-bolivar',
+            madryn:'deportivo-madryn',
+            sanmiguel:'san-miguel',
+            midland:'ferrocarril-midland',
+            agropecuario:'agropecuario-argentino',
+            maipu:'deportivo-maipu',
+            tristan:'tristan-suarez',
+            guemes:'guemes',
+            argentinomerlo:'argentino-de-merlo',
+            brownadrogue:'brown-de-adrogue',
+            liniers:'liniers',
+            comunicaciones:'comunicaciones',
+            defensoresunidos:'defensores-unidos',
+            camioneros:'deportivo-camioneros',
+            laferrere:'deportivo-laferrere',
+            deportivomerlo:'deportivo-merlo',
+            flandria:'flandria',
+            ituzaingo:'ituzaingo',
+            realpilar:'real-pilar',
+            sanmartinburzaco:'san-martin-de-burzaco',
+            uai:'uai-urquiza',
+            villadalmine:'villa-dalmine',
+            villasancarlos:'villa-san-carlos',
+            alem:'leandro-n-alem',
+            mercedes:'club-mercedes',
+            juventudunida:'juventud-unida',
+            estrelladelsur:'estrella-del-sur',
+            argentinorosario:'argentino-de-rosario',
+            victorianoarenas:'victoriano-arenas',
+            sacachispas:'sacachispas',
+            berazategui:'berazategui',
+            paraguayo:'deportivo-paraguayo',
+            jjurquiza:'justo-jose-de-urquiza',
+            cambaceres:'defensores-de-cambaceres',
+            puertonuevo:'puerto-nuevo',
+            lugano:'lugano',
+            centroespanol:'centro-espanol',
+            atlas:'atlas',
+            canuelas:'canuelas',
+            centralballester:'central-ballester',
+            centralcordobarosario:'central-cordoba-de-rosario',
+            claypole:'claypole',
+            espanol:'deportivo-espanol',
+            muniz:'deportivo-muniz',
+            fenix:'fenix',
+            lamadrid:'general-lamadrid',
+            leones:'leones-de-rosario',
+            lujan:'lujan',
+            yupanqui:'yupanqui'
           };
 
-          const dir = 'public/crests';
-          fs.mkdirSync(dir, { recursive: true });
-
-          function get(url, redirects = 5) {
+          function get(url) {
             return new Promise((resolve, reject) => {
               https.get(url, {
-                headers: {
-                  'User-Agent': 'Mozilla/5.0 LigaFC crest downloader'
-                }
+                headers: {'User-Agent':'LigaFC'}
               }, res => {
-                if ([301, 302, 303, 307, 308].includes(res.statusCode)) {
+                if ([301,302,303,307,308].includes(res.statusCode)) {
                   res.resume();
-                  if (!res.headers.location || redirects <= 0) {
-                    return reject(new Error('Redireccion inválida'));
-                  }
-                  const next = new URL(res.headers.location, url).href;
-                  return resolve(get(next, redirects - 1));
+                  return reject(new Error('Redirección'));
                 }
-
                 if (res.statusCode !== 200) {
                   res.resume();
-                  return reject(new Error('HTTP ' + res.statusCode));
+                  return reject(new Error('HTTP '+res.statusCode));
                 }
-
                 const chunks = [];
                 res.on('data', c => chunks.push(c));
-                res.on('end', () => resolve({
-                  data: Buffer.concat(chunks),
-                  type: res.headers['content-type'] || ''
-                }));
+                res.on('end', () => resolve(Buffer.concat(chunks)));
               }).on('error', reject);
             });
           }
 
           async function main() {
-            const missing = [];
-            let downloaded = 0;
-            let kept = 0;
+            const url = 'https://gist.githubusercontent.com/BabaProMessi/5865807334d8d3e9b6b7dfe9c08e9a04/raw/gistfile1.txt';
+            const catalogo = JSON.parse((await get(url)).toString());
+            const argentinos = catalogo.filter(x => x.country === 'argentina');
+            const dir = 'public/crests';
+            fs.mkdirSync(dir, {recursive:true});
+            const faltantes = [];
+            let descargados = 0;
+            let conservados = 0;
 
             for (const [id, slug] of Object.entries(equipos)) {
-              const output = path.join(dir, id + '.png');
+              const destino = path.join(dir, id + '.png');
 
-              if (fs.existsSync(output) &&
-                  fs.statSync(output).size > 100) {
-                console.log('Ya existe, se conserva:', id);
-                kept++;
+              if (fs.existsSync(destino) &&
+                  fs.statSync(destino).size > 500) {
+                conservados++;
+                console.log('CONSERVADO:', id);
+                continue;
+              }
+
+              const club = argentinos.find(x => x.slug === slug);
+              if (!club || !club.logo) {
+                console.log('NO FIGURA EN CATÁLOGO:', id, slug);
+                faltantes.push(id);
                 continue;
               }
 
               try {
-                const page = await get(
-                  'https://football-logos.cc/argentina/' +
-                  encodeURIComponent(slug) + '/'
-                );
-
-                const html = page.data.toString('utf8');
-
-                const urls = [
-                  ...html.matchAll(
-                    /https:\/\/assets\.football-logos\.cc\/logos\/argentina\/1500x1500\/[^"' <>]+?\.png/g
-                  )
-                ].map(m => m[0].replace(/&amp;/g, '&'));
-
-                const unique = [...new Set(urls)];
-
-                if (!unique.length) {
-                  throw new Error('No se encontró PNG en la página');
+                const imagen = await get(club.logo);
+                if (imagen.length < 500 ||
+                    imagen[0] !== 0x89 ||
+                    imagen[1] !== 0x50 ||
+                    imagen[2] !== 0x4e ||
+                    imagen[3] !== 0x47) {
+                  throw new Error('La descarga no es un PNG válido');
                 }
-
-                let saved = false;
-
-                for (const imageUrl of unique) {
-                  try {
-                    const image = await get(imageUrl);
-                    if (image.data.length > 500 &&
-                        image.type.toLowerCase().includes('image')) {
-                      fs.writeFileSync(output, image.data);
-                      console.log('DESCARGADO:', id);
-                      downloaded++;
-                      saved = true;
-                      break;
-                    }
-                  } catch (_) {}
-                }
-
-                if (!saved) throw new Error('No se pudo bajar el PNG');
-              } catch (err) {
-                console.log('FALTANTE:', id, '-', err.message);
-                missing.push(id);
+                fs.writeFileSync(destino, imagen);
+                descargados++;
+                console.log('DESCARGADO:', id);
+              } catch (e) {
+                console.log('ERROR:', id, e.message);
+                faltantes.push(id);
               }
             }
 
             fs.writeFileSync(
-              path.join(dir, 'faltantes.txt'),
-              missing.join('\n')
+              path.join(dir,'faltantes.txt'),
+              faltantes.join('\n')
             );
-
-            console.log('---------------------------');
-            console.log('Descargados:', downloaded);
-            console.log('Conservados:', kept);
-            console.log('Faltantes:', missing.length);
+            console.log('Descargados:', descargados);
+            console.log('Conservados:', conservados);
+            console.log('Faltantes:', faltantes.length);
           }
 
-          main().catch(err => {
-            console.error(err);
+          main().catch(e => {
+            console.error(e);
             process.exit(1);
           });
           NODE
 
-      - name: Guardar cambios
+      - name: Guardar escudos
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Descargar escudos argentinos faltantes"
+            git commit -m "Agregar escudos argentinos faltantes"
             git push
           else
-            echo "No hay cambios nuevos"
+            echo "No hubo archivos nuevos para guardar"
           fi
