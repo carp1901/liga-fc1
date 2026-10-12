@@ -46,7 +46,38 @@ let DV=[],TM={},S=null,room,sel=null,evAt=0,evKey='',OFF=false,CAL=[],showCal=fa
 let pid;try{pid=localStorage.pid||(localStorage.pid=Math.random().toString(36).slice(2)+Date.now().toString(36))}catch(e){pid=Math.random().toString(36).slice(2)}
 try{$('#nm').value=localStorage.nm||''}catch(e){}
 const cache={},set=(id,h)=>{if(cache[id]!==h){cache[id]=h;$(id).innerHTML=h}};
-const cr=(id,s=30)=>{const t=TM[id];return`<span class=cw style="width:${s}px;height:${Math.round(s*1.1)}px"><span class=cr style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span><img src="/crests/${id}.png" alt="" onload="this.previousSibling.remove()" onerror="this.remove()"></span>`};
+
+const FL={
+boca:'boca-juniors',river:'river-plate',racing:'racing-club',sanlorenzo:'san-lorenzo',
+estudiantes:'estudiantes-de-la-plata',velez:'velez-sarsfield',talleres:'talleres',
+rosario:'rosario-central',argentinos:'argentinos-juniors',defensa:'defensa-y-justicia',
+newells:'newells-old-boys',platense:'club-atletico-platense',centralcba:'central-cordoba-se',
+rivadavia:'independiente-rivadavia',instituto:'instituto-cordoba',
+gimnasia:'gimnasia-y-esgrima-la-plata',gimnasiamza:'gimnasia-y-esgrima-mendoza',
+estudiantesrc:'estudiantes-de-rio-cuarto',estudiantesba:'estudiantes-de-buenos-aires',
+atletico:'atletico-tucuman',riestra:'deportivo-riestra',
+agropecuario:'agropecuario-argentino',centralnorte:'central-norte',
+gimnasiajujuy:'gimnasia-de-jujuy',gimnasiatiro:'gimnasia-y-tiro',
+mitre:'mitre-de-santiago-del-estero',rafaela:'atletico-de-rafaela',
+sanmartintuc:'san-martin-de-tucuman',sanmartinsj:'san-martin-de-san-juan',
+ciudadbolivar:'ciudad-de-bolivar',argentinomerlo:'argentino-de-merlo',
+argentinoquilmes:'argentino-de-quilmes',arsenal:'arsenal-de-sarandi',
+brownadrogue:'brown-de-adrogue',armenio:'deportivo-armenio',
+camioneros:'deportivo-camioneros',laferrere:'deportivo-laferrere',
+docksud:'dock-sud',sanmartinburzaco:'san-martin-de-burzaco',
+talleresre:'talleres-de-remedios-de-escalada',argentinorosario:'argentino-de-rosario',
+atlas:'club-atletico-atlas',mercedes:'club-mercedes',
+juventudunida:'juventud-unida-san-miguel',midland:'ferrocarril-midland',
+jjurquiza:'j-j-urquiza',centralcordobarosario:'central-cordoba-de-rosario',
+gimnasiajujuy:'gimnasia-de-jujuy',union:'union',
+sanmartinburzaco:'san-martin-de-burzaco'
+};
+const cr=(id,s=30)=>{
+const t=TM[id];
+const slug=FL[id]||t.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+return `<span class=cw style="width:${s}px;height:${Math.round(s*1.1)}px"><span class=cr style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span><img src="https://www.footylogos.com/dls/logo/${slug}.png" alt="" onload="this.previousSibling.remove()" onerror="this.remove()"></span>`;
+};
+
 const rc=q=>{if(!q.s)return'';const m=q.s.match(/^(\d+)-(\d+)/);if(!m)return'';const a=+m[1],b=+m[2];if(a!=b)return a>b?'rw':'rl';return/ganó/.test(q.s)?'rw':/perdió/.test(q.s)?'rl':'rd'};
 const LB={POR:'ARQ',DEF:'DEF',MED:'MED',DEL:'DEL'};
 const mmss=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0'),sur=n=>n.split('. ')[1]||n;
