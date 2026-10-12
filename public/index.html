@@ -33,6 +33,7 @@ canvas{width:100%;display:block;border-radius:6px;background:#2d7a46}table{width
 .ua{color:#3ddc84;font-size:10px;margin-left:3px;font-weight:700}.da{color:#ff6b61;font-size:10px;margin-left:3px;font-weight:700}.aw{font-size:10px;color:var(--so)}.vi{font-size:13px;opacity:.55;padding:0 6px}
 .sbt em{font:300 10.5px Barlow,sans-serif;font-style:normal;opacity:.85;letter-spacing:.4px;line-height:1.1}
 .pz{opacity:.55;padding:1px 7px;font-size:12px;background:#0b1710cc}.pz:hover{opacity:1}#pzb{position:absolute;top:6px;right:6px}#skb{position:absolute;left:50%;bottom:10px;transform:translateX(-50%)}.sk{font-size:13px;padding:4px 12px;background:#0b1710e6;border-color:var(--so)}.sk.on{background:var(--ce)}
+.sbn{display:flex;align-items:center;gap:6px;min-width:0}.sbn b{min-width:0}
 </style></head><body><main>
 <div id="menu"><h1>Liga FC</h1><p class="mu">Técnicos online. Armá tu liga con amigos, elegí equipo y definí la táctica. Sin registro.</p>
 <div class="box"><div class="row"><input id="nm" placeholder="Tu nombre" maxlength="16"><input id="cd" placeholder="Código de sala" maxlength="12"></div>
@@ -58,7 +59,7 @@ const LB={POR:'ARQ',DEF:'DEF',MED:'MED',DEL:'DEL'};
 const mmss=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0'),sur=n=>n.split('. ')[1]||n;
 (d=>{DV=d;d.forEach(v=>v.teams.forEach(t=>TM[t.id]=t));
  $('#ct').innerHTML=[...new Set(d.map(v=>v.country))].map(c=>`<option>${c}</option>`).join('');
- $('#dv').innerHTML=d.map(v=>`<option value="${v.id}" ${v.ok?'':'disabled'}>${v.name}${v.ok?'':' (próximamente)'}</option>`).join('');
+ $('#dv').innerHTML='<option value="all">Todas las divisiones (equilibrado)</option>'+d.map(v=>`<option value="${v.id}" ${v.ok?'':'disabled'}>${v.name}${v.ok?'':' (próximamente)'}</option>`).join('');
  $('#odv').innerHTML=$('#dv').innerHTML;
  $('#np').innerHTML=[4,6,8,12,16,20].map(n=>`<option value="${n}">${n} jugadores</option>`).join('')})(DATA.DIVS);
 async function post(b){const m={pid,room,name:$('#nm').value.trim(),...b};if(OFF)return ENG.act(m);try{const r=await fetch('/act',{method:'POST',body:JSON.stringify(m)});return(await r.json()).error}catch(e){return'No hay servidor. Para jugar online abrí el link del servidor; para probar usá el modo offline.'}}
@@ -79,7 +80,7 @@ function render(){const v=S,me=v.me||{},ph=v.phase,n=v.cfg.n;let st='';
  set('#pzb',v.off&&ph!='pick'?`<button class=pz data-pz=1 title="Pausa">${v.paused?'▶':'⏸'}</button>`:'');set('#skb',ph=='ht'&&v.sk?`<button class="sk ${v.sk.me?'on':''}" data-skip=1 ${v.sk.me?'disabled':''}>Saltar entretiempo (${v.sk.n}/${v.sk.of})</button>`:'');
  $('#cal').hidden=!showCal||!me.team;if(showCal&&me.team)set('#cal',`<h2>Calendario · ${esc(TM[me.team].name)}</h2>${CAL.length?CAL.map(q=>`<div class="m1 ${rc(q)}"><span>Fecha ${q.r}</span><span>${q.h?'vs':'@'} ${cr(q.o,16)} ${esc(TM[q.o].name)}</span><b>${q.s||'—'}</b></div>`).join(''):'<span class=mu>Todavía no hay fixture.</span>'}`);
  $('#pk').hidden=ph!='pick';$('#pl').hidden=ph=='pick';
- if(ph=='pick'){const d=DV.find(x=>x.id==v.cfg.div);set('#pk',`<div class=grid>${d.teams.map(t=>{const o=v.own[t.id];return o?`<button class="tm occ" disabled>${cr(t.id)}<span>${esc(t.name)}<small>${esc(o)}</small></span></button>`:`<button class=tm data-p="${t.id}">${cr(t.id)}<span>${esc(t.name)}</span></button>`}).join('')}</div>`)}
+ if(ph=='pick'){const d=v.cfg.div=='all'?{teams:DV.flatMap(x=>x.teams)}:DV.find(x=>x.id==v.cfg.div);set('#pk',`<div class=grid>${d.teams.map(t=>{const o=v.own[t.id];return o?`<button class="tm occ" disabled>${cr(t.id)}<span>${esc(t.name)}<small>${esc(o)}</small></span></button>`:`<button class=tm data-p="${t.id}">${cr(t.id)}<span>${esc(t.name)}</span></button>`}).join('')}</div>`)}
  else{const tb={};v.table.forEach(q=>tb[q.id]={...q});
   if(v.cfg.fmt!='copa'&&['cer','m1','ht','m2','fin','awd'].includes(ph))v.ms.forEach(m=>{const A=tb[m.a],B=tb[m.b];A.pj++;B.pj++;A.gf+=m.ga;A.ga+=m.gb;B.gf+=m.gb;B.ga+=m.ga;if(m.ga>m.gb){A.pts+=3;A.g++;B.p++}else if(m.ga<m.gb){B.pts+=3;B.g++;A.p++}else{A.pts++;B.pts++;A.e++;B.e++}});
   const cmpT=(a,b)=>b.pts-a.pts||b.g-a.g||b.gf-a.gf||(b.gf-b.ga)-(a.gf-a.ga),rows=Object.values(tb).sort(cmpT),base={};
@@ -107,8 +108,8 @@ document.addEventListener('change',e=>{const k=e.target.dataset.k;if(k&&S){post(
 const send=()=>{const t=$('#ci').value.trim();if(t){post({a:'chat',text:t});$('#ci').value=''}};$('#cs').onclick=send;$('#ci').onkeydown=e=>{if(e.key=='Enter')send()};
 // ---- Pizarra 2D: física tipo Haxball (sim2d.js) ----
 const cv=$('#cv'),cx=cv.getContext('2d'),Q=SIM2D,W=Q.W,H=Q.H,SIM=new Q.Sim();
-let flId=0,flAt=0,flMsg='',maxEv=0,SH=[0,0],PG=[],SG={},SA={},cerT0=0,lastPh='',idleF=0,GT=null;
-const FLT={y:'🟨 Amarilla a ',r:'🟥 Roja directa a ',r2:'🟥 Segunda amarilla: expulsado ',sub:'🔁 Cambio: '};
+let lastMK=null,flId=0,flAt=0,flMsg='',maxEv=0,SH=[0,0],PG=[],SG={},SA={},cerT0=0,lastPh='',idleF=0,GT=null;
+const FLT={y:'🟨 Amarilla a ',r:'🟥 Roja directa a ',r2:'🟥 Segunda amarilla: expulsado ',sub:'🔁 Cambio: ',f:'Falta de '};
 const lum=h=>{const n=parseInt(h.slice(1),16);return(.299*(n>>16)+.587*(n>>8&255)+.114*(n&255))/255},ink=(a,b)=>Math.abs(lum(a)-lum(b))<.1?(lum(a)>.5?'#111':'#fff'):b,c01=x=>Math.max(0,Math.min(1,x));
 SIM.onGoal=(side,name,e)=>{if(e)PG=PG.filter(g=>g.e.id!==e.id);SH[side]++;GT={side,name,t:performance.now()};if(e&&e.si!=null){const k=side+':'+e.si;SG[k]=(SG[k]||0)+1}if(e&&e.ai>=0){const k=side+':'+e.ai;SA[k]=(SA[k]||0)+1}};
 const ovSet=h=>{const o=$('#ov');if(h){if(cache['#ov']!==h){cache['#ov']=h;o.innerHTML=h}o.hidden=false}else if(!o.hidden)o.hidden=true};
@@ -116,41 +117,39 @@ const flushGoals=t=>{while(PG.length){const g=PG.shift(),e=g.e;SH[g.side]++;if(e
 const ballIcon=(x,y,r,rot)=>{cx.fillStyle='#fff';cx.strokeStyle='#111';cx.lineWidth=1.2;cx.beginPath();cx.arc(x,y,r,0,7);cx.fill();cx.stroke();cx.fillStyle='#111';cx.beginPath();for(let i=0;i<5;i++){const a=-Math.PI/2+(rot||0)+i*2*Math.PI/5;cx.lineTo(x+Math.cos(a)*r*.42,y+Math.sin(a)*r*.42)}cx.closePath();cx.fill();cx.lineWidth=.8;for(let i=0;i<5;i++){const a=-Math.PI/2+(rot||0)+i*2*Math.PI/5;cx.beginPath();cx.moveTo(x+Math.cos(a)*r*.42,y+Math.sin(a)*r*.42);cx.lineTo(x+Math.cos(a)*r*.95,y+Math.sin(a)*r*.95);cx.stroke()}};
 const badge=(x,y,k,n)=>{cx.fillStyle='#0b1710e6';cx.strokeStyle=k=='g'?'#2fd16f':'#f2b705';cx.lineWidth=1.3;cx.fillRect(x-15,y-6.5,30,13);cx.strokeRect(x-15,y-6.5,30,13);if(k=='g')ballIcon(x-8,y,4.4,0);else{cx.font='10px sans-serif';cx.textAlign='center';cx.fillStyle='#fff';cx.fillText('👟',x-8,y+3.5)}cx.fillStyle='#fff';cx.font='700 10px Barlow,sans-serif';cx.textAlign='center';cx.fillText('x'+n,x+7,y+3.5)};
 const disc=(x,y,f,s,lw,r)=>{cx.fillStyle=f;cx.strokeStyle=s;cx.lineWidth=lw||3;cx.beginPath();cx.arc(x,y,r||Q.R,0,7);cx.fill();cx.stroke()};
-// ceremonia de ~14 s: salen por el lateral en fila, quedan a lo largo, el visitante saluda pasando frente al local, foto del XI (6 abajo / 5 arriba, cada uno en su campo) y trotan a su posición
-function ceremony(t,mine,opp,names,home){const dur=14000/(OFF?SPD:1),p=c01((t-cerT0)/dur),ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2,out=x=>1-Math.pow(1-x,2),seg=(a,b)=>c01((p-a)/(b-a)),
- rowY=H/2+26,N=25,lx=j=>Q.X0+24+j*(Q.FW-48)/(N-1),vis=home?1:0,slot=(s,k)=>lx(s==0?k:24-k);   // el club propio a la izquierda y el rival a la derecha, con los árbitros en el medio
- SIM.P.forEach(q=>{const A=q.s==0,i=q.k,T=A?mine:opp,d=.03+i*.012,fxp=A?W/2-36:W/2+36,sx=slot(q.s,i),back=i<5,px=(A?W*.27:W*.73)+(back?(i-2)*46:(i-7.5)*46),py=back?H/2-12:H/2+30;
-  let x=fxp,y=H+30;
-  if(p>=d){const u=ease(seg(d,d+.12));y=H+30+(H/2+56-(H+30))*u}                          // 1) en fila por el lateral inferior
-  if(p>=d+.12){const u=ease(seg(d+.12,d+.26));x=fxp+(sx-fxp)*u;y=H/2+56+(rowY-H/2-56)*u}   // 2) quedan a lo largo
-  if(p>=.47&&p<.66){const e=p<.6?ease(seg(.47,.56)):1-ease(seg(.6,.66));                    // 3) saludo: el visitante pasa por delante del local
-   if(q.s===vis){x=sx+(slot(1-vis,i)-sx)*e;y=rowY+32*e}else if(p>=.55&&p<.6)y=rowY+3}
-  if(p>=.66){const u=ease(seg(.66,.76));x=sx+(px-sx)*u;y=rowY+(py-rowY)*u}                  // 4) foto del XI en su campo
-  const j=.84+(i%4)*.012;if(p>=j){const u=out(seg(j,1)),arc=(i%2?1:-1)*(8+(i*5)%12)*Math.sin(Math.PI*u);x=px+(q.x-px)*u;y=py+(q.y-py)*u+arc+(u<1?Math.sin(u*55+i)*1.6:0)}   // 5) trotan a su posición
-  const gk=q.k==0;disc(x,y,gk?'#39424b':T.k[0],gk?T.k[0]:T.k[1],3)});
- (SIM.refs||[]).forEach(r=>{const idx=r.role=='ref'?12:r.role=='l1'?11:13,sx=lx(idx),d=r.role=='ref'?0:.02,bx=r.role=='ref'?W/2:r.role=='l1'?W/2-34:W/2+34;let x=sx,y=H+30;
-  if(p>=d)y=H+30+(rowY-(H+30))*ease(seg(d,d+.2));
-  if(p>=.66){const u=ease(seg(.66,.76));x=sx+(bx-sx)*u;y=rowY+(H/2+14-rowY)*u}
-  if(p>=.84){const u=out(seg(.84,1));x=bx+(r.x-bx)*u;y=H/2+14+(r.y-H/2-14)*u+(u<1?Math.sin(u*55)*1.4:0)}
-  disc(x,y,'#2fbf5f','#145a2a',2,r.role=='ref'?11:9)});
- if(p>.41&&p<.84){const a=Math.min(1,(p-.41)/.05,(.84-p)/.05);cx.font='700 26px "Barlow Condensed",sans-serif';cx.textAlign='center';cx.fillStyle=`rgba(0,0,0,${a*.6})`;cx.fillText(names[0],W*.27+2,H/2-56);cx.fillText(names[1],W*.73+2,H/2-56);cx.fillStyle=`rgba(255,255,255,${a})`;cx.fillText(names[0],W*.27,H/2-58);cx.fillText(names[1],W*.73,H/2-58)}
- if(p>.77&&p<.84){const f=Math.floor(p*420);if(f%9<2){cx.fillStyle='rgba(255,255,255,.85)';for(let k=0;k<4;k++){cx.beginPath();cx.arc(40+((k*173+f*53)%640),H-10-((k*37)%12),2.6,0,7);cx.fill()}}}}   // flashes de la foto
+const CIm={};const crestIm=id=>{if(typeof Image=='undefined')return null;if(!CIm[id]){const im=new Image();im.src='/crests/'+id+'.png';im.onerror=()=>{if(!im.f){im.f=1;im.src='/crests/'+id+'.svg'}else if(im.f==1){im.f=2;im.src='/crests/'+id+'.webp'}};CIm[id]=im}const im=CIm[id];return im.complete&&im.naturalWidth?im:null};
+const bigCrest=(id,x,y,s,a)=>{const im=crestIm(id),t=TM[id];cx.save();cx.globalAlpha=a;if(im){cx.drawImage(im,x-s/2,y-s/2,s,s*im.naturalHeight/im.naturalWidth)}else{cx.fillStyle=t.c1;cx.beginPath();cx.arc(x,y,s/2,0,7);cx.fill();cx.fillStyle=t.c2;cx.beginPath();cx.arc(x,y,s/4,0,7);cx.fill()}cx.restore()};
+const walkAt=(k,p)=>{if(p<=k[0][0])return[k[0][1],k[0][2]];for(let i=0;i<k.length-1;i++){const a=k[i],b=k[i+1];if(p<=b[0]){const u=(p-a[0])/Math.max(1e-9,b[0]-a[0]),e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;return[a[1]+(b[1]-a[1])*e,a[2]+(b[2]-a[2])*e]}}const l=k[k.length-1];return[l[1],l[2]]};
+// ceremonia de ~14 s: salen por el lateral y caminan a su lugar en la fila, el visitante saluda pasando frente al local, foto del XI (6 abajo / 5 arriba) y trotan a su posición
+function ceremony(t,mine,opp,names,home,ids){const dur=18000/(OFF?SPD:1),p=c01((t-cerT0)/dur),rowY=H/2+26,hx=i=>Q.X0+30+i*(W/2-70)/10,awx=i=>W-hx(i),visS=home?1:0,locS=1-visS;
+ const ca=Math.min(1,p/.08)*(1-c01((p-.84)/.12));if(ca>0&&ids){bigCrest(ids[0],W*.2,H/2,170,.28*ca);bigCrest(ids[1],W*.8,H/2,170,.28*ca)}
+ const rowX=(s,i)=>s==0?hx(i):awx(i),photo=(s,i)=>{const back=i<5,off=back?(i-2)*46:(i-7.5)*46,px=s==0?W*.27+off:W-(W*.27+off);return[px,back?H/2-12:H/2+30]};
+ SIM.P.forEach(q=>{const s=q.s,i=q.k,T=s==0?mine:opp,d=(i%4)*.012,sx=W/2+(s==0?-60:60)+(i%3-1)*14,sy=H+18+(i%2)*10,rx=rowX(s,i);
+  // 1) entran por el lateral y se forman en la fila · 2) el visitante da un paso al frente y camina por delante de los locales · 3) saludo · 4) vuelve a su lugar · 5) foto del XI · 6) cada uno trota a su posición
+  const k=[[d,sx,sy],[.13+d,rx,rowY],[.18+d,rx,rowY]];
+  if(s==visS){k.push([.22+d,rx,rowY+15],[.40+d,rx-330,rowY+15],[.44+d,rx-330,rowY+15],[.62+d,rx,rowY+15],[.66+d,rx,rowY])}else k.push([.66+d,rx,rowY]);
+  const[px,py]=photo(s,i);k.push([.72+d,px,py],[.8,px,py],[1,q.x,q.y]);
+  const[x,y0]=walkAt(k,p),bob=(p>.13&&p<.99)?Math.abs(Math.sin(p*60*Math.PI+i))*1.2:0,gk=q.k==0;disc(x,y0-bob,gk?'#39424b':T.k[0],gk?T.k[0]:T.k[1],3)});
+ (SIM.refs||[]).forEach(r=>{const k=r.role=='ref'?[[.02,W/2,H+24],[.2,W/2,H/2+46]]:r.role=='l1'?[[.02,W/2-40,H+24],[.2,W/2-60,12]]:[[.02,W/2+40,H+24],[.2,W/2+60,H-12]],[x,y]=walkAt(k,p);disc(x,y,'#2fbf5f','#145a2a',2,r.role=='ref'?11:9)});
+ if(p>.36&&p<.84){const a=Math.min(1,(p-.36)/.05,(.84-p)/.05);cx.font='700 24px "Barlow Condensed",sans-serif';cx.textAlign='center';cx.fillStyle=`rgba(0,0,0,${a*.6})`;cx.fillText(names[0],W*.27+2,H/2-62);cx.fillText(names[1],W*.73+2,H/2-62);cx.fillStyle=`rgba(255,255,255,${a})`;cx.fillText(names[0],W*.27,H/2-64);cx.fillText(names[1],W*.73,H/2-64)}
+ if(p>.6&&p<.8){const f=Math.floor(p*420);if(f%9<2){cx.fillStyle='rgba(255,255,255,.85)';for(let k=0;k<4;k++){cx.beginPath();cx.arc(40+((k*173+f*53)%640),H-10-((k*37)%12),2.6,0,7);cx.fill()}}}}
 function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=='pick')return;
  const m=ownM(),t=performance.now(),own=S.me.team,ph=S.phase,home=!m||m.a==own,
   mine={f:m?(home?m.fa:m.fb):S.me.tac.f,k:m?(home?m.ka:m.kb):[S.me.tac.k1,S.me.tac.k2]},opp=m?{f:home?m.fb:m.fa,k:home?m.kb:m.ka}:null,oppId=m?(home?m.b:m.a):null;
  const re=SIM.setup(mine.f,opp?opp.f:null,m?m.a+m.b+S.round:'x'+S.round),flip=ph=='m2'||ph=='fin'||ph=='awd',fX=x=>flip?W-x:x;
+ const mk=m?(m.a+'|'+m.b+'|'+S.round):'';if(mk!==lastMK){lastMK=mk;SH=m?[home?m.ga:m.gb,home?m.gb:m.ga]:[0,0];SG={};SA={};PG=[];GT=null}
  if(ph!==lastPh){lastPh=ph;if(ph=='m1'||ph=='m2'){SIM.frozen=false;SIM.kickoff(ph=='m2'?1:0)}else if(ph=='fin'||ph=='awd'){SIM.frozen=true;SIM.q=[];flushGoals(t);if(m)SH=[home?m.ga:m.gb,home?m.gb:m.ga]}else{SIM.frozen=true;SIM.hardRest();if(ph=='cer'){cerT0=t;SH=[0,0];SG={};SA={};PG=[]}else flushGoals(t)}}
  else if(re&&!SIM.frozen)SIM.kickoff(0);
  if(m){SIM.setTac(0,home?m.ta:m.tb);SIM.setTac(1,home?m.tb:m.ta);SIM.setOff(0,home?m.oa:m.ob);SIM.setOff(1,home?m.ob:m.oa)}else SIM.setTac(0,[S.me.tac.st,S.me.tac.pr,S.me.tac.wing,S.me.tac.sal,S.me.tac.mk]);
  if(m){SIM.setYel(0,(home?m.pa:m.pb).y);SIM.setYel(1,(home?m.pb:m.pa).y)}SIM.setCtx(S.min||0,[SH[0],SH[1]]);
- if(m&&m.fl&&flId!==m.fl.id){flId=m.fl.id;if(m.fl.x!='f'){flAt=t;const f=m.fl;flMsg=(FLT[f.x]||'')+(f.x=='sub'?f.n:(f.n.split('. ')[1]||f.n))}}
+ if(m&&m.fl&&flId!==m.fl.id){flId=m.fl.id;if(true){flAt=t;const f=m.fl;flMsg=(FLT[f.x]||'')+(f.x=='sub'?f.n:(f.n.split('. ')[1]||f.n))}}
  if(!S.paused)for(let i=0,n=Math.min(5,Math.max(1,Math.round(SPD)));i<n;i++)SIM.step();
  if(m){const so=home?m.ga:m.gb,sr=home?m.gb:m.ga;if(!SIM.sc&&!SIM.q.length){idleF++;if(idleF>40&&PG.length)flushGoals(t);if(idleF>140&&!PG.length&&(SH[0]!==so||SH[1]!==sr))SH=[so,sr]}else idleF=0}
  cx.fillStyle='#2d7a46';cx.fillRect(0,0,W,H);for(let i=0;i<10;i++){if(i%2){cx.fillStyle='#ffffff10';cx.fillRect(20+i*(W-40)/10,20,(W-40)/10,H-40)}}
  cx.strokeStyle='#ffffffaa';cx.lineWidth=2;cx.strokeRect(20,20,W-40,H-40);cx.beginPath();cx.moveTo(W/2,20);cx.lineTo(W/2,H-20);cx.stroke();cx.beginPath();cx.arc(W/2,H/2,50,0,7);cx.stroke();cx.strokeRect(20,H/2-70,80,140);cx.strokeRect(W-100,H/2-70,80,140);
  cx.fillStyle='#ffffff30';cx.fillRect(Q.X0-16,Q.GY0,16,Q.GY1-Q.GY0);cx.fillRect(Q.X0+Q.FW,Q.GY0,16,Q.GY1-Q.GY0);
  const B=SIM.B,sc=SIM.sc;
- if(ph=='cer'&&m)ceremony(t,mine,opp,[TM[own].name,TM[oppId].name],home);
+ if(ph=='cer'&&m)ceremony(t,mine,opp,[TM[own].name,TM[oppId].name],home,[own,oppId]);
  else{
   const bs=Math.hypot(B.vx,B.vy),L=SIM.link,SH0=SIM.shot;
   // estela de la pelota: puntos que se desvanecen siguiendo su recorrido real (curvo)
@@ -164,8 +163,8 @@ function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=
   SIM.P.forEach(p=>{if(p.off)return;const px=fX(p.x),T=p.s?opp:mine,gk=p.k==0,inf=m?(p.s==0?(home?m.pa:m.pb):(home?m.pb:m.pa)):null,yel=!!(inf&&inf.y.includes(p.k)),gl=inf?(SG[p.s+':'+inf.x[p.k]]||0):0,as=inf?(SA[p.s+':'+inf.x[p.k]]||0):0,fill=gk?'#39424b':T.k[0],
     num=inf?inf.n[p.k]:(p.s==0&&S.me.tac?DOR[S.me.tac.xi[p.k]]:''),capk=inf?inf.c:(p.s==0&&S.me.tac?S.me.tac.xi.indexOf(S.me.tac.cap):-9);
    if(yel){cx.shadowColor='#ffd400';cx.shadowBlur=18}
-   disc(px,p.y,fill,yel?'#ffd400':(gk?T.k[0]:T.k[1]),3);cx.shadowBlur=0;
-   cx.fillStyle=lum(fill)>.55?'#111':'#fff';cx.font='700 13px Barlow,sans-serif';cx.textAlign='center';cx.fillText(num,px,p.y+4.5);
+   const fl2=p.fell&&SIM.n-p.fell<50;if(fl2)cx.globalAlpha=.55;disc(px,p.y,fill,yel?'#ffd400':(gk?T.k[0]:T.k[1]),3);cx.shadowBlur=0;
+   cx.fillStyle=lum(fill)>.55?'#111':'#fff';cx.font='700 13px Barlow,sans-serif';cx.textAlign='center';cx.fillText(num,px,p.y+4.5);cx.globalAlpha=1;if(fl2){cx.font='15px sans-serif';cx.fillText('💥',px,p.y-Q.R-5)}
    if(p.k===capk){disc(px-Q.R+2,p.y-Q.R+2,'#f2b705','#111',1.5,6);cx.fillStyle='#111';cx.font='700 9px Barlow,sans-serif';cx.fillText('C',px-Q.R+2,p.y-Q.R+5)}
    let by=p.y+Q.R+12;
    if(p.s==0&&S.me.sq){cx.fillStyle=yel?'#ffd400':'#fff';cx.font=(yel?'700 ':'')+'12px Barlow,sans-serif';cx.textAlign='center';cx.fillText(sur(S.me.sq[S.me.tac.xi[p.k]].n),px,p.y+Q.R+14);by+=14}
@@ -178,13 +177,14 @@ function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=
   const bx=fX(B.x);cx.fillStyle='#0007';cx.beginPath();cx.ellipse(bx,B.y+5,Q.BR+1,3,0,0,7);cx.fill();
   if(bs>4.5){cx.shadowColor='#fff';cx.shadowBlur=14}
   ballIcon(bx,B.y-(B.own&&!SIM.lift?0:Math.min(1,bs/6)*3)-(SIM.lift||0)-SIM.air(),Q.BR+2,(flip?-1:1)*(B.rot||0));cx.shadowBlur=0;
-  if(sc&&sc.label&&['f','set','wait','run'].includes(sc.ph)){cx.font='700 30px "Barlow Condensed",sans-serif';cx.textAlign='center';cx.fillStyle='#000a';cx.fillText(sc.label,W/2+2,H-14);cx.fillStyle='#f2b705';cx.fillText(sc.label,W/2,H-16)}}
+  const lab=sc?(sc.k=='inc'?((sc.ph=='fall'||sc.ph=='hit')&&sc.e.fn?'FALTA de '+sur(sc.e.fn):''):sc.label?sc.label+(sc.e&&sc.e.fn&&['fk','pen','foul'].includes(sc.k)?' · falta de '+sur(sc.e.fn):''):''):'';
+  if(sc&&lab&&(sc.k=='inc'||['f','set','wait','run'].includes(sc.ph))){cx.font='700 30px "Barlow Condensed",sans-serif';cx.textAlign='center';cx.fillStyle='#000a';cx.fillText(lab,W/2+2,H-14);cx.fillStyle='#f2b705';cx.fillText(lab,W/2,H-16)}}
  if(m&&flMsg&&t<flAt+2400){cx.font='600 15px Barlow,sans-serif';cx.textAlign='center';const w=cx.measureText(flMsg).width+24;cx.fillStyle='#000b';cx.fillRect(W/2-w/2,8,w,26);cx.fillStyle='#fff';cx.fillText(flMsg,W/2,26)}
  
  // marcador: barra paralela al campo, mitad para tu club y mitad para el rival, con los colores de cada uno
  if(m){const k1=mine.k,k2=opp.k,gl=m.gl||[],ow=s=>gl.filter(g=>(g.t==0)==((s==0)==home)).slice(0,SH[s]).map(g=>sur(g.n)+' '+g.m+"'"+(g.k=='pen'?' (p)':'')).join(', '),
    tm=ph=='cer'?'Presentación':ph=='fin'?'Final':ph=='ht'?'ET':(ph=='m1'||ph=='m2')?S.min+"'":'';
-  set('#sb',`<div class=sbar><div class=sbt style="background:${k1[0]};color:${ink(k1[0],k1[1])}"><b>${esc(TM[own].name)}</b><em>${esc(S.own[own]||'')}</em><small>${esc(ow(0))}</small></div><div class=sbs><span>${SH[0]} - ${SH[1]}</span><small>${tm}</small></div><div class=sbt style="background:${k2[0]};color:${ink(k2[0],k2[1])}"><b>${esc(TM[oppId].name)}</b><em>${esc(S.own[oppId]||'')}</em><small>${esc(ow(1))}</small></div></div>`)}else set('#sb','');
+  set('#sb',`<div class=sbar><div class=sbt style="background:${k1[0]};color:${ink(k1[0],k1[1])}"><span class=sbn>${cr(own,24)}<b>${esc(TM[own].name)}</b></span><em>${esc(S.own[own]||'')}</em><small>${esc(ow(0))}</small></div><div class=sbs><span>${SH[0]} - ${SH[1]}</span><small>${tm}</small></div><div class=sbt style="background:${k2[0]};color:${ink(k2[0],k2[1])}"><span class=sbn style="justify-content:flex-end"><b>${esc(TM[oppId].name)}</b>${cr(oppId,24)}</span><em>${esc(S.own[oppId]||'')}</em><small>${esc(ow(1))}</small></div></div>`)}else set('#sb','');
  // carteles: ¡GOOOL! (2 s por gol) y ENTRETIEMPO
  if(GT&&t-GT.t<2000/Math.max(1,SPD)){const tid=GT.side==0?own:oppId||own;ovSet(`<div class=gl><div class=gt>¡GOOOL!</div>${cr(tid,50)}<div class=gn>${esc(TM[tid].name)}</div><div class=gs>(${esc(sur(GT.name||''))})</div></div>`)}
  else if(ph=='end'&&S.champ){const ch=S.champ,q=S.table.find(x=>x.id==ch);ovSet(`<div class=gl><div class=gt>🏆 ¡CAMPEÓN! 🏆</div>${cr(ch,56)}<div class=gn style="font-size:17px">${esc(TM[ch].name)}</div><div class=gs>${esc(S.own[ch]||'')}${q&&S.cfg.fmt!='copa'?' · '+q.pts+' pts · '+q.g+'G '+q.e+'E '+q.p+'P':''}</div></div>`)}
@@ -192,5 +192,5 @@ function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=
  else if(ph=='fin'&&m){const so=home?m.ga:m.gb,sr=home?m.gb:m.ga,rs=so>sr?['¡VICTORIA!','#3ddc84']:so<sr?['DERROTA','#ff6b61']:['EMPATE','#f2b705'];ovSet(`<div class=gl><div class=gt style="font-size:20px">FINAL DEL PARTIDO</div><div class=gn style="display:flex;align-items:center;gap:8px">${cr(own,22)}<span>${esc(TM[own].name)}</span><b style="font:700 22px 'Barlow Condensed',sans-serif">${so} - ${sr}</b><span>${esc(TM[oppId].name)}</span>${cr(oppId,22)}</div><div class=gs style="color:${rs[1]};font-weight:700">${rs[0]}</div></div>`)}
  else if(ph=='ht'&&m)ovSet(`<div class=gl><div class=gt>ENTRETIEMPO</div><div class=gn>${esc(TM[own].name)} ${SH[0]} - ${SH[1]} ${esc(TM[oppId].name)}</div><div class=gs>Quedan ${S.t}s · cambiá tu táctica ahora</div></div>`);
  else ovSet('')}
-frame();
+frame();document.addEventListener('visibilitychange',()=>{if(document.hidden&&OFF&&S&&!S.paused&&S.phase!='end')post({a:'pause',v:1})});
 </script></body></html>

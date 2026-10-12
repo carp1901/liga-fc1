@@ -128,7 +128,11 @@ const hs=x=>{let h=2166136261;for(const c of x)h=Math.imul(h^c.charCodeAt(0),167
 const AP=['Acosta','Aguirre','Álvarez','Barrios','Benítez','Blanco','Bustos','Cabrera','Castro','Chávez','Correa','Cuello','Díaz','Domínguez','Escobar','Fernández','Figueroa','Flores','Giménez','Godoy','Gómez','González','Herrera','Ibarra','Juárez','Ledesma','López','Luna','Maldonado','Martínez','Medina','Molina','Montenegro','Moreno','Navarro','Núñez','Ojeda','Ortiz','Páez','Peralta','Pereyra','Pérez','Quiroga','Ramírez','Rey','Ríos','Rivero','Rodríguez','Rojas','Romero','Ruiz','Salas','Sánchez','Silva','Sosa','Suárez','Torres','Vega','Villalba','Vera'];
 const POS=['POR','POR','DEF','DEF','DEF','DEF','DEF','DEF','MED','MED','MED','MED','MED','MED','DEL','DEL','DEL','DEL'];
 const SQ={};let REAL={};try{REAL=require('./squads.json')}catch(e){REAL=(typeof window!=='undefined'&&window.SQUADS)||{}}
-const squad=id=>SQ[id]||(SQ[id]=REAL[id]||(()=>{const t=TM[id],r=rng(hs('sq'+id));return POS.map(p=>({p,n:String.fromCharCode(65+Math.floor(r()*26))+'. '+AP[Math.floor(r()*AP.length)],r:Math.round(t.r-10+r()*16)}))})());
-const API={DIVS,TM,FM,FN,slots,autoXI,squad};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
+const rawSquad=id=>SQ[id]||(SQ[id]=REAL[id]||(()=>{const t=TM[id],r=rng(hs('sq'+id));return POS.map(p=>({p,n:String.fromCharCode(65+Math.floor(r()*26))+'. '+AP[Math.floor(r()*AP.length)],r:Math.round(t.r-10+r()*16)}))})());
+let MIX=false;const setMix=b=>{MIX=!!b};
+// modo "Todas las divisiones": cada plantel se lleva a una media común, así la diferencia la hace la táctica
+const SN={};const squadN=id=>SN[id]||(SN[id]=(()=>{const s=rawSquad(id),avg=s.reduce((a,x)=>a+x.r,0)/s.length;return s.map(x=>({...x,r:Math.max(40,Math.min(85,Math.round(x.r-avg+64)))}))})());
+const squad=id=>MIX?squadN(id):rawSquad(id);
+const API={DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
 
 })();
