@@ -53,13 +53,22 @@ const cr = (id, s = 30) => {
   const t = TM[id];
   const name = t ? t.name : id;
   
-  // Limpiamos el nombre para que la URL de la API pública lo encuentre sin errores de tildes o paréntesis
-  const cleanName = name.replace(/\s*\([^)]*\)/g, '').trim();
-  const url = `https://api.sofascore.app/api/v1/team/${encodeURIComponent(cleanName)}/image`;
+  // Limpiamos el nombre para que coincida exactamente con las páginas y escudos de Wikimedia
+  const cleanName = name
+    .replace(/\s*\([^)]*\)/g, '') // Borra paréntesis como (LP), (BA), (SdE), etc.
+    .replace(' y ', ' y ')
+    .trim();
 
-  return `<span class="cw" style="width:${s}px;height:${Math.round(s*1.1)}px"><span class="cr" style="background:linear-gradient(135deg,${t ? t.c1 : '#111'} 50%,${t ? t.c2 : '#333'} 50%)">${esc(name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span><img src="${url}" alt="" onload="this.previousSibling.remove()" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/AR%20-%20Argentina/${encodeURIComponent(name)}.png'"></span>`;
+  // URL directa al repositorio masivo de escudos vectoriales en PNG transparente para Argentina
+  const url = `https://raw.githubusercontent.com/luukhopman/football-logos/master/logos/AR%20-%20Argentina/${encodeURIComponent(cleanName)}.png`;
+
+  return `<span class="cw" style="width:${s}px;height:${Math.round(s*1.1)}px">
+    <span class="cr" style="background:linear-gradient(135deg,${t ? t.c1 : '#111'} 50%,${t ? t.c2 : '#333'} 50%)">
+      ${esc(name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}
+    </span>
+    <img src="${url}" alt="" onload="this.previousSibling.style.display='none'" onerror="this.style.display='none'">
+  </span>`;
 };
-
 
 const rc=q=>{if(!q.s)return'';const m=q.s.match(/^(\d+)-(\d+)/);if(!m)return'';const a=+m[1],b=+m[2];if(a!=b)return a>b?'rw':'rl';return/ganó/.test(q.s)?'rw':/perdió/.test(q.s)?'rl':'rd'};
 const DOR=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
