@@ -76,9 +76,6 @@ gimnasiajujuy:'gimnasia-de-jujuy',union:'union',
 sanmartinburzaco:'san-martin-de-burzaco'
 };
 const cr=(id,s=30)=>{
-const t=TM[id];
-const slug=FL[id]||t.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-return `<span class=cw style="width:${s}px;height:${Math.round(s*1.1)}px"><span class=cr style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span><img src="https://www.footylogos.com/dls/logo/${slug}.png" alt="" onload="this.previousSibling.remove()" onerror="this.remove()"></span>`;
 
 Object.assign(FL,{
   gimnasia:'gimnasia-y-esgrima-lp',
@@ -114,6 +111,17 @@ Object.assign(FL,{
   leones:'leones-de-rosario',
   sportivobarracas:'sportivo-barracas'
 });
+
+const cr=(id,s=30)=>{
+  const t=TM[id];
+  const slug=FL[id]||(t.name.normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase()
+    .replace(/\([^)]*\)/g,'')
+    .replace(/[^a-z0-9]+/g,'-')
+    .replace(/^-|-$/g,''));
+
+  return `<span class=cw style="width:${s}px;height:${Math.round(s*1.1)}px"><span class=cr style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span><img src="https://www.footylogos.com/dls/logo/${slug}.png" alt="" onload="this.previousSibling.remove()" onerror="this.remove()"></span>`;
 };
 
 const rc=q=>{if(!q.s)return'';const m=q.s.match(/^(\d+)-(\d+)/);if(!m)return'';const a=+m[1],b=+m[2];if(a!=b)return a>b?'rw':'rl';return/ganó/.test(q.s)?'rw':/perdió/.test(q.s)?'rl':'rd'};
