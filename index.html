@@ -112,11 +112,23 @@ Object.assign(FL,{
 });
 
 const cr=(id,s=30)=>{
-const t=TM[id];
-const slug=FL[id]||t.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-return `<span class=cw style="width:${s}px;height:${Math.round(s*1.1)}px"><span class=cr style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span><img src="https://www.footylogos.com/dls/logo/${slug}.png" alt="" onload="this.previousSibling.remove()" onerror="this.remove()"></span>`;
-};
+  const t=TM[id];
+  if(!t)return '';
+  const slug=FL[id]||t.name.normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase()
+    .replace(/\([^)]*\)/g,'')
+    .replace(/[^a-z0-9]+/g,'-')
+    .replace(/^-|-$/g,'');
 
+  return `<span class="cw" style="width:${s}px;height:${Math.round(s*1.1)}px">
+    <span class="cr" style="background:linear-gradient(135deg,${t.c1} 50%,${t.c2} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(w=>w[0]).join('').slice(0,3))}</span>
+    <img src="https://www.footylogos.com/dls/logo/${slug}.png"
+      alt="${esc(t.name)}"
+      onload="this.previousElementSibling.style.display='none'"
+      onerror="this.style.display='none'">
+  </span>`;
+};
 const rc=q=>{if(!q.s)return'';const m=q.s.match(/^(\d+)-(\d+)/);if(!m)return'';const a=+m[1],b=+m[2];if(a!=b)return a>b?'rw':'rl';return/ganó/.test(q.s)?'rw':/perdió/.test(q.s)?'rl':'rd'};
 const LB={POR:'ARQ',DEF:'DEF',MED:'MED',DEL:'DEL'};
 const mmss=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0'),sur=n=>n.split('. ')[1]||n;
