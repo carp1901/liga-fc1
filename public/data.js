@@ -115,14 +115,54 @@ leones|Leones|#111111|#d1001f|43
 lujan|Luján|#0b3d91|#ffffff|40
 sportivobarracas|Sp. Barracas|#0b2a5a|#ffffff|41
 yupanqui|Yupanqui|#0b3d91|#ffffff|40`;
+const R5=`nuevejulio|9 de Julio (R)|#1e4fa3|#ffffff|50
+alvarado|Alvarado|#d1001f|#ffffff|52
+atenas|Atenas (RC)|#7fb3e0|#ffffff|51
+atsanmartinmza|Atl. San Martín (M)|#0b3d91|#ffffff|50
+bmitre|Bartolomé Mitre|#f4d000|#0b2a5a|49
+bocaunidos|Boca Unidos|#0b3d91|#f4d000|52
+cipolletti|Cipolletti|#0b3d91|#ffffff|53
+defbelgranovr|Def. Belgrano (VR)|#111111|#ffffff|49
+rincon|Dep. Rincón|#d1001f|#ffffff|47
+soldeamerica|Sol de América (F)|#d1001f|#ffffff|48
+soldemayo|Sol de Mayo|#0b2a5a|#ffffff|50
+tucumancentral|Tucumán Central|#0a7d3b|#ffffff|48
+costabrava|Costa Brava|#d1001f|#111111|47
+circulo|Círculo Deportivo|#d1001f|#ffffff|48
+fadep|FADEP|#0b3d91|#ffffff|47
+germinal|Germinal|#0b2a5a|#ffffff|49
+gbrown|Guillermo Brown|#0b3d91|#ffffff|53
+juventudsl|Juventud Unida (SL)|#d1001f|#ffffff|50
+santamarina|Santamarina|#0b2a5a|#ffffff|53
+douglashaig|Douglas Haig|#d1001f|#111111|52
+gimchivilcoy|Gimnasia (Chiv.)|#0b3d91|#ffffff|49
+sanmartinformosa|San Martín (F)|#d1001f|#ffffff|48
+sarmientolb|Sarmiento (LB)|#0a7d3b|#ffffff|52
+sportivobelgrano|Sp. Belgrano|#0a7d3b|#ffffff|50
+huracanlh|Huracán (LH)|#ffffff|#d1001f|48
+olimpo|Olimpo|#f4d000|#111111|53
+antoniana|Juv. Antoniana|#d1001f|#ffffff|48
+linqueno|El Linqueño|#0b3d91|#ffffff|47
+indchivilcoy|Independiente (Ch.)|#d1001f|#ffffff|48
+escobar|Escobar FC|#0b2a5a|#ffffff|47
+gimcdu|Gimnasia (CdU)|#0b3d91|#ffffff|50
+lasparejas|Sp. Las Parejas|#d1001f|#111111|50
+vilelas|Def. P. Vilelas|#0a7d3b|#ffffff|47
+argmontemaiz|Argentino (MM)|#0b3d91|#ffffff|48
+sarmientores|Sarmiento (R)|#0a7d3b|#ffffff|49
+estudiantessl|Estudiantes (SL)|#d1001f|#ffffff|50`;
 const DIVS=[{id:'ar1',country:'Argentina',name:'Primera División',ok:true,teams:mk(R1)},{id:'ar2',country:'Argentina',name:'Primera Nacional',ok:true,teams:mk(R2)},
+{id:'ar5',country:'Argentina',name:'Federal A',ok:true,teams:mk(R5)},
 {id:'ar3',country:'Argentina',name:'Primera B Metropolitana',ok:true,teams:mk(R3)},{id:'ar4',country:'Argentina',name:'Primera C',ok:true,teams:mk(R4)}];
 const teams=DIVS.flatMap(x=>x.teams);
 const TM={};teams.forEach(t=>TM[t.id]=t);
 const FM=[[4,4,2],[4,3,3],[3,5,2],[4,5,1],[5,3,2],[4,5,1],[4,4,2],[3,4,3],[5,4,1],[4,4,2],[4,5,1],[4,5,1],[3,6,1],[5,2,3]];
 const FN=['4-4-2','4-3-3','3-5-2','4-5-1','5-3-2','4-2-3-1','4-2-2-2','3-4-3','5-4-1','4-3-1-2','4-1-4-1','4-4-1-1','3-4-2-1','5-2-3'];
 const slots=f=>{const[d,m,a]=FM[f];return['POR',...Array(d).fill('DEF'),...Array(m).fill('MED'),...Array(a).fill('DEL')]};
-function autoXI(sq,f,ban){const u=new Set(),ok=i=>!u.has(i)&&!(ban&&ban.has(i));return slots(f).map(p=>{let b=-1;sq.forEach((x,i)=>{if(ok(i)&&x.p==p&&(b<0||x.r>sq[b].r))b=i});if(b<0)sq.forEach((x,i)=>{if(ok(i)&&(b<0||x.r>sq[b].r))b=i});u.add(b);return b})}
+function autoXI(sq,f,ban){const sl=slots(f),pool=sq.map((_,i)=>i).filter(i=>!(ban&&ban.has(i))),eff=(i,p)=>sq[i].r*(sq[i].p==p?1:(p=='POR'||sq[i].p=='POR')?.25:.7),xi=[],u=new Set();   // eficacia = media (menos si juega fuera de puesto)
+ sl.forEach(p=>{let b=-1,bv=-1;pool.forEach(i=>{if(u.has(i))return;const v=eff(i,p);if(v>bv){bv=v;b=i}});u.add(b);xi.push(b)});
+ let imp=true,g=0;while(imp&&g++<60){imp=false;for(let a=0;a<sl.length;a++)for(const i of pool){const b=xi.indexOf(i);if(b<0){if(eff(i,sl[a])>eff(xi[a],sl[a])+1e-9){xi[a]=i;imp=true}}else if(b>a&&eff(xi[a],sl[a])+eff(xi[b],sl[b])<eff(xi[b],sl[a])+eff(xi[a],sl[b])-1e-9){[xi[a],xi[b]]=[xi[b],xi[a]];imp=true}}}   // mejora hasta que no se pueda sumar más
+ return xi}
 const rng=s=>{s>>>=0;return()=>{s=s+0x6D2B79F5>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}};
 const hs=x=>{let h=2166136261;for(const c of x)h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0};
 const AP=['Acosta','Aguirre','Álvarez','Barrios','Benítez','Blanco','Bustos','Cabrera','Castro','Chávez','Correa','Cuello','Díaz','Domínguez','Escobar','Fernández','Figueroa','Flores','Giménez','Godoy','Gómez','González','Herrera','Ibarra','Juárez','Ledesma','López','Luna','Maldonado','Martínez','Medina','Molina','Montenegro','Moreno','Navarro','Núñez','Ojeda','Ortiz','Páez','Peralta','Pereyra','Pérez','Quiroga','Ramírez','Rey','Ríos','Rivero','Rodríguez','Rojas','Romero','Ruiz','Salas','Sánchez','Silva','Sosa','Suárez','Torres','Vega','Villalba','Vera'];
