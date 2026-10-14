@@ -30,7 +30,6 @@ jobs:
           const base =
             'https://paladarnegro.net/escudoteca/argentina/federala/png/';
 
-          // ID del juego: posibles nombres de archivo de Paladar Negro.
           const equipos = {
             nuevejulio: ['9_de_julio'],
             alvarado: ['alvarado'],
@@ -39,32 +38,89 @@ jobs:
             bmitre: ['bartolome_mitre'],
             bocaunidos: ['boca_unidos'],
             cipolletti: ['cipolletti'],
-            defbelgranovr: ['defensores_de_belgrano', 'defensores_de_belgrano_villa_ramallo'],
-            rincon: ['deportivo_rincon'],
+
+            defbelgranovr: [
+              'defensores_de_belgrano_villa_ramallo',
+              'defensores_belgrano_villa_ramallo',
+              'defensores_de_belgrano_vr',
+              'defensores_de_belgrano'
+            ],
+
+            rincon: [
+              'deportivo_rincon',
+              'deportivo_rincon_de_los_sauces',
+              'rincon_de_los_sauces'
+            ],
+
             soldeamerica: ['sol_de_america'],
             soldemayo: ['sol_de_mayo'],
             tucumancentral: ['tucuman_central'],
             costabrava: ['costa_brava'],
             circulo: ['circulo_deportivo'],
-            fadep: ['fadep'],
+
+            fadep: [
+              'fadep',
+              'fundacion_amigos_por_el_deporte',
+              'fundacion_amigos_del_deporte'
+            ],
+
             germinal: ['germinal'],
-            gbrown: ['guillermo_brown'],
-            juventudsl: ['juventud_unida_universitario', 'juventud_unida_san_luis'],
+
+            gbrown: [
+              'guillermo_brown',
+              'brown_de_puerto_madryn',
+              'guillermo_brown_de_puerto_madryn'
+            ],
+
+            juventudsl: [
+              'juventud_unida_universitario',
+              'juventud_unida_de_san_luis',
+              'juventud_unida_san_luis',
+              'juventud_unida_sl'
+            ],
+
             santamarina: ['santamarina', 'santamarina_tandil'],
             douglashaig: ['douglas_haig'],
             gimchivilcoy: ['gimnasia_de_chivilcoy', 'gimnasia_chivilcoy'],
             sanmartinformosa: ['san_martin_formosa'],
-            sarmientolb: ['sarmiento_la_banda'],
+
+            sarmientolb: [
+              'sarmiento_la_banda',
+              'sarmiento_de_la_banda',
+              'club_sarmiento'
+            ],
+
             sportivobelgrano: ['sportivo_belgrano'],
             huracanlh: ['huracan_las_heras'],
             olimpo: ['olimpo'],
             antoniana: ['juventud_antoniana'],
             linqueno: ['el_linqueno', 'linqueno'],
             indchivilcoy: ['independiente_chivilcoy'],
-            escobar: ['atletico_escobar', 'escobar_fc'],
-            gimcdu: ['gimnasia_concepcion_del_uruguay'],
-            lasparejas: ['sportivo_las_parejas'],
-            vilelas: ['defensores_de_vilelas'],
+
+            escobar: [
+              'escobar_fc',
+              'atletico_escobar',
+              'deportivo_escobar'
+            ],
+
+            gimcdu: [
+              'gimnasia_concepcion_del_uruguay',
+              'gimnasia_de_concepcion_del_uruguay',
+              'gimnasia_cdu'
+            ],
+
+            lasparejas: [
+              'sportivo_las_parejas',
+              'sportivo_de_las_parejas',
+              'las_parejas'
+            ],
+
+            vilelas: [
+              'defensores_de_vilelas',
+              'defensores_de_puerto_vilelas',
+              'defensores_vilelas'
+            ],
+
             argmontemaiz: ['argentino_mm', 'argentino_monte_maiz'],
             sarmientores: ['sarmiento_resistencia'],
             estudiantessl: ['sportivo_estudiantes', 'estudiantes_san_luis']
@@ -93,20 +149,25 @@ jobs:
               throw new Error('Archivo demasiado pequeño');
             }
 
-            // sharp valida que el contenido sea una imagen real.
             const metadata = await sharp(buffer).metadata();
 
             if (!metadata.width || !metadata.height) {
               throw new Error('Imagen inválida');
             }
 
-            return sharp(buffer)
+            const png = await sharp(buffer)
               .resize(500, 500, {
                 fit: 'inside',
                 withoutEnlargement: true
               })
               .png()
               .toBuffer();
+
+            if (!png.subarray(0, 8).equals(pngMagic)) {
+              throw new Error('La conversión a PNG falló');
+            }
+
+            return png;
           }
 
           async function main() {
@@ -134,10 +195,10 @@ jobs:
 
                 try {
                   imagen = await descargar(url);
-                  console.log('ENCONTRADO:', nombre + '.png', '->', id);
+                  console.log('ENCONTRADO:', url, '->', id + '.png');
                   break;
                 } catch (e) {
-                  console.log('No disponible:', nombre + '.png');
+                  console.log('NO DISPONIBLE:', nombre + '.png', e.message);
                 }
               }
 
@@ -150,7 +211,6 @@ jobs:
                 faltantes.push(id);
               }
 
-              // Evitar enviar solicitudes demasiado rápido.
               await new Promise(resolve => setTimeout(resolve, 400));
             }
 
@@ -178,7 +238,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Descargar escudos Federal A desde Paladar Negro"
+            git commit -m "Actualizar escudos Federal A desde Paladar Negro"
             git push
           else
             echo "No hubo cambios para guardar"
