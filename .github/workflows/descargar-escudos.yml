@@ -14,41 +14,96 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Buscar escudos
+      - name: Instalar Sharp
+        run: npm install --no-save sharp
+
+      - name: Buscar y descargar escudos
         run: |
           node <<'NODE'
           const fs = require('fs');
           const path = require('path');
+          const sharp = require('sharp');
 
           const equipos = [
-            ['alumni', 'Alumni Los Hornos'],
-            ['atleticopilar', 'Atletico Pilar'],
-            ['barrancas', 'Barrancas FC'],
-            ['belgranoz', 'Belgrano Zarate'],
-            ['buenosairescity', 'Buenos Aires City FC'],
-            ['controlorientado', 'Academia Control Orientado'],
-            ['defensoresglew', 'Defensores de Glew'],
-            ['metalurgico', 'Deportivo Metalurgico'],
+            ['alumni', 'Alumni'],
+            ['atpilar', 'Atlético Pilar'],
+            ['barrancas', 'Barrancas'],
+            ['belgranozarate', 'Belgrano'],
+            ['bacity', 'Buenos Aires City'],
+            ['controlorientado', 'Control Orientado'],
+            ['defglew', 'Defensores de Glew'],
+            ['metalurgico', 'Metalúrgico'],
             ['estrellaberisso', 'Estrella de Berisso'],
-            ['everton', 'Everton La Plata'],
-            ['ezeiza', 'FC Ezeiza'],
+            ['everton', 'Everton'],
+            ['fcezeiza', 'Ezeiza'],
             ['juventudbernal', 'Juventud de Bernal'],
-            ['lasmandarinas', 'Las Mandarinas'],
-            ['nauticohacoaj', 'Nautico Hacoaj'],
-            ['provincial', 'Provincial Empalme Lobos'],
-            ['sat', 'SAT Moreno'],
-            ['uribelarrea', 'Uribelarrea FC']
+            ['mandarinas', 'Mandarinas'],
+            ['hacoaj', 'Hacoaj'],
+            ['sat', 'SAT'],
+            ['udprovincial', 'Provincial'],
+            ['uribelarrea', 'Uribelarrea']
           ];
 
           const dir = 'public/crests';
           fs.mkdirSync(dir, { recursive: true });
 
           const headers = {
-            'User-Agent': 'Mozilla/5.0 Chrome/125 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125 Safari/537.36',
+            'Accept': 'text/html,image/avif,image/webp,image/png,image/*,*/*'
           };
 
+          async function get(url) {
+            const r = await fetch(url, {
+              headers,
+              signal: AbortSignal.timeout(20000)
+            });
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return Buffer.from(await r.arrayBuffer());
+          }
+
+          function decode(s) {
+            return s.replace(/&amp;/g, '&')
+              .replace(/&#038;/g, '&')
+              .replace(/&quot;/g, '"')
+              .replace(/&#8217;|&apos;/g, "'");
+          }
+
+          function extraer(html, pagina) {
+            const urls = [];
+
+            for (const m of html.matchAll(
+              /<meta\b[^>]*(?:property|name)=["'](?:og:image|twitter:image)["'][^>]*content=["']([^"']+)["'][^>]*>/gi
+            )) {
+              urls.push(m[1]);
+            }
+
+            for (const m of html.matchAll(
+              /<meta\b[^>]*content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["'][^>]*>/gi
+            )) {
+              urls.push(m[1]);
+            }
+
+            for (const m of html.matchAll(/<img\b[^>]*>/gi)) {
+              const tag = m[0];
+              const alt = (tag.match(/\balt=["']([^"']*)["']/i) || [,''])[1];
+              const src = (tag.match(/\b(?:src|data-src|data-lazy-src)=["']([^"']+)["']/i) || [,''])[1];
+
+              if (/escudo|crest|logo/i.test(alt + ' ' + src)) {
+                if (src) urls.push(src);
+              }
+            }
+
+            return [...new Set(urls.map(s => {
+              try { return new URL(decode(s), pagina).href; }
+              catch (_) { return null; }
+            }).filter(u =>
+              u && /^https?:/i.test(u) &&
+              !/escudovacio|placeholder|avatar/i.test(u)
+            ))];
+          }
+
           async function main() {
-            const faltantes = [];
+            const pendientes = [];
 
             for (const [id, nombre] of equipos) {
               const destino = path.join(dir, id + '.png');
@@ -58,31 +113,96 @@ jobs:
                 continue;
               }
 
-              const url = 'https://www.google.com/search?tbm=isch&q=' +
-                encodeURIComponent(nombre + ' escudo club futbol');
+              console.log('\nBUSCANDO:', nombre, '->', id);
 
               try {
-                const r = await fetch(url, { headers });
-                const html = await r.text();
+                const temporada = 'https://ligasargentinas.com.ar/2026';
+                const htmlTemporada = (await get(temporada)).toString('utf8');
 
-                const urls = [...html.matchAll(
-                  /https?:\\?\/\\?\/[^"' <>]+?\.(?:png|webp|jpe?g)(?:\?[^"' <>]*)?/gi
-                )].map(m => m[0].replace(/\\/g, ''));
+                const enlaces = [];
+                for (const m of htmlTemporada.matchAll(
+                  /<a\b[^>]*href=["']([^"']*\/club\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi
+                )) {
+                  const href = decode(m[1]);
+                  const texto = m[2].replace(/<[^>]+>/g, ' ')
+                    .replace(/\s+/g, ' ').trim();
 
-                console.log(nombre, 'resultados candidatos:', urls.length);
-                faltantes.push(id);
+                  if (texto && /club\//i.test(href)) {
+                    enlaces.push({
+                      url: new URL(href, temporada).href,
+                      texto
+                    });
+                  }
+                }
+
+                const normalizar = s => s.normalize('NFD')
+                  .replace(/[\u0300-\u036f]/g, '')
+                  .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+                const clave = normalizar(nombre);
+                const candidatos = enlaces.filter(e =>
+                  normalizar(e.texto).includes(clave) ||
+                  clave.includes(normalizar(e.texto))
+                );
+
+                let guardado = false;
+
+                for (const ficha of [...new Set(candidatos.map(e => e.url))]) {
+                  try {
+                    console.log('FICHA:', ficha);
+                    const html = (await get(ficha)).toString('utf8');
+                    const urls = extraer(html, ficha);
+
+                    for (const url of urls) {
+                      try {
+                        const img = await get(url);
+                        if (img.length < 1000) continue;
+
+                        const meta = await sharp(img).metadata();
+                        if (!meta.width || !meta.height ||
+                            meta.width < 80 || meta.height < 80) continue;
+
+                        const png = await sharp(img)
+                          .resize(500, 500, {
+                            fit: 'contain',
+                            background: {
+                              r: 255, g: 255, b: 255, alpha: 0
+                            }
+                          })
+                          .png()
+                          .toBuffer();
+
+                        fs.writeFileSync(destino, png, { flag: 'wx' });
+                        console.log('GUARDADO:', destino);
+                        guardado = true;
+                        break;
+                      } catch (e) {
+                        console.log('Imagen descartada:', e.message);
+                      }
+                    }
+
+                    if (guardado) break;
+                  } catch (e) {
+                    console.log('Ficha descartada:', e.message);
+                  }
+                }
+
+                if (!guardado) {
+                  pendientes.push(id);
+                  console.log('PENDIENTE:', id);
+                }
               } catch (e) {
+                pendientes.push(id);
                 console.log('ERROR:', id, e.message);
-                faltantes.push(id);
               }
             }
 
             fs.writeFileSync(
               path.join(dir, 'promocional-pendientes.txt'),
-              [...new Set(faltantes)].join('\n') + '\n'
+              pendientes.join('\n') + (pendientes.length ? '\n' : '')
             );
 
-            console.log('Búsqueda terminada. Revisar promocional-pendientes.txt');
+            console.log('\nPENDIENTES:', pendientes.join(', ') || 'ninguno');
           }
 
           main().catch(e => {
@@ -91,12 +211,14 @@ jobs:
           });
           NODE
 
-      - name: Guardar cambios
+      - name: Guardar escudos nuevos
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/crests/promocional-pendientes.txt
+          git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Registrar escudos pendientes del Promocional Amateur"
+            git commit -m "Agregar escudos del Promocional Amateur"
             git push
+          else
+            echo "No se encontraron escudos nuevos"
           fi
