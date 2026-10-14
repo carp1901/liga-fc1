@@ -1,5 +1,5 @@
 
-name: Completar escudos faltantes
+name: Completar tres escudos
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
       - name: Instalar Sharp
         run: npm install --no-save sharp
 
-      - name: Descargar y convertir escudos
+      - name: Buscar y convertir escudos
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -33,41 +33,77 @@ jobs:
 
           const equipos = {
             defbelgranovr: [
-              'https://paladarnegro.net/escudoteca/argentina/federala/png/defensores_belgrano_vr.png',
-              'https://paladarnegro.net/escudoteca/argentina/federala/png/defensores_de_belgrano_villa_ramallo.png'
-            ],
-            tucumancentral: [
-              'https://commons.wikimedia.org/wiki/Special:FilePath/Escudo_Club_Tucum%C3%A1n_Central.svg'
-            ],
-            fadep: [
-              'https://commons.wikimedia.org/wiki/Special:FilePath/Escudo_Fundaci%C3%B3n_Amigos_por_el_Deporte.png',
-              'https://paladarnegro.net/escudoteca/argentina/federala/png/fadep.png'
+              'https://ligasargentinas.com.ar/club/defensores-belgrano-fa'
             ],
             escobar: [
-              'https://paladarnegro.net/escudoteca/argentina/federala/png/escobar_fc.png',
-              'https://paladarnegro.net/escudoteca/argentina/federala/png/atletico_escobar.png'
-            ],
-            lasparejas: [
-              'https://commons.wikimedia.org/wiki/Special:FilePath/Sportivo_lasparejas_2021.png',
-              'https://paladarnegro.net/escudoteca/argentina/federala/png/sportivo_las_parejas.png'
+              'https://ligasargentinas.com.ar/club/atletico-escobar-fc'
             ],
             vilelas: [
-              'https://paladarnegro.net/escudoteca/argentina/federala/png/defensores_de_vilelas.png',
-              'https://paladarnegro.net/escudoteca/argentina/federala/png/defensores_de_puerto_vilelas.png'
+              'https://www.futbol360.com.ar/equipos/argentina/def.-de-vilelas/'
             ]
           };
+
+          const cabeceras = {
+            'User-Agent': 'Mozilla/5.0 (compatible; LigaFC/1.0)',
+            'Accept': 'text/html,image/avif,image/webp,image/png,image/*,*/*'
+          };
+
+          async function obtener(url) {
+            const r = await fetch(url, {
+              headers: cabeceras,
+              signal: AbortSignal.timeout(20000)
+            });
+
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return Buffer.from(await r.arrayBuffer());
+          }
+
+          function extraerImagenes(html, pagina) {
+            const resultados = [];
+            const etiquetas = html.match(/<img\b[^>]*>/gi) || [];
+
+            for (const tag of etiquetas) {
+              const alt = (tag.match(/\balt=["']([^"']*)["']/i) || [,''])[1];
+              const src =
+                (tag.match(/\b(?:src|data-src|data-original)=["']([^"']+)["']/i) || [,''])[1];
+
+              if (!src || src.startsWith('data:')) continue;
+
+              const texto = (alt + ' ' + src).toLowerCase();
+
+              if (
+                /escudo|defensores|vilelas|atletico-escobar|atletico_escobar/.test(texto)
+              ) {
+                try {
+                  resultados.push(new URL(src, pagina).href);
+                } catch (_) {}
+              }
+            }
+
+            const og = html.match(
+              /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i
+            );
+
+            if (og) {
+              try {
+                resultados.push(new URL(og[1], pagina).href);
+              } catch (_) {}
+            }
+
+            return [...new Set(resultados)];
+          }
 
           async function main() {
             const faltantes = [];
 
-            for (const [id, urls] of Object.entries(equipos)) {
+            for (const [id, paginas] of Object.entries(equipos)) {
               const destino = path.join(dir, id + '.png');
 
               if (fs.existsSync(destino)) {
                 try {
-                  const meta = await sharp(destino).metadata();
-                  if (meta.width && meta.height) {
-                    console.log('YA EXISTE:', id);
+                  const m = await sharp(destino).metadata();
+                  if (m.width && m.height) {
+                    console.log('YA EXISTE, SE CONSERVA:', destino);
                     continue;
                   }
                 } catch (_) {}
@@ -75,59 +111,71 @@ jobs:
 
               let guardado = false;
 
-              for (const url of urls) {
+              for (const pagina of paginas) {
                 try {
-                  console.log('PROBANDO:', url);
+                  console.log('REVISANDO FICHA:', pagina);
+                  const html = (await obtener(pagina)).toString('utf8');
+                  const imagenes = extraerImagenes(html, pagina);
 
-                  const r = await fetch(url, {
-                    headers: {
-                      'User-Agent': 'LigaFC/1.0 crest downloader'
-                    },
-                    signal: AbortSignal.timeout(20000)
-                  });
+                  console.log('IMAGENES CANDIDATAS:', imagenes.length);
 
-                  if (!r.ok) {
-                    throw new Error('HTTP ' + r.status);
+                  for (const url of imagenes) {
+                    try {
+                      console.log('PROBANDO IMAGEN:', url);
+                      const buffer = await obtener(url);
+
+                      if (buffer.length < 300) {
+                        throw new Error('Archivo demasiado pequeño');
+                      }
+
+                      const meta = await sharp(buffer).metadata();
+
+                      if (!meta.width || !meta.height) {
+                        throw new Error('No es una imagen válida');
+                      }
+
+                      if (meta.width < 60 || meta.height < 60) {
+                        throw new Error('Imagen demasiado pequeña');
+                      }
+
+                      const png = await sharp(buffer)
+                        .resize(500, 500, {
+                          fit: 'contain',
+                          background: { r: 255, g: 255, b: 255, alpha: 0 },
+                          withoutEnlargement: true
+                        })
+                        .png()
+                        .toBuffer();
+
+                      fs.writeFileSync(destino, png);
+                      console.log('GUARDADO:', destino, 'DESDE:', url);
+                      guardado = true;
+                      break;
+                    } catch (e) {
+                      console.log('IMAGEN DESCARTADA:', e.message);
+                    }
                   }
 
-                  const buffer = Buffer.from(await r.arrayBuffer());
-
-                  if (buffer.length < 300) {
-                    throw new Error('Respuesta demasiado pequeña');
-                  }
-
-                  const png = await sharp(buffer, { failOn: 'error' })
-                    .resize(500, 500, {
-                      fit: 'inside',
-                      withoutEnlargement: true
-                    })
-                    .png()
-                    .toBuffer();
-
-                  await sharp(png).metadata();
-                  fs.writeFileSync(destino, png);
-
-                  console.log('GUARDADO:', destino);
-                  guardado = true;
-                  break;
+                  if (guardado) break;
                 } catch (e) {
-                  console.log('FALLO:', id, e.message);
+                  console.log('FALLO EN FICHA:', pagina, e.message);
                 }
               }
 
               if (!guardado) {
                 faltantes.push(id);
-                console.log('SIGUE FALTANDO:', id);
+                console.log('NO SE PUDO EXTRAER:', id);
               }
             }
 
             fs.writeFileSync(
-              path.join(dir, 'faltantes-federal-a.txt'),
+              path.join(dir, 'faltantes-tres-escudos.txt'),
               faltantes.join('\n') + (faltantes.length ? '\n' : '')
             );
 
-            console.log('RESULTADO FINAL');
-            console.log('Faltantes:', faltantes.join(', ') || 'ninguno');
+            console.log('RESULTADO:', faltantes.length
+              ? 'Siguen faltando: ' + faltantes.join(', ')
+              : 'Se procesaron los tres escudos');
           }
 
           main().catch(e => {
@@ -136,14 +184,14 @@ jobs:
           });
           NODE
 
-      - name: Guardar archivos en GitHub
+      - name: Guardar cambios
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Completar escudos faltantes Federal A"
+            git commit -m "Completar escudos de Federal A"
             git push
           else
-            echo "No hubo cambios nuevos"
+            echo "No hubo archivos nuevos"
           fi
