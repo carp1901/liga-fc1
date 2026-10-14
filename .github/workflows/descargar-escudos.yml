@@ -1,4 +1,4 @@
-name: Escudos Promocional Amateur
+name: Completar últimos 3 escudos
 
 on:
   workflow_dispatch:
@@ -17,213 +17,164 @@ jobs:
       - name: Instalar herramientas
         run: npm install --no-save sharp
 
-      - name: Buscar escudos y evitar duplicados
+      - name: Descargar los tres escudos
         run: |
           node <<'NODE'
           const fs = require('fs');
-          const path = require('path');
-          const crypto = require('crypto');
           const sharp = require('sharp');
 
-          const equipos = [
-            ['alumni', ['alumni los hornos', 'alumni lh']],
-            ['atpilar', ['atletico pilar', 'pilar']],
-            ['barrancas', ['barrancas fc', 'barrancas umet']],
-            ['belgranozarate', ['belgrano zarate', 'belgrano zárate']],
-            ['bacity', ['buenos aires city', 'buenos aires city fc']],
-            ['controlorientado', ['academia control orientado', 'control orientado']],
-            ['defglew', ['defensores de glew', 'defensores glew']],
-            ['metalurgico', ['deportivo metalurgico', 'metalurgico']],
-            ['estrellaberisso', ['estrella de berisso', 'estrella berisso']],
-            ['everton', ['everton lp', 'everton la plata']],
-            ['fcezeiza', ['futbol club ezeiza', 'fc ezeiza']],
-            ['juventudbernal', ['juventud de bernal', 'juventud bernal']],
-            ['mandarinas', ['las mandarinas', 'dep las mandarinas']],
-            ['hacoaj', ['club nautico hacoaj', 'nautico hacoaj']],
-            ['sat', ['social atletico television', 'sat']],
-            ['udprovincial', ['union deportiva provincial', 'provincial el']],
-            ['uribelarrea', ['uribelarrea fc', 'uribelarrea']]
-          ];
-
-          const dir = 'public/crests';
-          fs.mkdirSync(dir, { recursive: true });
-
           const headers = {
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (compatible; LigaFC/1.0)',
             'Accept': 'text/html,image/avif,image/webp,image/png,image/*,*/*'
           };
-
-          const normalizar = s => s.normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, ' ')
-            .trim();
 
           async function get(url) {
             const r = await fetch(url, {
               headers,
               redirect: 'follow',
-              signal: AbortSignal.timeout(20000)
+              signal: AbortSignal.timeout(30000)
             });
-            if (!r.ok) throw new Error('HTTP ' + r.status);
+            if (!r.ok) throw new Error(`HTTP ${r.status}: ${url}`);
             return Buffer.from(await r.arrayBuffer());
           }
 
-          function imagenes(html, base) {
-            const resultados = [];
+          function normalizar(s) {
+            return s.normalize('NFD')
+              .replace(/[\u0300-\u036f]/g, '')
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, ' ')
+              .trim();
+          }
+
+          async function guardar(id, bytes) {
+            const meta = await sharp(bytes).metadata();
+
+            if (!meta.width || !meta.height ||
+                meta.width < 80 || meta.height < 80) {
+              throw new Error('Imagen demasiado pequeña');
+            }
+
+            const ratio = meta.width / meta.height;
+            if (ratio < 0.55 || ratio > 1.65) {
+              throw new Error(`Proporción de imagen incorrecta: ${ratio}`);
+            }
+
+            const png = await sharp(bytes)
+              .resize(400, 400, {
+                fit: 'contain',
+                background: { r: 255, g: 255, b: 255, alpha: 0 }
+              })
+              .png()
+              .toBuffer();
+
+            fs.writeFileSync(`public/crests/${id}.png`, png);
+            console.log('GUARDADO:', id);
+          }
+
+          async function buscarEnPartido(id, nombres) {
+            const pagina =
+              'https://www.resultados-futbol.com/partido/' +
+              'provincial-empalme-lobos/barrancas-fc/2025307038';
+
+            const html = (await get(pagina)).toString('utf8');
             const tags = html.match(/<img\b[^>]*>/gi) || [];
+            const candidatos = [];
 
             for (const tag of tags) {
-              const alt = (tag.match(/\balt=["']([^"']*)["']/i) || [,''])[1];
+              const alt = (
+                tag.match(/\balt=["']([^"']*)["']/i) || [, '']
+              )[1];
+
               const src = (
-                tag.match(/\b(?:src|data-src|data-lazy-src)=["']([^"']+)["']/i)
-                || [,'']
+                tag.match(/\b(?:src|data-src|data-original)=["']([^"']+)["']/i)
+                || [, '']
               )[1];
 
               if (!src) continue;
 
-              try {
-                const url = new URL(src.replace(/&amp;/g, '&'), base).href;
-                if (!/^https?:/i.test(url)) continue;
-                if (/placeholder|avatar|banner|sponsor|advert|blank/i.test(url)) continue;
+              const texto = normalizar(alt);
+              const coincide = nombres.some(n =>
+                texto.includes(normalizar(n))
+              );
 
-                resultados.push({ url, alt });
+              if (!coincide) continue;
+
+              try {
+                candidatos.push(new URL(
+                  src.replace(/&amp;/g, '&'), pagina
+                ).href);
               } catch {}
             }
 
-            return [...new Map(resultados.map(x => [x.url, x])).values()];
+            for (const url of [...new Set(candidatos)]) {
+              try {
+                const bytes = await get(url);
+                await guardar(id, bytes);
+                return;
+              } catch (e) {
+                console.log('Imagen descartada:', url, e.message);
+              }
+            }
+
+            throw new Error(
+              `No se pudo identificar el escudo de ${id} en la fuente`
+            );
           }
 
           async function main() {
-            const pendientes = [];
-            const usados = new Map();
+            fs.mkdirSync('public/crests', { recursive: true });
+            const fallos = [];
 
-            // Hash de imágenes que ya existen, para no duplicarlas.
-            for (const archivo of fs.readdirSync(dir)) {
-              if (!/\.(png|webp|jpg|jpeg)$/i.test(archivo)) continue;
-              try {
-                const b = fs.readFileSync(path.join(dir, archivo));
-                usados.set(crypto.createHash('sha256').update(b).digest('hex'), archivo);
-              } catch {}
+            // URL original del archivo identificado en Wikimedia Commons.
+            try {
+              const url =
+                'https://upload.wikimedia.org/wikipedia/commons/' +
+                '7/7f/Club_Deportivo_y_Fomento_Las_Mandarinas.png';
+
+              const bytes = await get(url);
+              await guardar('mandarinas', bytes);
+            } catch (e) {
+              console.log('FALLO mandarinas:', e.message);
+              fallos.push('mandarinas');
             }
 
-            for (const [id, aliases] of equipos) {
-              const destino = path.join(dir, id + '.png');
-
-              // Los cinco PNG defectuosos se reemplazan.
-              const reemplazar = [
-                'alumni', 'bacity', 'barrancas',
-                'belgranozarate', 'controlorientado'
-              ].includes(id);
-
-              if (fs.existsSync(destino) && !reemplazar) {
-                console.log('YA EXISTE, NO SE TOCA:', id);
-                continue;
-              }
-
-              console.log('\nBUSCANDO ESCUDO:', id);
-
-              const consultas = aliases.map(a =>
-                'https://www.promiedos.com.ar/search?q=' +
-                encodeURIComponent(a)
-              );
-
-              // Las páginas de la categoría son fuentes complementarias.
-              consultas.push('https://www.promiedos.com.ar/league/promocional-amateur/iage/equipos');
-              consultas.push('https://ligasargentinas.com.ar/liga/torneo-promocional-amateur');
-
-              let guardado = false;
-              const candidatos = [];
-
-              for (const pagina of consultas) {
-                try {
-                  const html = (await get(pagina)).toString('utf8');
-                  candidatos.push(...imagenes(html, pagina));
-                } catch (e) {
-                  console.log('Fuente no disponible:', pagina, e.message);
-                }
-              }
-
-              // Primero se prioriza que el nombre alternativo aparezca en alt/URL.
-              candidatos.sort((a, b) => {
-                const score = x => {
-                  const t = normalizar(x.alt + ' ' + x.url);
-                  return aliases.reduce((n, alias) =>
-                    n + (t.includes(normalizar(alias)) ? 10 : 0), 0);
-                };
-                return score(b) - score(a);
-              });
-
-              for (const c of candidatos) {
-                try {
-                  const t = normalizar(c.alt + ' ' + c.url);
-
-                  // Si el archivo no menciona el club, no se acepta.
-                  if (!aliases.some(alias => t.includes(normalizar(alias)))) continue;
-
-                  const original = await get(c.url);
-                  if (original.length < 1500) continue;
-
-                  const meta = await sharp(original).metadata();
-                  if (!meta.width || !meta.height) continue;
-                  if (meta.width < 80 || meta.height < 80) continue;
-
-                  const ratio = meta.width / meta.height;
-
-                  // Rechaza banners y rectángulos muy alargados.
-                  if (ratio > 1.8 || ratio < 0.5) continue;
-
-                  const png = await sharp(original)
-                    .resize(400, 400, { fit: 'contain' })
-                    .png()
-                    .toBuffer();
-
-                  const hash = crypto.createHash('sha256')
-                    .update(png).digest('hex');
-
-                  if (usados.has(hash) && usados.get(hash) !== id + '.png') {
-                    console.log('DUPLICADO RECHAZADO:', c.url);
-                    continue;
-                  }
-
-                  fs.writeFileSync(destino, png);
-                  usados.set(hash, id + '.png');
-                  console.log('GUARDADO:', destino, 'desde', c.url);
-                  guardado = true;
-                  break;
-                } catch (e) {
-                  console.log('Imagen descartada:', e.message);
-                }
-              }
-
-              if (!guardado) {
-                pendientes.push(id);
-                console.log('SIN ESCUDO VERIFICABLE:', id);
+            // La ficha de partido identifica ambos equipos por separado.
+            for (const [id, nombres] of [
+              ['barrancas', ['Barrancas FC', 'Barrancas UMET']],
+              ['udprovincial', ['Club Provincial', 'Provincial']]
+            ]) {
+              try {
+                await buscarEnPartido(id, nombres);
+              } catch (e) {
+                console.log('FALLO', id, e.message);
+                fallos.push(id);
               }
             }
 
             fs.writeFileSync(
-              path.join(dir, 'promocional-pendientes.txt'),
-              pendientes.join('\n') + (pendientes.length ? '\n' : '')
+              'public/crests/promocional-pendientes.txt',
+              fallos.join('\n') + (fallos.length ? '\n' : '')
             );
 
-            console.log('\nPENDIENTES:', pendientes.join(', ') || 'ninguno');
+            console.log('RESULTADO FINAL. PENDIENTES:', fallos);
+            if (fallos.length) process.exitCode = 1;
           }
 
           main().catch(e => {
             console.error(e);
-            process.exit(1);
+            process.exitCode = 1;
           });
           NODE
 
       - name: Guardar cambios
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Actualizar escudos del Promocional Amateur"
+            git commit -m "Completar escudos del Promocional Amateur"
             git push
           else
-            echo "No hay cambios nuevos"
+            echo "No hay archivos nuevos para guardar"
           fi
