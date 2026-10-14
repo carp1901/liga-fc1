@@ -1,4 +1,3 @@
-
 name: Descargar escudos argentinos
 
 on:
@@ -16,356 +15,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Descargar escudos desde catálogo
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const https = require('https');
-          const path = require('path');
-
-          const equipos = {
-            mitre:'club-atletico-mitre',
-            ciudadbolivar:'ciudad-de-bolivar',
-            madryn:'deportivo-madryn',
-            sanmiguel:'san-miguel',
-            midland:'ferrocarril-midland',
-            agropecuario:'agropecuario-argentino',
-            maipu:'deportivo-maipu',
-            tristansuarez:'tristan-suarez',
-            guemes:'guemes',
-            argentinomerlo:'argentino-de-merlo',
-            brownadrogue:'brown-de-adrogue',
-            liniers:'liniers',
-            comunicaciones:'comunicaciones',
-            defensoresunidos:'defensores-unidos',
-            camioneros:'deportivo-camioneros',
-            laferrere:'deportivo-laferrere',
-            deportivomerlo:'deportivo-merlo',
-            flandria:'flandria',
-            ituzaingo:'ituzaingo',
-            realpilar:'real-pilar',
-            sanmartinburzaco:'san-martin-de-burzaco',
-            uai:'uai-urquiza',
-            villadalmine:'villa-dalmine',
-            villasancarlos:'villa-san-carlos',
-            alem:'leandro-n-alem',
-            mercedes:'club-mercedes',
-            juventudunida:'juventud-unida',
-            estrelladelsur:'estrella-del-sur',
-            argentinorosario:'argentino-de-rosario',
-            victorianoarenas:'victoriano-arenas',
-            sacachispas:'sacachispas',
-            berazategui:'berazategui',
-            paraguayo:'deportivo-paraguayo',
-            jjurquiza:'justo-jose-de-urquiza',
-            cambaceres:'defensores-de-cambaceres',
-            puertonuevo:'puerto-nuevo',
-            lugano:'lugano',
-            centroespanol:'centro-espanol',
-            atlas:'atlas',
-            canuelas:'canuelas',
-            centralballester:'central-ballester',
-            centralcordobarosario:'central-cordoba-de-rosario',
-            claypole:'claypole',
-            espanol:'deportivo-espanol',
-            muniz:'deportivo-muniz',
-            fenix:'fenix',
-            lamadrid:'general-lamadrid',
-            leones:'leones-de-rosario',
-            lujan:'lujan',
-            yupanqui:'yupanqui'
-          };
-
-          function get(url) {
-            return new Promise((resolve, reject) => {
-              https.get(url, {
-                headers: {'User-Agent':'LigaFC'}
-              }, res => {
-                if ([301,302,303,307,308].includes(res.statusCode)) {
-                  res.resume();
-                  return reject(new Error('Redirección'));
-                }
-                if (res.statusCode !== 200) {
-                  res.resume();
-                  return reject(new Error('HTTP '+res.statusCode));
-                }
-                const chunks = [];
-                res.on('data', c => chunks.push(c));
-                res.on('end', () => resolve(Buffer.concat(chunks)));
-              }).on('error', reject);
-            });
-          }
-
-          async function main() {
-            const url = 'https://gist.githubusercontent.com/BabaProMessi/5865807334d8d3e9b6b7dfe9c08e9a04/raw/gistfile1.txt';
-            const catalogo = JSON.parse((await get(url)).toString());
-            const argentinos = catalogo.filter(x => x.country === 'argentina');
-            const dir = 'public/crests';
-            fs.mkdirSync(dir, {recursive:true});
-            const faltantes = [];
-            let descargados = 0;
-            let conservados = 0;
-
-            for (const [id, slug] of Object.entries(equipos)) {
-              const destino = path.join(dir, id + '.png');
-
-              if (fs.existsSync(destino) &&
-                  fs.statSync(destino).size > 500) {
-                conservados++;
-                console.log('CONSERVADO:', id);
-                continue;
-              }
-
-              const club = argentinos.find(x => x.slug === slug);
-              if (!club || !club.logo) {
-                console.log('NO FIGURA EN CATÁLOGO:', id, slug);
-                faltantes.push(id);
-                continue;
-              }
-
-              try {
-                const imagen = await get(club.logo);
-                if (imagen.length < 500 ||
-                    imagen[0] !== 0x89 ||
-                    imagen[1] !== 0x50 ||
-                    imagen[2] !== 0x4e ||
-                    imagen[3] !== 0x47) {
-                  throw new Error('La descarga no es un PNG válido');
-                }
-                fs.writeFileSync(destino, imagen);
-                descargados++;
-                console.log('DESCARGADO:', id);
-              } catch (e) {
-                console.log('ERROR:', id, e.message);
-                faltantes.push(id);
-              }
-            }
-
-            fs.writeFileSync(
-              path.join(dir,'faltantes.txt'),
-              faltantes.join('\n')
-            );
-            console.log('Descargados:', descargados);
-            console.log('Conservados:', conservados);
-            console.log('Faltantes:', faltantes.length);
-          }
-
-          main().catch(e => {
-            console.error(e);
-            process.exit(1);
-          });
-          NODE
-
-      - name: Descargar los 9 escudos de Primera Nacional
+      - name: Descargar escudos de FootyLogos
         run: |
           node <<'NODE'
           const fs = require('fs');
           const path = require('path');
 
           const equipos = {
-            agropecuario: 'https://www.footylogos.com/downloads/logo/agropecuario-argentino-logo-footylogos.png',
-            madryn: 'https://www.footylogos.com/downloads/logo/deportivo-madryn-logo-footylogos.png',
-            maipu: 'https://www.footylogos.com/downloads/logo/deportivo-maipu-logo-footylogos.png',
-            guemes: 'https://www.footylogos.com/downloads/logo/guemes-logo-footylogos.png',
-            mitre: 'https://www.footylogos.com/downloads/logo/mitre-santiago-del-estero-logo-footylogos.png',
-            sanmiguel: 'https://www.footylogos.com/downloads/logo/san-miguel-logo-footylogos.png',
-            midland: 'https://www.footylogos.com/downloads/logo/ferrocarril-midland-logo-footylogos.png',
-            ciudadbolivar: 'https://www.footylogos.com/downloads/logo/ciudad-de-bolivar-logo-footylogos.png',
-            tristansuarez: 'https://www.footylogos.com/downloads/logo/tristan-suarez-logo-footylogos.png'
-          };
-
-          async function main() {
-            const dir = 'public/crests';
-            fs.mkdirSync(dir, { recursive: true });
-
-            const completados = new Set();
-            const fallidos = [];
-
-            for (const [id, url] of Object.entries(equipos)) {
-              const destino = path.join(dir, id + '.png');
-
-              try {
-                if (fs.existsSync(destino)) {
-                  const existente = fs.readFileSync(destino);
-                  const cabecera = existente.subarray(0, 4);
-
-                  if (
-                    existente.length > 500 &&
-                    cabecera.equals(Buffer.from([0x89, 0x50, 0x4e, 0x47]))
-                  ) {
-                    console.log('YA EXISTÍA:', id + '.png');
-                    completados.add(id);
-                    continue;
-                  }
-                }
-
-                const respuesta = await fetch(url, {
-                  headers: {
-                    'User-Agent': 'Mozilla/5.0 LigaFC',
-                    'Referer': 'https://www.footylogos.com/'
-                  }
-                });
-
-                if (!respuesta.ok) {
-                  throw new Error('HTTP ' + respuesta.status);
-                }
-
-                const imagen = Buffer.from(
-                  await respuesta.arrayBuffer()
-                );
-
-                const cabecera = imagen.subarray(0, 4);
-                const esPng = cabecera.equals(
-                  Buffer.from([0x89, 0x50, 0x4e, 0x47])
-                );
-
-                if (imagen.length < 500 || !esPng) {
-                  throw new Error('La descarga no es un PNG válido');
-                }
-
-                fs.writeFileSync(destino, imagen);
-                completados.add(id);
-                console.log('DESCARGADO:', id + '.png');
-
-              } catch (error) {
-                fallidos.push(id);
-                console.log('FALLÓ:', id, error.message);
-              }
-            }
-
-            const archivoFaltantes = path.join(dir, 'faltantes.txt');
-            const actuales = fs.existsSync(archivoFaltantes)
-              ? fs.readFileSync(archivoFaltantes, 'utf8')
-                  .split(/\r?\n/)
-                  .map(x => x.trim())
-                  .filter(Boolean)
-              : [];
-
-            const pendientes = new Set(
-              actuales.filter(
-                id => id !== 'tristan' && !completados.has(id)
-              )
-            );
-
-            for (const id of fallidos) {
-              pendientes.add(id);
-            }
-
-            fs.writeFileSync(
-              archivoFaltantes,
-              [...pendientes].join('\n') +
-                (pendientes.size ? '\n' : '')
-            );
-
-            fs.writeFileSync(
-              path.join(dir, 'fuentes.txt'),
-              'Fuente de los escudos añadidos en este bloque: ' +
-              'FootyLogos.com — https://www.footylogos.com/\n'
-            );
-
-            console.log('RESULTADO:', completados.size + '/9 escudos disponibles');
-            console.log(
-              'Fallidos:',
-              fallidos.length ? fallidos.join(', ') : 'ninguno'
-            );
-          }
-
-          main().catch(error => {
-            console.error(error);
-            process.exit(1);
-          });
-          NODE
-          
-      - name: Completar escudos de B Metro, Primera C y Gimnasia LP
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const path = require('path');
-
-          const equipos = {
-            gimnasia: ['gimnasia y esgrima (lp)', 'gimnasia y esgrima la plata'],
-            argentinomerlo: ['argentino de merlo'],
-            brownadrogue: ['brown de adrogue', 'brown de adrogué'],
-            liniers: ['liniers'],
-            comunicaciones: ['comunicaciones'],
-            defensoresunidos: ['defensores unidos'],
-            camioneros: ['deportivo camioneros', 'camioneros'],
-            laferrere: ['deportivo laferrere', 'laferrere'],
-            deportivomerlo: ['deportivo merlo'],
-            flandria: ['flandria'],
-            ituzaingo: ['ituzaingo', 'ituzaingó'],
-            realpilar: ['real pilar'],
-            sanmartinburzaco: ['san martin de burzaco', 'san martín de burzaco'],
-            uai: ['uai urquiza'],
-            villadalmine: ['villa dalmine', 'villa dálmine'],
-            villasancarlos: ['villa san carlos'],
-            alem: ['leandro n alem', 'leandro n. alem', 'leandro nicéforo alem'],
-            mercedes: ['club mercedes', 'mercedes'],
-            juventudunida: ['juventud unida san miguel', 'juventud unida'],
-            estrelladelsur: ['estrella del sur'],
-            argentinorosario: ['argentino de rosario'],
-            victorianoarenas: ['victoriano arenas'],
-            sacachispas: ['sacachispas'],
-            berazategui: ['berazategui'],
-            paraguayo: ['deportivo paraguayo'],
-            jjurquiza: ['justo jose de urquiza', 'j j urquiza'],
-            cambaceres: ['defensores de cambaceres', 'cambaceres'],
-            puertonuevo: ['puerto nuevo'],
-            lugano: ['lugano'],
-            centroespanol: ['centro espanol', 'centro español'],
-            atlas: ['atlas'],
-            canuelas: ['canuelas', 'cañuelas'],
-            centralballester: ['central ballester'],
-            centralcordobarosario: ['central cordoba de rosario', 'central córdoba de rosario'],
-            claypole: ['claypole'],
-            espanol: ['deportivo espanol', 'deportivo español'],
-            muniz: ['deportivo muniz', 'muñiz'],
-            fenix: ['fenix', 'fénix'],
-            lamadrid: ['general lamadrid', 'general la madrid'],
-            leones: ['leones de rosario'],
-            lujan: ['lujan', 'luján'],
-            yupanqui: ['yupanqui']
-          };
-
-          const normalizar = s => String(s || '')
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, ' ')
-            .trim();
-
-          async function main() {
-            const url = 'https://gist.githubusercontent.com/BabaProMessi/5865807334d8d3e9b6b7dfe9c08e9a04/raw/gistfile1.txt';
-            const respuesta = await fetch(url);
-            if (!respuesta.ok) throw new Error('No se pudo leer el catálogo: HTTP ' + respuesta.status);
-
-            const catalogo = await respuesta.json();
-            const argentinos = catalogo.filter(x => x.country === 'argentina');
-            const dir = 'public/crests';
-            fs.mkdirSync(dir, { recursive: true });
-
-            const pendientes = [];
-            let listos = 0;
-
-            for (const [id, nombres] of Object.entries(equipos)) {
-              const destino = path.join(dir, id + '.png');
-
-              if (fs.existsSync(destino)) {
-                const b = fs.readFileSync(destino);
-                if (b.length > 500 &&
-                    b.subarray(0, 4).equals(Buffer.from([137, 80, 78, 71]))) {
-                  console.log('YA EXISTÍA:', id);
-                  listos++;
-                  continue;
-                }
-                
-- name: Descargar escudos de B Metro, Primera C y Gimnasia LP
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const path = require('path');
-
-          const equipos = {
+            agropecuario: 'agropecuario-argentino',
+            madryn: 'deportivo-madryn',
+            maipu: 'deportivo-maipu',
+            guemes: 'guemes',
+            mitre: 'mitre-santiago-del-estero',
+            sanmiguel: 'san-miguel',
+            midland: 'ferrocarril-midland',
+            ciudadbolivar: 'ciudad-de-bolivar',
+            tristansuarez: 'tristan-suarez',
             gimnasia: 'gimnasia-y-esgrima-lp',
             argentinomerlo: 'argentino-de-merlo',
             brownadrogue: 'brown-de-adrogue',
@@ -384,19 +49,19 @@ jobs:
             villasancarlos: 'villa-san-carlos',
             alem: 'leandro-n-alem',
             mercedes: 'club-mercedes',
-            juventudunida: 'juventud-unida',
+            juventudunida: 'juventud-unida-san-miguel',
             estrelladelsur: 'estrella-del-sur',
             argentinorosario: 'argentino-de-rosario',
             victorianoarenas: 'victoriano-arenas',
             sacachispas: 'sacachispas',
             berazategui: 'berazategui',
             paraguayo: 'deportivo-paraguayo',
-            jjurquiza: 'justo-jose-de-urquiza',
+            jjurquiza: 'j-j-urquiza',
             cambaceres: 'defensores-de-cambaceres',
             puertonuevo: 'puerto-nuevo',
             lugano: 'lugano',
             centroespanol: 'centro-espanol',
-            atlas: 'atlas',
+            atlas: 'club-atletico-atlas',
             canuelas: 'canuelas',
             centralballester: 'central-ballester',
             centralcordobarosario: 'central-cordoba-de-rosario',
@@ -414,16 +79,17 @@ jobs:
             const dir = 'public/crests';
             fs.mkdirSync(dir, { recursive: true });
 
-            const fallidos = [];
+            const faltantes = [];
             let descargados = 0;
 
             for (const [id, slug] of Object.entries(equipos)) {
               const destino = path.join(dir, id + '.png');
-              const url = 'https://www.footylogos.com/downloads/logo/' +
-                          slug + '-logo-footylogos.png';
+              const url =
+                'https://www.footylogos.com/downloads/logo/' +
+                slug + '-logo-footylogos.png';
 
               try {
-                const r = await fetch(url, {
+                const respuesta = await fetch(url, {
                   headers: {
                     'User-Agent': 'Mozilla/5.0 LigaFC',
                     'Referer': 'https://www.footylogos.com/'
@@ -431,42 +97,45 @@ jobs:
                   redirect: 'follow'
                 });
 
-                if (!r.ok) {
-                  throw new Error('HTTP ' + r.status);
+                if (!respuesta.ok) {
+                  throw new Error('HTTP ' + respuesta.status);
                 }
 
-                const b = Buffer.from(await r.arrayBuffer());
+                const imagen = Buffer.from(
+                  await respuesta.arrayBuffer()
+                );
+
+                const png = Buffer.from([137, 80, 78, 71]);
 
                 if (
-                  b.length < 500 ||
-                  !b.subarray(0, 4).equals(
-                    Buffer.from([137, 80, 78, 71])
-                  )
+                  imagen.length < 500 ||
+                  !imagen.subarray(0, 4).equals(png)
                 ) {
-                  throw new Error('La respuesta no es un PNG válido');
+                  throw new Error('No es un PNG válido');
                 }
 
-                fs.writeFileSync(destino, b);
+                fs.writeFileSync(destino, imagen);
                 descargados++;
                 console.log('DESCARGADO:', id + '.png');
-              } catch (e) {
-                fallidos.push(id);
-                console.log('FALLÓ:', id, e.message);
+              } catch (error) {
+                faltantes.push(id);
+                console.log('FALLÓ:', id, error.message);
               }
             }
 
             fs.writeFileSync(
               path.join(dir, 'faltantes.txt'),
-              fallidos.join('\n') + (fallidos.length ? '\n' : '')
+              faltantes.join('\n') +
+                (faltantes.length ? '\n' : '')
             );
 
-            console.log('DESCARGADOS:', descargados);
-            console.log('FALLIDOS:', fallidos.length);
-            console.log('LISTA DE FALLOS:', fallidos.join(', ') || 'ninguno');
+            console.log('TOTAL DESCARGADOS:', descargados);
+            console.log('TOTAL FALLIDOS:', faltantes.length);
+            console.log('FALTANTES:', faltantes.join(', ') || 'ninguno');
           }
 
-          main().catch(e => {
-            console.error(e);
+          main().catch(error => {
+            console.error(error);
             process.exit(1);
           });
           NODE
@@ -477,8 +146,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Agregar escudos argentinos faltantes"
+            git commit -m "Descargar escudos argentinos"
             git push
           else
-            echo "No hubo archivos nuevos para guardar"
+            echo "No hubo cambios para guardar"
           fi
