@@ -358,48 +358,111 @@ jobs:
                   listos++;
                   continue;
                 }
-              }
+                
+- name: Descargar escudos de B Metro, Primera C y Gimnasia LP
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
 
-              const buscados = nombres.map(normalizar);
-              const club = argentinos.find(x =>
-                buscados.includes(normalizar(x.name)) ||
-                buscados.includes(normalizar(x.title)) ||
-                buscados.includes(normalizar(x.slug).replace(/-/g, ' '))
-              );
+          const equipos = {
+            gimnasia: 'gimnasia-y-esgrima-lp',
+            argentinomerlo: 'argentino-de-merlo',
+            brownadrogue: 'brown-de-adrogue',
+            liniers: 'liniers',
+            comunicaciones: 'comunicaciones',
+            defensoresunidos: 'defensores-unidos',
+            camioneros: 'deportivo-camioneros',
+            laferrere: 'deportivo-laferrere',
+            deportivomerlo: 'deportivo-merlo',
+            flandria: 'flandria',
+            ituzaingo: 'ituzaingo',
+            realpilar: 'real-pilar',
+            sanmartinburzaco: 'san-martin-de-burzaco',
+            uai: 'uai-urquiza',
+            villadalmine: 'villa-dalmine',
+            villasancarlos: 'villa-san-carlos',
+            alem: 'leandro-n-alem',
+            mercedes: 'club-mercedes',
+            juventudunida: 'juventud-unida',
+            estrelladelsur: 'estrella-del-sur',
+            argentinorosario: 'argentino-de-rosario',
+            victorianoarenas: 'victoriano-arenas',
+            sacachispas: 'sacachispas',
+            berazategui: 'berazategui',
+            paraguayo: 'deportivo-paraguayo',
+            jjurquiza: 'justo-jose-de-urquiza',
+            cambaceres: 'defensores-de-cambaceres',
+            puertonuevo: 'puerto-nuevo',
+            lugano: 'lugano',
+            centroespanol: 'centro-espanol',
+            atlas: 'atlas',
+            canuelas: 'canuelas',
+            centralballester: 'central-ballester',
+            centralcordobarosario: 'central-cordoba-de-rosario',
+            claypole: 'claypole',
+            espanol: 'deportivo-espanol',
+            muniz: 'deportivo-muniz',
+            fenix: 'fenix',
+            lamadrid: 'general-lamadrid',
+            leones: 'leones-de-rosario',
+            lujan: 'lujan',
+            yupanqui: 'yupanqui'
+          };
 
-              if (!club || !club.logo) {
-                console.log('NO ENCONTRADO EN CATÁLOGO:', id);
-                pendientes.push(id);
-                continue;
-              }
+          async function main() {
+            const dir = 'public/crests';
+            fs.mkdirSync(dir, { recursive: true });
+
+            const fallidos = [];
+            let descargados = 0;
+
+            for (const [id, slug] of Object.entries(equipos)) {
+              const destino = path.join(dir, id + '.png');
+              const url = 'https://www.footylogos.com/downloads/logo/' +
+                          slug + '-logo-footylogos.png';
 
               try {
-                const img = await fetch(club.logo);
-                if (!img.ok) throw new Error('HTTP ' + img.status);
-                const b = Buffer.from(await img.arrayBuffer());
+                const r = await fetch(url, {
+                  headers: {
+                    'User-Agent': 'Mozilla/5.0 LigaFC',
+                    'Referer': 'https://www.footylogos.com/'
+                  },
+                  redirect: 'follow'
+                });
 
-                if (b.length < 500 ||
-                    !b.subarray(0, 4).equals(Buffer.from([137, 80, 78, 71]))) {
-                  throw new Error('La imagen no es PNG válido');
+                if (!r.ok) {
+                  throw new Error('HTTP ' + r.status);
+                }
+
+                const b = Buffer.from(await r.arrayBuffer());
+
+                if (
+                  b.length < 500 ||
+                  !b.subarray(0, 4).equals(
+                    Buffer.from([137, 80, 78, 71])
+                  )
+                ) {
+                  throw new Error('La respuesta no es un PNG válido');
                 }
 
                 fs.writeFileSync(destino, b);
+                descargados++;
                 console.log('DESCARGADO:', id + '.png');
-                listos++;
               } catch (e) {
-                console.log('ERROR:', id, e.message);
-                pendientes.push(id);
+                fallidos.push(id);
+                console.log('FALLÓ:', id, e.message);
               }
             }
 
             fs.writeFileSync(
               path.join(dir, 'faltantes.txt'),
-              [...new Set(pendientes)].join('\n') +
-                (pendientes.length ? '\n' : '')
+              fallidos.join('\n') + (fallidos.length ? '\n' : '')
             );
 
-            console.log('TOTAL LISTOS:', listos, '/', Object.keys(equipos).length);
-            console.log('PENDIENTES:', pendientes.join(', ') || 'ninguno');
+            console.log('DESCARGADOS:', descargados);
+            console.log('FALLIDOS:', fallidos.length);
+            console.log('LISTA DE FALLOS:', fallidos.join(', ') || 'ninguno');
           }
 
           main().catch(e => {
