@@ -104,7 +104,7 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
  if(a=='create'){const c=b.cfg||{},isAll=c.div=='all',div=isAll?{id:'all',ok:1}:DIVS.find(d=>d.id==c.div&&d.ok),code=txt(b.room,12).toLowerCase();
   if(!/^[a-z0-9]{3,12}$/.test(code))return'Código: 3-12 letras o números';if(rooms[code])return'Ese código ya existe';if(Object.keys(rooms).length>=60)return'Servidor lleno';
   if(!div||![4,6,8,10,12,16,20].includes(+c.n)||!['liga1','liga2','copa'].includes(c.fmt))return'Configuración inválida';
-  r=rooms[code]={code,cfg:{div:div.id,fmt:c.fmt,n:+c.n,mix:isAll?1:0},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,1,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,1,100):CFG.tick)}
+  r=rooms[code]={code,cfg:{div:div.id,fmt:c.fmt,n:+c.n,mix:isAll?1:0},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
  else if(!r)return'No existe esa sala';
  if(!r.pl[pid]){if(r.order.length>=r.cfg.n||r.phase!='pick')return'Sala llena o ya empezó';r.pl[pid]={name,team:null,ready:false,tac:null,res:null};r.order.push(pid)}
  const me=r.pl[pid];r.touched=Date.now();let err=null;
