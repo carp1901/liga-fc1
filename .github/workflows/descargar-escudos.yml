@@ -1,4 +1,4 @@
-name: Revisar escudos Promocional Amateur
+name: Escudos Promocional Amateur
 
 on:
   workflow_dispatch:
@@ -7,44 +7,214 @@ permissions:
   contents: write
 
 jobs:
-  revisar:
+  descargar:
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Retirar solamente los cinco archivos incorrectos
+      - name: Instalar herramientas
+        run: npm install --no-save sharp
+
+      - name: Buscar escudos y evitar duplicados
         run: |
-          mkdir -p public/crests
-          rm -f public/crests/alumni.png
-          rm -f public/crests/bacity.png
-          rm -f public/crests/barrancas.png
-          rm -f public/crests/belgranozarate.png
-          rm -f public/crests/controlorientado.png
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const crypto = require('crypto');
+          const sharp = require('sharp');
 
-          cat > public/crests/promocional-pendientes.txt <<'EOF'
-          alumni
-          bacity
-          barrancas
-          belgranozarate
-          controlorientado
-          atpilar
-          defglew
-          metalurgico
-          estrellaberisso
-          everton
-          fcezeiza
-          juventudbernal
-          mandarinas
-          hacoaj
-          sat
-          udprovincial
-          uribelarrea
-          EOF
+          const equipos = [
+            ['alumni', ['alumni los hornos', 'alumni lh']],
+            ['atpilar', ['atletico pilar', 'pilar']],
+            ['barrancas', ['barrancas fc', 'barrancas umet']],
+            ['belgranozarate', ['belgrano zarate', 'belgrano zárate']],
+            ['bacity', ['buenos aires city', 'buenos aires city fc']],
+            ['controlorientado', ['academia control orientado', 'control orientado']],
+            ['defglew', ['defensores de glew', 'defensores glew']],
+            ['metalurgico', ['deportivo metalurgico', 'metalurgico']],
+            ['estrellaberisso', ['estrella de berisso', 'estrella berisso']],
+            ['everton', ['everton lp', 'everton la plata']],
+            ['fcezeiza', ['futbol club ezeiza', 'fc ezeiza']],
+            ['juventudbernal', ['juventud de bernal', 'juventud bernal']],
+            ['mandarinas', ['las mandarinas', 'dep las mandarinas']],
+            ['hacoaj', ['club nautico hacoaj', 'nautico hacoaj']],
+            ['sat', ['social atletico television', 'sat']],
+            ['udprovincial', ['union deportiva provincial', 'provincial el']],
+            ['uribelarrea', ['uribelarrea fc', 'uribelarrea']]
+          ];
 
-          echo "Se retiraron solo los cinco PNG incorrectos."
-          echo "Los otros escudos no fueron modificados."
+          const dir = 'public/crests';
+          fs.mkdirSync(dir, { recursive: true });
+
+          const headers = {
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125 Safari/537.36',
+            'Accept': 'text/html,image/avif,image/webp,image/png,image/*,*/*'
+          };
+
+          const normalizar = s => s.normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, ' ')
+            .trim();
+
+          async function get(url) {
+            const r = await fetch(url, {
+              headers,
+              redirect: 'follow',
+              signal: AbortSignal.timeout(20000)
+            });
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return Buffer.from(await r.arrayBuffer());
+          }
+
+          function imagenes(html, base) {
+            const resultados = [];
+            const tags = html.match(/<img\b[^>]*>/gi) || [];
+
+            for (const tag of tags) {
+              const alt = (tag.match(/\balt=["']([^"']*)["']/i) || [,''])[1];
+              const src = (
+                tag.match(/\b(?:src|data-src|data-lazy-src)=["']([^"']+)["']/i)
+                || [,'']
+              )[1];
+
+              if (!src) continue;
+
+              try {
+                const url = new URL(src.replace(/&amp;/g, '&'), base).href;
+                if (!/^https?:/i.test(url)) continue;
+                if (/placeholder|avatar|banner|sponsor|advert|blank/i.test(url)) continue;
+
+                resultados.push({ url, alt });
+              } catch {}
+            }
+
+            return [...new Map(resultados.map(x => [x.url, x])).values()];
+          }
+
+          async function main() {
+            const pendientes = [];
+            const usados = new Map();
+
+            // Hash de imágenes que ya existen, para no duplicarlas.
+            for (const archivo of fs.readdirSync(dir)) {
+              if (!/\.(png|webp|jpg|jpeg)$/i.test(archivo)) continue;
+              try {
+                const b = fs.readFileSync(path.join(dir, archivo));
+                usados.set(crypto.createHash('sha256').update(b).digest('hex'), archivo);
+              } catch {}
+            }
+
+            for (const [id, aliases] of equipos) {
+              const destino = path.join(dir, id + '.png');
+
+              // Los cinco PNG defectuosos se reemplazan.
+              const reemplazar = [
+                'alumni', 'bacity', 'barrancas',
+                'belgranozarate', 'controlorientado'
+              ].includes(id);
+
+              if (fs.existsSync(destino) && !reemplazar) {
+                console.log('YA EXISTE, NO SE TOCA:', id);
+                continue;
+              }
+
+              console.log('\nBUSCANDO ESCUDO:', id);
+
+              const consultas = aliases.map(a =>
+                'https://www.promiedos.com.ar/search?q=' +
+                encodeURIComponent(a)
+              );
+
+              // Las páginas de la categoría son fuentes complementarias.
+              consultas.push('https://www.promiedos.com.ar/league/promocional-amateur/iage/equipos');
+              consultas.push('https://ligasargentinas.com.ar/liga/torneo-promocional-amateur');
+
+              let guardado = false;
+              const candidatos = [];
+
+              for (const pagina of consultas) {
+                try {
+                  const html = (await get(pagina)).toString('utf8');
+                  candidatos.push(...imagenes(html, pagina));
+                } catch (e) {
+                  console.log('Fuente no disponible:', pagina, e.message);
+                }
+              }
+
+              // Primero se prioriza que el nombre alternativo aparezca en alt/URL.
+              candidatos.sort((a, b) => {
+                const score = x => {
+                  const t = normalizar(x.alt + ' ' + x.url);
+                  return aliases.reduce((n, alias) =>
+                    n + (t.includes(normalizar(alias)) ? 10 : 0), 0);
+                };
+                return score(b) - score(a);
+              });
+
+              for (const c of candidatos) {
+                try {
+                  const t = normalizar(c.alt + ' ' + c.url);
+
+                  // Si el archivo no menciona el club, no se acepta.
+                  if (!aliases.some(alias => t.includes(normalizar(alias)))) continue;
+
+                  const original = await get(c.url);
+                  if (original.length < 1500) continue;
+
+                  const meta = await sharp(original).metadata();
+                  if (!meta.width || !meta.height) continue;
+                  if (meta.width < 80 || meta.height < 80) continue;
+
+                  const ratio = meta.width / meta.height;
+
+                  // Rechaza banners y rectángulos muy alargados.
+                  if (ratio > 1.8 || ratio < 0.5) continue;
+
+                  const png = await sharp(original)
+                    .resize(400, 400, { fit: 'contain' })
+                    .png()
+                    .toBuffer();
+
+                  const hash = crypto.createHash('sha256')
+                    .update(png).digest('hex');
+
+                  if (usados.has(hash) && usados.get(hash) !== id + '.png') {
+                    console.log('DUPLICADO RECHAZADO:', c.url);
+                    continue;
+                  }
+
+                  fs.writeFileSync(destino, png);
+                  usados.set(hash, id + '.png');
+                  console.log('GUARDADO:', destino, 'desde', c.url);
+                  guardado = true;
+                  break;
+                } catch (e) {
+                  console.log('Imagen descartada:', e.message);
+                }
+              }
+
+              if (!guardado) {
+                pendientes.push(id);
+                console.log('SIN ESCUDO VERIFICABLE:', id);
+              }
+            }
+
+            fs.writeFileSync(
+              path.join(dir, 'promocional-pendientes.txt'),
+              pendientes.join('\n') + (pendientes.length ? '\n' : '')
+            );
+
+            console.log('\nPENDIENTES:', pendientes.join(', ') || 'ninguno');
+          }
+
+          main().catch(e => {
+            console.error(e);
+            process.exit(1);
+          });
+          NODE
 
       - name: Guardar cambios
         run: |
@@ -52,8 +222,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Retirar imágenes incorrectas del Promocional Amateur"
+            git commit -m "Actualizar escudos del Promocional Amateur"
             git push
           else
-            echo "No hay cambios para guardar"
+            echo "No hay cambios nuevos"
           fi
