@@ -151,9 +151,27 @@ vilelas|Def. P. Vilelas|#0a7d3b|#ffffff|47
 argmontemaiz|Argentino (MM)|#0b3d91|#ffffff|48
 sarmientores|Sarmiento (R)|#0a7d3b|#ffffff|49
 estudiantessl|Estudiantes (SL)|#d1001f|#ffffff|50`;
+const R6=`alumni|Alumni (LH)|#d1001f|#ffffff|38
+atpilar|Atl. Pilar|#0b3d91|#ffffff|39
+barrancas|Barrancas|#0a7d3b|#ffffff|37
+belgranozarate|Belgrano (Z)|#6fb7e9|#ffffff|38
+bacity|Buenos Aires City|#0b2a5a|#f4d000|40
+controlorientado|Control Orientado|#d1001f|#111111|37
+defglew|Def. de Glew|#0a7d3b|#111111|39
+metalurgico|Dep. Metalúrgico|#0b3d91|#f4d000|42
+estrellaberisso|Estrella (Berisso)|#d1001f|#ffffff|39
+everton|Everton (LP)|#1e4fa3|#ffffff|38
+fcezeiza|FC Ezeiza|#0b3d91|#ffffff|41
+juventudbernal|Juventud (Bernal)|#0b2a5a|#ffffff|38
+mandarinas|Las Mandarinas|#f58220|#ffffff|37
+hacoaj|Náutico Hacoaj|#0b3d91|#ffffff|39
+sat|SAT|#d1001f|#ffffff|37
+udprovincial|U. D. Provincial|#0a7d3b|#ffffff|36
+uribelarrea|Uribelarrea FC|#0b3d91|#f4d000|37`;
 const DIVS=[{id:'ar1',country:'Argentina',name:'Primera División',ok:true,teams:mk(R1)},{id:'ar2',country:'Argentina',name:'Primera Nacional',ok:true,teams:mk(R2)},
 {id:'ar5',country:'Argentina',name:'Federal A',ok:true,teams:mk(R5)},
-{id:'ar3',country:'Argentina',name:'Primera B Metropolitana',ok:true,teams:mk(R3)},{id:'ar4',country:'Argentina',name:'Primera C',ok:true,teams:mk(R4)}];
+{id:'ar3',country:'Argentina',name:'Primera B Metropolitana',ok:true,teams:mk(R3)},{id:'ar4',country:'Argentina',name:'Primera C',ok:true,teams:mk(R4)},
+{id:'ar6',country:'Argentina',name:'Promocional Amateur',ok:true,teams:mk(R6)}];
 const teams=DIVS.flatMap(x=>x.teams);
 const TM={};teams.forEach(t=>TM[t.id]=t);
 const FM=[[4,4,2],[4,3,3],[3,5,2],[4,5,1],[5,3,2],[4,5,1],[4,4,2],[3,4,3],[5,4,1],[4,4,2],[4,5,1],[4,5,1],[3,6,1],[5,2,3]];
@@ -173,6 +191,8 @@ let MIX=false;const setMix=b=>{MIX=!!b};
 // modo "Todas las divisiones": cada plantel se lleva a una media común, así la diferencia la hace la táctica
 const SN={};const squadN=id=>SN[id]||(SN[id]=(()=>{const s=rawSquad(id),avg=s.reduce((a,x)=>a+x.r,0)/s.length;return s.map(x=>({...x,r:Math.max(40,Math.min(85,Math.round(x.r-avg+64)))}))})());
 const squad=id=>MIX?squadN(id):rawSquad(id);
-const API={DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
+// Torneos barriales/regionales (fantasía, no oficiales). IDs resueltos contra los clubes existentes; los del Promocional Amateur usan sus IDs actuales (fcezeiza, defglew, metalurgico, atpilar, hacoaj, controlorientado, belgranozarate, barrancas, bacity, everton, alumni, estrellaberisso, mandarinas, udprovincial, etc.).
+const CUPS=[{"id": "sur", "name": "Capo del Sur", "clubs": ["racing", "independiente", "lanus", "banfield", "defensa", "losandes", "quilmes", "santelmo", "temperley", "tristansuarez", "arsenal", "argentinoquilmes", "brownadrogue", "docksud", "sanmartinburzaco", "talleresre", "camioneros", "estrelladelsur", "victorianoarenas", "berazategui", "canuelas", "claypole", "porvenir", "fcezeiza", "defglew", "juventudbernal"], "title": "Copa «Capo del Sur»"}, {"id": "oeste", "name": "Capo del Oeste", "clubs": ["almirantebrown", "almagro", "moron", "estudiantesba", "sanmiguel", "midland", "argentinomerlo", "liniers", "laferrere", "deportivomerlo", "ituzaingo", "sportivoitaliano", "uai", "alem", "mercedes", "juventudunida", "lugano", "centroespanol", "atlas", "jjurquiza", "flandria", "lujan", "muniz", "yupanqui", "paraguayo", "sat", "metalurgico"], "title": "Copa «Capo del Oeste»"}, {"id": "norte", "name": "Capo del Norte", "clubs": ["tigre", "platense", "chacarita", "colegiales", "acassuso", "defensoresunidos", "armenio", "realpilar", "villadalmine", "centralballester", "puertonuevo", "escobar", "atpilar", "hacoaj", "controlorientado", "belgranozarate"], "title": "Copa «Capo del Norte»"}, {"id": "caba", "name": "Capo de CABA", "clubs": ["boca", "river", "sanlorenzo", "velez", "argentinos", "huracan", "barracas", "riestra", "allboys", "atlanta", "defensoresbelgrano", "nuevachicago", "ferro", "comunicaciones", "excursionistas", "espanol", "lamadrid", "sacachispas", "sportivobarracas", "fenix", "barrancas", "bacity"], "title": "Copa «Capo de CABA»"}, {"id": "cuyo", "name": "Copa de Cuyo", "clubs": ["rivadavia", "gimnasiamza", "godoycruz", "maipu", "sanmartinsj", "atsanmartinmza", "fadep", "huracanlh", "juventudsl", "estudiantessl"], "title": "Copa de Cuyo"}, {"id": "litoral", "name": "Copa del Litoral", "clubs": ["newells", "rosario", "union", "colon", "rafaela", "patronato", "chaco", "argentinorosario", "centralcordobarosario", "leones", "nuevejulio", "bmitre", "bocaunidos", "soldeamerica", "sanmartinformosa", "sarmientores", "gimcdu", "lasparejas", "vilelas"], "title": "Copa del Litoral"}, {"id": "noa", "name": "Copa del Noroeste Argentino (NOA)", "clubs": ["atletico", "centralcba", "centralnorte", "gimnasiajujuy", "gimnasiatiro", "guemes", "mitre", "sanmartintuc", "tucumancentral", "antoniana", "sarmientolb"], "title": "Copa del Noroeste Argentino (NOA)"}, {"id": "patagonia", "name": "Copa de la Patagonia", "clubs": ["madryn", "cipolletti", "rincon", "soldemayo", "costabrava", "germinal", "gbrown"], "title": "Copa de la Patagonia"}, {"id": "cordoba", "name": "Copa Córdoba", "clubs": ["talleres", "belgrano", "instituto", "racingcba", "estudiantesrc", "atenas", "sportivobelgrano", "argmontemaiz"], "title": "Copa Córdoba"}, {"id": "bonaerense", "name": "Copa Bonaerense", "clubs": ["estudiantes", "gimnasia", "aldosivi", "sarmiento", "agropecuario", "ciudadbolivar", "villasancarlos", "cambaceres", "alvarado", "circulo", "santamarina", "douglashaig", "gimchivilcoy", "indchivilcoy", "linqueno", "defbelgranovr", "olimpo", "everton", "alumni", "estrellaberisso", "mandarinas", "uribelarrea", "udprovincial"], "title": "Copa Bonaerense"}];
+const API={CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
 
 })();
