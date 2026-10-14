@@ -275,6 +275,139 @@ jobs:
             process.exit(1);
           });
           NODE
+          
+      - name: Completar escudos de B Metro, Primera C y Gimnasia LP
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const equipos = {
+            gimnasia: ['gimnasia y esgrima (lp)', 'gimnasia y esgrima la plata'],
+            argentinomerlo: ['argentino de merlo'],
+            brownadrogue: ['brown de adrogue', 'brown de adrogué'],
+            liniers: ['liniers'],
+            comunicaciones: ['comunicaciones'],
+            defensoresunidos: ['defensores unidos'],
+            camioneros: ['deportivo camioneros', 'camioneros'],
+            laferrere: ['deportivo laferrere', 'laferrere'],
+            deportivomerlo: ['deportivo merlo'],
+            flandria: ['flandria'],
+            ituzaingo: ['ituzaingo', 'ituzaingó'],
+            realpilar: ['real pilar'],
+            sanmartinburzaco: ['san martin de burzaco', 'san martín de burzaco'],
+            uai: ['uai urquiza'],
+            villadalmine: ['villa dalmine', 'villa dálmine'],
+            villasancarlos: ['villa san carlos'],
+            alem: ['leandro n alem', 'leandro n. alem', 'leandro nicéforo alem'],
+            mercedes: ['club mercedes', 'mercedes'],
+            juventudunida: ['juventud unida san miguel', 'juventud unida'],
+            estrelladelsur: ['estrella del sur'],
+            argentinorosario: ['argentino de rosario'],
+            victorianoarenas: ['victoriano arenas'],
+            sacachispas: ['sacachispas'],
+            berazategui: ['berazategui'],
+            paraguayo: ['deportivo paraguayo'],
+            jjurquiza: ['justo jose de urquiza', 'j j urquiza'],
+            cambaceres: ['defensores de cambaceres', 'cambaceres'],
+            puertonuevo: ['puerto nuevo'],
+            lugano: ['lugano'],
+            centroespanol: ['centro espanol', 'centro español'],
+            atlas: ['atlas'],
+            canuelas: ['canuelas', 'cañuelas'],
+            centralballester: ['central ballester'],
+            centralcordobarosario: ['central cordoba de rosario', 'central córdoba de rosario'],
+            claypole: ['claypole'],
+            espanol: ['deportivo espanol', 'deportivo español'],
+            muniz: ['deportivo muniz', 'muñiz'],
+            fenix: ['fenix', 'fénix'],
+            lamadrid: ['general lamadrid', 'general la madrid'],
+            leones: ['leones de rosario'],
+            lujan: ['lujan', 'luján'],
+            yupanqui: ['yupanqui']
+          };
+
+          const normalizar = s => String(s || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, ' ')
+            .trim();
+
+          async function main() {
+            const url = 'https://gist.githubusercontent.com/BabaProMessi/5865807334d8d3e9b6b7dfe9c08e9a04/raw/gistfile1.txt';
+            const respuesta = await fetch(url);
+            if (!respuesta.ok) throw new Error('No se pudo leer el catálogo: HTTP ' + respuesta.status);
+
+            const catalogo = await respuesta.json();
+            const argentinos = catalogo.filter(x => x.country === 'argentina');
+            const dir = 'public/crests';
+            fs.mkdirSync(dir, { recursive: true });
+
+            const pendientes = [];
+            let listos = 0;
+
+            for (const [id, nombres] of Object.entries(equipos)) {
+              const destino = path.join(dir, id + '.png');
+
+              if (fs.existsSync(destino)) {
+                const b = fs.readFileSync(destino);
+                if (b.length > 500 &&
+                    b.subarray(0, 4).equals(Buffer.from([137, 80, 78, 71]))) {
+                  console.log('YA EXISTÍA:', id);
+                  listos++;
+                  continue;
+                }
+              }
+
+              const buscados = nombres.map(normalizar);
+              const club = argentinos.find(x =>
+                buscados.includes(normalizar(x.name)) ||
+                buscados.includes(normalizar(x.title)) ||
+                buscados.includes(normalizar(x.slug).replace(/-/g, ' '))
+              );
+
+              if (!club || !club.logo) {
+                console.log('NO ENCONTRADO EN CATÁLOGO:', id);
+                pendientes.push(id);
+                continue;
+              }
+
+              try {
+                const img = await fetch(club.logo);
+                if (!img.ok) throw new Error('HTTP ' + img.status);
+                const b = Buffer.from(await img.arrayBuffer());
+
+                if (b.length < 500 ||
+                    !b.subarray(0, 4).equals(Buffer.from([137, 80, 78, 71]))) {
+                  throw new Error('La imagen no es PNG válido');
+                }
+
+                fs.writeFileSync(destino, b);
+                console.log('DESCARGADO:', id + '.png');
+                listos++;
+              } catch (e) {
+                console.log('ERROR:', id, e.message);
+                pendientes.push(id);
+              }
+            }
+
+            fs.writeFileSync(
+              path.join(dir, 'faltantes.txt'),
+              [...new Set(pendientes)].join('\n') +
+                (pendientes.length ? '\n' : '')
+            );
+
+            console.log('TOTAL LISTOS:', listos, '/', Object.keys(equipos).length);
+            console.log('PENDIENTES:', pendientes.join(', ') || 'ninguno');
+          }
+
+          main().catch(e => {
+            console.error(e);
+            process.exit(1);
+          });
+          NODE
+
       - name: Guardar escudos
         run: |
           git config user.name "github-actions[bot]"
