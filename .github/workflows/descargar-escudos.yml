@@ -156,6 +156,125 @@ jobs:
           });
           NODE
 
+      - name: Descargar los 9 escudos de Primera Nacional
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const equipos = {
+            agropecuario: 'https://www.footylogos.com/downloads/logo/agropecuario-argentino-logo-footylogos.png',
+            madryn: 'https://www.footylogos.com/downloads/logo/deportivo-madryn-logo-footylogos.png',
+            maipu: 'https://www.footylogos.com/downloads/logo/deportivo-maipu-logo-footylogos.png',
+            guemes: 'https://www.footylogos.com/downloads/logo/guemes-logo-footylogos.png',
+            mitre: 'https://www.footylogos.com/downloads/logo/mitre-santiago-del-estero-logo-footylogos.png',
+            sanmiguel: 'https://www.footylogos.com/downloads/logo/san-miguel-logo-footylogos.png',
+            midland: 'https://www.footylogos.com/downloads/logo/ferrocarril-midland-logo-footylogos.png',
+            ciudadbolivar: 'https://www.footylogos.com/downloads/logo/ciudad-de-bolivar-logo-footylogos.png',
+            tristansuarez: 'https://www.footylogos.com/downloads/logo/tristan-suarez-logo-footylogos.png'
+          };
+
+          async function main() {
+            const dir = 'public/crests';
+            fs.mkdirSync(dir, { recursive: true });
+
+            const completados = new Set();
+            const fallidos = [];
+
+            for (const [id, url] of Object.entries(equipos)) {
+              const destino = path.join(dir, id + '.png');
+
+              try {
+                if (fs.existsSync(destino)) {
+                  const existente = fs.readFileSync(destino);
+                  const cabecera = existente.subarray(0, 4);
+
+                  if (
+                    existente.length > 500 &&
+                    cabecera.equals(Buffer.from([0x89, 0x50, 0x4e, 0x47]))
+                  ) {
+                    console.log('YA EXISTÍA:', id + '.png');
+                    completados.add(id);
+                    continue;
+                  }
+                }
+
+                const respuesta = await fetch(url, {
+                  headers: {
+                    'User-Agent': 'Mozilla/5.0 LigaFC',
+                    'Referer': 'https://www.footylogos.com/'
+                  }
+                });
+
+                if (!respuesta.ok) {
+                  throw new Error('HTTP ' + respuesta.status);
+                }
+
+                const imagen = Buffer.from(
+                  await respuesta.arrayBuffer()
+                );
+
+                const cabecera = imagen.subarray(0, 4);
+                const esPng = cabecera.equals(
+                  Buffer.from([0x89, 0x50, 0x4e, 0x47])
+                );
+
+                if (imagen.length < 500 || !esPng) {
+                  throw new Error('La descarga no es un PNG válido');
+                }
+
+                fs.writeFileSync(destino, imagen);
+                completados.add(id);
+                console.log('DESCARGADO:', id + '.png');
+
+              } catch (error) {
+                fallidos.push(id);
+                console.log('FALLÓ:', id, error.message);
+              }
+            }
+
+            const archivoFaltantes = path.join(dir, 'faltantes.txt');
+            const actuales = fs.existsSync(archivoFaltantes)
+              ? fs.readFileSync(archivoFaltantes, 'utf8')
+                  .split(/\r?\n/)
+                  .map(x => x.trim())
+                  .filter(Boolean)
+              : [];
+
+            const pendientes = new Set(
+              actuales.filter(
+                id => id !== 'tristan' && !completados.has(id)
+              )
+            );
+
+            for (const id of fallidos) {
+              pendientes.add(id);
+            }
+
+            fs.writeFileSync(
+              archivoFaltantes,
+              [...pendientes].join('\n') +
+                (pendientes.size ? '\n' : '')
+            );
+
+            fs.writeFileSync(
+              path.join(dir, 'fuentes.txt'),
+              'Fuente de los escudos añadidos en este bloque: ' +
+              'FootyLogos.com — https://www.footylogos.com/\n'
+            );
+
+            console.log('RESULTADO:', completados.size + '/9 escudos disponibles');
+            console.log(
+              'Fallidos:',
+              fallidos.length ? fallidos.join(', ') : 'ninguno'
+            );
+          }
+
+          main().catch(error => {
+            console.error(error);
+            process.exit(1);
+          });
+          NODE
       - name: Guardar escudos
         run: |
           git config user.name "github-actions[bot]"
