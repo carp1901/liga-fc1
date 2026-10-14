@@ -12,56 +12,62 @@ permissions:
 jobs:
   descargar:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Instalar conversor PNG
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar conversor
         run: npm install --no-save sharp
 
-      - name: Buscar escudos en Wikimedia Commons
+      - name: Descargar escudos desde Paladar Negro
         run: |
           node <<'NODE'
           const fs = require('fs');
           const path = require('path');
           const sharp = require('sharp');
 
+          const base =
+            'https://paladarnegro.net/escudoteca/argentina/federala/png/';
+
+          // ID del juego: posibles nombres de archivo de Paladar Negro.
           const equipos = {
-            nuevejulio: '9 de Julio Rafaela Argentina football club',
-            alvarado: 'Club Alvarado Mar del Plata',
-            atenas: 'Atenas Rio Cuarto football club',
-            atsanmartinmza: 'Atletico San Martin Mendoza football club',
-            bmitre: 'Bartolome Mitre Posadas football club',
-            bocaunidos: 'Boca Unidos Corrientes',
-            cipolletti: 'Club Cipolletti football',
-            defbelgranovr: 'Defensores de Belgrano Villa Ramallo',
-            rincon: 'Deportivo Rincon Neuquen football club',
-            soldeamerica: 'Sol de America Formosa football club',
-            soldemayo: 'Sol de Mayo Viedma football club',
-            tucumancentral: 'Tucuman Central football club',
-            costabrava: 'Costa Brava General Pico football club',
-            circulo: 'Circulo Deportivo Otamendi football club',
-            fadep: 'FADEP Mendoza football club',
-            germinal: 'Germinal Rawson football club',
-            gbrown: 'Guillermo Brown Puerto Madryn football',
-            juventudsl: 'Juventud Unida Universitario San Luis',
-            santamarina: 'Santamarina Tandil football club',
-            douglashaig: 'Douglas Haig Pergamino football club',
-            gimchivilcoy: 'Gimnasia Chivilcoy football club',
-            sanmartinformosa: 'San Martin Formosa football club',
-            sarmientolb: 'Sarmiento La Banda football club',
-            sportivobelgrano: 'Sportivo Belgrano San Francisco',
-            huracanlh: 'Huracan Las Heras Mendoza football club',
-            olimpo: 'Olimpo Bahia Blanca football club',
-            antoniana: 'Juventud Antoniana Salta football club',
-            linqueno: 'El Linqueno Lincoln football club',
-            indchivilcoy: 'Independiente Chivilcoy football club',
-            escobar: 'Atletico Escobar Argentina football club',
-            gimcdu: 'Gimnasia Concepcion del Uruguay football club',
-            lasparejas: 'Sportivo Las Parejas football club',
-            vilelas: 'Defensores de Vilelas football club',
-            argmontemaiz: 'Argentino Monte Maiz football club',
-            sarmientores: 'Sarmiento Resistencia football club',
-            estudiantessl: 'Sportivo Estudiantes San Luis football club'
+            nuevejulio: ['9_de_julio'],
+            alvarado: ['alvarado'],
+            atenas: ['atenas', 'atenas_rio_cuarto'],
+            atsanmartinmza: ['atletico_san_martin', 'san_martin_mendoza'],
+            bmitre: ['bartolome_mitre'],
+            bocaunidos: ['boca_unidos'],
+            cipolletti: ['cipolletti'],
+            defbelgranovr: ['defensores_de_belgrano', 'defensores_de_belgrano_villa_ramallo'],
+            rincon: ['deportivo_rincon'],
+            soldeamerica: ['sol_de_america'],
+            soldemayo: ['sol_de_mayo'],
+            tucumancentral: ['tucuman_central'],
+            costabrava: ['costa_brava'],
+            circulo: ['circulo_deportivo'],
+            fadep: ['fadep'],
+            germinal: ['germinal'],
+            gbrown: ['guillermo_brown'],
+            juventudsl: ['juventud_unida_universitario', 'juventud_unida_san_luis'],
+            santamarina: ['santamarina', 'santamarina_tandil'],
+            douglashaig: ['douglas_haig'],
+            gimchivilcoy: ['gimnasia_de_chivilcoy', 'gimnasia_chivilcoy'],
+            sanmartinformosa: ['san_martin_formosa'],
+            sarmientolb: ['sarmiento_la_banda'],
+            sportivobelgrano: ['sportivo_belgrano'],
+            huracanlh: ['huracan_las_heras'],
+            olimpo: ['olimpo'],
+            antoniana: ['juventud_antoniana'],
+            linqueno: ['el_linqueno', 'linqueno'],
+            indchivilcoy: ['independiente_chivilcoy'],
+            escobar: ['atletico_escobar', 'escobar_fc'],
+            gimcdu: ['gimnasia_concepcion_del_uruguay'],
+            lasparejas: ['sportivo_las_parejas'],
+            vilelas: ['defensores_de_vilelas'],
+            argmontemaiz: ['argentino_mm', 'argentino_monte_maiz'],
+            sarmientores: ['sarmiento_resistencia'],
+            estudiantessl: ['sportivo_estudiantes', 'estudiantes_san_luis']
           };
 
           const dir = 'public/crests';
@@ -71,120 +77,91 @@ jobs:
             137, 80, 78, 71, 13, 10, 26, 10
           ]);
 
-          async function buscar(nombre) {
-            const api = new URL(
-              'https://commons.wikimedia.org/w/api.php'
-            );
-
-            api.searchParams.set('action', 'query');
-            api.searchParams.set('format', 'json');
-            api.searchParams.set('generator', 'search');
-            api.searchParams.set('gsrsearch', nombre + ' logo crest');
-            api.searchParams.set('gsrnamespace', '6');
-            api.searchParams.set('gsrlimit', '10');
-            api.searchParams.set('prop', 'imageinfo');
-            api.searchParams.set('iiprop', 'url|mime|size');
-            api.searchParams.set('iiurlwidth', '500');
-
-            const respuesta = await fetch(api, {
-              headers: {
-                'User-Agent': 'LigaFC/1.0 (crest downloader)'
-              },
-              signal: AbortSignal.timeout(20000)
+          async function descargar(url) {
+            const r = await fetch(url, {
+              headers: { 'User-Agent': 'LigaFC crest downloader' },
+              signal: AbortSignal.timeout(15000)
             });
 
-            if (!respuesta.ok) {
-              throw new Error('Commons HTTP ' + respuesta.status);
+            if (!r.ok) {
+              throw new Error('HTTP ' + r.status);
             }
 
-            const datos = await respuesta.json();
-            const paginas = Object.values(
-              datos.query?.pages || {}
-            );
+            const buffer = Buffer.from(await r.arrayBuffer());
 
-            for (const pagina of paginas) {
-              const info = pagina.imageinfo?.[0];
-              if (!info || !info.thumburl) continue;
-
-              // Evitamos fotos pequeñas y archivos que no sean imágenes.
-              if (
-                info.width < 100 ||
-                info.height < 100 ||
-                !/^image\//i.test(info.thumbmime || info.mime || '')
-              ) continue;
-
-              try {
-                const r = await fetch(info.thumburl, {
-                  headers: {
-                    'User-Agent': 'LigaFC/1.0'
-                  },
-                  signal: AbortSignal.timeout(20000)
-                });
-
-                if (!r.ok) continue;
-
-                const original = Buffer.from(
-                  await r.arrayBuffer()
-                );
-
-                if (original.length < 300) continue;
-
-                const png = await sharp(original)
-                  .resize(500, 500, {
-                    fit: 'inside',
-                    withoutEnlargement: true
-                  })
-                  .png()
-                  .toBuffer();
-
-                if (png.subarray(0, 8).equals(pngMagic)) {
-                  return png;
-                }
-              } catch (e) {
-                console.log('Imagen descartada:', e.message);
-              }
+            if (buffer.length < 300) {
+              throw new Error('Archivo demasiado pequeño');
             }
 
-            throw new Error('Sin imagen disponible');
+            // sharp valida que el contenido sea una imagen real.
+            const metadata = await sharp(buffer).metadata();
+
+            if (!metadata.width || !metadata.height) {
+              throw new Error('Imagen inválida');
+            }
+
+            return sharp(buffer)
+              .resize(500, 500, {
+                fit: 'inside',
+                withoutEnlargement: true
+              })
+              .png()
+              .toBuffer();
           }
 
           async function main() {
-            const faltantes = [];
             let nuevos = 0;
-            let existentes = 0;
+            let conservados = 0;
+            const faltantes = [];
 
-            for (const [id, nombre] of Object.entries(equipos)) {
+            for (const [id, nombres] of Object.entries(equipos)) {
               const destino = path.join(dir, id + '.png');
 
-              // Conservar cualquier escudo PNG válido existente.
               if (fs.existsSync(destino)) {
                 const actual = fs.readFileSync(destino);
+
                 if (actual.subarray(0, 8).equals(pngMagic)) {
                   console.log('CONSERVADO:', id);
-                  existentes++;
+                  conservados++;
                   continue;
                 }
               }
 
-              try {
-                const png = await buscar(nombre);
-                fs.writeFileSync(destino, png);
-                console.log('DESCARGADO:', id + '.png');
+              let imagen = null;
+
+              for (const nombre of nombres) {
+                const url = base + encodeURIComponent(nombre) + '.png';
+
+                try {
+                  imagen = await descargar(url);
+                  console.log('ENCONTRADO:', nombre + '.png', '->', id);
+                  break;
+                } catch (e) {
+                  console.log('No disponible:', nombre + '.png');
+                }
+              }
+
+              if (imagen) {
+                fs.writeFileSync(destino, imagen);
+                console.log('GUARDADO:', id + '.png');
                 nuevos++;
-              } catch (e) {
-                console.log('FALTA:', id, e.message);
+              } else {
+                console.log('FALTANTE:', id);
                 faltantes.push(id);
               }
+
+              // Evitar enviar solicitudes demasiado rápido.
+              await new Promise(resolve => setTimeout(resolve, 400));
             }
 
             fs.writeFileSync(
               path.join(dir, 'faltantes-federal-a.txt'),
-              faltantes.join('\n') +
-                (faltantes.length ? '\n' : '')
+              faltantes.join('\n') + (faltantes.length ? '\n' : '')
             );
 
+            console.log('-------------------------');
             console.log('NUEVOS:', nuevos);
-            console.log('CONSERVADOS:', existentes);
+            console.log('CONSERVADOS:', conservados);
             console.log('FALTANTES:', faltantes.length);
             console.log(faltantes.join(', ') || 'ninguno');
           }
@@ -195,13 +172,13 @@ jobs:
           });
           NODE
 
-      - name: Guardar escudos
+      - name: Guardar escudos descargados
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Descargar escudos del Federal A"
+            git commit -m "Descargar escudos Federal A desde Paladar Negro"
             git push
           else
             echo "No hubo cambios para guardar"
