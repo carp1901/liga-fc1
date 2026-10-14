@@ -1,135 +1,121 @@
 name: Quitar fondo blanco de escudos
 
 'on':
-workflow_dispatch:
+  workflow_dispatch:
 
 permissions:
-contents: write
+  contents: write
 
 jobs:
-quitar-fondo:
-runs-on: ubuntu-latest
+  quitar-fondo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
 
-steps:
-  - name: Descargar repositorio
-    uses: actions/checkout@v4
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-  - name: Preparar Node
-    uses: actions/setup-node@v4
-    with:
-      node-version: 20
+      - name: Instalar Sharp
+        run: npm install --no-save sharp
 
-  - name: Instalar Sharp
-    run: npm install --no-save sharp
+      - name: Quitar fondo blanco exterior
+        run: |
+          cat > limpiar.js <<'NODE'
+          const fs = require('fs');
+          const sharp = require('sharp');
 
-  - name: Quitar el fondo blanco conectado al borde
-    run: |
-      cat > limpiar-fondos.js <<'NODE'
-      const fs = require('fs');
-      const sharp = require('sharp');
+          const ids = ['udprovincial', 'defbelgranovr', 'vilelas'];
 
-      const ids = ['udprovincial', 'defbelgranovr', 'vilelas'];
+          async function limpiar(id) {
+            const archivo = `public/crests/${id}.png`;
 
-      function esFondoBlanco(data, i) {
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        const a = data[i + 3];
+            if (!fs.existsSync(archivo)) {
+              throw new Error(`No existe ${archivo}`);
+            }
 
-        if (a === 0) return true;
+            const { data, info } = await sharp(archivo)
+              .ensureAlpha()
+              .raw()
+              .toBuffer({ resolveWithObject: true });
 
-        const max = Math.max(r, g, b);
-        const min = Math.min(r, g, b);
+            const { width, height, channels } = info;
+            const visitados = new Uint8Array(width * height);
+            const cola = new Int32Array(width * height);
+            let inicio = 0;
+            let fin = 0;
 
-        return min >= 218 && (max - min) <= 48;
-      }
+            function agregar(x, y) {
+              if (x < 0 || y < 0 || x >= width || y >= height) return;
 
-      async function limpiar(id) {
-        const archivo = 'public/crests/' + id + '.png';
+              const p = y * width + x;
+              if (visitados[p]) return;
 
-        if (!fs.existsSync(archivo)) {
-          throw new Error('No existe el archivo: ' + archivo);
-        }
+              const i = p * channels;
+              const r = data[i];
+              const g = data[i + 1];
+              const b = data[i + 2];
 
-        const { data, info } = await sharp(archivo)
-          .rotate()
-          .ensureAlpha()
-          .raw()
-          .toBuffer({ resolveWithObject: true });
+              if (Math.min(r, g, b) < 218 ||
+                  Math.max(r, g, b) - Math.min(r, g, b) > 48) return;
 
-        const { width, height, channels } = info;
-        const total = width * height;
-        const visitados = new Uint8Array(total);
-        const cola = new Int32Array(total);
-        let inicio = 0;
-        let fin = 0;
+              visitados[p] = 1;
+              cola[fin++] = p;
+            }
 
-        function agregar(x, y) {
-          if (x < 0 || y < 0 || x >= width || y >= height) return;
+            for (let x = 0; x < width; x++) {
+              agregar(x, 0);
+              agregar(x, height - 1);
+            }
 
-          const pixel = y * width + x;
-          if (visitados[pixel]) return;
+            for (let y = 0; y < height; y++) {
+              agregar(0, y);
+              agregar(width - 1, y);
+            }
 
-          const i = pixel * channels;
-          if (!esFondoBlanco(data, i)) return;
+            while (inicio < fin) {
+              const p = cola[inicio++];
+              data[p * channels + 3] = 0;
 
-          visitados[pixel] = 1;
-          cola[fin++] = pixel;
-        }
+              const x = p % width;
+              const y = Math.floor(p / width);
 
-        for (let x = 0; x < width; x++) {
-          agregar(x, 0);
-          agregar(x, height - 1);
-        }
-
-        for (let y = 0; y < height; y++) {
-          agregar(0, y);
-          agregar(width - 1, y);
-        }
-
-        while (inicio < fin) {
-          const pixel = cola[inicio++];
-          const x = pixel % width;
-          const y = Math.floor(pixel / width);
-          data[pixel * channels + 3] = 0;
-
-          for (let dy = -1; dy <= 1; dy++) {
-            for (let dx = -1; dx <= 1; dx++) {
-              if (dx !== 0 || dy !== 0) {
-                agregar(x + dx, y + dy);
+              for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                  if (dx || dy) agregar(x + dx, y + dy);
+                }
               }
             }
+
+            const salida = await sharp(data, {
+              raw: { width, height, channels }
+            }).png().toBuffer();
+
+            fs.writeFileSync(archivo, salida);
+            console.log(`CORREGIDO: ${id}; fondo exterior eliminado`);
           }
-        }
 
-        const salida = await sharp(data, {
-          raw: { width, height, channels }
-        }).png().toBuffer();
+          async function main() {
+            for (const id of ids) await limpiar(id);
+          }
 
-        fs.writeFileSync(archivo, salida);
-        console.log('CORREGIDO: ' + id + ', píxeles transparentados: ' + fin);
-      }
+          main().catch(error => {
+            console.error(error);
+            process.exitCode = 1;
+          });
+          NODE
+          node limpiar.js
 
-      (async () => {
-        for (const id of ids) {
-          await limpiar(id);
-        }
-      })().catch(error => {
-        console.error(error);
-        process.exitCode = 1;
-      });
-      NODE
-
-      node limpiar-fondos.js
-
-  - name: Guardar escudos corregidos
-    run: |
-      git add public/crests/udprovincial.png public/crests/defbelgranovr.png public/crests/vilelas.png
-      if ! git diff --cached --quiet; then
-        git config user.name "github-actions[bot]"
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git commit -m "Quitar fondos blancos de tres escudos"
-        git push
-      else
-        echo "No se detectaron cambios en los escudos."
-      fi
+      - name: Guardar cambios
+        run: |
+          git add public/crests/udprovincial.png public/crests/defbelgranovr.png public/crests/vilelas.png
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Quitar fondos blancos de escudos"
+            git push
+          else
+            echo "No se detectaron cambios."
+          fi
