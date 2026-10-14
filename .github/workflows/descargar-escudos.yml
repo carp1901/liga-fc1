@@ -1,203 +1,106 @@
-name: Reparar los 3 escudos finales
+name: Corregir escudos Promocional Amateur
 
 on:
-  workflow_dispatch:
+workflow_dispatch:
 
 permissions:
-  contents: write
+contents: write
 
 jobs:
-  descargar:
-    runs-on: ubuntu-latest
+escudos:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Descargar repositorio
-        uses: actions/checkout@v4
+steps:
+  - name: Descargar repositorio
+    uses: actions/checkout@v4
 
-      - name: Instalar Sharp
-        run: npm install --no-save sharp
+  - name: Preparar herramientas
+    run: |
+      npm init -y
+      npm install sharp
 
-      - name: Descargar y verificar los tres escudos
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const sharp = require('sharp');
+  - name: Descargar y corregir los escudos
+    run: |
+      mkdir -p public/crests
+      cat > /tmp/escudos.cjs <<'EOF'
+      const fs = require('fs');
+      const sharp = require('sharp');
 
-          const headers = {
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125 Safari/537.36',
-            'Accept': 'text/html,image/avif,image/webp,image/png,image/jpeg,image/*,*/*'
-          };
+      async function descargar(url) {
+        const r = await fetch(url, {
+          headers: { 'User-Agent': 'Mozilla/5.0' },
+          redirect: 'follow'
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status + ' en ' + url);
+        return Buffer.from(await r.arrayBuffer());
+      }
 
-          async function get(url) {
-            const r = await fetch(url, {
-              headers,
-              redirect: 'follow',
-              signal: AbortSignal.timeout(30000)
-            });
+      async function guardar(id, fuentes, quitarBlanco = false) {
+        let buf, error;
+        for (const url of fuentes) {
+          try {
+            const b = await descargar(url);
+            const meta = await sharp(b, { animated: false }).metadata();
+            if (!meta.width || !meta.height) throw new Error('No es una imagen válida');
 
-            if (!r.ok) {
-              throw new Error(`HTTP ${r.status}: ${url}`);
-            }
+            let img = sharp(b).rotate().resize(500, 500, {
+              fit: 'contain',
+              background: { r: 0, g: 0, b: 0, alpha: 0 }
+            }).ensureAlpha();
 
-            return {
-              bytes: Buffer.from(await r.arrayBuffer()),
-              type: (r.headers.get('content-type') || '').toLowerCase(),
-              url: r.url
-            };
-          }
-
-          async function guardar(id, resultado) {
-            if (!resultado.type.startsWith('image/')) {
-              throw new Error(
-                `La fuente devolvió ${resultado.type}, no una imagen`
-              );
-            }
-
-            const meta = await sharp(resultado.bytes).metadata();
-
-            if (!meta.width || !meta.height ||
-                meta.width < 80 || meta.height < 80) {
-              throw new Error('Imagen inválida o demasiado pequeña');
-            }
-
-            const ratio = meta.width / meta.height;
-            if (ratio < 0.5 || ratio > 1.8) {
-              throw new Error(`Proporción sospechosa: ${ratio}`);
-            }
-
-            const png = await sharp(resultado.bytes)
-              .resize(500, 500, {
-                fit: 'contain',
-                background: {
-                  r: 255, g: 255, b: 255, alpha: 0
+            if (quitarBlanco) {
+              img = img.raw().toBuffer({ resolveWithObject: true }).then(({data, info}) => {
+                for (let i = 0; i < data.length; i += info.channels) {
+                  const r=data[i], g=data[i+1], b=data[i+2];
+                  if (r > 245 && g > 245 && b > 245) data[i+3] = 0;
                 }
-              })
-              .png()
-              .toBuffer();
-
-            fs.writeFileSync(`public/crests/${id}.png`, png);
-            console.log(`GUARDADO ${id}: ${resultado.url}`);
-          }
-
-          async function descargarDirecto(id, url) {
-            console.log('Descargando', id, url);
-            const resultado = await get(url);
-            await guardar(id, resultado);
-          }
-
-          async function provincial() {
-            const pagina =
-              'https://www.resultados-futbol.com/partidos/provincial-empalme-lobos';
-
-            console.log('Buscando el escudo de Unión Deportiva Provincial');
-            const resultado = await get(pagina);
-            const html = resultado.bytes.toString('utf8');
-
-            const tags = html.match(/<img\b[^>]*>/gi) || [];
-            const candidatos = [];
-
-            for (const tag of tags) {
-              const alt = (
-                tag.match(/\balt=["']([^"']*)["']/i) || [, '']
-              )[1];
-
-              const src = (
-                tag.match(/\b(?:src|data-src|data-original)=["']([^"']+)["']/i)
-                || [, '']
-              )[1];
-
-              if (!src) continue;
-
-              if (/escudo del club provincial/i.test(alt)) {
-                try {
-                  candidatos.push(new URL(
-                    src.replace(/&amp;/g, '&'), pagina
-                  ).href);
-                } catch {}
-              }
+                return sharp(data, {raw: info}).png().toBuffer();
+              });
+              buf = await img;
+            } else {
+              buf = await img.png().toBuffer();
             }
 
-            if (!candidatos.length) {
-              throw new Error(
-                'La ficha no expuso una imagen con el nombre del club'
-              );
-            }
-
-            let ultimoError;
-
-            for (const url of [...new Set(candidatos)]) {
-              try {
-                const imagen = await get(url);
-                await guardar('udprovincial', imagen);
-                return;
-              } catch (e) {
-                ultimoError = e;
-                console.log('Imagen descartada:', e.message);
-              }
-            }
-
-            throw ultimoError || new Error('No se encontró el escudo');
+            if (buf.length < 1000) throw new Error('Archivo demasiado pequeño');
+            fs.writeFileSync(`public/crests/${id}.png`, buf);
+            console.log('GUARDADO:', id, url);
+            return true;
+          } catch (e) {
+            error = e;
+            console.log('Falló fuente:', url, e.message);
           }
+        }
+        console.log('PENDIENTE:', id, error?.message || 'Sin fuente válida');
+        return false;
+      }
 
-          async function main() {
-            fs.mkdirSync('public/crests', { recursive: true });
-            const fallos = [];
+      (async () => {
+        const resultados = {};
 
-            const tareas = [
-              [
-                'barrancas',
-                () => descargarDirecto(
-                  'barrancas',
-                  'https://commons.wikimedia.org/wiki/Special:FilePath/Barrancas%20F%C3%BAtbol%20Club.png'
-                )
-              ],
-              [
-                'mandarinas',
-                () => descargarDirecto(
-                  'mandarinas',
-                  'https://commons.wikimedia.org/wiki/Special:FilePath/Club%20Deportivo%20y%20Fomento%20Las%20Mandarinas.png'
-                )
-              ],
-              ['udprovincial', provincial]
-            ];
+        resultados.mandarinas = await guardar('mandarinas', [
+          'https://commons.wikimedia.org/wiki/Special:FilePath/Club%20Deportivo%20y%20Fomento%20Las%20Mandarinas.png'
+        ], true);
 
-            for (const [id, tarea] of tareas) {
-              try {
-                await tarea();
-              } catch (e) {
-                console.log(`ERROR ${id}:`, e.message);
-                fallos.push(id);
-              }
-            }
+        resultados.udprovincial = await guardar('udprovincial', [
+          'https://w7.pngwing.com/pngs/989/604/png-transparent-club-union-deportiva-provincial-de-empalme-lobos-hd-logo.png',
+          'https://futbolinterior.com.ar/images/stories/clubes/34provincial.gif'
+        ]);
 
-            fs.writeFileSync(
-              'public/crests/promocional-pendientes.txt',
-              fallos.join('\n') + (fallos.length ? '\n' : '')
-            );
+        console.log('RESULTADO:', resultados);
+        if (!resultados.mandarinas || !resultados.udprovincial) process.exitCode = 1;
+      })();
+      EOF
+      node /tmp/escudos.cjs
 
-            console.log('RESULTADO:', {
-              corregidos: tareas.map(t => t[0]).filter(id => !fallos.includes(id)),
-              pendientes: fallos
-            });
-
-            if (fallos.length) process.exitCode = 1;
-          }
-
-          main().catch(e => {
-            console.error(e);
-            process.exitCode = 1;
-          });
-          NODE
-
-      - name: Guardar archivos generados
-        if: always()
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- public/crests
-          if ! git diff --cached --quiet; then
-            git commit -m "Reparar los tres escudos del Promocional Amateur"
-            git push
-          else
-            echo "No hay cambios para guardar"
-          fi
+  - name: Guardar cambios
+    if: always()
+    run: |
+      git add public/crests/mandarinas.png public/crests/udprovincial.png || true
+      if ! git diff --cached --quiet; then
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git commit -m "Corregir escudos de Mandarinas y Provincial"
+        git push
+      else
+        echo "No hay archivos nuevos para guardar."
+      fi
