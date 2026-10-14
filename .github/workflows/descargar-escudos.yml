@@ -1,147 +1,135 @@
-name: Corregir escudos Promocional Amateur
+name: Quitar fondo blanco de escudos
 
 'on':
-  workflow_dispatch:
+workflow_dispatch:
 
 permissions:
-  contents: write
+contents: write
 
 jobs:
-  escudos:
-    runs-on: ubuntu-latest
+quitar-fondo:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Descargar repositorio
-        uses: actions/checkout@v4
+steps:
+  - name: Descargar repositorio
+    uses: actions/checkout@v4
 
-      - name: Preparar Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+  - name: Preparar Node
+    uses: actions/setup-node@v4
+    with:
+      node-version: 20
 
-      - name: Instalar herramientas
-        run: npm install sharp
+  - name: Instalar Sharp
+    run: npm install --no-save sharp
 
-      - name: Descargar y corregir escudos
-        run: |
-          mkdir -p public/crests
+  - name: Quitar el fondo blanco conectado al borde
+    run: |
+      cat > limpiar-fondos.js <<'NODE'
+      const fs = require('fs');
+      const sharp = require('sharp');
 
-          cat > descargar.js <<'NODE'
-          const fs = require('fs');
-          const sharp = require('sharp');
+      const ids = ['udprovincial', 'defbelgranovr', 'vilelas'];
 
-          async function descargar(url) {
-            const r = await fetch(url, {
-              headers: { 'User-Agent': 'Mozilla/5.0' },
-              redirect: 'follow'
-            });
+      function esFondoBlanco(data, i) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const a = data[i + 3];
 
-            if (!r.ok) throw new Error('HTTP ' + r.status);
+        if (a === 0) return true;
 
-            const buffer = Buffer.from(await r.arrayBuffer());
-            const meta = await sharp(buffer).metadata();
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
 
-            if (!meta.width || !meta.height) {
-              throw new Error('La respuesta no es una imagen');
-            }
+        return min >= 218 && (max - min) <= 48;
+      }
 
-            return buffer;
-          }
+      async function limpiar(id) {
+        const archivo = 'public/crests/' + id + '.png';
 
-          async function guardar(id, urls, quitarBlanco = false) {
-            for (const url of urls) {
-              try {
-                const original = await descargar(url);
+        if (!fs.existsSync(archivo)) {
+          throw new Error('No existe el archivo: ' + archivo);
+        }
 
-                let salida = await sharp(original)
-                  .rotate()
-                  .resize(500, 500, {
-                    fit: 'contain',
-                    background: {
-                      r: 0, g: 0, b: 0, alpha: 0
-                    }
-                  })
-                  .ensureAlpha()
-                  .png()
-                  .toBuffer();
+        const { data, info } = await sharp(archivo)
+          .rotate()
+          .ensureAlpha()
+          .raw()
+          .toBuffer({ resolveWithObject: true });
 
-                if (quitarBlanco) {
-                  const resultado = await sharp(salida)
-                    .raw()
-                    .toBuffer({ resolveWithObject: true });
+        const { width, height, channels } = info;
+        const total = width * height;
+        const visitados = new Uint8Array(total);
+        const cola = new Int32Array(total);
+        let inicio = 0;
+        let fin = 0;
 
-                  const { data, info } = resultado;
+        function agregar(x, y) {
+          if (x < 0 || y < 0 || x >= width || y >= height) return;
 
-                  for (let i = 0; i < data.length; i += info.channels) {
-                    if (
-                      data[i] >= 248 &&
-                      data[i + 1] >= 248 &&
-                      data[i + 2] >= 248
-                    ) {
-                      data[i + 3] = 0;
-                    }
-                  }
+          const pixel = y * width + x;
+          if (visitados[pixel]) return;
 
-                  salida = await sharp(data, {
-                    raw: info
-                  }).png().toBuffer();
-                }
+          const i = pixel * channels;
+          if (!esFondoBlanco(data, i)) return;
 
-                fs.writeFileSync(
-                  'public/crests/' + id + '.png',
-                  salida
-                );
+          visitados[pixel] = 1;
+          cola[fin++] = pixel;
+        }
 
-                console.log('GUARDADO: ' + id);
-                return true;
+        for (let x = 0; x < width; x++) {
+          agregar(x, 0);
+          agregar(x, height - 1);
+        }
 
-              } catch (e) {
-                console.log('Fuente fallida para ' + id + ': ' + e.message);
+        for (let y = 0; y < height; y++) {
+          agregar(0, y);
+          agregar(width - 1, y);
+        }
+
+        while (inicio < fin) {
+          const pixel = cola[inicio++];
+          const x = pixel % width;
+          const y = Math.floor(pixel / width);
+          data[pixel * channels + 3] = 0;
+
+          for (let dy = -1; dy <= 1; dy++) {
+            for (let dx = -1; dx <= 1; dx++) {
+              if (dx !== 0 || dy !== 0) {
+                agregar(x + dx, y + dy);
               }
             }
-
-            console.log('PENDIENTE: ' + id);
-            return false;
           }
+        }
 
-          async function main() {
-            const mandarinas = await guardar('mandarinas', [
-              'https://commons.wikimedia.org/wiki/Special:FilePath/Club%20Deportivo%20y%20Fomento%20Las%20Mandarinas.png'
-            ], true);
+        const salida = await sharp(data, {
+          raw: { width, height, channels }
+        }).png().toBuffer();
 
-            const provincial = await guardar('udprovincial', [
-              'https://w7.pngwing.com/pngs/747/249/png-transparent-club-union-deportiva-provincial-de-empalme-lobos-hd-logo-thumbnail.png',
-              'https://futbolinterior.com.ar/escudos/ppal/ampesc.php?cod=417&idpcia=1'
-            ]);
+        fs.writeFileSync(archivo, salida);
+        console.log('CORREGIDO: ' + id + ', píxeles transparentados: ' + fin);
+      }
 
-            console.log('RESULTADO:', {
-              mandarinas,
-              udprovincial: provincial
-            });
+      (async () => {
+        for (const id of ids) {
+          await limpiar(id);
+        }
+      })().catch(error => {
+        console.error(error);
+        process.exitCode = 1;
+      });
+      NODE
 
-            if (!mandarinas || !provincial) {
-              process.exitCode = 1;
-            }
-          }
+      node limpiar-fondos.js
 
-          main().catch(e => {
-            console.error(e);
-            process.exitCode = 1;
-          });
-          NODE
-
-          node descargar.js
-
-      - name: Guardar cambios
-        if: success()
-        run: |
-          git add public/crests/mandarinas.png public/crests/udprovincial.png
-
-          if ! git diff --cached --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Corregir escudos de Mandarinas y Provincial"
-            git push
-          else
-            echo "No hay cambios para guardar."
-          fi
+  - name: Guardar escudos corregidos
+    run: |
+      git add public/crests/udprovincial.png public/crests/defbelgranovr.png public/crests/vilelas.png
+      if ! git diff --cached --quiet; then
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git commit -m "Quitar fondos blancos de tres escudos"
+        git push
+      else
+        echo "No se detectaron cambios en los escudos."
+      fi
