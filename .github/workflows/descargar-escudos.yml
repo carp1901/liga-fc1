@@ -1,5 +1,5 @@
 
-name: Descargar escudos Federal A
+name: Completar escudos faltantes
 
 on:
   workflow_dispatch:
@@ -18,215 +18,107 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Instalar conversor
+      - name: Instalar Sharp
         run: npm install --no-save sharp
 
-      - name: Descargar escudos desde Paladar Negro
+      - name: Descargar y convertir escudos
         run: |
           node <<'NODE'
           const fs = require('fs');
           const path = require('path');
           const sharp = require('sharp');
 
-          const base =
-            'https://paladarnegro.net/escudoteca/argentina/federala/png/';
-
-          const equipos = {
-            nuevejulio: ['9_de_julio'],
-            alvarado: ['alvarado'],
-            atenas: ['atenas', 'atenas_rio_cuarto'],
-            atsanmartinmza: ['atletico_san_martin', 'san_martin_mendoza'],
-            bmitre: ['bartolome_mitre'],
-            bocaunidos: ['boca_unidos'],
-            cipolletti: ['cipolletti'],
-
-            defbelgranovr: [
-              'defensores_belgrano_vr',
-              'defensores_de_belgrano_villa_ramallo',
-              'defensores_belgrano_villa_ramallo',
-              'defensores_de_belgrano_vr'
-            ],
-
-            rincon: [
-              'dep_rincon',
-              'deportivo_rincon',
-              'deportivo_rincon_de_los_sauces',
-              'rincon_de_los_sauces'
-            ],
-
-            soldeamerica: ['sol_de_america'],
-            soldemayo: ['sol_de_mayo'],
-            tucumancentral: [
-              'tucuman_central',
-              'central_tucuman',
-              'club_tucuman_central'
-            ],
-
-            costabrava: ['costa_brava'],
-            circulo: ['circulo_deportivo'],
-
-            fadep: [
-              'fadep',
-              'fundacion_amigos_por_el_deporte',
-              'fundacion_amigos_del_deporte'
-            ],
-
-            germinal: ['germinal'],
-
-            gbrown: [
-              'guillermobrown',
-              'guillermo_brown',
-              'brown_de_puerto_madryn',
-              'guillermo_brown_de_puerto_madryn'
-            ],
-
-            juventudsl: [
-              'juventud_unida_u',
-              'juventud_unida_universitario',
-              'juventud_unida_de_san_luis',
-              'juventud_unida_san_luis',
-              'juventud_unida_sl'
-            ],
-
-            santamarina: ['santamarina', 'santamarina_tandil'],
-            douglashaig: ['douglas_haig'],
-            gimchivilcoy: ['gimnasia_de_chivilcoy', 'gimnasia_chivilcoy'],
-            sanmartinformosa: ['san_martin_formosa'],
-
-            sarmientolb: [
-              'sarmiento_lb',
-              'sarmiento_la_banda',
-              'sarmiento_de_la_banda',
-              'club_sarmiento'
-            ],
-
-            sportivobelgrano: ['sportivo_belgrano'],
-            huracanlh: ['huracan_las_heras'],
-            olimpo: ['olimpo'],
-            antoniana: ['juventud_antoniana'],
-            linqueno: ['el_linqueno', 'linqueno'],
-            indchivilcoy: ['independiente_chivilcoy'],
-
-            escobar: [
-              'escobar_fc',
-              'atletico_escobar',
-              'deportivo_escobar'
-            ],
-
-            gimcdu: [
-              'gimansia_cdu',
-              'gimnasia_concepcion_del_uruguay',
-              'gimnasia_de_concepcion_del_uruguay',
-              'gimnasia_cdu'
-            ],
-
-            lasparejas: [
-              'sportivo_las_parejas',
-              'sportivo_de_las_parejas',
-              'las_parejas'
-            ],
-
-            vilelas: [
-              'defensores_de_vilelas',
-              'defensores_de_puerto_vilelas',
-              'defensores_vilelas'
-            ],
-
-            argmontemaiz: ['argentino_mm', 'argentino_monte_maiz'],
-            sarmientores: ['sarmiento_resistencia'],
-            estudiantessl: ['sportivo_estudiantes', 'estudiantes_san_luis']
-          };
-
           const dir = 'public/crests';
           fs.mkdirSync(dir, { recursive: true });
 
-          const pngMagic = Buffer.from([
-            137, 80, 78, 71, 13, 10, 26, 10
-          ]);
-
-          async function descargar(url) {
-            const r = await fetch(url, {
-              headers: { 'User-Agent': 'LigaFC crest downloader' },
-              signal: AbortSignal.timeout(15000)
-            });
-
-            if (!r.ok) {
-              throw new Error('HTTP ' + r.status);
-            }
-
-            const buffer = Buffer.from(await r.arrayBuffer());
-
-            if (buffer.length < 300) {
-              throw new Error('Archivo demasiado pequeño');
-            }
-
-            const metadata = await sharp(buffer).metadata();
-
-            if (!metadata.width || !metadata.height) {
-              throw new Error('Respuesta sin imagen válida');
-            }
-
-            const png = await sharp(buffer)
-              .resize(500, 500, {
-                fit: 'inside',
-                withoutEnlargement: true
-              })
-              .png()
-              .toBuffer();
-
-            if (!png.subarray(0, 8).equals(pngMagic)) {
-              throw new Error('La conversión a PNG falló');
-            }
-
-            return png;
-          }
+          const equipos = {
+            defbelgranovr: [
+              'https://paladarnegro.net/escudoteca/argentina/federala/png/defensores_belgrano_vr.png',
+              'https://paladarnegro.net/escudoteca/argentina/federala/png/defensores_de_belgrano_villa_ramallo.png'
+            ],
+            tucumancentral: [
+              'https://commons.wikimedia.org/wiki/Special:FilePath/Escudo_Club_Tucum%C3%A1n_Central.svg'
+            ],
+            fadep: [
+              'https://commons.wikimedia.org/wiki/Special:FilePath/Escudo_Fundaci%C3%B3n_Amigos_por_el_Deporte.png',
+              'https://paladarnegro.net/escudoteca/argentina/federala/png/fadep.png'
+            ],
+            escobar: [
+              'https://paladarnegro.net/escudoteca/argentina/federala/png/escobar_fc.png',
+              'https://paladarnegro.net/escudoteca/argentina/federala/png/atletico_escobar.png'
+            ],
+            lasparejas: [
+              'https://commons.wikimedia.org/wiki/Special:FilePath/Sportivo_lasparejas_2021.png',
+              'https://paladarnegro.net/escudoteca/argentina/federala/png/sportivo_las_parejas.png'
+            ],
+            vilelas: [
+              'https://paladarnegro.net/escudoteca/argentina/federala/png/defensores_de_vilelas.png',
+              'https://paladarnegro.net/escudoteca/argentina/federala/png/defensores_de_puerto_vilelas.png'
+            ]
+          };
 
           async function main() {
-            let nuevos = 0;
-            let conservados = 0;
             const faltantes = [];
 
-            for (const [id, nombres] of Object.entries(equipos)) {
+            for (const [id, urls] of Object.entries(equipos)) {
               const destino = path.join(dir, id + '.png');
 
               if (fs.existsSync(destino)) {
-                const actual = fs.readFileSync(destino);
-
-                if (actual.subarray(0, 8).equals(pngMagic)) {
-                  console.log('CONSERVADO:', id);
-                  conservados++;
-                  continue;
-                }
+                try {
+                  const meta = await sharp(destino).metadata();
+                  if (meta.width && meta.height) {
+                    console.log('YA EXISTE:', id);
+                    continue;
+                  }
+                } catch (_) {}
               }
 
-              let imagen = null;
+              let guardado = false;
 
-              for (const nombre of nombres) {
-                const url = base + encodeURIComponent(nombre) + '.png';
-
+              for (const url of urls) {
                 try {
-                  imagen = await descargar(url);
-                  console.log('ENCONTRADO:', url, '->', id + '.png');
+                  console.log('PROBANDO:', url);
+
+                  const r = await fetch(url, {
+                    headers: {
+                      'User-Agent': 'LigaFC/1.0 crest downloader'
+                    },
+                    signal: AbortSignal.timeout(20000)
+                  });
+
+                  if (!r.ok) {
+                    throw new Error('HTTP ' + r.status);
+                  }
+
+                  const buffer = Buffer.from(await r.arrayBuffer());
+
+                  if (buffer.length < 300) {
+                    throw new Error('Respuesta demasiado pequeña');
+                  }
+
+                  const png = await sharp(buffer, { failOn: 'error' })
+                    .resize(500, 500, {
+                      fit: 'inside',
+                      withoutEnlargement: true
+                    })
+                    .png()
+                    .toBuffer();
+
+                  await sharp(png).metadata();
+                  fs.writeFileSync(destino, png);
+
+                  console.log('GUARDADO:', destino);
+                  guardado = true;
                   break;
                 } catch (e) {
-                  console.log(
-                    'NO DISPONIBLE:',
-                    nombre + '.png',
-                    e.message
-                  );
+                  console.log('FALLO:', id, e.message);
                 }
               }
 
-              if (imagen) {
-                fs.writeFileSync(destino, imagen);
-                console.log('GUARDADO:', id + '.png');
-                nuevos++;
-              } else {
-                console.log('FALTANTE:', id);
+              if (!guardado) {
                 faltantes.push(id);
+                console.log('SIGUE FALTANDO:', id);
               }
-
-              await new Promise(resolve => setTimeout(resolve, 400));
             }
 
             fs.writeFileSync(
@@ -234,11 +126,8 @@ jobs:
               faltantes.join('\n') + (faltantes.length ? '\n' : '')
             );
 
-            console.log('-------------------------');
-            console.log('NUEVOS:', nuevos);
-            console.log('CONSERVADOS:', conservados);
-            console.log('FALTANTES:', faltantes.length);
-            console.log(faltantes.join(', ') || 'ninguno');
+            console.log('RESULTADO FINAL');
+            console.log('Faltantes:', faltantes.join(', ') || 'ninguno');
           }
 
           main().catch(e => {
@@ -247,14 +136,14 @@ jobs:
           });
           NODE
 
-      - name: Guardar escudos descargados
+      - name: Guardar archivos en GitHub
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Actualizar escudos Federal A desde Paladar Negro"
+            git commit -m "Completar escudos faltantes Federal A"
             git push
           else
-            echo "No hubo cambios para guardar"
+            echo "No hubo cambios nuevos"
           fi
