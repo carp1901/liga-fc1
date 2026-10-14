@@ -1,5 +1,5 @@
 
-name: Completar tres escudos
+name: Corregir escudos Federal A
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
       - name: Instalar Sharp
         run: npm install --no-save sharp
 
-      - name: Buscar y convertir escudos
+      - name: Descargar escudos correctos
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -33,138 +33,74 @@ jobs:
 
           const equipos = {
             defbelgranovr: [
-              'https://ligasargentinas.com.ar/club/defensores-belgrano-fa'
+              'https://ligasargentinas.com.ar/escudovacio.webp'
             ],
             escobar: [
-              'https://ligasargentinas.com.ar/club/atletico-escobar-fc'
+              'https://ligasargentinas.com.ar/escudovacio.webp'
             ],
             vilelas: [
-              'https://www.futbol360.com.ar/equipos/argentina/def.-de-vilelas/'
+              'https://commons.wikimedia.org/wiki/Special:FilePath/Club_Atl%C3%A9tico_Defensores_de_Vilelas.png'
             ]
           };
 
-          const cabeceras = {
-            'User-Agent': 'Mozilla/5.0 (compatible; LigaFC/1.0)',
-            'Accept': 'text/html,image/avif,image/webp,image/png,image/*,*/*'
-          };
-
-          async function obtener(url) {
+          async function descargar(url) {
             const r = await fetch(url, {
-              headers: cabeceras,
+              headers: {
+                'User-Agent': 'Mozilla/5.0 LigaFC crest downloader',
+                'Accept': 'image/avif,image/webp,image/png,image/*,*/*'
+              },
               signal: AbortSignal.timeout(20000)
             });
 
             if (!r.ok) throw new Error('HTTP ' + r.status);
-            return Buffer.from(await r.arrayBuffer());
-          }
 
-          function extraerImagenes(html, pagina) {
-            const resultados = [];
-            const etiquetas = html.match(/<img\b[^>]*>/gi) || [];
+            const b = Buffer.from(await r.arrayBuffer());
+            if (b.length < 1000) throw new Error('Archivo demasiado pequeño');
 
-            for (const tag of etiquetas) {
-              const alt = (tag.match(/\balt=["']([^"']*)["']/i) || [,''])[1];
-              const src =
-                (tag.match(/\b(?:src|data-src|data-original)=["']([^"']+)["']/i) || [,''])[1];
-
-              if (!src || src.startsWith('data:')) continue;
-
-              const texto = (alt + ' ' + src).toLowerCase();
-
-              if (
-                /escudo|defensores|vilelas|atletico-escobar|atletico_escobar/.test(texto)
-              ) {
-                try {
-                  resultados.push(new URL(src, pagina).href);
-                } catch (_) {}
-              }
+            const meta = await sharp(b).metadata();
+            if (!meta.width || !meta.height) throw new Error('Imagen inválida');
+            if (meta.width < 100 || meta.height < 100) {
+              throw new Error('Imagen demasiado pequeña');
             }
 
-            const og = html.match(
-              /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i
-            );
-
-            if (og) {
-              try {
-                resultados.push(new URL(og[1], pagina).href);
-              } catch (_) {}
-            }
-
-            return [...new Set(resultados)];
+            return sharp(b)
+              .resize(500, 500, {
+                fit: 'contain',
+                background: { r: 255, g: 255, b: 255, alpha: 0 },
+                withoutEnlargement: true
+              })
+              .png()
+              .toBuffer();
           }
 
           async function main() {
             const faltantes = [];
 
-            for (const [id, paginas] of Object.entries(equipos)) {
-              const destino = path.join(dir, id + '.png');
+            for (const [id, urls] of Object.entries(equipos)) {
+              let ok = false;
 
-              if (fs.existsSync(destino)) {
+              for (const url of urls) {
                 try {
-                  const m = await sharp(destino).metadata();
-                  if (m.width && m.height) {
-                    console.log('YA EXISTE, SE CONSERVA:', destino);
-                    continue;
-                  }
-                } catch (_) {}
-              }
+                  console.log('PROBANDO:', id, url);
+                  const png = await descargar(url);
 
-              let guardado = false;
-
-              for (const pagina of paginas) {
-                try {
-                  console.log('REVISANDO FICHA:', pagina);
-                  const html = (await obtener(pagina)).toString('utf8');
-                  const imagenes = extraerImagenes(html, pagina);
-
-                  console.log('IMAGENES CANDIDATAS:', imagenes.length);
-
-                  for (const url of imagenes) {
-                    try {
-                      console.log('PROBANDO IMAGEN:', url);
-                      const buffer = await obtener(url);
-
-                      if (buffer.length < 300) {
-                        throw new Error('Archivo demasiado pequeño');
-                      }
-
-                      const meta = await sharp(buffer).metadata();
-
-                      if (!meta.width || !meta.height) {
-                        throw new Error('No es una imagen válida');
-                      }
-
-                      if (meta.width < 60 || meta.height < 60) {
-                        throw new Error('Imagen demasiado pequeña');
-                      }
-
-                      const png = await sharp(buffer)
-                        .resize(500, 500, {
-                          fit: 'contain',
-                          background: { r: 255, g: 255, b: 255, alpha: 0 },
-                          withoutEnlargement: true
-                        })
-                        .png()
-                        .toBuffer();
-
-                      fs.writeFileSync(destino, png);
-                      console.log('GUARDADO:', destino, 'DESDE:', url);
-                      guardado = true;
-                      break;
-                    } catch (e) {
-                      console.log('IMAGEN DESCARTADA:', e.message);
-                    }
+                  // No guardar el placeholder de Ligas Argentinas.
+                  if (url.includes('escudovacio')) {
+                    throw new Error('Se rechaza el escudo genérico');
                   }
 
-                  if (guardado) break;
+                  fs.writeFileSync(path.join(dir, id + '.png'), png);
+                  console.log('GUARDADO:', id + '.png');
+                  ok = true;
+                  break;
                 } catch (e) {
-                  console.log('FALLO EN FICHA:', pagina, e.message);
+                  console.log('NO USADO:', id, e.message);
                 }
               }
 
-              if (!guardado) {
+              if (!ok) {
                 faltantes.push(id);
-                console.log('NO SE PUDO EXTRAER:', id);
+                console.log('FALTA ESCUDO REAL:', id);
               }
             }
 
@@ -173,9 +109,7 @@ jobs:
               faltantes.join('\n') + (faltantes.length ? '\n' : '')
             );
 
-            console.log('RESULTADO:', faltantes.length
-              ? 'Siguen faltando: ' + faltantes.join(', ')
-              : 'Se procesaron los tres escudos');
+            console.log('FALTANTES:', faltantes.join(', ') || 'ninguno');
           }
 
           main().catch(e => {
@@ -190,8 +124,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Completar escudos de Federal A"
+            git commit -m "Corregir escudos Federal A"
             git push
           else
-            echo "No hubo archivos nuevos"
+            echo "No hubo cambios nuevos"
           fi
