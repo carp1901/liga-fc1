@@ -1,5 +1,5 @@
 
-name: Corregir escudos Federal A
+name: Corregir Defensores VR y Escobar
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
       - name: Instalar Sharp
         run: npm install --no-save sharp
 
-      - name: Descargar escudos correctos
+      - name: Encontrar y convertir escudos
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -33,79 +33,139 @@ jobs:
 
           const equipos = {
             defbelgranovr: [
-              'https://ligasargentinas.com.ar/escudovacio.webp'
+              'https://www.pngegg.com/es/png-wwzte',
+              'https://ligasargentinas.com.ar/club/defensores-belgrano-fa'
             ],
             escobar: [
-              'https://ligasargentinas.com.ar/escudovacio.webp'
-            ],
-            vilelas: [
-              'https://commons.wikimedia.org/wiki/Special:FilePath/Club_Atl%C3%A9tico_Defensores_de_Vilelas.png'
+              'https://atleticoescobar.com.ar/',
+              'https://ligasargentinas.com.ar/club/atletico-escobar-fc'
             ]
           };
 
-          async function descargar(url) {
+          const headers = {
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125 Safari/537.36',
+            'Accept': 'text/html,image/avif,image/webp,image/png,image/*,*/*'
+          };
+
+          async function get(url) {
             const r = await fetch(url, {
-              headers: {
-                'User-Agent': 'Mozilla/5.0 LigaFC crest downloader',
-                'Accept': 'image/avif,image/webp,image/png,image/*,*/*'
-              },
-              signal: AbortSignal.timeout(20000)
+              headers,
+              signal: AbortSignal.timeout(25000)
             });
-
             if (!r.ok) throw new Error('HTTP ' + r.status);
+            return Buffer.from(await r.arrayBuffer());
+          }
 
-            const b = Buffer.from(await r.arrayBuffer());
-            if (b.length < 1000) throw new Error('Archivo demasiado pequeño');
+          function imageUrls(html, page, id) {
+            const out = [];
+            const add = value => {
+              if (!value) return;
+              try {
+                const u = new URL(value, page).href;
+                if (/escudovacio/i.test(u)) return;
+                if (!/\.(png|jpe?g|webp|gif|svg)(\?|$)/i.test(u)) return;
+                out.push(u);
+              } catch (_) {}
+            };
 
-            const meta = await sharp(b).metadata();
-            if (!meta.width || !meta.height) throw new Error('Imagen inválida');
-            if (meta.width < 100 || meta.height < 100) {
-              throw new Error('Imagen demasiado pequeña');
+            // Metadatos de la imagen principal
+            for (const m of html.matchAll(
+              /<meta[^>]+(?:property|name)=["'](?:og:image|twitter:image)["'][^>]+content=["']([^"']+)["'][^>]*>/gi
+            )) add(m[1]);
+
+            // Imágenes con nombres relacionados con el club
+            for (const m of html.matchAll(/<img\b[^>]*>/gi)) {
+              const tag = m[0];
+              const alt = (tag.match(/\balt=["']([^"']*)["']/i) || [, ''])[1];
+              const src =
+                (tag.match(/\b(?:src|data-src|data-original)=["']([^"']+)["']/i) || [, ''])[1];
+
+              const text = (alt + ' ' + src).toLowerCase();
+              const relevant = id === 'defbelgranovr'
+                ? /defensores|belgrano|villa.?ramallo|elefante/.test(text)
+                : /atletico.?escobar|atlético.?escobar|escudo|logo.?club/.test(text);
+
+              if (relevant) add(src);
             }
 
-            return sharp(b)
-              .resize(500, 500, {
-                fit: 'contain',
-                background: { r: 255, g: 255, b: 255, alpha: 0 },
-                withoutEnlargement: true
-              })
-              .png()
-              .toBuffer();
+            // En PNGEgg, obtener también la imagen asociada al título de la página
+            if (id === 'defbelgranovr') {
+              for (const m of html.matchAll(
+                /https?:\\?\/\\?\/[^"' <>]+?\.(?:png|webp|jpe?g)(?:\?[^"' <>]*)?/gi
+              )) {
+                if (/defensores|belgrano|wwzte/i.test(m[0])) add(m[0].replace(/\\/g, ''));
+              }
+            }
+
+            return [...new Set(out)];
           }
 
           async function main() {
             const faltantes = [];
 
-            for (const [id, urls] of Object.entries(equipos)) {
-              let ok = false;
+            for (const [id, pages] of Object.entries(equipos)) {
+              const destino = path.join(dir, id + '.png');
+              let success = false;
 
-              for (const url of urls) {
+              for (const page of pages) {
                 try {
-                  console.log('PROBANDO:', id, url);
-                  const png = await descargar(url);
+                  console.log('PÁGINA:', id, page);
+                  const html = (await get(page)).toString('utf8');
+                  const urls = imageUrls(html, page, id);
+                  console.log('CANDIDATAS:', urls.length);
 
-                  // No guardar el placeholder de Ligas Argentinas.
-                  if (url.includes('escudovacio')) {
-                    throw new Error('Se rechaza el escudo genérico');
+                  for (const url of urls) {
+                    try {
+                      console.log('IMAGEN:', url);
+                      const buffer = await get(url);
+
+                      if (buffer.length < 1000) {
+                        throw new Error('Archivo demasiado pequeño');
+                      }
+
+                      const meta = await sharp(buffer, {
+                        failOn: 'error'
+                      }).metadata();
+
+                      if (!meta.width || !meta.height ||
+                          meta.width < 100 || meta.height < 100) {
+                        throw new Error('No parece un escudo de tamaño válido');
+                      }
+
+                      const png = await sharp(buffer, {
+                        failOn: 'error'
+                      }).resize(500, 500, {
+                        fit: 'contain',
+                        background: {
+                          r: 255, g: 255, b: 255, alpha: 0
+                        },
+                        withoutEnlargement: true
+                      }).png().toBuffer();
+
+                      // Guardar solo después de convertir correctamente
+                      fs.writeFileSync(destino, png);
+                      console.log('GUARDADO:', destino);
+                      success = true;
+                      break;
+                    } catch (e) {
+                      console.log('DESCARTADA:', e.message);
+                    }
                   }
 
-                  fs.writeFileSync(path.join(dir, id + '.png'), png);
-                  console.log('GUARDADO:', id + '.png');
-                  ok = true;
-                  break;
+                  if (success) break;
                 } catch (e) {
-                  console.log('NO USADO:', id, e.message);
+                  console.log('FALLO DE FUENTE:', e.message);
                 }
               }
 
-              if (!ok) {
+              if (!success) {
                 faltantes.push(id);
-                console.log('FALTA ESCUDO REAL:', id);
+                console.log('NO ENCONTRADO:', id);
               }
             }
 
             fs.writeFileSync(
-              path.join(dir, 'faltantes-tres-escudos.txt'),
+              path.join(dir, 'faltantes-dos-escudos.txt'),
               faltantes.join('\n') + (faltantes.length ? '\n' : '')
             );
 
@@ -124,7 +184,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/crests
           if ! git diff --cached --quiet; then
-            git commit -m "Corregir escudos Federal A"
+            git commit -m "Corregir escudos de Defensores VR y Escobar"
             git push
           else
             echo "No hubo cambios nuevos"
