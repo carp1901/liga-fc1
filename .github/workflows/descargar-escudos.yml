@@ -1,3 +1,4 @@
+
 name: Descargar escudos Federal A
 
 on:
@@ -40,13 +41,14 @@ jobs:
             cipolletti: ['cipolletti'],
 
             defbelgranovr: [
+              'defensores_belgrano_vr',
               'defensores_de_belgrano_villa_ramallo',
               'defensores_belgrano_villa_ramallo',
-              'defensores_de_belgrano_vr',
-              'defensores_de_belgrano'
+              'defensores_de_belgrano_vr'
             ],
 
             rincon: [
+              'dep_rincon',
               'deportivo_rincon',
               'deportivo_rincon_de_los_sauces',
               'rincon_de_los_sauces'
@@ -54,7 +56,12 @@ jobs:
 
             soldeamerica: ['sol_de_america'],
             soldemayo: ['sol_de_mayo'],
-            tucumancentral: ['tucuman_central'],
+            tucumancentral: [
+              'tucuman_central',
+              'central_tucuman',
+              'club_tucuman_central'
+            ],
+
             costabrava: ['costa_brava'],
             circulo: ['circulo_deportivo'],
 
@@ -67,12 +74,14 @@ jobs:
             germinal: ['germinal'],
 
             gbrown: [
+              'guillermobrown',
               'guillermo_brown',
               'brown_de_puerto_madryn',
               'guillermo_brown_de_puerto_madryn'
             ],
 
             juventudsl: [
+              'juventud_unida_u',
               'juventud_unida_universitario',
               'juventud_unida_de_san_luis',
               'juventud_unida_san_luis',
@@ -85,6 +94,7 @@ jobs:
             sanmartinformosa: ['san_martin_formosa'],
 
             sarmientolb: [
+              'sarmiento_lb',
               'sarmiento_la_banda',
               'sarmiento_de_la_banda',
               'club_sarmiento'
@@ -104,6 +114,7 @@ jobs:
             ],
 
             gimcdu: [
+              'gimansia_cdu',
               'gimnasia_concepcion_del_uruguay',
               'gimnasia_de_concepcion_del_uruguay',
               'gimnasia_cdu'
@@ -152,7 +163,7 @@ jobs:
             const metadata = await sharp(buffer).metadata();
 
             if (!metadata.width || !metadata.height) {
-              throw new Error('Imagen inválida');
+              throw new Error('Respuesta sin imagen válida');
             }
 
             const png = await sharp(buffer)
@@ -198,7 +209,11 @@ jobs:
                   console.log('ENCONTRADO:', url, '->', id + '.png');
                   break;
                 } catch (e) {
-                  console.log('NO DISPONIBLE:', nombre + '.png', e.message);
+                  console.log(
+                    'NO DISPONIBLE:',
+                    nombre + '.png',
+                    e.message
+                  );
                 }
               }
 
