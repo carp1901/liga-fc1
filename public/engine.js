@@ -153,12 +153,14 @@ function rankInfo(r){const min=CFG.rankMin,h=r.order.filter(p=>!r.pl[p].bot).len
 // ---- Registro de títulos (Bloque 4). Solo en el servidor: server.js define CFG.onTitle (guarda en PostgreSQL). En el navegador (offline) no se registra nada.
 // Se llama UNA vez por torneo, cuando termina de forma normal (fase 'end' con campeón). El servidor vuelve a validar mínimo de personas y que el campeón sea un club de un jugador de la sala.
 const newTid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,10)+Math.random().toString(36).slice(2,8);
-function regTitle(r){if(r.titled)return;r.titled=1;if(r.offline||!CFG.onTitle)return;
+function regTitle(r){if(r.titled)return;r.titled=1;if(!CFG.onTitle)return;
  const k=rankInfo(r),dt=r.order.find(p=>!r.pl[p].bot&&r.pl[p].team==r.champ);
- if(!r.champ||!dt||!TM[r.champ]){r.tit={st:'no',why:'campeon'};return}
- if(!k.ok||k.h<k.min){r.tit={st:'no',why:'minimo'};return}
+ // OFFLINE: el torneo se juega en el dispositivo y el servidor no puede comprobar los partidos: se informa solo si ganó el club del jugador y se guarda aparte (modalidad 'offline', sin verificar).
+ if(r.offline){if(!dt||!TM[r.champ])return}
+ else{if(!r.champ||!dt||!TM[r.champ]){r.tit={st:'no',why:'campeon'};return}
+  if(!k.ok||k.h<k.min){r.tit={st:'no',why:'minimo'};return}}
  const cup=r.cfg.cup?CUPS.find(x=>'cup:'+x.id==r.cfg.div):null,dv=cup?null:DIVS.find(d=>d.id==r.cfg.div);
- const rec={tid:r.tid,club:r.champ,clubNombre:TM[r.champ].name,dt:r.pl[dt].name,mod:cup?'barrial':'clasico',comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':String(r.cfg.div)),fmt:r.cfg.fmt,n:k.h,at:Date.now()};
+ const rec={tid:r.tid,club:r.champ,clubNombre:TM[r.champ].name,dt:r.pl[dt].name,mod:r.offline?'offline':cup?'barrial':'clasico',comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':String(r.cfg.div)),fmt:r.cfg.fmt,n:r.offline?r.cfg.n:k.h,at:Date.now()};
  r.tit={st:'pend'};let p;try{p=Promise.resolve(CFG.onTitle(rec))}catch(e){p=Promise.reject(e)}
  p.then(x=>{r.tit=x&&x.status=='disabled'?{st:'no',why:'sin_db'}:{st:'ok',dup:!!(x&&x.status=='duplicate')};push(r)},e=>{r.tit={st:'err'};push(r);console.error('título no registrado:',e&&e.message)})}
 const API={act,listen,rooms,CFG,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
