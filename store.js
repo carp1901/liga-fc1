@@ -20,13 +20,15 @@ CREATE TABLE IF NOT EXISTS titulos(
 CREATE INDEX IF NOT EXISTS titulos_club_idx ON titulos(club);
 CREATE INDEX IF NOT EXISTS titulos_comp_idx ON titulos(modalidad, competicion);
 `;
-const INSERT=`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado)
- VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) ON CONFLICT (torneo_id) DO NOTHING RETURNING id`;
+const INSERT=`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado,verificacion)
+ VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) ON CONFLICT (torneo_id) DO NOTHING RETURNING id`;
+// Para rankings: se leen los títulos válidos y se agrupan en JS (rankRows). Consulta simple a propósito.
+const ALL=`SELECT club,club_nombre,modalidad,competicion,formato,finalizado FROM titulos WHERE estado='valido'`;
 const LIST=`SELECT id,torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,verificacion,estado,finalizado
  FROM titulos WHERE estado='valido' ORDER BY finalizado DESC, id DESC LIMIT $1`;
 const COUNT=`SELECT count(*)::int AS n FROM titulos WHERE estado='valido'`;
 
-let pool=null,configured=false,schemaP=null,lastErr='';
+let pool=null,configured=false,schemaP=null,lastErr='',cache=null;
 const RETRIES=+process.env.TITLE_RETRIES||20,RETRY_MS=+process.env.TITLE_RETRY_MS||30000;
 
 function sslFor(url){
@@ -53,8 +55,8 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
 async function insertOnce(rec){
   await ensure();
-  const r=await pool.query(INSERT,[rec.tid,rec.club,rec.clubNombre,rec.dt||null,rec.mod,rec.comp,rec.compNombre,rec.fmt,rec.n,new Date(rec.at||Date.now()).toISOString()]);
-  lastErr='';return r.rowCount>0?{status:'inserted'}:{status:'duplicate'};
+  const r=await pool.query(INSERT,[rec.tid,rec.club,rec.clubNombre,rec.dt||null,rec.mod,rec.comp,rec.compNombre,rec.fmt,rec.n,new Date(rec.at||Date.now()).toISOString(),rec.ver||'pid-navegador']);
+  cache=null;lastErr='';return r.rowCount>0?{status:'inserted'}:{status:'duplicate'};
 }
 // Registra el título. Si la base no responde, reintenta (la fila es idempotente por torneo_id).
 async function register(rec){
@@ -71,5 +73,26 @@ async function list(limit){
   const [a,b]=await Promise.all([pool.query(LIST,[Math.max(1,Math.min(500,+limit||100))]),pool.query(COUNT)]);
   return{enabled:true,total:b.rows[0].n,titulos:a.rows};
 }
+// Ranking: títulos por club. mod: online (clásico+barrial) | clasico | barrial | offline. comp: id de competición/división. fmt: liga | copa.
+// Empates: comparten posición (1,1,3…) y se listan por orden alfabético.
+function rankRows(rows,f){
+  f=f||{};const mod=f.mod||'online';
+  const pass=r=>(mod=='online'?(r.modalidad=='clasico'||r.modalidad=='barrial'):r.modalidad==mod)&&(!f.comp||r.competicion==f.comp)&&(!f.fmt||(f.fmt=='copa'?r.formato=='copa':String(r.formato).startsWith('liga')));
+  const by=new Map();let total=0;
+  for(const r of rows){if(!pass(r))continue;total++;const t=new Date(r.finalizado).getTime()||0,x=by.get(r.club);
+    if(x){x.titulos++;if(t>=x.t){x.t=t;x.nombre=r.club_nombre}}else by.set(r.club,{club:r.club,nombre:r.club_nombre,titulos:1,t})}
+  const a=[...by.values()].sort((p,q)=>q.titulos-p.titulos||String(p.nombre).localeCompare(String(q.nombre),'es'));
+  let pos=0;a.forEach((x,i)=>{if(i==0||x.titulos!=a[i-1].titulos)pos=i+1;x.pos=pos});
+  a.forEach(x=>{x.empate=a.filter(y=>y.pos==x.pos).length>1;x.ultimo=x.t?new Date(x.t).toISOString():null;delete x.t});
+  return{total,rows:a};
+}
+async function ranking(f){
+  if(!configured)return{enabled:false,total:0,rows:[]};
+  await ensure();
+  if(!cache||Date.now()-cache.at>10000)cache={at:Date.now(),rows:(await pool.query(ALL)).rows};
+  return{enabled:true,...rankRows(cache.rows,f)};
+}
+// Un solo intento (para pedidos HTTP; el cliente reintenta si falla).
+const insert=rec=>configured?insertOnce(rec):Promise.resolve({status:'disabled'});
 const status=()=>!configured?'off':lastErr?'error':'ok';
-module.exports={init,register,list,status,SCHEMA,INSERT,LIST,COUNT};
+module.exports={init,register,insert,list,ranking,rankRows,status,SCHEMA,INSERT,LIST,COUNT,ALL};
