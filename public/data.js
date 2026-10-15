@@ -235,6 +235,8 @@ const phDelta=(ph,line)=>{const o=PHIL[ph],w=(PROFILES[line]||PROFILES.MED).w;le
 const phApply=(at,line,ph)=>{const o=PHIL[ph]&&PHIL[ph].off[line];if(!o)return at;const n={...at};for(const a in o)n[a]=clampA(n[a]+o[a]);return n};
 // Fuerza efectiva en el modo normal: las diferencias reales entre jugadores se atenúan (K) alrededor de C al calcular el partido; los datos no se modifican.
 const NORMAL={K:.5,C:62};
-const API={NORMAL,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
+// Torneos barriales: región y formatos que ofrece cada competición (liga1/liga2 = todos contra todos, copa = eliminación directa).
+const CUP_META={sur:{region:'Conurbano Sur',fmts:['liga1','liga2','copa']},oeste:{region:'Conurbano Oeste',fmts:['liga1','liga2','copa']},norte:{region:'Conurbano Norte',fmts:['liga1','liga2','copa']},caba:{region:'CABA',fmts:['liga1','liga2','copa']},cuyo:{region:'Cuyo',fmts:['liga1','liga2','copa']},litoral:{region:'Litoral',fmts:['liga1','liga2','copa']},noa:{region:'NOA',fmts:['liga1','liga2','copa']},patagonia:{region:'Patagonia',fmts:['liga1','liga2']},cordoba:{region:'Córdoba',fmts:['liga1','liga2']},bonaerense:{region:'Provincia de Buenos Aires',fmts:['liga1','liga2','copa']}};
+const API={CUP_META,NORMAL,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
 
 })();
