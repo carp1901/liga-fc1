@@ -24,7 +24,7 @@ class Sim{
  near(arr,pt){return arr.reduce((b,p)=>!b||dist(p,pt)<dist(b,pt)?p:b,null)}
  psp(d){return clamp(d/24,3.8,6.2)*this.fs}
  kick(tx,ty,sp,recv,cv){const S=this,B=S.B;sp*=S.vs;const dx=tx-B.x,dy=ty-B.y,d=Math.hypot(dx,dy)||1;S.tr.push({x0:B.x,y0:B.y,x1:tx,y1:ty,n:S.n});if(S.tr.length>6)S.tr.shift();S.passes++;S.link=B.own&&recv?{a:B.own,b:recv,n:S.n}:null;
-  if(B.own){B.own.cool=14;S.prev=B.own;B.x+=dx/d*(R+BR+1);B.y+=dy/d*(R+BR+1)}const c=cv===undefined?(d>90?(rnd()<.5?-1:1)*(.006+rnd()*.01):0):cv,ang=Math.atan2(dy,dx)-c*(d/sp)/2;B.vx=Math.cos(ang)*sp;B.vy=Math.sin(ang)*sp;B.cv=c;B.own=null;B.recv=recv||null}
+  if(B.own){B.own.cool=14;S.prev=B.own;B.x+=dx/d*(R+BR+1);B.y+=dy/d*(R+BR+1)}const c=cv===undefined?(d>90?(rnd()<.5?-1:1)*(.006+rnd()*.01):0):cv,ang=Math.atan2(dy,dx)-c*(d/sp)/2+S.passErr(B.own,recv,d);B.vx=Math.cos(ang)*sp;B.vy=Math.sin(ang)*sp;B.cv=c;B.own=null;B.recv=recv||null}
  kickAt(q,sp,lead){const B=this.B,d=dist(q,B),t=d/sp,l=lead||.7;this.kick(q.x+q.vx*t*l,q.y+q.vy*t*l,sp,q)}
  setCtx(min,sc){this.ctx={min,sc}}
  setYel(s,list){this.P.forEach(p=>{if(p.s===s)p.yel=!!(list&&list.includes(p.k))})}
@@ -33,6 +33,10 @@ class Sim{
  markShot(k,x,y){const B=this.B;this.shot={x0:B.x,y0:B.y,x1:x,y1:y,n:this.n,k}}
  won(d,o){const S=this,B=S.B;o.cool=18;B.own=d;B.recv=null;d.hold=0;d.wait=24+Math.floor(rnd()*20);S.checkCounter(d)}
  checkCounter(p){const S=this,B=S.B;if(S.sc||(S.counter&&S.n<S.counter.t+120))return;const u=p.s?1-(B.x-X0)/FW:(B.x-X0)/FW,tt=S.T[p.s];if(u<.6&&S.P.some(q=>q.s==p.s&&q.wide&&!q.off)&&(tt[2]==1||(tt[0]>=1&&rnd()<.5)||rnd()<.25||(S.T[1-p.s][0]==2&&rnd()<.35))){S.counter={s:p.s,t:S.n+170};S.counterN=(S.counterN||0)+1}}
+ // ----- atributos de los jugadores (los entrega el cliente/servidor: setSk(lado,[atributos por puesto del 11])) -----
+ sv(p,a){const q=this.sk&&this.sk[p.s]&&this.sk[p.s][p.k];return q?q[a]:62}
+ setSk(s,arr){if(!this.sk)this.sk=[null,null];this.sk[s]=arr}
+ passErr(o,recv,d){if(!o||!recv||this.sc||!this.sk)return 0;const sg=.01+(100-this.sv(o,'pas'))*.0045;return(rnd()+rnd()+rnd()-1.5)*2*sg*(.6+d/260)}   // pases: el error crece con la distancia y baja con el atributo de pase
  pass(o){const S=this,opp=S.P.filter(q=>q.s!==o.s&&!q.off),dir=o.s?-1:1,tt=S.T[o.s],fw0=[.35,.55,.85][tt[0]],press=opp.some(z=>dist(z,o)<32);const uo=o.s?1-(o.x-X0)/FW:(o.x-X0)/FW;
   if(!S.sc&&Math.abs(o.y-H/2)>FH*.25&&rnd()<.18){const up=o.y<H/2;S.kick(clamp(o.x+(o.s?-1:1)*(70+rnd()*70),X0+40,X0+FW-40),up?Y0-30:Y0+FH+30,7.5,null);return}   // pase que se va por la línea: saque de banda
   const sal=tt[3]||0,upf=q=>q.fb&&(tt[0]==2||(tt[0]==1&&((q.hy0<.5)==(S.fbSide[o.s]==0))));
@@ -42,7 +46,7 @@ class Sim{
   if(outl&&sal==2&&!press){const nine=S.P.filter(q=>q.s==o.s&&q.l==3&&!q.off).sort((a,b)=>Math.abs(a.y-H/2)-Math.abs(b.y-H/2))[0];if(nine){S.longTo(o,nine);return}}   // salida directa: pelotazo al 9
   for(const q of S.P){if(q===o||q.s!==o.s||q.off)continue;const d=dist(q,o);if(d<45||d>(cnt||press?420:340))continue;
    const open=Math.min(220,...opp.map(z=>dist(z,q))),lane=Math.min(120,...opp.map(z=>segD(o,q,z))),fw=dir*(q.x-o.x);
-   let sc=fw*fwE+open*.5+lane*1.2-d*.2+(q.k==0?-120:0)+(press?-fw*.25:0)+rnd()*45;
+   let sc=fw*fwE+open*.5+lane*1.2-d*.2+(q.k==0?-120:0)+(press?-fw*.25:0)+rnd()*(18+(100-S.sv(o,'pas'))*.45);
    {const adel=fw>25&&lane>38,cost=Math.abs(fw)<=25&&lane>38;if(md!='protect'){if(adel)sc+=38+Math.min(fw,160)*.18;else if(cost)sc+=14;if(fw<-30&&!press&&q.k>0)sc-=50}if(press&&fw<-20&&q.k>0&&lane>40)sc+=40}
    if(fw>110&&lane>45)sc+=30;                                   // pase entre líneas
    if(tt[2])sc+=Math.abs(q.y-H/2)*.12;if(build){if(d>200)sc-=(d-200)*1.3;sc+=q.l<=2?25:-25}else if(!cnt&&!press&&d>280)sc-=(d-280)*.9;if(cnt&&q.wide&&fw>80)sc+=55;if(q.fb&&(q.s?1-(q.x-X0)/FW:(q.x-X0)/FW)>.6&&lane>40)sc+=75;if(md=='protect'){sc+=lane*.6;if(d>200)sc-=(d-200)*.8}if(md=='chase'&&d>280)sc+=(d-280)*.3;if(q.k==0&&press&&(o.s?1-(o.x-X0)/FW:(o.x-X0)/FW)<.4)sc+=140;if(S.run&&q===S.run.p&&S.n<S.run.t&&lane>35)sc+=95;                          // juego por las bandas
@@ -194,7 +198,7 @@ class Sim{
   const LL=[0,1].map(s=>{const o=P.filter(z=>z.s!==s&&!z.off&&z.k>0);return o.length?(s?Math.min(...o.map(z=>z.x)):Math.max(...o.map(z=>z.x))):null});
   P.forEach(p=>{if(p.off)return;if(p.swpT&&S.n>=p.swpT){p.hy=p.hy0;p.swpT=0;p.wide=p.l>=2&&Math.abs(p.hy0-.5)>.22}let tx,ty,vm=p.l==0?1.5:1.9;const tt=S.T[p.s];
    if(p.k==0){const gx0=p.s?X0+FW:X0,dgx=p.s?-1:1,bd=Math.abs(B.x-gx0),rival=B.own&&B.own.s!==p.s,adv=rival?clamp((260-bd)*.28,0,64):clamp((200-bd)*.1,0,16);   // achica hasta el borde del área
-     tx=gx0+dgx*(14+adv);const side=clamp((B.y-H/2)/(bd*.5+70),-1,1);ty=H/2+side*(rival?42:30)+Math.sin(S.n/20+p.s*2)*6;vm=2.4;   // tapa el palo del lado de la pelota y nunca está quieto
+     tx=gx0+dgx*(14+adv);const side=clamp((B.y-H/2)/(bd*.5+70),-1,1);ty=H/2+side*(rival?42:30)+Math.sin(S.n/20+p.s*2)*6;vm=2.2+S.sv(p,'ref')/400;   // tapa el palo del lado de la pelota y nunca está quieto
      if(B.own===p){tx=gx0+dgx*30;ty=H/2+Math.sin(S.n/30)*14;vm=1.2}
      else if(!B.own&&!S.sc&&dist(p,B)<170&&dist(p,B)<nd[1-p.s]){tx=B.x;ty=B.y;vm=3}}   // sale a cortar balones largos y pases al vacío
    else{const att=S.poss==p.s,bu=p.s?1-bnx:bnx,wl=[0,.6,.78,.9][p.l],adv=[.7,1,1.35][tt[0]];
@@ -206,7 +210,7 @@ class Sim{
     if(att&&p.fb&&tt[0]>0&&(tt[0]==2||((p.hy0<.5)==(S.fbSide[p.s]==0)))&&bu>.5&&B.own!==p&&!p.tg){tx=X0+(p.s?1-.74:.74)*FW;ty=Y0+(p.hy<.5?.07:.93)*FH;vm=2.4}   // lateral llegador: sube por la banda hasta el fondo
     const og=p.s?1:-1;   // sentido hacia su propio arco
     if(!att&&!p.tg&&B.own!==p){const mk=S.mkm[p.s].get(p),car=B.own&&B.own.s!==p.s?B.own:B;   // cada marcador con su par: se para en la línea de pase entre el rival y la pelota
-     if(mk&&bu<.72){const man=(tt[4]||0)==1;if(man||dist(mk,p)<(p.l==1?120:90)){const kk=man?.08:.14,ly=mk.y+(car.y-mk.y)*kk;tx=mk.x+(car.x-mk.x)*kk+og*(p.l==1?16:10);ty=man?ly:ly*.6+ty*.4;vm=2.2}}}
+     if(mk&&bu<.72){const man=(tt[4]||0)==1;if(man||dist(mk,p)<(p.l==1?120:90)){const kk=(man?.08:.14)*clamp(.6+S.sv(p,'ant')/100,.8,1.5),ly=mk.y+(car.y-mk.y)*kk;tx=mk.x+(car.x-mk.x)*kk+og*(p.l==1?16:10);ty=man?ly:ly*.6+ty*.4;vm=2.2}}}
     if(p.piv&&B.own!==p&&!p.tg){   // el 5: se ofrece en la salida, tapa delante de los centrales y presiona
      if(S.build&&S.build.s===p.s){tx=X0+(p.s?1-.24:.24)*FW;ty=H/2+clamp((B.y-H/2)*.2,-30,30);vm=2.2}
      else if(!att){tx=X0+(p.s?1-.31:.31)*FW;ty=Y0+clamp(bny,.25,.75)*FH;vm=2.2}
@@ -215,7 +219,7 @@ class Sim{
     if(S.build&&S.build.s===p.s&&(tt[3]||0)==0&&p.fb&&!p.tg&&B.own!==p&&B.own&&B.own.s===p.s&&B.own.l<=1&&bu<.3){tx=X0+(p.s?1-.27:.27)*FW;ty=Y0+(p.hy0<.5?.12:.88)*FH;vm=2.2}
     if(att&&B.own&&B.own!==p&&B.own.s===p.s&&(p.l==3||p.wide)&&!p.tg&&LL[p.s]!=null){
      if(p.runUntil>S.n){tx=LL[p.s]+(p.s?-1:1)*38;ty=Y0+Math.max(.1,Math.min(.9,p.hy+(.5-p.hy)*.25))*FH;vm=2.8;S.run={p,t:p.runUntil}}      // pica al vacío, a la espalda de la defensa
-     else if(S.n>(p.runCool||0)&&B.own.hold>6&&rnd()<.012&&(p.s?p.x>LL[1]+10:p.x<LL[0]-10)&&dist(B.own,p)>60){p.runUntil=S.n+55;p.runCool=S.n+170;S.runN=(S.runN||0)+1}}
+     else if(S.n>(p.runCool||0)&&B.own.hold>6&&rnd()<.012*(.55+S.sv(p,'des')/110)&&(p.s?p.x>LL[1]+10:p.x<LL[0]-10)&&dist(B.own,p)>60){p.runUntil=S.n+55;p.runCool=S.n+170;S.runN=(S.runN||0)+1}}
     if(B.own===p){{const blk=P.some(z=>z.s!==p.s&&!z.off&&z.k>0&&Math.abs(z.y-p.y)<48&&(p.s?-1:1)*(z.x-p.x)>0&&(p.s?-1:1)*(z.x-p.x)<92);if(blk){tx=p.x+p.fx*10;ty=p.y+(p.y<H/2?1:-1)*28;vm=1.5}else{tx=p.x+p.fx*22;ty=p.y+p.fy*22;vm=1.4}}   // juega para el costado si lo marcan, sin salir corriendo
      if(S.mode(p.s)=='protect'&&bu>.55){tx=X0+(p.s?.05:.95)*FW;ty=p.y<H/2?Y0+36:Y0+FH-36;vm=1.5}}   // si va ganando, conduce al córner y aguanta
     else if(B.recv===p||(S.sc&&S.sc.wait===p)){tx=B.x+B.vx*10;ty=B.y+B.vy*10;vm=3}
@@ -234,7 +238,7 @@ class Sim{
    else{const v=Math.hypot(p.vx,p.vy);if(v>.3){p.fx=p.vx/v;p.fy=p.vy/v}}});
   for(let i=0;i<P.length;i++){const a=P[i];if(a.off)continue;for(let j=i+1;j<P.length;j++){const b=P[j];if(b.off)continue;const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
    const lim=a.s===b.s?R*2.5:R*1.8;if(d<lim&&d>.01){const f=(lim-d)/2/d;a.x-=dx*f*.5;a.y-=dy*f*.5;b.x+=dx*f*.5;b.y+=dy*f*.5}}}
-  if(B.own){const o=B.own;if(o.off)B.own=null;else{const tx0=o.x+o.fx*(R+BR),ty0=o.y+o.fy*(R+BR),kk=o.hold<8?.4:1;B.x+=(tx0-B.x)*kk;B.y+=(ty0-B.y)*kk;B.vx=B.vy=0;B.cv=0;S.poss=o.s;o.hold++;if(!S.sc){const dd=S.near(P.filter(z=>z.s!==o.s&&!z.off&&z.k>0&&z.cool<=0),o);if(dd&&dist(dd,o)<R*2.3){const t2=S.T[dd.s];if(rnd()<.0045*(t2[0]==0?1.8:t2[0]==2?.8:1)*[.8,1,1.35][t2[1]]*(dd.yel?.25:1)){S.won(dd,o);S.tackles=(S.tackles||0)+1;return}}if(dd&&dist(dd,o)<R*2.6&&o.hold>14)o.wait=Math.min(o.wait,o.hold+4);if(o.hold>o.wait){S.pass(o);o.wait=S.hold(o)}}}}
+  if(B.own){const o=B.own;if(o.off)B.own=null;else{const tx0=o.x+o.fx*(R+BR),ty0=o.y+o.fy*(R+BR),kk=o.hold<8?.4:1;B.x+=(tx0-B.x)*kk;B.y+=(ty0-B.y)*kk;B.vx=B.vy=0;B.cv=0;S.poss=o.s;o.hold++;if(!S.sc){const dd=S.near(P.filter(z=>z.s!==o.s&&!z.off&&z.k>0&&z.cool<=0),o);if(dd&&dist(dd,o)<R*2.3){const t2=S.T[dd.s];if(rnd()<.0045*(t2[0]==0?1.8:t2[0]==2?.8:1)*[.8,1,1.35][t2[1]]*(dd.yel?.25:1)*clamp(1+(S.sv(dd,'mar')-(S.sv(o,'reg')*.6+S.sv(o,'ctl')*.4))/110,.55,1.7)){S.won(dd,o);S.tackles=(S.tackles||0)+1;(S.tkS||(S.tkS=[0,0]))[dd.s]++;return}}if(dd&&dist(dd,o)<R*2.6&&o.hold>14)o.wait=Math.min(o.wait,o.hold+4);if(o.hold>o.wait){S.pass(o);o.wait=S.hold(o)}}}}
   else{if(B.cv){const cc=Math.cos(B.cv),ss=Math.sin(B.cv),nvx=B.vx*cc-B.vy*ss;B.vy=B.vx*ss+B.vy*cc;B.vx=nvx}B.x+=B.vx;B.y+=B.vy;B.vx*=.985;B.vy*=.985;const mouth=B.y>GY0&&B.y<GY1;
    const live=!S.sc&&S.prev&&!S.frozen,oobs=S.sc&&S.sc.k=='oob';   // en juego libre la pelota sale de verdad por la línea (no rebota como en una pared)
    if(live&&(B.y<Y0-BR-2||B.y>Y0+FH+BR+2)){S.outBall(B.y<H/2?'t':'b');return}
@@ -242,11 +246,13 @@ class Sim{
    if(!live&&!oobs){if(B.y<Y0+BR){B.y=Y0+BR;B.vy=Math.abs(B.vy)*.7}if(B.y>Y0+FH-BR){B.y=Y0+FH-BR;B.vy=-Math.abs(B.vy)*.7}}
    if(!oobs){if(B.x<X0+BR&&!B.free&&(!live||mouth)){B.x=X0+BR;B.vx=Math.abs(B.vx)*.7}if(B.x>X0+FW-BR&&!B.free&&(!live||mouth)){B.x=X0+FW-BR;B.vx=-Math.abs(B.vx)*.7}}
    if(B.free){if(B.x<X0-24){B.x=X0-24;B.vx=0}if(B.x>X0+FW+24){B.x=X0+FW+24;B.vx=0}}
-   for(const p of P){if(p.off||p.cool>0)continue;if(dist(p,B)>=R+BR+1)continue;
+   for(const p of P){if(p.off||p.cool>0)continue;const rr=R+BR+1+((B.recv&&B.recv!==p&&S.prev&&p.s!==S.prev.s&&!S.sc&&S.sk)?clamp((S.sv(p,'ant')-62)/9,-3,4):0);if(dist(p,B)>=rr)continue;   // anticipación: el que lee mejor el pase llega a cortarlo desde más lejos
+   
     if(S.sc&&S.sc.wait!==p)continue;if(S.sc&&S.sc.ph=='g')continue;
-    if(B.recv!==p&&p.k!==0&&!S.sc&&Math.hypot(B.vx,B.vy)>4.8&&rnd()<.35)continue;
+    if(B.recv===p&&!S.sc&&S.sk&&Math.hypot(B.vx,B.vy)>1.8&&rnd()<clamp(.06+(62-S.sv(p,'ctl'))*.003,.01,.18)){p.cool=16;B.vx*=.55;B.vy=B.vy*.55+(rnd()-.5)*2.4;B.recv=null;(S.ctlF||(S.ctlF=[0,0]))[p.s]++;continue}   // mal control: la pelota se le escapa
+    if(B.recv!==p&&p.k!==0&&!S.sc&&Math.hypot(B.vx,B.vy)>4.8&&rnd()<clamp(.35+(62-S.sv(p,'ant'))/220,.2,.5))continue;   // anticipación: el que lee mejor la jugada la corta más
     if(!S.sc&&S.prev&&S.prev!==p&&S.prev.s===p.s&&S.prev.k>0)S.runner={p:S.prev,t:S.n+60};
-    if(B.recv&&B.recv!==p&&S.prev&&p.s!==S.prev.s&&!S.sc)S.icp=(S.icp||0)+1;const was=S.poss;B.own=p;B.recv=null;B.free=false;p.hold=0;p.wait=S.hold(p);if(was!==p.s&&!S.sc)S.checkCounter(p);break}}
+    if(B.recv&&B.recv!==p&&S.prev&&p.s!==S.prev.s&&!S.sc){S.icp=(S.icp||0)+1;(S.icS||(S.icS=[0,0]))[p.s]++}const was=S.poss;B.own=p;B.recv=null;B.free=false;p.hold=0;p.wait=S.hold(p);if(was!==p.s&&!S.sc)S.checkCounter(p);break}}
   {const dx=B.x-(S.lbx===undefined?B.x:S.lbx),dy=B.y-(S.lby===undefined?B.y:S.lby),dd=Math.hypot(dx,dy);B.rot=(B.rot||0)+dd/BR;S.lbx=B.x;S.lby=B.y;if(dd>.6)S.trail.push({x:B.x,y:B.y,n:S.n});while(S.trail.length&&S.n-S.trail[0].n>22)S.trail.shift()}}
 }
 const API={Sim,W,H,X0,Y0,FW,FH,GY0,GY1,R,BR};if(typeof module!=='undefined')module.exports=API;else window.SIM2D=API;

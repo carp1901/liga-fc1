@@ -89,7 +89,7 @@ const clTc=()=>{cache['#tc']=cache['#tp']=''},cache={},set=(id,h)=>{if(cache[id]
 const CRS={},CIM={};let bumpQ=0;
 const bump=()=>{if(bumpQ)return;bumpQ=1;requestAnimationFrame(()=>{bumpQ=0;if(typeof S!=='undefined'&&S){for(const k in cache)delete cache[k];render()}})};
 function crestLoad(id){if(CRS[id]!==undefined||typeof Image=='undefined')return;CRS[id]='load';const ex=['png','svg','webp'];let i=0;const im=new Image();
- im.onload=()=>{if(!im.naturalWidth){im.onerror();return}CRS[id]='ok';CIM[id]=im;crestColors(id,im);bump()};
+ im.onload=()=>{if(!im.naturalWidth){im.onerror();return}CRS[id]='ok';CIM[id]=im;crestColors(id,im);document.querySelectorAll('.cw[data-cid="'+id+'"]').forEach(e=>{if(!e.querySelector('img'))e.innerHTML='<img src="'+im.src+'" alt="">'});bump()};
  im.onerror=()=>{if(++i<ex.length)im.src='/crests/'+id+'.'+ex[i];else{CRS[id]='fail';bump()}};im.src='/crests/'+id+'.png'}
 /* ===== Colores automáticos a partir del PNG del escudo (se calculan una vez y quedan en caché) ===== */
 const AUTO={},OVR=(DATA.COLOR_OVERRIDES||{}),CCV='cc_v2';let CCS={};try{CCS=JSON.parse(localStorage[CCV]||'{}')}catch(e){}
@@ -137,8 +137,8 @@ function morphKids(a,b){const keyed=new Map();for(const o of a.childNodes){const
  while(ref){const nx=ref.nextSibling;a.removeChild(ref);ref=nx}}
 const morphHTML=(el,h)=>{const t=document.createElement('template');t.innerHTML=h;morphKids(el,t.content)},MORPH=new Set(['#sb','#tb','#inf','#cal','#hd','#pk','#sts']);
 const cr=(id,s=30)=>{const t=TM[id];crestLoad(id);const w=Math.round(s*1.1);
- if(CRS[id]=='ok')return`<span class=cw style="width:${s}px;height:${w}px"><img src="${CIM[id].src}" alt=""></span>`;   // escudo real: solo la imagen
- const k=dispKit(id);return`<span class=cw style="width:${s}px;height:${w}px"><span class=cr style="background:linear-gradient(135deg,${k[0]} 50%,${k[1]} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(x=>x[0]).join('').slice(0,3))}</span></span>`};   // genérico solo mientras carga o si el archivo no existe
+ if(CRS[id]=='ok')return`<span class=cw data-cid="${id}" style="width:${s}px;height:${w}px"><img src="${CIM[id].src}" alt=""></span>`;   // escudo real: solo la imagen
+ const k=dispKit(id);return`<span class=cw data-cid="${id}" style="width:${s}px;height:${w}px"><span class=cr style="background:linear-gradient(135deg,${k[0]} 50%,${k[1]} 50%)">${esc(t.name.replace(/[^A-Za-zÁÉÍÓÚ ]/g,'').split(' ').map(x=>x[0]).join('').slice(0,3))}</span></span>`};   // genérico solo mientras carga o si el archivo no existe
 const rc=q=>{if(!q.s)return'';const m=q.s.match(/^(\d+)-(\d+)/);if(!m)return'';const a=+m[1],b=+m[2];if(a!=b)return a>b?'rw':'rl';return/ganó/.test(q.s)?'rw':/perdió/.test(q.s)?'rl':'rd'};
 const DOR=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
 const nfHtml=(v,me)=>v.nf?`<small class=mu style="margin:0 0 3px">Fecha ${v.round+1} · quién va con cada club</small>`+v.nf.map(p=>p[0]&&p[1]?`<div class="m1 ${p.includes(me.team)?'me':''}"><span>${cr(p[0],18)} ${esc(TM[p[0]].name)} <small class=mu style="display:inline;margin:0">(${esc(v.own[p[0]]||'')})</small></span><b class=num>vs</b><span><small class=mu style="display:inline;margin:0">(${esc(v.own[p[1]]||'')})</small> ${esc(TM[p[1]].name)} ${cr(p[1],18)}</span></div>`:`<div class=mu style="font-size:12px">Descansa: ${esc(TM[p[0]||p[1]].name)}</div>`).join(''):'<span class=mu>Esperando la próxima fecha…</span>';
@@ -214,7 +214,7 @@ document.querySelectorAll('.box.cl').forEach(b=>{try{if(localStorage['col_'+b.id
 const send=()=>{const t=$('#ci').value.trim();if(t){post({a:'chat',text:t});$('#ci').value=''}};$('#cs').onclick=send;$('#ci').onkeydown=e=>{if(e.key=='Enter')send()};
 // ---- Pizarra 2D: física tipo Haxball (sim2d.js) ----
 const cv=$('#cv'),cx=cv.getContext('2d'),Q=SIM2D,W=Q.W,H=Q.H,SIM=new Q.Sim();
-let RIV=new Set(),RVERR='',RAIN=[],SACC=0,lastBz=null,lastMK=null,flId=0,flAt=0,flMsg='',maxEv=0,SH=[0,0],PG=[],SG={},SA={},cerT0=0,lastPh='',idleF=0,GT=null;
+let SKK='',RIV=new Set(),RVERR='',RAIN=[],SACC=0,lastBz=null,lastMK=null,flId=0,flAt=0,flMsg='',maxEv=0,SH=[0,0],PG=[],SG={},SA={},cerT0=0,lastPh='',idleF=0,GT=null;
 const FLT={y:'🟨 Amarilla a ',r:'🟥 Roja directa a ',r2:'🟥 Segunda amarilla: expulsado ',sub:'🔁 Cambio: ',f:'Falta de '};
 const lum=h=>{const n=parseInt(h.slice(1),16);return(.299*(n>>16)+.587*(n>>8&255)+.114*(n&255))/255},ink=(a,b)=>{const L=h=>{const q=hxc(h).map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*q[0]+.7152*q[1]+.0722*q[2]},K=(x,y)=>{const p=L(x),q=L(y);return(Math.max(p,q)+.05)/(Math.min(p,q)+.05)};if(K(a,b)>=4.5)return b;return K(a,'#ffffff')>=K(a,'#000000')?'#ffffff':'#000000'},sbs=k=>{const ik=ink(k[0],k[1]);return`background:${k[0]};color:${ik};border-bottom:4px solid ${k[1]};--sh:${ik=='#000000'?'#ffffff66':'#000b'}`},c01=x=>Math.max(0,Math.min(1,x));
 SIM.onGoal=(side,name,e)=>{if(e)PG=PG.filter(g=>g.e.id!==e.id);SH[side]++;GT={side,name,t:performance.now()};if(e&&e.si!=null){const k=side+':'+e.si;SG[k]=(SG[k]||0)+1}if(e&&e.ai>=0){const k=side+':'+e.ai;SA[k]=(SA[k]||0)+1}};
@@ -248,6 +248,7 @@ function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=
  else if(re&&!SIM.frozen)SIM.kickoff(0);
  if(m){SIM.setTac(0,home?m.ta:m.tb);SIM.setTac(1,home?m.tb:m.ta);SIM.setOff(0,home?m.oa:m.ob);SIM.setOff(1,home?m.ob:m.oa)}else SIM.setTac(0,[S.me.tac.st,S.me.tac.pr,S.me.tac.wing,S.me.tac.sal,S.me.tac.mk]);
  if(m){SIM.setYel(0,(home?m.pa:m.pb).y);SIM.setYel(1,(home?m.pb:m.pa).y)}SIM.setCtx(S.min||0,[SH[0],SH[1]]);
+ if(m){const ia=home?m.pa:m.pb,ib=home?m.pb:m.pa,key=own+'|'+ia.x.join()+'|'+oppId+'|'+ib.x.join()+'|'+(S.cfg.mix?1:0);if(key!==SKK){SKK=key;DATA.setMix(S.cfg.mix);const sa=DATA.squad(own),sb=DATA.squad(oppId);SIM.setSk(0,ia.x.map(i=>sa[i].at));SIM.setSk(1,ib.x.map(i=>sb[i].at))}}   // atributos de los 22 en cancha (se actualizan con los cambios)
  if(m&&m.fl&&flId!==m.fl.id){flId=m.fl.id;if(true){flAt=t;const f=m.fl;flMsg=(FLT[f.x]||'')+(f.x=='sub'?f.n:(f.n.split('. ')[1]||f.n))}}
  if(!S.paused)SACC+=Math.min(5,SPD);let ns=Math.floor(SACC);SACC-=ns;if(SPD>=1)ns+=SIM.q.length>=3?2:SIM.q.length>=2?1:0;for(let i=0;i<ns;i++)SIM.step();
  if(ph=='m1'||ph=='m2'){const bz=!!(SIM.sc||SIM.q.length);if(bz!==lastBz){lastBz=bz;post({a:'busy',v:+bz})}}else lastBz=null;
