@@ -23,7 +23,7 @@ CREATE INDEX IF NOT EXISTS titulos_comp_idx ON titulos(modalidad, competicion);
 const INSERT=`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado,verificacion)
  VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) ON CONFLICT (torneo_id) DO NOTHING RETURNING id`;
 // Para rankings: se leen los títulos válidos y se agrupan en JS (rankRows). Consulta simple a propósito.
-const ALL=`SELECT club,club_nombre,modalidad,competicion,formato,finalizado FROM titulos WHERE estado='valido'`;
+const ALL=`SELECT club,club_nombre,modalidad,competicion,competicion_nombre,formato,finalizado FROM titulos WHERE estado='valido'`;
 const LIST=`SELECT id,torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,verificacion,estado,finalizado
  FROM titulos WHERE estado='valido' ORDER BY finalizado DESC, id DESC LIMIT $1`;
 const COUNT=`SELECT count(*)::int AS n FROM titulos WHERE estado='valido'`;
@@ -86,13 +86,26 @@ function rankRows(rows,f){
   a.forEach(x=>{x.empate=a.filter(y=>y.pos==x.pos).length>1;x.ultimo=x.t?new Date(x.t).toISOString():null;delete x.t});
   return{total,rows:a};
 }
+async function allRows(){await ensure();if(!cache||Date.now()-cache.at>10000)cache={at:Date.now(),rows:(await pool.query(ALL)).rows};return cache.rows}
 async function ranking(f){
   if(!configured)return{enabled:false,total:0,rows:[]};
-  await ensure();
-  if(!cache||Date.now()-cache.at>10000)cache={at:Date.now(),rows:(await pool.query(ALL)).rows};
-  return{enabled:true,...rankRows(cache.rows,f)};
+  return{enabled:true,...rankRows(await allRows(),f)};
+}
+// Ficha de un club: totales por modalidad, posición en cada ranking, competiciones ganadas e historial reciente. Todo sale del mismo registro que los rankings (mismas cifras).
+function clubStats(rows,id){
+  const mine=rows.filter(r=>r.club==id),isOn=r=>r.modalidad=='clasico'||r.modalidad=='barrial',MODS=['online','clasico','barrial','offline'];
+  const totales={};for(const m of MODS)totales[m]=mine.filter(r=>m=='online'?isOn(r):r.modalidad==m).length;
+  const posiciones={};for(const m of MODS){const rk=rankRows(rows,{mod:m}),x=rk.rows.find(y=>y.club==id);posiciones[m]=x?{pos:x.pos,de:rk.rows.length,empate:x.empate}:null}
+  const g=new Map();for(const r of mine){const k=r.modalidad+'|'+r.competicion,t=new Date(r.finalizado).getTime()||0,x=g.get(k);if(x){x.titulos++;if(t>x.t)x.t=t}else g.set(k,{mod:r.modalidad,comp:r.competicion,nombre:r.competicion_nombre||r.competicion,titulos:1,t})}
+  const competiciones=[...g.values()].map(x=>{const rk=rankRows(rows,{mod:x.mod,comp:x.comp}),y=rk.rows.find(z=>z.club==id);return{mod:x.mod,comp:x.comp,nombre:x.nombre,titulos:x.titulos,ultimo:x.t?new Date(x.t).toISOString():null,pos:y?y.pos:null,empate:y?y.empate:false,de:rk.rows.length}}).sort((a,b)=>b.titulos-a.titulos||String(a.nombre).localeCompare(String(b.nombre),'es'));
+  const historial=mine.slice().sort((a,b)=>new Date(b.finalizado)-new Date(a.finalizado)).slice(0,20).map(r=>({fecha:new Date(r.finalizado).toISOString(),mod:r.modalidad,comp:r.competicion,nombre:r.competicion_nombre||r.competicion,fmt:r.formato}));
+  return{totales,posiciones,competiciones,historial};
+}
+async function club(id){
+  if(!configured)return{enabled:false};
+  return{enabled:true,...clubStats(await allRows(),id)};
 }
 // Un solo intento (para pedidos HTTP; el cliente reintenta si falla).
 const insert=rec=>configured?insertOnce(rec):Promise.resolve({status:'disabled'});
 const status=()=>!configured?'off':lastErr?'error':'ok';
-module.exports={init,register,insert,list,ranking,rankRows,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={init,register,insert,list,ranking,rankRows,club,clubStats,status,SCHEMA,INSERT,LIST,COUNT,ALL};
