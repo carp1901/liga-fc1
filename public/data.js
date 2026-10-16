@@ -239,6 +239,13 @@ const phApply=(at,line,ph)=>{const o=PHIL[ph]&&PHIL[ph].off[line];if(!o)return a
 const NORMAL={K:.5,C:62};
 // Torneos barriales: región y formatos que ofrece cada competición (liga1/liga2 = todos contra todos, copa = eliminación directa).
 const CUP_META={sur:{region:'Conurbano Sur',fmts:['liga1','liga2','copa']},oeste:{region:'Conurbano Oeste',fmts:['liga1','liga2','copa']},norte:{region:'Conurbano Norte',fmts:['liga1','liga2','copa']},caba:{region:'CABA',fmts:['liga1','liga2','copa']},cuyo:{region:'Cuyo',fmts:['liga1','liga2','copa']},litoral:{region:'Litoral',fmts:['liga1','liga2','copa']},noa:{region:'NOA',fmts:['liga1','liga2','copa']},patagonia:{region:'Patagonia',fmts:['liga1','liga2']},cordoba:{region:'Córdoba',fmts:['liga1','liga2']},bonaerense:{region:'Provincia de Buenos Aires',fmts:['liga1','liga2','copa']}};
-const API={CUP_META,NORMAL,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
+// ---- Catálogo único de competiciones (Bloque 1). Lo usan salas privadas, partida aleatoria y salas públicas: una sola fuente de verdad.
+// Mata-mata: solo llaves completas (4, 8, 16 o 32), sin byes. Partida aleatoria: 10 personas, solo competiciones con 10+ clubes y solo liga (mata-mata de 10 no cierra).
+const KO_SIZES=[4,8,16,32],LIGA_SIZES=[4,6,8,10,12,16,20],RANDOM_N=10;
+function catalog(){const out=[];
+ DIVS.filter(d=>d.ok).forEach(d=>out.push({key:d.id,id:d.id,cat:'clasico',name:d.name,region:'Argentina',clubs:d.teams.length,fmts:['liga1','liga2','copa']}));
+ CUPS.forEach(c=>{const m=CUP_META[c.id]||{};out.push({key:'cup:'+c.id,id:c.id,cat:'barrial',name:c.name,title:c.title,region:m.region||'',clubs:c.clubs.length,fmts:(m.fmts||['liga1','liga2']).slice()})});
+ return out.map(e=>({...e,sizes:Object.fromEntries(e.fmts.map(f=>[f,f=='copa'?KO_SIZES.filter(n=>n<=e.clubs):[...new Set([...LIGA_SIZES.filter(n=>n<=e.clubs),...(e.cat=='barrial'?[e.clubs]:[])])]])),random:e.clubs>=RANDOM_N,randomFmts:e.clubs>=RANDOM_N?e.fmts.filter(f=>f!='copa'):[]}))}
+const API={KO_SIZES,LIGA_SIZES,RANDOM_N,catalog,CUP_META,NORMAL,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
 
 })();
