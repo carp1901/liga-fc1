@@ -20,6 +20,7 @@ const wx=()=>{const q=rnd(),k=q<.5?0:q<.8?1:2;return{k,t:Math.round(k==0?17+rnd(
 const rate=(m,s,i,d)=>{if(i>=0)m.pr[s][i]=clamp((m.pr[s][i]??6)+d,3,10)},eid=r=>r.eid=(r.eid||0)+1;
 const nm=(r,m,s,i)=>squad(r.pl[s?m.b:m.a].team)[i].n;   // nombre del jugador i del lado s
 function scoreG(r,m,s,i,min,k,as){s?m.gb++:m.ga++;m.st[s][2]++;m.pg[s][i]=(m.pg[s][i]||0)+1;if(as>=0)m.pas[s][as]=(m.pas[s][as]||0)+1;rate(m,s,i,.9);rate(m,s,as,.35);const D=r.pl[s?m.a:m.b].tac;rate(m,1-s,D.xi[0],-.25);D.xi.forEach((j,q)=>{if(q&&q<=FM[D.f][0])rate(m,1-s,j,-.08)});m.gl.push({t:s,n:nm(r,m,s,i),m:min,k})}
+const penX=(rem,ref)=>rnd()<clamp(.76+(rem-ref)/300,.6,.88)?'g':rnd()<.6?'s':'o';   // definición de un penal (g=gol, s=atajado, o=afuera): la usan el penal de los 90' y la tanda
 function pickTaker(r,m,s){const P=r.pl[s?m.b:m.a],tc=P.tac,sq=sqOf(r,P.team);let i=tc.pk;if(!tc.xi.includes(i)||m.off[s].has(i))i=tc.xi.filter((x,k)=>k&&!m.off[s].has(x)).reduce((b,x)=>b<0||AV(sq[x],'rem')>AV(sq[b],'rem')?x:b,-1);return i}
 // faltas: la presión alta genera más; tarjetas; el expulsado deja al equipo con uno menos. Cada falta puede ser penal, tiro libre peligroso o falta simple.
 function foul(r,m,s,min){const P=r.pl[s?m.b:m.a],tc=P.tac,sq=sqOf(r,P.team),sl=slots(tc.f),c=[],avA=avg(tc.xi.filter((i,k)=>k).map(i=>sq[i]),x=>AV(x,'ant'));tc.xi.forEach((i,k)=>{if(k&&!m.off[s].has(i))for(let w=0;w<Math.max(1,Math.round(({DEF:9,MED:10,DEL:6}[sl[k]]||5)*(m.yc[s][i]>0?.35:1)/(1+((m.fc&&m.fc[s][i])||0)*.6)*clamp(1+(avA-AV(sq[i],'ant'))/120,.7,1.4)));w++)c.push(i)});if(!c.length)return;
@@ -27,7 +28,7 @@ function foul(r,m,s,min){const P=r.pl[s?m.b:m.a],tc=P.tac,sq=sqOf(r,P.team),sl=s
  if(!red&&q<.21){m.yc[s][i]=(m.yc[s][i]||0)+1;m.st[s][5]++;rate(m,s,i,-.3);m.fl.x='y';if(m.yc[s][i]>=2){red=true;m.fl.x='r2'}}
  if(red){m.off[s].add(i);m.st[s][6]++;rate(m,s,i,-1.5);if(m.fl.x!='r2')m.fl.x='r'}
  const o=1-s,z=rnd(),tk=pickTaker(r,m,o),gk=tc.xi[0];
- if(z<.03){const x=rnd()<clamp(.76+(AV(sqOf(r,r.pl[o?m.b:m.a].team)[tk],'rem')-AV(sq[gk],'ref'))/300,.6,.88)?'g':rnd()<.6?'s':'o';m.st[o][1]++;if(x=='g')scoreG(r,m,o,tk,min,'pen',-1);else if(x=='s'){m.st[o][2]++;rate(m,o,tk,-.15);rate(m,s,gk,.8)}else rate(m,o,tk,-.3);m.evs.push({id:eid(r),k:'pen',m:min,t:o,x,n:nm(r,m,o,tk),si:tk,fn:sq[i].n})}
+ if(z<.03){const x=penX(AV(sqOf(r,r.pl[o?m.b:m.a].team)[tk],'rem'),AV(sq[gk],'ref'));m.st[o][1]++;if(x=='g')scoreG(r,m,o,tk,min,'pen',-1);else if(x=='s'){m.st[o][2]++;rate(m,o,tk,-.15);rate(m,s,gk,.8)}else rate(m,o,tk,-.3);m.evs.push({id:eid(r),k:'pen',m:min,t:o,x,n:nm(r,m,o,tk),si:tk,fn:sq[i].n})}
  else if(z<.27){const y=rnd(),x=y<.10*clamp(1+(AV(sqOf(r,r.pl[o?m.b:m.a].team)[tk],'rem')-AV(sq[gk],'ref'))/100,.5,1.6)?'g':y<.43?'w':y<.68?'s':'o';m.st[o][1]++;if(x=='g')scoreG(r,m,o,tk,min,'fk',-1);else if(x=='s'){m.st[o][2]++;rate(m,s,gk,.3)}m.evs.push({id:eid(r),k:'fk',m:min,t:o,x,n:nm(r,m,o,tk),si:tk,fn:sq[i].n})}
  else m.evs.push({id:eid(r),k:'foul',m:min,t:o,fn:sq[i].n})}
 // cambios automáticos desde el minuto 60: sale quien rinde mal (<5,7) o tiene amarilla; entra el mejor suplente de su puesto (máx. 3)
@@ -70,13 +71,32 @@ function koBuild(r){const t=[...r.seedOrder],P=koSize(t.length),nb=P-t.length,L=
  const r0=[];for(let i=0;i<nb;i++)r0.push(mk(t.shift(),null,1));while(t.length)r0.push(mk(t.shift(),t.shift()));
  r.br=[r0];for(let k=1;k<R;k++)r.br.push(Array.from({length:r.br[k-1].length/2},()=>mk(null,null)));r.total=R*L}
 const copaPairs=r=>r.br&&r.br[r.rd]?r.br[r.rd].map(t=>r.leg?[t.b,t.a]:[t.a,t.b]):[];
+// ---- Tanda de penales (mata-mata): si el cruce queda igualado al cierre (partido único o global de la vuelta), cada humano elige 5 pateadores (cada uno solo los suyos), se juega con la misma definición de penal y gana quien no puede ser alcanzado; si sigue igualado, muerte súbita.
+function psoNeed(r){const L=r.cfg.legs||1;if(r.leg<L-1)return[];const rd=(r.br&&r.br[r.rd])||[],out=[];
+ r.ms.forEach(m=>{const A=r.pl[m.a].team,B=r.pl[m.b].team,t=rd.find(t=>!t.bye&&((t.a==A&&t.b==B)||(t.a==B&&t.b==A)));if(!t)return;const g=A==t.a?[m.ga,m.gb]:[m.gb,m.ga],sA=t.l.reduce((x,q)=>x+q[0],0)+g[0],sB=t.l.reduce((x,q)=>x+q[1],0)+g[1];if(sA==sB)out.push({m,key:t.a+'|'+t.b})});return out}
+function psoDef(r,pid,m,s){const P=r.pl[pid],sq=sqOf(r,P.team),gk=P.tac.xi[0],el=P.tac.xi.filter(i=>!m.off[s].has(i)),sc=i=>(i==P.tac.pk?1e6:0)+(i==gk?-1e5:0)+AV(sq[i],'rem');return{el,def:el.slice().sort((x,y)=>sc(y)-sc(x))}}
+function startPso(r,need){r.ps={step:0,items:need.map(({m,key})=>{const ia=psoDef(r,m.a,m,0),ib=psoDef(r,m.b,m,1);return{key,ta:r.pl[m.a].team,tb:r.pl[m.b].team,pa:m.a,pb:m.b,f:rnd()<.5?0:1,el:[ia.el,ib.el],def:[ia.def,ib.def],sel:[ia.def.slice(0,5),ib.def.slice(0,5)],gk:[r.pl[m.a].tac.xi[0],r.pl[m.b].tac.xi[0]],ok:[!!r.pl[m.a].bot,!!r.pl[m.b].bot],kicks:null,w:null,gF:[0,0]}})};
+ r.phase='psel';r.t=45;r.order.forEach(p=>r.pl[p].busy=false);if(r.ps.items.every(it=>it.ok[0]&&it.ok[1]))startShoot(r)}
+const psoClean=(it,s,arr)=>{const seen=new Set(),sel=[];(Array.isArray(arr)?arr:[]).forEach(v=>{v=Math.floor(+v);if(it.el[s].includes(v)&&!seen.has(v)&&sel.length<5){seen.add(v);sel.push(v)}});it.def[s].forEach(i=>{if(sel.length<5&&!seen.has(i)){seen.add(i);sel.push(i)}});return sel};
+function startShoot(r){const ps=r.ps;ps.items.forEach(it=>{it.ord=[0,1].map(s=>[...it.sel[s],...it.def[s].filter(i=>!it.sel[s].includes(i))]);
+  const sq=[sqOf(r,it.ta),sqOf(r,it.tb)],sc=[0,0],n=[0,0],ks=[];let turn=0;
+  for(;;){const s=turn%2==0?it.f:1-it.f,d=1-s,tk=it.ord[s][n[s]%it.ord[s].length],x=penX(AV(sq[s][tk],'rem'),AV(sq[d][it.gk[d]],'ref'));n[s]++;if(x=='g')sc[s]++;ks.push({s,i:tk,x});turn++;
+   const r0=Math.max(0,5-n[0]),r1=Math.max(0,5-n[1]);let done=false;if(n[0]<5||n[1]<5){if(sc[0]>sc[1]+r1||sc[1]>sc[0]+r0)done=true}else if(n[0]==n[1]&&sc[0]!=sc[1])done=true;if(done||turn>200)break}
+  it.kicks=ks;it.gF=sc;it.w=sc[0]>sc[1]?it.ta:sc[1]>sc[0]?it.tb:(rnd()<.5?it.ta:it.tb)});
+ ps.step=0;ps.end=null;r.phase='pso';r.pt=2;r.hold=0;r.t=0;r.order.forEach(p=>r.pl[p].busy=false)}
+function finishPso(r){r.order.forEach(p=>r.pl[p].busy=false);r.psoItems=r.ps.items;r.pw={};r.ps.items.forEach(it=>r.pw[it.key]=it.w);r.ps=null;r.psoOK=true;endRound(r)}
+const psoMine=(r,pid)=>r.ps&&r.ps.items.find(it=>it.pa==pid||it.pb==pid);
+function psView(r,pid){if(!r.ps)return null;const ps=r.ps,on=r.phase=='pso';
+ return{ph:r.phase,t:Math.ceil(r.t||0),items:ps.items.map(it=>{const ks=on?it.kicks.slice(0,ps.step):[],g=[0,0],n=[0,0];ks.forEach(k=>{n[k.s]++;if(k.x=='g')g[k.s]++});const done=on&&ps.step>=it.kicks.length,s=ks.length%2==0?it.f:1-it.f;
+   return{a:it.ta,b:it.tb,f:it.f,ok:it.ok,k:ks,g,done,w:done?it.w:null,nx:done||!it.ord?null:{s,i:it.ord[s][n[s]%it.ord[s].length]}}}),
+  me:(()=>{const it=psoMine(r,pid);if(!it)return null;const s=it.pa==pid?0:1;return{a:it.ta,b:it.tb,s,el:it.el[s],sel:it.sel[s],ok:it.ok[s],okOpp:it.ok[1-s]}})()}}
 function koResolve(r,res){const L=r.cfg.legs||1,rd=r.br[r.rd],last=r.leg>=L-1;
  res.forEach(x=>{const t=rd.find(t=>(t.a==x.a&&t.b==x.b)||(t.a==x.b&&t.b==x.a));if(!t)return;const g=x.a==t.a?[x.ga,x.gb]:[x.gb,x.ga];t.l.push(g);t.g=[t.l.reduce((s,q)=>s+q[0],0),t.l.reduce((s,q)=>s+q[1],0)];x.leg=r.leg;x.agg=x.a==t.a?[t.g[0],t.g[1]]:[t.g[1],t.g[0]];
-  if(last){if(t.g[0]!=t.g[1])t.w=t.g[0]>t.g[1]?t.a:t.b;else{t.pen=t.w=rnd()<.5?t.a:t.b;x.pen=t.pen}}});
+  if(last){if(t.g[0]!=t.g[1])t.w=t.g[0]>t.g[1]?t.a:t.b;else{const it=(r.psoItems||[]).find(i=>(i.ta==t.a&&i.tb==t.b)||(i.ta==t.b&&i.tb==t.a));t.w=it?it.w:(rnd()<.5?t.a:t.b);t.pen=t.w;if(it){const sw=it.ta==t.a;t.ps={g:sw?[it.gF[0],it.gF[1]]:[it.gF[1],it.gF[0]]};x.ps=sw==(x.a==t.a)?[it.gF[0],it.gF[1]]:[it.gF[1],it.gF[0]]}x.pen=t.pen}}});
  if(!last){r.leg++;return false}
  const w=rd.map(t=>t.w);r.alive=w;r.rd++;r.leg=0;if(w.length==1)return true;
  r.br[r.rd].forEach((t,j)=>{t.a=w[2*j];t.b=w[2*j+1]});return false}
-const koView=r=>r.br?r.br.map(rd=>rd.map(t=>({a:t.a,b:t.b,l:t.l,g:t.g,w:t.w,pen:t.pen,bye:t.bye}))):null;
+const koView=r=>r.br?r.br.map(rd=>rd.map(t=>({a:t.a,b:t.b,l:t.l,g:t.g,w:t.w,pen:t.pen,ps:t.ps||null,bye:t.bye}))):null;
 const isOut=(r,P)=>!!(P&&P.team&&r.cfg.fmt=='copa'&&r.alive&&!r.alive.includes(P.team)),playing=(r,p)=>(r.ms||[]).some(m=>m.a==p||m.b==p);
 const byTeam=(r,t)=>r.order.find(p=>r.pl[p].team==t);
 function startRound(r){const pairs=r.cfg.fmt=='copa'?copaPairs(r):r.fx[r.round];r.byes=[];r.ms=[];r.award=null;
@@ -86,11 +106,12 @@ function maybeStart(r){if(r.order.length==r.cfg.n&&r.order.every(p=>r.pl[p].team
 function begin1(r){r.phase='m1';r.t=0;r.order.forEach(p=>{const P=r.pl[p];P.skip=false;if(!P.bot&&P.tac)P.base=cl(P.tac)})}
 const tally=(r,m)=>{r.sc=r.sc||{};[0,1].forEach(s=>{const t=r.pl[s?m.b:m.a].team,sq=squad(t);[['g',m.pg[s]],['a',m.pas[s]]].forEach(([k,o])=>Object.keys(o||{}).forEach(i=>{if(!o[i]||!sq[i])return;const e=r.sc[t+':'+i]||(r.sc[t+':'+i]={t,n:sq[i].n,g:0,a:0});e[k]+=o[i]}))})},
  topSc=(r,k,o)=>Object.values(r.sc||{}).filter(e=>e[k]>0).sort((x,y)=>y[k]-x[k]||y[o]-x[o]||x.n.localeCompare(y.n)).slice(0,10).map(e=>({t:e.t,n:e.n,v:e[k]}));
-function endRound(r){r.order.forEach(p=>{const P=r.pl[p];if(!P.bot&&P.base){P.tac=P.base;P.base=null}});   // lo que cambiaste durante el partido no queda para los siguientes
+function endRound(r){if(r.cfg.fmt=='copa'&&!r.psoOK){const need=psoNeed(r);if(need.length){startPso(r,need);return}}
+ r.order.forEach(p=>{const P=r.pl[p];if(!P.bot&&P.base){P.tac=P.base;P.base=null}});   // lo que cambiaste durante el partido no queda para los siguientes
  const res=[];if(r.cfg.fmt!='copa')r.prevRank=rankOf(r);r.ms.forEach(m=>{const A=r.pl[m.a].team,B=r.pl[m.b].team;let pen='';
  if(r.cfg.fmt=='copa'){}else{const s=r.table;[[A,m.ga,m.gb],[B,m.gb,m.ga]].forEach(([t,f,c])=>{const q=s[t];q.pj++;q.gf+=f;q.ga+=c;q.pts+=f>c?3:f==c?1:0;q.g+=+(f>c);q.e+=+(f==c);q.p+=+(f<c)})}
  res.push({a:A,b:B,ga:m.ga,gb:m.gb,pen});tally(r,m)});r.res=res;r.ms=[];(r.hist=r.hist||[]).push(res);r.round++;
- if(r.cfg.fmt=='copa'){if(koResolve(r,res)){r.phase='end';r.champ=r.alive[0];regTitle(r);return}}
+ if(r.cfg.fmt=='copa'){const fin=koResolve(r,res);r.psoItems=null;r.psoOK=false;r.pw=null;if(fin){r.phase='end';r.champ=r.alive[0];regTitle(r);return}}
  else if(r.round>=r.total){r.phase='end';r.champ=Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT)[0].id;regTitle(r);return}
  r.phase='lobby';r.t=r.cfg.fmt=='copa'&&r.alive&&r.order.every(p=>r.pl[p].bot||!r.alive.includes(r.pl[p].team))?6:90;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot)}
 // Equipo de la fecha: más goles; si empatan, mejor diferencia; si siguen igualados, mejores estadísticas (posesión, remates, a puerta, córners, menos faltas y tarjetas)
@@ -101,7 +122,11 @@ function awardOf(r){let best=null;r.ms.forEach(m=>[0,1].forEach(s=>{const o=1-s,
  if(best){r.award={team:best.team,rival:best.rival,gf:best.gf,ga:best.ga};r.aw=r.aw||{};r.aw[best.team]=(r.aw[best.team]||0)+1}}
 function tick(r){setMix(r.cfg&&r.cfg.mix);if(r.paused)return;if(r.phase=='pre'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='cer'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)begin1(r)}else if(r.phase=='m1'||r.phase=='m2'){if(r.add>0){r.ms.forEach(m=>{m.evs=[]});if(r.add==1&&!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=30&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else if(--r.add==0){r.hold=0;r.order.forEach(p=>r.pl[p].busy=false);if(r.min==45){r.phase='ht';r.t=15;r.order.forEach(p=>r.pl[p].skip=false);if(r.offline)botTune(r,1)}else{r.phase='fin';r.t=5}}}else{r.min++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,r.min);autoSub(r,m,r.min)});if(r.min==45||r.min>=90){r.add=CFG.fastWaits?1:3;r.hold=0}}}   // tiempo agregado: sin jugadas nuevas, para que se terminen de ver las que quedaron antes del descanso/final
  
- else if(r.phase=='fin'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0||(r.offline&&r.skipEnd)){awardOf(r);if(r.offline&&r.skipEnd)endRound(r);else{r.phase='awd';r.t=5}}}else if(r.phase=='awd'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)endRound(r)}else if(r.phase=='ht'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)r.phase='m2'}else if(r.phase=='lobby'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else return;push(r)}
+ else if(r.phase=='fin'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0||(r.offline&&r.skipEnd)){awardOf(r);if(r.offline&&r.skipEnd)endRound(r);else{r.phase='awd';r.t=5}}}else if(r.phase=='awd'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)endRound(r)}else if(r.phase=='ht'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)r.phase='m2'}else if(r.phase=='lobby'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='psel'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0){r.ps.items.forEach(it=>{it.ok=[true,true]});startShoot(r)}}
+ else if(r.phase=='pso'){const ps=r.ps,mx=Math.max(...ps.items.map(it=>it.kicks.length));
+  if(ps.step<mx){if(r.pt>0)r.pt--;else if(!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=30&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else{r.hold=0;ps.step++;r.pt=CFG.fastWaits?0:2}}
+  else{if(ps.end==null)ps.end=CFG.fastWaits?1:6;ps.end-=CFG.fastWaits?1:1/r.spd;if(ps.end<=0)finishPso(r)}}
+ else return;push(r)}
 function nextOf(r,team){if(r.phase=='pick'||r.phase=='end')return null;const pr=r.cfg.fmt=='copa'?copaPairs(r):r.fx&&r.fx[r.round],p=pr&&pr.find(x=>x.includes(team));return p?(p[0]&&p[1]?{o:p[0]==team?p[1]:p[0],h:p[0]==team}:{o:null}):null}
 function calOf(r,team){const c=[],H=r.hist||[],sc=(x,h)=>(h?x.ga:x.gb)+'-'+(h?x.gb:x.ga);
  if(r.cfg.fmt!='copa'){(r.fx||[]).forEach((pr,i)=>{const p=pr.find(x=>x.includes(team));if(!p)return;const h=p[0]==team,x=H[i]&&H[i].find(q=>q.a==p[0]&&q.b==p[1]);c.push({r:i+1,o:h?p[1]:p[0],h,s:x?sc(x,h):null})})}
@@ -112,7 +137,7 @@ const DORS=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
 const pInfo=(m,s,P)=>{const tc=P.tac;return{x:tc.xi.slice(),n:tc.xi.map(i=>DORS[i]),y:tc.xi.map((i,k)=>m.yc[s][i]>0&&!m.off[s].has(i)?k:-1).filter(k=>k>=0),g:tc.xi.map(i=>m.pg[s][i]||0),a:tc.xi.map(i=>m.pas[s][i]||0),c:tc.xi.indexOf(tc.cap)}};
 const offKs=(m,s,P)=>P.tac.xi.map((i,k)=>m.off[s].has(i)?k:-1).filter(k=>k>=0);
 function view(r,pid){setMix(r.cfg&&r.cfg.mix);const me=r.pl[pid],own={};r.order.forEach(p=>{if(r.pl[p].team)own[r.pl[p].team]=r.pl[p].name});
- const v={code:r.code,rk:rankInfo(r),tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
+ const v={code:r.code,rk:rankInfo(r),tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
  table:Object.entries(r.table).map(([id,q])=>({id,...q})),chat:r.chat.slice(-40).map(c=>({id:c.id,n:c.n,t:c.t,u:c.u.length,d:c.d.length,me:c.pid===pid,my:c.u.includes(pid)?1:c.d.includes(pid)?-1:0})),
  ms:(r.ms||[]).map(m=>{const A=r.pl[m.a],B=r.pl[m.b],kt=kitsOf(A,B);return{a:A.team,b:B.team,pha:A.phil||'equilibrada',phb:B.phil||'equilibrada',w:m.w,ra:[A.tac.k1,A.tac.k2],rb:[B.tac.k1,B.tac.k2],ga:m.ga,gb:m.gb,fa:A.tac.f,fb:B.tac.f,ka:kt[0],kb:kt[1],evs:m.evs,gl:m.gl,ta:[A.tac.st,A.tac.pr,A.tac.wing,A.tac.sal,A.tac.mk],tb:[B.tac.st,B.tac.pr,B.tac.wing,B.tac.sal,B.tac.mk],fl:m.fl,of:m.of,st:m.st.map(x=>[...x]),oa:offKs(m,0,A),ob:offKs(m,1,B),pa:pInfo(m,0,A),pb:pInfo(m,1,B)}}),
  ready:r.order.map(p=>r.pl[p].ready),n:r.order.length,pls:r.order.map(p=>({n:r.pl[p].name,t:r.pl[p].team,b:!!r.pl[p].bot,f:r.pl[p].phil||'equilibrada',o:isOut(r,r.pl[p])})),off:!!r.offline,paused:!!r.paused,sk:(()=>{const hs=r.order.filter(p=>!r.pl[p].bot&&playing(r,p));return{n:hs.filter(p=>r.pl[p].skip).length,of:hs.length,me:!!(me&&me.skip),pl:!!(me&&playing(r,pid))}})(),nf:(r.phase=='pre'||r.phase=='lobby')?((r.cfg.fmt=='copa'?copaPairs(r):(r.fx&&r.fx[r.round]))||null):null};
@@ -143,6 +168,7 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
  else if(a=='rivals'&&r.offline&&r.phase=='pick'&&me.team&&r.order.length<r.cfg.n){const pool=poolOf(r).map(t=>t.id).filter(id=>id!=me.team),need=r.cfg.n-1,ids=b.random?shuf([...pool]).slice(0,need):[...new Set(Array.isArray(b.teams)?b.teams:[])].filter(id=>pool.includes(id));if(ids.length!=need)return'Elegí exactamente '+need+' rivales';addBots(r,null,ids);r.needRiv=0;maybeStart(r)}
  else if(a=='ready'&&me.team&&['pre','lobby'].includes(r.phase)){if(isOut(r,me))return'Estás eliminado';me.ready=!!b.v;if(r.order.every(p=>r.pl[p].ready||isOut(r,r.pl[p])))startRound(r)}
  else if(a=='seedswap'&&r.cfg.fmt=='copa'&&r.cfg.seed=='pick'&&r.phase=='pre'&&!r.rd&&!r.leg&&r.order[0]==pid){const i=Math.floor(+b.i),j=Math.floor(+b.j),o=r.seedOrder;if(!(i>=0&&j>=0&&i<o.length&&j<o.length&&i!=j))return'Cruce inválido';[o[i],o[j]]=[o[j],o[i]];koBuild(r)}
+ else if(a=='psel'||a=='pready'){if(r.phase!='psel')return'La tanda no está en selección';const it=psoMine(r,pid);if(!it)return'No participás de esta tanda';const s=it.pa==pid?0:1;if(it.ok[s])return'Ya confirmaste tus pateadores';if(Array.isArray(b.sel))it.sel[s]=psoClean(it,s,b.sel);if(a=='pready'){it.sel[s]=psoClean(it,s,it.sel[s]);it.ok[s]=true;if(r.ps.items.every(i=>i.ok[0]&&i.ok[1]))startShoot(r)}}
  else if(a=='pause'){if(r.offline)r.paused=!!b.v}
  else if(a=='skipend'){if(r.offline){if(b.auto!==undefined)r.skipEnd=!!b.auto;if(b.now){if(r.phase=='fin'){awardOf(r);endRound(r)}else if(r.phase=='awd')endRound(r)}}}
  else if(a=='skip'){if(!playing(r,pid))return'No estás jugando este partido';const all=()=>r.order.every(p=>r.pl[p].bot||r.pl[p].skip||!playing(r,p));if(r.phase=='cer'){me.skip=true;if(all())begin1(r)}else if(r.phase=='ht'){me.skip=true;if(all()){r.phase='m2';r.t=0}}}

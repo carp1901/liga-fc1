@@ -60,7 +60,7 @@ class Sim{
  event(e,as){const S=this,n=S.q.length;if(!S.P.length||S.frozen||(as==1&&S.P.length<22))return;
   if((n>=2&&e.k=='lat')||(n>=2&&(e.k=='foul'||(e.k=='att'&&(e.x=='l'||e.x=='f'))))||(n>=3&&e.k=='att'&&e.x=='o'))return;if(n>=7&&e.x!='g')return;S.q.push({e,as})}
  begin(){const S=this,it=S.q.shift(),e=it.e,as=it.as;S.clr();S.B.free=false;S.poss=as;S.fs=1+Math.min(.5,S.q.length*.15);
-  if(e.k=='att')S.attSc(e,as);else if(e.k=='foul'||e.k=='fk'||e.k=='pen')S.incSc(e,as);else if(e.k=='cor')S.corSc(e,as);else if(e.k=='lat')S.latSc(e,as)}
+  if(e.k=='att')S.attSc(e,as);else if(e.k=='pso')S.penSc(e,as);else if(e.k=='foul'||e.k=='fk'||e.k=='pen')S.incSc(e,as);else if(e.k=='cor')S.corSc(e,as);else if(e.k=='lat')S.latSc(e,as)}
  endSc(){this.sc=null;this.clr();this.gap=14}
  attSc(e,as){const S=this,P=S.P,B=S.B,all=e.ch.map(k=>P.find(p=>p.s==as&&p.k==k)).filter(p=>p&&!p.off);if(!all.length)return;
   const u=p=>as?1-(p.x-X0)/FW:(p.x-X0)/FW,mates=P.filter(p=>p.s==as&&!p.off&&p.k>0),own=B.own&&B.own.s==as?B.own:null,st=own||S.near(mates,B)||all[0],shooter=all[all.length-1];
@@ -125,7 +125,7 @@ class Sim{
   const gk=P.find(p=>p.s==ds&&p.k==0&&!p.off);S.tg(gk,gx-dir*10,H/2+clamp((ba.y-H/2)*.25,-30,30));
   const dcs=P.filter(p=>p.s==as&&!p.off&&p.k>=4&&p!==taker),decoy=dcs.length&&rnd()<.35?S.near(dcs,ba):null;if(decoy)S.tg(decoy,ba.x-u.x*8-u.y*32,ba.y-u.y*8+u.x*32);
   B.x=ba.x;B.y=ba.y;B.vx=B.vy=0;B.own=null;B.recv=null;S.sc={k:'fk',e,side:as,ph:'set',t:0,x:e.x,ba,taker,wall,gk,u,decoy,tpos:{x:ba.x-u.x*26,y:ba.y-u.y*26},label:decoy?'TIRO LIBRE ENSAYADO':'TIRO LIBRE'};S.fx={n:S.n,x:ba.x,y:ba.y}}
- penSc(e,as){const S=this,{gx,dir,ds}=S.geo(as),P=S.P,B=S.B,ba={x:gx-dir*72,y:H/2},at=P.filter(p=>p.s==as&&!p.off&&p.k>=5),taker=S.near(at.length?at:P.filter(p=>p.s==as&&!p.off),ba);
+ penSc(e,as){const S=this,{gx,dir,ds}=S.geo(as),P=S.P,B=S.B,ba={x:gx-dir*72,y:H/2},at=P.filter(p=>p.s==as&&!p.off&&p.k>=5),taker=(e.k=='pso'&&e.ti>=0&&P.find(p=>p.s==as&&p.k==e.ti&&!p.off))||S.near(at.length?at:P.filter(p=>p.s==as&&!p.off),ba);
   S.tg(taker,ba.x-dir*24,ba.y);let i=0;P.forEach(p=>{if(p===taker||p.off||p.k==0)return;S.tg(p,gx-dir*(125+(p.s==ds?16:0)),H/2+(((i++)%9)-4)*34)});
   const gk=P.find(p=>p.s==ds&&p.k==0&&!p.off);S.tg(gk,gx-dir*8,H/2);S.tg(P.find(p=>p.s==as&&p.k==0&&!p.off),gx-dir*300,H/2);
   B.x=ba.x;B.y=ba.y;B.vx=B.vy=0;B.own=null;B.recv=null;S.sc={k:'pen',e,side:as,ph:'set',t:0,x:e.x,ba,taker,gk,tpos:{x:ba.x-dir*24,y:ba.y},label:'PENAL'};S.fx={n:S.n,x:ba.x,y:ba.y}}
@@ -194,7 +194,8 @@ class Sim{
    else if(ph=='sh'){if(B.own===sc.sh){if(!sc.th)sc.th=sc.t;if(sc.t-sc.th>=26)S.cornerCross()}else if(!B.own&&sc.t-sc.tk>70){B.own=sc.sh;sc.sh.hold=0}}
    else if(ph=='cx'){if(B.own===sc.tgt){const{gx,dir}=S.geo(sc.side);if(sc.x=='g'){sc.ph='g';sc.wait=null;B.free=true;B.own=null;const ty2=H/2+(rnd()-.5)*50;S.markShot('g',gx+dir*18,ty2);S.kick(gx+dir*18,ty2,8*S.fs,null,0)}else{S.kick(W/2,H/2+(rnd()-.5)*200,6.2*S.fs,null);S.endSc()}}
     else if(!B.own&&sc.t-sc.tk>70){B.own=sc.tgt;sc.tgt.hold=0}}}}
- step(){const S=this,B=S.B,P=S.P;S.n++;if(!P.length||S.frozen)return;
+ step(){const S=this,B=S.B,P=S.P;S.n++;if(!P.length||S.frozen)return;if(S.pso&&!S.sc&&!S.q.length)return;   // tanda de penales: entre un penal y otro la cancha queda quieta
+ 
   if(!S.sc){if(S.gap>0)S.gap--;else if(S.q.length)S.begin()}
   if(S.sc&&S.sc.k=='foul'){const sc=S.sc;if(++sc.t>=30){const{dir}=S.geo(sc.side),c=S.near(P.filter(p=>p.s==sc.side&&!p.off&&p.k>0),B);if(c){c.x=clamp(B.x-dir*14,X0+R,X0+FW-R);c.y=B.y;B.own=c;c.hold=0;c.wait=18}S.endSc()}return}
   if(S.sc)S.script();if(S.sc&&S.sc.ph=='g'&&S.sc.in)return;S.lift=(S.sc&&S.sc.k=='lat'&&B.own===S.sc.taker)?9:0;if(S.n%1200==0&&!S.sc)S.swapRoles();if(S.n%720==0)S.fbSide=[Math.round(rnd()),Math.round(rnd())];if(S.n%20==0)S.assignMarks();if(S.n%6==0)S.calcSup();if(S.refs)S.stepRefs();
