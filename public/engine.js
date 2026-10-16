@@ -61,10 +61,23 @@ function simMin(r,m,min){const A=r.pl[m.a],B=r.pl[m.b];if(!A||!B)return;const P=
  if(ev.x!='g'&&rnd()<(ev.x=='s'?.4:.15)*[.8,1,1.25][atc.st]){m.st[t][3]++;const cg=rnd()<.06,c={id:eid(r),k:'cor',m:min,t,x:cg?'g':'c'};
   if(cg){const sl=slots(atc.f),w=[];atc.xi.forEach((x,k)=>{if(k&&!m.off[t].has(x))for(let n=0;n<({DEF:2,MED:1,DEL:3}[sl[k]]||1);n++)w.push(x)});const hd=w[Math.floor(rnd()*w.length)];m.st[t][1]++;c.n=nm(r,m,t,hd);c.si=hd;scoreG(r,m,t,hd,min,'cor',-1)}
   m.evs.push(c)}}
-function mkFixtures(r){const ids=shuf(r.order.map(p=>r.pl[p].team));if(r.cfg.fmt=='copa'){r.alive=ids;return}
+function mkFixtures(r){const ids=shuf(r.order.map(p=>r.pl[p].team));if(r.cfg.fmt=='copa'){r.alive=ids;r.seedOrder=[...ids];r.rd=0;r.leg=0;koBuild(r);return}
  const a=[...ids],R=[];if(a.length%2)a.push(null);const n=a.length;for(let k=0;k<n-1;k++){const x=[];for(let i=0;i<n/2;i++)x.push(k%2?[a[n-1-i],a[i]]:[a[i],a[n-1-i]]);R.push(x);a.splice(1,0,a.pop())}
  r.fx=r.cfg.fmt=='liga2'?[...R,...R.map(x=>x.map(([p,q])=>[q,p]))]:R;r.total=r.fx.length}
-function copaPairs(r){const a=[...r.alive];while(a.length&&(a.length&(a.length-1)))a.push(null);const h=a.length/2,x=[];for(let i=0;i<h;i++)x.push([a[i],a[a.length-1-i]]);return x}
+// ---- Mata-mata: llave fija (ganador del cruce 2j vs ganador del 2j+1). Cada ronda se juega a 1 partido o ida y vuelta (cfg.legs); si el global empata, penales.
+const koSize=n=>{let p=1;while(p<n)p*=2;return p};
+function koBuild(r){const t=[...r.seedOrder],P=koSize(t.length),nb=P-t.length,L=r.cfg.legs||1,R=Math.log2(P),mk=(a,b,by)=>({a,b,l:[],g:null,w:by?a:null,pen:null,bye:!!by});
+ const r0=[];for(let i=0;i<nb;i++)r0.push(mk(t.shift(),null,1));while(t.length)r0.push(mk(t.shift(),t.shift()));
+ r.br=[r0];for(let k=1;k<R;k++)r.br.push(Array.from({length:r.br[k-1].length/2},()=>mk(null,null)));r.total=R*L}
+const copaPairs=r=>r.br&&r.br[r.rd]?r.br[r.rd].map(t=>r.leg?[t.b,t.a]:[t.a,t.b]):[];
+function koResolve(r,res){const L=r.cfg.legs||1,rd=r.br[r.rd],last=r.leg>=L-1;
+ res.forEach(x=>{const t=rd.find(t=>(t.a==x.a&&t.b==x.b)||(t.a==x.b&&t.b==x.a));if(!t)return;const g=x.a==t.a?[x.ga,x.gb]:[x.gb,x.ga];t.l.push(g);t.g=[t.l.reduce((s,q)=>s+q[0],0),t.l.reduce((s,q)=>s+q[1],0)];x.leg=r.leg;x.agg=x.a==t.a?[t.g[0],t.g[1]]:[t.g[1],t.g[0]];
+  if(last){if(t.g[0]!=t.g[1])t.w=t.g[0]>t.g[1]?t.a:t.b;else{t.pen=t.w=rnd()<.5?t.a:t.b;x.pen=t.pen}}});
+ if(!last){r.leg++;return false}
+ const w=rd.map(t=>t.w);r.alive=w;r.rd++;r.leg=0;if(w.length==1)return true;
+ r.br[r.rd].forEach((t,j)=>{t.a=w[2*j];t.b=w[2*j+1]});return false}
+const koView=r=>r.br?r.br.map(rd=>rd.map(t=>({a:t.a,b:t.b,l:t.l,g:t.g,w:t.w,pen:t.pen,bye:t.bye}))):null;
+const isOut=(r,P)=>!!(P&&P.team&&r.cfg.fmt=='copa'&&r.alive&&!r.alive.includes(P.team)),playing=(r,p)=>(r.ms||[]).some(m=>m.a==p||m.b==p);
 const byTeam=(r,t)=>r.order.find(p=>r.pl[p].team==t);
 function startRound(r){const pairs=r.cfg.fmt=='copa'?copaPairs(r):r.fx[r.round];r.byes=[];r.ms=[];r.award=null;
  pairs.forEach(([x,y])=>{if(!x||!y)r.byes.push(x||y);else r.ms.push(newMatch(byTeam(r,x),byTeam(r,y)))});
@@ -73,9 +86,9 @@ function maybeStart(r){if(r.order.length==r.cfg.n&&r.order.every(p=>r.pl[p].team
 function begin1(r){r.phase='m1';r.t=0;r.order.forEach(p=>{const P=r.pl[p];P.skip=false;if(!P.bot&&P.tac)P.base=cl(P.tac)})}
 function endRound(r){r.order.forEach(p=>{const P=r.pl[p];if(!P.bot&&P.base){P.tac=P.base;P.base=null}});   // lo que cambiaste durante el partido no queda para los siguientes
  const res=[];if(r.cfg.fmt!='copa')r.prevRank=rankOf(r);r.ms.forEach(m=>{const A=r.pl[m.a].team,B=r.pl[m.b].team;let pen='';
- if(r.cfg.fmt=='copa'){if(m.ga==m.gb){pen=rnd()<.5?A:B}}else{const s=r.table;[[A,m.ga,m.gb],[B,m.gb,m.ga]].forEach(([t,f,c])=>{const q=s[t];q.pj++;q.gf+=f;q.ga+=c;q.pts+=f>c?3:f==c?1:0;q.g+=+(f>c);q.e+=+(f==c);q.p+=+(f<c)})}
+ if(r.cfg.fmt=='copa'){}else{const s=r.table;[[A,m.ga,m.gb],[B,m.gb,m.ga]].forEach(([t,f,c])=>{const q=s[t];q.pj++;q.gf+=f;q.ga+=c;q.pts+=f>c?3:f==c?1:0;q.g+=+(f>c);q.e+=+(f==c);q.p+=+(f<c)})}
  res.push({a:A,b:B,ga:m.ga,gb:m.gb,pen})});r.res=res;r.ms=[];(r.hist=r.hist||[]).push(res);r.round++;
- if(r.cfg.fmt=='copa'){const w=[...r.byes];res.forEach(x=>w.push(x.ga>x.gb?x.a:x.gb>x.ga?x.b:x.pen));r.alive=w;r.total=r.total||Math.log2(copaPairs({alive:r.order.map(p=>r.pl[p].team)}).length*2);if(w.length==1){r.phase='end';r.champ=w[0];regTitle(r);return}}
+ if(r.cfg.fmt=='copa'){if(koResolve(r,res)){r.phase='end';r.champ=r.alive[0];regTitle(r);return}}
  else if(r.round>=r.total){r.phase='end';r.champ=Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT)[0].id;regTitle(r);return}
  r.phase='lobby';r.t=r.cfg.fmt=='copa'&&r.alive&&r.order.every(p=>r.pl[p].bot||!r.alive.includes(r.pl[p].team))?6:90;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot)}
 // Equipo de la fecha: más goles; si empatan, mejor diferencia; si siguen igualados, mejores estadísticas (posesión, remates, a puerta, córners, menos faltas y tarjetas)
@@ -97,10 +110,10 @@ const DORS=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
 const pInfo=(m,s,P)=>{const tc=P.tac;return{x:tc.xi.slice(),n:tc.xi.map(i=>DORS[i]),y:tc.xi.map((i,k)=>m.yc[s][i]>0&&!m.off[s].has(i)?k:-1).filter(k=>k>=0),g:tc.xi.map(i=>m.pg[s][i]||0),a:tc.xi.map(i=>m.pas[s][i]||0),c:tc.xi.indexOf(tc.cap)}};
 const offKs=(m,s,P)=>P.tac.xi.map((i,k)=>m.off[s].has(i)?k:-1).filter(k=>k>=0);
 function view(r,pid){setMix(r.cfg&&r.cfg.mix);const me=r.pl[pid],own={};r.order.forEach(p=>{if(r.pl[p].team)own[r.pl[p].team]=r.pl[p].name});
- const v={code:r.code,rk:rankInfo(r),tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&me.team&&r.cfg.fmt=='copa'&&r.alive&&r.round>0&&!r.alive.includes(me.team)&&['lobby','pre'].includes(r.phase)),needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
+ const v={code:r.code,rk:rankInfo(r),tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),host:r.order[0]==pid,br:koView(r),rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
  table:Object.entries(r.table).map(([id,q])=>({id,...q})),chat:r.chat.slice(-40).map(c=>({id:c.id,n:c.n,t:c.t,u:c.u.length,d:c.d.length,me:c.pid===pid,my:c.u.includes(pid)?1:c.d.includes(pid)?-1:0})),
  ms:(r.ms||[]).map(m=>{const A=r.pl[m.a],B=r.pl[m.b],kt=kitsOf(A,B);return{a:A.team,b:B.team,pha:A.phil||'equilibrada',phb:B.phil||'equilibrada',w:m.w,ra:[A.tac.k1,A.tac.k2],rb:[B.tac.k1,B.tac.k2],ga:m.ga,gb:m.gb,fa:A.tac.f,fb:B.tac.f,ka:kt[0],kb:kt[1],evs:m.evs,gl:m.gl,ta:[A.tac.st,A.tac.pr,A.tac.wing,A.tac.sal,A.tac.mk],tb:[B.tac.st,B.tac.pr,B.tac.wing,B.tac.sal,B.tac.mk],fl:m.fl,of:m.of,st:m.st.map(x=>[...x]),oa:offKs(m,0,A),ob:offKs(m,1,B),pa:pInfo(m,0,A),pb:pInfo(m,1,B)}}),
- ready:r.order.map(p=>r.pl[p].ready),n:r.order.length,pls:r.order.map(p=>({n:r.pl[p].name,t:r.pl[p].team,b:!!r.pl[p].bot,f:r.pl[p].phil||'equilibrada'})),off:!!r.offline,paused:!!r.paused,sk:(()=>{const hs=r.order.filter(p=>!r.pl[p].bot);return{n:hs.filter(p=>r.pl[p].skip).length,of:hs.length,me:!!(me&&me.skip)}})(),nf:(r.phase=='pre'||r.phase=='lobby')?((r.cfg.fmt=='copa'?copaPairs(r):(r.fx&&r.fx[r.round]))||null):null};
+ ready:r.order.map(p=>r.pl[p].ready),n:r.order.length,pls:r.order.map(p=>({n:r.pl[p].name,t:r.pl[p].team,b:!!r.pl[p].bot,f:r.pl[p].phil||'equilibrada'})),off:!!r.offline,paused:!!r.paused,sk:(()=>{const hs=r.order.filter(p=>!r.pl[p].bot&&playing(r,p));return{n:hs.filter(p=>r.pl[p].skip).length,of:hs.length,me:!!(me&&me.skip),pl:!!(me&&playing(r,pid))}})(),nf:(r.phase=='pre'||r.phase=='lobby')?((r.cfg.fmt=='copa'?copaPairs(r):(r.fx&&r.fx[r.round]))||null):null};
  if(me){v.me={team:me.team,ready:me.ready,tac:me.tac,phil:me.phil||'equilibrada'};if(me.team){v.me.sq=squad(me.team).map(({at,...q})=>q);v.me.sl=slots(me.tac.f);const mm=(r.ms||[]).find(x=>x.a==pid||x.b==pid);if(mm){const s=mm.a==pid?0:1;v.me.rt=v.me.sq.map((_,i)=>mm.pr[s][i]!==undefined?+mm.pr[s][i].toFixed(1):(me.tac.xi.includes(i)?6:null));v.me.cd=v.me.sq.map((_,i)=>[mm.yc[s][i]||0,mm.off[s].has(i)?1:0]);v.me.sb=mm.sb[s];v.me.used=[...mm.used[s]]}v.next=nextOf(r,me.team);if(!['cer','m1','ht','m2','fin','awd'].includes(r.phase))v.cal=calOf(r,me.team)}}return v}
 function push(r){r.order.forEach(p=>{const c=r.pl[p];if(c.cb)try{c.cb(view(r,p))}catch(e){}})}
 function addBots(r,div,ids){const free=ids?[...ids].reverse():shuf(div.teams.map(t=>t.id).filter(id=>!r.order.some(p=>r.pl[p].team==id)));
@@ -119,16 +132,17 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
  if(a=='create'){const c=b.cfg||{},isAll=c.div=='all',cup=CUPS.find(x=>'cup:'+x.id==c.div),div=isAll?{id:'all',ok:1}:cup?{id:'cup:'+cup.id,ok:1,teams:cup.clubs.map(i=>TM[i])}:DIVS.find(d=>d.id==c.div&&d.ok),code=txt(b.room,12).toLowerCase(),nn=cup?Math.max(4,Math.min(cup.clubs.length,Math.floor(+c.n)||cup.clubs.length)):+c.n;
   if(!/^[a-z0-9]{3,12}$/.test(code))return'Código: 3-12 letras o números';if(rooms[code])return'Ese código ya existe';if(Object.keys(rooms).length>=60)return'Servidor lleno';
   if(!div||(!cup&&![4,6,8,10,12,16,20].includes(nn))||!['liga1','liga2','copa'].includes(c.fmt))return'Configuración inválida';if(!isAll&&div.teams.length<nn)return'Esa división tiene solo '+div.teams.length+' clubes: elegí menos jugadores';
-  r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&c.mix))?1:0,cup:cup?cup.title:undefined},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
+  r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&c.mix))?1:0,cup:cup?cup.title:undefined,legs:c.fmt=='copa'&&+c.legs==2?2:1,seed:c.fmt=='copa'&&c.seed=='pick'?'pick':'rand'},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
  else if(!r)return'No existe esa sala';
  if(!r.pl[pid]){if(r.order.length>=r.cfg.n||r.phase!='pick')return'Sala llena o ya empezó';r.pl[pid]={name,team:null,ready:false,tac:null,res:null,phil:r.offline?'equilibrada':validPhil(b.phil)};r.order.push(pid)}
  const me=r.pl[pid];r.touched=Date.now();let err=null;if(b.phil!==undefined&&!r.offline&&['pick','pre'].includes(r.phase))me.phil=validPhil(b.phil);
  if(a=='pick'&&r.phase=='pick'){const div={teams:poolOf(r)};if(!div.teams.some(t=>t.id==b.team)||r.order.some(p=>r.pl[p].team==b.team))return'Equipo ocupado';
   me.team=b.team;me.tac=newTac(b.team);if(r.offline){if(r.cfg.cup&&r.cfg.n>=div.teams.length)addBots(r,null,div.teams.map(t=>t.id).filter(id=>id!=b.team));else r.needRiv=1}maybeStart(r)}
  else if(a=='rivals'&&r.offline&&r.phase=='pick'&&me.team&&r.order.length<r.cfg.n){const pool=poolOf(r).map(t=>t.id).filter(id=>id!=me.team),need=r.cfg.n-1,ids=b.random?shuf([...pool]).slice(0,need):[...new Set(Array.isArray(b.teams)?b.teams:[])].filter(id=>pool.includes(id));if(ids.length!=need)return'Elegí exactamente '+need+' rivales';addBots(r,null,ids);r.needRiv=0;maybeStart(r)}
- else if(a=='ready'&&me.team&&['pre','lobby'].includes(r.phase)){me.ready=!!b.v;if(r.order.every(p=>r.pl[p].ready))startRound(r)}
+ else if(a=='ready'&&me.team&&['pre','lobby'].includes(r.phase)){if(isOut(r,me))return'Estás eliminado';me.ready=!!b.v;if(r.order.every(p=>r.pl[p].ready||isOut(r,r.pl[p])))startRound(r)}
+ else if(a=='seedswap'&&r.cfg.fmt=='copa'&&r.cfg.seed=='pick'&&r.phase=='pre'&&!r.rd&&!r.leg&&r.order[0]==pid){const i=Math.floor(+b.i),j=Math.floor(+b.j),o=r.seedOrder;if(!(i>=0&&j>=0&&i<o.length&&j<o.length&&i!=j))return'Cruce inválido';[o[i],o[j]]=[o[j],o[i]];koBuild(r)}
  else if(a=='pause'){if(r.offline)r.paused=!!b.v}
- else if(a=='skip'){if(r.phase=='cer'){me.skip=true;if(r.order.every(p=>r.pl[p].bot||r.pl[p].skip))begin1(r)}else if(r.phase=='ht'){me.skip=true;if(r.order.every(p=>r.pl[p].bot||r.pl[p].skip)){r.phase='m2';r.t=0}}}
+ else if(a=='skip'){if(!playing(r,pid))return'No estás jugando este partido';const all=()=>r.order.every(p=>r.pl[p].bot||r.pl[p].skip||!playing(r,p));if(r.phase=='cer'){me.skip=true;if(all())begin1(r)}else if(r.phase=='ht'){me.skip=true;if(all()){r.phase='m2';r.t=0}}}
  else if(a=='phil'){if(!r.offline&&['pick','pre'].includes(r.phase))me.phil=validPhil(b.v)}
  else if(a=='speed'){if(r.offline){r.spd=clamp(+b.v||1,.25,100);clearInterval(r.timer);r.timer=setInterval(()=>tick(r),1000/r.spd)}}
  else if(a=='busy'){me.busy=!!b.v}
