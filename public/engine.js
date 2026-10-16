@@ -1,5 +1,5 @@
 (function(){
-const D=typeof require!=='undefined'?require('./data'):window.DATA,{DIVS,CUPS,TM,FM,slots,autoXI,squad,setMix,roleOvr,squadMode,PHIL,phOff,phDelta,validPhil}=D,AV=(x,a)=>x.at?x.at[a]:x.r,avg=(arr,f)=>arr.length?arr.reduce((s,x)=>s+f(x),0)/arr.length:60,rnd=Math.random,rooms={},CFG={rankMin:10,tick:1000,offline:typeof window!=='undefined',fastWaits:false,realK:D.NORMAL.K,realC:D.NORMAL.C};
+const D=typeof require!=='undefined'?require('./data'):window.DATA,{DIVS,CUPS,TM,FM,slots,autoXI,squad,setMix,roleOvr,squadMode,PHIL,phOff,phDelta,validPhil}=D,AV=(x,a)=>x.at?x.at[a]:x.r,avg=(arr,f)=>arr.length?arr.reduce((s,x)=>s+f(x),0)/arr.length:60,rnd=Math.random,rooms={},CFG={randN:10,rVoteT:15,rGraceV:10000,rGraceP:30000,rankMin:10,tick:1000,offline:typeof window!=='undefined',fastWaits:false,realK:D.NORMAL.K,realC:D.NORMAL.C};
 // Fuerza efectiva por modo: equilibrado = plantel normalizado (data.js); normal = diferencias reales atenuadas (CFG.realK) para que la calidad no decida de antemano.
 const cmpV=v=>CFG.realC+(v-CFG.realC)*CFG.realK;
 const sqOf=(r,team)=>{const c=r.sqc||(r.sqc={});if(c[team])return c[team];const mix=!!(r.cfg&&r.cfg.mix),raw=squadMode(team,mix);return c[team]=mix?raw:raw.map(x=>({...x,r:cmpV(x.r),at:Object.fromEntries(Object.keys(x.at).map(a=>[a,cmpV(x.at[a])]))}))};
@@ -120,7 +120,7 @@ const rankOf=r=>{const o={};Object.entries(r.table).map(([id,q])=>({id,...q})).s
 function awardOf(r){let best=null;r.ms.forEach(m=>[0,1].forEach(s=>{const o=1-s,gf=s?m.gb:m.ga,ga=s?m.ga:m.gb,st=m.st[s],tot=(m.st[0][0]+m.st[1][0])||1,comp=st[0]/tot*40+st[1]*1.2+st[2]*2+st[3]*.5-st[4]*.2-st[5]*.5-st[6]*3+rnd()*.01,sc=[gf,gf-ga,comp];
   if(!best||sc[0]>best.sc[0]||(sc[0]==best.sc[0]&&(sc[1]>best.sc[1]||(sc[1]==best.sc[1]&&sc[2]>best.sc[2]))))best={sc,team:r.pl[s?m.b:m.a].team,rival:r.pl[o?m.b:m.a].team,gf,ga}}));
  if(best){r.award={team:best.team,rival:best.rival,gf:best.gf,ga:best.ga};r.aw=r.aw||{};r.aw[best.team]=(r.aw[best.team]||0)+1}}
-function tick(r){setMix(r.cfg&&r.cfg.mix);if(r.paused)return;if(r.phase=='pre'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='cer'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)begin1(r)}else if(r.phase=='m1'||r.phase=='m2'){if(r.add>0){r.ms.forEach(m=>{m.evs=[]});if(r.add==1&&!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=30&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else if(--r.add==0){r.hold=0;r.order.forEach(p=>r.pl[p].busy=false);if(r.min==45){r.phase='ht';r.t=15;r.order.forEach(p=>r.pl[p].skip=false);if(r.offline)botTune(r,1)}else{r.phase='fin';r.t=5}}}else{r.min++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,r.min);autoSub(r,m,r.min)});if(r.min==45||r.min>=90){r.add=CFG.fastWaits?1:3;r.hold=0}}}   // tiempo agregado: sin jugadas nuevas, para que se terminen de ver las que quedaron antes del descanso/final
+function tick(r){setMix(r.cfg&&r.cfg.mix);if(r.paused)return;if(r.rand&&RLIVE.includes(r.phase))return randTick(r);if(r.phase=='pre'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='cer'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)begin1(r)}else if(r.phase=='m1'||r.phase=='m2'){if(r.add>0){r.ms.forEach(m=>{m.evs=[]});if(r.add==1&&!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=30&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else if(--r.add==0){r.hold=0;r.order.forEach(p=>r.pl[p].busy=false);if(r.min==45){r.phase='ht';r.t=15;r.order.forEach(p=>r.pl[p].skip=false);if(r.offline)botTune(r,1)}else{r.phase='fin';r.t=5}}}else{r.min++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,r.min);autoSub(r,m,r.min)});if(r.min==45||r.min>=90){r.add=CFG.fastWaits?1:3;r.hold=0}}}   // tiempo agregado: sin jugadas nuevas, para que se terminen de ver las que quedaron antes del descanso/final
  
  else if(r.phase=='fin'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0||(r.offline&&r.skipEnd)){awardOf(r);if(r.offline&&r.skipEnd)endRound(r);else{r.phase='awd';r.t=5}}}else if(r.phase=='awd'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)endRound(r)}else if(r.phase=='ht'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)r.phase='m2'}else if(r.phase=='lobby'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='psel'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0){r.ps.items.forEach(it=>{it.ok=[true,true]});startShoot(r)}}
  else if(r.phase=='pso'){const ps=r.ps,mx=Math.max(...ps.items.map(it=>it.kicks.length));
@@ -137,7 +137,7 @@ const DORS=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
 const pInfo=(m,s,P)=>{const tc=P.tac;return{x:tc.xi.slice(),n:tc.xi.map(i=>DORS[i]),y:tc.xi.map((i,k)=>m.yc[s][i]>0&&!m.off[s].has(i)?k:-1).filter(k=>k>=0),g:tc.xi.map(i=>m.pg[s][i]||0),a:tc.xi.map(i=>m.pas[s][i]||0),c:tc.xi.indexOf(tc.cap)}};
 const offKs=(m,s,P)=>P.tac.xi.map((i,k)=>m.off[s].has(i)?k:-1).filter(k=>k>=0);
 function view(r,pid){setMix(r.cfg&&r.cfg.mix);const me=r.pl[pid],own={};r.order.forEach(p=>{if(r.pl[p].team)own[r.pl[p].team]=r.pl[p].name});
- const v={code:r.code,rk:rankInfo(r),tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
+ const v={code:r.code,rq:rView(r,pid),rk:rankInfo(r),tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
  table:Object.entries(r.table).map(([id,q])=>({id,...q})),chat:r.chat.slice(-40).map(c=>({id:c.id,n:c.n,t:c.t,u:c.u.length,d:c.d.length,me:c.pid===pid,my:c.u.includes(pid)?1:c.d.includes(pid)?-1:0})),
  ms:(r.ms||[]).map(m=>{const A=r.pl[m.a],B=r.pl[m.b],kt=kitsOf(A,B);return{a:A.team,b:B.team,pha:A.phil||'equilibrada',phb:B.phil||'equilibrada',w:m.w,ra:[A.tac.k1,A.tac.k2],rb:[B.tac.k1,B.tac.k2],ga:m.ga,gb:m.gb,fa:A.tac.f,fb:B.tac.f,ka:kt[0],kb:kt[1],evs:m.evs,gl:m.gl,ta:[A.tac.st,A.tac.pr,A.tac.wing,A.tac.sal,A.tac.mk],tb:[B.tac.st,B.tac.pr,B.tac.wing,B.tac.sal,B.tac.mk],fl:m.fl,of:m.of,st:m.st.map(x=>[...x]),oa:offKs(m,0,A),ob:offKs(m,1,B),pa:pInfo(m,0,A),pb:pInfo(m,1,B)}}),
  ready:r.order.map(p=>r.pl[p].ready),n:r.order.length,pls:r.order.map(p=>({n:r.pl[p].name,t:r.pl[p].team,b:!!r.pl[p].bot,f:r.pl[p].phil||'equilibrada',o:isOut(r,r.pl[p])})),off:!!r.offline,paused:!!r.paused,sk:(()=>{const hs=r.order.filter(p=>!r.pl[p].bot&&playing(r,p));return{n:hs.filter(p=>r.pl[p].skip).length,of:hs.length,me:!!(me&&me.skip),pl:!!(me&&playing(r,pid))}})(),nf:(r.phase=='pre'||r.phase=='lobby')?((r.cfg.fmt=='copa'?copaPairs(r):(r.fx&&r.fx[r.round]))||null):null};
@@ -152,7 +152,7 @@ function botTune(r,half){r.ms.forEach(m=>[[m.a,m.b,m.ga-m.gb],[m.b,m.a,m.gb-m.ga
   if(best.f!=t.f){t.f=best.f;t.xi=best.xi;t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}
   const me=strength(r,P.team,t,undefined,P.phil),df=me.a+me.m+me.d-(os.a+os.m+os.d);t.st=df>4?2:df<-4?0:1;t.pr=me.m>os.m?2:1;t.wing=FM[ot.f][0]>=5?0:FM[ot.f][1]>=5?1:rnd()<.5?1:0;t.sal=ot.pr==2?(rnd()<.5?2:1):0;t.mk=rnd()<.5?1:0}
  else if(d<0){t.st=2;t.pr=2}else if(d>=2){t.st=0;t.pr=0}else if(d==1)t.st=1}))}
-function listen(code,pid,cb){const r=rooms[code],c=r&&r.pl[pid];if(!c)return false;c.cb=cb;if(cb)try{cb(view(r,pid))}catch(e){}return true}
+function listen(code,pid,cb){const r=rooms[code],c=r&&r.pl[pid];if(!c)return false;c.cb=cb;c.lost=cb?0:Date.now();if(cb)try{cb(view(r,pid))}catch(e){}return true}
 // cambia de formación en pleno partido sin cambiar jugadores: reubica a los mismos 11 en las nuevas posiciones
 function reslot(sq,f,xi){const sl=slots(f),u=new Set();return sl.map(p=>{let b=-1;xi.forEach(i=>{if(u.has(i))return;const ok=sq[i].p==p;if(b<0||(ok&&sq[b].p!=p)||(ok==(sq[b].p==p)&&sq[i].r>sq[b].r))b=i});u.add(b);return b})}
 function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!pid)return'Falta id';let r=rooms[txt(b.room,12).toLowerCase()];
@@ -175,6 +175,7 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
  else if(a=='phil'){if(!r.offline&&['pick','pre'].includes(r.phase))me.phil=validPhil(b.v)}
  else if(a=='speed'){if(r.offline){r.spd=clamp(+b.v||1,.25,100);clearInterval(r.timer);r.timer=setInterval(()=>tick(r),1000/r.spd)}}
  else if(a=='busy'){me.busy=!!b.v}
+ else if(a=='rv'){if(!r.rand||!['vote1','vote2'].includes(r.phase))return'No se está votando';const o=rOpts(r).find(x=>x.id==b.v);if(!o)return'Opción inválida';r.rand.votes[pid]=o.id}
  else if(a=='chat'){const s=txt(b.text,140);if(s&&Date.now()-(me.lc||0)>400){me.lc=Date.now();r.chat.push({id:(r.cid=(r.cid||0)+1),n:me.name,pid,t:s,tm:Date.now(),u:[],d:[]});if(r.chat.length>200)r.chat.shift()}}
  else if(a=='vote'){const c=r.chat.find(x=>x.id==b.id),v=+b.v;if(c&&c.pid!==pid&&(v==1||v==-1)){const had=c.u.includes(pid)?1:c.d.includes(pid)?-1:0;c.u=c.u.filter(x=>x!=pid);c.d=c.d.filter(x=>x!=pid);if(had!=v)(v==1?c.u:c.d).push(pid)}}
  else if(a=='tac'&&me.tac){const t=me.tac,x=b.p||{},sq=squad(me.team),mm=['m1','ht','m2'].includes(r.phase)?(r.ms||[]).find(q=>q.a==pid||q.b==pid):null,ms=mm?(mm.a==pid?0:1):0;
@@ -206,5 +207,33 @@ function regTitle(r){if(r.titled)return;r.titled=1;if(!CFG.onTitle)return;
  const rec={tid:r.tid,club:r.champ,clubNombre:TM[r.champ].name,dt:r.pl[dt].name,mod:r.offline?'offline':cup?'barrial':'clasico',comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':String(r.cfg.div)),fmt:r.cfg.fmt,n:r.offline?r.cfg.n:k.h,at:Date.now()};
  r.tit={st:'pend'};let p;try{p=Promise.resolve(CFG.onTitle(rec))}catch(e){p=Promise.reject(e)}
  p.then(x=>{r.tit=x&&x.status=='disabled'?{st:'no',why:'sin_db'}:{st:'ok',dup:!!(x&&x.status=='duplicate'),tid:r.tid};push(r)},e=>{r.tit={st:'err'};push(r);console.error('título no registrado:',e&&e.message)})}
-const API={act,listen,rooms,CFG,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
+// ---- Partida aleatoria (Bloque 2): cola global de CFG.randN personas -> votación de categoría (15 s) -> votación de competición (15 s) -> elección de clubes (la fase 'pick' de siempre). Formato fijo: liga de 1 rueda.
+// Todo se valida en el servidor: votos, cupos, club libre (ya lo hace 'pick'), baja con tiempo de gracia (10 s en cola/votación, 30 s eligiendo club) y vacantes que se ofrecen con confirmación.
+const RLIVE=['queue','vote1','vote2','pick'];let qOpen=null;
+const rOpts=r=>r.phase=='vote1'?[{id:'clasico',label:'Clásico',sub:'Divisiones del fútbol argentino'},{id:'barrial',label:'Barrial / Regional',sub:'Copas de fantasía por región (no son torneos oficiales)'}]:D.catalog().filter(e=>e.cat==r.rand.cat&&e.random).map(e=>({id:e.key,label:e.cat=='barrial'?e.title:e.name,sub:(e.region?e.region+' · ':'')+e.clubs+' clubes'}));
+const vacOf=()=>Object.values(rooms).filter(r=>r.rand&&['vote1','vote2','pick'].includes(r.phase)&&r.order.length<CFG.randN).sort((a,b)=>RLIVE.indexOf(b.phase)-RLIVE.indexOf(a.phase)||b.order.length-a.order.length)[0];
+const vacInfo=r=>r&&{room:r.code,fase:r.phase=='pick'?'elección de clubes':r.phase=='vote1'?'votación de categoría':'votación de competición',comp:r.phase=='pick'?(r.cfg.cup||(DIVS.find(d=>d.id==r.cfg.div)||{}).name||''):'',cat:r.rand.cat,libres:CFG.randN-r.order.length};
+const rView=(r,pid)=>{if(!r.rand)return null;const cnt={};Object.values(r.rand.votes).forEach(x=>cnt[x]=(cnt[x]||0)+1);const vt=r.phase=='vote1'||r.phase=='vote2';
+ return{need:CFG.randN,n:r.order.length,names:r.order.map(p=>r.pl[p].name),opts:vt?rOpts(r):[],cnt,mine:r.rand.votes[pid]||null,cat:r.rand.cat,t:Math.ceil(r.t),vac:r.phase=='queue'?vacInfo(vacOf()):null}};
+function dropP(r,p){if(!r.pl[p])return;delete r.rand.votes[p];delete r.pl[p];const i=r.order.indexOf(p);if(i>=0)r.order.splice(i,1);
+ if(!r.order.length){clearInterval(r.timer);delete rooms[r.code];if(qOpen==r.code)qOpen=null}}
+function addRand(r,pid,b){r.pl[pid]={name:txt(b.name,16)||'Invitado',team:null,ready:false,tac:null,res:null,phil:validPhil(b.phil),lost:Date.now()};r.order.push(pid);r.touched=Date.now()}
+function newQueue(){let code;do code='rnd'+rnd().toString(36).slice(2,7);while(rooms[code]||code.length<8);
+ const r=rooms[code]={code,tid:newTid(),cfg:{div:'ar1',fmt:'liga1',n:CFG.randN,mix:0,legs:1,seed:'rand'},pl:{},order:[],chat:[],phase:'queue',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:false,spd:1,rand:{votes:{},cat:null}};
+ r.timer=setInterval(()=>tick(r),CFG.tick);qOpen=code;return r}
+function rResolve(r){const o=rOpts(r),cnt={};o.forEach(x=>cnt[x.id]=0);r.order.forEach(p=>{const x=r.rand.votes[p];if(x in cnt)cnt[x]++});
+ const mx=Math.max(...Object.values(cnt)),win=shuf(o.filter(x=>cnt[x.id]==mx))[0].id;   // empate (o nadie votó): al azar entre las opciones empatadas
+ if(r.phase=='vote1'){r.rand.cat=win;r.phase='vote2';r.t=CFG.rVoteT;r.rand.votes={}}
+ else{const cup=CUPS.find(x=>'cup:'+x.id==win);r.cfg={div:win,fmt:'liga1',n:CFG.randN,mix:0,cup:cup?cup.title:undefined,legs:1,seed:'rand'};r.rand.comp=win;r.phase='pick';r.t=0;r.order.forEach(p=>r.pl[p].ready=false)}}
+function randTick(r){const now=Date.now();r.order.slice().forEach(p=>{const c=r.pl[p];if(c&&c.lost&&now-c.lost>(r.phase=='pick'?CFG.rGraceP:CFG.rGraceV))dropP(r,p)});
+ if(!rooms[r.code])return;if(r.phase=='vote1'||r.phase=='vote2'){if(--r.t<=0)rResolve(r)}push(r)}
+// Entrar a "Partida aleatoria". b.mode: undefined (ofrece vacante si hay) | 'join' (acepta la vacante b.room) | 'queue' (rechaza la oferta y va a la cola)
+function rJoin(b){const pid=txt(b.pid,40);if(!pid)return{error:'Falta id'};
+ for(const k in rooms){const r=rooms[k];if(r.rand&&r.pl[pid]&&r.phase!='end'){if(b.mode=='join'&&r.phase=='queue'){dropP(r,pid);break}const c=r.pl[pid];if(!c.cb&&!c.lost)c.lost=Date.now();return{room:k}}}   // ya estabas en una: volvés a esa
+ if(b.mode=='join'){const r=rooms[txt(b.room,12)];if(r&&r.rand&&['vote1','vote2','pick'].includes(r.phase)&&r.order.length<CFG.randN&&!r.pl[pid]){addRand(r,pid,b);push(r);return{room:r.code}}}
+ else if(b.mode!='queue'){const v=vacOf();if(v)return{offer:vacInfo(v)}}
+ let q=rooms[qOpen];if(!q||q.phase!='queue'||q.order.length>=CFG.randN){if(Object.keys(rooms).length>=60)return{error:'Servidor lleno'};q=newQueue()}
+ addRand(q,pid,b);if(q.order.length>=CFG.randN){q.phase='vote1';q.t=CFG.rVoteT;q.rand.votes={}}
+ push(q);return{room:q.code}}
+const API={act,listen,rooms,CFG,rJoin,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
 })();
