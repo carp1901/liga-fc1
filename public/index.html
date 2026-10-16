@@ -61,6 +61,8 @@ canvas{width:100%;display:block;border-radius:6px;background:#2d7a46}table{width
 .rkb{width:100%;background:#0006;border-radius:12px;padding:8px;margin:8px 0;min-height:60px}.rkb table{width:100%;border-collapse:collapse}.rkb td,.rkb th{padding:5px 4px;text-align:center;font-size:14px}.rkb td:nth-child(2),.rkb th:nth-child(2){text-align:left}.rkb th{color:#c8ff8a;font-weight:500;font-size:12px}.rkb td.pt{font-weight:700;color:#f2b705;font-size:16px}.rkb .tie{color:#c8ff8a;font-size:11px}.rkb .nt{font-size:12.5px;opacity:.85;margin:6px 2px 0}
 .fct{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}.fct>div{background:#0006;border-radius:10px;padding:8px;text-align:center;font-size:13px}.fct b{display:block;font:700 30px "Lilita One","Barlow Condensed",sans-serif;color:#f2b705;line-height:1.1}.fct small{display:block;opacity:.75;font-size:11.5px}
 .rkb h3{font:700 16px "Lilita One","Barlow Condensed",sans-serif;color:#c8ff8a;margin:12px 2px 4px}.rkb table.cmp td:nth-child(2),.rkb table.cmp th:nth-child(2){text-align:center;color:#c8ff8a}.rkb td.win{color:#f2b705;font-weight:700}.rkb ul{margin:4px 0;padding-left:18px;font-size:13.5px}
+#shm{position:fixed;inset:0;background:#000d;z-index:60;display:flex;align-items:center;justify-content:center;padding:12px}#shm[hidden]{display:none}.shb{background:#143823;border-radius:14px;padding:12px;max-width:420px;width:100%;max-height:96vh;overflow:auto;text-align:center}.shb img{width:100%;border-radius:10px;display:block;margin-bottom:8px}
+.shi{background:none;border:0;font-size:17px;cursor:pointer;padding:0 4px}
 </style></head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">Simulad<span>⚽</span>r DT - online</h1>
@@ -91,7 +93,9 @@ canvas{width:100%;display:block;border-radius:6px;background:#2d7a46}table{width
 <div class="it" data-bx="tc"><div class="box cl" id="tc"></div></div>
 <div class="it" data-bx="tp"><div class="box cl" id="tp"></div></div>
 </div></div>
-</main><script src="squads.js"></script><script src="data.js"></script><script src="engine.js"></script><script src="sim2d.js"></script><script>
+</main>
+<div id="shm" hidden><div class="shb"><div id="shi"></div><div class="nt" id="shn"></div><div class="rw"><button class="bt ok" id="shs">compartir</button><button class="bt ok" id="shd">descargar</button></div><button class="bk" id="shx">‹ cerrar</button></div></div>
+<script src="squads.js"></script><script src="data.js"></script><script src="engine.js"></script><script src="sim2d.js"></script><script>
 const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let DV=[],TM={},S=null,room,sel=null,evAt=0,evKey='',OFF=false,CAL=[],showCal=false,SPD=1,showInfo=false,tcOpen=true,TMSG='',TMT=0;const FN=['4-4-2','4-3-3','3-5-2','4-5-1','5-3-2','4-2-3-1','4-2-2-2','3-4-3','5-4-1','4-3-1-2','4-1-4-1','4-4-1-1','3-4-2-1','5-2-3'];
 let pid;try{pid=localStorage.pid||(localStorage.pid=Math.random().toString(36).slice(2)+Date.now().toString(36))}catch(e){pid=Math.random().toString(36).slice(2)}
@@ -195,7 +199,7 @@ async function enterB(a){room=(a=='create'?$('#cd9'):$('#cd7')).value.trim().toL
  const e=await post({a,cfg,phil:PHL});if(e)return $('#er').textContent=e;start()}
 const rkMsg=(n,min=10)=>n>=min?'✅ Cumple el mínimo de '+min+' personas para el ranking.':'⚠️ Con menos de '+min+' personas se puede jugar, pero no suma al ranking.';
 const rkHint=(sel,out)=>{$(out).textContent=rkMsg(+$(sel).value)};
-const titLine=v=>{const t=v.tit;if(!t||v.phase!='end')return'';if(v.off)return`<div class=info>${t.st=='pend'?'⏳ Enviando tu título offline al ranking…':t.st=='ok'?'🏆 Título offline sumado al ranking de tu club (los offline se muestran aparte).':t.st=='err'?'⚠️ No se pudo enviar el título offline; se reintenta cuando abras el juego con conexión.':t.why=='sin_db'?'El ranking no está disponible en este servidor.':''}</div>`;return`<div class=info>${t.st=='pend'?'⏳ Registrando el título…':t.st=='ok'?'🏆 Título registrado en el palmarés.':t.st=='err'?'⚠️ No se pudo registrar el título todavía; el servidor sigue reintentando.':t.why=='minimo'?'Este torneo no suma al ranking (menos de 10 personas).':t.why=='sin_db'?'El palmarés no está disponible en este servidor: el título no se guardó.':'Este torneo no suma al ranking.'}</div>`};
+const titLine=v=>{const t=v.tit;if(!t||v.phase!='end')return'';if(v.off)return`<div class=info>${t.st=='pend'?'⏳ Enviando tu título offline al ranking…':t.st=='ok'?'🏆 Título offline sumado al ranking de tu club (los offline se muestran aparte).'+shBtn(t):t.st=='err'?'⚠️ No se pudo enviar el título offline; se reintenta cuando abras el juego con conexión.':t.why=='sin_db'?'El ranking no está disponible en este servidor.':''}</div>`;return`<div class=info>${t.st=='pend'?'⏳ Registrando el título…':t.st=='ok'?'🏆 Título registrado en el palmarés.'+shBtn(t):t.st=='err'?'⚠️ No se pudo registrar el título todavía; el servidor sigue reintentando.':t.why=='minimo'?'Este torneo no suma al ranking (menos de 10 personas).':t.why=='sin_db'?'El palmarés no está disponible en este servidor: el título no se guardó.':'Este torneo no suma al ranking.'}</div>`};
 const rkLine=v=>{const k=v.rk;if(!k||k.off)return'';return`<div class=info>${k.ok?(v.phase=='pick'?'🏅 Cumple el mínimo para ranking si se completa la sala ('+k.h+'/'+k.n+' personas, mínimo '+k.min+').':'🏅 Cumple el mínimo para ranking ('+k.h+' personas).'):'Sin ranking: sala de '+k.n+' personas (mínimo '+k.min+'). Se juega igual.'}</div>`};
 $('#np').onchange=()=>rkHint('#np','#rk1');$('#bnp').onchange=()=>rkHint('#bnp','#rk9');rkHint('#np','#rk1');
 $('#cl7').onclick=e=>{const b=e.target.closest('[data-bcup]');if(b)openBCup(b.dataset.bcup)};$('#bj7').onclick=()=>enterB('join');$('#bc9').onclick=()=>enterB('create');
@@ -235,7 +239,7 @@ async function openClub(id){CLUB=id;goM('m11');const o=$('#fcb');o.innerHTML='<s
 <div class=fct>${tile(T.online,'títulos online','clásico + barrial')}${tile(T.offline,'títulos offline','informados por cada jugador')}${tile(T.clasico,'online clásico','')}${tile(T.barrial,'online barrial','')}</div>
 ${T.online+T.offline?`<h3>Posiciones en los rankings</h3><ul>${[['online','Online general'],['clasico','Online clásico'],['barrial','Online barrial'],['offline','Offline']].filter(([m])=>P[m]).map(([m,l])=>`<li>${l}: <b>${posTxt(P[m])}</b></li>`).join('')}</ul>
 <h3>Competiciones ganadas</h3><table><tr><th>Competición</th><th>Modalidad</th><th>Títulos</th><th>Posición</th><th>Último</th></tr>${d.competiciones.map(c=>`<tr><td>${esc(c.nombre)}</td><td class=mu>${MODL[c.mod]||c.mod}</td><td class=pt>${c.titulos}</td><td>${posTxt(c)}</td><td class=mu>${fdate(c.ultimo)}</td></tr>`).join('')}</table>
-<h3>Últimos títulos</h3><ul>${d.historial.map(h=>`<li>${fdate(h.fecha)} · ${esc(h.nombre)} · ${FMTL(h.fmt)} · ${MODL[h.mod]||h.mod}</li>`).join('')}</ul>${T.offline?'<div class=nt>⚠️ Los títulos offline los informa cada dispositivo y no se pueden verificar.</div>':''}`:'<span class=mu style="display:block;margin-top:10px">Este club todavía no ganó títulos en Liga FC.</span>'}`}
+<h3>Últimos títulos</h3><ul>${d.historial.map(h=>`<li>${fdate(h.fecha)} · ${esc(h.nombre)} · ${FMTL(h.fmt)} · ${MODL[h.mod]||h.mod} ${h.tid?`<button class=shi data-sh="${h.tid}" title="Compartir tarjeta">📤</button>`:''}</li>`).join('')}</ul>${T.offline?'<div class=nt>⚠️ Los títulos offline los informa cada dispositivo y no se pueden verificar.</div>':''}`:'<span class=mu style="display:block;margin-top:10px">Este club todavía no ganó títulos en Liga FC.</span>'}`}
  catch(e){if(CLUB==id)rkErr(o,e)}}
 let CPA=null,CPB=null,CPN=0;
 function openCmp(a,b){goM('m12');if(!$('#cpa').options.length){$('#cpa').innerHTML=$('#cpb').innerHTML=clubOpts()}
@@ -254,6 +258,52 @@ ${row('Posición online',posTxt(A.posiciones.online),posTxt(B.posiciones.online)
 <h3>Por competición</h3>${cr2.length?`<table class=cmp>${cr2.map(r=>row(r.l,r.x,r.y)).join('')}</table>`:'<span class=mu>Ninguno de los dos ganó títulos todavía.</span>'}${A.totales.offline||B.totales.offline?'<div class=nt>⚠️ Los títulos offline los informa cada dispositivo y no se pueden verificar.</div>':''}`}
  catch(e){if(n==CPN)rkErr(o,e)}}
 $('#rkb').onclick=e=>{const r=e.target.closest('[data-club]');if(r)openClub(r.dataset.club)};$('#rkcmp').onclick=()=>openCmp();$('#fcg').onclick=()=>openCmp(CLUB,$('#fcc').value);$('#cpa').onchange=cmpLoad;$('#cpb').onchange=cmpLoad;
+/* ===== Tarjeta para compartir (Bloque 7): se arma SOLO con lo que devuelve /api/titulo (registro validado del servidor). Si algo falla, el juego sigue igual. ===== */
+var CARD_F='"Lilita One","Arial Black",Impact,sans-serif';
+var CARD_MOD={clasico:'Online · Clásico',barrial:'Online · Barrial',offline:'Offline'};
+var CARD_MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+function cardFit(c,t,max,min,w){var s=max;while(s>min){c.font=s+'px '+CARD_F;if(c.measureText(t).width<=w)break;s-=2}c.font=s+'px '+CARD_F;return s}
+function cardRR(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath()}
+/* c: contexto 2D · i: datos del título · crest: imagen del escudo o null · c1,c2: colores del club */
+function drawCard(c,i,crest,c1,c2){
+  var W=1080,H=1350,fg='#ffffff',sub='rgba(255,255,255,.86)',g,k,d,t,w,x;
+  g=c.createLinearGradient(0,0,W,H);g.addColorStop(0,c1);g.addColorStop(1,c2);c.fillStyle=g;c.fillRect(0,0,W,H);
+  c.fillStyle='rgba(0,0,0,.5)';c.fillRect(0,0,W,H);
+  c.fillStyle='rgba(255,255,255,.07)';for(k=0;k<7;k++){c.beginPath();c.moveTo(-200+k*230,H);c.lineTo(80+k*230,0);c.lineTo(190+k*230,0);c.lineTo(-90+k*230,H);c.closePath();c.fill()}
+  c.textAlign='center';c.textBaseline='alphabetic';
+  c.fillStyle='#ffffff';c.font='46px '+CARD_F;c.fillText('LIGA FC',W/2,96);
+  c.fillStyle='#ffd23a';cardFit(c,'¡CAMPEÓN!',150,80,940);c.fillText('¡CAMPEÓN!',W/2,262);
+  c.beginPath();c.arc(W/2,560,200,0,Math.PI*2);c.fillStyle='rgba(255,255,255,.94)';c.fill();c.lineWidth=10;c.strokeStyle='#ffd23a';c.stroke();
+  if(crest&&crest.width){var s=Math.min(310/crest.width,310/crest.height);w=crest.width*s;d=crest.height*s;c.drawImage(crest,W/2-w/2,560-d/2,w,d)}
+  else{c.fillStyle=c2;c.beginPath();c.moveTo(W/2-120,450);c.lineTo(W/2+120,450);c.lineTo(W/2+120,590);c.quadraticCurveTo(W/2+120,680,W/2,700);c.quadraticCurveTo(W/2-120,680,W/2-120,590);c.closePath();c.fill();c.lineWidth=12;c.strokeStyle=c1;c.stroke();c.fillStyle='#ffffff';c.font='110px '+CARD_F;c.fillText(String(i.nombre||'?').charAt(0).toUpperCase(),W/2,622)}
+  c.fillStyle=fg;cardFit(c,String(i.nombre||''),104,24,960);c.fillText(String(i.nombre||''),W/2,880);
+  c.fillStyle=sub;cardFit(c,String(i.compNombre||''),56,22,940);c.fillText(String(i.compNombre||''),W/2,956);
+  t=(CARD_MOD[i.mod]||'')+'  ·  '+(i.fmt=='copa'?'Copa':'Liga');c.font='42px '+CARD_F;w=c.measureText(t).width+80;x=W/2-w/2;
+  cardRR(c,x,998,w,76,38);c.fillStyle='rgba(0,0,0,.38)';c.fill();c.fillStyle='#ffffff';c.fillText(t,W/2,1052);
+  c.fillStyle='#ffd23a';c.font='68px '+CARD_F;c.fillText('Título n.º '+i.numero+(i.mod=='offline'?' offline':' online'),W/2,1160);
+  d=new Date(i.fecha);t=d.getDate()+' de '+CARD_MES[d.getMonth()]+' de '+d.getFullYear();
+  if(i.mod!='offline'&&i.participantes)t+='  ·  '+i.participantes+' jugadores';
+  c.fillStyle=sub;c.font='38px '+CARD_F;c.fillText(t,W/2,1226);
+  c.font='30px '+CARD_F;c.fillStyle=sub;c.fillText(i.mod=='offline'?'Offline · informado por el jugador, no verificable':'Torneo online validado por el servidor',W/2,1286);
+}
+
+const shBtn=t=>t&&t.tid?`<button class="bt ok" data-sh="${t.tid}" style="font-size:16px;padding:6px 14px;margin:6px 0 0;display:block">📤 Compartir título</button>`:'';
+let SHB=null,SHN='',SHT='';
+const shMsg=t=>{$('#shi').innerHTML='<span class=mu>'+t+'</span>'};
+const loadCrestImg=id=>new Promise(res=>{const ex=['png','svg','webp'],tm=setTimeout(()=>res(null),2500);let k=0;const go=()=>{if(k>=ex.length){clearTimeout(tm);return res(null)}const im=new Image(),e=ex[k];im.onload=()=>{clearTimeout(tm);res(im.naturalWidth?im:null)};im.onerror=()=>{k++;go()};im.src='/crests/'+id+'.'+e};go()});
+async function shareTitle(tid){
+ $('#shm').hidden=false;SHB=null;$('#shs').hidden=$('#shd').hidden=true;$('#shn').textContent='';shMsg('Generando tarjeta…');
+ try{const r=await fetch('/api/titulo?id='+encodeURIComponent(tid)),i=await r.json();if(!r.ok||i.error||!i.enabled)throw new Error(i.error||'no disponible');
+  const T=TM[i.club]||{c1:'#1f5f2a',c2:'#0e3a18'};try{if(document.fonts&&document.fonts.load)await Promise.race([document.fonts.load('40px "Lilita One"'),new Promise(r=>setTimeout(r,800))])}catch(e){}
+  const cv=document.createElement('canvas');cv.width=1080;cv.height=1350;drawCard(cv.getContext('2d'),i,await loadCrestImg(i.club),T.c1,T.c2);
+  SHB=await new Promise((ok,no)=>cv.toBlob(b=>b?ok(b):no(new Error('toBlob')),'image/png'));SHN='liga-fc-'+i.club+'-titulo-'+i.numero+'.png';
+  SHT=i.nombre+' campeón de '+i.compNombre+' en Liga FC (título n.º '+i.numero+(i.mod=='offline'?' offline':' online')+')';
+  $('#shi').innerHTML='<img alt="Tarjeta de título" src="'+cv.toDataURL('image/png')+'">';$('#shd').hidden=false;$('#shs').hidden=typeof navigator.share!='function';
+ }catch(e){SHB=null;shMsg('No se pudo generar la tarjeta ahora. Probá de nuevo más tarde.')}}
+$('#shs').onclick=async()=>{if(!SHB)return;try{const f=new File([SHB],SHN,{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[f]}))await navigator.share({files:[f],title:'Liga FC',text:SHT});else await navigator.share({title:'Liga FC',text:SHT})}catch(e){if(!e||e.name!='AbortError')$('#shn').textContent='No se pudo compartir; podés descargar la imagen o mantenerla apretada para guardarla.'}};
+$('#shd').onclick=()=>{if(!SHB)return;try{const a=document.createElement('a');a.href=URL.createObjectURL(SHB);a.download=SHN;document.body.appendChild(a);a.click();a.remove()}catch(e){$('#shn').textContent='No se pudo descargar; mantené apretada la imagen para guardarla.'}};
+$('#shx').onclick=()=>{$('#shm').hidden=true};
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-sh]');if(b){e.stopImmediatePropagation();shareTitle(b.dataset.sh)}},true);
 let SPEC=null;const myM=()=>S&&S.me&&S.me.team&&S.ms.find(m=>m.a==S.me.team||m.b==S.me.team),specM=()=>SPEC&&S&&S.ms.find(m=>m.a+'|'+m.b==SPEC),ownM=()=>specM()||myM();   // la pizarra muestra el partido que estés viendo
 function render(){const v=S,me=v.me||{},ph=v.phase,n=v.cfg.n;let st='';if(v.off&&v.spd)SPD=v.spd;if(SPEC&&(!v.ms.some(m=>m.a+'|'+m.b==SPEC)||!['cer','m1','ht','m2','fin','awd'].includes(ph)))SPEC=null;
  const nr=v.ready.filter(x=>x).length;if(v.cal)CAL=v.cal;

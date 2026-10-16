@@ -162,6 +162,6 @@ function regTitle(r){if(r.titled)return;r.titled=1;if(!CFG.onTitle)return;
  const cup=r.cfg.cup?CUPS.find(x=>'cup:'+x.id==r.cfg.div):null,dv=cup?null:DIVS.find(d=>d.id==r.cfg.div);
  const rec={tid:r.tid,club:r.champ,clubNombre:TM[r.champ].name,dt:r.pl[dt].name,mod:r.offline?'offline':cup?'barrial':'clasico',comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':String(r.cfg.div)),fmt:r.cfg.fmt,n:r.offline?r.cfg.n:k.h,at:Date.now()};
  r.tit={st:'pend'};let p;try{p=Promise.resolve(CFG.onTitle(rec))}catch(e){p=Promise.reject(e)}
- p.then(x=>{r.tit=x&&x.status=='disabled'?{st:'no',why:'sin_db'}:{st:'ok',dup:!!(x&&x.status=='duplicate')};push(r)},e=>{r.tit={st:'err'};push(r);console.error('título no registrado:',e&&e.message)})}
+ p.then(x=>{r.tit=x&&x.status=='disabled'?{st:'no',why:'sin_db'}:{st:'ok',dup:!!(x&&x.status=='duplicate'),tid:r.tid};push(r)},e=>{r.tit={st:'err'};push(r);console.error('título no registrado:',e&&e.message)})}
 const API={act,listen,rooms,CFG,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
 })();
