@@ -24,8 +24,11 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
   store.insert(rec).then(r=>r.status=='disabled'?send(503,{error:'Palmarés no disponible'}):send(200,{status:r.status}),e=>{console.error('offline:',e.message);send(503,{error:'Base de datos no disponible'})})});
  if(req.method=='POST'&&u.pathname=='/api/random')return body(req,b=>{const send=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
   if(!b)return send(400,{error:'Pedido inválido'});if(!rlOk('rnd:'+ipOf(req),120))return send(429,{error:'Demasiados intentos; probá más tarde'});send(200,E.rJoin(b))});
+ if(u.pathname=='/api/salas'){res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});return res.end(JSON.stringify(E.pubList()))}   // salas públicas
+ if(req.method=='POST'&&u.pathname=='/api/pub')return body(req,b=>{const send=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
+  if(!b)return send(400,{error:'Pedido inválido'});if(!rlOk('pub:'+ipOf(req),120))return send(429,{error:'Demasiados intentos; probá más tarde'});const r=E.pubApi(b);send(r.error?400:200,r)});
  if(req.method=='POST'&&u.pathname=='/act')return body(req,b=>{const e=b?E.act(b):'Pedido inválido';res.writeHead(e?400:200,{'Content-Type':'application/json'});res.end(JSON.stringify({error:e}))});
- if(u.pathname=='/ev'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),c=r&&r.pl[pid];if(!c){res.writeHead(404);return res.end()}
+ if(u.pathname=='/ev'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),c=r&&(r.pl[pid]||(r.spec&&r.spec[pid]));if(!c){res.writeHead(404);return res.end()}
   res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});c.res=res;res.write('retry:2000\n\n');E.listen(r.code,pid,v=>res.write('data:'+JSON.stringify(v)+'\n\n'));req.on('close',()=>{if(c.res===res){c.res=null;E.listen(r.code,pid,null)}});return}
  if(u.pathname=='/teams.json'){res.writeHead(200,{'Content-Type':'application/json'});return res.end(JSON.stringify(DIVS))}
  if(u.pathname=='/api/ranking'){const g=k=>u.searchParams.get(k)||'',f={mod:['online','clasico','barrial','offline'].includes(g('mod'))?g('mod'):'online',comp:/^[a-z0-9]{1,30}$/.test(g('comp'))?g('comp'):'',fmt:['liga','copa'].includes(g('fmt'))?g('fmt'):''};
