@@ -272,5 +272,17 @@ function pubApi(b){const pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!p
  if(b.op=='watch'){if(r.pl[pid])return{room:r.code};r.spec=r.spec||{};if(!r.spec[pid]&&Object.keys(r.spec).length>=60)return{error:'La sala tiene demasiados espectadores'};
   r.spec[pid]=r.spec[pid]||{name,cb:null,lost:0};return{room:r.code}}
  return{error:'Pedido inválido'}}
-const API={act,listen,rooms,CFG,rJoin,pubList,pubApi,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
+// ---- Carreras offline (guardar/cargar). Solo se guarda en momentos seguros: pretemporada, entre fechas o torneo terminado (nunca con partidos en juego).
+// snapshot() devuelve el torneo como texto; restore() lo vuelve a poner a andar. Los planteles no se guardan: salen de data.js y son siempre los mismos.
+const SAVEPH=['pre','lobby','end'];
+function snapshot(code){const r=rooms[code];if(!r||!r.offline||!SAVEPH.includes(r.phase)||(r.ms&&r.ms.length))return null;
+ const {timer,sqc,ps,...rest}=r,pl={};Object.keys(r.pl).forEach(p=>{const {cb,res,lost,...q}=r.pl[p];pl[p]=q});return JSON.stringify({v:1,room:{...rest,pl}})}
+function restore(json,o){o=o||{};if(!CFG.offline)return{error:'Cargar carreras solo funciona en modo offline'};let s;try{s=typeof json=='string'?JSON.parse(json):json}catch(x){return{error:'La carrera guardada está dañada'}}
+ const r=s&&s.v==1&&s.room,pid=txt(o.pid,40);
+ if(!r||!pid||!r.cfg||!r.pl||!Array.isArray(r.order)||!r.table||!SAVEPH.includes(r.phase)||!r.order.length||!r.order.every(p=>r.pl[p]&&(!r.pl[p].team||TM[r.pl[p].team])))return{error:'La carrera guardada es inválida o usa clubes que ya no existen'};
+ const hum=r.order.filter(p=>!r.pl[p].bot);if(hum.length!=1)return{error:'La carrera guardada es inválida'};
+ if(hum[0]!=pid){r.pl[pid]=r.pl[hum[0]];delete r.pl[hum[0]];r.order[r.order.indexOf(hum[0])]=pid}   // misma carrera aunque cambie el id del navegador
+ let code=txt(r.code,12).toLowerCase();if(!/^[a-z0-9]{3,12}$/.test(code)||rooms[code])code='cpu'+rnd().toString(36).slice(2,7);
+ r.code=code;r.offline=true;r.touched=Date.now();r.ms=[];r.paused=false;r.spd=clamp(+o.speed||+r.spd||1,.25,100);r.timer=setInterval(()=>tick(r),1000/r.spd);rooms[code]=r;return{code}}
+const API={act,listen,rooms,CFG,rJoin,pubList,pubApi,snapshot,restore,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
 })();
