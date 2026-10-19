@@ -124,8 +124,8 @@ function endRound(r){if(r.cfg.fmt=='copa'&&!r.psoOK){const need=psoNeed(r);if(ne
  const res=[];if(r.cfg.fmt!='copa')r.prevRank=rankOf(r);r.ms.forEach(m=>{const A=r.pl[m.a].team,B=r.pl[m.b].team;let pen='';
  if(r.cfg.fmt=='copa'){}else{const s=r.table;[[A,m.ga,m.gb],[B,m.gb,m.ga]].forEach(([t,f,c])=>{const q=s[t];q.pj++;q.gf+=f;q.ga+=c;q.pts+=f>c?3:f==c?1:0;q.g+=+(f>c);q.e+=+(f==c);q.p+=+(f<c)})}
  res.push({a:A,b:B,ga:m.ga,gb:m.gb,pen});tally(r,m);r.pl[m.a].sus=[...m.off[0]];r.pl[m.b].sus=[...m.off[1]]});r.order.forEach(p=>fixSus(r.pl[p]));r.res=res;r.ms=[];(r.hist=r.hist||[]).push(res);r.round++;
- if(r.cfg.fmt=='copa'){const fin=koResolve(r,res);r.psoItems=null;r.psoOK=false;r.pw=null;if(fin){r.phase='end';r.champ=r.alive[0];regTitle(r);return}}
- else if(r.round>=r.total){r.phase='end';r.champ=Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT)[0].id;regTitle(r);return}
+ if(r.cfg.fmt=='copa'){const fin=koResolve(r,res);r.psoItems=null;r.psoOK=false;r.pw=null;if(fin){r.phase='end';r.champ=r.alive[0];regTitle(r);recCareer(r);return}}
+ else if(r.round>=r.total){r.phase='end';r.champ=Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT)[0].id;regTitle(r);recCareer(r);return}
  r.phase='lobby';r.t=r.cfg.fmt=='copa'&&r.alive&&r.order.every(p=>r.pl[p].bot||!r.alive.includes(r.pl[p].team))?6:90;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot)}
 // Equipo de la fecha: más goles; si empatan, mejor diferencia; si siguen igualados, mejores estadísticas (posesión, remates, a puerta, córners, menos faltas y tarjetas)
 const cmpT=(a,b)=>b.pts-a.pts||b.g-a.g||b.gf-a.gf||(b.gf-b.ga)-(a.gf-a.ga);
@@ -133,7 +133,7 @@ const rankOf=r=>{const o={};Object.entries(r.table).map(([id,q])=>({id,...q})).s
 function awardOf(r){let best=null;r.ms.forEach(m=>[0,1].forEach(s=>{const o=1-s,gf=s?m.gb:m.ga,ga=s?m.ga:m.gb,st=m.st[s],tot=(m.st[0][0]+m.st[1][0])||1,comp=st[0]/tot*40+st[1]*1.2+st[2]*2+st[3]*.5-st[4]*.2-st[5]*.5-st[6]*3+rnd()*.01,sc=[gf,gf-ga,comp];
   if(!best||sc[0]>best.sc[0]||(sc[0]==best.sc[0]&&(sc[1]>best.sc[1]||(sc[1]==best.sc[1]&&sc[2]>best.sc[2]))))best={sc,team:r.pl[s?m.b:m.a].team,rival:r.pl[o?m.b:m.a].team,gf,ga}}));
  if(best){r.award={team:best.team,rival:best.rival,gf:best.gf,ga:best.ga};r.aw=r.aw||{};r.aw[best.team]=(r.aw[best.team]||0)+1}}
-function tick(r){setMix(r.cfg&&r.cfg.mix);if(r.paused)return;if(r.pub&&r.phase=='pick')pubTick(r);if(r.rand&&RLIVE.includes(r.phase))return randTick(r);if(r.phase=='pre'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='cer'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)begin1(r)}else if(r.phase=='m1'||r.phase=='m2'){if(r.add>0){r.ms.forEach(m=>{m.evs=[]});if(r.add==1&&!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=4&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else if(--r.add==0){r.hold=0;r.order.forEach(p=>r.pl[p].busy=false);if(r.min==45){r.phase='ht';r.t=15;r.order.forEach(p=>r.pl[p].skip=false);if(r.offline)botTune(r,1)}else{r.phase='fin';r.t=5}}}else if(!CFG.fastWaits&&r.spd<=1.5&&r.hb>0&&(r.hold2=(r.hold2||0)+1)<=40&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy>=2)){r.hb--}else{r.hold2=0;if(r.stp){const lm=r.min;r.sx++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,lm);autoSub(r,m,lm)});if(r.sx>=r.ad){r.stp=false;r.add=1;r.hold=0;if(lm==45)r.ms.forEach(m=>{m.h0=hcnt(m)})}}else{r.min++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,r.min);autoSub(r,m,r.min)});if(r.min==45||r.min>=90){r.ad=CFG.fastWaits?0:stopAdd(r,r.min);r.sx=0;if(r.ad>0)r.stp=true;else{r.add=CFG.fastWaits?1:3;r.hold=0}}}}}   // tiempo agregado: sin jugadas nuevas, para que se terminen de ver las que quedaron antes del descanso/final
+function tick(r){setMix(r.cfg&&r.cfg.mix);if(r.paused)return;if(r.pub){if(r.closed)return pubClosedTick(r);if(r.phase=='pick'){pubTick(r);if(r.closed)return pubClosedTick(r);return push(r)}}if(r.rand&&RLIVE.includes(r.phase))return randTick(r);if(r.phase=='pre'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='cer'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)begin1(r)}else if(r.phase=='m1'||r.phase=='m2'){if(r.add>0){r.ms.forEach(m=>{m.evs=[]});if(r.add==1&&!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=4&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else if(--r.add==0){r.hold=0;r.order.forEach(p=>r.pl[p].busy=false);if(r.min==45){r.phase='ht';r.t=15;r.order.forEach(p=>r.pl[p].skip=false);if(r.offline)botTune(r,1)}else{r.phase='fin';r.t=5}}}else if(!CFG.fastWaits&&r.spd<=1.5&&r.hb>0&&(r.hold2=(r.hold2||0)+1)<=40&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy>=2)){r.hb--}else{r.hold2=0;if(r.stp){const lm=r.min;r.sx++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,lm);autoSub(r,m,lm)});if(r.sx>=r.ad){r.stp=false;r.add=1;r.hold=0;if(lm==45)r.ms.forEach(m=>{m.h0=hcnt(m)})}}else{r.min++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,r.min);autoSub(r,m,r.min)});if(r.min==45||r.min>=90){r.ad=CFG.fastWaits?0:stopAdd(r,r.min);r.sx=0;if(r.ad>0)r.stp=true;else{r.add=CFG.fastWaits?1:3;r.hold=0}}}}}   // tiempo agregado: sin jugadas nuevas, para que se terminen de ver las que quedaron antes del descanso/final
  
  else if(r.phase=='fin'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0||(r.offline&&r.skipEnd)){awardOf(r);if(r.offline&&r.skipEnd)endRound(r);else{r.phase='awd';r.t=5}}}else if(r.phase=='awd'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)endRound(r)}else if(r.phase=='ht'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0){r.phase='m2';r.ad=0;r.sx=0;r.stp=false;r.hb=4}}else if(r.phase=='lobby'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='psel'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0){r.ps.items.forEach(it=>{it.ok=[true,true]});startShoot(r)}}
  else if(r.phase=='pso'){const ps=r.ps,mx=Math.max(...ps.items.map(it=>it.kicks.length));
@@ -150,7 +150,7 @@ const DORS=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
 const pInfo=(m,s,P)=>{const tc=P.tac;return{x:tc.xi.slice(),n:tc.xi.map(i=>DORS[i]),y:tc.xi.map((i,k)=>m.yc[s][i]>0&&!m.off[s].has(i)?k:-1).filter(k=>k>=0),g:tc.xi.map(i=>m.pg[s][i]||0),a:tc.xi.map(i=>m.pas[s][i]||0),c:tc.xi.indexOf(tc.cap)}};
 const offKs=(m,s,P)=>P.tac.xi.map((i,k)=>m.off[s].has(i)?k:-1).filter(k=>k>=0);
 function view(r,pid){setMix(r.cfg&&r.cfg.mix);const me=r.pl[pid]||(r.spec&&r.spec[pid]?SPECME:undefined),own={};r.order.forEach(p=>{if(r.pl[p].team)own[r.pl[p].team]=r.pl[p].name});
- const v={code:r.code,rq:rView(r,pid),rk:rankInfo(r),tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
+ const v={code:r.code,rq:rView(r,pid),rk:rankInfo(r),pb:pbOf(r),closed:r.closed||null,sp:!!(r.spec&&r.spec[pid]&&!r.pl[pid]),ns:Object.keys(r.spec||{}).filter(q=>r.spec[q].cb).length,tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
  table:Object.entries(r.table).map(([id,q])=>({id,...q})),chat:r.chat.slice(-40).map(c=>({id:c.id,n:c.n,t:c.t,u:c.u.length,d:c.d.length,me:c.pid===pid,my:c.u.includes(pid)?1:c.d.includes(pid)?-1:0})),
  ms:(r.ms||[]).map(m=>{const A=r.pl[m.a],B=r.pl[m.b],kt=kitsOf(A,B);return{a:A.team,b:B.team,pha:A.phil||'equilibrada',phb:B.phil||'equilibrada',w:m.w,ra:[A.tac.k1,A.tac.k2],rb:[B.tac.k1,B.tac.k2],ga:m.ga,gb:m.gb,fa:A.tac.f,fb:B.tac.f,ka:kt[0],kb:kt[1],evs:m.evs,gl:m.gl,ta:[A.tac.st,A.tac.pr,A.tac.wing,A.tac.sal,A.tac.mk],tb:[B.tac.st,B.tac.pr,B.tac.wing,B.tac.sal,B.tac.mk],fl:m.fl,of:m.of,xg:m.xg.map(x=>Math.round(x*100)/100),st:m.st.map(x=>[...x]),oa:offKs(m,0,A),ob:offKs(m,1,B),pa:pInfo(m,0,A),pb:pInfo(m,1,B)}}),
  ready:r.order.map(p=>r.pl[p].ready),n:r.order.length,pls:r.order.map(p=>({n:r.pl[p].name,t:r.pl[p].team,b:!!r.pl[p].bot,f:r.pl[p].phil||'equilibrada',o:isOut(r,r.pl[p])})),off:!!r.offline,paused:!!r.paused,ad:(r.phase=='m1'&&r.min>=45)||(r.phase=='m2'&&r.min>=90)?(r.ad||0):0,sx:(r.phase=='m1'&&r.min>=45)||(r.phase=='m2'&&r.min>=90)?(r.sx||0):0,hx:r.hb>0?0:1,sk:(()=>{const hs=r.order.filter(p=>!r.pl[p].bot&&playing(r,p));return{n:hs.filter(p=>r.pl[p].skip).length,of:hs.length,me:!!(me&&me.skip),pl:!!(me&&playing(r,pid))}})(),nf:(r.phase=='pre'||r.phase=='lobby')?((r.cfg.fmt=='copa'?copaPairs(r):(r.fx&&r.fx[r.round]))||null):null};
@@ -175,8 +175,9 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
   if(!div||(!cup&&!(c.fmt=='copa'?D.KO_SIZES:D.LIGA_SIZES).includes(nn))||!['liga1','liga2','copa'].includes(c.fmt))return'Configuración inválida';if(c.fmt=='copa'&&!D.KO_SIZES.includes(nn))return'Mata-mata: solo 4, 8, 16 o 32 equipos (llaves completas, sin pases libres)';if(!isAll&&div.teams.length<nn)return'Esa división tiene solo '+div.teams.length+' clubes: elegí menos jugadores';
   r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&(c.mix||!(b.off&&CFG.offline))))?1:0,cup:cup?cup.title:undefined,legs:c.fmt=='copa'&&+c.legs==2?2:1,seed:c.fmt=='copa'&&c.seed=='pick'?'pick':'rand'},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
  else if(!r)return'No existe esa sala';
- if(!r.pl[pid]){if(r.order.length>=r.cfg.n||r.phase!='pick')return'Sala llena o ya empezó';r.pl[pid]={name,team:null,ready:false,tac:null,res:null,phil:r.offline?'equilibrada':validPhil(b.phil)};r.order.push(pid)}
- const me=r.pl[pid];r.touched=Date.now();let err=null;if(b.phil!==undefined&&!r.offline&&['pick','pre'].includes(r.phase))me.phil=validPhil(b.phil);
+ if(r.closed)return'La sala está cerrada';
+ if(!r.pl[pid]){if(r.order.length>=r.cfg.n||r.phase!='pick')return'Sala llena o ya empezó';r.pl[pid]={name,team:null,ready:false,tac:null,res:null,phil:r.offline?'equilibrada':validPhil(b.phil),uid:b.uid};r.order.push(pid)}
+ const me=r.pl[pid];if(b.uid&&!me.uid)me.uid=b.uid;r.touched=Date.now();let err=null;if(b.phil!==undefined&&!r.offline&&['pick','pre'].includes(r.phase))me.phil=validPhil(b.phil);
  if(a=='pick'&&r.phase=='pick'){const div={teams:poolOf(r)};if(!div.teams.some(t=>t.id==b.team)||r.order.some(p=>r.pl[p].team==b.team))return'Equipo ocupado';
   me.team=b.team;me.tac=newTac(b.team);if(r.offline){if(r.cfg.cup&&r.cfg.n>=div.teams.length)addBots(r,null,div.teams.map(t=>t.id).filter(id=>id!=b.team));else r.needRiv=1}maybeStart(r)}
  else if(a=='rivals'&&r.offline&&r.phase=='pick'&&me.team&&r.order.length<r.cfg.n){const pool=poolOf(r).map(t=>t.id).filter(id=>id!=me.team),need=r.cfg.n-1,ids=b.random?shuf([...pool]).slice(0,need):[...new Set(Array.isArray(b.teams)?b.teams:[])].filter(id=>pool.includes(id));if(ids.length!=need)return'Elegí exactamente '+need+' rivales';addBots(r,null,ids);r.needRiv=0;maybeStart(r)}
@@ -231,7 +232,7 @@ const rView=(r,pid)=>{if(!r.rand)return null;const cnt={};Object.values(r.rand.v
  return{need:CFG.randN,n:r.order.length,names:r.order.map(p=>r.pl[p].name),opts:vt?rOpts(r):[],cnt,mine:r.rand.votes[pid]||null,cat:r.rand.cat,t:Math.ceil(r.t),vac:r.phase=='queue'?vacInfo(vacOf()):null}};
 function dropP(r,p){if(!r.pl[p])return;delete r.rand.votes[p];delete r.pl[p];const i=r.order.indexOf(p);if(i>=0)r.order.splice(i,1);
  if(!r.order.length){clearInterval(r.timer);delete rooms[r.code];if(qOpen==r.code)qOpen=null}}
-function addRand(r,pid,b){r.pl[pid]={name:txt(b.name,16)||'Invitado',team:null,ready:false,tac:null,res:null,phil:validPhil(b.phil),lost:Date.now()};r.order.push(pid);r.touched=Date.now()}
+function addRand(r,pid,b){r.pl[pid]={name:txt(b.name,16)||'Invitado',team:null,ready:false,tac:null,res:null,phil:validPhil(b.phil),lost:Date.now(),uid:b.uid};r.order.push(pid);r.touched=Date.now()}
 function newQueue(){let code;do code='rnd'+rnd().toString(36).slice(2,7);while(rooms[code]||code.length<8);
  const r=rooms[code]={code,tid:newTid(),cfg:{div:'ar1',fmt:'liga1',n:CFG.randN,mix:0,legs:1,seed:'rand'},pl:{},order:[],chat:[],phase:'queue',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:false,spd:1,rand:{votes:{},cat:null}};
  r.timer=setInterval(()=>tick(r),CFG.tick);qOpen=code;return r}
@@ -250,25 +251,33 @@ function rJoin(b){const pid=txt(b.pid,40);if(!pid)return{error:'Falta id'};
  addRand(q,pid,b);if(q.order.length>=CFG.randN){q.phase='vote1';q.t=CFG.rVoteT;q.rand.votes={}}
  push(q);return{room:q.code}}
 // ---- Salas públicas: salas online sin código que aparecen en un listado. Se crean, se entra mientras esperan jugadores y se pueden mirar.
-CFG.pubWait=CFG.pubWait||600;   // segundos que espera jugadores una sala pública antes de completarse con CPU
+CFG.pubWait=CFG.pubWait||300;   // segundos (TIEMPO REAL, se mide con la hora del servidor) que espera jugadores una sala pública; si no se completa, se cierra
 const SPECTAC={f:0,xi:[0,1,2,3,4,5,6,7,8,9,10],cap:0,pk:-1,st:1,pr:1,wing:0,sal:0,mk:0,k1:'#999999',k2:'#ffffff',auto:0},SPECME={name:'Espectador',team:null,ready:true,phil:'equilibrada',spec:true,tac:SPECTAC};
-function pubTick(r){if(r.phase!='pick'||Date.now()<r.pub.closeAt)return;
- if(r.order.filter(p=>!r.pl[p].bot).length<2){r.pub.closeAt=Date.now()+CFG.pubWait*1000;return}   // con una sola persona sigue esperando
- addBots(r,{teams:poolOf(r)});r.pub.closeAt=Infinity;maybeStart(r);push(r)}   // pasó el tiempo: se completa con CPU y arranca cuando todos eligieron club
-function pubList(){return Object.values(rooms).filter(r=>r.pub&&r.phase!='end').map(r=>{const e=D.catalog().find(x=>x.key==r.cfg.div)||{},bar=e.cat=='barrial',pick=r.phase=='pick',free=pick?Math.max(0,r.cfg.n-r.order.length):0;
- return{code:r.code,name:r.pub.title||('Sala de '+r.pub.host),cat:bar?'barrial':'clasico',comp:bar?e.title:e.name,region:bar?e.region:'',fmt:r.cfg.fmt,n:r.cfg.n,h:r.order.filter(p=>!r.pl[p].bot).length,free,status:pick?(free>0?'esperando':'completa'):'juego',left:pick&&isFinite(r.pub.closeAt)?Math.max(0,r.pub.closeAt-Date.now()):0,phase:r.phase,round:r.round||0,total:r.total||0,rd:r.rd||0,spec:Object.keys(r.spec||{}).length}}).sort((a,b)=>b.h-a.h)}
-// op: 'create' (div,fmt,n,title) | 'play' (room) | 'watch' (room). Devuelve {room} o {error}.
+const pubInfo=r=>{const e=D.catalog().find(x=>x.key==r.cfg.div)||{},bar=e.cat=='barrial';return{comp:bar?e.title:e.name,region:bar?e.region:'',cat:bar?'barrial':'clasico'}};
+const pbOf=r=>r.pub?{name:r.pub.title||('Sala de '+r.pub.host),...pubInfo(r),left:r.phase=='pick'&&!r.closed&&isFinite(r.pub.closeAt)?Math.max(0,r.pub.closeAt-Date.now()):null}:null;
+// r.closed = motivo del cierre ('tiempo' | 'anfitrion'). Los jugadores ven "Sala cerrada" y a los 20 s la sala se elimina.
+function closePub(r,why){if(r.closed)return;r.closed=why;r.closedAt=Date.now();push(r)}
+function pubTick(r){if(r.phase=='pick'&&!r.closed&&Date.now()>=r.pub.closeAt)closePub(r,'tiempo')}
+function pubClosedTick(r){push(r);if(Date.now()-r.closedAt>20000){clearInterval(r.timer);delete rooms[r.code]}}
+// "viva" = existe, no se cerró y no terminó. Si venció el tiempo se cierra acá mismo (aunque el reloj interno no haya corrido), así nunca se lista ni se entra a una sala vencida.
+const pubAlive=r=>{if(r.pub&&r.phase=='pick'&&!r.closed&&Date.now()>=r.pub.closeAt)closePub(r,'tiempo');return !!(r.pub&&!r.closed&&r.phase!='end')};
+function pubList(){return Object.values(rooms).filter(pubAlive).map(r=>{const i=pubInfo(r),pick=r.phase=='pick',free=pick?Math.max(0,r.cfg.n-r.order.length):0;
+ return{code:r.code,name:r.pub.title||('Sala de '+r.pub.host),cat:i.cat,comp:i.comp,region:i.region,fmt:r.cfg.fmt,n:r.cfg.n,h:r.order.filter(p=>!r.pl[p].bot).length,free,status:pick?(free>0?'esperando':'completa'):'juego',left:pick&&isFinite(r.pub.closeAt)?Math.max(0,r.pub.closeAt-Date.now()):0,phase:r.phase,round:r.round||0,total:r.total||0,rd:r.rd||0,spec:Object.keys(r.spec||{}).length}}).sort((a,b)=>b.h-a.h)}
+// Cierra la sala el anfitrión (el primero en entrar) mientras espera jugadores.
+function pubClose(b,pid){const r=rooms[txt(b.room,12).toLowerCase()];if(!r||!pubAlive(r))return{error:'Esa sala ya no existe o se cerró'};if(r.phase!='pick')return{error:'Solo se puede cerrar mientras espera jugadores'};if(r.order[0]!=pid)return{error:'Solo el anfitrión puede cerrar la sala'};closePub(r,'anfitrion');return{ok:1}}
+// op: 'create' (div,fmt,n,title) | 'play' (room) | 'watch' (room) | 'close' (room). Devuelve {room} o {error}.
 function pubApi(b){const pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!pid)return{error:'Falta id'};
- for(const k in rooms){const r=rooms[k];if(r.pub&&r.phase!='end'&&r.pl[pid]&&b.op!='watch')return{room:k}}   // ya estabas en una: volvés a esa
+ if(b.op=='close')return pubClose(b,pid);
+ for(const k in rooms){const r=rooms[k];if(r.pub&&pubAlive(r)&&r.pl[pid]&&b.op!='watch')return{room:k}}   // ya estabas en una: volvés a esa
  if(b.op=='create'){const e=D.catalog().find(x=>x.key==b.div),fmt=b.fmt,n=Math.floor(+b.n);
   if(!e||!e.fmts.includes(fmt)||!(e.sizes[fmt]||[]).includes(n)||n<10)return{error:'Configuración inválida: las salas públicas son de 10 jugadores o más'};
   if(Object.keys(rooms).length>=60)return{error:'Servidor lleno'};
   let code;do code='pub'+rnd().toString(36).slice(2,7);while(rooms[code]||code.length<8);
-  const er=act({a:'create',pid,name,room:code,phil:b.phil,cfg:{div:e.key,fmt,n}});if(er)return{error:er};
+  const er=act({a:'create',pid,name,room:code,phil:b.phil,uid:b.uid,cfg:{div:e.key,fmt,n}});if(er)return{error:er};
   rooms[code].pub={title:txt(b.title,28),host:name,closeAt:Date.now()+CFG.pubWait*1000,created:Date.now()};return{room:code}}
- const r=rooms[txt(b.room,12).toLowerCase()];if(!r||!r.pub||r.phase=='end')return{error:'Esa sala ya no existe'};
+ const r=rooms[txt(b.room,12).toLowerCase()];if(!r||!pubAlive(r))return{error:'Esa sala ya no existe o se cerró'};
  if(b.op=='play'){if(r.phase!='pick'||r.order.length>=r.cfg.n)return{error:'La sala se llenó o ya empezó. Podés mirarla.'};
-  if(r.spec&&r.spec[pid])delete r.spec[pid];const er=act({a:'join',pid,name,room:r.code,phil:b.phil});return er?{error:er}:{room:r.code}}
+  if(r.spec&&r.spec[pid])delete r.spec[pid];const er=act({a:'join',pid,name,room:r.code,phil:b.phil,uid:b.uid});return er?{error:er}:{room:r.code}}
  if(b.op=='watch'){if(r.pl[pid])return{room:r.code};r.spec=r.spec||{};if(!r.spec[pid]&&Object.keys(r.spec).length>=60)return{error:'La sala tiene demasiados espectadores'};
   r.spec[pid]=r.spec[pid]||{name,cb:null,lost:0};return{room:r.code}}
  return{error:'Pedido inválido'}}
@@ -284,5 +293,17 @@ function restore(json,o){o=o||{};if(!CFG.offline)return{error:'Cargar carreras s
  if(hum[0]!=pid){r.pl[pid]=r.pl[hum[0]];delete r.pl[hum[0]];r.order[r.order.indexOf(hum[0])]=pid}   // misma carrera aunque cambie el id del navegador
  let code=txt(r.code,12).toLowerCase();if(!/^[a-z0-9]{3,12}$/.test(code)||rooms[code])code='cpu'+rnd().toString(36).slice(2,7);
  r.code=code;r.offline=true;r.touched=Date.now();r.ms=[];r.paused=false;r.spd=clamp(+o.speed||+r.spd||1,.25,100);r.timer=setInterval(()=>tick(r),1000/r.spd);rooms[code]=r;return{code}}
+// ---- Historial de carreras: al terminar un torneo se informa el resultado de cada jugador con cuenta (CFG.onCareer lo define el servidor; en el navegador, el cliente).
+// Online: solo jugadores con cuenta (uid, puesto por el servidor). Offline: el único jugador humano; el cliente envía el registro solo si tiene sesión iniciada.
+function copaRes(r,t){let last=0;(r.br||[]).forEach(rd=>{if(rd.some(x=>x.a==t||x.b==t))last=rd.length});
+ return last==1?'Finalista':last==2?'Eliminado en semifinales':last==4?'Eliminado en cuartos de final':last==8?'Eliminado en octavos de final':last==16?'Eliminado en dieciseisavos de final':'Eliminado en la ronda previa'}
+function recCareer(r){if(r.careered)return;r.careered=1;if(!CFG.onCareer)return;
+ const cup=r.cfg.cup?CUPS.find(x=>'cup:'+x.id==r.cfg.div):null,dv=cup?null:DIVS.find(d=>d.id==r.cfg.div),copa=r.cfg.fmt=='copa',rk=copa?null:rankOf(r),
+  origen=r.offline?'offline':r.pub?'publica':r.rand?'aleatoria':'privada',recs=[];
+ r.order.forEach(p=>{const P=r.pl[p];if(!P||P.bot||!P.team||!TM[P.team])return;if(!r.offline&&!P.uid)return;
+  const t=P.team,q=r.table[t]||{},champ=r.champ==t,pos=rk?(rk[t]||null):null;
+  recs.push({uid:P.uid,tid:r.tid,club:t,clubNombre:TM[t].name,mod:r.offline?'offline':cup?'barrial':'clasico',origen,comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':String(r.cfg.div)),fmt:r.cfg.fmt,n:r.cfg.n,
+   pos,resultado:champ?'Campeón':copa?copaRes(r,t):(pos?pos+'.º de '+r.cfg.n:'—'),campeon:champ,pj:copa?null:q.pj,g:copa?null:q.g,e:copa?null:q.e,p:copa?null:q.p,gf:copa?null:q.gf,gc:copa?null:q.ga,pts:copa?null:q.pts,at:Date.now()})});
+ if(recs.length)try{CFG.onCareer(recs)}catch(e){console.error('carrera:',e.message)}}
 const API={act,listen,rooms,CFG,rJoin,pubList,pubApi,snapshot,restore,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
 })();
