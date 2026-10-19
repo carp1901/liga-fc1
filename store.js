@@ -19,6 +19,41 @@ CREATE TABLE IF NOT EXISTS titulos(
 );
 CREATE INDEX IF NOT EXISTS titulos_club_idx ON titulos(club);
 CREATE INDEX IF NOT EXISTS titulos_comp_idx ON titulos(modalidad, competicion);
+CREATE TABLE IF NOT EXISTS usuarios(
+ id SERIAL PRIMARY KEY,
+ usuario TEXT NOT NULL,
+ usuario_lc TEXT NOT NULL UNIQUE,
+ pass_hash TEXT NOT NULL,
+ creado TIMESTAMPTZ NOT NULL DEFAULT now(),
+ ultimo_ingreso TIMESTAMPTZ
+);
+CREATE TABLE IF NOT EXISTS sesiones(
+ token_hash TEXT PRIMARY KEY,
+ usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+ creada TIMESTAMPTZ NOT NULL DEFAULT now(),
+ vence TIMESTAMPTZ NOT NULL
+);
+CREATE INDEX IF NOT EXISTS sesiones_usuario_idx ON sesiones(usuario_id);
+CREATE TABLE IF NOT EXISTS carreras(
+ id SERIAL PRIMARY KEY,
+ usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+ torneo_id TEXT NOT NULL,
+ club TEXT NOT NULL,
+ club_nombre TEXT,
+ modalidad TEXT NOT NULL,
+ origen TEXT,
+ competicion TEXT,
+ competicion_nombre TEXT,
+ formato TEXT,
+ participantes INTEGER,
+ posicion INTEGER,
+ resultado TEXT,
+ campeon BOOLEAN NOT NULL DEFAULT false,
+ pj INTEGER, g INTEGER, e INTEGER, p INTEGER, gf INTEGER, gc INTEGER, pts INTEGER,
+ finalizado TIMESTAMPTZ NOT NULL DEFAULT now(),
+ UNIQUE(usuario_id, torneo_id)
+);
+CREATE INDEX IF NOT EXISTS carreras_usuario_idx ON carreras(usuario_id, finalizado DESC);
 `;
 const INSERT=`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado,verificacion)
  VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) ON CONFLICT (torneo_id) DO NOTHING RETURNING id`;
@@ -119,4 +154,53 @@ async function club(id){
 // Un solo intento (para pedidos HTTP; el cliente reintenta si falla).
 const insert=rec=>configured?insertOnce(rec):Promise.resolve({status:'disabled'});
 const status=()=>!configured?'off':lastErr?'error':'ok';
-module.exports={init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+// ===================== CUENTAS (usuario + contraseña) E HISTORIAL DE CARRERAS =====================
+// Las cuentas son opcionales: quien juega de invitado no pasa por nada de esto. La contraseña se guarda con scrypt + sal (nunca en claro) y la sesión es un
+// token aleatorio del que solo se guarda el hash. Todo requiere la base de datos (DATABASE_URL); sin ella las cuentas no están disponibles.
+const crypto=require('crypto');
+const USER_RE=/^[A-Za-z0-9_.-]{3,16}$/,RESERVED=/^(admin|administrador|invitado|guest|cpu|anonimo|sistema|ligafc)$/i,SESS_DAYS=90;
+const sha=x=>crypto.createHash('sha256').update(String(x)).digest('hex');
+const scryptP=(pw,salt)=>new Promise((ok,no)=>crypto.scrypt(pw,salt,64,{N:16384,r:8,p:1},(e,k)=>e?no(e):ok(k)));
+async function hashPw(pw){const salt=crypto.randomBytes(16),k=await scryptP(pw,salt);return'scrypt$'+salt.toString('hex')+'$'+k.toString('hex')}
+async function checkPw(pw,h){const [alg,sl,k]=String(h).split('$');if(alg!='scrypt'||!sl||!k)return false;const a=Buffer.from(k,'hex'),b=await scryptP(pw,Buffer.from(sl,'hex'));return a.length==b.length&&crypto.timingSafeEqual(a,b)}
+const DUMMY_HASH='scrypt$'+'00'.repeat(16)+'$'+'00'.repeat(64),UCACHE=new Map();   // UCACHE: hash de token -> usuario, 60 s (evita consultar la base en cada acción)
+async function newSession(uid){const tok=crypto.randomBytes(32).toString('hex');await pool.query(`INSERT INTO sesiones(token_hash,usuario_id,vence) VALUES($1,$2,$3)`,[sha(tok),uid,new Date(Date.now()+SESS_DAYS*864e5).toISOString()]);return tok}
+async function registrar(usuario,clave){
+  if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};
+  usuario=String(usuario||'').trim();clave=String(clave||'');
+  if(!USER_RE.test(usuario))return{error:'El usuario debe tener entre 3 y 16 caracteres: letras, números, _ . -'};
+  if(RESERVED.test(usuario))return{error:'Ese nombre está reservado; elegí otro'};
+  if(clave.length<6||clave.length>72)return{error:'La contraseña debe tener entre 6 y 72 caracteres'};
+  await ensure();const h=await hashPw(clave);
+  const r=await pool.query(`INSERT INTO usuarios(usuario,usuario_lc,pass_hash) VALUES($1,$2,$3) ON CONFLICT (usuario_lc) DO NOTHING RETURNING id,usuario`,[usuario,usuario.toLowerCase(),h]);
+  if(!r.rowCount)return{error:'Ese usuario ya existe'};
+  return{token:await newSession(r.rows[0].id),usuario:r.rows[0].usuario}}
+async function login(usuario,clave){
+  if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};
+  usuario=String(usuario||'').trim();clave=String(clave||'');await ensure();
+  const r=await pool.query(`SELECT id,usuario,pass_hash FROM usuarios WHERE usuario_lc=$1`,[usuario.toLowerCase()]),u=r.rows[0];
+  const ok=await checkPw(clave,u?u.pass_hash:DUMMY_HASH);   // el cálculo se hace siempre, exista o no el usuario: mismo tiempo y mismo mensaje
+  if(!u||!ok)return{error:'Usuario o contraseña incorrectos'};
+  await pool.query(`UPDATE usuarios SET ultimo_ingreso=now() WHERE id=$1`,[u.id]);pool.query(`DELETE FROM sesiones WHERE vence<now()`).catch(()=>{});
+  return{token:await newSession(u.id),usuario:u.usuario}}
+async function userByToken(tok){
+  if(!configured||!tok||typeof tok!='string'||tok.length>128)return null;const k=sha(tok),c=UCACHE.get(k);if(c&&c.exp>Date.now())return{id:c.id,usuario:c.usuario};
+  await ensure();const r=await pool.query(`SELECT u.id,u.usuario FROM sesiones s JOIN usuarios u ON u.id=s.usuario_id WHERE s.token_hash=$1 AND s.vence>now()`,[k]);
+  if(!r.rowCount){UCACHE.delete(k);return null}UCACHE.set(k,{id:r.rows[0].id,usuario:r.rows[0].usuario,exp:Date.now()+60000});return{id:r.rows[0].id,usuario:r.rows[0].usuario}}
+async function logout(tok){if(!configured||!tok||typeof tok!='string')return;const k=sha(tok);UCACHE.delete(k);await ensure();await pool.query(`DELETE FROM sesiones WHERE token_hash=$1`,[k])}
+// Una fila por carrera terminada y por jugador con cuenta. UNIQUE(usuario_id,torneo_id): reintentos o reconexiones nunca duplican. Si la base falla, se reintenta unos segundos después.
+async function addCareers(recs,att){att=att||0;if(!configured)return;const fail=[];
+  try{await ensure()}catch(e){if(att<6)setTimeout(()=>addCareers(recs,att+1),5000).unref();return}
+  for(const c of recs){if(!c.uid)continue;
+    try{await pool.query(`INSERT INTO carreras(usuario_id,torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,finalizado)
+      VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21) ON CONFLICT (usuario_id,torneo_id) DO NOTHING`,
+      [c.uid,c.tid,c.club,c.clubNombre??null,c.mod,c.origen??null,c.comp??null,c.compNombre??null,c.fmt??null,c.n??null,c.pos??null,c.resultado??null,!!c.campeon,c.pj??null,c.g??null,c.e??null,c.p??null,c.gf??null,c.gc??null,c.pts??null,new Date(c.at||Date.now()).toISOString()])}
+    catch(e){console.error('carrera no guardada:',e.message);fail.push(c)}}
+  if(fail.length&&att<6)setTimeout(()=>addCareers(fail,att+1),5000).unref()}
+async function perfil(uid){
+  if(!configured)return{enabled:false};await ensure();
+  const u=await pool.query(`SELECT usuario,creado FROM usuarios WHERE id=$1`,[uid]);if(!u.rowCount)return{error:'Usuario inexistente'};
+  const [h,a]=await Promise.all([pool.query(`SELECT torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,finalizado FROM carreras WHERE usuario_id=$1 ORDER BY finalizado DESC, id DESC LIMIT 100`,[uid]),
+    pool.query(`SELECT count(*)::int AS carreras, count(*) FILTER (WHERE campeon)::int AS campeonatos, count(*) FILTER (WHERE modalidad<>'offline')::int AS online, count(DISTINCT club)::int AS clubes FROM carreras WHERE usuario_id=$1`,[uid])]);
+  const x=a.rows[0]||{};return{enabled:true,usuario:u.rows[0].usuario,creado:u.rows[0].creado,resumen:{carreras:x.carreras||0,campeonatos:x.campeonatos||0,online:x.online||0,offline:(x.carreras||0)-(x.online||0),clubes:x.clubes||0},historial:h.rows}}
+module.exports={registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};

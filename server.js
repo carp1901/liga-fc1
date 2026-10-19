@@ -2,6 +2,7 @@
 const http=require('http'),fs=require('fs'),path=require('path'),E=require('./public/engine'),{DIVS}=require('./public/data'),store=require('./store');
 const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),rooms=E.rooms;E.CFG.tick=+process.env.TICK_MS||1000;
 store.init();E.CFG.onTitle=rec=>store.register(rec); // palmarés permanente (PostgreSQL)
+E.CFG.onCareer=recs=>store.addCareers(recs); // historial de carreras de los jugadores con cuenta
 // ---- Títulos offline: los informa el navegador. El servidor valida lo que SÍ puede comprobar (formato, club dentro de la competición, tamaño, límites de uso) y los guarda aparte, marcados como no verificables.
 const {CUPS,TM}=require('./public/data'),RL=new Map(),rlOk=(k,max)=>{const n=Date.now(),a=(RL.get(k)||[]).filter(t=>n-t<36e5);if(a.length>=max){RL.set(k,a);return false}a.push(n);RL.set(k,a);return true};
 setInterval(()=>{const n=Date.now();for(const[k,a]of RL){const b=a.filter(t=>n-t<36e5);b.length?RL.set(k,b):RL.delete(k)}},6e5).unref();
@@ -17,17 +18,36 @@ function offlineRec(b){
 }
 const MIME={'.html':'text/html;charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.jpg':'image/jpeg','.webp':'image/webp','.js':'text/javascript','.css':'text/css'};
 function body(req,cb){let s='';req.on('data',d=>{s+=d;if(s.length>4096)req.destroy()});req.on('end',()=>{try{cb(JSON.parse(s))}catch(e){cb(null)}})}
+// ---- Cuentas (opcionales). El token viaja en el encabezado Authorization (o en el cuerpo). El uid de un jugador lo pone SOLO el servidor a partir del token: lo que mande el navegador se descarta.
+const tokOf=(req,b)=>{const h=String(req.headers.authorization||'');return h.startsWith('Bearer ')?h.slice(7).trim():String((b&&b.tok)||'')};
+const withUser=(req,b,cb)=>{if(!b||typeof b!='object')return cb();delete b.uid;const t=tokOf(req,b);if(!t)return cb();store.userByToken(t).then(u=>{if(u)b.uid=u.id;cb()},()=>cb())};   // sin sesión válida = invitado
 http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
  if(req.method=='POST'&&u.pathname=='/api/titulo-offline')return body(req,b=>{const send=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
   if(!b)return send(400,{error:'Pedido inválido'});const rec=offlineRec(b);if(typeof rec=='string')return send(400,{error:rec});
   if(!rlOk('ip:'+ipOf(req),30)||!rlOk('pid:'+String(b.pid||'').slice(0,40),30))return send(429,{error:'Demasiados títulos informados; probá más tarde'});
   store.insert(rec).then(r=>r.status=='disabled'?send(503,{error:'Palmarés no disponible'}):send(200,{status:r.status}),e=>{console.error('offline:',e.message);send(503,{error:'Base de datos no disponible'})})});
  if(req.method=='POST'&&u.pathname=='/api/random')return body(req,b=>{const send=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
-  if(!b)return send(400,{error:'Pedido inválido'});if(!rlOk('rnd:'+ipOf(req),120))return send(429,{error:'Demasiados intentos; probá más tarde'});send(200,E.rJoin(b))});
+  if(!b)return send(400,{error:'Pedido inválido'});if(!rlOk('rnd:'+ipOf(req),120))return send(429,{error:'Demasiados intentos; probá más tarde'});withUser(req,b,()=>send(200,E.rJoin(b)))});
+  if(u.pathname.startsWith('/api/auth/')){const jn=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(o))},dbErr=e=>{console.error('auth:',e&&e.message);jn(503,{error:'Base de datos no disponible'})},ruta=u.pathname.slice(10);
+   if(req.method=='POST'&&(ruta=='registro'||ruta=='login'))return body(req,b=>{if(!b)return jn(400,{error:'Pedido inválido'});const ip=ipOf(req);
+    if(ruta=='registro'&&!rlOk('reg:'+ip,30))return jn(429,{error:'Demasiados intentos; probá más tarde'});
+    if(ruta=='login'&&(!rlOk('lg:'+ip,150)||!rlOk('lgu:'+String(b.usuario||'').toLowerCase().slice(0,16),20)))return jn(429,{error:'Demasiados intentos; probá más tarde'});
+    (ruta=='registro'?store.registrar:store.login)(b.usuario,b.clave).then(r=>r.error?jn(ruta=='login'?401:400,r):jn(200,r),dbErr)});
+   if(req.method=='POST'&&ruta=='logout')return body(req,b=>store.logout(tokOf(req,b)).then(()=>jn(200,{ok:1}),()=>jn(200,{ok:1})));
+   if(req.method=='GET'&&(ruta=='yo'||ruta=='perfil'))return store.userByToken(tokOf(req)).then(us=>{if(!us)return jn(401,{error:'Sesión inválida o vencida'});return ruta=='yo'?jn(200,{usuario:us.usuario}):store.perfil(us.id).then(d=>jn(200,d))}).catch(dbErr);
+   // carrera offline: se juega en el celular y el servidor no puede comprobar los partidos; valida lo que sí puede (club dentro de la competición, formato, tamaño, límites) y la guarda como offline.
+   if(req.method=='POST'&&ruta=='carrera')return body(req,b=>{if(!b)return jn(400,{error:'Pedido inválido'});
+    store.userByToken(tokOf(req,b)).then(us=>{if(!us)return jn(401,{error:'Sesión inválida o vencida'});
+     const rec=offlineRec(b);if(typeof rec=='string')return jn(400,{error:rec});
+     if(!rlOk('car:'+ipOf(req),120)||!rlOk('caru:'+us.id,120))return jn(429,{error:'Demasiados registros; probá más tarde'});
+     const pos=b.pos==null?null:Math.floor(+b.pos),num=x=>x==null?null:Math.max(0,Math.min(999,Math.floor(+x)||0));
+     if(pos!=null&&!(pos>=1&&pos<=rec.n))return jn(400,{error:'Posición inválida'});
+     return store.addCareers([{...rec,uid:us.id,origen:'offline',pos,resultado:String(b.resultado||'').replace(/[<>&"]/g,'').slice(0,40)||null,campeon:!!b.campeon,pj:num(b.pj),g:num(b.g),e:num(b.e),p:num(b.p),gf:num(b.gf),gc:num(b.gc),pts:num(b.pts)}]).then(()=>jn(200,{ok:1}))}).catch(dbErr)});
+   return jn(404,{error:'No existe'})}
  if(u.pathname=='/api/salas'){res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});return res.end(JSON.stringify(E.pubList()))}   // salas públicas
  if(req.method=='POST'&&u.pathname=='/api/pub')return body(req,b=>{const send=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
-  if(!b)return send(400,{error:'Pedido inválido'});if(!rlOk('pub:'+ipOf(req),120))return send(429,{error:'Demasiados intentos; probá más tarde'});const r=E.pubApi(b);send(r.error?400:200,r)});
- if(req.method=='POST'&&u.pathname=='/act')return body(req,b=>{const e=b?E.act(b):'Pedido inválido';res.writeHead(e?400:200,{'Content-Type':'application/json'});res.end(JSON.stringify({error:e}))});
+  if(!b)return send(400,{error:'Pedido inválido'});if(!rlOk('pub:'+ipOf(req),120))return send(429,{error:'Demasiados intentos; probá más tarde'});withUser(req,b,()=>{const r=E.pubApi(b);send(r.error?400:200,r)})});
+ if(req.method=='POST'&&u.pathname=='/act')return body(req,b=>withUser(req,b,()=>{const e=b?E.act(b):'Pedido inválido';res.writeHead(e?400:200,{'Content-Type':'application/json'});res.end(JSON.stringify({error:e}))}));
  if(u.pathname=='/ev'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),c=r&&(r.pl[pid]||(r.spec&&r.spec[pid]));if(!c){res.writeHead(404);return res.end()}
   res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});c.res=res;res.write('retry:2000\n\n');E.listen(r.code,pid,v=>res.write('data:'+JSON.stringify(v)+'\n\n'));req.on('close',()=>{if(c.res===res){c.res=null;E.listen(r.code,pid,null)}});return}
  if(u.pathname=='/teams.json'){res.writeHead(200,{'Content-Type':'application/json'});return res.end(JSON.stringify(DIVS))}
@@ -42,5 +62,5 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
  let f=path.normalize(path.join(PUB,u.pathname=='/'?'index.html':decodeURIComponent(u.pathname)));
  if(!f.startsWith(PUB)||!fs.existsSync(f)||fs.statSync(f).isDirectory()){res.writeHead(404);return res.end('404')}
  res.writeHead(200,{'Content-Type':MIME[path.extname(f)]||'application/octet-stream','Cache-Control':'public,max-age=300'});fs.createReadStream(f).pipe(res)}catch(e){try{res.writeHead(500);res.end()}catch(_){}}}).listen(PORT,()=>console.log('Liga FC en http://localhost:'+PORT));
-setInterval(()=>{const now=Date.now();for(const k in rooms){const r=rooms[k];r.order.forEach(p=>{const c=r.pl[p].res;if(c)try{c.write(':ping\n\n')}catch(e){}});if(now-r.touched>36e5&&!r.order.some(p=>r.pl[p].res)){clearInterval(r.timer);delete rooms[k]}}},15000);
+setInterval(()=>{const now=Date.now();for(const k in rooms){const r=rooms[k];r.order.forEach(p=>{const c=r.pl[p].res;if(c)try{c.write(':ping\n\n')}catch(e){}});Object.values(r.spec||{}).forEach(c=>{if(c.res)try{c.res.write(':ping\n\n')}catch(e){}});if(now-r.touched>36e5&&!r.order.some(p=>r.pl[p].res)){clearInterval(r.timer);delete rooms[k]}}},15000);
 process.on('uncaughtException',e=>console.error('error',e.message));process.on('unhandledRejection',e=>console.error('promesa rechazada',e&&e.message));
