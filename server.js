@@ -28,6 +28,17 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
   store.insert(rec).then(r=>r.status=='disabled'?send(503,{error:'Palmarés no disponible'}):send(200,{status:r.status}),e=>{console.error('offline:',e.message);send(503,{error:'Base de datos no disponible'})})});
  if(req.method=='POST'&&u.pathname=='/api/random')return body(req,b=>{const send=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
   if(!b)return send(400,{error:'Pedido inválido'});if(!rlOk('rnd:'+ipOf(req),120))return send(429,{error:'Demasiados intentos; probá más tarde'});withUser(req,b,()=>send(200,E.rJoin(b)))});
+  if(u.pathname=='/api/amigos'||u.pathname.startsWith('/api/amigos/')){const jn=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(o))},dbErr=e=>{console.error('amigos:',e&&e.message);jn(503,{error:'Base de datos no disponible'})},ruta=u.pathname.slice(12);
+   const go=b=>store.userByToken(tokOf(req,b)).then(us=>{if(!us)return jn(401,{error:'Iniciá sesión para usar Amigos'});const done=r=>r.error?jn(400,r):jn(200,r);
+    if(req.method=='GET'&&ruta=='')return store.amigos(us.id).then(d=>jn(200,d));
+    if(req.method!='POST')return jn(404,{error:'No existe'});
+    if(!rlOk('amg:'+us.id,200))return jn(429,{error:'Demasiadas acciones; probá más tarde'});
+    if(ruta=='solicitar'){if(!rlOk('amgs:'+us.id,40))return jn(429,{error:'Enviaste muchas solicitudes; probá más tarde'});return store.solicitar(us.id,b.usuario).then(done)}
+    if(ruta=='responder')return store.responder(us.id,b.id,b.accion).then(done);
+    if(ruta=='cancelar')return store.cancelarSol(us.id,b.id).then(done);
+    if(ruta=='quitar')return store.quitarAmigo(us.id,b.id).then(done);
+    return jn(404,{error:'No existe'})}).catch(dbErr);
+   return req.method=='POST'?body(req,b=>b?go(b):jn(400,{error:'Pedido inválido'})):go(null)}
   if(u.pathname.startsWith('/api/auth/')){const jn=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(o))},dbErr=e=>{console.error('auth:',e&&e.message);jn(503,{error:'Base de datos no disponible'})},ruta=u.pathname.slice(10);
    if(req.method=='POST'&&(ruta=='registro'||ruta=='login'))return body(req,b=>{if(!b)return jn(400,{error:'Pedido inválido'});const ip=ipOf(req);
     if(ruta=='registro'&&!rlOk('reg:'+ip,30))return jn(429,{error:'Demasiados intentos; probá más tarde'});

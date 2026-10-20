@@ -54,6 +54,18 @@ CREATE TABLE IF NOT EXISTS carreras(
  UNIQUE(usuario_id, torneo_id)
 );
 CREATE INDEX IF NOT EXISTS carreras_usuario_idx ON carreras(usuario_id, finalizado DESC);
+CREATE TABLE IF NOT EXISTS amistades(
+ id SERIAL PRIMARY KEY,
+ de_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+ a_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+ estado TEXT NOT NULL DEFAULT 'pendiente',
+ creada TIMESTAMPTZ NOT NULL DEFAULT now(),
+ aceptada TIMESTAMPTZ,
+ CHECK (de_id <> a_id)
+);
+CREATE UNIQUE INDEX IF NOT EXISTS amistades_par_idx ON amistades(LEAST(de_id,a_id), GREATEST(de_id,a_id));
+CREATE INDEX IF NOT EXISTS amistades_a_idx ON amistades(a_id, estado);
+CREATE INDEX IF NOT EXISTS amistades_de_idx ON amistades(de_id, estado);
 `;
 const INSERT=`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado,verificacion)
  VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) ON CONFLICT (torneo_id) DO NOTHING RETURNING id`;
@@ -203,4 +215,42 @@ async function perfil(uid){
   const [h,a]=await Promise.all([pool.query(`SELECT torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,finalizado FROM carreras WHERE usuario_id=$1 ORDER BY finalizado DESC, id DESC LIMIT 100`,[uid]),
     pool.query(`SELECT count(*)::int AS carreras, count(*) FILTER (WHERE campeon)::int AS campeonatos, count(*) FILTER (WHERE modalidad<>'offline')::int AS online, count(DISTINCT club)::int AS clubes FROM carreras WHERE usuario_id=$1`,[uid])]);
   const x=a.rows[0]||{};return{enabled:true,usuario:u.rows[0].usuario,creado:u.rows[0].creado,resumen:{carreras:x.carreras||0,campeonatos:x.campeonatos||0,online:x.online||0,offline:(x.carreras||0)-(x.online||0),clubes:x.clubes||0},historial:h.rows}}
-module.exports={registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+// ===================== AMIGOS =====================
+// Una fila por pareja (el índice único del par no distingue quién invitó a quién). estado: 'pendiente' (la envió de_id y la decide a_id) | 'aceptada'.
+// Rechazar o cancelar borra la fila. Solo para cuentas; los invitados no tienen amigos.
+const AMG_MAX=100,AMG_PEND=30;
+const nAmigos=async id=>(await pool.query(`SELECT count(*)::int AS n FROM amistades WHERE (de_id=$1 OR a_id=$1) AND estado='aceptada'`,[id])).rows[0].n;
+async function amigos(uid){
+  if(!configured)return{enabled:false};await ensure();
+  const r=await pool.query(`SELECT a.id, a.de_id, a.a_id, a.estado, a.creada, a.aceptada, ud.usuario AS de_usuario, ua.usuario AS a_usuario FROM amistades a JOIN usuarios ud ON ud.id=a.de_id JOIN usuarios ua ON ua.id=a.a_id WHERE a.de_id=$1 OR a.a_id=$1 ORDER BY a.creada DESC`,[uid]);
+  const out={enabled:true,amigos:[],recibidas:[],enviadas:[]};
+  for(const x of r.rows){const yo=x.de_id==uid,otro=yo?{id:x.a_id,usuario:x.a_usuario}:{id:x.de_id,usuario:x.de_usuario};
+    if(x.estado=='aceptada')out.amigos.push({...otro,desde:x.aceptada||x.creada});else if(yo)out.enviadas.push({sol:x.id,...otro,fecha:x.creada});else out.recibidas.push({sol:x.id,...otro,fecha:x.creada})}
+  out.amigos.sort((a,b)=>a.usuario.localeCompare(b.usuario,'es',{sensitivity:'base'}));return out}
+async function solicitar(uid,usuario){
+  if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};
+  usuario=String(usuario||'').trim();if(!USER_RE.test(usuario))return{error:'Escribí el nombre de usuario completo de tu amigo'};
+  await ensure();const u=await pool.query(`SELECT id,usuario FROM usuarios WHERE usuario_lc=$1`,[usuario.toLowerCase()]);if(!u.rowCount)return{error:'No existe ese usuario'};
+  const o=u.rows[0];if(o.id==uid)return{error:'No podés agregarte a vos mismo'};
+  const ex=await pool.query(`SELECT id,de_id,a_id,estado FROM amistades WHERE (de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1)`,[uid,o.id]);
+  if(ex.rowCount){const x=ex.rows[0];if(x.estado=='aceptada')return{error:'Ya son amigos'};if(x.de_id==uid)return{error:'Ya le enviaste una solicitud a '+o.usuario};
+    const rr=await responder(uid,x.id,'aceptar');return rr.error?rr:{ok:1,estado:'aceptada',usuario:o.usuario}}   // él ya te había invitado: al pedirle vos también, quedan como amigos
+  if((await pool.query(`SELECT count(*)::int AS n FROM amistades WHERE de_id=$1 AND estado='pendiente'`,[uid])).rows[0].n>=AMG_PEND)return{error:'Tenés demasiadas solicitudes pendientes; esperá a que respondan'};
+  if(await nAmigos(uid)>=AMG_MAX)return{error:'Llegaste al máximo de '+AMG_MAX+' amigos'};
+  const r=await pool.query(`INSERT INTO amistades(de_id,a_id) VALUES($1,$2) ON CONFLICT DO NOTHING RETURNING id`,[uid,o.id]);
+  return r.rowCount?{ok:1,estado:'pendiente',usuario:o.usuario}:{error:'No se pudo enviar la solicitud'}}
+async function responder(uid,id,accion){
+  if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};id=Math.floor(+id);if(!(id>0))return{error:'Solicitud inválida'};await ensure();
+  const gone={error:'Esa solicitud ya no existe'};
+  if(accion=='aceptar'){const s=await pool.query(`SELECT de_id FROM amistades WHERE id=$1 AND a_id=$2 AND estado='pendiente'`,[id,uid]);if(!s.rowCount)return gone;
+    if(await nAmigos(uid)>=AMG_MAX||await nAmigos(s.rows[0].de_id)>=AMG_MAX)return{error:'No se puede aceptar: alguno de los dos llegó al máximo de '+AMG_MAX+' amigos'};
+    const r=await pool.query(`UPDATE amistades SET estado='aceptada', aceptada=now() WHERE id=$1 AND a_id=$2 AND estado='pendiente'`,[id,uid]);return r.rowCount?{ok:1}:gone}
+  if(accion=='rechazar'){const r=await pool.query(`DELETE FROM amistades WHERE id=$1 AND a_id=$2 AND estado='pendiente'`,[id,uid]);return r.rowCount?{ok:1}:gone}
+  return{error:'Acción inválida'}}
+async function cancelarSol(uid,id){
+  if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};id=Math.floor(+id);if(!(id>0))return{error:'Solicitud inválida'};await ensure();
+  const r=await pool.query(`DELETE FROM amistades WHERE id=$1 AND de_id=$2 AND estado='pendiente'`,[id,uid]);return r.rowCount?{ok:1}:{error:'Esa solicitud ya no existe'}}
+async function quitarAmigo(uid,otro){
+  if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
+  const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
+module.exports={amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
