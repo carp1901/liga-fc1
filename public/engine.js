@@ -3,7 +3,7 @@ const D=typeof require!=='undefined'?require('./data'):window.DATA,{DIVS,CUPS,TM
 // Fuerza efectiva por modo: equilibrado = plantel normalizado (data.js); normal = diferencias reales atenuadas (CFG.realK) para que la calidad no decida de antemano.
 const cmpV=v=>CFG.realC+(v-CFG.realC)*CFG.realK;
 const sqOf=(r,team)=>{const c=r.sqc||(r.sqc={});if(c[team])return c[team];const mix=!!(r.cfg&&r.cfg.mix),raw=squadMode(team,mix);return c[team]=mix?raw:raw.map(x=>({...x,r:cmpV(x.r),at:Object.fromEntries(Object.keys(x.at).map(a=>[a,cmpV(x.at[a])]))}))};
-const poolOf=r=>r.cfg.div=='all'?DIVS.flatMap(d=>d.teams):r.cfg.cup?(CUPS.find(x=>'cup:'+x.id==r.cfg.div)||{clubs:[]}).clubs.map(i=>TM[i]):(DIVS.find(d=>d.id==r.cfg.div)||{teams:[]}).teams;
+const poolOf=r=>r.cfg.teams?r.cfg.teams.map(i=>TM[i]):r.cfg.div=='all'?DIVS.flatMap(d=>d.teams):r.cfg.cup?(CUPS.find(x=>'cup:'+x.id==r.cfg.div)||{clubs:[]}).clubs.map(i=>TM[i]):(DIVS.find(d=>d.id==r.cfg.div)||{teams:[]}).teams;
 const cl=o=>JSON.parse(JSON.stringify(o)),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),txt=(s,n)=>String(s||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,n);
 const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 function newTac(team){const sq=squad(team),xi=autoXI(sq,0),best=p=>xi.reduce((b,i)=>sq[i].p==p&&(b<0||AV(sq[i],'rem')>AV(sq[b],'rem'))?i:b,-1);
@@ -170,16 +170,16 @@ function listen(code,pid,cb){const r=rooms[code],c=r&&(r.pl[pid]||(r.spec&&r.spe
 function reslot(sq,f,xi){const sl=slots(f),u=new Set();return sl.map(p=>{let b=-1;xi.forEach(i=>{if(u.has(i))return;const ok=sq[i].p==p;if(b<0||(ok&&sq[b].p!=p)||(ok==(sq[b].p==p)&&sq[i].r>sq[b].r))b=i});u.add(b);return b})}
 function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!pid)return'Falta id';let r=rooms[txt(b.room,12).toLowerCase()];
  if(r&&r.spec&&r.spec[pid]&&!r.pl[pid]&&a!='join')return'Estás mirando esta sala';
- if(a=='create'){const c=b.cfg||{},isAll=c.div=='all',cup=CUPS.find(x=>'cup:'+x.id==c.div),div=isAll?{id:'all',ok:1}:cup?{id:'cup:'+cup.id,ok:1,teams:cup.clubs.map(i=>TM[i])}:DIVS.find(d=>d.id==c.div&&d.ok),code=txt(b.room,12).toLowerCase(),nn=cup?Math.max(4,Math.min(cup.clubs.length,Math.floor(+c.n)||cup.clubs.length)):+c.n;
+ if(a=='create'){const c=b.cfg||{},isAll=c.div=='all',cus=c.div=='custom'&&!!(b.off&&CFG.offline)&&Array.isArray(c.teams)&&c.teams.length==+c.n&&c.n>=4&&(c.real?c.n<=40:c.n<=20&&c.n%2==0)&&new Set(c.teams).size==c.teams.length&&c.teams.every(i=>TM[i])&&['liga1','liga2'].includes(c.fmt),cup=CUPS.find(x=>'cup:'+x.id==c.div),div=isAll?{id:'all',ok:1}:cus?{id:'custom',ok:1,teams:c.teams.map(i=>TM[i])}:cup?{id:'cup:'+cup.id,ok:1,teams:cup.clubs.map(i=>TM[i])}:DIVS.find(d=>d.id==c.div&&d.ok),code=txt(b.room,12).toLowerCase(),nn=cup?Math.max(4,Math.min(cup.clubs.length,Math.floor(+c.n)||cup.clubs.length)):+c.n;
   if(!/^[a-z0-9]{3,12}$/.test(code))return'Código: 3-12 letras o números';if(rooms[code])return'Ese código ya existe';if(Object.keys(rooms).length>=60)return'Servidor lleno';
-  if(!div||(!cup&&!(c.fmt=='copa'?D.KO_SIZES:D.LIGA_SIZES).includes(nn))||!['liga1','liga2','copa'].includes(c.fmt))return'Configuración inválida';if(c.fmt=='copa'&&!D.KO_SIZES.includes(nn))return'Mata-mata: solo 4, 8, 16 o 32 equipos (llaves completas, sin pases libres)';if(!isAll&&div.teams.length<nn)return'Esa división tiene solo '+div.teams.length+' clubes: elegí menos jugadores';
-  r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&(c.mix||!(b.off&&CFG.offline))))?1:0,cup:cup?cup.title:undefined,legs:c.fmt=='copa'&&+c.legs==2?2:1,seed:c.fmt=='copa'&&c.seed=='pick'?'pick':'rand'},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
+  if(!div||(!cup&&!cus&&!(c.fmt=='copa'?D.KO_SIZES:D.LIGA_SIZES).includes(nn))||!['liga1','liga2','copa'].includes(c.fmt))return'Configuración inválida';if(c.fmt=='copa'&&!D.KO_SIZES.includes(nn))return'Mata-mata: solo 4, 8, 16 o 32 equipos (llaves completas, sin pases libres)';if(!isAll&&div.teams.length<nn)return'Esa división tiene solo '+div.teams.length+' clubes: elegí menos jugadores';
+  r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&(c.mix||!(b.off&&CFG.offline))))?1:0,cup:cup?cup.title:undefined,teams:cus?c.teams.slice():undefined,real:cus&&c.real?1:undefined,lbl:cus?txt(c.lbl,60):undefined,legs:c.fmt=='copa'&&+c.legs==2?2:1,seed:c.fmt=='copa'&&c.seed=='pick'?'pick':'rand'},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
  else if(!r)return'No existe esa sala';
  if(r.closed)return'La sala está cerrada';
  if(!r.pl[pid]){if(r.order.length>=r.cfg.n||r.phase!='pick')return'Sala llena o ya empezó';r.pl[pid]={name,team:null,ready:false,tac:null,res:null,phil:r.offline?'equilibrada':validPhil(b.phil),uid:b.uid};r.order.push(pid)}
  const me=r.pl[pid];if(b.uid&&!me.uid)me.uid=b.uid;r.touched=Date.now();let err=null;if(b.phil!==undefined&&!r.offline&&['pick','pre'].includes(r.phase))me.phil=validPhil(b.phil);
  if(a=='pick'&&r.phase=='pick'){const div={teams:poolOf(r)};if(!div.teams.some(t=>t.id==b.team)||r.order.some(p=>r.pl[p].team==b.team))return'Equipo ocupado';
-  me.team=b.team;me.tac=newTac(b.team);if(r.offline){if(r.cfg.cup&&r.cfg.n>=div.teams.length)addBots(r,null,div.teams.map(t=>t.id).filter(id=>id!=b.team));else r.needRiv=1}maybeStart(r)}
+  me.team=b.team;me.tac=newTac(b.team);if(r.offline){if((r.cfg.cup||r.cfg.teams)&&r.cfg.n>=div.teams.length)addBots(r,null,div.teams.map(t=>t.id).filter(id=>id!=b.team));else r.needRiv=1}maybeStart(r)}
  else if(a=='rivals'&&r.offline&&r.phase=='pick'&&me.team&&r.order.length<r.cfg.n){const pool=poolOf(r).map(t=>t.id).filter(id=>id!=me.team),need=r.cfg.n-1,ids=b.random?shuf([...pool]).slice(0,need):[...new Set(Array.isArray(b.teams)?b.teams:[])].filter(id=>pool.includes(id));if(ids.length!=need)return'Elegí exactamente '+need+' rivales';addBots(r,null,ids);r.needRiv=0;maybeStart(r)}
  else if(a=='ready'&&me.team&&['pre','lobby'].includes(r.phase)){if(isOut(r,me))return'Estás eliminado';me.ready=!!b.v;if(r.order.every(p=>r.pl[p].ready||isOut(r,r.pl[p])))startRound(r)}
  else if(a=='seedswap'&&r.cfg.fmt=='copa'&&r.cfg.seed=='pick'&&r.phase=='pre'&&!r.rd&&!r.leg&&r.order[0]==pid){const i=Math.floor(+b.i),j=Math.floor(+b.j),o=r.seedOrder;if(!(i>=0&&j>=0&&i<o.length&&j<o.length&&i!=j))return'Cruce inválido';[o[i],o[j]]=[o[j],o[i]];koBuild(r)}
@@ -219,7 +219,7 @@ function regTitle(r){if(r.titled)return;r.titled=1;if(!CFG.onTitle)return;
  else{if(!r.champ||!dt||!TM[r.champ]){r.tit={st:'no',why:'campeon'};return}
   if(!k.ok||k.h<k.min){r.tit={st:'no',why:'minimo'};return}}
  const cup=r.cfg.cup?CUPS.find(x=>'cup:'+x.id==r.cfg.div):null,dv=cup?null:DIVS.find(d=>d.id==r.cfg.div);
- const rec={tid:r.tid,club:r.champ,clubNombre:TM[r.champ].name,dt:r.pl[dt].name,mod:r.offline?'offline':cup?'barrial':'clasico',comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':String(r.cfg.div)),fmt:r.cfg.fmt,n:r.offline?r.cfg.n:k.h,at:Date.now()};
+ const rec={tid:r.tid,club:r.champ,clubNombre:TM[r.champ].name,dt:r.pl[dt].name,mod:r.offline?'offline':cup?'barrial':'clasico',comp:cup?cup.id:r.cfg.div=='custom'?(r.cfg.real?'real':'pers'):r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':r.cfg.div=='custom'?(r.cfg.real?'Clásico realista':'Clásico personalizado'):String(r.cfg.div)),fmt:r.cfg.fmt,n:r.offline?r.cfg.n:k.h,at:Date.now()};
  r.tit={st:'pend'};let p;try{p=Promise.resolve(CFG.onTitle(rec))}catch(e){p=Promise.reject(e)}
  p.then(x=>{r.tit=x&&x.status=='disabled'?{st:'no',why:'sin_db'}:{st:'ok',dup:!!(x&&x.status=='duplicate'),tid:r.tid};push(r)},e=>{r.tit={st:'err'};push(r);console.error('título no registrado:',e&&e.message)})}
 // ---- Partida aleatoria (Bloque 2): cola global de CFG.randN personas -> votación de categoría (15 s) -> votación de competición (15 s) -> elección de clubes (la fase 'pick' de siempre). Formato fijo: liga de 1 rueda.
@@ -305,5 +305,54 @@ function recCareer(r){if(r.careered)return;r.careered=1;if(!CFG.onCareer)return;
   recs.push({uid:P.uid,tid:r.tid,club:t,clubNombre:TM[t].name,mod:r.offline?'offline':cup?'barrial':'clasico',origen,comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':String(r.cfg.div)),fmt:r.cfg.fmt,n:r.cfg.n,
    pos,resultado:champ?'Campeón':copa?copaRes(r,t):(pos?pos+'.º de '+r.cfg.n:'—'),campeon:champ,pj:copa?null:q.pj,g:copa?null:q.g,e:copa?null:q.e,p:copa?null:q.p,gf:copa?null:q.gf,gc:copa?null:q.ga,pts:copa?null:q.pts,at:Date.now()})});
  if(recs.length)try{CFG.onCareer(recs)}catch(e){console.error('carrera:',e.message)}}
-const API={act,listen,rooms,CFG,rJoin,pubList,pubApi,snapshot,restore,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
+// ---- Clásico personalizado: temporadas con ascensos y descensos.
+// Una carrera = k categorías con n clubes cada una y ud ascensos/descensos entre categorías vecinas. La categoría del jugador se juega en una sala normal
+// (cfg.div='custom', cfg.teams); las demás se simulan con simGame al cerrar la temporada. El estado es un objeto JSON simple que el navegador guarda en la ranura de carrera.
+function simSeason(teams,fmt){const T={};teams.forEach(id=>T[id]={id,pts:0,g:0,gf:0,ga:0});
+ const play=(a,b)=>{const m=simGame(a,b,{mix:false}),A=T[a],B=T[b];A.gf+=m.ga;A.ga+=m.gb;B.gf+=m.gb;B.ga+=m.ga;if(m.ga>m.gb){A.pts+=3;A.g++}else if(m.ga<m.gb){B.pts+=3;B.g++}else{A.pts++;B.pts++}};
+ for(let i=0;i<teams.length;i++)for(let j=i+1;j<teams.length;j++){const h=rnd()<.5,a=h?teams[i]:teams[j],b=h?teams[j]:teams[i];play(a,b);if(fmt=='liga2')play(b,a)}
+ return Object.values(T).sort(cmpT).map(q=>q.id)}
+const CXORD=['ar1','ar2','ar3','ar5','ar4','ar6'],CXLVL=[0,1,2,2,3,4],CXKS=[1,2,4,5,6],METRO=new Set(['sur','oeste','norte','caba'].flatMap(id=>(CUPS.find(c=>c.id==id)||{clubs:[]}).clubs));
+const isMetro=id=>METRO.has(id);
+function careerNew(o){o=o||{};const divs=CXORD.map(id=>DIVS.find(d=>d.id==id)).filter(d=>d&&d.ok),k=Math.floor(+o.k),n=Math.floor(+o.n),ud=Math.floor(+o.ud),fmt=o.fmt,me=o.me||{};
+ if(!CXKS.includes(k)||k>divs.length)return{error:'Cantidad de categorías inválida'};
+ if(!(n>=4&&n<=20&&n%2==0))return{error:'Equipos por categoría: número par, de 4 a 20'};
+ if(!['liga1','liga2'].includes(fmt))return{error:'Formato inválido'};
+ if(k>1&&!(ud>=1&&ud*2<=n))return{error:'Ascensos y descensos inválidos para '+n+' equipos'};
+ const mc=Math.floor(+me.cat);if(!TM[me.club])return{error:'Elegí tu club'};if(!(mc>=0&&mc<k))return{error:'Categoría de tu club inválida'};
+ const picks=Array.from({length:k},(_,i)=>{const a=o.picks&&o.picks[i];return Array.isArray(a)?a.filter(id=>id!==me.club):[]});picks[mc].unshift(me.club);
+ const used=new Set();for(const a of picks){if(a.length>n)return{error:'Elegiste más clubes de los que entran en una categoría'};for(const id of a){if(!TM[id])return{error:'Club inexistente: '+id};if(used.has(id))return{error:'Un club está elegido en dos lugares'};used.add(id)}}
+ const cats=[];for(let i=0;i<k;i++){const need=n-picks[i].length;   // lo que falta se completa al azar: primero con clubes de esa categoría real y, si no alcanzan, con cualquier club libre (B Metro prefiere metropolitanos, Federal A del interior)
+  let add=shuf(divs[i].teams.map(t=>t.id).filter(id=>!used.has(id))).slice(0,need);add.forEach(id=>used.add(id));
+  if(add.length<need){const tr=divs[i].id=='ar3'?true:divs[i].id=='ar5'?false:null,fr=Object.keys(TM).filter(id=>!used.has(id)),pf=tr===null?[]:fr.filter(id=>isMetro(id)===tr),rest=[...shuf(pf),...shuf(fr.filter(id=>!pf.includes(id)))].slice(0,need-add.length);rest.forEach(id=>used.add(id));add=add.concat(rest)}
+  cats.push({div:divs[i].id,name:divs[i].name,teams:[...picks[i],...add]})}
+ return{v:2,mode:'pers',season:2026,k,n,ud:k>1?ud:0,fmt,cats,me:{club:me.club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)}}
+// ---- Modo realista (bloque 1): las 6 divisiones con sus clubes y tamaños reales del juego, una tabla por categoría, vías metro/federal y cupos configurables por temporada.
+// Cupos [Primera↔Nacional, Nacional↔3.ª categoría (total), B Metro↔C, C↔Promocional]. Para otra temporada se agrega una entrada: RCUP[2027]=[...]. (Pendiente de confirmar con reglamento.)
+const RCUP={2026:[2,2,2,1]},RFMT={ar1:'liga1',ar2:'liga1',ar3:'liga2',ar5:'liga1',ar4:'liga1',ar6:'liga2'};
+function realNew(o){o=o||{};const divs=CXORD.map(id=>DIVS.find(d=>d.id==id)),club=o.me&&o.me.club;if(!TM[club])return{error:'Elegí tu club'};
+ const cats=divs.map(d=>({div:d.id,name:d.name,teams:d.teams.map(t=>t.id)})),mc=cats.findIndex(c=>c.teams.includes(club));if(mc<0)return{error:'Ese club no está en ninguna división'};
+ return{v:3,mode:'real',season:2026,k:6,n:0,ud:0,cup:RCUP[2026].slice(),fmts:divs.map(d=>RFMT[d.id]),cats,me:{club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)}}
+const careerCfg=car=>({div:'custom',real:car.mode=='real'?1:undefined,teams:car.cats[car.me.cat].teams.slice(),n:car.cats[car.me.cat].teams.length,fmt:car.fmts?car.fmts[car.me.cat]:car.fmt,lbl:car.cats[car.me.cat].name+' · Temporada '+car.season});
+// Cierra la temporada: table = tabla final de la categoría del jugador (la sala ya terminó). Devuelve {car: carrera de la temporada siguiente, summary} o {error}.
+function careerClose(car,table){
+ if(!car||!Array.isArray(car.cats)||!car.cats.length||!CXKS.includes(car.cats.length))return{error:'Carrera inválida'};
+ const k=car.cats.length,ud=k>1?car.ud:0,cp=car.cup||[ud,ud,ud,ud],sz=car.cats.map(c=>c.teams.length),mc=car.me.cat,club=car.me.club;
+ const mine=(Array.isArray(table)?table:[]).slice().sort(cmpT).map(q=>q.id);
+ if(mine.length!=sz[mc]||!mine.every(id=>car.cats[mc].teams.includes(id)))return{error:'La tabla de la temporada no coincide con tu categoría'};
+ const st=car.cats.map((c,i)=>i==mc?mine:simSeason(c.teams,car.fmts?car.fmts[i]:car.fmt)),stay=[],up=st.map(()=>[]),down=st.map(()=>[]),inc=st.map(()=>[]);
+ // Estructura: 0 Primera · 1 Nacional · 2 B Metro y 3 Federal A (vías paralelas) · 4 Primera C · 5 Promocional.
+ // Nacional baja a cada club a B Metro (metropolitanos) o a Federal A (interior); las dos vías suben a Nacional tantos como recibieron. Federal A no tiene descenso.
+ st.forEach((s,i)=>{const t=s.slice();stay[i]=t});
+ const take=(i,c,top)=>{const t=stay[i];return top?t.splice(0,c):t.splice(t.length-c,c)};
+ if(k>1){down[0]=take(0,cp[0],0);up[1]=take(1,cp[0],1);down[1]=k>=4?take(1,cp[1],0):[];
+  if(k>=4){const dm=down[1].filter(isMetro),df=down[1].filter(id=>!isMetro(id));up[2]=take(2,dm.length,1);up[3]=take(3,df.length,1);
+   if(k>=5){down[2]=take(2,cp[2],0);up[4]=take(4,cp[2],1);down[4]=k>=6?take(4,cp[3],0):[];if(k>=6)up[5]=take(5,cp[3],1)}
+   inc[1]=[...down[0],...up[2],...up[3]];inc[0]=up[1];inc[2]=[...dm,...(k>=5?up[4]:[])];inc[3]=df;if(k>=5){inc[4]=[...down[2],...(k>=6?up[5]:[])];if(k>=6)inc[5]=down[4]}}
+  else{inc[0]=up[1];inc[1]=down[0]}}
+ const teams=stay.map((t,i)=>[...t,...inc[i]]),to=teams.findIndex(t=>t.includes(club)),pos=mine.indexOf(club)+1,res=CXLVL[to]<CXLVL[mc]?'sube':CXLVL[to]>CXLVL[mc]?'baja':'sigue';
+ if(teams.some((t,i)=>t.length!=sz[i]))return{error:'Error interno: cantidad de equipos desbalanceada'};
+ const nc={...car,season:car.season+1,cup:car.cup?(RCUP[car.season+1]||car.cup):undefined,cats:car.cats.map((c,i)=>({...c,teams:teams[i]})),me:{club,cat:to},last:null,hist:[...(car.hist||[]),{y:car.season,cat:car.cats[mc].name,pos,champ:mine[0]==club,res}]};
+ return{car:nc,summary:{season:car.season,cats:car.cats.map((c,i)=>({name:c.name,champ:st[i][0],up:up[i],down:down[i]})),me:{club,from:mc,to,pos,champ:mine[0]==club,res}}}}
+const API={act,listen,rooms,CFG,rJoin,pubList,pubApi,snapshot,restore,careerNew,realNew,careerCfg,careerClose,simSeason,isMetro,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
 })();
