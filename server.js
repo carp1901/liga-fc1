@@ -10,11 +10,11 @@ const ipOf=req=>String((req.headers['x-forwarded-for']||'').split(',')[0]||req.s
 function offlineRec(b){
  const tid=String(b.tid||''),comp=String(b.comp||''),club=String(b.club||''),fmt=String(b.fmt||''),n=Math.floor(+b.n);
  if(!/^[a-z0-9]{8,60}$/.test(tid))return'ID de torneo inválido';if(!['liga1','liga2','copa'].includes(fmt))return'Formato inválido';
- const cup=CUPS.find(c=>c.id==comp),dv=cup?null:DIVS.find(d=>d.id==comp&&d.ok),all=comp=='all';
- const clubs=cup?cup.clubs:dv?dv.teams.map(t=>t.id):all?DIVS.flatMap(d=>d.teams.map(t=>t.id)):null;
+ const cup=CUPS.find(c=>c.id==comp),dv=cup?null:DIVS.find(d=>d.id==comp&&d.ok),all=comp=='all',pers=comp=='pers'||comp=='real',real=comp=='real';
+ const clubs=cup?cup.clubs:dv?dv.teams.map(t=>t.id):all?DIVS.flatMap(d=>d.teams.map(t=>t.id)):pers?Object.keys(TM):null;
  if(!clubs)return'Competición inválida';if(!clubs.includes(club)||!TM[club])return'El club no pertenece a esa competición';
- if(!(n>=4&&n<=clubs.length))return'Cantidad de equipos inválida';
- return{tid,club,clubNombre:TM[club].name,dt:String(b.dt||'').replace(/[<>&"]/g,'').slice(0,16)||null,mod:'offline',comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:'Todas las divisiones',fmt,n,at:Date.now(),ver:'offline-informado'};
+ if(!(n>=4&&n<=clubs.length))return'Cantidad de equipos inválida';if(pers&&!((real?n<=40:n<=20&&n%2==0)&&fmt!='copa'))return'Cantidad de equipos inválida';
+ return{tid,club,clubNombre:TM[club].name,dt:String(b.dt||'').replace(/[<>&"]/g,'').slice(0,16)||null,mod:'offline',comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:real?'Clásico realista':pers?'Clásico personalizado':'Todas las divisiones',fmt,n,at:Date.now(),ver:'offline-informado'};
 }
 const MIME={'.html':'text/html;charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.jpg':'image/jpeg','.webp':'image/webp','.js':'text/javascript','.css':'text/css'};
 function body(req,cb){let s='';req.on('data',d=>{s+=d;if(s.length>4096)req.destroy()});req.on('end',()=>{try{cb(JSON.parse(s))}catch(e){cb(null)}})}
