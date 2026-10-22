@@ -75,7 +75,9 @@ function simMin(r,m,min){const A=r.pl[m.a],B=r.pl[m.b];if(!A||!B)return;const P=
  if(ev.x!='g'&&rnd()<(ev.x=='s'?.4:.15)*[.8,1,1.25][atc.st]){m.st[t][3]++;m.xg[t]+=.06;const cg=rnd()<.06,c={id:eid(r),k:'cor',m:min,t,x:cg?'g':'c'};
   if(cg){const sl=slots(atc.f),w=[];atc.xi.forEach((x,k)=>{if(k&&!m.off[t].has(x))for(let n=0;n<({DEF:2,MED:1,DEL:3}[sl[k]]||1);n++)w.push(x)});const hd=w[Math.floor(rnd()*w.length)];m.st[t][1]++;c.n=nm(r,m,t,hd);c.si=hd;scoreG(r,m,t,hd,min,'cor',-1)}
   m.evs.push(c)}}
+const zonesOk=c=>Array.isArray(c.zones)&&(c.zones.length==2||c.zones.length==4)&&c.zones.every(a=>Array.isArray(a)&&a.length>=4)&&c.zones.flat().length==c.teams.length&&new Set(c.zones.flat()).size==c.teams.length&&c.zones.flat().every(id=>c.teams.includes(id));
 function mkFixtures(r){const ids=shuf(r.order.map(p=>r.pl[p].team));if(r.cfg.fmt=='copa'){r.alive=ids;r.seedOrder=[...ids];r.rd=0;r.leg=0;koBuild(r);return}
+ if(r.cfg.zones){r.fx=zoneFx(r);r.total=r.fx.length;return}
  const a=[...ids],R=[];if(a.length%2)a.push(null);const n=a.length;for(let k=0;k<n-1;k++){const x=[];for(let i=0;i<n/2;i++)x.push(k%2?[a[n-1-i],a[i]]:[a[i],a[n-1-i]]);R.push(x);a.splice(1,0,a.pop())}
  r.fx=r.cfg.fmt=='liga2'?[...R,...R.map(x=>x.map(([p,q])=>[q,p]))]:R;r.total=r.fx.length}
 // ---- Mata-mata: llave fija (ganador del cruce 2j vs ganador del 2j+1). Cada ronda se juega a 1 partido o ida y vuelta (cfg.legs); si el global empata, penales.
@@ -124,8 +126,9 @@ function endRound(r){if(r.cfg.fmt=='copa'&&!r.psoOK){const need=psoNeed(r);if(ne
  const res=[];if(r.cfg.fmt!='copa')r.prevRank=rankOf(r);r.ms.forEach(m=>{const A=r.pl[m.a].team,B=r.pl[m.b].team;let pen='';
  if(r.cfg.fmt=='copa'){}else{const s=r.table;[[A,m.ga,m.gb],[B,m.gb,m.ga]].forEach(([t,f,c])=>{const q=s[t];q.pj++;q.gf+=f;q.ga+=c;q.pts+=f>c?3:f==c?1:0;q.g+=+(f>c);q.e+=+(f==c);q.p+=+(f<c)})}
  res.push({a:A,b:B,ga:m.ga,gb:m.gb,pen});tally(r,m);r.pl[m.a].sus=[...m.off[0]];r.pl[m.b].sus=[...m.off[1]]});r.order.forEach(p=>fixSus(r.pl[p]));r.res=res;r.ms=[];(r.hist=r.hist||[]).push(res);r.round++;
+ if(r.cfg.seg){let c=0;if(r.cfg.seg.some(x=>(c+=x)==r.round))(r.segT=r.segT||[]).push(JSON.parse(JSON.stringify(r.table)))}
  if(r.cfg.fmt=='copa'){const fin=koResolve(r,res);r.psoItems=null;r.psoOK=false;r.pw=null;if(fin){r.phase='end';r.champ=r.alive[0];regTitle(r);recCareer(r);return}}
- else if(r.round>=r.total){r.phase='end';r.champ=Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT)[0].id;regTitle(r);recCareer(r);return}
+ else if(r.round>=r.total){r.phase='end';{const mt=(r.order.map(p=>r.pl[p]).find(P=>!P.bot)||{}).team,zz=r.cfg.zone&&r.cfg.zones&&(r.cfg.zones.find(a=>a.includes(mt))||r.cfg.zones[0]);r.champ=Object.entries(r.table).filter(([id])=>!zz||zz.includes(id)).map(([id,q])=>({id,...q})).sort(cmpT)[0].id}regTitle(r);recCareer(r);return}
  r.phase='lobby';r.t=r.cfg.fmt=='copa'&&r.alive&&r.order.every(p=>r.pl[p].bot||!r.alive.includes(r.pl[p].team))?6:90;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot)}
 // Equipo de la fecha: más goles; si empatan, mejor diferencia; si siguen igualados, mejores estadísticas (posesión, remates, a puerta, córners, menos faltas y tarjetas)
 const cmpT=(a,b)=>b.pts-a.pts||b.g-a.g||b.gf-a.gf||(b.gf-b.ga)-(a.gf-a.ga);
@@ -150,7 +153,7 @@ const DORS=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
 const pInfo=(m,s,P)=>{const tc=P.tac;return{x:tc.xi.slice(),n:tc.xi.map(i=>DORS[i]),y:tc.xi.map((i,k)=>m.yc[s][i]>0&&!m.off[s].has(i)?k:-1).filter(k=>k>=0),g:tc.xi.map(i=>m.pg[s][i]||0),a:tc.xi.map(i=>m.pas[s][i]||0),c:tc.xi.indexOf(tc.cap)}};
 const offKs=(m,s,P)=>P.tac.xi.map((i,k)=>m.off[s].has(i)?k:-1).filter(k=>k>=0);
 function view(r,pid){setMix(r.cfg&&r.cfg.mix);const me=r.pl[pid]||(r.spec&&r.spec[pid]?SPECME:undefined),own={};r.order.forEach(p=>{if(r.pl[p].team)own[r.pl[p].team]=r.pl[p].name});
- const v={code:r.code,rq:rView(r,pid),rk:rankInfo(r),pb:pbOf(r),closed:r.closed||null,sp:!!(r.spec&&r.spec[pid]&&!r.pl[pid]),ns:Object.keys(r.spec||{}).filter(q=>r.spec[q].cb).length,tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
+ const v={code:r.code,rq:rView(r,pid),rk:rankInfo(r),pb:pbOf(r),closed:r.closed||null,sp:!!(r.spec&&r.spec[pid]&&!r.pl[pid]),ns:Object.keys(r.spec||{}).filter(q=>r.spec[q].cb).length,tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),segT:r.segT||null,rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
  table:Object.entries(r.table).map(([id,q])=>({id,...q})),chat:r.chat.slice(-40).map(c=>({id:c.id,n:c.n,t:c.t,u:c.u.length,d:c.d.length,me:c.pid===pid,my:c.u.includes(pid)?1:c.d.includes(pid)?-1:0})),
  ms:(r.ms||[]).map(m=>{const A=r.pl[m.a],B=r.pl[m.b],kt=kitsOf(A,B);return{a:A.team,b:B.team,pha:A.phil||'equilibrada',phb:B.phil||'equilibrada',w:m.w,ra:[A.tac.k1,A.tac.k2],rb:[B.tac.k1,B.tac.k2],ga:m.ga,gb:m.gb,fa:A.tac.f,fb:B.tac.f,ka:kt[0],kb:kt[1],evs:m.evs,gl:m.gl,ta:[A.tac.st,A.tac.pr,A.tac.wing,A.tac.sal,A.tac.mk],tb:[B.tac.st,B.tac.pr,B.tac.wing,B.tac.sal,B.tac.mk],fl:m.fl,of:m.of,xg:m.xg.map(x=>Math.round(x*100)/100),st:m.st.map(x=>[...x]),oa:offKs(m,0,A),ob:offKs(m,1,B),pa:pInfo(m,0,A),pb:pInfo(m,1,B)}}),
  ready:r.order.map(p=>r.pl[p].ready),n:r.order.length,pls:r.order.map(p=>({n:r.pl[p].name,t:r.pl[p].team,b:!!r.pl[p].bot,f:r.pl[p].phil||'equilibrada',o:isOut(r,r.pl[p])})),off:!!r.offline,paused:!!r.paused,ad:(r.phase=='m1'&&r.min>=45)||(r.phase=='m2'&&r.min>=90)?(r.ad||0):0,sx:(r.phase=='m1'&&r.min>=45)||(r.phase=='m2'&&r.min>=90)?(r.sx||0):0,hx:r.hb>0?0:1,sk:(()=>{const hs=r.order.filter(p=>!r.pl[p].bot&&playing(r,p));return{n:hs.filter(p=>r.pl[p].skip).length,of:hs.length,me:!!(me&&me.skip),pl:!!(me&&playing(r,pid))}})(),nf:(r.phase=='pre'||r.phase=='lobby')?((r.cfg.fmt=='copa'?copaPairs(r):(r.fx&&r.fx[r.round]))||null):null};
@@ -173,7 +176,7 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
  if(a=='create'){const c=b.cfg||{},isAll=c.div=='all',cus=c.div=='custom'&&!!(b.off&&CFG.offline)&&Array.isArray(c.teams)&&c.teams.length==+c.n&&c.n>=4&&(c.real?c.n<=40:c.n<=20&&c.n%2==0)&&new Set(c.teams).size==c.teams.length&&c.teams.every(i=>TM[i])&&['liga1','liga2'].includes(c.fmt),cup=CUPS.find(x=>'cup:'+x.id==c.div),div=isAll?{id:'all',ok:1}:cus?{id:'custom',ok:1,teams:c.teams.map(i=>TM[i])}:cup?{id:'cup:'+cup.id,ok:1,teams:cup.clubs.map(i=>TM[i])}:DIVS.find(d=>d.id==c.div&&d.ok),code=txt(b.room,12).toLowerCase(),nn=cup?Math.max(4,Math.min(cup.clubs.length,Math.floor(+c.n)||cup.clubs.length)):+c.n;
   if(!/^[a-z0-9]{3,12}$/.test(code))return'Código: 3-12 letras o números';if(rooms[code])return'Ese código ya existe';if(Object.keys(rooms).length>=60)return'Servidor lleno';
   if(!div||(!cup&&!cus&&!(c.fmt=='copa'?D.KO_SIZES:D.LIGA_SIZES).includes(nn))||!['liga1','liga2','copa'].includes(c.fmt))return'Configuración inválida';if(c.fmt=='copa'&&!D.KO_SIZES.includes(nn))return'Mata-mata: solo 4, 8, 16 o 32 equipos (llaves completas, sin pases libres)';if(!isAll&&div.teams.length<nn)return'Esa división tiene solo '+div.teams.length+' clubes: elegí menos jugadores';
-  r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&(c.mix||!(b.off&&CFG.offline))))?1:0,cup:cup?cup.title:undefined,teams:cus?c.teams.slice():undefined,real:cus&&c.real?1:undefined,lbl:cus?txt(c.lbl,60):undefined,legs:c.fmt=='copa'&&+c.legs==2?2:1,seed:c.fmt=='copa'&&c.seed=='pick'?'pick':'rand'},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
+  r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&(c.mix||!(b.off&&CFG.offline))))?1:0,cup:cup?cup.title:undefined,teams:cus?c.teams.slice():undefined,real:cus&&c.real?1:undefined,lbl:cus?txt(c.lbl,60):undefined,zone:cus&&c.real&&c.zone?1:undefined,zones:cus&&c.real&&zonesOk(c)?c.zones.map(a=>a.slice()):undefined,iz:cus&&c.real&&zonesOk(c)&&c.iz&&c.zones.length==2?1:undefined,seg:cus&&c.real&&zonesOk(c)&&Array.isArray(c.seg)&&c.seg.length==2&&c.seg.every(x=>x==16)?[16,16]:undefined,zl:cus&&c.real&&Array.isArray(c.zl)?c.zl.slice(0,6).map(x=>({a:Math.floor(+x.a)||1,b:Math.floor(+x.b)||1,k:['F','R','D'].includes(x.k)?x.k:'R',w:x.w=='a'?'a':'z',t:txt(x.t,70)})):undefined,legs:c.fmt=='copa'&&+c.legs==2?2:1,seed:c.fmt=='copa'&&c.seed=='pick'?'pick':'rand'},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
  else if(!r)return'No existe esa sala';
  if(r.closed)return'La sala está cerrada';
  if(!r.pl[pid]){if(r.order.length>=r.cfg.n||r.phase!='pick')return'Sala llena o ya empezó';r.pl[pid]={name,team:null,ready:false,tac:null,res:null,phil:r.offline?'equilibrada':validPhil(b.phil),uid:b.uid};r.order.push(pid)}
@@ -212,7 +215,7 @@ function rankInfo(r){const min=CFG.rankMin,h=r.order.filter(p=>!r.pl[p].bot).len
 // ---- Registro de títulos (Bloque 4). Solo en el servidor: server.js define CFG.onTitle (guarda en PostgreSQL). En el navegador (offline) no se registra nada.
 // Se llama UNA vez por torneo, cuando termina de forma normal (fase 'end' con campeón). El servidor vuelve a validar mínimo de personas y que el campeón sea un club de un jugador de la sala.
 const newTid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,10)+Math.random().toString(36).slice(2,8);
-function regTitle(r){if(r.titled)return;r.titled=1;if(!CFG.onTitle)return;
+function regTitle(r){if(r.titled||r.cfg.zone)return;r.titled=1;if(!CFG.onTitle)return;
  const k=rankInfo(r),dt=r.order.find(p=>!r.pl[p].bot&&r.pl[p].team==r.champ);
  // OFFLINE: el torneo se juega en el dispositivo y el servidor no puede comprobar los partidos: se informa solo si ganó el club del jugador y se guarda aparte (modalidad 'offline', sin verificar).
  if(r.offline){if(!dt||!TM[r.champ])return}
@@ -308,10 +311,11 @@ function recCareer(r){if(r.careered)return;r.careered=1;if(!CFG.onCareer)return;
 // ---- Clásico personalizado: temporadas con ascensos y descensos.
 // Una carrera = k categorías con n clubes cada una y ud ascensos/descensos entre categorías vecinas. La categoría del jugador se juega en una sala normal
 // (cfg.div='custom', cfg.teams); las demás se simulan con simGame al cerrar la temporada. El estado es un objeto JSON simple que el navegador guarda en la ranura de carrera.
-function simSeason(teams,fmt){const T={};teams.forEach(id=>T[id]={id,pts:0,g:0,gf:0,ga:0});
+function simTab(teams,fmt){const T={};teams.forEach(id=>T[id]={id,pts:0,g:0,gf:0,ga:0});
  const play=(a,b)=>{const m=simGame(a,b,{mix:false}),A=T[a],B=T[b];A.gf+=m.ga;A.ga+=m.gb;B.gf+=m.gb;B.ga+=m.ga;if(m.ga>m.gb){A.pts+=3;A.g++}else if(m.ga<m.gb){B.pts+=3;B.g++}else{A.pts++;B.pts++}};
  for(let i=0;i<teams.length;i++)for(let j=i+1;j<teams.length;j++){const h=rnd()<.5,a=h?teams[i]:teams[j],b=h?teams[j]:teams[i];play(a,b);if(fmt=='liga2')play(b,a)}
- return Object.values(T).sort(cmpT).map(q=>q.id)}
+ return Object.values(T).sort(cmpT)}
+const simSeason=(t,f)=>simTab(t,f).map(q=>q.id);
 const CXORD=['ar1','ar2','ar3','ar5','ar4','ar6'],CXLVL=[0,1,2,2,3,4],CXKS=[1,2,4,5,6],METRO=new Set(['sur','oeste','norte','caba'].flatMap(id=>(CUPS.find(c=>c.id==id)||{clubs:[]}).clubs));
 const isMetro=id=>METRO.has(id);
 function careerNew(o){o=o||{};const divs=CXORD.map(id=>DIVS.find(d=>d.id==id)).filter(d=>d&&d.ok),k=Math.floor(+o.k),n=Math.floor(+o.n),ud=Math.floor(+o.ud),fmt=o.fmt,me=o.me||{};
@@ -329,30 +333,103 @@ function careerNew(o){o=o||{};const divs=CXORD.map(id=>DIVS.find(d=>d.id==id)).f
  return{v:2,mode:'pers',season:2026,k,n,ud:k>1?ud:0,fmt,cats,me:{club:me.club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)}}
 // ---- Modo realista (bloque 1): las 6 divisiones con sus clubes y tamaños reales del juego, una tabla por categoría, vías metro/federal y cupos configurables por temporada.
 // Cupos [Primera↔Nacional, Nacional↔3.ª categoría (total), B Metro↔C, C↔Promocional]. Para otra temporada se agrega una entrada: RCUP[2027]=[...]. (Pendiente de confirmar con reglamento.)
-const RCUP={2026:[2,2,2,1]},RFMT={ar1:'liga1',ar2:'liga1',ar3:'liga2',ar5:'liga1',ar4:'liga1',ar6:'liga2'};
+const RCUP={2026:[2,4,2,1]},RFMT={ar1:'liga1',ar2:'liga1',ar3:'liga2',ar5:'liga1',ar4:'liga1',ar6:'liga2'};
 function realNew(o){o=o||{};const divs=CXORD.map(id=>DIVS.find(d=>d.id==id)),club=o.me&&o.me.club;if(!TM[club])return{error:'Elegí tu club'};
  const cats=divs.map(d=>({div:d.id,name:d.name,teams:d.teams.map(t=>t.id)})),mc=cats.findIndex(c=>c.teams.includes(club));if(mc<0)return{error:'Ese club no está en ninguna división'};
- return{v:3,mode:'real',season:2026,k:6,n:0,ud:0,cup:RCUP[2026].slice(),fmts:divs.map(d=>RFMT[d.id]),cats,me:{club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)}}
-const careerCfg=car=>({div:'custom',real:car.mode=='real'?1:undefined,teams:car.cats[car.me.cat].teams.slice(),n:car.cats[car.me.cat].teams.length,fmt:car.fmts?car.fmts[car.me.cat]:car.fmt,lbl:car.cats[car.me.cat].name+' · Temporada '+car.season});
+ return{v:3,mode:'real',season:2026,k:6,n:0,ud:0,cup:RCUP[2026].slice(),fmts:divs.map(d=>RFMT[d.id]),zones:Object.fromEntries(cats.filter(c=>RZ[c.div]).map(c=>[c.div,zsplit(c.teams,RZ[c.div].zs,c.div)])),cats,me:{club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)}}
+// ---- Realista bloque 2: Primera Nacional, Primera C y Promocional Amateur se juegan por zonas (2 ruedas) + final y reducido.
+// La zona del jugador se juega en una sala normal (liga de 2 ruedas, cfg.zone/cfg.zl); la otra zona y las fases finales se simulan al cerrar la temporada.
+// Cada formato es un dato (RZ): zs = tamaños de zona, red = puestos que van al reducido. Reducidos de C (2.º a 7.º) y Promocional (2.º a 4.º): ida y vuelta, define el mejor ubicado (local la vuelta). Pendiente: interzonales.
+const RZ={ar1:{zs:[15,15]},ar5:{zs:[10,10,9,9]},ar2:{zs:[18,18],red:[2,8]},ar4:{zs:[14,14],red:[2,7]},ar6:{zs:[8,9],red:[2,4]}};
+const RZL={
+ ar1:[{a:1,b:8,k:'R',t:'Clasifica a los playoffs (8 por zona)',w:'z'},{a:29,b:30,k:'D',t:'Descenso a Primera Nacional (tabla anual)',w:'a'}],
+ ar3:[{a:1,b:1,k:'F',t:'Ascenso directo a Primera Nacional'},{a:2,b:9,k:'R',t:'Reducido por el 2.º ascenso'},{a:21,b:22,k:'D',t:'Descenso a Primera C'}],
+ ar2:[{a:1,b:1,k:'F',t:'Final por el 1.er ascenso'},{a:2,b:8,k:'R',t:'Reducido por el 2.º ascenso'},{a:17,b:18,k:'D',t:'Descenso directo'}],
+ ar5:[{a:1,b:4,k:'F',t:'Zona Campeonato (por el 1.er ascenso)'},{a:5,b:5,k:'F',t:'Zona Campeonato solo en las zonas de 10; en las de 9 va a Reválida'},{a:6,b:10,k:'R',t:'Zona Reválida (por el 2.º ascenso)'}],
+ ar4:[{a:1,b:1,k:'F',t:'Final por el 1.er ascenso'},{a:2,b:7,k:'R',t:'Reducido por el 2.º ascenso'},{a:14,b:14,k:'D',t:'Último de zona: juega por no descender'}],
+ ar6:[{a:1,b:1,k:'F',t:'Final por el ascenso'},{a:2,b:4,k:'R',t:'Reducido (el ganador juega la promoción con Primera C)'}]};
+// Clásicos reales (lista del usuario): cada par se separa en zonas distintas para poder jugarse en las fechas interzonales.
+const CLAS={ar1:'boca-river,independiente-racing,sanlorenzo-huracan,estudiantes-gimnasia,rosario-newells,banfield-lanus,belgrano-talleres,argentinos-platense,tigre-velez,union-sarmiento,atletico-centralcba,aldosivi-defensa,barracas-riestra,estudiantesrc-instituto,gimnasiamza-rivadavia',
+ ar2:'allboys-nuevachicago,ferro-defensoresbelgrano,madryn-santelmo,sanmartinsj-racingcba,chaco-rafaela,sanmartintuc-gimnasiajujuy,moron-almirantebrown,estudiantesba-almagro,losandes-temperley,mitre-guemes,tristansuarez-quilmes,ciudadbolivar-agropecuario,colon-patronato,centralnorte-gimnasiatiro,godoycruz-maipu,sanmiguel-midland,colegiales-acassuso,atlanta-chacarita'};
+const CLP=Object.values(CLAS).flatMap(x=>x.split(',').map(p=>p.split('-')));
+const zsplit=(ids,zs,div)=>{const set=new Set(ids),Z=zs.map(()=>[]),pr=div&&CLAS[div]&&zs.length==2?shuf(CLAS[div].split(',').map(p=>p.split('-')).filter(p=>p.every(t=>set.has(t)))):[],used=new Set();
+ pr.forEach(([a,b])=>{const i=Z[0].length<zs[0]&&(Z[1].length>=zs[1]||rnd()<.5)?0:1,j=1-i;if(Z[i].length<zs[i]&&Z[j].length<zs[j]){Z[i].push(a);Z[j].push(b);used.add(a);used.add(b)}});
+ const rest=shuf(ids.filter(t=>!used.has(t)));Z.forEach((z,i)=>{while(z.length<zs[i]&&rest.length)z.push(rest.pop())});return Z.map(z=>shuf(z))};
+const pdl=(a,b)=>{const m=simGame(a,b,{mix:false});return[m.ga,m.gb]};
+// Partido único: local el primero; si empatan gana el primero (mejor ubicado) o, en cancha neutral, penales.
+const kt=(a,b,pen)=>{const[x,y]=pdl(a,b);return x!=y?(x>y?a:b):pen?(rnd()<.5?a:b):a};
+// Ida y vuelta: a = mejor ubicado (cierra de local); suma de goles y, si empatan, avanza a.
+const k2=(a,b)=>{const[x1,y1]=pdl(b,a),[x2,y2]=pdl(a,b);return y1+x2>=x1+y2?a:b};
+// Llave por siembra (con pases libres a los mejores sembrados si no es potencia de 2); devuelve {w, rds:[{n,m:[{a,b,w}]}]}.
+function zKO(seeds,two){let al=seeds.slice();const rds=[],P=2**Math.ceil(Math.log2(al.length)),by=P-al.length;
+ const rd=(ent,first)=>{const m=[];for(let i=0;i<ent.length/2;i++){const a=ent[i],b=ent[ent.length-1-i];m.push({a,b,w:two=='pen'?kt(a,b,1):two?k2(a,b):kt(a,b)})}return m};
+ const nm=n=>n==2?'Final':n==4?'Semifinales':n==8?'Cuartos de final':n==16?'Octavos de final':'1.ª fase';
+ if(by){const ent=al.slice(by),m=rd(ent),ws=m.map(x=>x.w);rds.push({n:'1.ª fase',m});al=[...al.slice(0,by),...ws].sort((x,y)=>seeds.indexOf(x)-seeds.indexOf(y))}
+ while(al.length>1){const m=rd(al);rds.push({n:nm(al.length),m});al=m.map(x=>x.w).sort((x,y)=>seeds.indexOf(x)-seeds.indexOf(y))}
+ return{w:al[0],rds}}
+const zKey=(zA,zB)=>t=>{const i=zA.indexOf(t);return i>=0?(i+1)*10:(zB.indexOf(t)+1)*10+1};
+const zOrder=(zA,zB,first,last)=>{const key=zKey(zA,zB),ex=new Set([...first,...last]);return[...first,...[...zA,...zB].filter(t=>!ex.has(t)).sort((x,y)=>key(x)-key(y)),...last]};
+// ---- Primera División: Apertura y Clausura (2 zonas de 15, 16 fechas cada uno); los 8 primeros de cada zona juegan playoffs (partido único, penales); campeón anual y descensos por la suma de puntos de los dos torneos.
+const RGN=(()=>{const m={};CUPS.forEach(c=>c.clubs.forEach(id=>{(m[id]=m[id]||[]).push(c.id)}));return m})();
+const rrRounds=ids=>{const a=[...ids],R=[];if(a.length%2)a.push(null);const n=a.length;for(let k=0;k<n-1;k++){const x=[];for(let i=0;i<n/2;i++)x.push(k%2?[a[n-1-i],a[i]]:[a[i],a[n-1-i]]);R.push(x);a.splice(1,0,a.pop())}return R};
+// Clásico interzonal: cada club se empareja con uno de la otra zona de su misma región (copas regionales); el resto, al azar.
+function clasicos(zA,zB){const fb=shuf(zB),out=[],used=new Set(),sA=new Set(zA),sB=new Set(zB),real=new Map();CLP.forEach(([x,y])=>{if(sA.has(x)&&sB.has(y))real.set(x,y);else if(sA.has(y)&&sB.has(x))real.set(y,x)});
+ shuf(zA).forEach(a=>{const rv=real.get(a);if(rv&&!used.has(rv)){used.add(rv);out.push([a,rv]);return}const j=fb.findIndex(b=>!used.has(b)&&!CLP.some(([x,y])=>x==b||y==b)&&(RGN[a]||[]).some(g=>(RGN[b]||[]).includes(g)));if(j>=0){used.add(fb[j]);out.push([a,fb[j]])}else out.push([a,null])});
+ const free=fb.filter(b=>!used.has(b));out.forEach(p=>{if(!p[1])p[1]=free.pop()});return out}
+function primFx(zA,zB,rev){for(let tr=0;tr<60;tr++){const RA=rrRounds(shuf(zA)),RB=rrRounds(shuf(zB)),cl=clasicos(zA,zB),key=new Set(cl.map(([a,b])=>a+'|'+b)),fx=[];let ok=true;
+  for(let k=0;k<RA.length;k++){const pa=RA[k].find(q=>!q[0]||!q[1]),pb=RB[k].find(q=>!q[0]||!q[1]),ta=pa[0]||pa[1],tb=pb[0]||pb[1];if(key.has(ta+'|'+tb))ok=false;
+   fx.push([...RA[k].filter(q=>q!=pa),...RB[k].filter(q=>q!=pb),rnd()<.5?[ta,tb]:[tb,ta]])}
+  if(!ok&&tr<59)continue;fx.push(cl.map(([a,b])=>rnd()<.5?[a,b]:[b,a]));return rev?fx.map(f=>f.map(([a,b])=>[b,a])):fx}}
+function zoneFx(r){const Z=r.cfg.zones;if(r.cfg.seg&&Z.length==2)return[...primFx(Z[0],Z[1],false),...primFx(Z[0],Z[1],true)];
+ const RR=Z.map(z=>{const R=rrRounds(z);return r.cfg.fmt=='liga2'?[...R,...R.map(x=>x.map(([p,q])=>[q,p]))]:R}),n=Math.max(...RR.map(x=>x.length)),fx=Array.from({length:n},(_,k)=>RR.flatMap(x=>x[k]||[]));
+ if(r.cfg.iz&&Z.length==2){const cl=clasicos(Z[0],Z[1]).map(([a,b])=>rnd()<.5?[a,b]:[b,a]);fx.push(cl,cl.map(([a,b])=>[b,a]))}return fx}
+const tabSub=(T,S0,id)=>({id,pts:T[id].pts-(S0?S0[id].pts:0),g:T[id].g-(S0?S0[id].g:0),gf:T[id].gf-(S0?S0[id].gf:0),ga:T[id].ga-(S0?S0[id].ga:0)});
+function primPO(oA,oC,annual){const mk=(n,o)=>{const sd=[...o[0].slice(0,8).map((id,i)=>({id,k:(i+1)*10})),...o[1].slice(0,8).map((id,i)=>({id,k:(i+1)*10+1}))].sort((x,y)=>x.k-y.k).map(x=>x.id),ko=zKO(sd,'pen');return{n,champ:ko.w,rds:ko.rds}};return{order:annual,rep:{tor:[mk('Apertura',oA),mk('Clausura',oC)]}}}
+function primFrom(Z,table,seg){const S0=seg&&seg[0];if(!S0)return null;const T={};table.forEach(q=>T[q.id]=q);const zo=f=>Z.map(zz=>zz.map(f).sort(cmpT).map(q=>q.id));
+ return primPO(zo(id=>tabSub(S0,null,id)),zo(id=>tabSub(T,S0,id)),table.slice().sort(cmpT).map(q=>q.id))}
+function primSim(Z){const a=Z.map(zz=>simTab(zz,'liga1')),c=Z.map(zz=>simTab(zz,'liga1')),ann={};[...a,...c].flat().forEach(q=>{const x=ann[q.id]=ann[q.id]||{id:q.id,pts:0,g:0,gf:0,ga:0};x.pts+=q.pts;x.g+=q.g;x.gf+=q.gf;x.ga+=q.ga});
+ return primPO(a.map(t=>t.map(q=>q.id)),c.map(t=>t.map(q=>q.id)),Object.values(ann).sort(cmpT).map(q=>q.id))}
+function fedGroup(ids,two,key){return simTab(ids,'liga1').map(q=>q.id)}
+const ZF={
+ ar5(z1,z2,z3,z4){const Z=[z1,z2,z3,z4],q=z=>z.length>=10?5:4,camp=[[...z1.slice(0,q(z1)),...z3.slice(0,q(z3))],[...z2.slice(0,q(z2)),...z4.slice(0,q(z4))]],rev=[[...z1.slice(q(z1)),...z3.slice(q(z3))],[...z2.slice(q(z2)),...z4.slice(q(z4))]];
+  const zk=t=>{for(let i=0;i<4;i++){const j=Z[i].indexOf(t);if(j>=0)return(j+1)*10+i}return 999};
+  const gc=camp.map(g=>fedGroup(g)),gr=rev.map(g=>fedGroup(g)),sd=(gs,n)=>[...gs[0].slice(0,n).map((id,i)=>({id,k:(i+1)*10})),...gs[1].slice(0,n).map((id,i)=>({id,k:(i+1)*10+1}))].sort((x,y)=>x.k-y.k).map(x=>x.id);
+  const kc=zKO(sd(gc,4),true),kr=zKO(sd(gr,5),true),used=new Set([kc.w,kr.w]),rest=[...gc[0].concat(gc[1]).sort((x,y)=>zk(x)-zk(y)),...gr[0].concat(gr[1]).sort((x,y)=>zk(x)-zk(y))].filter(t=>!used.has(t));
+  return{order:[kc.w,kr.w,...rest],rep:{pre:'',red:[...kc.rds.map(r=>({n:'Zona Campeonato · '+r.n,m:r.m})),...kr.rds.map(r=>({n:'Zona Reválida · '+r.n+(r==kr.rds[0]?' (por el 2.º ascenso)':''),m:r.m}))]}}},
+ ar2(zA,zB){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1),L=f==zA[0]?zB[0]:zA[0],m1=[];
+  for(let k=2;k<=8;k++){const x=zA[k-1],y=zB[9-k],[a,b]=key(x)<=key(y)?[x,y]:[y,x];m1.push({a,b,w:kt(a,b)})}
+  const q=[L,...m1.map(x=>x.w).sort((x,y)=>key(x)-key(y))],ko=zKO(q,true);
+  return{order:zOrder(zA,zB,[f,ko.w],[zA[16],zA[17],zB[16],zB[17]]),rep:{final:{a:zA[0],b:zB[0],w:f},red:[{n:'1.ª fase (puestos 2.º a 8.º de cada zona, partido único)',m:m1},...ko.rds]}}},
+ ar4(zA,zB){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1),q=[...zA.slice(1,7),...zB.slice(1,7)].sort((x,y)=>key(x)-key(y)),ko=zKO(q,true),dA=zA[13],dB=zB[13],def=kt(dA,dB,1),drop=def==dA?dB:dA;
+  return{def,drop,order:zOrder(zA,zB,[f,ko.w],[]),rep:{final:{a:zA[0],b:zB[0],w:f},red:ko.rds,last:{a:dA,b:dB,w:def}}}},
+ ar6(zA,zB){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1),q=[...zA.slice(1,4),...zB.slice(1,4)].sort((x,y)=>key(x)-key(y)),ko=zKO(q,true);
+  return{red:ko.w,order:zOrder(zA,zB,[f],[]),rep:{final:{a:zA[0],b:zB[0],w:f},red:ko.rds}}}};
+const careerCfg=car=>{const c0=car.cats[car.me.cat],Z=car.zones&&car.zones[c0.div];if(Z){const pr=c0.div=='ar1';return{div:'custom',real:1,zone:pr?undefined:1,iz:c0.div=='ar2'?1:undefined,zones:Z.map(a=>a.slice()),seg:pr?[16,16]:undefined,zl:RZL[c0.div],teams:Z.flat(),n:Z.flat().length,fmt:pr?'liga1':'liga2',lbl:c0.name+' · Temporada '+car.season}}const cc=careerCfg0(car);if(car.mode=='real'&&RZL[c0.div])cc.zl=RZL[c0.div];return cc};
+const careerCfg0=car=>({div:'custom',real:car.mode=='real'?1:undefined,teams:car.cats[car.me.cat].teams.slice(),n:car.cats[car.me.cat].teams.length,fmt:car.fmts?car.fmts[car.me.cat]:car.fmt,lbl:car.cats[car.me.cat].name+' · Temporada '+car.season});
 // Cierra la temporada: table = tabla final de la categoría del jugador (la sala ya terminó). Devuelve {car: carrera de la temporada siguiente, summary} o {error}.
-function careerClose(car,table){
+function careerClose(car,table,segT){
  if(!car||!Array.isArray(car.cats)||!car.cats.length||!CXKS.includes(car.cats.length))return{error:'Carrera inválida'};
- const k=car.cats.length,ud=k>1?car.ud:0,cp=car.cup||[ud,ud,ud,ud],sz=car.cats.map(c=>c.teams.length),mc=car.me.cat,club=car.me.club;
+ const k=car.cats.length,ud=k>1?car.ud:0,cp=car.cup||[ud,ud,ud,ud],sz=car.cats.map(c=>c.teams.length),mc=car.me.cat,club=car.me.club,zc=car.zones&&car.zones[car.cats[mc].div],zi=zc?zc.findIndex(a=>a.includes(club)):-1;
  const mine=(Array.isArray(table)?table:[]).slice().sort(cmpT).map(q=>q.id);
  if(mine.length!=sz[mc]||!mine.every(id=>car.cats[mc].teams.includes(id)))return{error:'La tabla de la temporada no coincide con tu categoría'};
- const st=car.cats.map((c,i)=>i==mc?mine:simSeason(c.teams,car.fmts?car.fmts[i]:car.fmt)),stay=[],up=st.map(()=>[]),down=st.map(()=>[]),inc=st.map(()=>[]);
+ const zr={};if(car.zones)car.cats.forEach((c,i)=>{const Z=car.zones[c.div];if(!Z)return;if(c.div=='ar1'){zr[i]=i==mc?primFrom(Z,table,segT):primSim(Z);if(!zr[i])throw new Error('falta la tabla del Apertura');return}const zt=Z.map(zz=>i==mc?mine.filter(id=>zz.includes(id)):simSeason(zz,'liga2'));zr[i]=ZF[c.div](...zt)});
+ let xP=cp[3];if(zr[4]&&zr[5]){const C=zr[4],E=zr[5],w=kt(C.def,E.red,1),won=w==E.red;E.promo={a:E.red,b:C.def,w};xP=won?2:1;C.order=[...C.order.filter(t=>t!=C.def&&t!=C.drop),C.def,C.drop];if(won)E.order=[E.order[0],E.red,...E.order.slice(1).filter(t=>t!=E.red)]}
+ const st=car.cats.map((c,i)=>zr[i]?zr[i].order:i==mc?mine:simSeason(c.teams,car.fmts?car.fmts[i]:car.fmt)),stay=[],up=st.map(()=>[]),down=st.map(()=>[]),inc=st.map(()=>[]);
  // Estructura: 0 Primera · 1 Nacional · 2 B Metro y 3 Federal A (vías paralelas) · 4 Primera C · 5 Promocional.
  // Nacional baja a cada club a B Metro (metropolitanos) o a Federal A (interior); las dos vías suben a Nacional tantos como recibieron. Federal A no tiene descenso.
+ if(car.mode=='real'&&k>=3){const t=st[2],ko=zKO(t.slice(1,9),false);zr[2]={rep:{red:ko.rds}};st[2]=[t[0],ko.w,...t.slice(1).filter(x=>x!=ko.w)]}   // B Metro: el campeón sube directo; el reducido (puestos 2.º a 9.º, partido único) da el 2.º ascenso. Pendiente de confirmar con reglamento.
  st.forEach((s,i)=>{const t=s.slice();stay[i]=t});
  const take=(i,c,top)=>{const t=stay[i];return top?t.splice(0,c):t.splice(t.length-c,c)};
  if(k>1){down[0]=take(0,cp[0],0);up[1]=take(1,cp[0],1);down[1]=k>=4?take(1,cp[1],0):[];
   if(k>=4){const dm=down[1].filter(isMetro),df=down[1].filter(id=>!isMetro(id));up[2]=take(2,dm.length,1);up[3]=take(3,df.length,1);
-   if(k>=5){down[2]=take(2,cp[2],0);up[4]=take(4,cp[2],1);down[4]=k>=6?take(4,cp[3],0):[];if(k>=6)up[5]=take(5,cp[3],1)}
+   if(k>=5){down[2]=take(2,cp[2],0);up[4]=take(4,cp[2],1);down[4]=k>=6?take(4,xP,0):[];if(k>=6)up[5]=take(5,xP,1)}
    inc[1]=[...down[0],...up[2],...up[3]];inc[0]=up[1];inc[2]=[...dm,...(k>=5?up[4]:[])];inc[3]=df;if(k>=5){inc[4]=[...down[2],...(k>=6?up[5]:[])];if(k>=6)inc[5]=down[4]}}
   else{inc[0]=up[1];inc[1]=down[0]}}
- const teams=stay.map((t,i)=>[...t,...inc[i]]),to=teams.findIndex(t=>t.includes(club)),pos=mine.indexOf(club)+1,res=CXLVL[to]<CXLVL[mc]?'sube':CXLVL[to]>CXLVL[mc]?'baja':'sigue';
+ const teams=stay.map((t,i)=>[...t,...inc[i]]),to=teams.findIndex(t=>t.includes(club)),pos=(zi>=0&&car.cats[mc].div!='ar1'?mine.filter(id=>zc[zi].includes(id)):mine).indexOf(club)+1,champ=st[mc][0]==club,res=CXLVL[to]<CXLVL[mc]?'sube':CXLVL[to]>CXLVL[mc]?'baja':'sigue';
  if(teams.some((t,i)=>t.length!=sz[i]))return{error:'Error interno: cantidad de equipos desbalanceada'};
- const nc={...car,season:car.season+1,cup:car.cup?(RCUP[car.season+1]||car.cup):undefined,cats:car.cats.map((c,i)=>({...c,teams:teams[i]})),me:{club,cat:to},last:null,hist:[...(car.hist||[]),{y:car.season,cat:car.cats[mc].name,pos,champ:mine[0]==club,res}]};
- return{car:nc,summary:{season:car.season,cats:car.cats.map((c,i)=>({name:c.name,champ:st[i][0],up:up[i],down:down[i]})),me:{club,from:mc,to,pos,champ:mine[0]==club,res}}}}
-const API={act,listen,rooms,CFG,rJoin,pubList,pubApi,snapshot,restore,careerNew,realNew,careerCfg,careerClose,simSeason,isMetro,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
+ const nc={...car,season:car.season+1,cup:car.cup?(RCUP[car.season+1]||car.cup):undefined,cats:car.cats.map((c,i)=>({...c,teams:teams[i]})),me:{club,cat:to},last:null,hist:[...(car.hist||[]),{y:car.season,cat:car.cats[mc].name,pos,champ,res}]};
+ if(car.zones)nc.zones=Object.fromEntries(car.cats.map((c,i)=>RZ[c.div]?[c.div,zsplit(teams[i],RZ[c.div].zs,c.div)]:null).filter(Boolean));
+ return{car:nc,summary:{season:car.season,cats:car.cats.map((c,i)=>({name:c.name,champ:st[i][0],up:up[i],down:down[i],po:zr[i]?{...zr[i].rep,promo:zr[i].promo}:undefined})),me:{club,from:mc,to,pos,champ,res,zone:zi>=0&&car.cats[mc].div!='ar1'?'ABCD'[zi]:undefined,tor:car.cats[mc].div=='ar1'&&zr[mc]?zr[mc].rep.tor.filter(t=>t.champ==club).map(t=>t.n):undefined,n:car.cats[mc].teams.length}}}}
+function careerTitle(sum,dt){if(!CFG.onTitle||!sum||!sum.me||!TM[sum.me.club])return;const m=sum.me,w=[];if(m.champ&&m.zone)w.push('liga2');(m.tor||[]).forEach(()=>w.push('liga1'));w.forEach(fmt=>{const rec={tid:newTid(),club:m.club,clubNombre:TM[m.club].name,dt:String(dt||'DT').replace(/[<>&"]/g,'').slice(0,16)||'DT',mod:'offline',comp:'real',compNombre:'Clásico realista',fmt,n:m.n,at:Date.now()};try{Promise.resolve(CFG.onTitle(rec)).catch(()=>{})}catch(e){}})}
+const API={act,listen,rooms,CFG,rJoin,pubList,pubApi,snapshot,restore,careerNew,realNew,careerCfg,careerClose,careerTitle,simSeason,isMetro,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
 })();
