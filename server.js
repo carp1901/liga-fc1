@@ -1,7 +1,12 @@
 // Servidor sin dependencias: HTTP + Server-Sent Events. Uso: node server.js (PORT opcional)
 const http=require('http'),fs=require('fs'),path=require('path'),E=require('./public/engine'),{DIVS}=require('./public/data'),store=require('./store');
 const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),rooms=E.rooms;E.CFG.tick=+process.env.TICK_MS||1000;
-store.init();E.CFG.onTitle=rec=>store.register(rec); // palmarés permanente (PostgreSQL)
+store.init();E.CFG.onTitle=rec=>store.register(rec);
+// Abandonos reiterados (solo con cuenta): 3 abandonos en 24 h = bloqueo de 30 min para salas públicas y partida aleatoria; al 2.º se avisa. En memoria; si hay base de datos también se registran.
+const AB=new Map(),abOf=u=>{let a=AB.get(u);if(!a){a={t:[],until:0};AB.set(u,a)}a.t=a.t.filter(x=>Date.now()-x<864e5);return a};
+E.CFG.onAbandon=(uid,room)=>{const a=abOf(uid);a.t.push(Date.now());if(a.t.length>=3){a.until=Date.now()+30*60e3;a.t=[]}if(store.abandono)try{Promise.resolve(store.abandono(uid,room)).catch(()=>{})}catch(e){}};
+E.CFG.abBlock=uid=>{const a=uid&&AB.get(uid);return a&&a.until>Date.now()?a.until:0};
+E.CFG.abWarn=uid=>{const a=uid&&AB.has(uid)&&abOf(uid);return a&&a.t.length==2?'Aviso: ya abandonaste 2 partidas en las últimas 24 h. Al tercer abandono no vas a poder entrar a salas públicas ni a partida aleatoria durante 30 minutos.':null}; // palmarés permanente (PostgreSQL)
 E.CFG.onCareer=recs=>store.addCareers(recs); // historial de carreras de los jugadores con cuenta
 // ---- Títulos offline: los informa el navegador. El servidor valida lo que SÍ puede comprobar (formato, club dentro de la competición, tamaño, límites de uso) y los guarda aparte, marcados como no verificables.
 const {CUPS,TM}=require('./public/data'),RL=new Map(),rlOk=(k,max)=>{const n=Date.now(),a=(RL.get(k)||[]).filter(t=>n-t<36e5);if(a.length>=max){RL.set(k,a);return false}a.push(n);RL.set(k,a);return true};
@@ -10,11 +15,11 @@ const ipOf=req=>String((req.headers['x-forwarded-for']||'').split(',')[0]||req.s
 function offlineRec(b){
  const tid=String(b.tid||''),comp=String(b.comp||''),club=String(b.club||''),fmt=String(b.fmt||''),n=Math.floor(+b.n);
  if(!/^[a-z0-9]{8,60}$/.test(tid))return'ID de torneo inválido';if(!['liga1','liga2','copa'].includes(fmt))return'Formato inválido';
- const cup=CUPS.find(c=>c.id==comp),dv=cup?null:DIVS.find(d=>d.id==comp&&d.ok),all=comp=='all',pers=comp=='pers'||comp=='real',real=comp=='real';
- const clubs=cup?cup.clubs:dv?dv.teams.map(t=>t.id):all?DIVS.flatMap(d=>d.teams.map(t=>t.id)):pers?Object.keys(TM):null;
+ const cup=CUPS.find(c=>c.id==comp),dv=cup?null:DIVS.find(d=>d.id==comp&&d.ok),all=comp=='all',pers=comp=='pers'||comp=='real',real=comp=='real',arg=comp=='copaarg';
+ const clubs=cup?cup.clubs:dv?dv.teams.map(t=>t.id):all?DIVS.flatMap(d=>d.teams.map(t=>t.id)):pers||arg?Object.keys(TM):null;
  if(!clubs)return'Competición inválida';if(!clubs.includes(club)||!TM[club])return'El club no pertenece a esa competición';
- if(!(n>=4&&n<=clubs.length))return'Cantidad de equipos inválida';if(pers&&!((real?n<=40:n<=20&&n%2==0)&&fmt!='copa'))return'Cantidad de equipos inválida';
- return{tid,club,clubNombre:TM[club].name,dt:String(b.dt||'').replace(/[<>&"]/g,'').slice(0,16)||null,mod:'offline',comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:real?'Clásico realista':pers?'Clásico personalizado':'Todas las divisiones',fmt,n,at:Date.now(),ver:'offline-informado'};
+ if(!(n>=4&&n<=clubs.length))return'Cantidad de equipos inválida';if(pers&&!((real?n<=40:n<=20&&n%2==0)&&fmt!='copa'))return'Cantidad de equipos inválida';if(arg&&!(fmt=='copa'&&n==64))return'Cantidad de equipos inválida';
+ return{tid,club,clubNombre:TM[club].name,dt:String(b.dt||'').replace(/[<>&"]/g,'').slice(0,16)||null,mod:'offline',comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:arg?'Copa Argentina':real?'Clásico realista':pers?'Clásico personalizado':'Todas las divisiones',fmt,n,at:Date.now(),ver:'offline-informado'};
 }
 const MIME={'.html':'text/html;charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.jpg':'image/jpeg','.webp':'image/webp','.js':'text/javascript','.css':'text/css'};
 function body(req,cb){let s='';req.on('data',d=>{s+=d;if(s.length>4096)req.destroy()});req.on('end',()=>{try{cb(JSON.parse(s))}catch(e){cb(null)}})}
@@ -59,7 +64,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
  if(req.method=='POST'&&u.pathname=='/api/pub')return body(req,b=>{const send=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
   if(!b)return send(400,{error:'Pedido inválido'});if(!rlOk('pub:'+ipOf(req),120))return send(429,{error:'Demasiados intentos; probá más tarde'});withUser(req,b,()=>{const r=E.pubApi(b);send(r.error?400:200,r)})});
  if(req.method=='POST'&&u.pathname=='/act')return body(req,b=>withUser(req,b,()=>{const e=b?E.act(b):'Pedido inválido';res.writeHead(e?400:200,{'Content-Type':'application/json'});res.end(JSON.stringify({error:e}))}));
- if(u.pathname=='/ev'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),c=r&&(r.pl[pid]||(r.spec&&r.spec[pid]));if(!c){res.writeHead(404);return res.end()}
+ if(u.pathname=='/ev'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),c=r&&((r.pl[pid]&&!r.pl[pid].ai)?r.pl[pid]:(r.spec&&r.spec[pid]));if(!c){res.writeHead(404);return res.end()}
   res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});c.res=res;res.write('retry:2000\n\n');E.listen(r.code,pid,v=>res.write('data:'+JSON.stringify(v)+'\n\n'));req.on('close',()=>{if(c.res===res){c.res=null;E.listen(r.code,pid,null)}});return}
  if(u.pathname=='/teams.json'){res.writeHead(200,{'Content-Type':'application/json'});return res.end(JSON.stringify(DIVS))}
  if(u.pathname=='/api/ranking'){const g=k=>u.searchParams.get(k)||'',f={mod:['online','clasico','barrial','offline'].includes(g('mod'))?g('mod'):'online',comp:/^[a-z0-9]{1,30}$/.test(g('comp'))?g('comp'):'',fmt:['liga','copa'].includes(g('fmt'))?g('fmt'):''};

@@ -1,0 +1,44 @@
+// Prueba del bloque 4 (abandonos y reemplazos): node test-abandonos.js
+const E=require('./public/engine'),D=require('./public/data');E.CFG.fastWaits=true;E.CFG.tick=5;E.CFG.reconn=0.25;
+let fails=0;const ok=(c,m)=>{console.log((c?'OK  ':'FALLA ')+m);if(!c)fails++},sleep=ms=>new Promise(r=>setTimeout(r,ms)),until=async(f,ms=20000)=>{const t=Date.now();while(!f()&&Date.now()-t<ms)await sleep(5);return f()};
+const abn=[];E.CFG.onAbandon=(u,r)=>abn.push(u);
+(async()=>{
+ const teams=D.DIVS.find(d=>d.id=='ar1').teams.map(t=>t.id).slice(0,4),ps=['p1','p2','p3','p4'],room='bl4',last={};
+ const e0=E.act({a:'create',pid:'p1',name:'Uno',room,uid:'u1',cfg:{div:'ar1',fmt:'liga1',n:4}});ok(!e0,'sala online de 4 creada');
+ ps.slice(1).forEach(p=>E.act({a:'join',pid:p,name:p,room,uid:'u'+p.slice(1)}));
+ ps.forEach(p=>E.listen(room,p,v=>last[p]=v));ps.forEach((p,i)=>E.act({a:'pick',pid:p,room,team:teams[i]}));
+ const r=E.rooms[room];await until(()=>r.phase=='pre');r.t=1e9;
+ ok(r.phase=='pre'&&r.part.length==4,'torneo en pretemporada, 4 personas participan');
+ console.log('\n== margen de reconexión');
+ E.listen(room,'p3',null);await sleep(100);ok(!r.pl.p3.ai&&!r.pl.p3.bot,'a los 100 ms todavía no pasó el margen: sigue siendo humano');
+ E.listen(room,'p3',v=>last.p3=v);await sleep(400);ok(!r.pl.p3.ai,'reconectó a tiempo: conserva su club (aunque pasó más del margen desde que se fue)');
+ console.log('\n== abandono: la IA toma el club');
+ E.listen(room,'p4',null);await until(()=>r.pl.p4.ai);
+ ok(r.pl.p4.ai&&r.pl.p4.bot&&r.pl.p4.ready&&r.pl.p4.tac.auto==1,'pasado el margen la IA toma el club de p4');ok(abn.join()=='u4','se informó el abandono de u4 (cuenta)');
+ ok(/Perdiste tu lugar/.test(E.act({a:'ready',pid:'p4',room,v:true})||''),'p4 ya no puede actuar en su club');ok(E.listen(room,'p4',()=>{})===false,'ni volver a escuchar la sala');
+ ok(r.order.filter(p=>!r.pl[p].bot).length==3&&E.rankInfo(r).h==4,'el ranking sigue contando a las 4 personas que participaron');
+ console.log('\n== vacante y reemplazo');
+ const vi=E.vacInfo2(room);ok(vi&&vi.clubs.length==1&&vi.clubs[0].team==teams[3],'queda 1 vacante (falta todo el torneo) con la info del club');
+ ok(E.claim(room,'p4','Otro','u9','equilibrada',teams[0]).error,'no se puede tomar un club que tiene dueño');
+ const c1=E.claim(room,'n1','Nuevo','u9','equilibrada',teams[3]);ok(c1.ok&&c1.now,'n1 toma el club en pretemporada');
+ const N=r.pl.n1;ok(N&&N.team==teams[3]&&!N.bot&&!N.ai&&N.uid=='u9'&&N.tac.auto==0&&!r.pl.p4&&r.order.includes('n1')&&!r.order.includes('p4'),'el reemplazo controla el club; la IA y el dueño anterior ya no');
+ ok(r.part.includes('u9')&&r.part.length==5,'el reemplazo suma como participante (5 personas distintas en el torneo)');
+ ok(!E.vacInfo2(room),'sin más vacantes');
+ console.log('\n== abandono y reemplazo en pleno partido');
+ E.act({a:'quit',pid:'p2',room});ok(r.pl.p2.ai,'«Salir» pasa el club a la IA enseguida');
+ const c2=E.claim(room,'n2','Otro2','u7','equilibrada',teams[1]);ok(c2.ok&&c2.now&&r.pl.n2&&r.pl.n2.team==teams[1],'en pretemporada el reemplazo entra enseguida');
+ // ahora en partido: arrancar la fecha y abandonar durante el juego
+ ps.concat(['n1','n2']).forEach(p=>{if(r.pl[p])E.act({a:'ready',pid:p,room,v:true})});r.t=1;await until(()=>['cer','m1'].includes(r.phase));
+ E.listen(room,'p3',null);await until(()=>r.pl.p3.ai);ok(r.pl.p3.ai&&['cer','m1','m2','ht'].includes(r.phase),'p3 abandona en pleno partido');
+ const c3=E.claim(room,'n3','Otro3','u8','equilibrada',teams[2]);ok(c3.ok&&!c3.now&&!r.pl.n3&&r.spec.n3,'el reemplazo espera mirando hasta el final de la fecha');
+ await until(()=>r.pl.n3,20000);ok(r.pl.n3&&r.pl.n3.team==teams[2]&&r.round==1&&r.table[teams[2]].pj==1,'entra en la fecha 2 y hereda sus partidos jugados ('+(r.pl.n3&&r.table[teams[2]].pj)+' PJ)');
+ console.log('\n== sin vacantes en la segunda mitad');
+ await until(()=>r.round>=2||r.phase=='end');E.act({a:'quit',pid:'n3',room});
+ if(r.round>=2&&r.phase!='end'){ok(!E.vacInfo2(room),'si queda la mitad o menos del torneo, la IA se queda con el club')}else ok(true,'(el torneo terminó antes de probar esto)');
+ console.log('\n== bloqueo por abandonos (hook del servidor)');
+ E.CFG.abBlock=u=>u=='ub'?Date.now()+60000:0;E.CFG.abWarn=u=>u=='uw'?'Aviso de prueba':null;
+ ok(/bloqueado/.test(E.pubApi({op:'create',pid:'zz',uid:'ub',name:'B',div:'ar1',fmt:'liga1',n:10}).error||''),'un bloqueado no puede crear sala pública');
+ ok(/bloqueado/.test(E.pubApi({op:'play',pid:'zz',uid:'ub',name:'B',room:'x'}).error||''),'ni unirse a una');
+ ok(/bloqueado/.test(E.rJoin({pid:'zz',uid:'ub',name:'B',mode:'join'}).error||''),'ni a partida aleatoria');
+ const pc=E.pubApi({op:'create',pid:'zw',uid:'uw',name:'W',div:'ar1',fmt:'liga1',n:10});ok(pc.room&&pc.aviso=='Aviso de prueba','con 2 abandonos recibe el aviso al entrar');
+ Object.values(E.rooms).forEach(x=>clearInterval(x.timer));console.log(fails?'\nFALLAS: '+fails:'\nTodo OK');process.exit(fails?1:0)})();
