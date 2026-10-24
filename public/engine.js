@@ -76,7 +76,7 @@ function simMin(r,m,min){const A=r.pl[m.a],B=r.pl[m.b];if(!A||!B)return;const P=
   if(cg){const sl=slots(atc.f),w=[];atc.xi.forEach((x,k)=>{if(k&&!m.off[t].has(x))for(let n=0;n<({DEF:2,MED:1,DEL:3}[sl[k]]||1);n++)w.push(x)});const hd=w[Math.floor(rnd()*w.length)];m.st[t][1]++;c.n=nm(r,m,t,hd);c.si=hd;scoreG(r,m,t,hd,min,'cor',-1)}
   m.evs.push(c)}}
 const zonesOk=c=>Array.isArray(c.zones)&&(c.zones.length==2||c.zones.length==4)&&c.zones.every(a=>Array.isArray(a)&&a.length>=4)&&c.zones.flat().length==c.teams.length&&new Set(c.zones.flat()).size==c.teams.length&&c.zones.flat().every(id=>c.teams.includes(id));
-function mkFixtures(r){const ids=shuf(r.order.map(p=>r.pl[p].team));if(r.cfg.fmt=='copa'){r.alive=ids;r.seedOrder=[...ids];r.rd=0;r.leg=0;koBuild(r);return}
+function mkFixtures(r){const ids=r.cfg.fixed&&r.cfg.teams&&r.cfg.teams.length==r.order.length?r.cfg.teams.slice():shuf(r.order.map(p=>r.pl[p].team));if(r.cfg.fmt=='copa'){r.alive=ids;r.seedOrder=[...ids];r.rd=0;r.leg=0;koBuild(r);return}
  if(r.cfg.zones){r.fx=zoneFx(r);r.total=r.fx.length;return}
  const a=[...ids],R=[];if(a.length%2)a.push(null);const n=a.length;for(let k=0;k<n-1;k++){const x=[];for(let i=0;i<n/2;i++)x.push(k%2?[a[n-1-i],a[i]]:[a[i],a[n-1-i]]);R.push(x);a.splice(1,0,a.pop())}
  r.fx=r.cfg.fmt=='liga2'?[...R,...R.map(x=>x.map(([p,q])=>[q,p]))]:R;r.total=r.fx.length}
@@ -117,7 +117,7 @@ const byTeam=(r,t)=>r.order.find(p=>r.pl[p].team==t);
 function startRound(r){const pairs=r.cfg.fmt=='copa'?copaPairs(r):r.fx[r.round];r.byes=[];r.ms=[];r.award=null;
  pairs.forEach(([x,y])=>{if(!x||!y)r.byes.push(x||y);else r.ms.push(newMatch(byTeam(r,x),byTeam(r,y)))});
  r.order.forEach(p=>{r.pl[p].ready=!!r.pl[p].bot;r.pl[p].skip=false;fixSus(r.pl[p])});r.phase='cer';r.min=0;r.t=18;if(r.offline)botTune(r,0)}
-function maybeStart(r){if(r.order.length==r.cfg.n&&r.order.every(p=>r.pl[p].team)){r.order.forEach(p=>r.table[r.pl[p].team]={pj:0,gf:0,ga:0,pts:0,g:0,e:0,p:0});mkFixtures(r);r.phase='pre';r.t=180}}
+function maybeStart(r){if(r.order.length==r.cfg.n&&r.order.every(p=>r.pl[p].team)){r.order.forEach(p=>r.table[r.pl[p].team]={pj:0,gf:0,ga:0,pts:0,g:0,e:0,p:0});mkFixtures(r);r.part=r.order.filter(p=>!r.pl[p].bot).map(p=>r.pl[p].uid||p);r.phase='pre';r.t=180}}
 function begin1(r){r.phase='m1';r.t=0;r.ad=0;r.sx=0;r.stp=false;r.hb=4;r.ms.forEach(m=>{m.h0=[0,0,0,0]});r.order.forEach(p=>{const P=r.pl[p];P.skip=false;if(!P.bot&&P.tac)P.base=cl(P.tac)})}
 const tally=(r,m)=>{r.sc=r.sc||{};[0,1].forEach(s=>{const t=r.pl[s?m.b:m.a].team,sq=squad(t);[['g',m.pg[s]],['a',m.pas[s]]].forEach(([k,o])=>Object.keys(o||{}).forEach(i=>{if(!o[i]||!sq[i])return;const e=r.sc[t+':'+i]||(r.sc[t+':'+i]={t,n:sq[i].n,g:0,a:0});e[k]+=o[i]}))})},
  topSc=(r,k,o)=>Object.values(r.sc||{}).filter(e=>e[k]>0).sort((x,y)=>y[k]-x[k]||y[o]-x[o]||x.n.localeCompare(y.n)).slice(0,10).map(e=>({t:e.t,n:e.n,v:e[k]}));
@@ -129,19 +129,19 @@ function endRound(r){if(r.cfg.fmt=='copa'&&!r.psoOK){const need=psoNeed(r);if(ne
  if(r.cfg.seg){let c=0;if(r.cfg.seg.some(x=>(c+=x)==r.round))(r.segT=r.segT||[]).push(JSON.parse(JSON.stringify(r.table)))}
  if(r.cfg.fmt=='copa'){const fin=koResolve(r,res);r.psoItems=null;r.psoOK=false;r.pw=null;if(fin){r.phase='end';r.champ=r.alive[0];regTitle(r);recCareer(r);return}}
  else if(r.round>=r.total){r.phase='end';{const mt=(r.order.map(p=>r.pl[p]).find(P=>!P.bot)||{}).team,zz=r.cfg.zone&&r.cfg.zones&&(r.cfg.zones.find(a=>a.includes(mt))||r.cfg.zones[0]);r.champ=Object.entries(r.table).filter(([id])=>!zz||zz.includes(id)).map(([id,q])=>({id,...q})).sort(cmpT)[0].id}regTitle(r);recCareer(r);return}
- r.phase='lobby';r.t=r.cfg.fmt=='copa'&&r.alive&&r.order.every(p=>r.pl[p].bot||!r.alive.includes(r.pl[p].team))?6:90;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot)}
+ r.phase='lobby';r.t=r.cfg.fmt=='copa'&&r.alive&&r.order.every(p=>r.pl[p].bot||!r.alive.includes(r.pl[p].team))?6:90;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot);applyClaims(r)}
 // Equipo de la fecha: más goles; si empatan, mejor diferencia; si siguen igualados, mejores estadísticas (posesión, remates, a puerta, córners, menos faltas y tarjetas)
 const cmpT=(a,b)=>b.pts-a.pts||b.g-a.g||b.gf-a.gf||(b.gf-b.ga)-(a.gf-a.ga);
 const rankOf=r=>{const o={};Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT).forEach((q,i)=>o[q.id]=i+1);return o};
 function awardOf(r){let best=null;r.ms.forEach(m=>[0,1].forEach(s=>{const o=1-s,gf=s?m.gb:m.ga,ga=s?m.ga:m.gb,st=m.st[s],tot=(m.st[0][0]+m.st[1][0])||1,comp=st[0]/tot*40+st[1]*1.2+st[2]*2+st[3]*.5-st[4]*.2-st[5]*.5-st[6]*3+rnd()*.01,sc=[gf,gf-ga,comp];
   if(!best||sc[0]>best.sc[0]||(sc[0]==best.sc[0]&&(sc[1]>best.sc[1]||(sc[1]==best.sc[1]&&sc[2]>best.sc[2]))))best={sc,team:r.pl[s?m.b:m.a].team,rival:r.pl[o?m.b:m.a].team,gf,ga}}));
  if(best){r.award={team:best.team,rival:best.rival,gf:best.gf,ga:best.ga};r.aw=r.aw||{};r.aw[best.team]=(r.aw[best.team]||0)+1}}
-function tick(r){setMix(r.cfg&&r.cfg.mix);if(r.paused)return;if(r.pub){if(r.closed)return pubClosedTick(r);if(r.phase=='pick'){pubTick(r);if(r.closed)return pubClosedTick(r);return push(r)}}if(r.rand&&RLIVE.includes(r.phase))return randTick(r);if(r.phase=='pre'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='cer'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)begin1(r)}else if(r.phase=='m1'||r.phase=='m2'){if(r.add>0){r.ms.forEach(m=>{m.evs=[]});if(r.add==1&&!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=4&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else if(--r.add==0){r.hold=0;r.order.forEach(p=>r.pl[p].busy=false);if(r.min==45){r.phase='ht';r.t=15;r.order.forEach(p=>r.pl[p].skip=false);if(r.offline)botTune(r,1)}else{r.phase='fin';r.t=5}}}else if(!CFG.fastWaits&&r.spd<=1.5&&r.hb>0&&(r.hold2=(r.hold2||0)+1)<=40&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy>=2)){r.hb--}else{r.hold2=0;if(r.stp){const lm=r.min;r.sx++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,lm);autoSub(r,m,lm)});if(r.sx>=r.ad){r.stp=false;r.add=1;r.hold=0;if(lm==45)r.ms.forEach(m=>{m.h0=hcnt(m)})}}else{r.min++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,r.min);autoSub(r,m,r.min)});if(r.min==45||r.min>=90){r.ad=CFG.fastWaits?0:stopAdd(r,r.min);r.sx=0;if(r.ad>0)r.stp=true;else{r.add=CFG.fastWaits?1:3;r.hold=0}}}}}   // tiempo agregado: sin jugadas nuevas, para que se terminen de ver las que quedaron antes del descanso/final
+function tick(r){setMix(r.cfg&&r.cfg.mix);if(r.paused)return;abandonTick(r);if(r.pub){if(r.closed)return pubClosedTick(r);if(r.phase=='pick'){pubTick(r);if(r.closed)return pubClosedTick(r);return push(r)}}if(r.rand&&RLIVE.includes(r.phase))return randTick(r);if(r.phase=='pre'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='cer'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)begin1(r)}else if(r.phase=='m1'||r.phase=='m2'){if(r.add>0){r.ms.forEach(m=>{m.evs=[]});if(r.add==1&&!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=4&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else if(--r.add==0){r.hold=0;r.order.forEach(p=>r.pl[p].busy=false);if(r.min==45){r.phase='ht';r.t=15;r.order.forEach(p=>r.pl[p].skip=false);if(r.offline)botTune(r,1)}else{r.phase='fin';r.t=5}}}else if(!CFG.fastWaits&&r.spd<=1.5&&r.hb>0&&(r.hold2=(r.hold2||0)+1)<=40&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy>=2)){r.hb--}else{r.hold2=0;if(r.stp){const lm=r.min;r.sx++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,lm);autoSub(r,m,lm)});if(r.sx>=r.ad){r.stp=false;r.add=1;r.hold=0;if(lm==45)r.ms.forEach(m=>{m.h0=hcnt(m)})}}else{r.min++;r.ms.forEach(m=>{m.evs=[];simMin(r,m,r.min);autoSub(r,m,r.min)});if(r.min==45||r.min>=90){r.ad=CFG.fastWaits?0:stopAdd(r,r.min);r.sx=0;if(r.ad>0)r.stp=true;else{r.add=CFG.fastWaits?1:3;r.hold=0}}}}}   // tiempo agregado: sin jugadas nuevas, para que se terminen de ver las que quedaron antes del descanso/final
  
  else if(r.phase=='fin'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0||(r.offline&&r.skipEnd)){awardOf(r);if(r.offline&&r.skipEnd)endRound(r);else{r.phase='awd';r.t=5}}}else if(r.phase=='awd'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)endRound(r)}else if(r.phase=='ht'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0){r.phase='m2';r.ad=0;r.sx=0;r.stp=false;r.hb=4}}else if(r.phase=='lobby'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0)startRound(r)}else if(r.phase=='psel'){r.t-=CFG.fastWaits?1:1/r.spd;if(r.t<=0){r.ps.items.forEach(it=>{it.ok=[true,true]});startShoot(r)}}
  else if(r.phase=='pso'){const ps=r.ps,mx=Math.max(...ps.items.map(it=>it.kicks.length));
   if(ps.step<mx){if(r.pt>0)r.pt--;else if(!CFG.fastWaits&&(r.hold=(r.hold||0)+1)<=30&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)){}else{r.hold=0;ps.step++;r.pt=CFG.fastWaits?0:2}}
-  else{if(ps.end==null)ps.end=CFG.fastWaits?1:6;ps.end-=CFG.fastWaits?1:1/r.spd;if(ps.end<=0)finishPso(r)}}
+  else{if(ps.end==null)ps.end=CFG.fastWaits?1:6;const bz=!CFG.fastWaits&&r.order.some(p=>!r.pl[p].bot&&r.pl[p].busy)&&(r.hold=(r.hold||0)+1)<=60;if(!bz){ps.end-=CFG.fastWaits?1:1/r.spd;if(ps.end<=0)finishPso(r)}}}
  else return;push(r)}
 function nextOf(r,team){if(r.phase=='pick'||r.phase=='end')return null;const pr=r.cfg.fmt=='copa'?copaPairs(r):r.fx&&r.fx[r.round],p=pr&&pr.find(x=>x.includes(team));return p?(p[0]&&p[1]?{o:p[0]==team?p[1]:p[0],h:p[0]==team}:{o:null}):null}
 function calOf(r,team){const c=[],H=r.hist||[],sc=(x,h)=>(h?x.ga:x.gb)+'-'+(h?x.gb:x.ga);
@@ -153,7 +153,7 @@ const DORS=[1,12,2,3,4,5,13,15,6,8,10,14,16,20,9,7,11,19];
 const pInfo=(m,s,P)=>{const tc=P.tac;return{x:tc.xi.slice(),n:tc.xi.map(i=>DORS[i]),y:tc.xi.map((i,k)=>m.yc[s][i]>0&&!m.off[s].has(i)?k:-1).filter(k=>k>=0),g:tc.xi.map(i=>m.pg[s][i]||0),a:tc.xi.map(i=>m.pas[s][i]||0),c:tc.xi.indexOf(tc.cap)}};
 const offKs=(m,s,P)=>P.tac.xi.map((i,k)=>m.off[s].has(i)?k:-1).filter(k=>k>=0);
 function view(r,pid){setMix(r.cfg&&r.cfg.mix);const me=r.pl[pid]||(r.spec&&r.spec[pid]?SPECME:undefined),own={};r.order.forEach(p=>{if(r.pl[p].team)own[r.pl[p].team]=r.pl[p].name});
- const v={code:r.code,rq:rView(r,pid),rk:rankInfo(r),pb:pbOf(r),closed:r.closed||null,sp:!!(r.spec&&r.spec[pid]&&!r.pl[pid]),ns:Object.keys(r.spec||{}).filter(q=>r.spec[q].cb).length,tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),segT:r.segT||null,rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
+ const v={code:r.code,cl:!!(r.claims||[]).find(c=>c.pid==pid),rq:rView(r,pid),rk:rankInfo(r),pb:pbOf(r),closed:r.closed||null,sp:!!(r.spec&&r.spec[pid]&&!r.pl[pid]),ns:Object.keys(r.spec||{}).filter(q=>r.spec[q].cb).length,tit:r.tit||null,cfg:r.cfg,rn:r.cfg.fmt=='copa'&&r.alive?(()=>{const k=r.alive.length;return k==2?'Final':k==4?'Semifinales':k==8?'Cuartos de final':k==16?'Octavos de final':(k&(k-1))?'Ronda preliminar':''})():'',elim:!!(me&&isOut(r,me)),ps:psView(r,pid),se:!!r.skipEnd,gs:topSc(r,'g','a'),as:topSc(r,'a','g'),host:r.order[0]==pid,br:koView(r),segT:r.segT||null,rd:r.rd||0,leg:r.leg||0,needRiv:!!r.needRiv,spd:r.spd||1,phase:r.phase,round:r.round,total:r.total,t:Math.ceil(r.t),min:r.min,own,champ:r.champ,res:r.res,byes:r.byes,prev:r.prevRank||null,award:r.award||null,aw:r.aw||{},
  table:Object.entries(r.table).map(([id,q])=>({id,...q})),chat:r.chat.slice(-40).map(c=>({id:c.id,n:c.n,t:c.t,u:c.u.length,d:c.d.length,me:c.pid===pid,my:c.u.includes(pid)?1:c.d.includes(pid)?-1:0})),
  ms:(r.ms||[]).map(m=>{const A=r.pl[m.a],B=r.pl[m.b],kt=kitsOf(A,B);return{a:A.team,b:B.team,pha:A.phil||'equilibrada',phb:B.phil||'equilibrada',w:m.w,ra:[A.tac.k1,A.tac.k2],rb:[B.tac.k1,B.tac.k2],ga:m.ga,gb:m.gb,fa:A.tac.f,fb:B.tac.f,ka:kt[0],kb:kt[1],evs:m.evs,gl:m.gl,ta:[A.tac.st,A.tac.pr,A.tac.wing,A.tac.sal,A.tac.mk],tb:[B.tac.st,B.tac.pr,B.tac.wing,B.tac.sal,B.tac.mk],fl:m.fl,of:m.of,xg:m.xg.map(x=>Math.round(x*100)/100),st:m.st.map(x=>[...x]),oa:offKs(m,0,A),ob:offKs(m,1,B),pa:pInfo(m,0,A),pb:pInfo(m,1,B)}}),
  ready:r.order.map(p=>r.pl[p].ready),n:r.order.length,pls:r.order.map(p=>({n:r.pl[p].name,t:r.pl[p].team,b:!!r.pl[p].bot,f:r.pl[p].phil||'equilibrada',o:isOut(r,r.pl[p])})),off:!!r.offline,paused:!!r.paused,ad:(r.phase=='m1'&&r.min>=45)||(r.phase=='m2'&&r.min>=90)?(r.ad||0):0,sx:(r.phase=='m1'&&r.min>=45)||(r.phase=='m2'&&r.min>=90)?(r.sx||0):0,hx:r.hb>0?0:1,sk:(()=>{const hs=r.order.filter(p=>!r.pl[p].bot&&playing(r,p));return{n:hs.filter(p=>r.pl[p].skip).length,of:hs.length,me:!!(me&&me.skip),pl:!!(me&&playing(r,pid))}})(),nf:(r.phase=='pre'||r.phase=='lobby')?((r.cfg.fmt=='copa'?copaPairs(r):(r.fx&&r.fx[r.round]))||null):null};
@@ -168,17 +168,19 @@ function botTune(r,half){r.ms.forEach(m=>[[m.a,m.b,m.ga-m.gb],[m.b,m.a,m.gb-m.ga
   if(best.f!=t.f){t.f=best.f;t.xi=best.xi;t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}
   const me=strength(r,P.team,t,undefined,P.phil),df=me.a+me.m+me.d-(os.a+os.m+os.d);t.st=df>4?2:df<-4?0:1;t.pr=me.m>os.m?2:1;t.wing=FM[ot.f][0]>=5?0:FM[ot.f][1]>=5?1:rnd()<.5?1:0;t.sal=ot.pr==2?(rnd()<.5?2:1):0;t.mk=rnd()<.5?1:0}
  else if(d<0){t.st=2;t.pr=2}else if(d>=2){t.st=0;t.pr=0}else if(d==1)t.st=1}))}
-function listen(code,pid,cb){const r=rooms[code],c=r&&(r.pl[pid]||(r.spec&&r.spec[pid]));if(!c)return false;if(!r.pl[pid]&&!cb){delete r.spec[pid];return true}c.cb=cb;c.lost=cb?0:Date.now();if(cb)try{cb(view(r,pid))}catch(e){}return true}
+function listen(code,pid,cb){const r=rooms[code],c=r&&(r.pl[pid]||(r.spec&&r.spec[pid]));if(!c||c.ai)return false;if(!r.pl[pid]&&!cb){delete r.spec[pid];return true}c.cb=cb;c.lost=cb?0:Date.now();if(cb)try{cb(view(r,pid))}catch(e){}return true}
 // cambia de formación en pleno partido sin cambiar jugadores: reubica a los mismos 11 en las nuevas posiciones
 function reslot(sq,f,xi){const sl=slots(f),u=new Set();return sl.map(p=>{let b=-1;xi.forEach(i=>{if(u.has(i))return;const ok=sq[i].p==p;if(b<0||(ok&&sq[b].p!=p)||(ok==(sq[b].p==p)&&sq[i].r>sq[b].r))b=i});u.add(b);return b})}
 function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!pid)return'Falta id';let r=rooms[txt(b.room,12).toLowerCase()];
  if(r&&r.spec&&r.spec[pid]&&!r.pl[pid]&&a!='join')return'Estás mirando esta sala';
- if(a=='create'){const c=b.cfg||{},isAll=c.div=='all',cus=c.div=='custom'&&!!(b.off&&CFG.offline)&&Array.isArray(c.teams)&&c.teams.length==+c.n&&c.n>=4&&(c.real?c.n<=40:c.n<=20&&c.n%2==0)&&new Set(c.teams).size==c.teams.length&&c.teams.every(i=>TM[i])&&['liga1','liga2'].includes(c.fmt),cup=CUPS.find(x=>'cup:'+x.id==c.div),div=isAll?{id:'all',ok:1}:cus?{id:'custom',ok:1,teams:c.teams.map(i=>TM[i])}:cup?{id:'cup:'+cup.id,ok:1,teams:cup.clubs.map(i=>TM[i])}:DIVS.find(d=>d.id==c.div&&d.ok),code=txt(b.room,12).toLowerCase(),nn=cup?Math.max(4,Math.min(cup.clubs.length,Math.floor(+c.n)||cup.clubs.length)):+c.n;
+ if(a=='create'){const c=b.cfg||{},isAll=c.div=='all',cus=c.div=='custom'&&!!(b.off&&CFG.offline)&&Array.isArray(c.teams)&&c.teams.length==+c.n&&c.n>=4&&(c.real?c.n<=40:c.fmt=='copa'?c.n<=64:c.n<=20&&c.n%2==0)&&new Set(c.teams).size==c.teams.length&&c.teams.every(i=>TM[i])&&(['liga1','liga2'].includes(c.fmt)||(c.fmt=='copa'&&+c.n==64)),cup=CUPS.find(x=>'cup:'+x.id==c.div),div=isAll?{id:'all',ok:1}:cus?{id:'custom',ok:1,teams:c.teams.map(i=>TM[i])}:cup?{id:'cup:'+cup.id,ok:1,teams:cup.clubs.map(i=>TM[i])}:DIVS.find(d=>d.id==c.div&&d.ok),code=txt(b.room,12).toLowerCase(),nn=cup?Math.max(4,Math.min(cup.clubs.length,Math.floor(+c.n)||cup.clubs.length)):+c.n;
   if(!/^[a-z0-9]{3,12}$/.test(code))return'Código: 3-12 letras o números';if(rooms[code])return'Ese código ya existe';if(Object.keys(rooms).length>=60)return'Servidor lleno';
-  if(!div||(!cup&&!cus&&!(c.fmt=='copa'?D.KO_SIZES:D.LIGA_SIZES).includes(nn))||!['liga1','liga2','copa'].includes(c.fmt))return'Configuración inválida';if(c.fmt=='copa'&&!D.KO_SIZES.includes(nn))return'Mata-mata: solo 4, 8, 16 o 32 equipos (llaves completas, sin pases libres)';if(!isAll&&div.teams.length<nn)return'Esa división tiene solo '+div.teams.length+' clubes: elegí menos jugadores';
-  r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&(c.mix||!(b.off&&CFG.offline))))?1:0,cup:cup?cup.title:undefined,teams:cus?c.teams.slice():undefined,real:cus&&c.real?1:undefined,lbl:cus?txt(c.lbl,60):undefined,zone:cus&&c.real&&c.zone?1:undefined,zones:cus&&c.real&&zonesOk(c)?c.zones.map(a=>a.slice()):undefined,iz:cus&&c.real&&zonesOk(c)&&c.iz&&c.zones.length==2?1:undefined,seg:cus&&c.real&&zonesOk(c)&&Array.isArray(c.seg)&&c.seg.length==2&&c.seg.every(x=>x==16)?[16,16]:undefined,zl:cus&&c.real&&Array.isArray(c.zl)?c.zl.slice(0,6).map(x=>({a:Math.floor(+x.a)||1,b:Math.floor(+x.b)||1,k:['F','R','D'].includes(x.k)?x.k:'R',w:x.w=='a'?'a':'z',t:txt(x.t,70)})):undefined,legs:c.fmt=='copa'&&+c.legs==2?2:1,seed:c.fmt=='copa'&&c.seed=='pick'?'pick':'rand'},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
+  if(!div||(!cup&&!cus&&!(c.fmt=='copa'?D.KO_SIZES:D.LIGA_SIZES).includes(nn))||!['liga1','liga2','copa'].includes(c.fmt))return'Configuración inválida';if(c.fmt=='copa'&&!(D.KO_SIZES.includes(nn)||(cus&&nn==64)))return'Mata-mata: solo 4, 8, 16 o 32 equipos (llaves completas, sin pases libres)';if(!isAll&&div.teams.length<nn)return'Esa división tiene solo '+div.teams.length+' clubes: elegí menos jugadores';
+  r=rooms[code]={code,tid:newTid(),cfg:{div:div.id,fmt:c.fmt,n:nn,mix:(isAll||(cup&&(c.mix||!(b.off&&CFG.offline))))?1:0,cup:cup?cup.title:undefined,teams:cus?c.teams.slice():undefined,real:cus&&c.real?1:undefined,lbl:cus?txt(c.lbl,60):undefined,zone:cus&&c.real&&c.zone?1:undefined,zones:cus&&c.real&&zonesOk(c)?c.zones.map(a=>a.slice()):undefined,iz:cus&&c.real&&zonesOk(c)&&c.iz&&c.zones.length==2?1:undefined,seg:cus&&c.real&&zonesOk(c)&&Array.isArray(c.seg)&&c.seg.length==2&&c.seg.every(x=>x==16)?[16,16]:undefined,zl:cus&&c.real&&Array.isArray(c.zl)?c.zl.slice(0,6).map(x=>({a:Math.floor(+x.a)||1,b:Math.floor(+x.b)||1,k:['F','R','D'].includes(x.k)?x.k:'R',w:x.w=='a'?'a':'z',t:txt(x.t,70)})):undefined,legs:c.fmt=='copa'&&+c.legs==2?2:1,seed:c.fmt=='copa'&&c.seed=='pick'?'pick':'rand',fixed:cus&&c.fmt=='copa'&&c.fixed?1:undefined},pl:{},order:[],chat:[],phase:'pick',round:0,t:0,min:0,table:{},ms:[],touched:Date.now(),offline:!!(b.off&&CFG.offline)};r.spd=r.offline?clamp(+b.speed||1,.25,100):1;r.timer=setInterval(()=>tick(r),r.offline?1000/clamp(+b.speed||1,.25,100):CFG.tick)}
  else if(!r)return'No existe esa sala';
  if(r.closed)return'La sala está cerrada';
+ if(r.pl[pid]&&r.pl[pid].ai)return'Perdiste tu lugar en esta sala: la IA tomó tu club por desconexión';
+ if(a=='quit'){if(!r.offline&&r.pl[pid]&&!['pick','end','queue','vote1','vote2'].includes(r.phase))giveToAI(r,pid,'salio');return null}
  if(!r.pl[pid]){if(r.order.length>=r.cfg.n||r.phase!='pick')return'Sala llena o ya empezó';r.pl[pid]={name,team:null,ready:false,tac:null,res:null,phil:r.offline?'equilibrada':validPhil(b.phil),uid:b.uid};r.order.push(pid)}
  const me=r.pl[pid];if(b.uid&&!me.uid)me.uid=b.uid;r.touched=Date.now();let err=null;if(b.phil!==undefined&&!r.offline&&['pick','pre'].includes(r.phase))me.phil=validPhil(b.phil);
  if(a=='pick'&&r.phase=='pick'){const div={teams:poolOf(r)};if(!div.teams.some(t=>t.id==b.team)||r.order.some(p=>r.pl[p].team==b.team))return'Equipo ocupado';
@@ -211,7 +213,7 @@ function simGame(ta,tb,o){o=o||{};setMix(!!o.mix);const r={pl:{A:{name:'A',team:
 function teamStrength(team,o){o=o||{};const r={cfg:{mix:!!o.mix}};return strength(r,team,newTac(team),undefined,o.phil)}
 // Mínimo de personas para que un torneo ONLINE sea elegible para ranking. Cuenta jugadores humanos distintos (pid) de la sala; los equipos de la IA no cuentan y los torneos offline nunca son elegibles.
 // OJO: el pid es un id que genera el navegador (no hay cuentas), así que esto cuenta navegadores distintos, no personas verificadas.
-function rankInfo(r){const min=CFG.rankMin,h=r.order.filter(p=>!r.pl[p].bot).length,n=r.cfg.n;return{min,h,n,off:!!r.offline,ok:!r.offline&&n>=min&&(r.phase=='pick'||h>=min)}}
+function rankInfo(r){const min=CFG.rankMin,h=Math.max(r.order.filter(p=>!r.pl[p].bot).length,(r.part||[]).length),n=r.cfg.n;return{min,h,n,off:!!r.offline,ok:!r.offline&&n>=min&&(r.phase=='pick'||h>=min)}}
 // ---- Registro de títulos (Bloque 4). Solo en el servidor: server.js define CFG.onTitle (guarda en PostgreSQL). En el navegador (offline) no se registra nada.
 // Se llama UNA vez por torneo, cuando termina de forma normal (fase 'end' con campeón). El servidor vuelve a validar mínimo de personas y que el campeón sea un club de un jugador de la sala.
 const newTid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,10)+Math.random().toString(36).slice(2,8);
@@ -222,7 +224,7 @@ function regTitle(r){if(r.titled||r.cfg.zone)return;r.titled=1;if(!CFG.onTitle)r
  else{if(!r.champ||!dt||!TM[r.champ]){r.tit={st:'no',why:'campeon'};return}
   if(!k.ok||k.h<k.min){r.tit={st:'no',why:'minimo'};return}}
  const cup=r.cfg.cup?CUPS.find(x=>'cup:'+x.id==r.cfg.div):null,dv=cup?null:DIVS.find(d=>d.id==r.cfg.div);
- const rec={tid:r.tid,club:r.champ,clubNombre:TM[r.champ].name,dt:r.pl[dt].name,mod:r.offline?'offline':cup?'barrial':'clasico',comp:cup?cup.id:r.cfg.div=='custom'?(r.cfg.real?'real':'pers'):r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':r.cfg.div=='custom'?(r.cfg.real?'Clásico realista':'Clásico personalizado'):String(r.cfg.div)),fmt:r.cfg.fmt,n:r.offline?r.cfg.n:k.h,at:Date.now()};
+ const rec={tid:r.tid,club:r.champ,clubNombre:TM[r.champ].name,dt:r.pl[dt].name,mod:r.offline?'offline':cup?'barrial':'clasico',comp:cup?cup.id:r.cfg.div=='custom'?(r.cfg.fixed?'copaarg':r.cfg.real?'real':'pers'):r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':r.cfg.div=='custom'?(r.cfg.fixed?'Copa Argentina':r.cfg.real?'Clásico realista':'Clásico personalizado'):String(r.cfg.div)),fmt:r.cfg.fmt,n:r.offline?r.cfg.n:k.h,at:Date.now()};
  r.tit={st:'pend'};let p;try{p=Promise.resolve(CFG.onTitle(rec))}catch(e){p=Promise.reject(e)}
  p.then(x=>{r.tit=x&&x.status=='disabled'?{st:'no',why:'sin_db'}:{st:'ok',dup:!!(x&&x.status=='duplicate'),tid:r.tid};push(r)},e=>{r.tit={st:'err'};push(r);console.error('título no registrado:',e&&e.message)})}
 // ---- Partida aleatoria (Bloque 2): cola global de CFG.randN personas -> votación de categoría (15 s) -> votación de competición (15 s) -> elección de clubes (la fase 'pick' de siempre). Formato fijo: liga de 1 rueda.
@@ -247,6 +249,7 @@ function randTick(r){const now=Date.now();r.order.slice().forEach(p=>{const c=r.
  if(!rooms[r.code])return;if(r.phase=='vote1'||r.phase=='vote2'){if(--r.t<=0)rResolve(r)}push(r)}
 // Entrar a "Partida aleatoria". b.mode: undefined (ofrece vacante si hay) | 'join' (acepta la vacante b.room) | 'queue' (rechaza la oferta y va a la cola)
 function rJoin(b){const pid=txt(b.pid,40);if(!pid)return{error:'Falta id'};
+ {const m=abMsg(b.uid);if(m&&!Object.values(rooms).some(r=>r.rand&&r.pl[pid]&&r.phase!='end'))return{error:m}}
  for(const k in rooms){const r=rooms[k];if(r.rand&&r.pl[pid]&&r.phase!='end'){if(b.mode=='join'&&r.phase=='queue'){dropP(r,pid);break}const c=r.pl[pid];if(!c.cb&&!c.lost)c.lost=Date.now();return{room:k}}}   // ya estabas en una: volvés a esa
  if(b.mode=='join'){const r=rooms[txt(b.room,12)];if(r&&r.rand&&['vote1','vote2','pick'].includes(r.phase)&&r.order.length<CFG.randN&&!r.pl[pid]){addRand(r,pid,b);push(r);return{room:r.code}}}
  else if(b.mode!='queue'){const v=vacOf();if(v)return{offer:vacInfo(v)}}
@@ -264,14 +267,43 @@ function pubTick(r){if(r.phase=='pick'&&!r.closed&&Date.now()>=r.pub.closeAt)clo
 function pubClosedTick(r){push(r);if(Date.now()-r.closedAt>20000){clearInterval(r.timer);delete rooms[r.code]}}
 // "viva" = existe, no se cerró y no terminó. Si venció el tiempo se cierra acá mismo (aunque el reloj interno no haya corrido), así nunca se lista ni se entra a una sala vencida.
 const pubAlive=r=>{if(r.pub&&r.phase=='pick'&&!r.closed&&Date.now()>=r.pub.closeAt)closePub(r,'tiempo');return !!(r.pub&&!r.closed&&r.phase!='end')};
+// ---- Abandonos y reemplazos (online). Si un jugador se desconecta más de CFG.reconn segundos (o toca «Salir» en pleno torneo) la IA toma su club y el torneo sigue.
+// Si falta más de la mitad del torneo, el club queda como vacante: alguien puede reemplazarlo (confirmando antes), hereda puesto, puntos y recorrido pero no la identidad ni el ranking del anterior.
+// El reemplazo entra entre fechas (se queda mirando hasta entonces). Los plazos se miden con la hora del servidor.
+CFG.reconn=CFG.reconn||120;
+const NOLIVE=['pick','end','queue','vote1','vote2'];
+const leftFrac=r=>{if(r.cfg.fmt=='copa'){const R=r.br?r.br.length:0;return R?(R-(r.rd||0))/R:0}return r.total?(r.total-(r.round||0))/r.total:0};
+function giveToAI(r,p,why){const P=r.pl[p];if(!P||P.bot||P.ai)return;if(P.uid&&CFG.onAbandon)try{CFG.onAbandon(P.uid,r.code)}catch(e){}
+ P.ai=1;P.bot=true;P.nm0=P.name;P.ouid=P.uid;P.uid=undefined;P.name='IA ('+P.name+')';P.ready=true;P.cb=null;P.tac={...P.tac,auto:1};(r.abn=r.abn||[]).push({p,at:Date.now(),why});push(r)}
+const vacList=r=>{if(r.offline||r.closed||NOLIVE.includes(r.phase)||leftFrac(r)<=.5)return[];const cl=(r.claims||[]).map(c=>c.team);
+ return r.order.filter(p=>{const P=r.pl[p];return P&&P.ai&&!cl.includes(P.team)&&(r.cfg.fmt!='copa'||!r.alive||r.alive.includes(P.team))})};
+function vacInfo2(code){const r=rooms[code];if(!r)return null;const L=vacList(r);if(!L.length)return null;const T=Object.entries(r.table||{}).map(([id,q])=>({id,...q})).sort(cmpT).map(q=>q.id),e=D.catalog().find(x=>x.key==r.cfg.div)||{};
+ return{room:r.code,comp:e.cat=='barrial'?e.title:(e.name||r.cfg.cup||(DIVS.find(d=>d.id==r.cfg.div)||{}).name||''),fmt:r.cfg.fmt,round:r.round||0,total:r.total||0,rd:r.rd||0,rounds:r.br?r.br.length:0,
+  clubs:L.map(p=>{const t=r.pl[p].team,q=(r.table||{})[t]||{};return{team:t,club:TM[t].name,pos:T.indexOf(t)+1,pts:q.pts||0,pj:q.pj||0}})}}
+function claim(code,pid,name,uid,phil,team){const r=rooms[code];if(!r||r.offline||r.closed)return{error:'Esa sala ya no existe o se cerró'};
+ if(r.pl[pid]&&r.pl[pid].ai)return{error:'Perdiste tu lugar en esta sala: la IA tomó tu club por desconexión'};if(r.pl[pid])return{error:'Ya estás en esta sala'};
+ if((r.claims||[]).some(c=>c.pid==pid))return{error:'Ya reservaste un club en esta sala'};
+ const v=vacList(r).find(p=>r.pl[p].team==team);if(!v)return{error:'Ese club ya no está disponible'};
+ r.spec=r.spec||{};const sp=r.spec[pid]=r.spec[pid]||{name,cb:null,lost:0};sp.name=name;(r.claims=r.claims||[]).push({pid,team,name,uid,phil});applyClaims(r);push(r);
+ return{ok:1,room:r.code,now:!!r.pl[pid]}}
+function applyClaims(r){if(!r.claims||!r.claims.length||!['lobby','pre'].includes(r.phase))return;const cs=r.claims;r.claims=[];
+ cs.forEach(c=>{const sp=r.spec&&r.spec[c.pid],p0=r.order.find(p=>r.pl[p]&&r.pl[p].ai&&r.pl[p].team==c.team);if(!sp||!p0||leftFrac(r)<=.5||(r.cfg.fmt=='copa'&&r.alive&&!r.alive.includes(c.team)))return;
+  const old=r.pl[p0],P=Object.assign(sp,{team:c.team,tac:{...old.tac,auto:0},ready:false,bot:false,ai:undefined,phil:validPhil(c.phil),uid:c.uid,lost:0,name:c.name,sus:old.sus,res:sp.res||null});delete P.claim;
+  r.order[r.order.indexOf(p0)]=c.pid;delete r.pl[p0];r.pl[c.pid]=P;delete r.spec[c.pid];if(!(r.part||(r.part=[])).includes(c.uid||c.pid))r.part.push(c.uid||c.pid);r.touched=Date.now()});push(r)}
+function abandonTick(r){if(r.offline||r.closed||NOLIVE.includes(r.phase))return;const now=Date.now();r.order.slice().forEach(p=>{const P=r.pl[p];if(P&&!P.bot&&!P.ai&&P.lost&&now-P.lost>CFG.reconn*1000)giveToAI(r,p,'tiempo')});applyClaims(r)}
 function pubList(){return Object.values(rooms).filter(pubAlive).map(r=>{const i=pubInfo(r),pick=r.phase=='pick',free=pick?Math.max(0,r.cfg.n-r.order.length):0;
- return{code:r.code,name:r.pub.title||('Sala de '+r.pub.host),cat:i.cat,comp:i.comp,region:i.region,fmt:r.cfg.fmt,n:r.cfg.n,h:r.order.filter(p=>!r.pl[p].bot).length,free,status:pick?(free>0?'esperando':'completa'):'juego',left:pick&&isFinite(r.pub.closeAt)?Math.max(0,r.pub.closeAt-Date.now()):0,phase:r.phase,round:r.round||0,total:r.total||0,rd:r.rd||0,spec:Object.keys(r.spec||{}).length}}).sort((a,b)=>b.h-a.h)}
+ const vac=pick?0:vacList(r).length;
+ return{code:r.code,name:r.pub.title||('Sala de '+r.pub.host),cat:i.cat,comp:i.comp,region:i.region,fmt:r.cfg.fmt,n:r.cfg.n,h:r.order.filter(p=>!r.pl[p].bot).length,free:pick?free:vac,vac,status:pick?(free>0?'esperando':'completa'):(vac>0?'juego':'completa'),left:pick&&isFinite(r.pub.closeAt)?Math.max(0,r.pub.closeAt-Date.now()):0,phase:r.phase,round:r.round||0,total:r.total||0,rd:r.rd||0,spec:Object.keys(r.spec||{}).length}}).sort((a,b)=>(b.vac>0)-(a.vac>0)||b.h-a.h)}
 // Cierra la sala el anfitrión (el primero en entrar) mientras espera jugadores.
 function pubClose(b,pid){const r=rooms[txt(b.room,12).toLowerCase()];if(!r||!pubAlive(r))return{error:'Esa sala ya no existe o se cerró'};if(r.phase!='pick')return{error:'Solo se puede cerrar mientras espera jugadores'};if(r.order[0]!=pid)return{error:'Solo el anfitrión puede cerrar la sala'};closePub(r,'anfitrion');return{ok:1}}
 // op: 'create' (div,fmt,n,title) | 'play' (room) | 'watch' (room) | 'close' (room). Devuelve {room} o {error}.
-function pubApi(b){const pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!pid)return{error:'Falta id'};
+const abMsg=u=>{const t=CFG.abBlock&&u&&CFG.abBlock(u);return t?'Estás bloqueado por abandonos reiterados hasta las '+new Date(t).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Argentina/Buenos_Aires'})+'. Podés volver a jugar entonces.':null};
+function pubApi(b){const pid=txt(b.pid,40),op=b.op;if(['create','play','take'].includes(op)){const m=abMsg(b.uid);if(m)return{error:m}}const r0=pubApi0(b);if(r0&&r0.room&&!r0.error&&['create','play','take'].includes(op)&&b.uid&&CFG.abWarn){const w=CFG.abWarn(b.uid);if(w)r0.aviso=w}return r0}
+function pubApi0(b){const pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!pid)return{error:'Falta id'};
  if(b.op=='close')return pubClose(b,pid);
- for(const k in rooms){const r=rooms[k];if(r.pub&&pubAlive(r)&&r.pl[pid]&&b.op!='watch')return{room:k}}   // ya estabas en una: volvés a esa
+ if(b.op=='vacinfo'){const i=vacInfo2(txt(b.room,12).toLowerCase());return i?{vac:i}:{error:'Esa sala no tiene vacantes'}}
+ if(b.op=='take'){const code=txt(b.room,12).toLowerCase(),r=claim(code,pid,name,b.uid,b.phil,String(b.team||''));return r.error?r:{room:r.room,esperando:!r.now}}
+ for(const k in rooms){const r=rooms[k];if(r.pub&&pubAlive(r)&&r.pl[pid]&&!r.pl[pid].ai&&b.op!='watch')return{room:k}}   // ya estabas en una: volvés a esa
  if(b.op=='create'){const e=D.catalog().find(x=>x.key==b.div),fmt=b.fmt,n=Math.floor(+b.n);
   if(!e||!e.fmts.includes(fmt)||!(e.sizes[fmt]||[]).includes(n)||n<10)return{error:'Configuración inválida: las salas públicas son de 10 jugadores o más'};
   if(Object.keys(rooms).length>=60)return{error:'Servidor lleno'};
@@ -279,7 +311,7 @@ function pubApi(b){const pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!p
   const er=act({a:'create',pid,name,room:code,phil:b.phil,uid:b.uid,cfg:{div:e.key,fmt,n}});if(er)return{error:er};
   rooms[code].pub={title:txt(b.title,28),host:name,closeAt:Date.now()+CFG.pubWait*1000,created:Date.now()};return{room:code}}
  const r=rooms[txt(b.room,12).toLowerCase()];if(!r||!pubAlive(r))return{error:'Esa sala ya no existe o se cerró'};
- if(b.op=='play'){if(r.phase!='pick'||r.order.length>=r.cfg.n)return{error:'La sala se llenó o ya empezó. Podés mirarla.'};
+ if(b.op=='play'){if(r.phase!='pick'){const i=vacInfo2(r.code);return i?{vac:i}:{error:'La sala se llenó o ya empezó. Podés mirarla.'}}if(r.order.length>=r.cfg.n)return{error:'La sala se llenó o ya empezó. Podés mirarla.'};
   if(r.spec&&r.spec[pid])delete r.spec[pid];const er=act({a:'join',pid,name,room:r.code,phil:b.phil,uid:b.uid});return er?{error:er}:{room:r.code}}
  if(b.op=='watch'){if(r.pl[pid])return{room:r.code};r.spec=r.spec||{};if(!r.spec[pid]&&Object.keys(r.spec).length>=60)return{error:'La sala tiene demasiados espectadores'};
   r.spec[pid]=r.spec[pid]||{name,cb:null,lost:0};return{room:r.code}}
@@ -299,13 +331,13 @@ function restore(json,o){o=o||{};if(!CFG.offline)return{error:'Cargar carreras s
 // ---- Historial de carreras: al terminar un torneo se informa el resultado de cada jugador con cuenta (CFG.onCareer lo define el servidor; en el navegador, el cliente).
 // Online: solo jugadores con cuenta (uid, puesto por el servidor). Offline: el único jugador humano; el cliente envía el registro solo si tiene sesión iniciada.
 function copaRes(r,t){let last=0;(r.br||[]).forEach(rd=>{if(rd.some(x=>x.a==t||x.b==t))last=rd.length});
- return last==1?'Finalista':last==2?'Eliminado en semifinales':last==4?'Eliminado en cuartos de final':last==8?'Eliminado en octavos de final':last==16?'Eliminado en dieciseisavos de final':'Eliminado en la ronda previa'}
+ return last==1?'Finalista':last==2?'Eliminado en semifinales':last==4?'Eliminado en cuartos de final':last==8?'Eliminado en octavos de final':last==16?'Eliminado en dieciseisavos de final':last==32?'Eliminado en 32avos de final':'Eliminado en la ronda previa'}
 function recCareer(r){if(r.careered)return;r.careered=1;if(!CFG.onCareer)return;
  const cup=r.cfg.cup?CUPS.find(x=>'cup:'+x.id==r.cfg.div):null,dv=cup?null:DIVS.find(d=>d.id==r.cfg.div),copa=r.cfg.fmt=='copa',rk=copa?null:rankOf(r),
   origen=r.offline?'offline':r.pub?'publica':r.rand?'aleatoria':'privada',recs=[];
  r.order.forEach(p=>{const P=r.pl[p];if(!P||P.bot||!P.team||!TM[P.team])return;if(!r.offline&&!P.uid)return;
   const t=P.team,q=r.table[t]||{},champ=r.champ==t,pos=rk?(rk[t]||null):null;
-  recs.push({uid:P.uid,tid:r.tid,club:t,clubNombre:TM[t].name,mod:r.offline?'offline':cup?'barrial':'clasico',origen,comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':String(r.cfg.div)),fmt:r.cfg.fmt,n:r.cfg.n,
+  recs.push({uid:P.uid,tid:r.tid,club:t,clubNombre:TM[t].name,mod:r.offline?'offline':cup?'barrial':'clasico',origen,comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':r.cfg.fixed?'Copa Argentina':String(r.cfg.div)),fmt:r.cfg.fmt,n:r.cfg.n,
    pos,resultado:champ?'Campeón':copa?copaRes(r,t):(pos?pos+'.º de '+r.cfg.n:'—'),campeon:champ,pj:copa?null:q.pj,g:copa?null:q.g,e:copa?null:q.e,p:copa?null:q.p,gf:copa?null:q.gf,gc:copa?null:q.ga,pts:copa?null:q.pts,at:Date.now()})});
  if(recs.length)try{CFG.onCareer(recs)}catch(e){console.error('carrera:',e.message)}}
 // ---- Clásico personalizado: temporadas con ascensos y descensos.
@@ -330,13 +362,13 @@ function careerNew(o){o=o||{};const divs=CXORD.map(id=>DIVS.find(d=>d.id==id)).f
   let add=shuf(divs[i].teams.map(t=>t.id).filter(id=>!used.has(id))).slice(0,need);add.forEach(id=>used.add(id));
   if(add.length<need){const tr=divs[i].id=='ar3'?true:divs[i].id=='ar5'?false:null,fr=Object.keys(TM).filter(id=>!used.has(id)),pf=tr===null?[]:fr.filter(id=>isMetro(id)===tr),rest=[...shuf(pf),...shuf(fr.filter(id=>!pf.includes(id)))].slice(0,need-add.length);rest.forEach(id=>used.add(id));add=add.concat(rest)}
   cats.push({div:divs[i].id,name:divs[i].name,teams:[...picks[i],...add]})}
- return{v:2,mode:'pers',season:2026,k,n,ud:k>1?ud:0,fmt,cats,me:{club:me.club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)}}
+ const car={v:2,mode:'pers',season:2026,k,n,ud:k>1?ud:0,fmt,cats,me:{club:me.club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)};car.pre=preGen(car);return car}
 // ---- Modo realista (bloque 1): las 6 divisiones con sus clubes y tamaños reales del juego, una tabla por categoría, vías metro/federal y cupos configurables por temporada.
 // Cupos [Primera↔Nacional, Nacional↔3.ª categoría (total), B Metro↔C, C↔Promocional]. Para otra temporada se agrega una entrada: RCUP[2027]=[...]. (Pendiente de confirmar con reglamento.)
 const RCUP={2026:[2,4,2,1]},RFMT={ar1:'liga1',ar2:'liga1',ar3:'liga2',ar5:'liga1',ar4:'liga1',ar6:'liga2'};
 function realNew(o){o=o||{};const divs=CXORD.map(id=>DIVS.find(d=>d.id==id)),club=o.me&&o.me.club;if(!TM[club])return{error:'Elegí tu club'};
  const cats=divs.map(d=>({div:d.id,name:d.name,teams:d.teams.map(t=>t.id)})),mc=cats.findIndex(c=>c.teams.includes(club));if(mc<0)return{error:'Ese club no está en ninguna división'};
- return{v:3,mode:'real',season:2026,k:6,n:0,ud:0,cup:RCUP[2026].slice(),fmts:divs.map(d=>RFMT[d.id]),zones:Object.fromEntries(cats.filter(c=>RZ[c.div]).map(c=>[c.div,zsplit(c.teams,RZ[c.div].zs,c.div)])),cats,me:{club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)}}
+ const car={v:3,mode:'real',season:2026,k:6,n:0,ud:0,cup:RCUP[2026].slice(),fmts:divs.map(d=>RFMT[d.id]),zones:Object.fromEntries(cats.filter(c=>RZ[c.div]).map(c=>[c.div,zsplit(c.teams,RZ[c.div].zs,c.div)])),cats,me:{club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)};car.pre=preGen(car);car.cq=copaQual(cats[0].teams,Object.fromEntries(cats.map(c=>[c.div,c.teams])));car.cp=copaInit(car);return car}
 // ---- Realista bloque 2: Primera Nacional, Primera C y Promocional Amateur se juegan por zonas (2 ruedas) + final y reducido.
 // La zona del jugador se juega en una sala normal (liga de 2 ruedas, cfg.zone/cfg.zl); la otra zona y las fases finales se simulan al cerrar la temporada.
 // Cada formato es un dato (RZ): zs = tamaños de zona, red = puestos que van al reducido. Reducidos de C (2.º a 7.º) y Promocional (2.º a 4.º): ida y vuelta, define el mejor ubicado (local la vuelta). Pendiente: interzonales.
@@ -387,7 +419,12 @@ const tabSub=(T,S0,id)=>({id,pts:T[id].pts-(S0?S0[id].pts:0),g:T[id].g-(S0?S0[id
 function primPO(oA,oC,annual){const mk=(n,o)=>{const sd=[...o[0].slice(0,8).map((id,i)=>({id,k:(i+1)*10})),...o[1].slice(0,8).map((id,i)=>({id,k:(i+1)*10+1}))].sort((x,y)=>x.k-y.k).map(x=>x.id),ko=zKO(sd,'pen');return{n,champ:ko.w,rds:ko.rds}};return{order:annual,rep:{tor:[mk('Apertura',oA),mk('Clausura',oC)]}}}
 function primFrom(Z,table,seg){const S0=seg&&seg[0];if(!S0)return null;const T={};table.forEach(q=>T[q.id]=q);const zo=f=>Z.map(zz=>zz.map(f).sort(cmpT).map(q=>q.id));
  return primPO(zo(id=>tabSub(S0,null,id)),zo(id=>tabSub(T,S0,id)),table.slice().sort(cmpT).map(q=>q.id))}
-function primSim(Z){const a=Z.map(zz=>simTab(zz,'liga1')),c=Z.map(zz=>simTab(zz,'liga1')),ann={};[...a,...c].flat().forEach(q=>{const x=ann[q.id]=ann[q.id]||{id:q.id,pts:0,g:0,gf:0,ga:0};x.pts+=q.pts;x.g+=q.g;x.gf+=q.gf;x.ga+=q.ga});
+// Bloque 6: las demás divisiones se juegan por adelantado (resultados guardados en car.pre) para poder verlas durante la temporada; al cerrar se usan esas mismas tablas.
+const preZ=(ids,fmt)=>{const R=rrRounds(shuf(ids)),RR=fmt=='liga2'?[...R,...R.map(x=>x.map(([p,q])=>[q,p]))]:R;return RR.map(f=>f.filter(p=>p[0]&&p[1]).map(([a,b])=>{const m=simGame(a,b,{mix:false});return[a,b,m.ga,m.gb]}))};
+function preTab(res,ids,k){const T={};ids.forEach(id=>T[id]={id,pj:0,g:0,e:0,p:0,gf:0,ga:0,pts:0});(k==null?res:res.slice(0,k)).forEach(f=>f.forEach(([a,b,x,y])=>{const A=T[a],B=T[b];A.pj++;B.pj++;A.gf+=x;A.ga+=y;B.gf+=y;B.ga+=x;if(x>y){A.pts+=3;A.g++;B.p++}else if(x<y){B.pts+=3;B.g++;A.p++}else{A.pts++;B.pts++;A.e++;B.e++}}));return Object.values(T).sort(cmpT)}
+function preGen(car){const o={};car.cats.forEach((c,i)=>{if(i==car.me.cat)return;const Z=car.zones&&car.zones[c.div];if(c.div=='ar1'&&Z)o[i]={a:Z.map(z=>preZ(z,'liga1')),c:Z.map(z=>preZ(z,'liga1'))};else if(Z)o[i]={z:Z.map(z=>preZ(z,'liga2'))};else o[i]={z:[preZ(c.teams,car.fmts?car.fmts[i]:car.fmt)]}});return o}
+const preZone=(car,i,j,z,fmt)=>{const p=car.pre&&car.pre[i];return p&&p.z&&p.z[j]?preTab(p.z[j],z).map(q=>q.id):simSeason(z,fmt)};
+function primSim(Z,pre){const a=pre&&pre.a?pre.a.map((r,j)=>preTab(r,Z[j])):Z.map(zz=>simTab(zz,'liga1')),c=pre&&pre.c?pre.c.map((r,j)=>preTab(r,Z[j])):Z.map(zz=>simTab(zz,'liga1')),ann={};[...a,...c].flat().forEach(q=>{const x=ann[q.id]=ann[q.id]||{id:q.id,pts:0,g:0,gf:0,ga:0};x.pts+=q.pts;x.g+=q.g;x.gf+=q.gf;x.ga+=q.ga});
  return primPO(a.map(t=>t.map(q=>q.id)),c.map(t=>t.map(q=>q.id)),Object.values(ann).sort(cmpT).map(q=>q.id))}
 function fedGroup(ids,two,key){return simTab(ids,'liga1').map(q=>q.id)}
 const ZF={
@@ -412,9 +449,9 @@ function careerClose(car,table,segT){
  const k=car.cats.length,ud=k>1?car.ud:0,cp=car.cup||[ud,ud,ud,ud],sz=car.cats.map(c=>c.teams.length),mc=car.me.cat,club=car.me.club,zc=car.zones&&car.zones[car.cats[mc].div],zi=zc?zc.findIndex(a=>a.includes(club)):-1;
  const mine=(Array.isArray(table)?table:[]).slice().sort(cmpT).map(q=>q.id);
  if(mine.length!=sz[mc]||!mine.every(id=>car.cats[mc].teams.includes(id)))return{error:'La tabla de la temporada no coincide con tu categoría'};
- const zr={};if(car.zones)car.cats.forEach((c,i)=>{const Z=car.zones[c.div];if(!Z)return;if(c.div=='ar1'){zr[i]=i==mc?primFrom(Z,table,segT):primSim(Z);if(!zr[i])throw new Error('falta la tabla del Apertura');return}const zt=Z.map(zz=>i==mc?mine.filter(id=>zz.includes(id)):simSeason(zz,'liga2'));zr[i]=ZF[c.div](...zt)});
+ const zr={};if(car.zones)car.cats.forEach((c,i)=>{const Z=car.zones[c.div];if(!Z)return;if(c.div=='ar1'){zr[i]=i==mc?primFrom(Z,table,segT):primSim(Z,car.pre&&car.pre[i]);if(!zr[i])throw new Error('falta la tabla del Apertura');return}const zt=Z.map((zz,j)=>i==mc?mine.filter(id=>zz.includes(id)):preZone(car,i,j,zz,'liga2'));zr[i]=ZF[c.div](...zt)});
  let xP=cp[3];if(zr[4]&&zr[5]){const C=zr[4],E=zr[5],w=kt(C.def,E.red,1),won=w==E.red;E.promo={a:E.red,b:C.def,w};xP=won?2:1;C.order=[...C.order.filter(t=>t!=C.def&&t!=C.drop),C.def,C.drop];if(won)E.order=[E.order[0],E.red,...E.order.slice(1).filter(t=>t!=E.red)]}
- const st=car.cats.map((c,i)=>zr[i]?zr[i].order:i==mc?mine:simSeason(c.teams,car.fmts?car.fmts[i]:car.fmt)),stay=[],up=st.map(()=>[]),down=st.map(()=>[]),inc=st.map(()=>[]);
+ const st=car.cats.map((c,i)=>zr[i]?zr[i].order:i==mc?mine:preZone(car,i,0,c.teams,car.fmts?car.fmts[i]:car.fmt)),stay=[],up=st.map(()=>[]),down=st.map(()=>[]),inc=st.map(()=>[]);
  // Estructura: 0 Primera · 1 Nacional · 2 B Metro y 3 Federal A (vías paralelas) · 4 Primera C · 5 Promocional.
  // Nacional baja a cada club a B Metro (metropolitanos) o a Federal A (interior); las dos vías suben a Nacional tantos como recibieron. Federal A no tiene descenso.
  if(car.mode=='real'&&k>=3){const t=st[2],ko=zKO(t.slice(1,9),false);zr[2]={rep:{red:ko.rds}};st[2]=[t[0],ko.w,...t.slice(1).filter(x=>x!=ko.w)]}   // B Metro: el campeón sube directo; el reducido (puestos 2.º a 9.º, partido único) da el 2.º ascenso. Pendiente de confirmar con reglamento.
@@ -429,7 +466,23 @@ function careerClose(car,table,segT){
  if(teams.some((t,i)=>t.length!=sz[i]))return{error:'Error interno: cantidad de equipos desbalanceada'};
  const nc={...car,season:car.season+1,cup:car.cup?(RCUP[car.season+1]||car.cup):undefined,cats:car.cats.map((c,i)=>({...c,teams:teams[i]})),me:{club,cat:to},last:null,hist:[...(car.hist||[]),{y:car.season,cat:car.cats[mc].name,pos,champ,res}]};
  if(car.zones)nc.zones=Object.fromEntries(car.cats.map((c,i)=>RZ[c.div]?[c.div,zsplit(teams[i],RZ[c.div].zs,c.div)]:null).filter(Boolean));
+ nc.pre=preGen(nc);
+ if(car.mode=='real'){const L={};car.cats.forEach((c,i)=>L[c.div]=st[i]);const iA=car.cats.findIndex(c=>c.div=='ar2');
+  if(iA>=0&&car.zones&&car.zones.ar2){const tb=car.zones.ar2.map((zz,j)=>iA==mc?(table||[]).filter(q=>zz.includes(q.id)).sort(cmpT):(car.pre&&car.pre[iA]&&car.pre[iA].z?preTab(car.pre[iA].z[j],zz):null));
+   if(tb.every(Boolean)){const a=tb[0].map(q=>q.id),b=tb[1].map(q=>q.id),o=[];for(let i=0;i<7;i++)o.push(a[i],b[i]);o.push(...(cmpT(tb[0][7],tb[1][7])<=0?[a[7],b[7]]:[b[7],a[7]]));for(let i=8;i<a.length;i++)o.push(a[i],b[i]);L.ar2=o.filter(Boolean)}}
+  nc.cq=copaQual(teams[0],L);nc.cp=copaInit(nc)}
  return{car:nc,summary:{season:car.season,cats:car.cats.map((c,i)=>({name:c.name,champ:st[i][0],up:up[i],down:down[i],po:zr[i]?{...zr[i].rep,promo:zr[i].promo}:undefined})),me:{club,from:mc,to,pos,champ,res,zone:zi>=0&&car.cats[mc].div!='ar1'?'ABCD'[zi]:undefined,tor:car.cats[mc].div=='ar1'&&zr[mc]?zr[mc].rep.tor.filter(t=>t.champ==club).map(t=>t.n):undefined,n:car.cats[mc].teams.length}}}}
 function careerTitle(sum,dt){if(!CFG.onTitle||!sum||!sum.me||!TM[sum.me.club])return;const m=sum.me,w=[];if(m.champ&&m.zone)w.push('liga2');(m.tor||[]).forEach(()=>w.push('liga1'));w.forEach(fmt=>{const rec={tid:newTid(),club:m.club,clubNombre:TM[m.club].name,dt:String(dt||'DT').replace(/[<>&"]/g,'').slice(0,16)||'DT',mod:'offline',comp:'real',compNombre:'Clásico realista',fmt,n:m.n,at:Date.now()};try{Promise.resolve(CFG.onTitle(rec)).catch(()=>{})}catch(e){}})}
-const API={act,listen,rooms,CFG,rJoin,pubList,pubApi,snapshot,restore,careerNew,realNew,careerCfg,careerClose,careerTitle,simSeason,isMetro,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
+// ---- Copa Argentina: 64 clubes (todos los de Primera + 34 del ascenso), partido único desde 32avos. En la 1.ª ronda cada club de Primera juega contra uno del ascenso; los 4 del ascenso que sobran se cruzan entre sí.
+const COPA_Q={ar2:15,ar3:5,ar5:8,ar4:4,ar6:2};
+function copaQual(prim,lists){const used=new Set(prim),low=[];Object.entries(COPA_Q).forEach(([d,n])=>{let c=0;(lists[d]||[]).forEach(id=>{if(c<n&&!used.has(id)){used.add(id);low.push(id);c++}})});return{prim:[...prim],low}}
+function copaDraw(q){const L=shuf(q.low),P=shuf(q.prim),pr=[];P.forEach((p,i)=>pr.push(rnd()<.5?[p,L[i]]:[L[i],p]));for(let i=P.length;i+1<L.length;i+=2)pr.push([L[i],L[i+1]]);return shuf(pr).flat()}
+function copaSuelta(){const g=id=>(DIVS.find(d=>d.id==id)||{teams:[]}).teams.map(t=>t.id),lists={};Object.keys(COPA_Q).forEach(d=>lists[d]=g(d));const q=copaQual(g('ar1'),lists);return{q,teams:copaDraw(q)}}
+function copaSimAll(teams){let a=teams.slice();while(a.length>1){const n=[];for(let i=0;i<a.length;i+=2)n.push(kt(a[i],a[i+1],1));a=n}return a[0]}
+function copaInit(car){const q=car.cq;if(!q)return null;const teams=copaDraw(q),inn=teams.includes(car.me.club);return{teams,rd:0,st:inn?'live':'done',in:0,snap:null,lg:null,champ:inn?null:copaSimAll(teams),res:inn?null:'No clasificó'}}
+// Resuelve de golpe lo que falta de una sala de copa (cuando el jugador ya quedó eliminado).
+function copaFast(code){const r=rooms[code];if(!r||r.cfg.fmt!='copa'||!r.br)return null;if(r.phase=='end')return r.champ;
+ while(r.rd<r.br.length){const rd=r.br[r.rd];rd.forEach(t=>{if(t.w==null)t.w=kt(t.a,t.b,1)});const w=rd.map(t=>t.w);r.alive=w;r.rd++;r.leg=0;if(w.length==1){r.phase='end';r.champ=w[0];break}r.br[r.rd].forEach((t,j)=>{t.a=w[2*j];t.b=w[2*j+1]})}return r.champ}
+const copaResult=(code,t)=>{const r=rooms[code];return r?(r.champ==t?'Campeón':copaRes(r,t)):''};
+const API={copaInit,copaFast,copaResult,copaQual,copaDraw,copaSuelta,RZL,preTab,act,listen,rooms,CFG,rJoin,pubList,pubApi,snapshot,restore,careerNew,realNew,careerCfg,careerClose,careerTitle,vacInfo2,claim,simSeason,isMetro,simGame,teamStrength,rankInfo};if(typeof module!=='undefined')module.exports=API;else window.ENG=API;
 })();
