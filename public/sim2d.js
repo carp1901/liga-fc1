@@ -23,7 +23,7 @@ class Sim{
  geo(as){const g=this.pso?0:as;return{gx:g?X0:X0+FW,dir:g?-1:1,ds:1-as}}   // en la tanda de penales todos se patean al mismo arco
  near(arr,pt){return arr.reduce((b,p)=>!b||dist(p,pt)<dist(b,pt)?p:b,null)}
  psp(d){return clamp(d/24,3.8,6.2)*this.fs}
- kick(tx,ty,sp,recv,cv){const S=this,B=S.B;sp*=S.vs;const dx=tx-B.x,dy=ty-B.y,d=Math.hypot(dx,dy)||1;S.tr.push({x0:B.x,y0:B.y,x1:tx,y1:ty,n:S.n});if(S.tr.length>6)S.tr.shift();S.passes++;S.link=B.own&&recv?{a:B.own,b:recv,n:S.n}:null;
+ kick(tx,ty,sp,recv,cv){const S=this,B=S.B;if(S.cap&&S.cap===B.own&&!S.sc&&!S.cap.xk){const o=S.cap,an=Math.atan2(ty-B.y,tx-B.x);if(o.hd==null)o.hd=Math.atan2(o.fy||0,o.fx||(o.s?-1:1));let df=an-o.hd;df=Math.atan2(Math.sin(df),Math.cos(df));if(Math.abs(df)>.5){S.pend={o,args:[tx,ty,sp,recv,cv],ang:an,t:S.n,r0:recv?{x:recv.x,y:recv.y}:null};S.pendN=(S.pendN||0)+1;return}}sp*=S.vs;const dx=tx-B.x,dy=ty-B.y,d=Math.hypot(dx,dy)||1;S.tr.push({x0:B.x,y0:B.y,x1:tx,y1:ty,n:S.n});if(S.tr.length>6)S.tr.shift();S.passes++;S.link=B.own&&recv?{a:B.own,b:recv,n:S.n}:null;
   if(B.own){B.own.cool=14;S.prev=B.own;const off0=Math.min(R+BR+1,d*.4);B.x+=dx/d*off0;B.y+=dy/d*off0}const c=cv===undefined?(d>90?(rnd()<.5?-1:1)*(.006+rnd()*.01):0):cv,ang=Math.atan2(dy,dx)-c*(d/sp)/2+S.passErr(B.own,recv,d);B.vx=Math.cos(ang)*sp;B.vy=Math.sin(ang)*sp;B.cv=c;B.own=null;B.recv=recv||null}
  kickAt(q,sp,lead){const B=this.B,d=dist(q,B),t=d/sp,l=lead||.7;this.kick(q.x+q.vx*t*l,q.y+q.vy*t*l,sp,q)}
  setCtx(min,sc){this.ctx={min,sc}}
@@ -37,7 +37,9 @@ class Sim{
  sv(p,a){const q=this.sk&&this.sk[p.s]&&this.sk[p.s][p.k];return q?q[a]:62}
  setSk(s,arr){if(!this.sk)this.sk=[null,null];this.sk[s]=arr}
  passErr(o,recv,d){if(!o||!recv||this.sc||!this.sk)return 0;const sg=.01+(100-this.sv(o,'pas'))*.0045;return(rnd()+rnd()+rnd()-1.5)*2*sg*(.6+d/260)}   // pases: el error crece con la distancia y baja con el atributo de pase
- pass(o){const S=this,opp=S.P.filter(q=>q.s!==o.s&&!q.off),dir=o.s?-1:1,tt=S.T[o.s],fw0=[.5,.6,.85][tt[0]],press=opp.some(z=>dist(z,o)<32);const uo=o.s?1-(o.x-X0)/FW:(o.x-X0)/FW;
+ // Perfilarse: antes de dar un pase en juego abierto el que la tiene gira el cuerpo hacia donde va a jugar la pelota (máx. ~0,27 s) y recién ahí patea; el receptor se perfila hacia la pelota.
+ pass(o){const S=this;if(S.pend&&S.pend.o===o)return;S.cap=o;try{S.pass0(o)}finally{S.cap=null}}
+ pass0(o){const S=this,opp=S.P.filter(q=>q.s!==o.s&&!q.off),dir=o.s?-1:1,tt=S.T[o.s],fw0=[.5,.6,.85][tt[0]],press=opp.some(z=>dist(z,o)<32);const uo=o.s?1-(o.x-X0)/FW:(o.x-X0)/FW;
   if(!S.sc&&Math.abs(o.y-H/2)>FH*.25&&rnd()<.18){const up=o.y<H/2;S.kick(clamp(o.x+(o.s?-1:1)*(70+rnd()*70),X0+40,X0+FW-40),up?Y0-30:Y0+FH+30,7.5,null);return}   // pase que se va por la línea: saque de banda
   const sal=tt[3]||0,upf=q=>q.fb&&(tt[0]==2||(tt[0]==1&&((q.hy0<.5)==(S.fbSide[o.s]==0))));
   if(((o.fb&&upf(o))||(o.wide&&tt[0]>0))&&uo>.62&&Math.abs(o.y-H/2)>FH*.24&&rnd()<.9){const bx=S.P.filter(q=>q.s===o.s&&!q.off&&q!==o&&q.k>0&&(q.s?1-(q.x-X0)/FW:(q.x-X0)/FW)>.66&&Math.abs(q.y-H/2)<95);if(bx.length){S.cross(o,bx[Math.floor(rnd()*bx.length)]);return}}   // lateral llegador: centro al área
@@ -304,6 +306,8 @@ class Sim{
    else{const v=Math.hypot(p.vx,p.vy);if(v>.3){p.fx=p.vx/v;p.fy=p.vy/v}}});
   for(let i=0;i<P.length;i++){const a=P[i];if(a.off)continue;for(let j=i+1;j<P.length;j++){const b=P[j];if(b.off)continue;const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
    const wl=S.sc&&S.sc.k=='fk'&&S.sc.wall,lim=a.s===b.s?(wl&&wl.includes(a)&&wl.includes(b)?R*2.02:R*2.9):R*1.8;if(d<lim&&d>.01){const f=(lim-d)/2/d;a.x-=dx*f*.5;a.y-=dy*f*.5;b.x+=dx*f*.5;b.y+=dy*f*.5}}}
+  if(S.pend){const pd=S.pend,o=pd.o;if(B.own!==o||S.sc||o.off)S.pend=null;else{let df=pd.ang-o.hd;df=Math.atan2(Math.sin(df),Math.cos(df));o.hd+=clamp(df,-.34,.34);o.fx=Math.cos(o.hd);o.fy=Math.sin(o.hd);o.vx*=.6;o.vy*=.6;
+    if(Math.abs(df)<.32||S.n-pd.t>16){S.pend=null;const a=pd.args;if(pd.r0&&a[3]){a[0]+=a[3].x-pd.r0.x;a[1]+=a[3].y-pd.r0.y}S.cap=o;o.xk=1;try{S.kick(a[0],a[1],a[2]/S.vs,a[3],a[4])}finally{o.xk=0;S.cap=null}}}}
   if(B.own){const o=B.own;if(o.off)B.own=null;else{const tc=Math.sin(S.n/5.5+o.k)*2.2,ts=Math.sin(S.n/9+o.k)*2.5,tx0=o.x+o.fx*(R+BR+tc)-o.fy*ts,ty0=o.y+o.fy*(R+BR+tc)+o.fx*ts,kk=o.hold<8?.4:1;const lt=S.sc&&S.sc.k=='lat'&&o===S.sc.taker,bx0=lt?o.x:tx0,by0=lt?o.y+(o.y<H/2?-1:1)*(R+BR-3):ty0;B.x+=(bx0-B.x)*kk;B.y+=(by0-B.y)*kk;B.vx=B.vy=0;B.cv=0;S.poss=o.s;o.hold++;if(!S.sc){const dd=S.near(P.filter(z=>z.s!==o.s&&!z.off&&z.k>0&&z.cool<=0),o),fixB=(S.T[o.s][3]||0)==0&&S.build&&S.build.s===o.s&&o.l<=2;if(dd&&dist(dd,o)<R*2.3){const t2=S.T[dd.s];if(rnd()<.0045*(t2[0]==0?1.8:t2[0]==2?.8:1)*[.8,1,1.35][t2[1]]*(dd.yel?.25:1)*clamp(1+(S.sv(dd,'mar')-(S.sv(o,'reg')*.6+S.sv(o,'ctl')*.4))/110,.55,1.7)*(S.mkm[dd.s].get(dd)===o?((t2[4]||0)==1?1.4:1.1):1)){S.won(dd,o);S.tackles=(S.tackles||0)+1;(S.tkS||(S.tkS=[0,0]))[dd.s]++;return}}if(dd&&dist(dd,o)<(fixB?82:R*2.6)&&o.hold>(fixB?10:14))o.wait=Math.min(o.wait,o.hold+4);if(o.hold>o.wait){if(o.fr&&(o.ex||0)<(fixB?64:36)&&S.sv(o,'reg')>=45){o.ex=(o.ex||0)+1}else{S.pass(o);o.wait=S.hold(o);o.fr=false}}}}}
   else{if(B.cv){const cc=Math.cos(B.cv),ss=Math.sin(B.cv),nvx=B.vx*cc-B.vy*ss;B.vy=B.vx*ss+B.vy*cc;B.vx=nvx}B.x+=B.vx;B.y+=B.vy;B.vx*=.985;B.vy*=.985;const mouth=B.y>GY0&&B.y<GY1;
    const live=!S.sc&&S.prev&&!S.frozen,oobs=S.sc&&S.sc.k=='oob';   // en juego libre la pelota sale de verdad por la línea (no rebota como en una pared)
