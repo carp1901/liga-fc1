@@ -475,9 +475,10 @@ function careerClose(car,table,segT){
 function careerTitle(sum,dt){if(!CFG.onTitle||!sum||!sum.me||!TM[sum.me.club])return;const m=sum.me,w=[];if(m.champ&&(m.zone||m.tor))w.push('liga2');(m.tor||[]).forEach(()=>w.push('liga1'));w.forEach(fmt=>{const rec={tid:newTid(),club:m.club,clubNombre:TM[m.club].name,dt:String(dt||'DT').replace(/[<>&"]/g,'').slice(0,16)||'DT',mod:'offline',comp:'real',compNombre:'Clásico realista',fmt,n:m.n,at:Date.now()};try{Promise.resolve(CFG.onTitle(rec)).catch(()=>{})}catch(e){}})}
 // ---- Copa Argentina: 64 clubes (todos los de Primera + 34 del ascenso), partido único desde 32avos. En la 1.ª ronda cada club de Primera juega contra uno del ascenso; los 4 del ascenso que sobran se cruzan entre sí.
 const COPA_Q={ar2:15,ar3:5,ar5:8,ar4:4,ar6:2};
-function copaQual(prim,lists){const used=new Set(prim),low=[];Object.entries(COPA_Q).forEach(([d,n])=>{let c=0;(lists[d]||[]).forEach(id=>{if(c<n&&!used.has(id)){used.add(id);low.push(id);c++}})});return{prim:[...prim],low}}
+// rand=true (Copa suelta): cada categoría aporta su cupo al azar. Sin rand (modo realista): entran los mejor ubicados de cada lista (la lista viene ordenada por posición final).
+function copaQual(prim,lists,rand){const used=new Set(prim),low=[];Object.entries(COPA_Q).forEach(([d,n])=>{let c=0;(rand?shuf((lists[d]||[]).slice()):(lists[d]||[])).forEach(id=>{if(c<n&&!used.has(id)){used.add(id);low.push(id);c++}})});return{prim:[...prim],low}}
 function copaDraw(q){const L=shuf(q.low),P=shuf(q.prim),pr=[];P.forEach((p,i)=>pr.push(rnd()<.5?[p,L[i]]:[L[i],p]));for(let i=P.length;i+1<L.length;i+=2)pr.push([L[i],L[i+1]]);return shuf(pr).flat()}
-function copaSuelta(){const g=id=>(DIVS.find(d=>d.id==id)||{teams:[]}).teams.map(t=>t.id),lists={};Object.keys(COPA_Q).forEach(d=>lists[d]=g(d));const q=copaQual(g('ar1'),lists);return{q,teams:copaDraw(q)}}
+function copaSuelta(){const g=id=>(DIVS.find(d=>d.id==id)||{teams:[]}).teams.map(t=>t.id),lists={};Object.keys(COPA_Q).forEach(d=>lists[d]=g(d));const q=copaQual(g('ar1'),lists,true);return{q,teams:copaDraw(q)}}
 function copaSimAll(teams){let a=teams.slice();while(a.length>1){const n=[];for(let i=0;i<a.length;i+=2)n.push(kt(a[i],a[i+1],1));a=n}return a[0]}
 function copaInit(car){const q=car.cq;if(!q)return null;const teams=copaDraw(q),inn=teams.includes(car.me.club);return{teams,rd:0,st:inn?'live':'done',in:0,snap:null,lg:null,champ:inn?null:copaSimAll(teams),res:inn?null:'No clasificó'}}
 // Resuelve de golpe lo que falta de una sala de copa (cuando el jugador ya quedó eliminado).
