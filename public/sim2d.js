@@ -131,7 +131,7 @@ class Sim{
  swapRoles(){const S=this;[0,1].forEach(s=>{if(rnd()<.5)return;const c=S.P.filter(p=>p.s==s&&!p.off&&p.l>=2&&!p.tg&&!(p.swpT>S.n));if(c.length<2)return;const a=c[Math.floor(rnd()*c.length)],cd=c.filter(q=>q!==a&&q.l===a.l&&Math.abs(q.hy0-a.hy0)>.3);if(!cd.length)return;const b=cd[Math.floor(rnd()*cd.length)],ta=a.hy0,tb=b.hy0;a.hy=tb;b.hy=ta;a.swpT=b.swpT=S.n+300;a.wide=Math.abs(a.hy-.5)>.22;b.wide=Math.abs(b.hy-.5)>.22;S.swapN=(S.swapN||0)+1})}   // intercambio de posiciones
  // incidente previo a una falta: el que la recibe lleva la pelota hasta el lugar y el rival lo derriba (la jugada detenida siempre tiene una causa visible)
  incSc(e,as){const S=this,B=S.B,P=S.P,{gx,dir,ds}=S.geo(as),at=P.filter(p=>p.s==as&&!p.off&&p.k>0),df=P.filter(p=>p.s==ds&&!p.off&&p.k>0),fw=at.filter(p=>p.k>=3),
-  spot=e.k=='fk'?{x:clamp(gx-dir*(110+rnd()*60),X0+40,X0+FW-40),y:H/2+(rnd()-.5)*200}:e.k=='pen'?{x:gx-dir*(52+rnd()*16),y:H/2+(rnd()-.5)*80}:{x:B.x,y:B.y},
+  spot=e.k=='fk'?{x:clamp(gx-dir*(105+rnd()*110),X0+40,X0+FW-40),y:H/2+(rnd()-.5)*200}:e.k=='pen'?{x:gx-dir*(52+rnd()*16),y:H/2+(rnd()-.5)*80}:{x:B.x,y:B.y},
   vic=S.near(e.k=='foul'||!fw.length?at:fw,B),fo=S.near(df,spot);
   if(!vic||!fo){S.afterInc(e,as);return}
   if(e.k=='fk')e.spot=spot;S.sc={k:'inc',e,side:as,t:0,ph:'get',vic,fo,spot,tk:0};S.poss=as}
@@ -145,12 +145,21 @@ class Sim{
  foulSc(e,as,label){const S=this,B=S.B;B.own=null;B.vx=B.vy=0;B.recv=null;S.sc={k:'foul',e,side:as,t:0,ph:'f',label:label||'FALTA'};S.fx={n:S.n,x:B.x,y:B.y}}
  fkSc(e,as){const S=this,{gx,dir,ds}=S.geo(as),P=S.P,B=S.B,ba=e.spot||{x:clamp(gx-dir*(110+rnd()*60),X0+40,X0+FW-40),y:H/2+(rnd()-.5)*200},
   at=P.filter(p=>p.s==as&&!p.off&&p.k>=4),taker=S.near(at.length?at:P.filter(p=>p.s==as&&!p.off),ba),u={x:gx-ba.x,y:H/2-ba.y},ul=Math.hypot(u.x,u.y)||1;u.x/=ul;u.y/=ul;
-  const wc={x:ba.x+u.x*70,y:ba.y+u.y*70},wall=P.filter(p=>p.s==ds&&!p.off&&p.k>=1&&p.k<=7).sort((a,b)=>dist(a,wc)-dist(b,wc)).slice(0,4);
-  wall.forEach((p,j)=>S.tg(p,wc.x-u.y*(j-1.5)*14,wc.y+u.x*(j-1.5)*14));S.tg(taker,ba.x-u.x*26,ba.y-u.y*26);
-  let i=0;P.forEach(p=>{if(p===taker||wall.includes(p)||p.off||p.k==0)return;const j=i++;if(p.s==as&&p.k>=4)S.tg(p,gx-dir*(90+(j%2)*20),H/2+((j%5)-2)*34);else if(p.s==ds)S.tg(p,gx-dir*(55+(j%3)*14),H/2+((j%5)-2)*30);else S.tg(p,W/2-dir*40,H/2+((j%5)-2)*40)});
-  const gk=P.find(p=>p.s==ds&&p.k==0&&!p.off);S.tg(gk,gx-dir*10,H/2+clamp((ba.y-H/2)*.25,-30,30));
+  // Barrera: a 9,15 m de la pelota, en línea recta perpendicular a la dirección del tiro (apuntando al palo más cercano) y con los jugadores hombro con hombro. Cuantos más metros al arco, menos hombres: 5 / 4 / 3 / 2 / 1 / ninguno.
+  const dgm=Math.hypot(gx-ba.x,H/2-ba.y)/6.5,nw=Math.max(dgm<20?5:dgm<24?4:dgm<28?3:dgm<32?2:dgm<36?1:0,e.x=='w'?2:0),sgn=ba.y>=H/2?1:-1,
+   aim={x:gx,y:H/2+sgn*Math.min(24,Math.abs(ba.y-H/2)*.3)},v={x:aim.x-ba.x,y:aim.y-ba.y},vl=Math.hypot(v.x,v.y)||1;v.x/=vl;v.y/=vl;
+  const wc={x:ba.x+v.x*62,y:ba.y+v.y*62},pp={x:-v.y,y:v.x},gp=2*R+1,pr=p=>(p.x-wc.x)*pp.x+(p.y-wc.y)*pp.y,
+   wall=P.filter(p=>p.s==ds&&!p.off&&p.k>=1&&p.k<=7).sort((a,b)=>dist(a,wc)-dist(b,wc)).slice(0,nw).sort((a,b)=>pr(a)-pr(b));
+  const wt=wall.map((p,j)=>{const o=(j-(wall.length-1)/2)*gp,t={x:clamp(wc.x+pp.x*o,X0+R,X0+FW-R),y:clamp(wc.y+pp.y*o,Y0+R,Y0+FH-R)};S.tg(p,t.x,t.y);return t});S.tg(taker,ba.x-u.x*26,ba.y-u.y*26);
+  const edge=wall.length?P.filter(p=>p.s==as&&!p.off&&p.k>=4&&p!==taker).sort((a,b)=>dist(a,wc)-dist(b,wc))[0]:null;
+  if(edge){const o=(rnd()<.5?-1:1)*(wall.length*gp/2+R+6);S.tg(edge,wc.x+pp.x*o-v.x*8,wc.y+pp.y*o-v.y*8)}
+  // El resto se ubica sin pisar la barrera, a la pelota ni a los demás: si el lugar está ocupado se corre a un costado.
+  const placed=[...wt,{x:ba.x-u.x*26,y:ba.y-u.y*26},ba];if(edge){const q=edge.tg;if(q)placed.push(q)}
+  const put=(p,x,y)=>{const y0=y;for(let a=0;a<14;a++){const yy=y0+(a%2?1:-1)*Math.ceil(a/2)*30,xx=x-dir*(a>=8?26:0);if(placed.every(q=>Math.hypot(q.x-xx,q.y-yy)>=2.3*R)){x=xx;y=yy;break}}placed.push({x,y});S.tg(p,x,y)};
+  let i=0;P.forEach(p=>{if(p===taker||wall.includes(p)||p===edge||p.off||p.k==0)return;const j=i++;if(p.s==as&&p.k>=4)put(p,gx-dir*(90+(j%2)*20),H/2+((j%5)-2)*34);else if(p.s==ds)put(p,gx-dir*(55+(j%3)*14),H/2+((j%5)-2)*30);else put(p,W/2-dir*40,H/2+((j%5)-2)*40)});
+  const gk=P.find(p=>p.s==ds&&p.k==0&&!p.off);S.tg(gk,gx-dir*10,H/2-(wall.length>=2?sgn*Math.min(24,Math.abs(ba.y-H/2)*.3):0)+(wall.length<2?clamp((ba.y-H/2)*.25,-30,30):0));
   const dcs=P.filter(p=>p.s==as&&!p.off&&p.k>=4&&p!==taker),decoy=dcs.length&&rnd()<.35?S.near(dcs,ba):null;if(decoy)S.tg(decoy,ba.x-u.x*8-u.y*32,ba.y-u.y*8+u.x*32);
-  B.x=ba.x;B.y=ba.y;B.vx=B.vy=0;B.own=null;B.recv=null;S.sc={k:'fk',e,side:as,ph:'set',t:0,x:e.x,ba,taker,wall,gk,u,decoy,tpos:{x:ba.x-u.x*26,y:ba.y-u.y*26},label:decoy?'TIRO LIBRE ENSAYADO':'TIRO LIBRE'};S.fx={n:S.n,x:ba.x,y:ba.y}}
+  B.x=ba.x;B.y=ba.y;B.vx=B.vy=0;B.own=null;B.recv=null;S.sc={k:'fk',e,side:as,ph:'set',t:0,x:e.x,ba,taker,wall,wt,gk,u,decoy,tpos:{x:ba.x-u.x*26,y:ba.y-u.y*26},label:decoy?'TIRO LIBRE ENSAYADO':'TIRO LIBRE'};S.fx={n:S.n,x:ba.x,y:ba.y}}
  penSc(e,as){const S=this,{gx,dir,ds}=S.geo(as),P=S.P,B=S.B,ba={x:gx-dir*72,y:H/2},at=P.filter(p=>p.s==as&&!p.off&&p.k>=5),taker=(e.k=='pso'&&e.ti>=0&&P.find(p=>p.s==as&&p.k==e.ti&&!p.off))||S.near(at.length?at:P.filter(p=>p.s==as&&!p.off),ba);
   S.tg(taker,ba.x-dir*24,ba.y);let i=0;P.forEach(p=>{if(p===taker||p.off||p.k==0)return;S.tg(p,gx-dir*(125+(p.s==ds?16:0)),H/2+(((i++)%9)-4)*34)});
   const gk=P.find(p=>p.s==ds&&p.k==0&&!p.off);S.tg(gk,gx-dir*8,H/2);S.tg(P.find(p=>p.s==as&&p.k==0&&!p.off),gx-dir*300,H/2);
@@ -195,7 +204,7 @@ class Sim{
   if(sc.k=='pen'&&gk){gk.x=gx-dir*10;gk.y=H/2+(x=='g'?-sg:sg)*(x=='o'?0:30);gk.vx=gk.vy=0}   // el arquero se tira
   if(x=='g'){sc.ph='g';sc.wait=null;B.free=true;const ty=H/2+sg*(sc.k=='pen'?28:30+rnd()*8);S.markShot('g',gx+dir*18,ty);S.kick(gx+dir*18,ty,(sc.k=='pen'?8.6:8)*fs,null,0);if(gk&&sc.k=='fk'){S.tg(gk,gx-dir*8,ty-Math.sign(ty-H/2)*16);gk.vmx=2.6}}
   else if(x=='s'){sc.ph='s';sc.wait=gk;const ty=clamp((gk?gk.y:H/2)+(sc.k=='pen'?0:sg*(16+rnd()*14)),GY0+8,GY1-8),tx=gx-dir*10;S.markShot('s',tx,ty);S.kick(tx,ty,7.2*fs,gk,0);if(gk&&sc.k!='pen'){S.tg(gk,tx,ty);gk.vmx=3.8}}
-  else if(x=='w'){const w=sc.wall[1]||sc.wall[0];sc.ph='w';sc.wait=w;S.markShot('w',w.x,w.y);S.kickAt(w,7.2*fs)}
+  else if(x=='w'){const w=sc.wall[Math.floor(sc.wall.length/2)]||sc.wall[0];sc.ph='w';sc.wait=w;S.markShot('w',w.x,w.y);S.kickAt(w,7.2*fs)}
   else{const ty=rnd()<.5?GY0-34:GY1+34;sc.ph='o';sc.t2=S.n;sc.wait=null;S.markShot('o',gx,ty);S.kick(gx,ty,7.6*fs,null,0);B.free=true}}
  script(){const S=this,sc=S.sc,B=S.B,ph=sc.ph;sc.t++;
   if(sc.t>520){S.endSc();B.free=false;if(!B.own)B.own=S.P.find(p=>!p.off);return}
@@ -214,7 +223,7 @@ class Sim{
   if(sc.k=='att'){const crR=!(sc.cr&&sc.i==sc.ch.length-2)||!sc.ws||!B.own||dist(B.own,sc.ws)<28||sc.t-sc.tk>150;if(B.own===sc.wait&&B.own.hold>=6&&crR){sc.i++;if(sc.i<sc.ch.length){sc.wait=sc.ch[sc.i];sc.tk=sc.t;if(sc.x=='f'&&sc.i==sc.ch.length-1){const df=S.P.filter(p=>p.s==1-sc.side&&!p.off&&p.k>0),lx=sc.side?Math.min(...df.map(p=>p.x)):Math.max(...df.map(p=>p.x));S.tg(sc.wait,lx+(sc.side?-1:1)*26,sc.wait.y);sc.wait.vmx=3.2}if(sc.cr&&sc.i==sc.ch.length-2&&sc.i>0)S.crSet(sc);if(sc.cr&&sc.i==sc.ch.length-1)S.cross(B.own,sc.wait);else S.kickAt(sc.wait,S.psp(dist(sc.wait,B)))}else S.finish()}
    else if(!B.own&&sc.t-sc.tk>70){B.own=sc.wait;sc.wait.hold=0}}
   else if(sc.k=='fk'||sc.k=='pen'){const T=sc.k=='fk'?[95,36,8]:[95,42,8];
-   if(ph=='set'){if(sc.t>=T[0]&&S.reach(sc.taker,sc.tpos,12,T[0],90,sc)){sc.ph='wait';sc.tw=sc.t;S.fx={n:S.n,x:sc.ba.x,y:sc.ba.y}}}
+   if(ph=='set'){if(sc.t>=T[0]&&S.reach(sc.taker,sc.tpos,12,T[0],90,sc)){sc.ph='wait';sc.tw=sc.t;S.fx={n:S.n,x:sc.ba.x,y:sc.ba.y};if(sc.wt)sc.wall.forEach((p,j)=>{if(dist(p,sc.wt[j])<30){p.x=sc.wt[j].x;p.y=sc.wt[j].y;p.vx=p.vy=0}})}}
    else if(ph=='wait'){if(sc.t-sc.tw>=T[1]){sc.ph='run';sc.tr=sc.t;S.tg(sc.taker,sc.ba.x,sc.ba.y);if(sc.decoy)S.tg(sc.decoy,sc.ba.x+sc.u.x*50,sc.ba.y+sc.u.y*50)}}
    else if(ph=='run'){if(sc.t-sc.tr>=T[2]&&S.reach(sc.taker,sc.ba,R+4,sc.tr,45,sc))S.shotSp()}}
   else if(sc.k=='lat'){
@@ -293,7 +302,7 @@ class Sim{
     let df=da-p.hd;df=Math.atan2(Math.sin(df),Math.cos(df));p.hd+=df*.07;p.fx=Math.cos(p.hd);p.fy=Math.sin(p.hd)}
    else{const v=Math.hypot(p.vx,p.vy);if(v>.3){p.fx=p.vx/v;p.fy=p.vy/v}}});
   for(let i=0;i<P.length;i++){const a=P[i];if(a.off)continue;for(let j=i+1;j<P.length;j++){const b=P[j];if(b.off)continue;const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
-   const lim=a.s===b.s?R*2.5:R*1.8;if(d<lim&&d>.01){const f=(lim-d)/2/d;a.x-=dx*f*.5;a.y-=dy*f*.5;b.x+=dx*f*.5;b.y+=dy*f*.5}}}
+   const wl=S.sc&&S.sc.k=='fk'&&S.sc.wall,lim=a.s===b.s?(wl&&wl.includes(a)&&wl.includes(b)?R*2.02:R*2.5):R*1.8;if(d<lim&&d>.01){const f=(lim-d)/2/d;a.x-=dx*f*.5;a.y-=dy*f*.5;b.x+=dx*f*.5;b.y+=dy*f*.5}}}
   if(B.own){const o=B.own;if(o.off)B.own=null;else{const tc=Math.sin(S.n/5.5+o.k)*2.2,ts=Math.sin(S.n/9+o.k)*2.5,tx0=o.x+o.fx*(R+BR+tc)-o.fy*ts,ty0=o.y+o.fy*(R+BR+tc)+o.fx*ts,kk=o.hold<8?.4:1;const lt=S.sc&&S.sc.k=='lat'&&o===S.sc.taker,bx0=lt?o.x:tx0,by0=lt?o.y+(o.y<H/2?-1:1)*(R+BR-3):ty0;B.x+=(bx0-B.x)*kk;B.y+=(by0-B.y)*kk;B.vx=B.vy=0;B.cv=0;S.poss=o.s;o.hold++;if(!S.sc){const dd=S.near(P.filter(z=>z.s!==o.s&&!z.off&&z.k>0&&z.cool<=0),o),fixB=(S.T[o.s][3]||0)==0&&S.build&&S.build.s===o.s&&o.l<=2;if(dd&&dist(dd,o)<R*2.3){const t2=S.T[dd.s];if(rnd()<.0045*(t2[0]==0?1.8:t2[0]==2?.8:1)*[.8,1,1.35][t2[1]]*(dd.yel?.25:1)*clamp(1+(S.sv(dd,'mar')-(S.sv(o,'reg')*.6+S.sv(o,'ctl')*.4))/110,.55,1.7)*(S.mkm[dd.s].get(dd)===o?((t2[4]||0)==1?1.4:1.1):1)){S.won(dd,o);S.tackles=(S.tackles||0)+1;(S.tkS||(S.tkS=[0,0]))[dd.s]++;return}}if(dd&&dist(dd,o)<(fixB?82:R*2.6)&&o.hold>(fixB?10:14))o.wait=Math.min(o.wait,o.hold+4);if(o.hold>o.wait){if(o.fr&&(o.ex||0)<(fixB?64:36)&&S.sv(o,'reg')>=45){o.ex=(o.ex||0)+1}else{S.pass(o);o.wait=S.hold(o);o.fr=false}}}}}
   else{if(B.cv){const cc=Math.cos(B.cv),ss=Math.sin(B.cv),nvx=B.vx*cc-B.vy*ss;B.vy=B.vx*ss+B.vy*cc;B.vx=nvx}B.x+=B.vx;B.y+=B.vy;B.vx*=.985;B.vy*=.985;const mouth=B.y>GY0&&B.y<GY1;
    const live=!S.sc&&S.prev&&!S.frozen,oobs=S.sc&&S.sc.k=='oob';   // en juego libre la pelota sale de verdad por la línea (no rebota como en una pared)
