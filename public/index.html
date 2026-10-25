@@ -313,10 +313,10 @@ function cxTeamsOpen(){PC.picks=Array.from({length:PC.k},(_,i)=>(PC.picks[i]||[]
 function cxPick(kind,cat){PM={kind,cat};$('#cxq').value='';$('#cxpt').textContent=kind=='me'?'Elegí tu club':CXD[cat].name+' · elegí equipos';$('#cxok').hidden=kind=='me';cxPl();goM('m25')}
 function cxPl(){const q=$('#cxq').value.trim().toLowerCase(),{kind,cat}=PM,me=PC.me.club,a=kind=='cat'?PC.picks[cat]:[],cap=kind=='cat'?PC.n-(me&&PC.me.cat==cat?1:0):1;
  $('#cxpi').textContent=kind=='cat'?a.length+'/'+cap+' elegidos'+(me&&PC.me.cat==cat?' (tu club ocupa un lugar)':''):'Tocá un club para elegirlo';
- $('#cxpl').innerHTML=CXD.filter(d=>!PC.cup||d.teams.some(t=>CUPSET.has(t.id))).map(d=>'<div class=cxg>'+esc(d.name)+'</div><div class="grid cg">'+d.teams.filter(t=>(!q||t.name.toLowerCase().includes(q))&&(!PC.cup||CUPSET.has(t.id))).map(t=>{const id=t.id,sel=kind=='me'?id==me:a.includes(id)||(id==me&&PC.me.cat==cat),dis=kind=='cat'&&!a.includes(id)&&(id==me||PC.picks.some((x,i)=>i!=cat&&x.includes(id)));
+ $('#cxpl').innerHTML=CXD.map(d=>'<div class=cxg>'+esc(d.name)+'</div><div class="grid cg">'+d.teams.filter(t=>(!q||t.name.toLowerCase().includes(q))).map(t=>{const id=t.id,sel=kind=='me'?id==me:a.includes(id)||(id==me&&PC.me.cat==cat),dis=kind=='cat'&&!a.includes(id)&&(id==me||PC.picks.some((x,i)=>i!=cat&&x.includes(id)));
   return'<div class="tm'+(sel?' sel':'')+(dis||(kind=='cat'&&id==me)?' dis':'')+'" data-id="'+id+'">'+cr(id,30)+'<span>'+esc(t.name)+'</span></div>'}).join('')+'</div>').join('')}
 $('#cxpl').onclick=e=>{const t=e.target.closest('[data-id]');if(!t||!PM)return;const id=t.dataset.id;
- if(PM.kind=='me'&&PC.cup){if(CUPSET.has(id)){PC.cup=0;cupGo(id)}return}
+ if(PM.kind=='me'&&PC.cup){PC.cup=0;cupGo(id);return}
  if(PM.kind=='me'&&PC.real){PC.real=0;cxGoReal(id);return}
  if(PM.kind=='me'){PC.picks.forEach(a=>{const j=a.indexOf(id);if(j>=0)a.splice(j,1)});PC.me.club=id;const di=CXD.findIndex(d=>d.teams.some(x=>x.id==id));PC.me.cat=di>=0&&di<PC.k?di:PC.k>=4?(ENG.isMetro(id)?2:3):PC.k-1;PC.picks[PC.me.cat]=PC.picks[PC.me.cat].slice(0,PC.n-1);cxDraw();goM('m24');return}
  const a=PC.picks[PM.cat],j=a.indexOf(id),cap=PC.n-(PC.me.club&&PC.me.cat==PM.cat?1:0);if(j>=0)a.splice(j,1);else if(a.length<cap)a.push(id);cxPl()};
@@ -326,8 +326,8 @@ $('#cxcats').onclick=e=>{const p=e.target.closest('[data-cxp]'),c=e.target.close
  if(p)cxPick('cat',+p.dataset.cxp);else if(c){PC.picks[+c.dataset.cxc]=[];cxDraw()}else if(r){const[i,id]=r.dataset.cxrm.split('|'),a=PC.picks[+i],j=a.indexOf(id);if(j>=0)a.splice(j,1);cxDraw()}};
 $('#cxrnd').onclick=()=>{PC.picks=PC.picks.map(()=>[]);cxDraw()};$('#cxnext').onclick=()=>{cxUd();cxTeamsOpen()};
 $('#bpers').onclick=()=>{PC.real=0;cxCfgInit();goM('m23')};$('#breal').onclick=()=>{PC.real=1;cxPick('me')};$('#bsuelto').onclick=()=>goM('m2');
-let CUPSET=new Set();$('#bcopa').onclick=()=>{const c=ENG.copaSuelta();PC.cupT=c.teams;CUPSET=new Set(c.teams);PC.cup=1;cxPick('me')};
-async function cupGo(id){OFF=true;SPD=1;CAR=null;room='cup'+Math.random().toString(36).slice(2,7);if(!$('#nm').value.trim())$('#nm').value='DT';
+$('#bcopa').onclick=()=>{PC.cup=1;cxPick('me')};
+async function cupGo(id){const cd=ENG.copaSuelta(id);PC.cupT=cd.teams;OFF=true;SPD=1;CAR=null;room='cup'+Math.random().toString(36).slice(2,7);if(!$('#nm').value.trim())$('#nm').value='DT';
  let e=await post({a:'create',off:1,speed:SPD,cfg:{div:'custom',fmt:'copa',n:PC.cupT.length,teams:PC.cupT,fixed:1,legs:1,lbl:'Copa Argentina'}});if(!e)e=await post({a:'pick',team:id});
  if(e){OFF=false;alert(e);return}lastKey='';SAVEDAT=0;SLERR=false;start();careerSave()}
 async function cxSeason(){OFF=true;SPD=CAR.spd||1;room='cls'+Math.random().toString(36).slice(2,7);if(!$('#nm').value.trim())$('#nm').value='DT';
