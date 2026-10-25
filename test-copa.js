@@ -6,6 +6,14 @@ let fails=0;const ok=(c,m)=>{console.log((c?'OK  ':'FALLA ')+m);if(!c)fails++},s
  ok(T.length==64&&new Set(T).size==64,'64 clubes distintos');ok(c.q.prim.length==30&&c.q.low.length==34,'30 de Primera + 34 del ascenso');
  let pp=0,pl=0,ll=0;for(let i=0;i<64;i+=2){const a=P.has(T[i]),b=P.has(T[i+1]);if(a&&b)pp++;else if(a||b)pl++;else ll++}
  ok(pp==0&&pl==30&&ll==2,'1.ª ronda: 30 cruces Primera–ascenso y 2 entre ascenso ('+pl+'/'+ll+')');
+ {const D=require('./public/data'),key=t=>(D.DIVS.find(d=>d.teams.some(x=>x.id==t))||{}).id,cnt={},seen=new Set();
+  for(let i=0;i<50;i++){const q=E.copaSuelta().q;q.low.forEach(t=>seen.add(t));if(i==0)q.low.forEach(t=>cnt[key(t)]=(cnt[key(t)]||0)+1)}
+  ok(cnt.ar2==15&&cnt.ar3==5&&cnt.ar5==8&&cnt.ar4==4&&cnt.ar6==2,'cupos por categoría: 15 Nacional, 5 B Metro, 8 Federal A, 4 C, 2 Promocional');
+  ok(seen.size>45,'sorteo al azar: en 50 sorteos entraron '+seen.size+' clubes distintos del ascenso')}
+ {const D=require('./public/data'),ids=D.DIVS.filter(d=>d.id!='ar1').flatMap(d=>d.teams.map(t=>t.id));let bad=0;
+  ids.forEach(id=>{const c=E.copaSuelta(id);if(c.teams.length!=64||new Set(c.teams).size!=64||!c.teams.includes(id))bad++});
+  ok(bad==0,'cualquier club del ascenso ('+ids.length+') queda dentro del sorteo, siempre con 64 distintos');
+  const c1=E.copaSuelta('boca');ok(c1.teams.includes('boca')&&c1.q.low.length==34,'club de Primera: entra y el ascenso sigue en 34')}
  const room='cup1',pid='yo';let last=null;
  let e=E.act({a:'create',off:1,speed:100,room,pid,name:'Yo',cfg:{div:'custom',fmt:'copa',n:64,teams:T,fixed:1,legs:1,lbl:'Copa Argentina'}});ok(!e,'crea la sala '+(e||''));
  E.listen(room,pid,v=>last=v);e=E.act({a:'pick',room,pid,team:T[0]});ok(!e,'elige club '+(e||''));
