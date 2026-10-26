@@ -16,7 +16,7 @@ class Sim{
  hp(p){return{x:X0+(p.s?1-p.hx:p.hx)*FW,y:Y0+p.hy*FH}}
  tg(p,x,y){if(p)p.tg={x:clamp(x,X0+R,X0+FW-R),y:clamp(y,Y0+R,Y0+FH-R)}}
  clr(){this.P.forEach(p=>{p.tg=null;p.vmx=0})}
- rest(){const S=this,B=S.B;S.sc=null;S.ko=null;S.fx=null;S.freeze=0;S.runner=null;S.prev=null;S.counter=null;S.build=null;S.third=null;S.sb=null;S.trail=[];S.link=null;S.shot=null;S.run=null;S.clr();S.offs=null;S.mkm=[new Map(),new Map()];S.refs=[{x:W/2,y:H/2+40,role:'ref'},{x:W/2,y:Y0-9,role:'l1'},{x:W/2,y:Y0+FH+9,role:'l2'}];S.P.forEach(p=>{p.hy=p.hy0;p.swpT=0;const h=S.hp(p);p.x=h.x;p.y=h.y;p.vx=p.vy=0;p.cool=0;p.hold=0});B.x=W/2;B.y=H/2;B.vx=B.vy=0;B.free=false;B.own=null;B.recv=null}
+ rest(){const S=this,B=S.B;S.sc=null;S.ko=null;S.rp=null;S.fx=null;S.freeze=0;S.runner=null;S.prev=null;S.counter=null;S.build=null;S.third=null;S.sb=null;S.trail=[];S.link=null;S.shot=null;S.run=null;S.clr();S.offs=null;S.mkm=[new Map(),new Map()];S.refs=[{x:W/2,y:H/2+40,role:'ref'},{x:W/2,y:Y0-9,role:'l1'},{x:W/2,y:Y0+FH+9,role:'l2'}];S.P.forEach(p=>{p.hy=p.hy0;p.swpT=0;const h=S.hp(p);p.x=h.x;p.y=h.y;p.vx=p.vy=0;p.cool=0;p.hold=0});B.x=W/2;B.y=H/2;B.vx=B.vy=0;B.free=false;B.own=null;B.recv=null}
  hardRest(){this.q=[];this.gap=0;this.rest()}
  kickoff(side,soft){const S=this,B=S.B,old=soft?S.P.map(p=>[p.x,p.y]):null;S.rest();S.ko=null;const o=S.P.find(p=>p.s==side&&p.k==10&&!p.off)||S.P.find(p=>!p.off);if(!o)return;o.x=W/2+(o.s?14:-14);o.y=H/2;B.own=o;S.poss=o.s;o.hold=0;o.wait=24;
   if(old){let md=0;S.P.forEach((p,i)=>{if(p.off)return;const hx=p.x,hy=p.y;p.x=old[i][0];p.y=old[i][1];md=Math.max(md,Math.hypot(hx-p.x,hy-p.y));S.tg(p,hx,hy);p.vmx=4.2});const w=clamp(Math.ceil(md/4.2)+18,30,170);S.P.forEach(p=>{p.cool=w+4});B.own=null;B.x=W/2;B.y=H/2;S.ko={t:S.n+w,o};S.gap=w+10}}   // después de un gol los jugadores vuelven caminando a sus posiciones (no aparecen de golpe) y recién ahí se saca del medio
@@ -113,6 +113,13 @@ class Sim{
    const d=dist(o,q);if((o.y<H/2)!=(q.y<H/2)||Math.abs(o.y-q.y)>150||d<55||d>210||dir*(q.x-o.x)<-15)continue;const lane=Math.min(120,...opp.map(z=>segD(o,q,z)));if(lane<38)continue;const sc=lane*.5-d*.2+dir*(q.x-o.x)*.2;if(sc>bs){bs=sc;b=q}}
   if(!b)return;ch.unshift(b,o);S.runner={p:o,t:S.n+150,ov:!!(o.fb||(o.l==2&&b.l==3))};S.socN=(S.socN||0)+1;if(S.runner.ov)S.ovN=(S.ovN||0)+1}   // sociedad al inicio de la jugada: pared / sobrepaso con el socio de banda y recién después sigue
  rollStep(){const S=this,B=S.B,r=S.sc.rt,dx=r.x-B.x,dy=r.y-B.y,d=Math.hypot(dx,dy);B.own=null;B.recv=null;if(d<=r.v){B.x=r.x;B.y=r.y;S.sc.rt=null}else{B.x+=dx/d*r.v;B.y+=dy/d*r.v}B.vx=B.vy=0}   // la pelota que se pidió reponer rueda hasta el lugar en lugar de aparecer ahí
+ // Repetición de goles: se graba cada cuadro (últimos ~5 s) y, tras el festejo, se reproduce la jugada del gol más lenta antes del saque del medio (solo a velocidad normal)
+ recF(){const S=this,P=S.P,NF=300,N=P.length*6+4;if(!S.rb||S.rb.length!==NF*N){S.rb=new Float32Array(NF*N);S.rbn=new Int32Array(NF).fill(-1)}const i=S.n%NF,o=i*N,B=S.B;S.rbn[i]=S.n;let k=o;for(const p of P){S.rb[k++]=p.x;S.rb[k++]=p.y;S.rb[k++]=p.vx;S.rb[k++]=p.vy;S.rb[k++]=p.fx||0;S.rb[k++]=p.fy||0}S.rb[k++]=B.x;S.rb[k++]=B.y;S.rb[k++]=B.vx;S.rb[k++]=B.vy}
+ startReplay(sc){const S=this,B=S.B,NF=300,f2=sc.t2+30,f1=Math.max(sc.t2-195,S.n-NF+2);if(f2-f1<60){S.kickoff(1-sc.side,true);return}
+  S.rp={f1,f2,pos:f1,save:{P:S.P.map(p=>[p.x,p.y,p.vx,p.vy,p.fx,p.fy]),B:{x:B.x,y:B.y,vx:B.vx,vy:B.vy,own:B.own,recv:B.recv,free:B.free}}};S.rpN=(S.rpN||0)+1;S.fx=null;S.trail=[]}
+ rpStep(){const S=this,r=S.rp,P=S.P,B=S.B,NF=300,N=P.length*6+4;r.pos+=.75;const f=Math.floor(r.pos);
+  if(f>r.f2){P.forEach((p,i)=>{const a=r.save.P[i];p.x=a[0];p.y=a[1];p.vx=a[2];p.vy=a[3];p.fx=a[4];p.fy=a[5]});Object.assign(B,r.save.B);S.rp=null;return}
+  const i=f%NF;if(S.rbn[i]!==f)return;let k=i*N;for(const p of P){p.x=S.rb[k++];p.y=S.rb[k++];p.vx=S.rb[k++];p.vy=S.rb[k++];p.fx=S.rb[k++];p.fy=S.rb[k++]}B.x=S.rb[k++];B.y=S.rb[k++];B.vx=S.rb[k++];B.vy=S.rb[k++];B.own=null;B.recv=null;S.trail=[]}
  shotOK(o,as){const gx=as?X0:X0+FW,dx=Math.abs(gx-o.x),dy=Math.abs(o.y-H/2);return dy<=dx*1.05+34&&(dx>=55||dy<=Math.min(48,dx*1.3))}   // ángulo de remate razonable: ni pegado a la línea de fondo ni tan abierto que no vea el arco
  reach(p,pt,tol,t0,lim,sc){if(dist(p,pt)<=tol)return true;if(sc.t-t0>lim){p.x=pt.x;p.y=pt.y;p.vx=p.vy=0;return true}return false}   // el ejecutante tiene que estar en la pelota (si tarda de más, se lo ubica)
  offsideEnd(){const S=this,sc=S.sc,as=sc.side,ds=1-as,o=S.B.own||sc.wait,df=S.P.filter(p=>p.s==ds&&!p.off&&p.k>0),lx=df.length?(as?Math.min(...df.map(p=>p.x)):Math.max(...df.map(p=>p.x))):S.B.x;S.offs={x:lx,n:S.n,p:o};S.offN=(S.offN||0)+1;S.clr();S.foulSc({},ds,'FUERA DE JUEGO')}
@@ -235,7 +242,7 @@ class Sim{
   if(sc.k=='oob'){S.oobStep();return}
   if(sc.k=='gk'){if(ph=='set'){if(sc.t>=42&&S.reach(sc.gk,sc.tpos,14,42,60,sc)){sc.ph='wait';sc.tw=sc.t}}else if(ph=='wait'){if(sc.t-sc.tw>=20)S.gkKick()}else if(ph=='go'){if(B.own===sc.wait){S.endSc();S.build={s:sc.side,t:S.n+320}}else if(!B.own&&sc.t-sc.tk>80){B.own=sc.wait;sc.wait.hold=0;S.endSc()}}return}
   if(ph=='rec'){S.recStep();return}
-  if(ph=='g'){if(!sc.in&&(B.x<X0-4||B.x>X0+FW+4)){sc.in=true;sc.t2=S.n;S.goalN++;if(S.onGoal)S.onGoal(sc.side,sc.e.n,sc.e)}if(sc.in&&S.n-sc.t2>105)S.kickoff(1-sc.side,!S.pso);return}
+  if(ph=='g'){if(!sc.in&&(B.x<X0-4||B.x>X0+FW+4)){sc.in=true;sc.t2=S.n;S.goalN++;if(S.onGoal)S.onGoal(sc.side,sc.e.n,sc.e)}if(sc.in&&!sc.rpd&&S.n-sc.t2>=100&&S.noRush&&!S.pso&&S.rbn&&S.P.length>=22&&S.rpOn!==false){sc.rpd=1;S.startReplay(sc);return}if(sc.in&&S.n-sc.t2>105)S.kickoff(1-sc.side,!S.pso);return}
   if(ph=='s'){if(B.own===sc.gk)S.endSc();return}
   if(ph=='o'){if(!sc.in&&(B.x<X0-4||B.x>X0+FW+4)){sc.in=true;sc.t2=S.n}if(sc.in&&S.n-sc.t2>24){B.free=false;const sd=1-sc.side;S.endSc();S.gkSc(sd);return}if(!sc.in&&S.n-sc.t2>150){B.own=sc.gk;B.free=false;S.endSc()}return}   // remate desviado: la pelota pasa la línea de fondo y es saque de arco
   if(ph=='w'||ph=='l'){if(B.own===sc.wait)S.endSc();return}
@@ -256,7 +263,7 @@ class Sim{
    else if(ph=='sh'){if(B.own===sc.sh){if(!sc.th)sc.th=sc.t;if(sc.t-sc.th>=26)S.cornerCross()}else if(!B.own&&sc.t-sc.tk>70){B.own=sc.sh;sc.sh.hold=0}}
    else if(ph=='cx'){if(B.own===sc.tgt){const{gx,dir}=S.geo(sc.side);if(sc.x=='g'){sc.ph='g';sc.wait=null;B.free=true;B.own=null;const ty2=H/2+(rnd()-.5)*50;S.markShot('g',gx+dir*18,ty2);S.kick(gx+dir*18,ty2,8*S.fs,null,0)}else{S.kick(W/2,H/2+(rnd()-.5)*200,6.2*S.fs,null);S.endSc()}}
     else if(!B.own&&sc.t-sc.tk>70){B.own=sc.tgt;sc.tgt.hold=0}}}}
- step(){const S=this,B=S.B,P=S.P;S.n++;if(!P.length||S.frozen)return;if(S.sc&&S.sc.rt)S.rollStep();if(S.ko&&S.n>=S.ko.t){const o=S.ko.o;S.ko=null;S.clr();o.x=W/2+(o.s?14:-14);o.y=H/2;o.cool=0;B.own=o;S.poss=o.s;o.hold=0;o.wait=24}if(S.pso&&!S.sc&&!S.q.length)return;   // tanda de penales: entre un penal y otro la cancha queda quieta
+ step(){const S=this,B=S.B,P=S.P;S.n++;if(!P.length||S.frozen)return;if(S.rp){S.rpStep();return}S.recF();if(S.sc&&S.sc.rt)S.rollStep();if(S.ko&&S.n>=S.ko.t){const o=S.ko.o;S.ko=null;S.clr();o.x=W/2+(o.s?14:-14);o.y=H/2;o.cool=0;B.own=o;S.poss=o.s;o.hold=0;o.wait=24}if(S.pso&&!S.sc&&!S.q.length)return;   // tanda de penales: entre un penal y otro la cancha queda quieta
  
   if(!S.sc){if(S.gap>0)S.gap--;else if(S.q.length)S.begin()}
   if(S.sc&&S.sc.k=='foul'){const sc=S.sc;if(++sc.t>=30){const{dir}=S.geo(sc.side),c=S.near(P.filter(p=>p.s==sc.side&&!p.off&&p.k>0),B);if(c){c.x=clamp(B.x-dir*14,X0+R,X0+FW-R);c.y=B.y;B.own=c;c.hold=0;c.wait=18}S.endSc()}return}
