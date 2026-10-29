@@ -26,7 +26,7 @@ class Sim{
  near(arr,pt){return arr.reduce((b,p)=>!b||dist(p,pt)<dist(b,pt)?p:b,null)}
  psp(d){return clamp(d/24,3.8,6.2)*this.fs}
  kick(tx,ty,sp,recv,cv){const S=this,B=S.B;if(S.cap&&S.cap===B.own&&!S.sc&&!S.cap.xk){const o=S.cap,an=Math.atan2(ty-B.y,tx-B.x);if(o.hd==null)o.hd=Math.atan2(o.fy||0,o.fx||(o.s?-1:1));let df=an-o.hd;df=Math.atan2(Math.sin(df),Math.cos(df));if(Math.abs(df)>.5){S.pend={o,args:[tx,ty,sp,recv,cv],ang:an,t:S.n,r0:recv?{x:recv.x,y:recv.y}:null};S.pendN=(S.pendN||0)+1;return}}sp*=S.vs;const dx=tx-B.x,dy=ty-B.y,d=Math.hypot(dx,dy)||1;S.tr.push({x0:B.x,y0:B.y,x1:tx,y1:ty,n:S.n});if(S.tr.length>6)S.tr.shift();S.passes++;S.link=B.own&&recv?{a:B.own,b:recv,n:S.n}:null;
-  if(B.own){B.own.cool=14;S.prev=B.own;const off0=Math.min(R+BR+1,d*.4);B.x+=dx/d*off0;B.y+=dy/d*off0}const c=cv===undefined?(d>90?(rnd()<.5?-1:1)*(.006+rnd()*.01):0):cv,ang=Math.atan2(dy,dx)-c*(d/sp)/2+S.passErr(B.own,recv,d);B.vx=Math.cos(ang)*sp;B.vy=Math.sin(ang)*sp;B.cv=c;B.own=null;B.recv=recv||null}
+  {const kp=B.own||(S.sc&&S.sc.taker)||null;if(kp)kp.kk=S.n}if(B.own){B.own.cool=14;S.prev=B.own;const off0=Math.min(R+BR+1,d*.4);B.x+=dx/d*off0;B.y+=dy/d*off0}const c=cv===undefined?(d>90?(rnd()<.5?-1:1)*(.006+rnd()*.01):0):cv,ang=Math.atan2(dy,dx)-c*(d/sp)/2+S.passErr(B.own,recv,d);B.vx=Math.cos(ang)*sp;B.vy=Math.sin(ang)*sp;B.cv=c;B.own=null;B.recv=recv||null}
  kickAt(q,sp,lead){const B=this.B,d=dist(q,B),t=d/sp,l=lead||.7;this.kick(q.x+q.vx*t*l,q.y+q.vy*t*l,sp,q)}
  setCtx(min,sc){this.ctx={min,sc}}
  setYel(s,list){this.P.forEach(p=>{if(p.s===s)p.yel=!!(list&&list.includes(p.k))})}
