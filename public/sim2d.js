@@ -5,15 +5,29 @@ const W=720,H=440,X0=20,Y0=20,FW=W-40,FH=H-40,GY0=H/2-48,GY1=H/2+48,R=13,BR=6,rn
 GEO=[[[1,.06,0],[4,.21,.5],[4,.37,.85],[2,.49,1]],[[1,.06,0],[4,.21,.5],[3,.37,.85],[3,.49,1]],[[1,.06,0],[3,.21,.5],[5,.37,.85],[2,.49,1]],[[1,.06,0],[4,.21,.5],[5,.37,.85],[1,.49,1]],[[1,.06,0],[5,.21,.5],[3,.37,.85],[2,.49,1]],
  [[1,.06,0],[4,.21,.5],[2,.32,.7],[3,.43,.9],[1,.49,1]],[[1,.06,0],[4,.21,.5],[2,.32,.7],[2,.43,.9],[2,.49,1]],[[1,.06,0],[3,.21,.5],[4,.37,.85],[3,.49,1]],[[1,.06,0],[5,.21,.5],[4,.37,.85],[1,.49,1]],
  [[1,.06,0],[4,.21,.5],[3,.36,.8],[1,.43,.95],[2,.49,1]],[[1,.06,0],[4,.21,.5],[1,.31,.65],[4,.42,.9],[1,.49,1]],[[1,.06,0],[4,.21,.5],[4,.36,.85],[1,.44,.95],[1,.49,1]],[[1,.06,0],[3,.21,.5],[4,.34,.8],[2,.43,.95],[1,.49,1]],[[1,.06,0],[5,.21,.5],[2,.35,.75],[3,.49,1]]];
+
+// Roles tácticos por formación y mentalidad. Cada formación tiene 3 variantes (0 defensiva, 1 equilibrada, 2 ofensiva). Una letra por jugador, de arriba hacia abajo en cada línea:
+// L lateral · D central · X mediocentro defensivo (MCD) · C mediocampista central (MC) · M volante de banda (MI/MD) · O mediocampista ofensivo (MO) · E extremo (EXI/EXD) · S segundo delantero (SD) · 9 delantero centro (DC)
+const RS={0:{e:['MCCM','99'],d:['MXCM','S9'],o:['MCOM','99']},1:{e:['CCC','E9E'],d:['CXC','E9E'],o:['OCO','E9E']},2:{e:['MCCCM','99'],d:['MXCXM','S9'],o:['MOCOM','99']},3:{e:['MCXCM','9'],d:['MXCXM','9'],o:['ECOCE','9']},4:{e:['CCC','99'],d:['CXC','S9'],o:['COC','99']},
+ 5:{e:['XC','EOE','9'],d:['XX','ECE','9'],o:['XC','EOE','9']},6:{e:['XC','OO','99'],d:['XX','MM','S9'],o:['XC','OO','99']},7:{e:['MCCM','E9E'],d:['MXCM','E9E'],o:['MCOM','E9E']},8:{e:['MCCM','9'],d:['MXXM','9'],o:['MCOM','9']},
+ 9:{e:['CXC','O','99'],d:['XCX','O','99'],o:['OCO','S','99']},10:{e:['X','MCCM','9'],d:['X','MCCM','9'],o:['X','EOCE','9']},11:{e:['MCCM','S','9'],d:['MXCM','S','9'],o:['MCCM','S','9']},12:{e:['MCCM','OO','9'],d:['MXCM','OO','9'],o:['MCCM','OO','9']},13:{e:['CC','E9E'],d:['XC','E9E'],o:['CC','E9E']}};
+const RDX={L:[-.02,0,.05],D:[-.02,0,.04],X:[-.03,-.03,0],C:[-.03,0,.03],M:[-.04,0,.04],O:[-.05,0,.07],E:[-.06,0,.04],S:[-.07,-.03,.01],9:[-.03,0,.02]},RNM={L:'L',D:'DEF',X:'MCD',C:'MC',M:'M',O:'MO',E:'EX',S:'SD','9':'DC'};
+const roleLayout=(f,st)=>{const G=GEO[f],out=[{r:'ARQ',rl:'ARQ',rs:0,hx:[.05,.06,.12][st],hy:.5,l:0,wl:0,wide:false,fb:false,piv:false}],sp=RS[f][['d','e','o'][st]];
+ G.forEach((g,gi)=>{if(gi==0)return;const[n,x,w]=g,dg=gi==1?(n==5?'LDDDL':n==4?'LDDL':'DDD'):sp[gi-2];if(dg.length!==n)throw new Error('rol '+f+' '+gi);
+  const wide=[...dg].map(c=>c=='L'||c=='M'||c=='E'),cen=wide.map(v=>!v).reduce((a,b)=>a+b,0),m=cen,hw=m<=1?0:m==2?.13:m==3?.2:.27,ys=[];let ci=0;
+  [...dg].forEach((c,i)=>{if(wide[i]){const top=i==0||(wide[0]===false&&i<n/2);ys.push(c=='E'?(top?.1:.9):c=='M'?(top?.13:.87):(top?.15:.85))}else{ys.push(m==1?.5:.5-hw+(2*hw)*ci/(m-1));ci++}});
+  [...dg].forEach((c,i)=>{const hy=ys[i],lat=wide[i]?(hy<.5?-1:1):0,l=(c=='E'||c=='S'||c=='9')?3:gi==1?1:2,hx=clamp(x+RDX[c][st],.1,.49),fbk=c=='L'&&n>=4;
+   out.push({r:c,rl:RNM[c],rs:lat,hx,hy,l,wl:w,wide:(c=='M'||c=='E'),fb:fbk,piv:c=='X'})})});return out};
 const hom=(f,k)=>{const G=GEO[f];let c=0;for(let i=0;i<G.length;i++){const[n,x,w]=G[i];if(k<c+n){const l=i==0?0:i==G.length-1?3:i==1?1:2,hy=(k-c+1)/(n+1);return{l,wl:w,hx:x,hy,wide:l>=2&&Math.abs(hy-.5)>.22,fb:l==1&&G[1][0]>=4&&(hy<.3||hy>.7),piv:i==2&&G.length>=4&&(n<=2||Math.abs(hy-.5)<.12)}}c+=n}};
 const segD=(a,b,c)=>{const dx=b.x-a.x,dy=b.y-a.y,L=dx*dx+dy*dy||1,t=clamp(((c.x-a.x)*dx+(c.y-a.y)*dy)/L,0,1);return Math.hypot(a.x+dx*t-c.x,a.y+dy*t-c.y)};
 const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 class Sim{
  constructor(){this.P=[];this.B={x:W/2,y:H/2,vx:0,vy:0,own:null,recv:null,free:false};this.poss=0;this.sc=null;this.key=null;this.n=0;this.tr=[];this.passes=0;this.q=[];this.frozen=true;this.T=[[1,0,0],[1,0,0]];this.fx=null;this.goalN=0;this.onGoal=null;this.gap=0;this.fs=1;this.prev=null;this.runner=null;this.freeze=0;this.trail=[];this.ctx={min:0,sc:[0,0]};this.link=null;this.shot=null;this.run=null;this.vs=.9;this.refs=null;this.fbSide=[0,0];this.mkm=[new Map(),new Map()];this.thr=[0,0];this.latLock=null}
- setup(f0,f1,key){const k=key+'|'+f0+'|'+f1;if(k===this.key)return false;this.key=k;this.thr=[0,0];this.latLock=null;this.P=[];
-  [f0,f1].forEach((f,s)=>{if(f==null)return;for(let i=0;i<11;i++){const h=hom(f,i);this.P.push({s,k:i,l:h.l,wl:h.wl,wide:h.wide,fb:h.fb,piv:h.piv,hy0:h.hy,hx:h.hx,hy:h.hy,x:0,y:0,vx:0,vy:0,fx:s?-1:1,fy:0,off:false,cool:0,hold:0,wait:20,tg:null})}});this.hardRest();return true}
- setTac(s,t){this.T[s]=t}
+ setup(f0,f1,key){const k=key+'|'+f0+'|'+f1;if(k===this.key)return false;this.key=k;this.F=[f0,f1];this.thr=[0,0];this.latLock=null;this.P=[];
+  [f0,f1].forEach((f,s)=>{if(f==null)return;for(let i=0;i<11;i++){const h=hom(f,i);this.P.push({s,k:i,l:h.l,wl:h.wl,wide:h.wide,fb:h.fb,piv:h.piv,hy0:h.hy,hx:h.hx,hy:h.hy,x:0,y:0,vx:0,vy:0,fx:s?-1:1,fy:0,off:false,cool:0,hold:0,wait:20,tg:null})}});[0,1].forEach(s=>this.applyRoles(s));this.hardRest();return true}
+ setTac(s,t){const o=this.T[s],ch=!o||o[0]!==t[0];this.T[s]=t;if(ch&&this.P.length)this.applyRoles(s)}
  hp(p){return{x:X0+(p.s?1-p.hx:p.hx)*FW,y:Y0+p.hy*FH}}
+ applyRoles(s){const S=this,f=S.F&&S.F[s];if(f==null)return;const st=(S.T[s]&&S.T[s][0])??1,L=roleLayout(f,st);S.P.forEach(p=>{if(p.s!==s)return;const q=L[p.k];p.hx=q.hx;p.hy=q.hy;p.hy0=q.hy;p.l=q.l;p.wl=q.wl;p.wide=q.wide;p.fb=q.fb;p.piv=q.piv;p.rl=q.rl;p.rs=q.rs;p.rr=q.r;p.rst=st})}
  tg(p,x,y,o){if(p)p.tg=o?{x:clamp(x,X0-16,X0+FW+16),y:clamp(y,Y0-16,Y0+FH+16),out:1}:{x:clamp(x,X0+R,X0+FW-R),y:clamp(y,Y0+R,Y0+FH-R)}}
  clr(){this.P.forEach(p=>{p.tg=null;p.vmx=0})}
  rest(){const S=this,B=S.B;S.P.forEach(p=>p.walk=0);S.sc=null;S.ko=null;S.rp=null;S.pre=null;S.koP=null;S.fx=null;S.freeze=0;S.runner=null;S.prev=null;S.counter=null;S.build=null;S.third=null;S.sb=null;S.trail=[];S.link=null;S.shot=null;S.run=null;S.clr();S.offs=null;S.mkm=[new Map(),new Map()];S.refs=[{x:W/2,y:H/2+40,role:'ref'},{x:W/2,y:Y0-9,role:'l1'},{x:W/2,y:Y0+FH+9,role:'l2'}];S.P.forEach(p=>{p.hy=p.hy0;p.swpT=0;const h=S.hp(p);p.x=h.x;p.y=h.y;p.vx=p.vy=0;p.cool=0;p.hold=0});B.x=W/2;B.y=H/2;B.vx=B.vy=0;B.free=false;B.own=null;B.recv=null}
@@ -414,5 +428,5 @@ class Sim{
     const was=S.poss;B.own=p;B.recv=null;B.free=false;p.hold=0;p.wait=S.hold(p);if(S.sb&&S.n-S.sb.n0>8){S.sbT=(S.sbT||0)+1;if(p.s===S.sb.s)S.sbW=(S.sbW||0)+1;S.sb=null}if(was!==p.s&&!S.sc)S.checkCounter(p);break}}
   {const dx=B.x-(S.lbx===undefined?B.x:S.lbx),dy=B.y-(S.lby===undefined?B.y:S.lby),dd=Math.hypot(dx,dy);B.rot=(B.rot||0)+dd/BR;S.lbx=B.x;S.lby=B.y;if(dd>.6)S.trail.push({x:B.x,y:B.y,n:S.n});while(S.trail.length&&S.n-S.trail[0].n>22)S.trail.shift()}}
 }
-const wideSlots=f=>{const o=[];for(let k=1;k<11;k++){const h=hom(f,k);if(h&&(h.wide||h.fb))o.push(k)}return o},API={wideSlots,Sim,W,H,X0,Y0,FW,FH,GY0,GY1,R,BR};if(typeof module!=='undefined')module.exports=API;else window.SIM2D=API;
+const wideSlots=f=>{const o=[];for(let k=1;k<11;k++){const h=hom(f,k);if(h&&(h.wide||h.fb))o.push(k)}return o},API={roleLayout,wideSlots,Sim,W,H,X0,Y0,FW,FH,GY0,GY1,R,BR};if(typeof module!=='undefined')module.exports=API;else window.SIM2D=API;
 })();
