@@ -11,7 +11,7 @@ GEO=[[[1,.06,0],[4,.21,.5],[4,.37,.85],[2,.49,1]],[[1,.06,0],[4,.21,.5],[3,.37,.
 const RS={0:{e:['MCCM','99'],d:['MXCM','S9'],o:['MCOM','99']},1:{e:['CCC','E9E'],d:['CXC','E9E'],o:['OCO','E9E']},2:{e:['MCCCM','99'],d:['MXCXM','S9'],o:['MOCOM','99']},3:{e:['MCXCM','9'],d:['MXCXM','9'],o:['ECOCE','9']},4:{e:['CCC','99'],d:['CXC','S9'],o:['COC','99']},
  5:{e:['XC','EOE','9'],d:['XX','ECE','9'],o:['XC','EOE','9']},6:{e:['XC','OO','99'],d:['XX','MM','S9'],o:['XC','OO','99']},7:{e:['MCCM','E9E'],d:['MXCM','E9E'],o:['MCOM','E9E']},8:{e:['MCCM','9'],d:['MXXM','9'],o:['MCOM','9']},
  9:{e:['CXC','O','99'],d:['XCX','O','99'],o:['OCO','S','99']},10:{e:['X','MCCM','9'],d:['X','MCCM','9'],o:['X','EOCE','9']},11:{e:['MCCM','S','9'],d:['MXCM','S','9'],o:['MCCM','S','9']},12:{e:['MCCM','OO','9'],d:['MXCM','OO','9'],o:['MCCM','OO','9']},13:{e:['CC','E9E'],d:['XC','E9E'],o:['CC','E9E']}};
-const RDX={L:[-.02,0,.05],D:[-.02,0,.04],X:[-.03,-.03,0],C:[-.03,0,.03],M:[-.04,0,.04],O:[-.05,0,.07],E:[-.06,0,.04],S:[-.07,-.03,.01],9:[-.03,0,.02]},RNM={L:'L',D:'DEF',X:'MCD',C:'MC',M:'M',O:'MO',E:'EX',S:'SD','9':'DC'};
+const RDX={L:[-.02,0,.03],D:[-.02,0,.02],X:[-.03,-.03,0],C:[-.03,0,.02],M:[-.04,0,.025],O:[-.05,0,.05],E:[-.06,0,.025],S:[-.07,-.03,0],9:[-.03,0,.01]},RNM={L:'L',D:'DEF',X:'MCD',C:'MC',M:'M',O:'MO',E:'EX',S:'SD','9':'DC'};
 const roleLayout=(f,st)=>{const G=GEO[f],out=[{r:'ARQ',rl:'ARQ',rs:0,hx:[.05,.06,.12][st],hy:.5,l:0,wl:0,wide:false,fb:false,piv:false}],sp=RS[f][['d','e','o'][st]];
  G.forEach((g,gi)=>{if(gi==0)return;const[n,x,w]=g,dg=gi==1?(n==5?'LDDDL':n==4?'LDDL':'DDD'):sp[gi-2];if(dg.length!==n)throw new Error('rol '+f+' '+gi);
   const wide=[...dg].map(c=>c=='L'||c=='M'||c=='E'),cen=wide.map(v=>!v).reduce((a,b)=>a+b,0),m=cen,hw=m<=1?0:m==2?.13:m==3?.2:.27,ys=[];let ci=0;
@@ -354,7 +354,7 @@ class Sim{
      else if((tt[3]||0)==0&&B.own&&B.own.s===p.s&&B.own.k>0&&Math.abs(B.x-gx0)<.42*FW&&!S.sc){tx=gx0+dgx*(46+Math.min(20,bd*.05));ty=H/2+clamp((H/2-B.y)*.5,-34,34);vm=1.9}   // jugando desde abajo: el arquero es un jugador más y ofrece un ángulo de pase
      else if(!B.own&&!S.sc&&dist(p,B)<170&&dist(p,B)<nd[1-p.s]){tx=B.x;ty=B.y;vm=3}}   // sale a cortar balones largos y pases al vacío
    else{const att=S.poss==p.s,bu=p.s?1-bnx:bnx,wl=[0,.6,.78,.9][p.l],adv=[.7,1,1.35][tt[0]];
-    let ux=att?p.hx+wl*(bu*(((tt[3]||0)==0)?.72:((tt[3]||0)==2?.82:.55))*adv-.08):p.hx+wl*(bu-.55)*.35+wl*(([-.09,0,.09][tt[1]])-(tt[0]==0?.07:0));ux=clamp(ux+wl*((tt[0]==2?.07:0)+(tt[0]==1&&p.l==2&&!p.piv?.05*Math.sin(S.n/170+p.k):0))+wl*(S.mode(p.s)=='protect'?-.07:S.mode(p.s)=='chase'?.06:0),.05,p.l==3?.93:.85);
+    let ux=att?p.hx+wl*(bu*(((tt[3]||0)==0)?.72:((tt[3]||0)==2?.82:.55))*adv-.08):p.hx+wl*(bu-.55)*.35+wl*(([-.09,0,.09][tt[1]])-(tt[0]==0?.05:0));ux=clamp(ux+wl*((tt[0]==2?.035:0)+(tt[0]==1&&p.l==2&&!p.piv?.05*Math.sin(S.n/170+p.k):0))+wl*(S.mode(p.s)=='protect'?-.07:S.mode(p.s)=='chase'?.06:0),.05,p.l==3?.93:.85);
     let uy=clamp(p.hy+(bny-p.hy)*(att?.16:.16*[.85,1.15,1.4][tt[1]])*Math.min(1,wl+.25),.05,.95);if(att&&tt[2]&&p.l>=2)uy=clamp(uy+(p.hy<.5?-1:1)*.16,.06,.94);
     if(p.wide||p.fb){const sd=p.hy0<.5?-1:1,sameSide=(bny<.5)==(p.hy0<.5);uy=clamp(p.hy0+sd*(att?(sameSide?.1:0):(sameSide?.02:-.04)),.07,.93)}
     if(!att&&B.own&&B.own.s!==p.s&&bu<.45){if(p.l==1)ux=Math.min(ux,Math.max(.08,bu-.01));if(p.l<=2&&!p.wide&&!p.fb)uy=clamp(uy+(.5+(bny-.5)*.55-uy)*.32*(bu<.3?1.2:.8),.06,.94)}   // zona peligrosa: los centrales no se pasan de la pelota y cierran el centro
@@ -399,7 +399,7 @@ class Sim{
     else if(S.runner&&S.runner.p===p&&S.n<S.runner.t&&B.own&&B.own.s===p.s){const o=B.own,d=p.s?-1:1;if(S.runner.ov){tx=clamp(o.x+d*105,X0,X0+FW);ty=p.y<H/2?Y0+26:Y0+FH-26;vm=Math.max(vm||0,2.9)}else{tx=clamp(o.x+d*80,X0,X0+FW);ty=o.y+(H/2-o.y)*.3+(p.y<o.y?-25:25)}}
     else if(near[p.s]===p&&(!B.own||B.own.s!==p.s)){if(B.own&&B.own.s!==p.s&&nd[p.s]>[150,230,340][tt[1]]){}   // lejos: no sale al choque, cuida su posición
      else if(p.yel&&B.own){tx=B.x+(p.s?1:-1)*30;ty=B.y;vm=2}else{tx=B.x+B.vx*6;ty=B.y+B.vy*6;vm=2.4;if(B.own&&B.own.s!==p.s&&(!S.sc||S.sc.k=='att')){const o=B.own,gxp=p.s?X0+FW:X0,ux=gxp-o.x,uy=H/2-o.y,ul=Math.hypot(ux,uy)||1,dk=R*2.15;tx=o.x+ux/ul*dk;ty=o.y+uy/ul*dk*.8+(o.vy||0)*3;const dp=dist(p,{x:tx,y:ty});vm=dp>70?2.6:dp>26?2.0:1.2;p.jk=1}}}
-    else if(near2[p.s]===p&&B.own&&B.own.s!==p.s&&bu<[.3,.55,.75][tt[1]]){tx=(B.x+(p.s?X0+FW:X0))/2;ty=B.y;vm=2.1}   // segundo marcador: cubre
+    else if(near2[p.s]===p&&B.own&&B.own.s!==p.s&&bu<[.3,.55,.75][tt[1]]){if(tt[1]==2&&dist(p,B)<230){tx=B.x+(p.s?1:-1)*36;ty=B.y+(p.y<B.y?-1:1)*24;vm=2.7}else{tx=(B.x+(p.s?X0+FW:X0))/2;ty=B.y;vm=2.1}}   // segundo marcador: cubre
     else if(att&&B.own&&B.own!==p&&p.l>=2)tx+=(p.s?-1:1)*30
     if(!att&&!p.tg&&B.own&&B.own.s!==p.s&&near[p.s]!==p&&!((tt[4]||0)==1&&S.mkm[p.s].get(p))){const cx=tx-B.own.x,cy=ty-B.own.y,cd=Math.hypot(cx,cy)||1;if(cd<130){tx=B.own.x+cx/cd*130;ty=B.own.y+cy/cd*130}}
     {const prs=near[p.s]===p&&(!B.own||B.own.s!==p.s),exm=B.own===p||B.recv===p||(S.sc&&S.sc.wait===p)||prs||p.runUntil>S.n||p.sp;
