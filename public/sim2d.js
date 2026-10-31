@@ -166,16 +166,16 @@ class Sim{
  celeb(sc){const S=this,B=S.B,n=S.n-sc.t2;if(S.pso){if(sc.e&&sc.e.fin)S.fcel(sc,n);else if(n>105)sc.cdone=1;return}
   if(!sc.cl){if(n<6)return;const {gx,dir}=S.geo(sc.side);let sp=S.prev&&S.prev.s===sc.side&&!S.prev.off&&S.prev.k>0?S.prev:null;if(!sp)sp=S.near(S.P.filter(p=>p.s===sc.side&&!p.off&&p.k>0),{x:gx,y:H/2});if(!sp){sc.cdone=1;return}
    const lead=S.ctx.sc[sc.side]-S.ctx.sc[1-sc.side];sc.cl={sp,run:lead>0,dir};
-   if(sc.cl.run){sc.cl.cx=gx-dir*22;sc.cl.cy=sp.y<H/2?Y0+16:Y0+FH-16;sc.cl.mates=S.P.filter(p=>p.s===sc.side&&!p.off&&p!==sp&&p.k>0).sort((a,b)=>dist(a,sp)-dist(b,sp)).slice(0,7);S.celN=(S.celN||0)+1}else S.fetchN=(S.fetchN||0)+1}
+   if(sc.cl.run){const top=sp.y<H/2,r0=rnd(),ex=r0<.4?22:r0<.7?70+rnd()*110:r0<.9?180+rnd()*120:60;sc.cl.cx=gx-dir*ex;sc.cl.cy=r0<.9?(top?Y0+16:Y0+FH-16):(top?Y0+70:Y0+FH-70);sc.cl.mates=S.P.filter(p=>p.s===sc.side&&!p.off&&p!==sp&&p.k>0).sort((a,b)=>dist(a,sp)-dist(b,sp)).slice(0,7);S.celN=(S.celN||0)+1}else S.fetchN=(S.fetchN||0)+1}
   const c=sc.cl,sp=c.sp,mv=(p,tx,ty,v)=>{const dx=tx-p.x,dy=ty-p.y,d=Math.hypot(dx,dy);if(d<1.5){p.vx=p.vy=0;return true}const k=Math.min(v,d)/d;p.vx=dx*k;p.vy=dy*k;p.x=clamp(p.x+p.vx,X0+R,X0+FW-R);p.y=clamp(p.y+p.vy,Y0+R,Y0+FH-R);p.fx=dx/d;p.fy=dy/d;p.hd=Math.atan2(dy,dx);return d<=v};
   if(c.run){const {gx,dir}=S.geo(sc.side),jit=(p,j,a)=>{p.x=clamp(p.x+Math.sin(S.n*.52+j*2.1)*a,X0+R,X0+FW-R);p.y=clamp(p.y+Math.cos(S.n*.43+j*1.7)*a,Y0+R,Y0+FH-R)};
    if(!c.w1){const ty=c.cy<H/2?c.cy+(rnd()<.5?0:80):c.cy-(rnd()<.5?0:80);c.w1={x:clamp(c.cx-dir*(110+rnd()*150),X0+40,X0+FW-40),y:ty};c.wd=new Map()}
-   if(!c.arr){if(mv(sp,c.cx,c.cy,3.6))c.arr=S.n}
-   else if(!c.arr2){if(S.n-c.arr<24)jit(sp,0,1.6);else if(mv(sp,c.w1.x,c.w1.y,2.7))c.arr2=S.n}
+   if(!c.arr){if(mv(sp,c.cx,c.cy,2.5))c.arr=S.n}
+   else if(!c.arr2){if(S.n-c.arr<24)jit(sp,0,1.6);else if(mv(sp,c.w1.x,c.w1.y,1.9))c.arr2=S.n}
    else jit(sp,0,1.3);
-   c.mates.forEach((p,j)=>{const a=j*(6.283/c.mates.length)+S.n*.028*(j%2?1:-1),r=24+(j%3)*9;mv(p,sp.x+Math.cos(a)*r,sp.y+Math.sin(a)*r,4.3);jit(p,j+1,1.2)});
-   S.P.forEach((p,j)=>{if(p===sp||p.off||p.k==0||c.mates.includes(p))return;if(p.s===sc.side){let w=c.wd.get(p);if(!w||dist(p,w)<4){const h=S.hp(p);w={x:clamp(h.x+(rnd()-.5)*90,X0+R,X0+FW-R),y:clamp(h.y+(rnd()-.5)*90,Y0+R,Y0+FH-R)};c.wd.set(p,w)}mv(p,w.x,w.y,1.6);jit(p,j,1)}else{const h=S.hp(p);mv(p,h.x,h.y,1.1)}});
-   if((c.arr2&&S.n-c.arr2>36)||n>=270)sc.cdone=1}
+   c.mates.forEach((p,j)=>{const a=j*(6.283/c.mates.length)+S.n*.028*(j%2?1:-1),r=24+(j%3)*9;mv(p,sp.x+Math.cos(a)*r,sp.y+Math.sin(a)*r,3.1);jit(p,j+1,1.0)});
+   S.P.forEach((p,j)=>{if(p===sp||p.off||p.k==0||c.mates.includes(p))return;if(p.s===sc.side){let w=c.wd.get(p);if(!w||dist(p,w)<4){const h=S.hp(p);w={x:clamp(h.x+(rnd()-.5)*90,X0+R,X0+FW-R),y:clamp(h.y+(rnd()-.5)*90,Y0+R,Y0+FH-R)};c.wd.set(p,w)}mv(p,w.x,w.y,1.3);jit(p,j,.8)}else{const h=S.hp(p);mv(p,h.x,h.y,1.1)}});
+   if((c.arr2&&S.n-c.arr2>30)||n>=330)sc.cdone=1}
   else{if(!c.got){const bx=clamp(B.x,X0+R,X0+FW-R),by=clamp(B.y,Y0+R,Y0+FH-R);if(dist(sp,B)<R+BR+3||dist(sp,{x:bx,y:by})<4){c.got=1;B.free=false;B.own=sp;sp.hold=0}else mv(sp,bx,by,4.3)}
    else{const at=mv(sp,W/2,H/2,4);B.x=sp.x+sp.fx*(R+BR);B.y=sp.y+sp.fy*(R+BR);B.vx=B.vy=0;if(at&&!c.done)c.done=S.n}
    S.P.forEach(p=>{if(p===sp||p.off)return;const h=S.hp(p);mv(p,h.x,h.y,3.9)});
@@ -315,7 +315,7 @@ class Sim{
   if(sc.k=='gk'){if(ph=='set'){if(sc.t>=42&&S.reach(sc.gk,sc.tpos,14,42,60,sc)){sc.ph='wait';sc.tw=sc.t}}else if(ph=='wait'){if(sc.t-sc.tw>=20)S.gkKick()}else if(ph=='go'){if(B.own===sc.wait){S.endSc();S.build={s:sc.side,t:S.n+320}}else if(!B.own&&sc.t-sc.tk>80){B.own=sc.wait;sc.wait.hold=0;S.endSc()}}return}
   if(ph=='rec'){S.recStep();return}
   if(ph=='fc'){S.fcel(sc,S.n-sc.t2);if(sc.cdone){sc.e.fin=0;S.endSc()}return}
-  if(ph=='g'){if(!sc.in&&(B.x<X0-4||B.x>X0+FW+4)){sc.in=true;sc.t2=S.n;S.goalN++;if(S.onGoal)S.onGoal(sc.side,sc.e.n,sc.e)}if(sc.in&&!sc.rpd&&(sc.cdone||S.n-sc.t2>=300)&&!S.pso&&S.rbn&&S.P.length>=22&&S.rpOn!==false){sc.rpd=1;S.startReplay(sc);return}if(sc.in&&(sc.cdone||S.n-sc.t2>300)){if(S.pso){if(sc.e)sc.e.fin=0;S.endSc()}else S.kickoff(1-sc.side,true)}return}
+  if(ph=='g'){if(!sc.in&&(B.x<X0-4||B.x>X0+FW+4)){sc.in=true;sc.t2=S.n;S.goalN++;if(S.onGoal)S.onGoal(sc.side,sc.e.n,sc.e)}if(sc.in&&!sc.rpd&&(sc.cdone||S.n-sc.t2>=370)&&!S.pso&&S.rbn&&S.P.length>=22&&S.rpOn!==false){sc.rpd=1;S.startReplay(sc);return}if(sc.in&&(sc.cdone||S.n-sc.t2>370)){if(S.pso){if(sc.e)sc.e.fin=0;S.endSc()}else S.kickoff(1-sc.side,true)}return}
   if(ph=='s'){if(B.own===sc.gk)S.endSc();return}
   if(ph=='o'){if(!sc.in&&(B.x<X0-4||B.x>X0+FW+4)){sc.in=true;sc.t2=S.n}if(sc.in&&S.n-sc.t2>24){B.free=false;const sd=1-sc.side;S.endSc();if(!S.pso)S.gkSc(sd);return}if(!sc.in&&S.n-sc.t2>150){B.own=sc.gk;B.free=false;S.endSc()}return}   // remate desviado: la pelota pasa la línea de fondo y es saque de arco
   if(ph=='w'||ph=='l'){if(B.own===sc.wait){const z=sc.wait,cl=sc.clrAfter;S.endSc();if(cl&&z&&!z.off){B.own=z;S.clearBall(z)}}return}
