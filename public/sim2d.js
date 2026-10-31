@@ -47,7 +47,9 @@ class Sim{
  setYel(s,list){this.P.forEach(p=>{if(p.s===s)p.yel=!!(list&&list.includes(p.k))})}
  mode(s){const c=this.ctx,lead=c.sc[s]-c.sc[1-s];return c.min<=0?'normal':lead>0&&c.min>=70?'protect':((lead<0&&c.min>=65)||(lead==0&&c.min>=85))?'chase':'normal'}
  hold(p){if(this.third&&this.third.p===p&&this.n<this.third.t)return 7+Math.floor(rnd()*6);const m=this.mode(p.s),k=[1.4,1,.75][this.T[p.s][0]];if(p.k==0&&m!='chase')return 55+Math.floor(rnd()*40);return (this.build&&this.build.s===p.s&&(this.T[p.s][3]||0)==0&&p.l<=2?16:0)+Math.round((m=='protect'?48+Math.floor(rnd()*40):m=='chase'?12+Math.floor(rnd()*14):20+Math.floor(rnd()*24))*k)}   // el arquero se toma su tiempo; los equipos defensivos juegan más cortado
- markShot(k,x,y){const B=this.B;this.shot={x0:B.x,y0:B.y,x1:x,y1:y,n:this.n,k}}
+ markShot(k,x,y){const S=this,B=S.B;S.shot={x0:B.x,y0:B.y,x1:x,y1:y,n:S.n,k};
+  if(k=='g'||k=='s'){const ds=x<W/2?0:1,gk=S.P.find(p=>p.s==ds&&p.k==0&&!p.off);if(gk&&!gk.dv&&Math.abs(y-gk.y)>12){const dy=y-gk.y,wrong=k=='g'&&rnd()<.22,ty=k=='s'?y:clamp(gk.y+(wrong?-dy*.5:dy*(.45+rnd()*.35)),GY0-6,GY1+6);S.dive(gk,gk.x+(ds?-6:6),clamp(ty,GY0-6,GY1+6),clamp(Math.hypot(ty-gk.y,6)/2.6,9,20))}}}
+ dive(gk,tx,ty,dur){gk.dv={n:this.n,sx:gk.x,sy:gk.y,tx,ty,dur};gk.tg=null;this.diveN=(this.diveN||0)+1}
  won(d,o){const S=this,B=S.B;o.cool=18;B.own=d;B.recv=null;d.hold=0;d.wait=24+Math.floor(rnd()*20);S.checkCounter(d)}
  checkCounter(p){const S=this,B=S.B;if(S.sc||(S.counter&&S.n<S.counter.t+120))return;const u=p.s?1-(B.x-X0)/FW:(B.x-X0)/FW,tt=S.T[p.s];if(u<.6&&S.P.some(q=>q.s==p.s&&q.wide&&!q.off)&&(tt[2]==1||(tt[0]>=1&&rnd()<.5)||rnd()<.25||(S.T[1-p.s][0]==2&&rnd()<.35))){S.counter={s:p.s,t:S.n+170};S.counterN=(S.counterN||0)+1}}
  // ----- atributos de los jugadores (los entrega el cliente/servidor: setSk(lado,[atributos por puesto del 11])) -----
@@ -300,9 +302,9 @@ class Sim{
  latFoul(p){const S=this;S.latLock=null;S.latFoulN=(S.latFoulN||0)+1;S.clr();S.foulSc({},1-p.s,'SAQUE: DOBLE TOQUE')}   // el que sacó volvió a tocarla antes que otro: tiro libre indirecto para el rival (no hay gol directo de saque de banda: la pelota no puede entrar al arco en esta jugada)
  curl(tx,ty){const B=this.B,vx=tx-B.x,uy=Math.sign(H/2-B.y)||(rnd()<.5?1:-1),sg=Math.sign(vx*uy)||1;return sg*(.011+rnd()*.009)}   // tiro libre con efecto: sale abierto y la pelota se mete hacia el arco
  shotSp(){const S=this,sc=S.sc,B=S.B,{gx,dir}=S.geo(sc.side),gk=sc.gk,x=sc.x,sg=rnd()<.5?-1:1,fs=S.fs;B.own=null;
-  if(sc.k=='pen'&&gk){gk.x=gx-dir*10;gk.y=H/2+(x=='g'?-sg:sg)*(x=='o'?0:30);gk.vx=gk.vy=0}   // el arquero se tira
+  if(sc.k=='pen'&&gk){sc.gyT=H/2+(x=='g'?-sg:sg)*(x=='o'?0:30);S.dive(gk,gx-dir*10,sc.gyT,13)}if(sc.wall)sc.wall.forEach(p=>p.jp=S.n);   // el arquero se tira
   if(x=='g'){sc.ph='g';sc.wait=null;B.free=true;const ty=H/2+sg*(sc.k=='pen'?28:30+rnd()*8);S.markShot('g',gx+dir*18,ty);S.kick(gx+dir*18,ty,(sc.k=='pen'?8.6:8)*fs,null,sc.k=='fk'?S.curl(gx+dir*18,ty):0);if(gk&&sc.k=='fk'){S.tg(gk,gx-dir*8,ty-Math.sign(ty-H/2)*16);gk.vmx=2.6}}
-  else if(x=='s'){sc.ph='s';sc.wait=gk;const ty=clamp((gk?gk.y:H/2)+(sc.k=='pen'?0:sg*(16+rnd()*14)),GY0+8,GY1-8),tx=gx-dir*10;S.markShot('s',tx,ty);S.kick(tx,ty,7.2*fs,gk,sc.k=='fk'?S.curl(tx,ty):0);if(gk&&sc.k!='pen'){S.tg(gk,tx,ty);gk.vmx=3.8}}
+  else if(x=='s'){sc.ph='s';sc.wait=gk;const ty=clamp((sc.gyT!=null?sc.gyT:gk?gk.y:H/2)+(sc.k=='pen'?0:sg*(16+rnd()*14)),GY0+8,GY1-8),tx=gx-dir*10;S.markShot('s',tx,ty);S.kick(tx,ty,7.2*fs,gk,sc.k=='fk'?S.curl(tx,ty):0);if(gk&&sc.k!='pen'){S.tg(gk,tx,ty);gk.vmx=3.8}}
   else if(x=='w'){const w=sc.wall[Math.floor(sc.wall.length/2)]||sc.wall[0];sc.ph='w';sc.wait=w;S.markShot('w',w.x,w.y);S.kickAt(w,7.2*fs)}
   else{const ty=rnd()<.5?GY0-34:GY1+34;sc.ph='o';sc.t2=S.n;sc.wait=null;S.markShot('o',gx,ty);S.kick(gx,ty,7.6*fs,null,sc.k=='fk'?S.curl(gx,ty):0);B.free=true}}
  script(){const S=this,sc=S.sc,B=S.B,ph=sc.ph;sc.t++;
@@ -347,7 +349,7 @@ class Sim{
   P.forEach(p=>{if(p.off||p.k==0)return;const d=dist(p,B);if(d<nd[p.s]){nd2[p.s]=nd[p.s];near2[p.s]=near[p.s];nd[p.s]=d;near[p.s]=p}else if(d<nd2[p.s]){nd2[p.s]=d;near2[p.s]=p}});
   const LL=[0,1].map(s=>{const o=P.filter(z=>z.s!==s&&!z.off&&z.k>0);return o.length?(s?Math.min(...o.map(z=>z.x)):Math.max(...o.map(z=>z.x))):null});
   {const cp=S.poss;if(cp!=null&&S.pp!==cp){if(S.pp!=null&&!S.sc&&!S.rp){const ls=1-cp,st=S.T[ls][0],pr=P.filter(q=>q.s===ls&&!q.off&&q.k>0).sort((a,b)=>dist(a,B)-dist(b,B)).slice(0,[1,2,3][st]);S.trs={s:cp,t:S.n,pr};S.trN=(S.trN||0)+1}S.pp=cp}}   // transición: al perder o recuperar la pelota cada uno pasa a su función
-  P.forEach(p=>{if(p.off)return;if(p.swpT&&S.n>=p.swpT){p.hy=p.hy0;p.swpT=0;p.wide=p.l>=2&&Math.abs(p.hy0-.5)>.22}let tx,ty,vm=p.l==0?1.5:1.9;const tt=S.T[p.s];
+  P.forEach(p=>{if(p.off)return;if(p.dv){const d=p.dv,q=(S.n-d.n)/d.dur;if(q>=1){p.x=d.tx;p.y=d.ty;if(S.n-d.n>d.dur+30){p.dv=null}}else{const e=q*q*(3-2*q);p.x=d.sx+(d.tx-d.sx)*e;p.y=d.sy+(d.ty-d.sy)*e}p.vx=p.vy=0;return}if(p.swpT&&S.n>=p.swpT){p.hy=p.hy0;p.swpT=0;p.wide=p.l>=2&&Math.abs(p.hy0-.5)>.22}let tx,ty,vm=p.l==0?1.5:1.9;const tt=S.T[p.s];
    if(p.k==0){const gx0=p.s?X0+FW:X0,dgx=p.s?-1:1,bd=Math.abs(B.x-gx0),rival=B.own&&B.own.s!==p.s,adv=(rival?clamp((260-bd)*.28,0,64):clamp((200-bd)*.1,0,16))*[.7,1,1.35][tt[0]]+(!rival&&tt[0]==2&&bd>.45*FW?42:0);   // achica hasta el borde del área
      tx=gx0+dgx*(14+adv);const side=clamp((B.y-H/2)/(bd*.5+70),-1,1);ty=H/2+side*(rival?42:30)+Math.sin(S.n/20+p.s*2)*6;vm=2.2+S.sv(p,'ref')/400;   // tapa el palo del lado de la pelota y nunca está quieto
      if(B.own===p){tx=gx0+dgx*30;ty=H/2+Math.sin(S.n/30)*14;vm=1.2}
