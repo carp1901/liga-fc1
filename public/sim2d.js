@@ -23,7 +23,7 @@ const segD=(a,b,c)=>{const dx=b.x-a.x,dy=b.y-a.y,L=dx*dx+dy*dy||1,t=clamp(((c.x-
 const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 class Sim{
  constructor(){this.P=[];this.B={x:W/2,y:H/2,vx:0,vy:0,own:null,recv:null,free:false};this.poss=0;this.sc=null;this.key=null;this.n=0;this.tr=[];this.passes=0;this.q=[];this.frozen=true;this.T=[[1,0,0],[1,0,0]];this.fx=null;this.goalN=0;this.onGoal=null;this.gap=0;this.fs=1;this.prev=null;this.runner=null;this.freeze=0;this.trail=[];this.ctx={min:0,sc:[0,0]};this.link=null;this.shot=null;this.run=null;this.vs=.9;this.refs=null;this.fbSide=[0,0];this.mkm=[new Map(),new Map()];this.thr=[0,0];this.latLock=null}
- setup(f0,f1,key){const k=key+'|'+f0+'|'+f1;if(k===this.key)return false;this.key=k;this.F=[f0,f1];this.thr=[0,0];this.latLock=null;this.P=[];
+ setup(f0,f1,key){const k=key+'|'+f0+'|'+f1;if(k===this.key)return false;this.key=k;this.gh=[];this.F=[f0,f1];this.thr=[0,0];this.latLock=null;this.P=[];
   [f0,f1].forEach((f,s)=>{if(f==null)return;for(let i=0;i<11;i++){const h=hom(f,i);this.P.push({s,k:i,l:h.l,wl:h.wl,wide:h.wide,fb:h.fb,piv:h.piv,hy0:h.hy,hx:h.hx,hy:h.hy,x:0,y:0,vx:0,vy:0,fx:s?-1:1,fy:0,off:false,cool:0,hold:0,wait:20,tg:null})}});[0,1].forEach(s=>this.applyRoles(s));this.hardRest();return true}
  setTac(s,t){const o=this.T[s],ch=!o||o[0]!==t[0];this.T[s]=t;if(ch&&this.P.length){this.applyRoles(s);if(this.frozen&&!this.sc)this.P.forEach(p=>{if(p.s==s){const h=this.hp(p);p.x=h.x;p.y=h.y;p.vx=p.vy=0}})}}
  hp(p){return{x:X0+(p.s?1-p.hx:p.hx)*FW,y:Y0+p.hy*FH}}
@@ -36,7 +36,9 @@ class Sim{
   if(old){let md=0;S.P.forEach((p,i)=>{if(p.off)return;const hx=p.x,hy=p.y;p.x=old[i][0];p.y=old[i][1];md=Math.max(md,Math.hypot(hx-p.x,hy-p.y));S.tg(p,hx,hy);p.vmx=4.2});const w=clamp(Math.ceil(md/4.2)+18,30,170);S.P.forEach(p=>{p.cool=w+4});B.own=null;B.x=W/2;B.y=H/2;S.ko={t:S.n+w,o};S.gap=w+10}}   // después de un gol los jugadores vuelven caminando a sus posiciones (no aparecen de golpe) y recién ahí se saca del medio
  
  setOff(s,list){this.P.forEach(p=>{if(p.s!==s)return;const off=!!(list&&list.includes(p.k));if(off&&this.B.own===p)this.B.own=null;if(off&&!p.off&&this.n>40&&!this.frozen){p.walk=1;p.vx=p.vy=0}if(!off)p.walk=0;p.off=off})}
- walkStep(){const S=this;S.P.forEach(p=>{if(!p.walk)return;const tx=W/2+(p.s?40:-40),ty=Y0+FH+26,dx=tx-p.x,dy=ty-p.y,d=Math.hypot(dx,dy);if(d<3||p.y>Y0+FH+14){p.walk=0;return}const v=Math.min(1.7,d);p.x+=dx/d*v;p.y+=dy/d*v;p.fx=dx/d;p.fy=dy/d;p.hd=Math.atan2(dy,dx)})}
+ fq(p){const S=this,mp=(S.ctx?S.ctx.min:0)-(p.sm||0),f=clamp((mp-55)/35,0,1)*[.8,1,1.25][(S.T[p.s]||[0,1])[1]||0];return 1-.1*f*(p.k==0?.3:1)}
+ subAnim(s,k,num){const S=this,p=S.P.find(q=>q.s==s&&q.k==k);if(!p||p.off||S.frozen||S.n<40)return;(S.gh=S.gh||[]).push({x:p.x,y:p.y,s,num,n:S.n,top:p.y<H/2});if(S.B.own===p){S.B.own=null;S.B.free=true}const top=p.y<H/2;p.y=top?Y0+1:Y0+FH-1;p.vx=p.vy=0;p.sub=S.n;p.sm=S.ctx?S.ctx.min:0;p.cool=20;p.hold=0}
+ walkStep(){const S=this;(S.gh=S.gh||[]).forEach(g=>{const ty=g.top?Y0-16:Y0+FH+16,dy=ty-g.y;if(Math.abs(dy)>1.5){const v=Math.min(1.9,Math.abs(dy));g.y+=Math.sign(dy)*v;g.x+=(g.s?-1:1)*.15}});S.gh=S.gh.filter(g=>S.n-g.n<170);S.P.forEach(p=>{if(!p.walk)return;const tx=W/2+(p.s?40:-40),ty=Y0+FH+26,dx=tx-p.x,dy=ty-p.y,d=Math.hypot(dx,dy);if(d<3||p.y>Y0+FH+14){p.walk=0;return}const v=Math.min(1.7,d);p.x+=dx/d*v;p.y+=dy/d*v;p.fx=dx/d;p.fy=dy/d;p.hd=Math.atan2(dy,dx)})}
  geo(as){const g=this.pso?0:as;return{gx:g?X0:X0+FW,dir:g?-1:1,ds:1-as}}   // en la tanda de penales todos se patean al mismo arco
  near(arr,pt){return arr.reduce((b,p)=>!b||dist(p,pt)<dist(b,pt)?p:b,null)}
  psp(d){return clamp(d/24,3.8,6.2)*this.fs}
@@ -412,7 +414,7 @@ class Sim{
    if(S.sb&&S.n<S.sb.t&&!p.tg&&p.k>0&&B.own!==p&&p!==S.sb.tg){const sb=S.sb;   // segunda pelota
     if(p.s===sb.s){if(p.l>=2){const a=(p.k*1.9)%6.28,r2=36+(p.k%4)*9;tx=sb.x+Math.cos(a)*r2;ty=sb.y+Math.sin(a)*r2;vm=2.7}}else if(sb.def&&sb.def.includes(p)){tx=sb.x;ty=sb.y;vm=2.6}}
    if(p.tg){const mv=S.sc&&(S.sc.k=='gk'||S.sc.k=='lat'||S.sc.k=='cor')&&p.k>0&&S.sc.taker!==p&&dist(p,p.tg)<14;tx=p.tg.x+(mv?Math.sin(S.n/23+p.k*1.7)*5:0);ty=p.tg.y+(mv?Math.cos(S.n/29+p.k*2.3)*5:0);vm=p.vmx||2.7}
-   const dx=tx-p.x,dy=ty-p.y,d=Math.hypot(dx,dy)||1,sp=Math.min(vm,d*.1);p.vx+=(dx/d*sp-p.vx)*.2;p.vy+=(dy/d*sp-p.vy)*.2;
+   const dx=tx-p.x,dy=ty-p.y,d=Math.hypot(dx,dy)||1,sp=Math.min(vm*S.fq(p),d*.1);p.vx+=(dx/d*sp-p.vx)*.2;p.vy+=(dy/d*sp-p.vy)*.2;
    {const ob=p.tg&&p.tg.out;p.x=clamp(p.x+p.vx,ob?X0-16:Math.min(X0+R,p.x),ob?X0+FW+16:Math.max(X0+FW-R,p.x));p.y=clamp(p.y+p.vy,ob?Y0-16:Math.min(Y0+R,p.y),ob?Y0+FH+16:Math.max(Y0+FH-R,p.y))}if(p.cool>0)p.cool--;
    if(B.own===p){const gx=p.s?X0:X0+FW,ax=gx-p.x,ay=(H/2-p.y)*.6;let da=Math.atan2(ay,ax);   // conducción fluida: el rumbo gira de a poco, zigzaguea suave y esquiva al que lo marca de frente
     const mk=S.near(P.filter(z=>z.s!==p.s&&!z.off&&z.k>0),p);if(mk&&dist(mk,p)<95)da+=Math.sign((p.y-mk.y)||(p.k%2?1:-1))*(1-dist(mk,p)/95)*.9;
