@@ -170,10 +170,40 @@ hacoaj|Náutico Hacoaj|#0b3d91|#ffffff|39
 sat|SAT|#d1001f|#ffffff|37
 udprovincial|U. D. Provincial|#0a7d3b|#ffffff|36
 uribelarrea|Uribelarrea FC|#0b3d91|#f4d000|37`;
+const R7=`uy_nacional|Nacional (UY)|#ffffff|#1e4fa3|68
+uy_penarol|Peñarol|#f4d000|#111111|68
+uy_defensor|Defensor Sporting|#6b2a8a|#ffffff|60
+uy_danubio|Danubio|#ffffff|#111111|57
+uy_liverpool|Liverpool (UY)|#1e4fa3|#111111|57
+uy_wanderers|Montevideo Wanderers|#111111|#ffffff|54
+uy_riverplate|River Plate (UY)|#d1001f|#ffffff|53
+uy_cerro|Cerro|#7fb3e0|#ffffff|51
+uy_cerrolargo|Cerro Largo|#0b3d91|#ffffff|52
+uy_plaza|Plaza Colonia|#ffffff|#0b3d91|50
+uy_progreso|Progreso|#0b3d91|#f4d000|49
+uy_racing|Racing (UY)|#0a7d3b|#ffffff|51
+uy_boston|Boston River|#0a7d3b|#f4d000|52
+uy_torque|Montevideo City Torque|#7fb3e0|#ffffff|56
+uy_juventud|Juventud (UY)|#d1001f|#ffffff|50
+uy_albion|Albion|#0b3d91|#d1001f|50`,R8=`uy_rentistas|Rentistas|#0b3d91|#d1001f|46
+uy_miramar|Miramar Misiones|#d1001f|#ffffff|45
+uy_uruguaymvd|Uruguay Montevideo|#ffffff|#0b3d91|44
+uy_tacuarembo|Tacuarembó|#0b3d91|#ffffff|45
+uy_rampla|Rampla Juniors|#d1001f|#0a7d3b|46
+uy_maldonado|Deportivo Maldonado|#0b3d91|#ffffff|44
+uy_central|Central Español|#d1001f|#0a7d3b|45
+uy_sudamerica|Sud América|#d1001f|#ffffff|43
+uy_villaesp|Villa Española|#d1001f|#f4d000|43
+uy_fenix|Fénix|#6b2a8a|#ffffff|44
+uy_oriental|Oriental|#d1001f|#ffffff|42
+uy_canadian|Canadian|#d1001f|#111111|42
+uy_atenas|Atenas (UY)|#7fb3e0|#ffffff|42
+uy_artigas|Artigas|#0b3d91|#ffffff|41`;
 const DIVS=[{id:'ar1',country:'Argentina',name:'Primera División',ok:true,teams:mk(R1)},{id:'ar2',country:'Argentina',name:'Primera Nacional',ok:true,teams:mk(R2)},
 {id:'ar5',country:'Argentina',name:'Federal A',ok:true,teams:mk(R5)},
 {id:'ar3',country:'Argentina',name:'Primera B Metropolitana',ok:true,teams:mk(R3)},{id:'ar4',country:'Argentina',name:'Primera C',ok:true,teams:mk(R4)},
-{id:'ar6',country:'Argentina',name:'Promocional Amateur',ok:true,teams:mk(R6)}];
+{id:'ar6',country:'Argentina',name:'Promocional Amateur',ok:true,teams:mk(R6)},
+{id:'uy1',country:'Uruguay',name:'Primera División (Uruguay)',ok:true,teams:mk(R7)},{id:'uy2',country:'Uruguay',name:'Segunda División (Uruguay)',ok:true,teams:mk(R8)}];
 const teams=DIVS.flatMap(x=>x.teams);
 const TM={};teams.forEach(t=>TM[t.id]=t);
 const FM=[[4,4,2],[4,3,3],[3,5,2],[4,5,1],[5,3,2],[4,5,1],[4,4,2],[3,4,3],[5,4,1],[4,4,2],[4,5,1],[4,5,1],[3,6,1],[5,2,3]];
@@ -243,7 +273,7 @@ const CUP_META={sur:{region:'Conurbano Sur',fmts:['liga1','liga2','copa']},oeste
 // Mata-mata: solo llaves completas (4, 8, 16 o 32), sin byes. Partida aleatoria: 10 personas, solo competiciones con 10+ clubes y solo liga (mata-mata de 10 no cierra).
 const KO_SIZES=[4,8,16,32],LIGA_SIZES=[4,6,8,10,12,16,20],RANDOM_N=10;
 function catalog(){const out=[];
- DIVS.filter(d=>d.ok).forEach(d=>out.push({key:d.id,id:d.id,cat:'clasico',name:d.name,region:'Argentina',clubs:d.teams.length,fmts:['liga1','liga2','copa']}));
+ DIVS.filter(d=>d.ok).forEach(d=>out.push({key:d.id,id:d.id,cat:'clasico',name:d.name,region:d.country,clubs:d.teams.length,fmts:['liga1','liga2','copa']}));
  CUPS.forEach(c=>{const m=CUP_META[c.id]||{};out.push({key:'cup:'+c.id,id:c.id,cat:'barrial',name:c.name,title:c.title,region:m.region||'',clubs:c.clubs.length,fmts:(m.fmts||['liga1','liga2']).slice()})});
  return out.map(e=>({...e,sizes:Object.fromEntries(e.fmts.map(f=>[f,f=='copa'?KO_SIZES.filter(n=>n<=e.clubs):[...new Set([...LIGA_SIZES.filter(n=>n<=e.clubs),...(e.cat=='barrial'?[e.clubs]:[])])]])),random:e.clubs>=RANDOM_N,randomFmts:e.clubs>=RANDOM_N?e.fmts.filter(f=>f!='copa'):[]}))}
 const API={KO_SIZES,LIGA_SIZES,RANDOM_N,catalog,CUP_META,NORMAL,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
