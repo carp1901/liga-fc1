@@ -204,6 +204,11 @@ const DIVS=[{id:'ar1',country:'Argentina',name:'Primera División',ok:true,teams
 {id:'ar3',country:'Argentina',name:'Primera B Metropolitana',ok:true,teams:mk(R3)},{id:'ar4',country:'Argentina',name:'Primera C',ok:true,teams:mk(R4)},
 {id:'ar6',country:'Argentina',name:'Promocional Amateur',ok:true,teams:mk(R6)},
 {id:'uy1',country:'Uruguay',name:'Primera División (Uruguay)',ok:true,teams:mk(R7)},{id:'uy2',country:'Uruguay',name:'Segunda División (Uruguay)',ok:true,teams:mk(R8)}];
+// Registro de ligas (selector "Liga:" de Nueva carrera). Para sumar una liga nueva: agregar sus divisiones en DIVS (con country) y una entrada acá.
+// order = categorías de arriba a abajo · cup = copa nacional de ese país · real = ¿ya tiene el formato realista cargado? · kl = texto del selector de categorías
+const LEAGUES=[
+ {id:'ar',name:'Argentina',order:['ar1','ar2','ar3','ar5','ar4','ar6'],cup:'Copa Argentina',real:true,kl:{2:'(Primera y Nacional)',4:'(hasta B Metro y Federal A)',5:'(+ Primera C)',6:'(+ Promocional Amateur)'}},
+ {id:'uy',name:'Uruguay',order:['uy1','uy2'],cup:'Copa Uruguaya',real:false,kl:{2:'(Primera y Segunda)'}}];
 const teams=DIVS.flatMap(x=>x.teams);
 const TM={};teams.forEach(t=>TM[t.id]=t);
 const FM=[[4,4,2],[4,3,3],[3,5,2],[4,5,1],[5,3,2],[4,5,1],[4,4,2],[3,4,3],[5,4,1],[4,4,2],[4,5,1],[4,5,1],[3,6,1],[5,2,3]];
@@ -276,6 +281,6 @@ function catalog(){const out=[];
  DIVS.filter(d=>d.ok).forEach(d=>out.push({key:d.id,id:d.id,cat:'clasico',name:d.name,region:d.country,clubs:d.teams.length,fmts:['liga1','liga2','copa']}));
  CUPS.forEach(c=>{const m=CUP_META[c.id]||{};out.push({key:'cup:'+c.id,id:c.id,cat:'barrial',name:c.name,title:c.title,region:m.region||'',clubs:c.clubs.length,fmts:(m.fmts||['liga1','liga2']).slice()})});
  return out.map(e=>({...e,sizes:Object.fromEntries(e.fmts.map(f=>[f,f=='copa'?KO_SIZES.filter(n=>n<=e.clubs):[...new Set([...LIGA_SIZES.filter(n=>n<=e.clubs),...(e.cat=='barrial'?[e.clubs]:[])])]])),random:e.clubs>=RANDOM_N,randomFmts:e.clubs>=RANDOM_N?e.fmts.filter(f=>f!='copa'):[]}))}
-const API={KO_SIZES,LIGA_SIZES,RANDOM_N,catalog,CUP_META,NORMAL,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
+const API={LEAGUES,KO_SIZES,LIGA_SIZES,RANDOM_N,catalog,CUP_META,NORMAL,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
 
 })();
