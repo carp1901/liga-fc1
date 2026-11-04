@@ -199,7 +199,7 @@ uy_oriental|Oriental|#d1001f|#ffffff|42
 uy_canadian|Canadian|#d1001f|#111111|42
 uy_atenas|Atenas (UY)|#7fb3e0|#ffffff|42
 uy_artigas|Artigas|#0b3d91|#ffffff|41`;
-const DIVS=[{id:'ar1',country:'Argentina',name:'Primera División',ok:true,teams:mk(R1)},{id:'ar2',country:'Argentina',name:'Primera Nacional',ok:true,teams:mk(R2)},
+const DIVS=[{id:'ar1',country:'Argentina',name:'Primera División',ok:true,teams:mk(R1).sort((x,y)=>x.name.localeCompare(y.name,'es'))},{id:'ar2',country:'Argentina',name:'Primera Nacional',ok:true,teams:mk(R2)},
 {id:'ar5',country:'Argentina',name:'Federal A',ok:true,teams:mk(R5)},
 {id:'ar3',country:'Argentina',name:'Primera B Metropolitana',ok:true,teams:mk(R3)},{id:'ar4',country:'Argentina',name:'Primera C',ok:true,teams:mk(R4)},
 {id:'ar6',country:'Argentina',name:'Promocional Amateur',ok:true,teams:mk(R6)},

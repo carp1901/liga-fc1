@@ -178,7 +178,7 @@ class Sim{
    if(!c.arr){if(mv(sp,c.cx,c.cy,2.5))c.arr=S.n}
    else if(!c.arr2){if(S.n-c.arr<24)jit(sp,0,1.6);else if(mv(sp,c.w1.x,c.w1.y,1.9))c.arr2=S.n}
    else jit(sp,0,1.3);
-   {const gw=S.P.find(p=>p.s===sc.side&&p.k==0&&!p.off);if(gw){gw.tg=null;const d=dist(gw,sp);if(d>46)mv(gw,gw.x+(sp.x-gw.x)/d*1.5,gw.y+(sp.y-gw.y)/d*1.5,1.5);else jit(gw,9,.9)}}
+   {const gw=S.P.find(p=>p.s===sc.side&&p.k==0&&!p.off);if(gw){gw.tg=null;const gl=gw.s?X0+FW:X0,d=dist(gw,sp),far=Math.abs(gw.x-gl)>110;if(d>46&&!far)mv(gw,gw.x+(sp.x-gw.x)/d*1.5,gw.y+(sp.y-gw.y)/d*1.5,1.5);else if(far&&Math.abs(sp.x-gl)>Math.abs(gw.x-gl))mv(gw,gl+(gw.s?-1:1)*60,H/2,1.6);else jit(gw,9,.9)}}
    c.mates.forEach((p,j)=>{const a=j*(6.283/c.mates.length)+S.n*.028*(j%2?1:-1),r=24+(j%3)*9;mv(p,sp.x+Math.cos(a)*r,sp.y+Math.sin(a)*r,3.1);jit(p,j+1,1.0)});
    S.P.forEach((p,j)=>{if(p===sp||p.off||p.k==0||c.mates.includes(p))return;if(p.s===sc.side){let w=c.wd.get(p);if(!w||dist(p,w)<4){const h=S.hp(p);w={x:clamp(h.x+(rnd()-.5)*90,X0+R,X0+FW-R),y:clamp(h.y+(rnd()-.5)*90,Y0+R,Y0+FH-R)};c.wd.set(p,w)}mv(p,w.x,w.y,1.3);jit(p,j,.8)}else{const h=S.hp(p);mv(p,h.x,h.y,1.1)}});
    if((c.arr2&&S.n-c.arr2>30)||n>=330)sc.cdone=1}
@@ -215,8 +215,8 @@ class Sim{
   for(const da of[0,.45,-.45,.9,-.9]){const a=a0+da,q={x:clamp(o.x+Math.cos(a)*D,X0+R,X0+FW-R),y:clamp(o.y+Math.sin(a)*D,Y0+R,Y0+FH-R)},lane=Math.min(110,...opp.map(z=>segD(o,q,z))),open=Math.min(110,...opp.map(z=>dist(z,q))),v=lane*1.2+open*.6-Math.abs(da)*18-dist(q,{x:tx,y:ty})*.12;if(v>bv){bv=v;best=q}}
   return best}
  stepRefs(){const S=this,B=S.B,P=S.P,lm=[0,1].map(s=>{const o=P.filter(z=>z.s===s&&!z.off&&z.k>0);return o.length?(s?Math.max(...o.map(z=>z.x)):Math.min(...o.map(z=>z.x))):W/2}),[r,l1,l2]=S.refs;
-  r.tx=clamp(W/2+(B.x-W/2)*.62,X0+60,X0+FW-60);if(!r.sd||S.n%900==0)r.sd=rnd()<.5?-1:1;r.ty=clamp(B.y+r.sd*46,Y0+24,Y0+FH-24);l1.tx=clamp(lm[0],X0+20,W/2+90);l1.ty=Y0-9;l2.tx=clamp(lm[1],W/2-90,X0+FW-20);l2.ty=Y0+FH+9;
-  {const dx=r.tx-r.x,dy=r.ty-r.y,d=Math.hypot(dx,dy);if(d>34){const sp=Math.min(2.1,(d-34)*.04+.3);r.x+=dx/d*sp;r.y+=dy/d*sp}const bd=Math.hypot(r.x-B.x,r.y-B.y);if(bd<34&&bd>.1){const k=Math.min(1.8,34-bd);r.x+=(r.x-B.x)/bd*k;r.y+=(r.y-B.y)/bd*k}}   // el árbitro no corre detrás de la pelota: acompaña desde lejos, en diagonal
+  r.tx=clamp(B.x+(W/2-B.x)*.16+B.vx*5,X0+40,X0+FW-40);if(!r.sd||S.n%700==0)r.sd=rnd()<.5?-1:1;if(B.y<Y0+70)r.sd=1;else if(B.y>Y0+FH-70)r.sd=-1;r.ty=clamp(B.y+r.sd*38+B.vy*5,Y0+22,Y0+FH-22);l1.tx=clamp(lm[0],X0+20,W/2+90);l1.ty=Y0-9;l2.tx=clamp(lm[1],W/2-90,X0+FW-20);l2.ty=Y0+FH+9;
+  {const dx=r.tx-r.x,dy=r.ty-r.y,d=Math.hypot(dx,dy);let sp=0;if(d>24){sp=Math.min(3,(d-24)*.07+.5);r.x+=dx/d*sp;r.y+=dy/d*sp;r.fx=dx/d;r.fy=dy/d}r.ph=(r.ph||0)+sp*.55;r.bob=sp>.5?Math.sin(r.ph)*1.5:0;const bd=Math.hypot(r.x-B.x,r.y-B.y);if(bd<30&&bd>.1){const k=Math.min(2,30-bd);r.x+=(r.x-B.x)/bd*k;r.y+=(r.y-B.y)/bd*k}for(const q of P){if(q.off)continue;const qd=Math.hypot(r.x-q.x,r.y-q.y);if(qd<R+14&&qd>.1){const k=Math.min(1.6,R+14-qd);r.x+=(r.x-q.x)/qd*k;r.y+=(r.y-q.y)/qd*k}}r.x=clamp(r.x,X0+10,X0+FW-10);r.y=clamp(r.y,Y0+12,Y0+FH-12)}   // el árbitro no corre detrás de la pelota: acompaña desde lejos, en diagonal
   [l1,l2].forEach(w=>{w.x+=clamp((w.tx-w.x)*.08,-1.8,1.8);w.y+=(w.ty-w.y)*.12})}   // árbitro cerca de la jugada; jueces de línea a la altura del último defensor
  cornerCross(){const S=this,sc=S.sc,tg=sc.box.length?sc.box[Math.floor(rnd()*sc.box.length)]:sc.taker;sc.tgt=tg;sc.ph='cx';sc.wait=tg;sc.tk=sc.t;S.crossT=S.n;S.crossD=dist(tg,S.B)/((sc.fkd?6.6:5)*S.fs);{const B=S.B,g=S.geo(sc.side),ux=Math.sign(g.gx-B.x)||1,sg=Math.sign(-(tg.y-B.y)*ux)||1,cl=sc.fkd?.5:.78,m=.014+rnd()*.008;sc.closed=rnd()<cl;S.kickAt(tg,(sc.fkd?6.6:5)*S.fs,1,(sc.closed?sg:-sg)*m)}
   S.P.forEach(p=>{if(p.k==0||p===sc.taker)return;if(sc.box.includes(p)||p.s!==sc.side){S.tg(p,tg.x+(rnd()-.5)*46,tg.y+(rnd()-.5)*46);p.vmx=2.6}else p.tg=null})}   // todos van a buscar la pelota
@@ -354,6 +354,7 @@ class Sim{
   P.forEach(p=>{if(p.off||p.k==0)return;const d=dist(p,B);if(d<nd[p.s]){nd2[p.s]=nd[p.s];near2[p.s]=near[p.s];nd[p.s]=d;near[p.s]=p}else if(d<nd2[p.s]){nd2[p.s]=d;near2[p.s]=p}});
   const LL=[0,1].map(s=>{const o=P.filter(z=>z.s!==s&&!z.off&&z.k>0);return o.length?(s?Math.min(...o.map(z=>z.x)):Math.max(...o.map(z=>z.x))):null});
   {const cp=S.poss;if(cp!=null&&S.pp!==cp){if(S.pp!=null&&!S.sc&&!S.rp){const ls=1-cp,st=S.T[ls][0],pr=P.filter(q=>q.s===ls&&!q.off&&q.k>0).sort((a,b)=>dist(a,B)-dist(b,B)).slice(0,[1,2,3][st]);S.trs={s:cp,t:S.n,pr};S.trN=(S.trN||0)+1}S.pp=cp}}   // transición: al perder o recuperar la pelota cada uno pasa a su función
+  S.offL=null;{const bo=B.own;if(bo&&bo.k>0&&!S.pso&&(!S.sc||(S.sc.k=='att'&&S.sc.x!='f'))){const as=bo.s,xs=P.filter(z=>z.s!==as&&!z.off).map(z=>as?W-z.x:z.x).sort((a,b)=>b-a),l=Math.max(xs.length>1?xs[1]:xs.length?xs[0]:W/2,as?W-B.x:B.x,W/2);S.offL={as,l}}}   // línea de fuera de juego: el atacante sin pelota no se queda más allá del penúltimo rival
   P.forEach(p=>{if(p.off)return;if(p.dv){const d=p.dv,q=(S.n-d.n)/d.dur;if(q>=1){p.x=d.tx;p.y=d.ty;if(S.n-d.n>d.dur+30){p.dv=null}}else{const e=q*q*(3-2*q);p.x=d.sx+(d.tx-d.sx)*e;p.y=d.sy+(d.ty-d.sy)*e}p.vx=p.vy=0;return}if(p.swpT&&S.n>=p.swpT){p.hy=p.hy0;p.swpT=0;p.wide=p.l>=2&&Math.abs(p.hy0-.5)>.22}let tx,ty,vm=p.l==0?1.5:1.9;const tt=S.T[p.s];
    if(p.k==0){const gx0=p.s?X0+FW:X0,dgx=p.s?-1:1,bd=Math.abs(B.x-gx0),rival=B.own&&B.own.s!==p.s,adv=(rival?clamp((260-bd)*.28,0,64):clamp((200-bd)*.1,0,16))*[.7,1,1.35][tt[0]]+(!rival&&tt[0]==2&&bd>.45*FW?42:0);   // achica hasta el borde del área
      tx=gx0+dgx*(14+adv);const side=clamp((B.y-H/2)/(bd*.5+70),-1,1);ty=H/2+side*(rival?42:30)+Math.sin(S.n/20+p.s*2)*6;vm=2.2+S.sv(p,'ref')/400;   // tapa el palo del lado de la pelota y nunca está quieto
@@ -416,6 +417,7 @@ class Sim{
    if(S.sb&&S.n<S.sb.t&&!p.tg&&p.k>0&&B.own!==p&&p!==S.sb.tg){const sb=S.sb;   // segunda pelota
     if(p.s===sb.s){if(p.l>=2){const a=(p.k*1.9)%6.28,r2=36+(p.k%4)*9;tx=sb.x+Math.cos(a)*r2;ty=sb.y+Math.sin(a)*r2;vm=2.7}}else if(sb.def&&sb.def.includes(p)){tx=sb.x;ty=sb.y;vm=2.6}}
    if(p.tg){const mv=S.sc&&(S.sc.k=='gk'||S.sc.k=='lat'||S.sc.k=='cor')&&p.k>0&&S.sc.taker!==p&&dist(p,p.tg)<14;tx=p.tg.x+(mv?Math.sin(S.n/23+p.k*1.7)*5:0);ty=p.tg.y+(mv?Math.cos(S.n/29+p.k*2.3)*5:0);vm=p.vmx||2.7}
+   if(S.offL&&p.s===S.offL.as&&p.k>0&&B.own!==p&&!(S.sc&&S.sc.ch&&S.sc.ch.includes(p))){const u=p.s?W-p.x:p.x;if(u>S.offL.l-3){const nx=S.offL.l-8;tx=p.s?W-nx:nx}}
    if(S.pso&&p.k==0&&!p.dv&&p.pw&&(!S.sc||S.sc.k!='pen'||S.sc.side===p.s)){const dd=dist(p,p.pw);if(dd<2){p.x=p.pw.x;p.y=p.pw.y;p.vx=p.vy=0;return}tx=p.pw.x;ty=p.pw.y;vm=2}   // el arquero que espera se queda quieto a un costado del arco
    const dx=tx-p.x,dy=ty-p.y,d=Math.hypot(dx,dy)||1,sp=Math.min(vm*S.fq(p),d*.1);p.vx+=(dx/d*sp-p.vx)*.2;p.vy+=(dy/d*sp-p.vy)*.2;
    {const ob=p.tg&&p.tg.out;p.x=clamp(p.x+p.vx,ob?X0-16:Math.min(X0+R,p.x),ob?X0+FW+16:Math.max(X0+FW-R,p.x));p.y=clamp(p.y+p.vy,ob?Y0-16:Math.min(Y0+R,p.y),ob?Y0+FH+16:Math.max(Y0+FH-R,p.y))}if(p.cool>0)p.cool--;
