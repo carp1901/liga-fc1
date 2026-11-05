@@ -14,7 +14,8 @@
     "lanus": 34,
     "talleres": 33,
     "rosario": 38,
-    "huracan": 29
+    "huracan": 29,
+    "newells": 30
   },
   "sources": {
     "sanlorenzo": {
@@ -55,6 +56,10 @@
     },
     "rosario": {
       "source": "https://rosariocentral.com/plantel-masculino/",
+      "consulted": "2026-11-05"
+    },
+    "newells": {
+      "source": "https://www.newellsoldboys.com.ar/plantel",
       "consulted": "2026-11-05"
     }
   },
