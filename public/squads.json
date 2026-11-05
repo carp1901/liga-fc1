@@ -5831,7 +5831,8 @@
       "n": "Elián Giménez",
       "p": "MED",
       "r": 60,
-      "role": "Mediocampista"
+      "role": "Mediocampista",
+      "number": 23
     },
     {
       "n": "Roque Maisterra",
@@ -6052,7 +6053,8 @@
       "n": "Pablo Argoytia",
       "p": "MED",
       "r": 60,
-      "role": "Mediocampista"
+      "role": "Mediocampista",
+      "number": 37
     },
     {
       "n": "Lucas Castro",
@@ -6460,7 +6462,8 @@
       "n": "Matías Borgogno",
       "p": "POR",
       "r": 60,
-      "role": "Arquero"
+      "role": "Arquero",
+      "number": 1
     },
     {
       "n": "Facundo Quintana",
