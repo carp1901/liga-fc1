@@ -9,7 +9,7 @@
     "river": 28,
     "independiente": 36,
     "estudiantes": 37,
-    "velez": 30,
+    "velez": 32,
     "racing": 27,
     "lanus": 34,
     "talleres": 33,
@@ -27,10 +27,10 @@
     "sarmiento": 31,
     "aldosivi": 35,
     "platense": 38,
-    "defensa": 36,
+    "defensa": 33,
     "union": 33,
     "tigre": 45,
-    "banfield": 36,
+    "banfield": 37,
     "rivadavia": 28,
     "gimnasiamza": 35,
     "estudiantesrc": 32
@@ -471,8 +471,8 @@
         "missing": 0
       },
       "velez": {
-        "total": 30,
-        "assigned": 30,
+        "total": 32,
+        "assigned": 32,
         "missing": 0
       },
       "racing": {
@@ -561,8 +561,8 @@
         "missing": 0
       },
       "defensa": {
-        "total": 36,
-        "assigned": 35,
+        "total": 33,
+        "assigned": 32,
         "missing": 1
       },
       "union": {
@@ -576,8 +576,8 @@
         "missing": 1
       },
       "banfield": {
-        "total": 36,
-        "assigned": 35,
+        "total": 37,
+        "assigned": 36,
         "missing": 1
       },
       "rivadavia": {
@@ -599,9 +599,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 970,
-    "missing": 57,
-    "birthDates": 211,
+    "assigned": 987,
+    "missing": 40,
+    "birthDates": 222,
     "total": 1027,
     "byClub": {
       "sanlorenzo": {
@@ -630,8 +630,8 @@
         "missing": 1
       },
       "velez": {
-        "total": 30,
-        "assigned": 30,
+        "total": 32,
+        "assigned": 32,
         "missing": 0
       },
       "racing": {
@@ -720,9 +720,9 @@
         "missing": 2
       },
       "defensa": {
-        "total": 36,
-        "assigned": 18,
-        "missing": 18
+        "total": 33,
+        "assigned": 32,
+        "missing": 1
       },
       "union": {
         "total": 33,
@@ -735,8 +735,8 @@
         "missing": 4
       },
       "banfield": {
-        "total": 36,
-        "assigned": 36,
+        "total": 37,
+        "assigned": 37,
         "missing": 0
       },
       "rivadavia": {
@@ -1028,13 +1028,13 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "crossClubDuplicateNames": 7,
-    "playersMissingAge": 57,
+    "playersMissingAge": 40,
     "playersMissingDorsal": 22,
     "provisionalRatings": 957,
     "playersWithoutManualAttributes": 1031
   },
   "pending": {
-    "ages": 57,
+    "ages": 40,
     "dorsals": 22,
     "statisticalRatings": 957
   }
