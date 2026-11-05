@@ -77,7 +77,10 @@
       "estado": "pendiente"
     },
     "newells": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 30,
+      "fuente": "https://www.newellsoldboys.com.ar/plantel",
+      "consultado": "2026-11-05"
     },
     "union": {
       "estado": "pendiente"
