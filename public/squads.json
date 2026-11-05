@@ -4998,10 +4998,13 @@
     {
       "n": "Marcelo Miño",
       "p": "POR",
-      "r": 60,
+      "r": 78,
       "role": "Arquero",
       "nat": "Argentina",
-      "number": 30
+      "number": 30,
+      "matchRating2026": 7.4,
+      "ratingApps2026": 25,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     },
     {
       "n": "Juan Insúa",
@@ -6281,10 +6284,13 @@
     {
       "n": "Andrés Vombergar",
       "p": "DEL",
-      "r": 60,
+      "r": 77,
       "role": "Delantero",
       "nat": "Eslovenia",
-      "number": 29
+      "number": 29,
+      "matchRating2026": 7.35,
+      "ratingApps2026": 11,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     }
   ],
   "platense": [
