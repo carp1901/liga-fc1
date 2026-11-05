@@ -16,9 +16,9 @@
     "rosario": 38,
     "huracan": 32,
     "newells": 30,
-    "gimnasia": 35,
+    "gimnasia": 34,
     "argentinos": 33,
-    "belgrano": 37,
+    "belgrano": 36,
     "centralcba": 36,
     "atletico": 35,
     "barracas": 36,
@@ -32,7 +32,7 @@
     "tigre": 45,
     "banfield": 37,
     "rivadavia": 28,
-    "gimnasiamza": 35,
+    "gimnasiamza": 33,
     "estudiantesrc": 32
   },
   "sources": {
@@ -441,9 +441,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1002,
-    "missing": 21,
-    "total": 1023,
+    "assigned": 1001,
+    "missing": 18,
+    "total": 1019,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -506,8 +506,8 @@
         "missing": 1
       },
       "gimnasia": {
-        "total": 35,
-        "assigned": 34,
+        "total": 34,
+        "assigned": 33,
         "missing": 1
       },
       "argentinos": {
@@ -516,9 +516,9 @@
         "missing": 1
       },
       "belgrano": {
-        "total": 37,
+        "total": 36,
         "assigned": 36,
-        "missing": 1
+        "missing": 0
       },
       "centralcba": {
         "total": 36,
@@ -586,9 +586,9 @@
         "missing": 0
       },
       "gimnasiamza": {
-        "total": 35,
+        "total": 33,
         "assigned": 32,
-        "missing": 3
+        "missing": 1
       },
       "estudiantesrc": {
         "total": 32,
@@ -599,10 +599,10 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 1006,
-    "missing": 17,
-    "birthDates": 240,
-    "total": 1023,
+    "assigned": 1018,
+    "missing": 1,
+    "birthDates": 250,
+    "total": 1019,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -621,13 +621,13 @@
       },
       "independiente": {
         "total": 36,
-        "assigned": 33,
-        "missing": 3
+        "assigned": 36,
+        "missing": 0
       },
       "estudiantes": {
         "total": 37,
-        "assigned": 36,
-        "missing": 1
+        "assigned": 37,
+        "missing": 0
       },
       "velez": {
         "total": 32,
@@ -665,9 +665,9 @@
         "missing": 0
       },
       "gimnasia": {
-        "total": 35,
+        "total": 34,
         "assigned": 34,
-        "missing": 1
+        "missing": 0
       },
       "argentinos": {
         "total": 33,
@@ -675,9 +675,9 @@
         "missing": 0
       },
       "belgrano": {
-        "total": 37,
+        "total": 36,
         "assigned": 36,
-        "missing": 1
+        "missing": 0
       },
       "centralcba": {
         "total": 36,
@@ -686,13 +686,13 @@
       },
       "atletico": {
         "total": 35,
-        "assigned": 34,
-        "missing": 1
+        "assigned": 35,
+        "missing": 0
       },
       "barracas": {
         "total": 36,
-        "assigned": 35,
-        "missing": 1
+        "assigned": 36,
+        "missing": 0
       },
       "riestra": {
         "total": 32,
@@ -706,13 +706,13 @@
       },
       "sarmiento": {
         "total": 30,
-        "assigned": 29,
-        "missing": 1
+        "assigned": 30,
+        "missing": 0
       },
       "aldosivi": {
         "total": 35,
-        "assigned": 34,
-        "missing": 1
+        "assigned": 35,
+        "missing": 0
       },
       "platense": {
         "total": 36,
@@ -721,13 +721,13 @@
       },
       "defensa": {
         "total": 33,
-        "assigned": 32,
-        "missing": 1
+        "assigned": 33,
+        "missing": 0
       },
       "union": {
         "total": 33,
-        "assigned": 32,
-        "missing": 1
+        "assigned": 33,
+        "missing": 0
       },
       "tigre": {
         "total": 45,
@@ -745,14 +745,14 @@
         "missing": 0
       },
       "gimnasiamza": {
-        "total": 35,
-        "assigned": 32,
-        "missing": 3
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
       },
       "estudiantesrc": {
         "total": 32,
-        "assigned": 31,
-        "missing": 1
+        "assigned": 32,
+        "missing": 0
       }
     }
   },
@@ -1024,18 +1024,18 @@
   },
   "qualityAudit": {
     "clubs": 30,
-    "players": 1023,
+    "players": 1019,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "crossClubDuplicateNames": 7,
-    "playersMissingAge": 17,
-    "playersMissingDorsal": 21,
+    "playersMissingAge": 1,
+    "playersMissingDorsal": 18,
     "provisionalRatings": 957,
     "playersWithoutManualAttributes": 1031
   },
   "pending": {
-    "ages": 17,
-    "dorsals": 21,
+    "ages": 1,
+    "dorsals": 18,
     "statisticalRatings": 957
   }
 }
