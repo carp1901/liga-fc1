@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:04:15.062Z",
+  "updatedAt": "2026-11-05T20:04:42.269Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -597,7 +597,7 @@
         "https://statz.ai/player/leandro-fernandez/212274",
         "https://statz.ai/player/juan-gutierrez/17158436"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-defensa-y-justicia/kader/verein/1244",
       "ageConsulted": "2026-11-05"
     },
     "union": {
@@ -617,7 +617,7 @@
         "https://statz.ai/player/julian-palacios/37357223",
         "https://statz.ai/player/cristian-tarragona/215256"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-union-de-santa-fe/kader/verein/709",
       "ageConsulted": "2026-11-05"
     },
     "tigre": {
@@ -645,7 +645,7 @@
         "https://statz.ai/player/felipe-zenobio/37445057",
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-tigre/kader/verein/1188",
       "ageConsulted": "2026-11-05"
     },
     "banfield": {
@@ -656,7 +656,7 @@
       "numberCoverage": "35/35",
       "ageSource": "https://clubabanfield.org/plantel-profesional-masculino/",
       "ratingSource": [],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-banfield/kader/verein/1120",
       "ageConsulted": "2026-11-05"
     },
     "rivadavia": {
@@ -674,7 +674,7 @@
         "https://www.transfermarkt.com.ar/matias-reali/profil/spieler/984692"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-independiente-rivadavia/kader/verein/1236",
       "ageConsulted": "2026-11-05"
     },
     "gimnasiamza": {
@@ -696,7 +696,7 @@
         "https://statz.ai/player/facundo-lencioni/37568087",
         "https://statz.ai/player/agustin-modica/37718748"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/gimnasia-y-esgrima-de-mendoza/kader/verein/1099",
       "ageConsulted": "2026-11-05"
     },
     "estudiantesrc": {
@@ -1168,8 +1168,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 803,
-    "missing": 215,
+    "assigned": 1013,
+    "missing": 5,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1266,27 +1266,27 @@
       },
       "defensa": {
         "total": 36,
-        "specific": 0
+        "specific": 36
       },
       "union": {
         "total": 32,
-        "specific": 0
+        "specific": 32
       },
       "tigre": {
         "total": 47,
-        "specific": 0
+        "specific": 47
       },
       "banfield": {
         "total": 35,
-        "specific": 0
+        "specific": 35
       },
       "rivadavia": {
         "total": 29,
-        "specific": 0
+        "specific": 29
       },
       "gimnasiamza": {
         "total": 32,
-        "specific": 1
+        "specific": 32
       },
       "estudiantesrc": {
         "total": 32,
