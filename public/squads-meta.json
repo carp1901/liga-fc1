@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T22:00:00.000Z",
+  "updatedAt": "2026-11-05T22:30:00.000Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -60,7 +60,9 @@
     },
     "independiente": {
       "source": "https://www.clubaindependiente.com.ar/futbol/plantel",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.lpf.org.ar/clubes/independiente/",
+      "numbersConsulted": "2026-11-05"
     },
     "estudiantes": {
       "source": "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
