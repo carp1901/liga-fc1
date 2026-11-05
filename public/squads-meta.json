@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:56:03.910Z",
+  "updatedAt": "2026-11-05T19:56:41.000Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -641,7 +641,7 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "35/35",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/banfield",
+      "ageSource": "https://clubabanfield.org/plantel-profesional-masculino/",
       "ratingSource": [],
       "roleSource": [],
       "ageConsulted": "2026-11-05"
@@ -871,7 +871,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 855,
+    "birthDates": 890,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
