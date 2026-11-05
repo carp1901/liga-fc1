@@ -119,7 +119,9 @@
       "source": "https://www.tycsports.com/argentinos-juniors.html",
       "consulted": "2026-11-05",
       "numberSource": "https://www.ligaprofesional.ar/clubes/argentinos-juniors/",
-      "numbersConsulted": "2026-11-05"
+      "numbersConsulted": "2026-11-05",
+      "numberCoverage": "31/33",
+      "numberConflict": "Santiago Silveira y Federico Mancuello sin dorsal confirmado en la fuente oficial consultada."
     },
     "belgrano": {
       "source": "https://www.tycsports.com/belgrano-de-cordoba.html",
@@ -173,7 +175,8 @@
       "source": "https://www.tycsports.com/platense.html",
       "consulted": "2026-11-05",
       "numberSource": "https://www.ligaprofesional.ar/clubes/platense/",
-      "numbersConsulted": "2026-11-05"
+      "numbersConsulted": "2026-11-05",
+      "numberCoverage": "38/38"
     },
     "defensa": {
       "source": "https://www.tycsports.com/defensa-y-justicia.html",
