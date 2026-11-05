@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:01:23.823Z",
+  "updatedAt": "2026-11-05T20:02:12.258Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -49,7 +49,7 @@
         "https://sanlorenzo.com.ar/futbol-profesional/plantel/perfil/rodrigo-auzmendi"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.es/ca-san-lorenzo-de-almagro/kader/verein/1775",
       "ageConsulted": "2026-11-05"
     },
     "boca": {
@@ -89,6 +89,7 @@
         "https://statz.ai/player/sebastian-driussi/333771"
       ],
       "roleSource": [
+        "https://www.transfermarkt.com.ar/club-atletico-river-plate/kader/verein/209",
         "posicion habitual",
         "https://www.tycsports.com/river-plate/lautaro-pereyra-primer-juvenil-debut-coudet-river-id722721.html"
       ]
@@ -114,7 +115,7 @@
         "https://clubaindependiente.com.ar/futbol/plantel/ezequiel-avila"
       ],
       "ratingSource": "https://statz.ai/player/rodrigo-rey/333870",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.es/ca-independiente/kader/verein/1234",
       "ageConsulted": "2026-11-05"
     },
     "estudiantes": {
@@ -1157,13 +1158,13 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 81,
-    "missing": 937,
+    "assigned": 160,
+    "missing": 858,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
         "total": 39,
-        "specific": 0
+        "specific": 39
       },
       "boca": {
         "total": 31,
@@ -1171,11 +1172,11 @@
       },
       "river": {
         "total": 27,
-        "specific": 22
+        "specific": 26
       },
       "independiente": {
         "total": 36,
-        "specific": 0
+        "specific": 36
       },
       "estudiantes": {
         "total": 37,
