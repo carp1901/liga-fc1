@@ -108,7 +108,7 @@
       "consulted": "2026-11-05",
       "numberSource": "https://www.ligaprofesional.ar/clubes/velez",
       "numbersConsulted": "2026-11-05",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/velez",
+      "ageSource": "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
       "ratingSource": [
         "https://statz.ai/player/diego-valdes/233682",
         "https://statz.ai/player/ronaldo-martinez/258143"
@@ -119,7 +119,7 @@
     "racing": {
       "source": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
       "consulted": "2026-11-05",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/racing-club",
+      "ageSource": "https://www.transfermarkt.com.ar/club-atletico-racing-club/kader/verein/1447",
       "numberSource": [],
       "ratingSource": [
         "https://statz.ai/player/facundo-cambeses/456310",
@@ -137,7 +137,7 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/lanus/",
+      "ageSource": "https://www.transfermarkt.com.ar/club-atletico-lanus/kader/verein/333",
       "ratingSource": [
         "https://statz.ai/player/nahuel-losada/216737",
         "https://statz.ai/player/eduardo-salvio/159096"
@@ -158,17 +158,7 @@
     "rosario": {
       "source": "https://rosariocentral.com/plantel-masculino/",
       "consulted": "2026-11-05",
-      "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/rosario-central/",
-        "https://www.transfermarkt.com.ar/damian-fernandez/profil/spieler/1297991",
-        "https://www.transfermarkt.com.ar/sebastian-zaracho/profil/spieler/750754",
-        "https://www.transfermarkt.com.ar/agustin-sandez/profil/spieler/847023",
-        "https://www.transfermarkt.com.ar/juan-cruz-komar/profil/spieler/319691",
-        "https://www.transfermarkt.com.ar/gaston-avila/profil/spieler/748601",
-        "https://www.transfermarkt.com.ar/emanuel-coronel/profil/spieler/565194",
-        "https://www.transfermarkt.com.ar/alexis-soto/profil/spieler/409272",
-        "https://www.transfermarkt.com.ar/julian-fernandez/profil/spieler/984053"
-      ],
+      "ageSource": "https://www.transfermarkt.com.ar/club-atletico-rosario-central/kader/verein/1418",
       "numberSource": [],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
       "roleSource": [],
@@ -609,9 +599,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 894,
-    "missing": 142,
-    "birthDates": 138,
+    "assigned": 908,
+    "missing": 128,
+    "birthDates": 152,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -641,18 +631,18 @@
       },
       "velez": {
         "total": 30,
-        "assigned": 29,
-        "missing": 1
+        "assigned": 30,
+        "missing": 0
       },
       "racing": {
         "total": 27,
-        "assigned": 23,
-        "missing": 4
+        "assigned": 27,
+        "missing": 0
       },
       "lanus": {
         "total": 34,
-        "assigned": 30,
-        "missing": 4
+        "assigned": 34,
+        "missing": 0
       },
       "talleres": {
         "total": 33,
@@ -661,8 +651,8 @@
       },
       "rosario": {
         "total": 38,
-        "assigned": 32,
-        "missing": 6
+        "assigned": 37,
+        "missing": 1
       },
       "huracan": {
         "total": 32,
@@ -1037,13 +1027,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 142,
+    "playersMissingAge": 128,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 142,
+    "ages": 128,
     "dorsals": 23
   }
 }
