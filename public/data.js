@@ -248,8 +248,9 @@ function mkAt(p,r,rr){const P=PROFILES[p]||PROFILES.MED,at={};ATTRS.forEach(a=>a
  for(let k=0;k<3;k++){let s=0;for(const a in P.w)s+=P.w[a]*at[a];const dl=r-s;ATTRS.forEach(a=>at[a]=Math.max(15,Math.min(99,at[a]+dl)))}   // se recentra para que la media del puesto coincida con r
  ATTRS.forEach(a=>at[a]=clampA(at[a]));return at}
 // completa un jugador: si trae los 8 atributos se respetan (y si falta la media se calcula); si trae algunos, el resto se deriva; si no trae ninguno, se deriva todo de p y r
-const withAt=(x,key)=>{if(x.at&&ATTRS.filter(a=>a!=='lea').every(a=>typeof x.at[a]=='number')){const age=Number(x.age),lead=Number.isFinite(age)&&age>0?Math.max(35,Math.min(92,Math.round(42+(age-18)*2.1))):50;return{...x,r:x.r!=null?x.r:Math.round(roleOvr(x,x.p)),at:{...x.at,lea:x.at.lea??lead}};}
- const r0=x.r!=null?x.r:60,gen=mkAt(x.p,r0,rng(hs('at|'+key+'|'+x.n+'|'+x.p)));const age=Number(x.age),lead=Number.isFinite(age)&&age>0?Math.max(35,Math.min(92,Math.round(42+(age-18)*2.1))):50;return{...x,r:r0,at:{...gen,...(x.at||{}),lea:x.at?.lea??lead}}};
+const goalkeeperOnly=['ref','par','man','sal'];
+const withAt=(x,key)=>{if(x.at&&ATTRS.filter(a=>a!=='lea').every(a=>typeof x.at[a]=='number')){const age=Number(x.age),lead=Number.isFinite(age)&&age>0?Math.max(35,Math.min(92,Math.round(42+(age-18)*2.1))):50,at={...x.at,lea:x.at.lea??lead};if(x.p!=='POR')goalkeeperOnly.forEach(a=>at[a]=15);return{...x,r:x.r!=null?x.r:Math.round(roleOvr(x,x.p)),at};}
+ const r0=x.r!=null?x.r:60,gen=mkAt(x.p,r0,rng(hs('at|'+key+'|'+x.n+'|'+x.p))),age=Number(x.age),lead=Number.isFinite(age)&&age>0?Math.max(35,Math.min(92,Math.round(42+(age-18)*2.1))):50,at={...gen,...(x.at||{}),lea:x.at?.lea??lead};if(x.p!=='POR')goalkeeperOnly.forEach(a=>at[a]=15);return{...x,r:r0,at};};
 const SQ={};let REAL={};try{REAL=require('./squads.json')}catch(e){REAL=(typeof window!=='undefined'&&window.SQUADS)||{}}
 const rawSquad=id=>SQ[id]||(SQ[id]=(REAL[id]||(()=>{const t=TM[id],r=rng(hs('sq'+id));return POS.map(p=>({p,n:String.fromCharCode(65+Math.floor(r()*26))+'. '+AP[Math.floor(r()*AP.length)],r:Math.round(t.r-10+r()*16)}))})()).map((x,i)=>withAt(x,id+'|'+i)));
 let MIX=false;const setMix=b=>{MIX=!!b};
@@ -257,7 +258,7 @@ let MIX=false;const setMix=b=>{MIX=!!b};
 // hasta que la calidad de su once titular (4-4-2, con la media de cada puesto) llegue a BAL_T; se conservan las diferencias entre jugadores, líneas y perfiles.
 const BAL_T=PLAYER_SCALE.online.target,SN={};
 const xiQuality=sq=>{const xi=autoXI(sq,0),sl=slots(0);return xi.reduce((a,i,k)=>a+roleOvr(sq[i],sl[k]),0)/11};
-const squadN=id=>SN[id]||(SN[id]=(()=>{const s=rawSquad(id),dl=BAL_T-xiQuality(s),lo=PLAYER_SCALE.online.min,hi=PLAYER_SCALE.online.max;return s.map(x=>({...x,r:Math.max(lo,Math.min(hi,Math.round(x.r+dl))),at:Object.fromEntries(ATTRS.map(a=>[a,Math.max(lo,Math.min(hi,clampA(x.at[a]+dl)))]))}))})());
+const squadN=id=>SN[id]||(SN[id]=(()=>{const s=rawSquad(id),dl=BAL_T-xiQuality(s),lo=PLAYER_SCALE.online.min,hi=PLAYER_SCALE.online.max;return s.map(x=>({...x,r:Math.max(lo,Math.min(hi,Math.round(x.r+dl))),at:Object.fromEntries(ATTRS.map(a=>[a,x.p!=='POR'&&goalkeeperOnly.includes(a)?15:Math.max(lo,Math.min(hi,clampA(x.at[a]+dl)))]))}))})());
 const squadMode=(id,mix)=>mix?squadN(id):rawSquad(id);
 const squad=id=>MIX?squadN(id):rawSquad(id);
 // Torneos barriales/regionales (fantasía, no oficiales). IDs resueltos contra los clubes existentes; los del Promocional Amateur usan sus IDs actuales (fcezeiza, defglew, metalurgico, atpilar, hacoaj, controlorientado, belgranozarate, barrancas, bacity, everton, alumni, estrellaberisso, mandarinas, udprovincial, etc.).
