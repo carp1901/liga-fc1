@@ -66,11 +66,11 @@
     "river": {
       "source": "https://www.riverplate.com/football/professional-football/men/squad",
       "consulted": "2026-11-05",
-      "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
+      "ageSource": "https://www.ligaprofesional.ar/clubes/river-plate/",
       "ageConsulted": "2026-11-05",
       "ageCoverage": "24/27",
       "roleCoverage": "21/27",
-      "numberSource": [],
+      "numberSource": "https://www.ligaprofesional.ar/clubes/river-plate/",
       "ratingSource": [
         "https://statz.ai/player/santiago-beltran/37691347",
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -226,7 +226,7 @@
     "argentinos": {
       "source": "https://www.tycsports.com/argentinos-juniors.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/458-argentinos-juniors",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/argentinos-juniors/",
       "numbersConsulted": "2026-11-06",
       "numberCoverage": "30/33",
       "numberConflict": "Santiago Silveira y Federico Mancuello sin dorsal confirmado. Mateo Mendoza figura sin número en la ficha LPF; no asignar #23, que corresponde a Hernán López Muñoz.",
@@ -295,7 +295,7 @@
     "riestra": {
       "source": "https://deportivoriestra.com.ar/equipo",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://www.ligaprofesional.ar/clubes/deportivo-riestra/",
       "numbersConsulted": "2026-11-05",
       "ageSource": "https://www.ligaprofesional.ar/clubes/deportivo-riestra/",
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -419,15 +419,9 @@
     "rivadavia": {
       "source": "https://www.tycsports.com/independiente-rivadavia.html",
       "consulted": "2026-11-05",
-      "numberSource": [
-        "https://www.bdfutbol.com/es/t/t2026-278046.html",
-        "https://csir.com.ar/futbol?tab=plantel"
-      ],
+      "numberSource": "https://www.ligaprofesional.ar/clubes/independiente-rivadavia/",
       "numbersConsulted": "2026-11-05",
-      "ageSource": [
-        "https://www.transfermarkt.com.ar/independiente-rivadavia/kader/verein/12179",
-        "https://www.transfermarkt.com.ar/matias-salvo/profil/spieler/1307274"
-      ],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/independiente-rivadavia/",
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
       "roleSource": [],
       "ageConsulted": "2026-11-05"
@@ -628,8 +622,8 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 771,
-    "missing": 265,
+    "assigned": 805,
+    "missing": 231,
     "birthDates": 115,
     "total": 1036,
     "byClub": {
@@ -645,8 +639,8 @@
       },
       "river": {
         "total": 27,
-        "assigned": 24,
-        "missing": 3
+        "assigned": 27,
+        "missing": 0
       },
       "independiente": {
         "total": 36,
@@ -700,8 +694,8 @@
       },
       "argentinos": {
         "total": 33,
-        "assigned": 26,
-        "missing": 7
+        "assigned": 29,
+        "missing": 4
       },
       "belgrano": {
         "total": 37,
@@ -725,8 +719,8 @@
       },
       "riestra": {
         "total": 32,
-        "assigned": 11,
-        "missing": 21
+        "assigned": 31,
+        "missing": 1
       },
       "instituto": {
         "total": 38,
@@ -770,8 +764,8 @@
       },
       "rivadavia": {
         "total": 29,
-        "assigned": 20,
-        "missing": 9
+        "assigned": 28,
+        "missing": 1
       },
       "gimnasiamza": {
         "total": 35,
@@ -1056,12 +1050,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 265,
+    "playersMissingAge": 231,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 265
+    "ages": 231,
+    "dorsals": 23
   }
 }
