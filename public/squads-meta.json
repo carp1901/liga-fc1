@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:53:29.490Z",
+  "updatedAt": "2026-11-05T19:54:09.531Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -453,10 +453,9 @@
       "numberCoverage": "36/38",
       "numberConflict": "Lautaro Ludueña queda sin dorsal confirmado. Franco Jara no se asigna: el #29 de la fuente secundaria colisiona con Marcos Ledesma (#29 oficial). Medina #61 y Peralta #63 contrastados con plantel 2026.",
       "ageSource": [
-        "https://www.transfermarkt.com.ar/instituto-ac-cordoba-ii/kader/verein/28181",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/instituto/plantilla",
         "https://www.transfermarkt.com.ar/marcos-ledesma/profil/spieler/344421",
         "https://www.transfermarkt.com.ar/emanuel-sittaro/profil/spieler/717685",
-        "https://www.ligaprofesional.ar/clubes/instituto/",
         "https://www.transfermarkt.com.ar/hernan-de-la-fuente/profil/spieler/552628",
         "https://www.transfermarkt.com.ar/lucas-olivera/profil/spieler/1428233",
         "https://www.transfermarkt.com.ar/lautaro-luduena/profil/spieler/1379205",
@@ -482,9 +481,8 @@
       "numberCoverage": "29/31",
       "numberConflict": "Lautaro Monza y Roque Maisterra sin dorsal confirmado; Elián Giménez #23.",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/sarmiento/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/sarmiento/plantilla",
         "https://www.diez.hn/liganacional/lautaro-monza-sarmiento-2026",
-        "https://www.transfermarkt.com.ar/ca-sarmiento/kader/verein/2067",
         "https://www.transfermarkt.com.ar/elian-gimenez/marktwertverlauf/spieler/1290521"
       ],
       "ratingSource": [
@@ -502,10 +500,11 @@
       "numberCoverage": "33/36",
       "numberConflict": "Braian Cufré (#13) entra en conflicto con Federico Gino (#13) del listado LPF; León Lambardi y Joaquín Salinas sin confirmación actual inequívoca. Pablo Argoytia #37 confirmado en planilla de partido.",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/aldosivi",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/aldosivi/plantilla",
         "https://www.zerozero.com.ar/jugador/pablo-argoytia/",
         "https://www.transfermarkt.com.ar/club-atletico-aldosivi-ii/leistungsdaten/verein/72763",
         "https://www.transfermarkt.com.ar/club-atletico-aldosivi-ii/startseite/verein/72763",
+        "https://www.ligaprofesional.ar/clubes/aldosivi",
         "https://www.transfermarkt.com.ar/augusto-fernandez/profil/spieler/1230644"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -848,7 +847,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 665,
+    "birthDates": 745,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
