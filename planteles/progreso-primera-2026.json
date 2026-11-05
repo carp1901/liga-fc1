@@ -65,7 +65,10 @@
       "consultado": "2026-11-05"
     },
     "huracan": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 32,
+      "fuente": "https://www.tycsports.com/huracan.html",
+      "consultado": "2026-11-05"
     },
     "belgrano": {
       "estado": "pendiente"
