@@ -18,9 +18,8 @@
     },
     "racing": {
       "estado": "recopilado",
-      "jugadores": 39,
-      "fuente": "https://www.lpf.org.ar/clubes/racing-club",
-      "fuente_complementaria": "https://www.tycsports.com/racing-club.html",
+      "jugadores": 27,
+      "fuente": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
       "consultado": "2026-11-05"
     },
     "independiente": {
