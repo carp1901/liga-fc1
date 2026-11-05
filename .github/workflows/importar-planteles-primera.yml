@@ -23,5 +23,9 @@ jobs:
           git add public/squads.json public/squads.js public/squads-meta.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Importar planteles reales Primera Argentina 2026"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Importar planteles reales Primera Argentina 2026"
+            git push
+          else
+            echo "Los planteles ya estaban actualizados."
+          fi
