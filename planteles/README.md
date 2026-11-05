@@ -28,6 +28,8 @@ Campos:
 - `edad`, `dorsal`, `rol`: datos publicados por la fuente.
 - `fuente`: URL exacta consultada.
 - `consultado`: fecha de consulta YYYY-MM-DD.
+- `nat`: nacionalidad deportiva para mostrar la bandera en la ficha; usar el país confirmado.
+- `abreviatura`: forma corta opcional para listas (por ejemplo, `F. Altamirano`).
 - `pie`, `posiciones_secundarias`, `id` y atributos: opcionales.
 
 ## Importación
