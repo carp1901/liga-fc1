@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:58:33.018Z",
+  "updatedAt": "2026-11-05T19:58:59.178Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -523,7 +523,7 @@
       "numberCoverage": "38/38",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/platense/plantilla",
-        "https://www.ligaprofesional.ar/clubes/platense/",
+        "https://www.zerozero.com.ar/jugador/santino-cambiasso/2827161?epoca_id=155",
         "https://cap.org.ar/2024/11/ivo-visona-y-celias-ingenthron-son-jugadores-profesionales/",
         "https://www.soloascenso.com.ar/perfil/juan-saborido/23453",
         "https://cap.org.ar/2026/01/maximiliano-amarfil-es-la-cara-nueva-de-platense/",
@@ -675,7 +675,7 @@
         "https://www.transfermarkt.com.ar/santiago-roggero/profil/spieler/1308912",
         "https://www.transfermarkt.com.ar/cesar-rigamonti/profil/spieler/76159",
         "https://canchallena.lanacion.com.ar/equipo/gimnasia-mendoza-9vph9w7uflam4cks28dfp98h4/",
-        "https://www.ligaprofesional.ar/clubes/gimnasia-de-mendoza/",
+        "https://www.transfermarkt.com.ar/imanol-gonzalez/profil/spieler/426529",
         "https://www.transfermarkt.com.ar/ca-gimnasia-y-esgrima-mendoza-/startseite/verein/14687",
         "https://www.transfermarkt.com.ar/luciano-cingolani/profil/spieler/847293",
         "https://www.transfermarkt.com.ar/nicolas-linares/profil/spieler/534616"
@@ -874,7 +874,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 1014,
+    "birthDates": 1016,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1157,8 +1157,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 53,
-    "missing": 965,
+    "assigned": 54,
+    "missing": 964,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1275,7 +1275,7 @@
       },
       "gimnasiamza": {
         "total": 32,
-        "specific": 0
+        "specific": 1
       },
       "estudiantesrc": {
         "total": 32,
