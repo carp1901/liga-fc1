@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T05:43:39.366Z",
+  "updatedAt": "2026-11-05T05:44:21.058Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -38,7 +38,9 @@
   "sources": {
     "sanlorenzo": {
       "source": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
+      "numbersConsulted": "2026-11-05"
     },
     "boca": {
       "source": "https://www.bocajuniors.com.ar/futbol-masculino",
@@ -72,7 +74,9 @@
     },
     "talleres": {
       "source": "https://www.tycsports.com/talleres-de-cordoba.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.clubtalleres.com.ar/que-numero-usara-cada-jugador-de-talleres-los-dorsales-para-el-clausura-2026/",
+      "numbersConsulted": "2026-11-05"
     },
     "rosario": {
       "source": "https://rosariocentral.com/plantel-masculino/",
@@ -80,12 +84,16 @@
     },
     "newells": {
       "source": "https://www.newellsoldboys.com.ar/plantel",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.newellsoldboys.com.ar/plantel",
+      "numbersConsulted": "2026-11-05"
     },
     "gimnasia": {
       "source": "https://www.tycsports.com/gimnasia-de-la-plata.html",
       "nationalities": "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.gimnasia.org.ar/futbol/futbol-profesional/",
+      "numbersConsulted": "2026-11-05"
     },
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
@@ -132,7 +140,7 @@
     "instituto": {
       "source": "https://www.tycsports.com/instituto.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://institutoacc.com.ar/index.php/category/futbol-plantel/",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/instituto",
       "numbersConsulted": "2026-11-05"
     },
     "sarmiento": {
@@ -156,7 +164,7 @@
     "defensa": {
       "source": "https://www.tycsports.com/defensa-y-justicia.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/442-defensa-y-justicia",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/defensa-y-justicia/",
       "numbersConsulted": "2026-11-05"
     },
     "union": {
@@ -168,7 +176,7 @@
     "tigre": {
       "source": "https://www.tycsports.com/tigre.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/242-tigre",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/tigre",
       "numbersConsulted": "2026-11-05"
     },
     "banfield": {
@@ -186,7 +194,7 @@
     "gimnasiamza": {
       "source": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/gimnasia-de-mendoza/",
       "numbersConsulted": "2026-11-05"
     },
     "estudiantesrc": {
