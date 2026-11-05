@@ -3951,7 +3951,9 @@
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 18,
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/458-argentinos-juniors"
     },
     {
       "n": "Nicolás Oroz",
@@ -4080,7 +4082,9 @@
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 43,
+      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278023.html"
     },
     {
       "n": "Agustín Bonomo",
@@ -4094,7 +4098,9 @@
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 44,
+      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278023.html"
     },
     {
       "n": "Agustín Falcón",
@@ -4512,7 +4518,9 @@
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 41,
+      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html"
     },
     {
       "n": "Federico Rodriguez",
@@ -6135,7 +6143,9 @@
       "n": "Joaquín Salinas",
       "p": "MED",
       "r": 60,
-      "role": "Mediocampista"
+      "role": "Mediocampista",
+      "number": 40,
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/53-aldosivi"
     },
     {
       "n": "Alan Sosa",
@@ -7704,7 +7714,9 @@
       "n": "Matías Reali",
       "p": "MED",
       "r": 60,
-      "role": "Mediocampista"
+      "role": "Mediocampista",
+      "number": 80,
+      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278046.html"
     },
     {
       "n": "Alessandro Riep",
@@ -7731,7 +7743,9 @@
       "n": "Kevin Vasquez",
       "p": "MED",
       "r": 60,
-      "role": "Mediocampista"
+      "role": "Mediocampista",
+      "number": 32,
+      "numberSource": "https://csir.com.ar/futbol?tab=plantel"
     },
     {
       "n": "Alex Arce",
