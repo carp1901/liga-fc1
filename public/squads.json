@@ -3932,7 +3932,8 @@
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 41
     },
     {
       "n": "Franco Vázquez",
@@ -4357,7 +4358,8 @@
       "p": "DEL",
       "r": 60,
       "role": "Delantero",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 63
     },
     {
       "n": "Julián Nuñez",
@@ -4414,7 +4416,8 @@
       "p": "POR",
       "r": 60,
       "role": "Arquero",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 40
     },
     {
       "n": "Javier Vallejos",
