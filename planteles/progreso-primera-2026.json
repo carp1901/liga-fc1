@@ -17,7 +17,11 @@
       "consultado": "2026-11-05"
     },
     "racing": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 39,
+      "fuente": "https://www.lpf.org.ar/clubes/racing-club",
+      "fuente_complementaria": "https://www.tycsports.com/racing-club.html",
+      "consultado": "2026-11-05"
     },
     "independiente": {
       "estado": "recopilado",
