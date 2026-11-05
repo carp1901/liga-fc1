@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:55:28.103Z",
+  "updatedAt": "2026-11-05T19:55:41.466Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -591,7 +591,7 @@
       "numbersConsulted": "2026-11-06",
       "ageSource": [
         "https://www.transfermarkt.com.ar/agustin-chavez/leistungsdaten/spieler/1285257",
-        "https://www.ligaprofesional.ar/clubes/union/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/union-santa-fe/plantilla",
         "https://www.transfermarkt.com.ar/mateo-aimar/profil/spieler/1276630",
         "https://www.transfermarkt.com.ar/ca-union-santa-fe-ii/kader/verein/45045",
         "https://www.transfermarkt.com.ar/juan-pablo-luduena/profil/spieler/1103988"
@@ -868,7 +868,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 803,
+    "birthDates": 831,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
