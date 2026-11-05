@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T22:45:00.000Z",
+  "updatedAt": "2026-11-05T23:00:00.000Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -219,5 +219,162 @@
     }
   },
   "completePrimera": true,
-  "ageReferenceDate": "2026-11-05"
+  "ageReferenceDate": "2026-11-05",
+  "numberCoverage": {
+    "assigned": 963,
+    "missing": 73,
+    "total": 1036,
+    "byClub": {
+      "sanlorenzo": {
+        "assigned": 37,
+        "total": 39,
+        "missing": 2
+      },
+      "boca": {
+        "assigned": 30,
+        "total": 31,
+        "missing": 1
+      },
+      "river": {
+        "assigned": 27,
+        "total": 27,
+        "missing": 0
+      },
+      "independiente": {
+        "assigned": 35,
+        "total": 36,
+        "missing": 1
+      },
+      "estudiantes": {
+        "assigned": 38,
+        "total": 38,
+        "missing": 0
+      },
+      "velez": {
+        "assigned": 29,
+        "total": 30,
+        "missing": 1
+      },
+      "racing": {
+        "assigned": 27,
+        "total": 27,
+        "missing": 0
+      },
+      "lanus": {
+        "assigned": 33,
+        "total": 34,
+        "missing": 1
+      },
+      "talleres": {
+        "assigned": 32,
+        "total": 33,
+        "missing": 1
+      },
+      "rosario": {
+        "assigned": 38,
+        "total": 38,
+        "missing": 0
+      },
+      "huracan": {
+        "assigned": 30,
+        "total": 32,
+        "missing": 2
+      },
+      "newells": {
+        "assigned": 29,
+        "total": 30,
+        "missing": 1
+      },
+      "gimnasia": {
+        "assigned": 37,
+        "total": 38,
+        "missing": 1
+      },
+      "argentinos": {
+        "assigned": 28,
+        "total": 33,
+        "missing": 5
+      },
+      "belgrano": {
+        "assigned": 22,
+        "total": 37,
+        "missing": 15
+      },
+      "centralcba": {
+        "assigned": 35,
+        "total": 37,
+        "missing": 2
+      },
+      "atletico": {
+        "assigned": 34,
+        "total": 36,
+        "missing": 2
+      },
+      "barracas": {
+        "assigned": 36,
+        "total": 36,
+        "missing": 0
+      },
+      "riestra": {
+        "assigned": 32,
+        "total": 32,
+        "missing": 0
+      },
+      "instituto": {
+        "assigned": 34,
+        "total": 38,
+        "missing": 4
+      },
+      "sarmiento": {
+        "assigned": 28,
+        "total": 31,
+        "missing": 3
+      },
+      "aldosivi": {
+        "assigned": 32,
+        "total": 36,
+        "missing": 4
+      },
+      "platense": {
+        "assigned": 25,
+        "total": 38,
+        "missing": 13
+      },
+      "defensa": {
+        "assigned": 33,
+        "total": 36,
+        "missing": 3
+      },
+      "union": {
+        "assigned": 31,
+        "total": 33,
+        "missing": 2
+      },
+      "tigre": {
+        "assigned": 47,
+        "total": 49,
+        "missing": 2
+      },
+      "banfield": {
+        "assigned": 33,
+        "total": 35,
+        "missing": 2
+      },
+      "rivadavia": {
+        "assigned": 27,
+        "total": 29,
+        "missing": 2
+      },
+      "gimnasiamza": {
+        "assigned": 32,
+        "total": 35,
+        "missing": 3
+      },
+      "estudiantesrc": {
+        "assigned": 32,
+        "total": 32,
+        "missing": 0
+      }
+    }
+  }
 }
