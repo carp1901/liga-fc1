@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:54:09.531Z",
+  "updatedAt": "2026-11-05T19:54:47.714Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -521,10 +521,29 @@
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "38/38",
       "ageSource": [
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/platense/plantilla",
         "https://www.ligaprofesional.ar/clubes/platense/",
+        "https://cap.org.ar/2024/11/ivo-visona-y-celias-ingenthron-son-jugadores-profesionales/",
+        "https://www.soloascenso.com.ar/perfil/juan-saborido/23453",
+        "https://cap.org.ar/2026/01/maximiliano-amarfil-es-la-cara-nueva-de-platense/",
+        "https://cap.org.ar/2026/01/martin-barrios-puso-la-firma-y-se-suma/",
+        "https://cap.org.ar/2025/07/felipe-bussio-es-nueva-incorporacion-de-platense/",
+        "https://cap.org.ar/2026/01/santiago-dalmasso-se-incorpora-a-platense/",
+        "https://www.transfermarkt.com.ar/pablo-ferreira/profil/spieler/1006239",
+        "https://cap.org.ar/2026/10/ivan-gomez-cumplio-100-partidos-con-nuestra-camiseta/",
         "https://www.transfermarkt.com.ar/guido-mainero/leistungsdaten/spieler/441270",
+        "https://cap.org.ar/2026/01/bautista-merlini-vuelve-a-platense-despues-de-mas-de-10-anos/",
+        "https://cap.org.ar/2024/01/franco-minerva-firmo-su-primer-contrato-y-es-jugador-profesional/",
         "https://www.transfermarkt.com.ar/franco-zapiola/verletzungen/spieler/909349",
-        "https://www.transfermarkt.com.ar/ca-platense/kader/verein/"
+        "https://cap.org.ar/2026/01/hector-bobadilla-llega-a-platense-para-debutar-en-el-futbol-argentino/",
+        "https://cap.org.ar/2026/08/luciano-gimenez-es-nuevo-delantero-de-platense/",
+        "https://cap.org.ar/2026/01/leonardo-heredia-llega-para-reforzar-a-platense/",
+        "https://cap.org.ar/2026/02/gonzalo-lencina-se-suma-a-platense/",
+        "https://www.transfermarkt.com.ar/augusto-lotti/profil/spieler/406296",
+        "https://cap.org.ar/2026/01/tomas-nasif-es-nuevo-delantero-del-calamar/",
+        "https://cap.org.ar/2026/01/nicolas-retamar-estampo-la-firma-y-se-viste-de-marron-y-blanco/",
+        "https://as.com/resultados/ficha/deportista/gaston_togni/38212/",
+        "https://www.transfermarkt.com.ar/manuel-tucker/profil/spieler/1207136"
       ],
       "ratingSource": [],
       "roleSource": [],
@@ -847,7 +866,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 745,
+    "birthDates": 777,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
