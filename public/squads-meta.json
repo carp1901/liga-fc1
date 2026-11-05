@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:57:01.300Z",
+  "updatedAt": "2026-11-05T19:57:18.517Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -672,6 +672,7 @@
       "ageSource": [
         "https://www.transfermarkt.com.ar/santiago-roggero/profil/spieler/1308912",
         "https://www.transfermarkt.com.ar/cesar-rigamonti/profil/spieler/76159",
+        "https://canchallena.lanacion.com.ar/equipo/gimnasia-mendoza-9vph9w7uflam4cks28dfp98h4/",
         "https://www.ligaprofesional.ar/clubes/gimnasia-de-mendoza/",
         "https://www.transfermarkt.com.ar/ca-gimnasia-y-esgrima-mendoza-/startseite/verein/14687",
         "https://www.transfermarkt.com.ar/luciano-cingolani/profil/spieler/847293",
@@ -871,7 +872,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 923,
+    "birthDates": 949,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
