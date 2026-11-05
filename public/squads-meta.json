@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:56:41.000Z",
+  "updatedAt": "2026-11-05T19:57:01.300Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -656,7 +656,7 @@
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.transfermarkt.com.ar/independiente-rivadavia/kader/verein/12179",
-        "https://www.ligaprofesional.ar/clubes/independiente-rivadavia/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/independiente-rivadavia/plantilla",
         "https://www.transfermarkt.com.ar/matias-salvo/profil/spieler/1307274",
         "https://www.transfermarkt.com.ar/matias-reali/profil/spieler/984692"
       ],
@@ -691,9 +691,9 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
-        "https://www.transfermarkt.com.ar/aa-estudiantes-rio-cuarto-/kader/verein/14602",
-        "https://www.ligaprofesional.ar/clubes/estudiantes-de-rio-cuarto/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/estudiantes-rio-cuarto/plantilla",
         "https://www.transfermarkt.com.ar/gonzalo-maffini/profil/spieler/844242",
+        "https://www.transfermarkt.com.ar/aa-estudiantes-rio-cuarto-/kader/verein/14602",
         "https://www.transfermarkt.com.ar/juan-antonini/profil/spieler/667375",
         "https://www.transfermarkt.com.ar/abel-francisco-romero/profil/spieler/1103451"
       ],
@@ -871,7 +871,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 890,
+    "birthDates": 923,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
