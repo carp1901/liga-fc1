@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:52:24.438Z",
+  "updatedAt": "2026-11-05T19:53:29.490Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -363,11 +363,9 @@
       "numberCoverage": "33/37",
       "numberConflict": "Biani, Bonomo, Charras y Melano quedan sin dorsal confirmado. Hernándes #8 y Cortes #51 se ajustan al listado LPF.",
       "ageSource": [
-        "https://www.transfermarkt.com.ar/ca-belgrano/kader/verein/2417",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/belgrano/plantilla",
         "https://www.transfermarkt.com.ar/ca-belgrano-ii/startseite/verein/61444",
-        "https://www.transfermarkt.com.ar/ca-belgrano/leistungsdaten/verein/2417",
-        "https://www.ligaprofesional.ar/clubes/belgrano/",
-        "https://www.ligaprofesional.ar/clubes/belgrano"
+        "https://www.ligaprofesional.ar/clubes/belgrano/"
       ],
       "ratingSource": [
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -424,7 +422,7 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/barracas-central/",
+        "https://www.barracascentral.com/plantel/",
         "https://barracascentral.com/plantel/juan-insua",
         "https://www.transfermarkt.com.ar/enzo-taborda/profil/spieler/1298505",
         "https://www.transfermarkt.com.ar/alex-juarez/profil/spieler/1029492",
@@ -440,7 +438,7 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/deportivo-riestra/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/deportivo-riestra/plantilla",
         "https://www.transfermarkt.com.ar/dariel-sanchez/profil/spieler/1330126"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -850,7 +848,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 573,
+    "birthDates": 665,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
