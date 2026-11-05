@@ -5,21 +5,30 @@
   "criterio": "solo jugadores confirmados por fuentes; no completar con nombres inventados",
   "clubes": {
     "boca": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 31,
+      "fuente": "https://www.bocajuniors.com.ar/futbol-masculino",
+      "consultado": "2026-11-05"
     },
     "river": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 27,
+      "fuente": "https://www.riverplate.com/football/professional-football/men/squad",
+      "consultado": "2026-11-05"
     },
     "racing": {
       "estado": "pendiente"
     },
     "independiente": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 36,
+      "fuente": "https://www.clubaindependiente.com.ar/futbol/plantel",
+      "consultado": "2026-11-05"
     },
     "sanlorenzo": {
       "estado": "recopilado",
       "jugadores": 39,
-      "fuente": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
+      "fuente": "https://www.lpf.org.ar/clubes/san-lorenzo/",
       "consultado": "2026-11-05"
     },
     "estudiantes": {
