@@ -394,9 +394,9 @@
   },
   "dorsalsComplete": false,
   "ratingCoverage": {
-    "rated": 60,
+    "rated": 62,
     "total": 1036,
-    "provisional": 976,
+    "provisional": 974,
     "source": "Statz.ai y Sportlumy; promedios individuales de partido con muestra mínima de 10 apariciones.",
     "formula": "r = round(clamp(60 + (promedio_partido - 6.5) * 20, 40, 90)); se registra el promedio original, cantidad de partidos y fuente. Solo se aplica con al menos 10 apariciones. Jugadores sin muestra verificable conservan media provisional 60."
   },
