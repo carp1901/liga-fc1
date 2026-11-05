@@ -14,7 +14,7 @@
     "lanus": 34,
     "talleres": 33,
     "rosario": 38,
-    "huracan": 29,
+    "huracan": 32,
     "newells": 30,
     "gimnasia": 38
   },
@@ -66,6 +66,10 @@
     "gimnasia": {
       "source": "https://www.tycsports.com/gimnasia-de-la-plata.html",
       "nationalities": "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
+      "consulted": "2026-11-05"
+    },
+    "huracan": {
+      "source": "https://www.tycsports.com/huracan.html",
       "consulted": "2026-11-05"
     }
   },
