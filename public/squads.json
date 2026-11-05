@@ -3761,7 +3761,8 @@
       "p": "POR",
       "r": 60,
       "role": "Arquero",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 1
     },
     {
       "n": "Gonzalo Siri Payer",
@@ -3816,7 +3817,8 @@
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 23
     },
     {
       "n": "Alan Núñez",
@@ -3973,7 +3975,8 @@
       "p": "DEL",
       "r": 60,
       "role": "Delantero",
-      "nat": "Japón"
+      "nat": "Japón",
+      "number": 34
     },
     {
       "n": "Hernán López Muñoz",
@@ -6414,7 +6417,8 @@
       "n": "Bruno Sepúlveda",
       "p": "DEL",
       "r": 60,
-      "role": "Delantero"
+      "role": "Delantero",
+      "number": 79
     },
     {
       "n": "Gastón Togni",
