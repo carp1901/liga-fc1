@@ -4,9 +4,11 @@ La recopilación se hace por etapas y se guarda en el propio juego. No se consul
 
 ## Primera División
 
-- Fuente principal de consulta: Promiedos, ficha de cada club y sección PLANTEL.
-- Verificación: web oficial del club cuando haya dudas o diferencias.
-- Transfermarkt: solo contraste manual puntual; no se automatiza su extracción.
+- Fuente principal: página oficial de plantel del propio club, cuando esté disponible.
+- Segunda fuente: Liga Profesional/AFA y páginas oficiales de las competiciones.
+- Promiedos: fuente complementaria para clubes sin una ficha oficial accesible y para detectar diferencias.
+- Transfermarkt: contraste manual puntual; no se automatiza su extracción.
+- Si dos fuentes discrepan, prevalece el club o la competición oficial y la diferencia queda pendiente de revisión.
 - No copiar fotos.
 - No inventar nombres para completar planteles.
 - Si falta un dato, dejarlo vacío. Si falta un jugador, el club queda pendiente.
