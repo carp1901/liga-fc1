@@ -407,14 +407,19 @@
       "ageSource": [],
       "ratingSource": [],
       "roleSource": []
+    },
+    "sportlumy": {
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
+      "consulted": "2026-11-05",
+      "minimumAppearances": 10
     }
   },
   "completePrimera": true,
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1015,
-    "missing": 21,
+    "assigned": 1013,
+    "missing": 23,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -1043,9 +1048,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 62,
+    "rated": 74,
     "total": 1036,
-    "provisional": 974,
+    "provisional": 962,
     "source": "Statz.ai y Sportlumy; promedios individuales de partido con muestra mínima de 10 apariciones.",
     "formula": "r = round(clamp(60 + (promedio_partido - 6.5) * 20, 40, 90)); solo se aplica con al menos 10 apariciones."
   },
@@ -1060,14 +1065,14 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 769,
-    "playersMissingDorsal": 21,
-    "provisionalRatings": 974,
+    "playersMissingDorsal": 23,
+    "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
     "ages": 769,
-    "dorsals": 21,
-    "statisticalRatings": 974,
+    "dorsals": 23,
+    "statisticalRatings": 962,
     "manualAttributes": 1036,
     "nationalities": 356,
     "specificRoles": 988
