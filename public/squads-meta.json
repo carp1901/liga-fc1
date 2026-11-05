@@ -205,8 +205,9 @@
     "banfield": {
       "source": "https://www.tycsports.com/banfield.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/banfield/",
-      "numbersConsulted": "2026-11-05"
+      "numberSource": "https://clubabanfield.org/plantel-profesional-masculino/",
+      "numbersConsulted": "2026-11-05",
+      "numberCoverage": "35/35"
     },
     "rivadavia": {
       "source": "https://www.tycsports.com/independiente-rivadavia.html",
