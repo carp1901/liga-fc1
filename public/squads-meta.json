@@ -52,7 +52,11 @@
     },
     "river": {
       "source": "https://www.riverplate.com/football/professional-football/men/squad",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
+      "ageConsulted": "2026-11-05",
+      "ageCoverage": "24/27",
+      "roleCoverage": "21/27"
     },
     "independiente": {
       "source": "https://www.clubaindependiente.com.ar/futbol/plantel",
