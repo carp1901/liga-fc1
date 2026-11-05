@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T22:30:00.000Z",
+  "updatedAt": "2026-11-05T22:45:00.000Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -110,7 +110,7 @@
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://cahuracan.com/futbol/plantel-profesional",
+      "numberSource": "https://www.lpf.org.ar/clubes/huracan/",
       "numbersConsulted": "2026-11-05"
     },
     "argentinos": {
