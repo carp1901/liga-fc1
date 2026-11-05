@@ -53,11 +53,15 @@ if(REQUIRE_PRIMERA){
  const extras=Object.keys(out).filter(id=>!PRIMERA.includes(id));
  if(missing.length||extras.length)throw Error('Primera incompleta. Clubes faltantes o con menos de 11: '+missing.join(', ')+'; IDs ajenos a Primera: '+extras.join(', ')+'. No se modificó ningún archivo.');
 }
-const counts=Object.fromEntries(Object.entries(out).map(([id,s])=>[id,s.length]));
-for(const [id,n] of Object.entries(counts))if(n<11)console.warn('PENDIENTE:',id,'solo tiene',n,'jugadores; no se agregaron jugadores ficticios.');
 const pub=path.join(__dirname,'public');fs.mkdirSync(pub,{recursive:true});
-fs.writeFileSync(path.join(pub,'squads.json'),JSON.stringify(out));
-fs.writeFileSync(path.join(pub,'squads.js'),'window.SQUADS='+JSON.stringify(out)+';');
-fs.writeFileSync(path.join(pub,'squads-meta.json'),JSON.stringify({season:2026,updatedAt:new Date().toISOString(),source:'Planteles recopilados y verificados manualmente',ratings:'60 neutral si no se informa un valor; no son estadísticas oficiales',counts,sources,completePrimera:PRIMERA.every(id=>out[id]&&out[id].length>=11)},null,2));
-console.log('Importación lista:',Object.keys(out).length,'clubes y',Object.values(out).reduce((a,s)=>a+s.length,0),'jugadores.');
+let previous={},previousMeta={};
+try{previous=JSON.parse(fs.readFileSync(path.join(pub,'squads.json'),'utf8'))}catch(e){}
+try{previousMeta=JSON.parse(fs.readFileSync(path.join(pub,'squads-meta.json'),'utf8'))}catch(e){}
+const merged={...previous,...out},allSources={...(previousMeta.sources||{}),...sources};
+const counts=Object.fromEntries(Object.entries(merged).map(([id,s])=>[id,s.length]));
+for(const [id,n] of Object.entries(counts))if(n<11)console.warn('PENDIENTE:',id,'solo tiene',n,'jugadores; no se agregaron jugadores ficticios.');
+fs.writeFileSync(path.join(pub,'squads.json'),JSON.stringify(merged));
+fs.writeFileSync(path.join(pub,'squads.js'),'window.SQUADS='+JSON.stringify(merged)+';');
+fs.writeFileSync(path.join(pub,'squads-meta.json'),JSON.stringify({season:2026,updatedAt:new Date().toISOString(),source:'Planteles recopilados y verificados manualmente',ratings:'60 neutral si no se informa un valor; no son estadísticas oficiales',counts,sources:allSources,completePrimera:PRIMERA.every(id=>merged[id]&&merged[id].length>=11)},null,2));
+console.log('Importación lista:',Object.keys(merged).length,'clubes y',Object.values(merged).reduce((a,s)=>a+s.length,0),'jugadores.');
 console.log('Planteles por club:',counts);
