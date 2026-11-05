@@ -10,10 +10,11 @@
     "independiente": 36,
     "estudiantes": 38,
     "velez": 30,
-    "racing": 39,
+    "racing": 27,
     "lanus": 34,
     "talleres": 33,
-    "rosario": 38
+    "rosario": 38,
+    "huracan": 29
   },
   "sources": {
     "sanlorenzo": {
@@ -41,7 +42,7 @@
       "consulted": "2026-11-05"
     },
     "racing": {
-      "source": "https://www.lpf.org.ar/clubes/racing-club",
+      "source": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
       "consulted": "2026-11-05"
     },
     "lanus": {
