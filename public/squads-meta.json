@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:00:14.118Z",
+  "updatedAt": "2026-11-05T20:01:23.823Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -206,7 +206,7 @@
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
         "https://statz.ai/player/adrian-martinez/546751"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/racing-club/kader/verein/1444",
       "ageConsulted": "2026-11-05"
     },
     "lanus": {
@@ -1157,8 +1157,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 54,
-    "missing": 964,
+    "assigned": 81,
+    "missing": 937,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1187,7 +1187,7 @@
       },
       "racing": {
         "total": 27,
-        "specific": 0
+        "specific": 27
       },
       "lanus": {
         "total": 34,
