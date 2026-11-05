@@ -227,7 +227,7 @@
       "numbersConsulted": "2026-11-06",
       "numberCoverage": "33/37",
       "numberConflict": "Biani, Bonomo, Charras y Melano quedan sin dorsal confirmado. Hernándes #8 y Cortes #51 se ajustan al listado LPF.",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/belgrano/",
+      "ageSource": "https://www.transfermarkt.com.ar/ca-belgrano/kader/verein/2417",
       "ratingSource": [
         "https://statz.ai/index.php/player/thiago-cardozo/261059",
         "https://statz.ai/player/lisandro-lopez/159815",
@@ -241,7 +241,7 @@
       "consulted": "2026-11-05",
       "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html",
       "numbersConsulted": "2026-11-06",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/central-cordoba/",
+      "ageSource": "https://www.transfermarkt.com.ar/ca-central-cordoba-sde-/kader/verein/31284",
       "ratingSource": "https://statz.ai/player/michael-santos/187009",
       "roleSource": [],
       "ageConsulted": "2026-11-05"
@@ -397,9 +397,10 @@
         "https://csir.com.ar/futbol?tab=plantel"
       ],
       "numbersConsulted": "2026-11-05",
-      "ageSource": [],
+      "ageSource": "https://www.transfermarkt.com.ar/independiente-rivadavia/kader/verein/12179",
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "gimnasiamza": {
       "source": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
@@ -419,9 +420,10 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
-      "ageSource": [],
+      "ageSource": "https://www.transfermarkt.com.ar/aa-estudiantes-rio-cuarto-/kader/verein/14602",
       "ratingSource": [],
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "sportlumy": {
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -591,9 +593,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 649,
-    "missing": 387,
-    "birthDates": 55,
+    "assigned": 701,
+    "missing": 335,
+    "birthDates": 78,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -668,13 +670,13 @@
       },
       "belgrano": {
         "total": 37,
-        "assigned": 14,
-        "missing": 23
+        "assigned": 27,
+        "missing": 10
       },
       "centralcba": {
         "total": 37,
-        "assigned": 6,
-        "missing": 31
+        "assigned": 17,
+        "missing": 20
       },
       "atletico": {
         "total": 36,
@@ -733,8 +735,8 @@
       },
       "rivadavia": {
         "total": 29,
-        "assigned": 0,
-        "missing": 29
+        "assigned": 19,
+        "missing": 10
       },
       "gimnasiamza": {
         "total": 35,
@@ -743,8 +745,8 @@
       },
       "estudiantesrc": {
         "total": 32,
-        "assigned": 0,
-        "missing": 32
+        "assigned": 9,
+        "missing": 23
       }
     }
   },
@@ -1079,13 +1081,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 387,
+    "playersMissingAge": 335,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 387,
+    "ages": 335,
     "dorsals": 23,
     "statisticalRatings": 962,
     "manualAttributes": 1036,
