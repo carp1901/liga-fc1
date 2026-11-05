@@ -10,38 +10,37 @@ La recopilación se hace por etapas y se guarda en el propio juego. No se consul
 - Transfermarkt: contraste manual puntual; no se automatiza su extracción.
 - Si dos fuentes discrepan, prevalece el club o la competición oficial y la diferencia queda pendiente de revisión.
 - No copiar fotos.
-- No inventar nombres para completar planteles.
+- No inventar nombres, dorsales, edades ni estadísticas para completar planteles.
 - Si falta un dato, dejarlo vacío. Si falta un jugador, el club queda pendiente.
-- El campo `rating` puede quedar vacío: el importador asigna 60 neutral, no una valoración real.
+- Las edades se calculan desde fecha de nacimiento usando la referencia 05/11/2026 cuando esa fecha está documentada.
+- La media 60 es provisional cuando no hay una muestra estadística verificable. Las medias respaldadas conservan promedio, partidos y fuente.
+- Los atributos técnicos/físicos que no tienen observación individual se derivan en `public/data.js` por perfil de posición y media; no se presentan como estadísticas reales.
 
 ## Formato CSV
 
 Una fila por jugador. `club_id` debe coincidir exactamente con el ID del club del juego.
 
-Posiciones admitidas: `POR`, `DEF`, `MED`, `DEL`. El campo `rol` conserva el puesto más específico de la fuente (por ejemplo, lateral derecho o mediocampista ofensivo).
+Posiciones admitidas: `POR`, `DEF`, `MED`, `DEL`. El campo `rol` conserva el puesto publicado.
 
-Campos:
-- `club_id`: ID interno del club.
-- `nombre`: nombre del jugador.
-- `posicion`: POR/DEF/MED/DEL.
-- `rating`: opcional; vacío = 60 neutral.
-- `edad`, `dorsal`, `rol`: datos publicados por la fuente.
-- `fuente`: URL exacta consultada.
-- `consultado`: fecha de consulta YYYY-MM-DD.
-- `nat`: nacionalidad deportiva para mostrar la bandera en la ficha; usar el país confirmado.
-- `abreviatura`: forma corta opcional para listas (por ejemplo, `F. Altamirano`).
-- `pie`, `posiciones_secundarias`, `id` y atributos: opcionales.
+Campos principales:
+- `club_id`, `nombre`, `posicion`, `rating`.
+- `edad`, `fecha_nacimiento`, `fuente_edad`.
+- `dorsal`, `dorsal_source`.
+- `rol`, `rol_especifico`, `fuente_rol`.
+- `nat`, `abreviatura`, `pie`, `posiciones_secundarias`, `id`.
+- `pas`, `ctl`, `reg`, `rem`, `des`, `mar`, `ant`, `ref`: atributos manuales opcionales (15-99).
+- `match_rating_2026`, `rating_apps_2026`, `rating_source`: respaldo de medias estadísticas.
 
 ## Importación
 
-Para una carga parcial de trabajo:
+Validar:
 ```bash
-node import-squads.js planteles/primera-2026.csv
+node import-squads.js planteles/primera-2026.csv --dry-run --require-primera-complete
 ```
 
-Para publicar Primera solo cuando estén los 30 clubes y cada uno tenga al menos 11 jugadores:
+Publicar:
 ```bash
 node import-squads.js planteles/primera-2026.csv --require-primera-complete
 ```
 
-El importador valida el CSV antes de escribir los archivos de `public/`. No agrega jugadores ficticios.
+GitHub Actions valida y publica automáticamente `public/squads.json`, `public/squads.js` y `public/squads-meta.json` cuando cambia el CSV o el importador.
