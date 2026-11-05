@@ -158,8 +158,10 @@
     "instituto": {
       "source": "https://www.tycsports.com/instituto.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/instituto",
-      "numbersConsulted": "2026-11-05"
+      "numberSource": "https://www.ligaprofesional.ar/clubes/instituto/; https://marcadores.diez.hn/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html",
+      "numbersConsulted": "2026-11-05",
+      "numberCoverage": "36/38",
+      "numberConflict": "Lautaro Ludueña queda sin dorsal confirmado. Franco Jara no se asigna: el #29 de la fuente secundaria colisiona con Marcos Ledesma (#29 oficial). Medina #61 y Peralta #63 contrastados con plantel 2026."
     },
     "sarmiento": {
       "source": "https://www.tycsports.com/sarmiento-junin.html",
