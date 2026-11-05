@@ -4,11 +4,26 @@
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
-    "sanlorenzo": 39
+    "sanlorenzo": 39,
+    "boca": 31,
+    "river": 27,
+    "independiente": 36
   },
   "sources": {
     "sanlorenzo": {
-      "source": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
+      "source": "https://www.lpf.org.ar/clubes/san-lorenzo/",
+      "consulted": "2026-11-05"
+    },
+    "boca": {
+      "source": "https://www.bocajuniors.com.ar/futbol-masculino",
+      "consulted": "2026-11-05"
+    },
+    "river": {
+      "source": "https://www.riverplate.com/football/professional-football/men/squad",
+      "consulted": "2026-11-05"
+    },
+    "independiente": {
+      "source": "https://www.clubaindependiente.com.ar/futbol/plantel",
       "consulted": "2026-11-05"
     }
   },
