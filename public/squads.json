@@ -5588,7 +5588,8 @@
       "n": "Joaquín Medina",
       "p": "MED",
       "r": 60,
-      "role": "Mediocampista"
+      "role": "Mediocampista",
+      "number": 61
     },
     {
       "n": "Juan Ignacio Méndez",
@@ -5673,7 +5674,8 @@
       "n": "Tomás Peralta",
       "p": "DEL",
       "r": 60,
-      "role": "Delantero"
+      "role": "Delantero",
+      "number": 63
     },
     {
       "n": "Luca Rafaelli",
