@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:59:18.919Z",
+  "updatedAt": "2026-11-05T20:00:14.118Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -320,7 +320,7 @@
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://www.transfermarkt.com.ar/club-atletico-huracan/rueckennummern/verein/2063",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/huracan/plantilla",
@@ -714,8 +714,8 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1003,
-    "missing": 15,
+    "assigned": 1004,
+    "missing": 14,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -770,8 +770,8 @@
       },
       "huracan": {
         "total": 32,
-        "assigned": 30,
-        "missing": 2
+        "assigned": 31,
+        "missing": 1
       },
       "newells": {
         "total": 30,
@@ -1301,7 +1301,7 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 15,
+    "playersMissingDorsal": 14,
     "provisionalRatings": 944,
     "playersWithoutManualAttributes": 1018
   }
