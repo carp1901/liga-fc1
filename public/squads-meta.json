@@ -198,8 +198,8 @@
     "union": {
       "source": "https://www.tycsports.com/union.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/441-union-santa-fe",
-      "numbersConsulted": "2026-11-05"
+      "numberSource": "https://puntoredonda.com.ar/equipo/7",
+      "numbersConsulted": "2026-11-06"
     },
     "tigre": {
       "source": "https://www.tycsports.com/tigre.html",
@@ -236,8 +236,8 @@
   "completePrimera": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1011,
-    "missing": 25,
+    "assigned": 1013,
+    "missing": 23,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -362,8 +362,8 @@
       },
       "union": {
         "total": 33,
-        "assigned": 31,
-        "missing": 2
+        "assigned": 33,
+        "missing": 0
       },
       "tigre": {
         "total": 49,
@@ -405,6 +405,6 @@
     "players": 1036,
     "duplicateNumbers": 0,
     "positionOrderIssues": 0,
-    "unverifiedDorsals": 25
+    "unverifiedDorsals": 23
   }
 }
