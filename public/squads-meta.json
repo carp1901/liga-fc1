@@ -118,7 +118,7 @@
     "argentinos": {
       "source": "https://www.tycsports.com/argentinos-juniors.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/argentinos-juniors/",
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/458-argentinos-juniors",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "30/33",
       "numberConflict": "Santiago Silveira y Federico Mancuello sin dorsal confirmado. Mateo Mendoza figura sin número en la ficha LPF; no asignar #23, que corresponde a Hernán López Muñoz."
@@ -126,7 +126,7 @@
     "belgrano": {
       "source": "https://www.tycsports.com/belgrano-de-cordoba.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/belgrano/",
+      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278023.html",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "33/37",
       "numberConflict": "Biani, Bonomo, Charras y Melano quedan sin dorsal confirmado. Hernándes #8 y Cortes #51 se ajustan al listado LPF."
@@ -134,7 +134,7 @@
     "centralcba": {
       "source": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/190-central-cordoba-de-santiago",
+      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html",
       "numbersConsulted": "2026-11-05"
     },
     "atletico": {
@@ -175,7 +175,7 @@
     "aldosivi": {
       "source": "https://www.tycsports.com/aldosivi.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://argentinosjuniors.com.ar/noticias/futbol/vs-aldosivi/; https://www.lpf.org.ar/clubes/aldosivi/",
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/53-aldosivi",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "33/36",
       "numberConflict": "Braian Cufré (#13) entra en conflicto con Federico Gino (#13) del listado LPF; León Lambardi y Joaquín Salinas sin confirmación actual inequívoca. Pablo Argoytia #37 confirmado en planilla de partido."
@@ -217,7 +217,7 @@
     "rivadavia": {
       "source": "https://www.tycsports.com/independiente-rivadavia.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/independiente-rivadavia/",
+      "numberSource": "https://csir.com.ar/futbol?tab=plantel; https://www.bdfutbol.com/es/t/t2026-278046.html",
       "numbersConsulted": "2026-11-05"
     },
     "gimnasiamza": {
@@ -236,8 +236,8 @@
   "completePrimera": true,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 999,
-    "missing": 37,
+    "assigned": 1006,
+    "missing": 30,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -306,19 +306,19 @@
         "missing": 1
       },
       "argentinos": {
-        "assigned": 30,
+        "assigned": 31,
         "total": 33,
-        "missing": 3
+        "missing": 2
       },
       "belgrano": {
-        "assigned": 33,
-        "total": 37,
-        "missing": 4
-      },
-      "centralcba": {
         "assigned": 35,
         "total": 37,
         "missing": 2
+      },
+      "centralcba": {
+        "assigned": 36,
+        "total": 37,
+        "missing": 1
       },
       "atletico": {
         "assigned": 36,
@@ -346,9 +346,9 @@
         "missing": 2
       },
       "aldosivi": {
-        "assigned": 33,
+        "assigned": 34,
         "total": 36,
-        "missing": 3
+        "missing": 2
       },
       "platense": {
         "assigned": 38,
@@ -376,9 +376,9 @@
         "missing": 0
       },
       "rivadavia": {
-        "assigned": 27,
+        "assigned": 29,
         "total": 29,
-        "missing": 2
+        "missing": 0
       },
       "gimnasiamza": {
         "assigned": 32,
