@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:55:41.466Z",
+  "updatedAt": "2026-11-05T19:56:03.910Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -557,19 +557,22 @@
       "numberCoverage": "35/36",
       "numberConflict": "Juan Pablo Moreno sin dorsal confirmado; Matías Borgogno #1 según plantel 2026/27.",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/defensa-y-justicia/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/defensa-y-justicia/plantilla",
         "https://www.transfermarkt.com.ar/csd-defensa-y-justicia-ii/kader/verein/25358",
-        "https://www.transfermarkt.com.ar/demian-dominguez/profil/spieler/1304421",
+        "https://www.goal.com/es-ar/jugador/e-burdin/iSz_9qMCJaIQKj41wojho",
         "https://www.transfermarkt.com.ar/david-martinez/profil/spieler/621882",
         "https://www.transfermarkt.com.ar/ayrton-portillo/profil/spieler/1045567",
         "https://www.transfermarkt.com.ar/csd-defensa-y-justicia-ii/startseite/verein/25358",
         "https://www.transfermarkt.com.ar/mateo-aguiar/profil/spieler/1322877",
+        "https://ar.soccerway.com/jugador/gagliardi-ramiro/S0s1w4HU/",
+        "https://ar.soccerway.com/jugador/martinez-thiago/fmi97Fr3/",
         "https://www.transfermarkt.com.ar/juan-pablo-moreno/profil/spieler/1305518",
         "https://www.transfermarkt.com.ar/nicolas-palavecino/profil/spieler/1083224",
         "https://www.transfermarkt.com.ar/maximiliano-porcel/profil/spieler/1304531",
         "https://www.transfermarkt.com.ar/santiago-sosa/profil/spieler/1253317",
         "https://www.sofascore.com/es/football/player/tomas-perez/",
         "https://www.transfermarkt.com.ar/facundo-altamira/profil/spieler/923459",
+        "https://www.defensayjusticia.org.ar/juan-manuel-gutierrez/",
         "https://www.transfermarkt.com.ar/tiziano-perrotta/profil/spieler/1324736"
       ],
       "ratingSource": [
@@ -868,7 +871,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 831,
+    "birthDates": 855,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
