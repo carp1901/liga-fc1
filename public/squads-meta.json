@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T18:38:18.493Z",
+  "updatedAt": "2026-11-05",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -725,123 +725,153 @@
     "byClub": {
       "sanlorenzo": {
         "total": 39,
-        "assigned": 39
+        "assigned": 39,
+        "missing": 0
       },
       "boca": {
         "total": 31,
-        "assigned": 31
+        "assigned": 31,
+        "missing": 0
       },
       "river": {
         "total": 27,
-        "assigned": 27
+        "assigned": 27,
+        "missing": 0
       },
       "independiente": {
         "total": 36,
-        "assigned": 36
+        "assigned": 36,
+        "missing": 0
       },
       "estudiantes": {
         "total": 38,
-        "assigned": 38
+        "assigned": 38,
+        "missing": 0
       },
       "velez": {
         "total": 30,
-        "assigned": 30
+        "assigned": 30,
+        "missing": 0
       },
       "racing": {
         "total": 27,
-        "assigned": 27
+        "assigned": 27,
+        "missing": 0
       },
       "lanus": {
         "total": 34,
-        "assigned": 34
+        "assigned": 34,
+        "missing": 0
       },
       "talleres": {
         "total": 33,
-        "assigned": 33
+        "assigned": 33,
+        "missing": 0
       },
       "rosario": {
         "total": 38,
-        "assigned": 38
+        "assigned": 38,
+        "missing": 0
       },
       "huracan": {
         "total": 32,
-        "assigned": 32
+        "assigned": 32,
+        "missing": 0
       },
       "newells": {
         "total": 30,
-        "assigned": 30
+        "assigned": 30,
+        "missing": 0
       },
       "gimnasia": {
         "total": 38,
-        "assigned": 38
+        "assigned": 38,
+        "missing": 0
       },
       "argentinos": {
         "total": 33,
-        "assigned": 33
+        "assigned": 33,
+        "missing": 0
       },
       "belgrano": {
         "total": 37,
-        "assigned": 37
+        "assigned": 37,
+        "missing": 0
       },
       "centralcba": {
         "total": 37,
-        "assigned": 37
+        "assigned": 37,
+        "missing": 0
       },
       "atletico": {
         "total": 36,
-        "assigned": 36
+        "assigned": 36,
+        "missing": 0
       },
       "barracas": {
         "total": 36,
-        "assigned": 36
+        "assigned": 36,
+        "missing": 0
       },
       "riestra": {
         "total": 32,
-        "assigned": 32
+        "assigned": 32,
+        "missing": 0
       },
       "instituto": {
         "total": 38,
-        "assigned": 3
+        "assigned": 3,
+        "missing": 35
       },
       "sarmiento": {
         "total": 31,
-        "assigned": 5
+        "assigned": 5,
+        "missing": 26
       },
       "aldosivi": {
         "total": 36,
-        "assigned": 3
+        "assigned": 3,
+        "missing": 33
       },
       "platense": {
         "total": 38,
-        "assigned": 0
+        "assigned": 0,
+        "missing": 38
       },
       "defensa": {
         "total": 36,
-        "assigned": 2
+        "assigned": 2,
+        "missing": 34
       },
       "union": {
         "total": 33,
-        "assigned": 0
+        "assigned": 0,
+        "missing": 33
       },
       "tigre": {
         "total": 49,
-        "assigned": 4
+        "assigned": 4,
+        "missing": 45
       },
       "banfield": {
         "total": 35,
-        "assigned": 7
+        "assigned": 7,
+        "missing": 28
       },
       "rivadavia": {
         "total": 29,
-        "assigned": 5
+        "assigned": 5,
+        "missing": 24
       },
       "gimnasiamza": {
         "total": 35,
-        "assigned": 3
+        "assigned": 3,
+        "missing": 32
       },
       "estudiantesrc": {
         "total": 32,
-        "assigned": 4
+        "assigned": 4,
+        "missing": 28
       }
     }
   },
@@ -852,123 +882,153 @@
     "byClub": {
       "sanlorenzo": {
         "total": 39,
-        "specific": 0
+        "assigned": 0,
+        "missing": 39
       },
       "boca": {
         "total": 31,
-        "specific": 27
+        "assigned": 27,
+        "missing": 4
       },
       "river": {
         "total": 27,
-        "specific": 21
+        "assigned": 21,
+        "missing": 6
       },
       "independiente": {
         "total": 36,
-        "specific": 0
+        "assigned": 0,
+        "missing": 36
       },
       "estudiantes": {
         "total": 38,
-        "specific": 0
+        "assigned": 0,
+        "missing": 38
       },
       "velez": {
         "total": 30,
-        "specific": 0
+        "assigned": 0,
+        "missing": 30
       },
       "racing": {
         "total": 27,
-        "specific": 0
+        "assigned": 0,
+        "missing": 27
       },
       "lanus": {
         "total": 34,
-        "specific": 0
+        "assigned": 0,
+        "missing": 34
       },
       "talleres": {
         "total": 33,
-        "specific": 0
+        "assigned": 0,
+        "missing": 33
       },
       "rosario": {
         "total": 38,
-        "specific": 0
+        "assigned": 0,
+        "missing": 38
       },
       "huracan": {
         "total": 32,
-        "specific": 0
+        "assigned": 0,
+        "missing": 32
       },
       "newells": {
         "total": 30,
-        "specific": 0
+        "assigned": 0,
+        "missing": 30
       },
       "gimnasia": {
         "total": 38,
-        "specific": 0
+        "assigned": 0,
+        "missing": 38
       },
       "argentinos": {
         "total": 33,
-        "specific": 0
+        "assigned": 0,
+        "missing": 33
       },
       "belgrano": {
         "total": 37,
-        "specific": 0
+        "assigned": 0,
+        "missing": 37
       },
       "centralcba": {
         "total": 37,
-        "specific": 0
+        "assigned": 0,
+        "missing": 37
       },
       "atletico": {
         "total": 36,
-        "specific": 0
+        "assigned": 0,
+        "missing": 36
       },
       "barracas": {
         "total": 36,
-        "specific": 0
+        "assigned": 0,
+        "missing": 36
       },
       "riestra": {
         "total": 32,
-        "specific": 0
+        "assigned": 0,
+        "missing": 32
       },
       "instituto": {
         "total": 38,
-        "specific": 0
+        "assigned": 0,
+        "missing": 38
       },
       "sarmiento": {
         "total": 31,
-        "specific": 0
+        "assigned": 0,
+        "missing": 31
       },
       "aldosivi": {
         "total": 36,
-        "specific": 0
+        "assigned": 0,
+        "missing": 36
       },
       "platense": {
         "total": 38,
-        "specific": 0
+        "assigned": 0,
+        "missing": 38
       },
       "defensa": {
         "total": 36,
-        "specific": 0
+        "assigned": 0,
+        "missing": 36
       },
       "union": {
         "total": 33,
-        "specific": 0
+        "assigned": 0,
+        "missing": 33
       },
       "tigre": {
         "total": 49,
-        "specific": 0
+        "assigned": 0,
+        "missing": 49
       },
       "banfield": {
         "total": 35,
-        "specific": 0
+        "assigned": 0,
+        "missing": 35
       },
       "rivadavia": {
         "total": 29,
-        "specific": 0
+        "assigned": 0,
+        "missing": 29
       },
       "gimnasiamza": {
         "total": 35,
-        "specific": 0
+        "assigned": 0,
+        "missing": 35
       },
       "estudiantesrc": {
         "total": 32,
-        "specific": 0
+        "assigned": 0,
+        "missing": 32
       }
     }
   },
@@ -982,7 +1042,7 @@
   "attributeCoverage": {
     "manualPlayers": 0,
     "derivedPlayers": 1036,
-    "method": "public/data.js deriva atributos por perfil de posición y media."
+    "method": "public/data.js deriva atributos por perfil de posición y media; no se presentan como estadísticas reales."
   },
   "qualityAudit": {
     "clubs": 30,
@@ -993,5 +1053,13 @@
     "playersMissingDorsal": 23,
     "provisionalRatings": 974,
     "playersWithoutManualAttributes": 1036
+  },
+  "pending": {
+    "ages": 981,
+    "dorsals": 23,
+    "statisticalRatings": 974,
+    "manualAttributes": 1036,
+    "nationalities": 356,
+    "specificRoles": 988
   }
 }
