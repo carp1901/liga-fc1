@@ -4033,7 +4033,8 @@
       "p": "POR",
       "r": 60,
       "role": "Arquero",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 60
     },
     {
       "n": "Manuel Vicentini",
@@ -4077,21 +4078,24 @@
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 45
     },
     {
       "n": "Joaquín Flandes",
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 59
     },
     {
       "n": "Agustín Griguol",
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 4
     },
     {
       "n": "Lisandro López",
@@ -4106,7 +4110,8 @@
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 2
     },
     {
       "n": "Leonardo Morales",
@@ -4121,7 +4126,8 @@
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 13
     },
     {
       "n": "Federico Ricca",
@@ -4144,21 +4150,24 @@
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 51
     },
     {
       "n": "Santino Gatti",
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 19
     },
     {
       "n": "Francisco González Metilli",
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 11
     },
     {
       "n": "Ramiro Hernándes",
@@ -4166,7 +4175,7 @@
       "r": 60,
       "role": "Mediocampista",
       "nat": "Argentina",
-      "number": 51
+      "number": 8
     },
     {
       "n": "Santiago Longo",
@@ -4205,7 +4214,8 @@
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 15
     },
     {
       "n": "Franco Vázquez",
@@ -4220,7 +4230,8 @@
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 30
     },
     {
       "n": "Lucas Zelarayán",
