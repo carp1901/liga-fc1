@@ -8,15 +8,16 @@
     "boca": 31,
     "river": 27,
     "independiente": 36,
-    "estudiantes": 76,
+    "estudiantes": 38,
     "velez": 30,
     "racing": 39,
     "lanus": 34,
-    "talleres": 33
+    "talleres": 33,
+    "rosario": 38
   },
   "sources": {
     "sanlorenzo": {
-      "source": "https://www.lpf.org.ar/clubes/san-lorenzo/",
+      "source": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
       "consulted": "2026-11-05"
     },
     "boca": {
@@ -41,7 +42,6 @@
     },
     "racing": {
       "source": "https://www.lpf.org.ar/clubes/racing-club",
-      "complement": "https://www.tycsports.com/racing-club.html",
       "consulted": "2026-11-05"
     },
     "lanus": {
@@ -50,6 +50,10 @@
     },
     "talleres": {
       "source": "https://www.tycsports.com/talleres-de-cordoba.html",
+      "consulted": "2026-11-05"
+    },
+    "rosario": {
+      "source": "https://rosariocentral.com/plantel-masculino/",
       "consulted": "2026-11-05"
     }
   },
