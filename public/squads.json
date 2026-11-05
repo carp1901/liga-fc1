@@ -4606,7 +4606,8 @@
       "p": "POR",
       "r": 60,
       "role": "Arquero",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 12
     },
     {
       "n": "Tomás Durso",
@@ -4789,7 +4790,8 @@
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 10
     },
     {
       "n": "Kevin Ortiz",
