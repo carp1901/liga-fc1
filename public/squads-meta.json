@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:15:35.460Z",
+  "updatedAt": "2026-11-05T19:15:55.654Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -32,7 +32,7 @@
     "tigre": 47,
     "banfield": 35,
     "rivadavia": 29,
-    "gimnasiamza": 33,
+    "gimnasiamza": 32,
     "estudiantesrc": 32
   },
   "sources": {
@@ -646,9 +646,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1002,
+    "assigned": 1001,
     "missing": 17,
-    "total": 1019,
+    "total": 1018,
     "byClub": {
       "sanlorenzo": {
         "total": 39,
@@ -791,8 +791,8 @@
         "missing": 0
       },
       "gimnasiamza": {
-        "total": 33,
-        "assigned": 32,
+        "total": 32,
+        "assigned": 31,
         "missing": 1
       },
       "estudiantesrc": {
@@ -804,10 +804,10 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 1019,
+    "assigned": 1018,
     "missing": 0,
-    "birthDates": 251,
-    "total": 1019,
+    "birthDates": 250,
+    "total": 1018,
     "byClub": {
       "sanlorenzo": {
         "total": 39,
@@ -950,8 +950,8 @@
         "missing": 0
       },
       "gimnasiamza": {
-        "total": 33,
-        "assigned": 33,
+        "total": 32,
+        "assigned": 32,
         "missing": 0
       },
       "estudiantesrc": {
@@ -963,8 +963,8 @@
   },
   "nationalityCoverage": {
     "assigned": 674,
-    "missing": 345,
-    "total": 1019,
+    "missing": 344,
+    "total": 1018,
     "byClub": {
       "sanlorenzo": {
         "total": 39,
@@ -1079,7 +1079,7 @@
         "assigned": 5
       },
       "gimnasiamza": {
-        "total": 33,
+        "total": 32,
         "assigned": 3
       },
       "estudiantesrc": {
@@ -1090,8 +1090,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 48,
-    "missing": 971,
-    "total": 1019,
+    "missing": 970,
+    "total": 1018,
     "byClub": {
       "sanlorenzo": {
         "total": 39,
@@ -1206,7 +1206,7 @@
         "specific": 0
       },
       "gimnasiamza": {
-        "total": 33,
+        "total": 32,
         "specific": 0
       },
       "estudiantesrc": {
@@ -1217,24 +1217,24 @@
   },
   "ratingCoverage": {
     "rated": 74,
-    "total": 1019,
-    "provisional": 945,
+    "total": 1018,
+    "provisional": 944,
     "source": "Statz.ai y Sportlumy; promedios individuales de partido con muestra mínima de 10 apariciones.",
     "formula": "r = round(clamp(60 + (promedio_partido - 6.5) * 20, 40, 90)); solo se aplica con al menos 10 apariciones."
   },
   "attributeCoverage": {
     "manualPlayers": 0,
-    "derivedPlayers": 1019,
+    "derivedPlayers": 1018,
     "method": "public/data.js deriva atributos por perfil de posición y media."
   },
   "qualityAudit": {
     "clubs": 30,
-    "players": 1019,
+    "players": 1018,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 17,
-    "provisionalRatings": 945,
-    "playersWithoutManualAttributes": 1019
+    "provisionalRatings": 944,
+    "playersWithoutManualAttributes": 1018
   }
 }
