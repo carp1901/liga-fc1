@@ -233,7 +233,7 @@ const teamTier=(team,division)=>{const d=typeof division=='string'?DIVS.find(x=>
 // pas pase · ctl control · reg regate · rem definición · des desmarque · mar marca · ant anticipación · ref reflejos
 // vel velocidad · ace aceleración · res resistencia · fue fuerza · cab cabeceo · cen centros · pot potencia de tiro · agr agresividad
 // par atajadas · man blocaje · sal salidas/aéreo · pie juego con los pies.
-const ATTRS=['pas','ctl','reg','rem','des','mar','ant','ref','vel','ace','res','fue','cab','cen','pot','agr','par','man','sal','pie'];
+const ATTRS=['pas','ctl','reg','rem','des','mar','ant','ref','vel','ace','res','fue','cab','cen','pot','agr','par','man','sal','pie','lea'];
 const PROFILES={
  POR:{off:{ref:9,par:10,man:7,sal:4,pie:-2,ant:2,pas:-8,ctl:-8,vel:-8,ace:-8,res:-5,fue:1,cab:2,cen:-8,pot:-25,agr:-3,reg:-20,rem:-35,des:-25,mar:-12},w:{ref:.24,par:.28,man:.16,sal:.1,pie:.07,ant:.06,pas:.04,ctl:.03,vel:.01,ace:.01}},
  DEF:{off:{mar:8,ant:7,cab:5,fue:4,vel:1,ace:-1,res:3,agr:3,pas:-3,ctl:-5,reg:-12,rem:-18,des:-7,ref:-45,par:-45,man:-45,sal:-45,pie:-5,cen:-4,pot:-8},w:{mar:.22,ant:.17,cab:.1,fue:.1,vel:.09,res:.08,pas:.07,ctl:.05,agr:.04,ace:.03,reg:.02,des:.01,cen:.01,pot:.01}},
@@ -248,7 +248,7 @@ function mkAt(p,r,rr){const P=PROFILES[p]||PROFILES.MED,at={};ATTRS.forEach(a=>a
  ATTRS.forEach(a=>at[a]=clampA(at[a]));return at}
 // completa un jugador: si trae los 8 atributos se respetan (y si falta la media se calcula); si trae algunos, el resto se deriva; si no trae ninguno, se deriva todo de p y r
 const withAt=(x,key)=>{if(x.at&&ATTRS.every(a=>typeof x.at[a]=='number'))return x.r!=null?x:{...x,r:Math.round(roleOvr(x,x.p))};
- const r0=x.r!=null?x.r:60,gen=mkAt(x.p,r0,rng(hs('at|'+key+'|'+x.n+'|'+x.p)));return{...x,r:r0,at:{...gen,...(x.at||{})}}};
+ const r0=x.r!=null?x.r:60,gen=mkAt(x.p,r0,rng(hs('at|'+key+'|'+x.n+'|'+x.p)));const age=Number(x.age),lead=Number.isFinite(age)&&age>0?Math.max(35,Math.min(92,Math.round(42+(age-18)*2.1))):50;return{...x,r:r0,at:{...gen,...(x.at||{}),lea:x.at?.lea??lead}}};
 const SQ={};let REAL={};try{REAL=require('./squads.json')}catch(e){REAL=(typeof window!=='undefined'&&window.SQUADS)||{}}
 const rawSquad=id=>SQ[id]||(SQ[id]=(REAL[id]||(()=>{const t=TM[id],r=rng(hs('sq'+id));return POS.map(p=>({p,n:String.fromCharCode(65+Math.floor(r()*26))+'. '+AP[Math.floor(r()*AP.length)],r:Math.round(t.r-10+r()*16)}))})()).map((x,i)=>withAt(x,id+'|'+i)));
 let MIX=false;const setMix=b=>{MIX=!!b};
