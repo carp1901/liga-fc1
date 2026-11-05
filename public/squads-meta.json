@@ -166,14 +166,18 @@
     "sarmiento": {
       "source": "https://www.tycsports.com/sarmiento-junin.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.golmates.com/es/argentina/equipo/sarmiento-junin/plantilla",
-      "numbersConsulted": "2026-11-05"
+      "numberSource": "https://scoremondo.com/es/jugador/elian-gimenez-1886; https://www.transfermarkt.mx/elian-gimenez/rueckennummern/spieler/1290521",
+      "numbersConsulted": "2026-11-05",
+      "numberCoverage": "29/31",
+      "numberConflict": "Lautaro Monza y Roque Maisterra sin dorsal confirmado; Elián Giménez #23."
     },
     "aldosivi": {
       "source": "https://www.tycsports.com/aldosivi.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.lpf.org.ar/clubes/aldosivi/",
-      "numbersConsulted": "2026-11-05"
+      "numberSource": "https://argentinosjuniors.com.ar/noticias/futbol/vs-aldosivi/; https://www.lpf.org.ar/clubes/aldosivi/",
+      "numbersConsulted": "2026-11-05",
+      "numberCoverage": "33/36",
+      "numberConflict": "Braian Cufré (#13) entra en conflicto con Federico Gino (#13) del listado LPF; León Lambardi y Joaquín Salinas sin confirmación actual inequívoca. Pablo Argoytia #37 confirmado en planilla de partido."
     },
     "platense": {
       "source": "https://www.tycsports.com/platense.html",
@@ -185,10 +189,10 @@
     "defensa": {
       "source": "https://www.tycsports.com/defensa-y-justicia.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/defensa-y-justicia/",
+      "numberSource": "https://www.sporx.com/defensa-y-justicia-mac-kadrosu; https://www.ligaprofesional.ar/clubes/defensa-y-justicia/",
       "numbersConsulted": "2026-11-05",
-      "numberCoverage": "34/36",
-      "numberConflict": "Matías Borgogno y Juan Pablo Moreno continúan sin dorsal confirmado; Ramiro Gagliardi #41."
+      "numberCoverage": "35/36",
+      "numberConflict": "Juan Pablo Moreno sin dorsal confirmado; Matías Borgogno #1 según plantel 2026/27."
     },
     "union": {
       "source": "https://www.tycsports.com/union.html",
