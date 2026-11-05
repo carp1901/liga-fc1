@@ -2,7 +2,7 @@
 // Uso: node import-squads.js planteles/primera-2026.csv
 // Para exigir los 30 clubes de Primera y al menos 11 jugadores por club:
 // node import-squads.js planteles/primera-2026.csv --require-primera-complete
-// Columnas: club_id,nombre,posicion,rating,edad,dorsal,rol,fuente,consultado,pie,posiciones_secundarias,id,pas,ctl,reg,rem,des,mar,ant,ref,nat,abreviatura
+// Columnas: club_id,nombre,posicion,rating,edad,dorsal,rol,fuente,consultado,pie,posiciones_secundarias,id,pas,ctl,reg,rem,des,mar,ant,ref,nat,abreviatura,nat,abreviatura
 // rating es opcional: si falta, se usa 60 neutral (no es una valoración deportiva).
 const fs=require('fs'),path=require('path');
 const file=process.argv[2];
