@@ -12,9 +12,9 @@ function parseCSV(s){
  const rows=[];let row=[],v='',q=false;
  for(let i=0;i<s.length;i++){const c=s[i];
   if(q){if(c=='"'&&s[i+1]=='"'){v+='"';i++}else if(c=='"')q=false;else v+=c}
-  else if(c=='"')q=true;else if(c==','){row.push(v);v=''}else if(c=='\\n'){row.push(v.replace(/\\r$/,''));rows.push(row);row=[];v=''}else v+=c;
+  else if(c=='"')q=true;else if(c==','){row.push(v);v=''}else if(c=='\n'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v=''}else v+=c;
  }
- if(v.length||row.length){row.push(v.replace(/\\r$/,''));rows.push(row)}
+ if(v.length||row.length){row.push(v.replace(/\r$/,''));rows.push(row)}
  return rows;
 }
 const POS={POR:'POR',ARQ:'POR',GK:'POR',GOALKEEPER:'POR',DEF:'DEF',DF:'DEF',DEFENDER:'DEF',MED:'MED',MC:'MED',MCD:'MED',MO:'MED',MID:'MED',MF:'MED',MIDFIELDER:'MED',DEL:'DEL',FW:'DEL',ATA:'DEL',ATTACKER:'DEL'};
@@ -46,7 +46,7 @@ rows.forEach((r,i)=>{
  (sources[club]||(sources[club]={source:src,consulted:date}));
  if(sources[club].source!==src||sources[club].consulted!==date) sources[club].mixed=true;
 });
-if(errors.length){console.error(errors.join('\\n'));process.exit(1)}
+if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 if(!Object.keys(out).length)throw Error('No hay jugadores válidos para importar');
 if(REQUIRE_PRIMERA){
  const missing=PRIMERA.filter(id=>!out[id]||out[id].length<11);
