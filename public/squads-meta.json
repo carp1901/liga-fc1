@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:02:12.258Z",
+  "updatedAt": "2026-11-05T20:03:30.454Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -66,7 +66,10 @@
         "https://statz.ai/player/miguel-merentiel/429996",
         "https://statz.ai/player/sebastian-villa/238611"
       ],
-      "roleSource": "posicion habitual"
+      "roleSource": [
+        "https://www.transfermarkt.com.ar/club-atletico-boca-juniors/kader/verein/189",
+        "posicion habitual"
+      ]
     },
     "river": {
       "source": "https://www.riverplate.com/football/professional-football/men/squad",
@@ -161,6 +164,7 @@
         "https://statz.ai/player/tiago-palacios/37448761"
       ],
       "roleSource": [
+        "https://www.transfermarkt.com.ar/estudiantes-de-la-plata/kader/verein/288",
         "https://test-prf27k.estudiantesdelaplata.com/cuatro-juveniles-firmaron-su-contrato/",
         "https://www.transfermarkt.es/edwuin-cetre/profil/spieler/470390"
       ],
@@ -184,7 +188,7 @@
         "https://statz.ai/player/diego-valdes/233682",
         "https://statz.ai/player/ronaldo-martinez/258143"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
       "ageConsulted": "2026-11-05"
     },
     "racing": {
@@ -226,7 +230,7 @@
         "https://statz.ai/player/nahuel-losada/216737",
         "https://statz.ai/player/eduardo-salvio/159096"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.es/ca-lanus/kader/verein/333",
       "ageConsulted": "2026-11-05"
     },
     "talleres": {
@@ -267,7 +271,7 @@
       ],
       "numberSource": [],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-rosario-central/kader/verein/1417",
       "ageConsulted": "2026-11-05"
     },
     "newells": {
@@ -286,7 +290,10 @@
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
         "https://statz.ai/player/matias-coccaro/3872629"
       ],
-      "roleSource": "https://www.transfermarkt.com.ar/mateo-garcia/rueckennummern/spieler/441287",
+      "roleSource": [
+        "https://www.transfermarkt.com.ar/ca-newells-old-boys/kader/verein/1034",
+        "https://www.transfermarkt.com.ar/mateo-garcia/rueckennummern/spieler/441287"
+      ],
       "ageConsulted": "2026-11-05"
     },
     "gimnasia": {
@@ -315,7 +322,10 @@
         "https://statz.ai/player/agustin-auzmendi/741664",
         "https://statz.ai/player/marcelo-torres/766681"
       ],
-      "roleSource": "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/",
+      "roleSource": [
+        "https://www.transfermarkt.com.ar/ca-gimnasia-y-esgrima-la-plata/kader/verein/1104",
+        "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/"
+      ],
       "ageConsulted": "2026-11-05"
     },
     "huracan": {
@@ -336,7 +346,7 @@
         "https://statz.ai/player/jordy-caicedo/244493",
         "https://statz.ai/player/oscar-cortes/37615016"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-huracan/kader/verein/2063",
       "ageConsulted": "2026-11-05"
     },
     "argentinos": {
@@ -355,7 +365,7 @@
         "https://www.sofascore.com/es-la/football/player/kevin-gutierrez/914145"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/argentinos-juniors/kader/verein/1030",
       "ageConsulted": "2026-11-05"
     },
     "belgrano": {
@@ -374,7 +384,7 @@
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
         "https://statz.ai/player/lucas-zelarayan/253723"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-belgrano-de-cordoba/kader/verein/1290",
       "ageConsulted": "2026-11-05"
     },
     "centralcba": {
@@ -1158,8 +1168,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 160,
-    "missing": 858,
+    "assigned": 462,
+    "missing": 556,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1168,7 +1178,7 @@
       },
       "boca": {
         "total": 31,
-        "specific": 27
+        "specific": 31
       },
       "river": {
         "total": 27,
@@ -1180,11 +1190,11 @@
       },
       "estudiantes": {
         "total": 37,
-        "specific": 2
+        "specific": 34
       },
       "velez": {
         "total": 30,
-        "specific": 0
+        "specific": 30
       },
       "racing": {
         "total": 27,
@@ -1192,7 +1202,7 @@
       },
       "lanus": {
         "total": 34,
-        "specific": 0
+        "specific": 34
       },
       "talleres": {
         "total": 33,
@@ -1200,27 +1210,27 @@
       },
       "rosario": {
         "total": 38,
-        "specific": 0
+        "specific": 38
       },
       "huracan": {
         "total": 32,
-        "specific": 0
+        "specific": 32
       },
       "newells": {
         "total": 30,
-        "specific": 1
+        "specific": 30
       },
       "gimnasia": {
         "total": 36,
-        "specific": 1
+        "specific": 36
       },
       "argentinos": {
         "total": 33,
-        "specific": 0
+        "specific": 32
       },
       "belgrano": {
         "total": 36,
-        "specific": 0
+        "specific": 36
       },
       "centralcba": {
         "total": 36,
