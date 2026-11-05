@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:06:35.069Z",
+  "updatedAt": "2026-11-05T20:07:58.309Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "74 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -732,8 +732,8 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1004,
-    "missing": 14,
+    "assigned": 1005,
+    "missing": 13,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -843,8 +843,8 @@
       },
       "aldosivi": {
         "total": 35,
-        "assigned": 33,
-        "missing": 2
+        "assigned": 34,
+        "missing": 1
       },
       "platense": {
         "total": 36,
@@ -1319,7 +1319,7 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 14,
+    "playersMissingDorsal": 13,
     "provisionalRatings": 944,
     "playersWithoutManualAttributes": 1018
   }
