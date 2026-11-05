@@ -7968,6 +7968,14 @@
       "number": 36
     },
     {
+      "n": "Gonzalo Patritti",
+      "p": "DEF",
+      "r": 60,
+      "role": "Defensor",
+      "nat": "Argentina",
+      "number": 41
+    },
+    {
       "n": "Nahuel Barboza",
       "p": "MED",
       "r": 60,
@@ -8118,14 +8126,6 @@
       "r": 60,
       "role": "Delantero",
       "number": 35
-    },
-    {
-      "n": "Gonzalo Patritti",
-      "p": "DEF",
-      "r": 60,
-      "role": "Defensor",
-      "nat": "Argentina",
-      "number": 41
     }
   ],
   "estudiantesrc": [
