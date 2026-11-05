@@ -4,11 +4,11 @@
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
-    "sanlorenzo": 39,
+    "sanlorenzo": 40,
     "boca": 31,
-    "river": 27,
+    "river": 28,
     "independiente": 36,
-    "estudiantes": 38,
+    "estudiantes": 37,
     "velez": 30,
     "racing": 27,
     "lanus": 34,
@@ -25,13 +25,13 @@
     "riestra": 32,
     "instituto": 38,
     "sarmiento": 31,
-    "aldosivi": 36,
+    "aldosivi": 35,
     "platense": 38,
     "defensa": 36,
-    "union": 33,
-    "tigre": 49,
-    "banfield": 35,
-    "rivadavia": 29,
+    "union": 32,
+    "tigre": 45,
+    "banfield": 36,
+    "rivadavia": 28,
     "gimnasiamza": 35,
     "estudiantesrc": 32
   },
@@ -441,13 +441,13 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1013,
+    "assigned": 1008,
     "missing": 23,
-    "total": 1036,
+    "total": 1031,
     "byClub": {
       "sanlorenzo": {
-        "total": 39,
-        "assigned": 37,
+        "total": 40,
+        "assigned": 38,
         "missing": 2
       },
       "boca": {
@@ -456,8 +456,8 @@
         "missing": 1
       },
       "river": {
-        "total": 27,
-        "assigned": 27,
+        "total": 28,
+        "assigned": 28,
         "missing": 0
       },
       "independiente": {
@@ -466,8 +466,8 @@
         "missing": 1
       },
       "estudiantes": {
-        "total": 38,
-        "assigned": 38,
+        "total": 37,
+        "assigned": 37,
         "missing": 0
       },
       "velez": {
@@ -551,8 +551,8 @@
         "missing": 2
       },
       "aldosivi": {
-        "total": 36,
-        "assigned": 34,
+        "total": 35,
+        "assigned": 33,
         "missing": 2
       },
       "platense": {
@@ -566,23 +566,23 @@
         "missing": 1
       },
       "union": {
-        "total": 33,
-        "assigned": 33,
+        "total": 32,
+        "assigned": 32,
         "missing": 0
       },
       "tigre": {
-        "total": 49,
-        "assigned": 47,
-        "missing": 2
+        "total": 45,
+        "assigned": 44,
+        "missing": 1
       },
       "banfield": {
-        "total": 35,
+        "total": 36,
         "assigned": 35,
-        "missing": 0
+        "missing": 1
       },
       "rivadavia": {
-        "total": 29,
-        "assigned": 29,
+        "total": 28,
+        "assigned": 28,
         "missing": 0
       },
       "gimnasiamza": {
@@ -599,14 +599,14 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 911,
-    "missing": 125,
-    "birthDates": 155,
-    "total": 1036,
+    "assigned": 915,
+    "missing": 116,
+    "birthDates": 162,
+    "total": 1031,
     "byClub": {
       "sanlorenzo": {
-        "total": 39,
-        "assigned": 38,
+        "total": 40,
+        "assigned": 39,
         "missing": 1
       },
       "boca": {
@@ -615,8 +615,8 @@
         "missing": 0
       },
       "river": {
-        "total": 27,
-        "assigned": 27,
+        "total": 28,
+        "assigned": 28,
         "missing": 0
       },
       "independiente": {
@@ -625,8 +625,8 @@
         "missing": 3
       },
       "estudiantes": {
-        "total": 38,
-        "assigned": 37,
+        "total": 37,
+        "assigned": 36,
         "missing": 1
       },
       "velez": {
@@ -710,8 +710,8 @@
         "missing": 4
       },
       "aldosivi": {
-        "total": 36,
-        "assigned": 32,
+        "total": 35,
+        "assigned": 31,
         "missing": 4
       },
       "platense": {
@@ -725,24 +725,24 @@
         "missing": 18
       },
       "union": {
-        "total": 33,
-        "assigned": 29,
+        "total": 32,
+        "assigned": 28,
         "missing": 4
       },
       "tigre": {
-        "total": 49,
-        "assigned": 37,
-        "missing": 12
+        "total": 45,
+        "assigned": 41,
+        "missing": 4
       },
       "banfield": {
-        "total": 35,
-        "assigned": 35,
+        "total": 36,
+        "assigned": 36,
         "missing": 0
       },
       "rivadavia": {
-        "total": 29,
+        "total": 28,
         "assigned": 28,
-        "missing": 1
+        "missing": 0
       },
       "gimnasiamza": {
         "total": 35,
@@ -1012,8 +1012,8 @@
   },
   "ratingCoverage": {
     "rated": 74,
-    "total": 1036,
-    "provisional": 962,
+    "total": 1031,
+    "provisional": 957,
     "source": "Statz.ai y Sportlumy; promedios individuales de partido con muestra mínima de 10 apariciones.",
     "formula": "r = round(clamp(60 + (promedio_partido - 6.5) * 20, 40, 90)); solo se aplica con al menos 10 apariciones."
   },
@@ -1024,16 +1024,18 @@
   },
   "qualityAudit": {
     "clubs": 30,
-    "players": 1036,
+    "players": 1031,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 125,
+    "crossClubDuplicateNames": 7,
+    "playersMissingAge": 116,
     "playersMissingDorsal": 23,
-    "provisionalRatings": 962,
-    "playersWithoutManualAttributes": 1036
+    "provisionalRatings": 957,
+    "playersWithoutManualAttributes": 1031
   },
   "pending": {
-    "ages": 125,
-    "dorsals": 23
+    "ages": 116,
+    "dorsals": 23,
+    "statisticalRatings": 957
   }
 }
