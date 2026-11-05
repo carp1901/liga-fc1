@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T05:40:54.259Z",
+  "updatedAt": "2026-11-05T05:41:40.534Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -22,7 +22,11 @@
     "centralcba": 37,
     "atletico": 36,
     "barracas": 36,
-    "riestra": 32
+    "riestra": 32,
+    "instituto": 38,
+    "sarmiento": 31,
+    "aldosivi": 36,
+    "platense": 38
   },
   "sources": {
     "sanlorenzo": {
@@ -100,6 +104,22 @@
     },
     "riestra": {
       "source": "https://deportivoriestra.com.ar/equipo",
+      "consulted": "2026-11-05"
+    },
+    "instituto": {
+      "source": "https://www.tycsports.com/instituto.html",
+      "consulted": "2026-11-05"
+    },
+    "sarmiento": {
+      "source": "https://www.tycsports.com/sarmiento-junin.html",
+      "consulted": "2026-11-05"
+    },
+    "aldosivi": {
+      "source": "https://www.tycsports.com/aldosivi.html",
+      "consulted": "2026-11-05"
+    },
+    "platense": {
+      "source": "https://www.tycsports.com/platense.html",
       "consulted": "2026-11-05"
     }
   },
