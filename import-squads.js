@@ -2,7 +2,7 @@
 // Uso: node import-squads.js planteles/primera-2026.csv
 // Para exigir los 30 clubes de Primera y al menos 11 jugadores por club:
 // node import-squads.js planteles/primera-2026.csv --require-primera-complete
-// Columnas: club_id,nombre,posicion,rating,edad,dorsal,rol,fuente,consultado,pie,posiciones_secundarias,id,pas,ctl,reg,rem,des,mar,ant,ref
+// Columnas: club_id,nombre,posicion,rating,edad,dorsal,rol,fuente,consultado,pie,posiciones_secundarias,id,pas,ctl,reg,rem,des,mar,ant,ref,nat,abreviatura
 // rating es opcional: si falta, se usa 60 neutral (no es una valoración deportiva).
 const fs=require('fs'),path=require('path');
 const file=process.argv[2];
@@ -35,6 +35,7 @@ rows.forEach((r,i)=>{
  const key=club+'|'+name.toLowerCase();
  if(seen[key]){errors.push('Fila '+(i+2)+': jugador duplicado en '+club+': '+name);return}seen[key]=1;
  const player={n:name,p:pos,r:Math.round(rating),role:get('rol')||rawPos};
+ if(get('abreviatura'))player.short=get('abreviatura');
  if(get('nat'))player.nat=get('nat');
  if(get('id'))player.id=get('id');
  if(age!=null)player.age=age;
