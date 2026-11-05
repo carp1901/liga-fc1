@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:57:54.107Z",
+  "updatedAt": "2026-11-05T19:58:05.433Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -397,7 +397,7 @@
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/36",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/atletico-tucuman/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/atletico-tucuman/plantilla",
         "https://www.transfermarkt.com.ar/ramiro-gonzalez/profil/spieler/1089648",
         "https://www.transfermarkt.com.ar/club-atletico-tucuman-ii/startseite/verein/90392",
         "https://www.transfermarkt.com.ar/gaston-suso/profil/spieler/215865",
@@ -871,7 +871,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 979,
+    "birthDates": 1005,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
