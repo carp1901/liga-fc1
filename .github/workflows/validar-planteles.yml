@@ -1,0 +1,18 @@
+name: Validar planteles CSV
+on:
+  push:
+    paths:
+      - 'planteles/**'
+      - 'import-squads.js'
+      - '.github/workflows/validar-planteles.yml'
+  workflow_dispatch:
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar estructura y datos sin publicar
+        run: node import-squads.js planteles/primera-2026.csv --dry-run
