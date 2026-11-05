@@ -1,40 +1,134 @@
-club_id,nombre,posicion,rating,edad,dorsal,rol,fuente,consultado,pie,posiciones_secundarias,id,pas,ctl,reg,rem,des,mar,ant,ref
-sanlorenzo,Mateo Clemente,POR,,,1,Arquero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Facundo Altamirano,POR,,,20,Arquero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,José Devecchi,POR,,,25,Arquero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Agustín Perez,DEF,,,,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Danilo Arboleda,DEF,,,2,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Teo Rodríguez Pagano,DEF,,,3,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Mathías De Ritis,DEF,,,6,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Guzmán Corujo,DEF,,,16,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Emiliano Amor,DEF,,,19,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Gastón Hernández,DEF,,,23,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Nahuel Arias,DEF,,,30,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Ezequiel Herrera,DEF,,,32,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Alejo Córdoba,DEF,,,35,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Daniel Herrera,DEF,,,36,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Franco Lorenzon,DEF,,,42,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Ramiro Pedroza,DEF,,,53,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Nicolás Blanco,DEF,,,54,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Ignacio Perruzzi,MED,,,5,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Manuel Insaurralde,MED,,,8,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Juan Cruz Rattalino,MED,,,13,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Nicolás Tripichio,MED,,,24,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Martín Río,MED,,,27,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Nahuel Barrios,MED,,,28,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Ignacio Zaballa,MED,,,47,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Gonzalo Alassia,MED,,,62,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Mauricio Cardillo,MED,,,15,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Facundo Gulli,MED,,,10,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Juan Pablo Álvarez,MED,,,22,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Gonzalo Ábrego,MED,,,26,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Facundo Farías,MED,,,38,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Uriel Ojeda,MED,,,39,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Ezequiel Cerutti,DEL,,,7,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Alexis Cuello,DEL,,,9,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Agustín Ladstatter,DEL,,,14,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Diego Herazo,DEL,,,18,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Gustavo Del Prete,DEL,,,21,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Branco Salinardi,DEL,,,22,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Rodrigo Auzmendi,DEL,,,29,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
-sanlorenzo,Alan Salas,DEL,,,44,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05
+club_id,nombre,posicion,rating,edad,dorsal,rol,fuente,consultado,pie,posiciones_secundarias,id,pas,ctl,reg,rem,des,mar,ant,ref,nat
+sanlorenzo,Mateo Clemente,POR,,,1,Arquero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Facundo Altamirano,POR,,,20,Arquero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,José Devecchi,POR,,,25,Arquero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Agustín Perez,DEF,,,,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Danilo Arboleda,DEF,,,2,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Colombia
+sanlorenzo,Teo Rodríguez Pagano,DEF,,,3,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Mathías De Ritis,DEF,,,6,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Uruguay
+sanlorenzo,Guzmán Corujo,DEF,,,16,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Uruguay
+sanlorenzo,Emiliano Amor,DEF,,,19,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Siria
+sanlorenzo,Gastón Hernández,DEF,,,23,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Nahuel Arias,DEF,,,30,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Ezequiel Herrera,DEF,,,32,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Alejo Córdoba,DEF,,,35,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Daniel Herrera,DEF,,,36,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Franco Lorenzon,DEF,,,42,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Ramiro Pedroza,DEF,,,53,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Nicolás Blanco,DEF,,,54,Defensor,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Ignacio Perruzzi,MED,,,5,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Manuel Insaurralde,MED,,,8,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Juan Cruz Rattalino,MED,,,13,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Nicolás Tripichio,MED,,,24,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Martín Río,MED,,,27,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Nahuel Barrios,MED,,,28,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Ignacio Zaballa,MED,,,47,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Gonzalo Alassia,MED,,,62,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Mauricio Cardillo,MED,,,15,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Facundo Gulli,MED,,,10,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Juan Pablo Álvarez,MED,,,22,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Gonzalo Ábrego,MED,,,26,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Facundo Farías,MED,,,38,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Uriel Ojeda,MED,,,39,Mediocampista,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Ezequiel Cerutti,DEL,,,7,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Alexis Cuello,DEL,,,9,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Agustín Ladstatter,DEL,,,14,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Diego Herazo,DEL,,,18,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Colombia
+sanlorenzo,Gustavo Del Prete,DEL,,,21,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Branco Salinardi,DEL,,,22,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Rodrigo Auzmendi,DEL,,,29,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+sanlorenzo,Alan Salas,DEL,,,44,Delantero,https://sanlorenzo.com.ar/futbol-profesional/plantel,2026-11-05,,,,,,,,,,,,Argentina
+boca,Agustín Marchesín,POR,,,,Arquero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Álvaro Montero,POR,,,1,Arquero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Colombia
+boca,Leandro Brey,POR,,,12,Arquero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Javier García,POR,,,30,Arquero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Lautaro Di Lollo,DEF,,,2,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Lautaro Blanco,DEF,,,3,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Nicolás Figal,DEF,,,4,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Leandro Lozano,DEF,,,17,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Uruguay
+boca,Dylan Gorosito,DEF,,,24,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Marco Pellegrino,DEF,,,26,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Ayrton Costa,DEF,,,32,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Facundo Herrera,DEF,,,42,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Matías Satas,DEF,,,46,Defensor,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Leandro Paredes,MED,,,5,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Rodrigo Battaglia,MED,,,6,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Carlos Palacios,MED,,,7,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Chile
+boca,Tomás Belmonte,MED,,,8,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Tomás Aranda,MED,,,10,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Williams Alarcón,MED,,,15,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Chile
+boca,Milton Delgado,MED,,,18,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Alan Velasco,MED,,,20,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Camilo Rey Domenech,MED,,,23,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Santiago Ascacíbar,MED,,,25,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Malcom Braida,MED,,,27,Mediocampista,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Milton Giménez,DEL,,,9,Delantero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Ángel Romero,DEL,,,11,Delantero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Paraguay
+boca,Enner Valencia,DEL,,,13,Delantero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Ecuador
+boca,Miguel Merentiel,DEL,,,16,Delantero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Uruguay
+boca,Leonel Flores,DEL,,,19,Delantero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Argentina
+boca,Sebastián Villa,DEL,,,22,Delantero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Colombia
+boca,Adam Bareiro,DEL,,,28,Delantero,https://www.bocajuniors.com.ar/futbol-masculino,2026-11-05,,,,,,,,,,,,Paraguay
+river,Ezequiel Centurión,POR,,,33,Arquero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Santiago Beltrán,POR,,,41,Arquero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Jeremías Martinet,POR,,,57,Arquero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Tobías Ramírez,DEF,,,2,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Francisco Ortega,DEF,,,3,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Lautaro Rivero,DEF,,,13,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Giovanni González,DEF,,,20,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Uruguay
+river,Marcos Acuña,DEF,,,21,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Lucas Martínez Quarta,DEF,,,28,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Gonzalo Montiel,DEF,,,29,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Nicolás Otamendi,DEF,,,30,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Facundo González,DEF,,,31,Defensor,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Juan Portillo,MED,,,5,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Aníbal Moreno,MED,,,6,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Mauro Arambarri,MED,,,8,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Uruguay
+river,Fausto Vera,MED,,,15,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Thiago Almada,MED,,,23,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Juan Cruz Meza,MED,,,24,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Tomás Galván,MED,,,26,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Lucas Silva,MED,,,44,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Tobías Andrada,MED,,,50,Mediocampista,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Sebastián Driussi,DEL,,,9,Delantero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Ángel Correa,DEL,,,10,Delantero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Lucas Beltrán,DEL,,,18,Delantero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Rafael Borré,DEL,,,19,Delantero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Colombia
+river,Lautaro Pereyra,DEL,,,25,Delantero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+river,Agustín Ruberto,DEL,,,32,Delantero,https://www.riverplate.com/football/professional-football/men/squad,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Rodrigo Rey,POR,,,33,Arquero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Juan Centurión,POR,,,12,Arquero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Santiago Mele,POR,,,77,Arquero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Uruguay
+independiente,Joaquín Blázquez,POR,,,1,Arquero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Fernando Closter,DEF,,,21,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Nahuel Banegas,DEF,,,5,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Joshua Velardez,DEF,,,40,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Paraguay
+independiente,Ramiro Martino,DEF,,,39,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Franco Calderón,DEF,,,2,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Juan Arrayago,DEF,,,35,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Santiago Arias,DEF,,,4,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Colombia
+independiente,Leonardo Godoy,DEF,,,29,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Gonzalo Bordón,DEF,,,31,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Facundo Zabala,DEF,,,22,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Sebastián Valdéz,DEF,,,36,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Juan Fedorco,DEF,,,13,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Jonathan De Irastorza,DEF,,,,Defensor,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Iván Marcone,MED,,,23,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Tomás Parmo,MED,,,30,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Lautaro Millán,MED,,,14,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Chile
+independiente,Luciano Cabral,MED,,,10,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Chile
+independiente,Facundo Cruz,MED,,,20,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Matheo Benítez Machuca,MED,,,15,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,David Martínez,MED,,,32,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Mateo Pérez Curci,MED,,,16,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Maximiliano Meza,MED,,,8,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Joel Medina,MED,,,37,Mediocampista,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Santiago Montiel,DEL,,,7,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Josías Palais,DEL,,,24,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Nahuel Junco,DEL,,,25,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Felipe Tempone,DEL,,,34,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Maxiliano Gutiérrez,DEL,,,28,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Chile
+independiente,Ezequiel Ávila,DEL,,,6,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Santino Viollaz,DEL,,,17,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Argentina
+independiente,Matías Abaldo,DEL,,,19,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Uruguay
+independiente,Iván Morales,DEL,,,9,Delantero,https://www.clubaindependiente.com.ar/futbol/plantel,2026-11-05,,,,,,,,,,,,Chile
