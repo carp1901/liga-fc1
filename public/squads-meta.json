@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T05:44:21.058Z",
+  "updatedAt": "2026-11-05T22:00:00.000Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -70,7 +70,9 @@
     },
     "lanus": {
       "source": "https://www.tycsports.com/lanus.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/lanus/",
+      "numbersConsulted": "2026-11-05"
     },
     "talleres": {
       "source": "https://www.tycsports.com/talleres-de-cordoba.html",
@@ -176,7 +178,7 @@
     "tigre": {
       "source": "https://www.tycsports.com/tigre.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/tigre",
+      "numberSource": "https://gol.conmebol.com/sudamericana/es/news/tigre-en-la-conmebol-sudamericana-2026-resultados-plantel-y-calendario",
       "numbersConsulted": "2026-11-05"
     },
     "banfield": {
