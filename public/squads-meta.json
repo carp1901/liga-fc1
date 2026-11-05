@@ -394,10 +394,10 @@
   },
   "dorsalsComplete": false,
   "ratingCoverage": {
-    "rated": 15,
+    "rated": 21,
     "total": 1036,
-    "provisional": 1021,
-    "source": "Statz.ai, promedio de calificaciones de partidos de Liga Profesional 2026; consultado 2026-11-05",
+    "provisional": 1015,
+    "source": "Statz.ai, promedios de calificaciones de partidos de Liga Profesional 2026; consultado 2026-11-05",
     "formula": "r = round(clamp(60 + (promedio_partido_2026 - 6.5) * 20, 40, 90)); aplicado solo con muestra de al menos 10 partidos. El promedio original, cantidad de partidos y URL quedan guardados por jugador."
   }
 }
