@@ -252,9 +252,10 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/36",
-      "ageSource": [],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/atletico-tucuman/",
       "ratingSource": "https://statz.ai/player/luis-ingolotti/8092902",
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "barracas": {
       "source": "https://www.barracascentral.com/plantel/",
@@ -383,9 +384,10 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "35/35",
-      "ageSource": [],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/banfield",
       "ratingSource": [],
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "rivadavia": {
       "source": "https://www.tycsports.com/independiente-rivadavia.html",
@@ -589,8 +591,8 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 543,
-    "missing": 493,
+    "assigned": 649,
+    "missing": 387,
     "birthDates": 55,
     "total": 1036,
     "byClub": {
@@ -611,13 +613,13 @@
       },
       "independiente": {
         "total": 36,
-        "assigned": 1,
-        "missing": 35
+        "assigned": 22,
+        "missing": 14
       },
       "estudiantes": {
         "total": 38,
-        "assigned": 6,
-        "missing": 32
+        "assigned": 14,
+        "missing": 24
       },
       "velez": {
         "total": 30,
@@ -676,8 +678,8 @@
       },
       "atletico": {
         "total": 36,
-        "assigned": 0,
-        "missing": 36
+        "assigned": 25,
+        "missing": 11
       },
       "barracas": {
         "total": 36,
@@ -726,8 +728,8 @@
       },
       "banfield": {
         "total": 35,
-        "assigned": 0,
-        "missing": 35
+        "assigned": 33,
+        "missing": 2
       },
       "rivadavia": {
         "total": 29,
@@ -736,8 +738,8 @@
       },
       "gimnasiamza": {
         "total": 35,
-        "assigned": 8,
-        "missing": 27
+        "assigned": 27,
+        "missing": 8
       },
       "estudiantesrc": {
         "total": 32,
@@ -1077,13 +1079,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 493,
+    "playersMissingAge": 387,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 493,
+    "ages": 387,
     "dorsals": 23,
     "statisticalRatings": 962,
     "manualAttributes": 1036,
