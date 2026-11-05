@@ -372,7 +372,7 @@
     {
       "n": "Lautaro Blanco",
       "p": "DEF",
-      "r": 60,
+      "r": 72,
       "role": "Defensor",
       "nat": "Argentina",
       "number": 3,
@@ -380,7 +380,10 @@
       "age": 27,
       "ageSource": "https://www.bocajuniors.com.ar/futbol-masculino",
       "specificRole": "LI",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 7.1,
+      "ratingApps2026": 28,
+      "ratingSource": "https://statz.ai/player/lautaro-blanco/37547039"
     },
     {
       "n": "Nicolás Figal",
@@ -476,7 +479,7 @@
     {
       "n": "Leandro Paredes",
       "p": "MED",
-      "r": 60,
+      "r": 80,
       "role": "Mediocampista",
       "nat": "Argentina",
       "number": 5,
@@ -484,7 +487,10 @@
       "age": 32,
       "ageSource": "https://www.bocajuniors.com.ar/futbol-masculino",
       "specificRole": "MC",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 7.5,
+      "ratingApps2026": 25,
+      "ratingSource": "https://statz.ai/player/leandro-paredes/129419"
     },
     {
       "n": "Rodrigo Battaglia",
@@ -829,7 +835,7 @@
     {
       "n": "Gonzalo Montiel",
       "p": "DEF",
-      "r": 60,
+      "r": 73,
       "role": "Defensor",
       "nat": "Argentina",
       "number": 29,
@@ -837,7 +843,10 @@
       "age": 29,
       "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
       "specificRole": "LD",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 7.15,
+      "ratingApps2026": 30,
+      "ratingSource": "https://statz.ai/player/gonzalo-montiel/333781"
     },
     {
       "n": "Nicolás Otamendi",
@@ -980,7 +989,7 @@
     {
       "n": "Sebastián Driussi",
       "p": "DEL",
-      "r": 60,
+      "r": 68,
       "role": "Delantero",
       "nat": "Argentina",
       "number": 9,
@@ -988,7 +997,10 @@
       "age": 31,
       "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
       "specificRole": "SD",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 6.9,
+      "ratingApps2026": 23,
+      "ratingSource": "https://statz.ai/player/sebastian-driussi/333771"
     },
     {
       "n": "Ángel Correa",
@@ -1492,10 +1504,13 @@
     {
       "n": "Tiago Palacios",
       "p": "MED",
-      "r": 60,
+      "r": 70,
       "role": "Mediocampista",
       "nat": "Uruguay",
-      "number": 10
+      "number": 10,
+      "matchRating2026": 7.02,
+      "ratingApps2026": 22,
+      "ratingSource": "https://statz.ai/player/tiago-palacios/37448761"
     },
     {
       "n": "Ezequiel Piovi",
@@ -2072,10 +2087,13 @@
     {
       "n": "Adrián Martínez",
       "p": "DEL",
-      "r": 60,
+      "r": 62,
       "role": "Delantero",
       "number": 9,
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "matchRating2026": 6.6,
+      "ratingApps2026": 27,
+      "ratingSource": "https://statz.ai/player/adrian-martinez/546751"
     },
     {
       "n": "Tomás Conechny",
