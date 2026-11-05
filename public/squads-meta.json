@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T05:41:40.534Z",
+  "updatedAt": "2026-11-05T05:42:28.546Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -26,7 +26,14 @@
     "instituto": 38,
     "sarmiento": 31,
     "aldosivi": 36,
-    "platense": 38
+    "platense": 38,
+    "defensa": 36,
+    "union": 33,
+    "tigre": 49,
+    "banfield": 35,
+    "rivadavia": 29,
+    "gimnasiamza": 34,
+    "estudiantesrc": 32
   },
   "sources": {
     "sanlorenzo": {
@@ -121,7 +128,35 @@
     "platense": {
       "source": "https://www.tycsports.com/platense.html",
       "consulted": "2026-11-05"
+    },
+    "defensa": {
+      "source": "https://www.tycsports.com/defensa-y-justicia.html",
+      "consulted": "2026-11-05"
+    },
+    "union": {
+      "source": "https://www.tycsports.com/union.html",
+      "consulted": "2026-11-05"
+    },
+    "tigre": {
+      "source": "https://www.tycsports.com/tigre.html",
+      "consulted": "2026-11-05"
+    },
+    "banfield": {
+      "source": "https://www.tycsports.com/banfield.html",
+      "consulted": "2026-11-05"
+    },
+    "rivadavia": {
+      "source": "https://www.tycsports.com/independiente-rivadavia.html",
+      "consulted": "2026-11-05"
+    },
+    "gimnasiamza": {
+      "source": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
+      "consulted": "2026-11-05"
+    },
+    "estudiantesrc": {
+      "source": "https://www.aaestudiantesriocuarto.com/",
+      "consulted": "2026-11-05"
     }
   },
-  "completePrimera": false
+  "completePrimera": true
 }
