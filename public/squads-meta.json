@@ -16,7 +16,8 @@
     "rosario": 38,
     "huracan": 32,
     "newells": 30,
-    "gimnasia": 38
+    "gimnasia": 38,
+    "argentinos": 33
   },
   "sources": {
     "sanlorenzo": {
@@ -70,6 +71,10 @@
     },
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
+      "consulted": "2026-11-05"
+    },
+    "argentinos": {
+      "source": "https://www.tycsports.com/argentinos-juniors.html",
       "consulted": "2026-11-05"
     }
   },
