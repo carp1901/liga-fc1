@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:03:54.876Z",
+  "updatedAt": "2026-11-05T20:04:15.062Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -400,7 +400,7 @@
         "https://www.transfermarkt.com.ar/leonardo-sequeira/profil/spieler/384761"
       ],
       "ratingSource": "https://statz.ai/player/michael-santos/187009",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-central-cordoba-sde/kader/verein/14761",
       "ageConsulted": "2026-11-05"
     },
     "atletico": {
@@ -425,7 +425,7 @@
         "https://statz.ai/player/luis-ingolotti/8092902",
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-atletico-tucuman/kader/verein/1090",
       "ageConsulted": "2026-11-05"
     },
     "barracas": {
@@ -441,7 +441,7 @@
         "https://www.transfermarkt.com.ar/francisco-cora/profil/spieler/1404969"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-barracas-central/kader/verein/6212",
       "ageConsulted": "2026-11-05"
     },
     "riestra": {
@@ -454,7 +454,7 @@
         "https://www.transfermarkt.com.ar/dariel-sanchez/profil/spieler/1330126"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/deportivo-riestra/kader/verein/18591",
       "ageConsulted": "2026-11-05"
     },
     "instituto": {
@@ -712,7 +712,7 @@
         "https://www.transfermarkt.com.ar/abel-francisco-romero/profil/spieler/1103451"
       ],
       "ratingSource": [],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/estudiantes-de-rio-cuarto/kader/verein/11015",
       "ageConsulted": "2026-11-05"
     },
     "sportlumy": {
@@ -1168,8 +1168,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 632,
-    "missing": 386,
+    "assigned": 803,
+    "missing": 215,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1234,19 +1234,19 @@
       },
       "centralcba": {
         "total": 36,
-        "specific": 0
+        "specific": 36
       },
       "atletico": {
         "total": 35,
-        "specific": 0
+        "specific": 35
       },
       "barracas": {
         "total": 36,
-        "specific": 0
+        "specific": 36
       },
       "riestra": {
         "total": 32,
-        "specific": 0
+        "specific": 32
       },
       "instituto": {
         "total": 36,
@@ -1290,7 +1290,7 @@
       },
       "estudiantesrc": {
         "total": 32,
-        "specific": 0
+        "specific": 32
       }
     }
   },
