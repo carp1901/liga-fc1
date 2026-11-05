@@ -1,0 +1,101 @@
+{
+  "temporada": 2026,
+  "division": "Primera División",
+  "estado": "en recopilación",
+  "criterio": "solo jugadores confirmados por fuentes; no completar con nombres inventados",
+  "clubes": {
+    "boca": {
+      "estado": "pendiente"
+    },
+    "river": {
+      "estado": "pendiente"
+    },
+    "racing": {
+      "estado": "pendiente"
+    },
+    "independiente": {
+      "estado": "pendiente"
+    },
+    "sanlorenzo": {
+      "estado": "recopilado",
+      "jugadores": 39,
+      "fuente": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
+      "consultado": "2026-11-05"
+    },
+    "estudiantes": {
+      "estado": "pendiente"
+    },
+    "velez": {
+      "estado": "pendiente"
+    },
+    "talleres": {
+      "estado": "pendiente"
+    },
+    "lanus": {
+      "estado": "pendiente"
+    },
+    "rosario": {
+      "estado": "pendiente"
+    },
+    "huracan": {
+      "estado": "pendiente"
+    },
+    "belgrano": {
+      "estado": "pendiente"
+    },
+    "argentinos": {
+      "estado": "pendiente"
+    },
+    "defensa": {
+      "estado": "pendiente"
+    },
+    "newells": {
+      "estado": "pendiente"
+    },
+    "union": {
+      "estado": "pendiente"
+    },
+    "tigre": {
+      "estado": "pendiente"
+    },
+    "platense": {
+      "estado": "pendiente"
+    },
+    "banfield": {
+      "estado": "pendiente"
+    },
+    "gimnasia": {
+      "estado": "pendiente"
+    },
+    "centralcba": {
+      "estado": "pendiente"
+    },
+    "rivadavia": {
+      "estado": "pendiente"
+    },
+    "instituto": {
+      "estado": "pendiente"
+    },
+    "atletico": {
+      "estado": "pendiente"
+    },
+    "barracas": {
+      "estado": "pendiente"
+    },
+    "riestra": {
+      "estado": "pendiente"
+    },
+    "sarmiento": {
+      "estado": "pendiente"
+    },
+    "aldosivi": {
+      "estado": "pendiente"
+    },
+    "gimnasiamza": {
+      "estado": "pendiente"
+    },
+    "estudiantesrc": {
+      "estado": "pendiente"
+    }
+  }
+}
