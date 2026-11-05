@@ -86,7 +86,7 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "numberConflict": "LPF indica #3 y la ficha del club muestra #39; no se asigna hasta resolver la discrepancia.",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/independiente/",
+      "ageSource": "https://www.transfermarkt.com.ar/club-atletico-independiente/kader/verein/1234",
       "ratingSource": "https://statz.ai/player/rodrigo-rey/333870",
       "roleSource": [],
       "ageConsulted": "2026-11-05"
@@ -150,13 +150,10 @@
       "consulted": "2026-11-05",
       "numberSource": "https://www.clubtalleres.com.ar/jugadores/lucio-ferrari/",
       "numbersConsulted": "2026-11-05",
-      "ageSource": [
-        "https://www.transfermarkt.com.ar/santino-barbi/profil/spieler/1197308",
-        "https://www.transfermarkt.com.ar/jeremias-florentin/profil/spieler/1197896",
-        "https://www.transfermarkt.com.ar/ca-talleres/kader/verein/3938"
-      ],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/talleres/",
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "rosario": {
       "source": "https://rosariocentral.com/plantel-masculino/",
@@ -196,7 +193,7 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
+      "ageSource": "https://www.transfermarkt.com.ar/club-de-gimnasia-y-esgrima-la-plata/kader/verein/1106",
       "ratingSource": [
         "https://statz.ai/player/nelson-insfran/455729",
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -631,9 +628,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 719,
-    "missing": 317,
-    "birthDates": 96,
+    "assigned": 763,
+    "missing": 273,
+    "birthDates": 103,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -653,8 +650,8 @@
       },
       "independiente": {
         "total": 36,
-        "assigned": 22,
-        "missing": 14
+        "assigned": 33,
+        "missing": 3
       },
       "estudiantes": {
         "total": 38,
@@ -678,8 +675,8 @@
       },
       "talleres": {
         "total": 33,
-        "assigned": 3,
-        "missing": 30
+        "assigned": 19,
+        "missing": 14
       },
       "rosario": {
         "total": 38,
@@ -698,8 +695,8 @@
       },
       "gimnasia": {
         "total": 38,
-        "assigned": 12,
-        "missing": 26
+        "assigned": 29,
+        "missing": 9
       },
       "argentinos": {
         "total": 33,
@@ -1059,12 +1056,12 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 317,
+    "playersMissingAge": 273,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 317
+    "ages": 273
   }
 }
