@@ -222,17 +222,24 @@ const rng=s=>{s>>>=0;return()=>{s=s+0x6D2B79F5>>>0;let t=s;t=Math.imul(t^t>>>15,
 const hs=x=>{let h=2166136261;for(const c of x)h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0};
 const AP=['Acosta','Aguirre','Álvarez','Barrios','Benítez','Blanco','Bustos','Cabrera','Castro','Chávez','Correa','Cuello','Díaz','Domínguez','Escobar','Fernández','Figueroa','Flores','Giménez','Godoy','Gómez','González','Herrera','Ibarra','Juárez','Ledesma','López','Luna','Maldonado','Martínez','Medina','Molina','Montenegro','Moreno','Navarro','Núñez','Ojeda','Ortiz','Páez','Peralta','Pereyra','Pérez','Quiroga','Ramírez','Rey','Ríos','Rivero','Rodríguez','Rojas','Romero','Ruiz','Salas','Sánchez','Silva','Sosa','Suárez','Torres','Vega','Villalba','Vera'];
 const POS=['POR','POR','DEF','DEF','DEF','DEF','DEF','DEF','MED','MED','MED','MED','MED','MED','DEL','DEL','DEL','DEL'];
-// ===== Atributos de los jugadores (datos + modelo) =====
-// Cada jugador tiene 8 atributos (15-99) que usa el motor en las acciones del partido; la media `r` queda como resumen del puesto.
-// pas: pase y visión · ctl: control y conducción · reg: regate · rem: definición · des: desmarque y movimiento
-// mar: marcaje y recuperación · ant: anticipación e intercepción · ref: reflejos y juego del arquero
-// PROFILES (datos, sin excepciones por nombre): `off` = sesgo de cada atributo respecto de la media según el puesto; `w` = peso de cada atributo en la media de ese puesto.
-const ATTRS=['pas','ctl','reg','rem','des','mar','ant','ref'];
+// ===== Modelo de atributos y escalas de valoración =====
+// Los datos reales se cargarán por etapas. La escala deja margen para futuras ligas de élite.
+// Offline: 40-90 para Argentina; 91-99 reservado a futbolistas excepcionales de ligas top.
+const PLAYER_SCALE={offline:{min:40,argentinaMax:90,futureEliteMin:91,max:99},online:{min:70,max:85,target:78},tiers:['alto','medio','bajo']};
+// Tres escalones proporcionales dentro de CADA división, ordenados por nivel actual del club.
+const TEAM_TIERS=Object.fromEntries(DIVS.map(d=>{const sorted=d.teams.slice().sort((a,b)=>b.r-a.r||a.name.localeCompare(b.name));const n=sorted.length;return[d.id,Object.fromEntries(sorted.map((t,i)=>[t.id,Math.min(2,Math.floor(i*3/n))]))]}));
+const teamTier=(team,division)=>{const d=division||DIVS.find(x=>x.teams.some(t=>t.id==team));return d?TEAM_TIERS[d.id]?.[team]??2:2};
+// Atributos técnicos, tácticos, físicos y específicos de arquero (15-99).
+// pas pase · ctl control · reg regate · rem definición · des desmarque · mar marca · ant anticipación · ref reflejos
+// vel velocidad · ace aceleración · res resistencia · fue fuerza · cab cabeceo · cen centros · pot potencia de tiro · agr agresividad
+// par atajadas · man blocaje · sal salidas/aéreo · pie juego con los pies.
+const ATTRS=['pas','ctl','reg','rem','des','mar','ant','ref','vel','ace','res','fue','cab','cen','pot','agr','par','man','sal','pie'];
 const PROFILES={
- POR:{off:{ref:10,pas:-14,ctl:-12,reg:-30,rem:-38,des:-32,mar:-20,ant:2},w:{ref:.7,ant:.15,pas:.1,ctl:.05}},
- DEF:{off:{mar:8,ant:7,pas:-3,ctl:-6,reg:-14,rem:-20,des:-10,ref:-45},w:{mar:.35,ant:.3,pas:.12,ctl:.1,reg:.05,des:.04,rem:.04}},
- MED:{off:{pas:7,ctl:6,reg:3,rem:-5,des:1,mar:-1,ant:3,ref:-45},w:{pas:.28,ctl:.22,reg:.12,mar:.1,ant:.1,des:.1,rem:.08}},
- DEL:{off:{rem:9,des:8,reg:4,ctl:2,pas:-5,mar:-20,ant:-10,ref:-45},w:{rem:.32,des:.25,reg:.15,ctl:.12,pas:.08,ant:.04,mar:.04}}};
+ POR:{off:{ref:9,par:10,man:7,sal:4,pie:-2,ant:2,pas:-8,ctl:-8,vel:-8,ace:-8,res:-5,fue:1,cab:2,cen:-8,pot:-25,agr:-3,reg:-20,rem:-35,des:-25,mar:-12},w:{ref:.24,par:.28,man:.16,sal:.1,pie:.07,ant:.06,pas:.04,ctl:.03,vel:.01,ace:.01}},
+ DEF:{off:{mar:8,ant:7,cab:5,fue:4,vel:1,ace:-1,res:3,agr:3,pas:-3,ctl:-5,reg:-12,rem:-18,des:-7,ref:-45,par:-45,man:-45,sal:-45,pie:-5,cen:-4,pot:-8},w:{mar:.22,ant:.17,cab:.1,fue:.1,vel:.09,res:.08,pas:.07,ctl:.05,agr:.04,ace:.03,reg:.02,des:.01,cen:.01,pot:.01}},
+ MED:{off:{pas:7,ctl:6,reg:3,ant:3,res:4,vel:1,ace:1,cen:2,mar:-1,rem:-5,fue:-2,cab:-5,agr:-2,ref:-45,par:-45,man:-45,sal:-45,pie:2,pot:-4,des:1},w:{pas:.18,ctl:.14,reg:.09,ant:.1,res:.1,vel:.08,ace:.06,mar:.08,des:.06,cen:.03,fue:.02,pot:.02,agr:.02}},
+ DEL:{off:{rem:9,des:8,reg:4,ctl:2,vel:5,ace:5,pot:5,cab:2,pas:-5,mar:-20,ant:-10,fue:1,res:1,agr:1,ref:-45,par:-45,man:-45,sal:-45,pie:-5,cen:1},w:{rem:.18,des:.15,vel:.12,ace:.1,reg:.12,ctl:.08,cab:.06,pot:.06,pas:.05,res:.03,fue:.02,agr:.02,mar:.01,ant:.01,cen:.01}}
+};
 const clampA=v=>Math.max(15,Math.min(99,Math.round(v)));
 // media de un jugador en un puesto: promedio ponderado de sus atributos relevantes para ese puesto
 const roleOvr=(x,pos)=>{const w=(PROFILES[pos]||PROFILES.MED).w;let s=0;for(const a in w)s+=w[a]*(x.at?x.at[a]:x.r);return s};
@@ -247,9 +254,9 @@ const rawSquad=id=>SQ[id]||(SQ[id]=(REAL[id]||(()=>{const t=TM[id],r=rng(hs('sq'
 let MIX=false;const setMix=b=>{MIX=!!b};
 // Modo "Todas las categorías (equilibrado)": copia derivada (los datos originales no se tocan). Se desplazan por igual la media y los atributos de todo el plantel
 // hasta que la calidad de su once titular (4-4-2, con la media de cada puesto) llegue a BAL_T; se conservan las diferencias entre jugadores, líneas y perfiles.
-const BAL_T=64,SN={};
+const BAL_T=PLAYER_SCALE.online.target,SN={};
 const xiQuality=sq=>{const xi=autoXI(sq,0),sl=slots(0);return xi.reduce((a,i,k)=>a+roleOvr(sq[i],sl[k]),0)/11};
-const squadN=id=>SN[id]||(SN[id]=(()=>{const s=rawSquad(id),dl=BAL_T-xiQuality(s);return s.map(x=>({...x,r:Math.max(25,Math.min(95,Math.round(x.r+dl))),at:Object.fromEntries(ATTRS.map(a=>[a,clampA(x.at[a]+dl)]))}))})());
+const squadN=id=>SN[id]||(SN[id]=(()=>{const s=rawSquad(id),dl=BAL_T-xiQuality(s),lo=PLAYER_SCALE.online.min,hi=PLAYER_SCALE.online.max;return s.map(x=>({...x,r:Math.max(lo,Math.min(hi,Math.round(x.r+dl))),at:Object.fromEntries(ATTRS.map(a=>[a,Math.max(lo,Math.min(hi,clampA(x.at[a]+dl)))]))}))})());
 const squadMode=(id,mix)=>mix?squadN(id):rawSquad(id);
 const squad=id=>MIX?squadN(id):rawSquad(id);
 // Torneos barriales/regionales (fantasía, no oficiales). IDs resueltos contra los clubes existentes; los del Promocional Amateur usan sus IDs actuales (fcezeiza, defglew, metalurgico, atpilar, hacoaj, controlorientado, belgranozarate, barrancas, bacity, everton, alumni, estrellaberisso, mandarinas, udprovincial, etc.).
@@ -263,9 +270,9 @@ const loadSquads=o=>{for(const id in o){REAL[id]=o[id];delete SQ[id];delete SN[i
 // ev: ajustes de la jugada: atk = frecuencia de ataque propio, oppAtk = ataques que concede, lostDef/lostAtk = pérdida de pelota del rival cuando defiende / propia cuando ataca, foul = frecuencia de faltas, direct = juego directo, guard = conversión de los remates rivales (protección del área / espacios atrás).
 const PHIL_OPTS=['rustica','lirica','ofensiva'];
 const PHIL={
- rustica:{nombre:'Rústica',desc:'Físico, defensivo y directo: más sólida atrás y fuerte en los duelos, pero con menos creación y técnica.',off:{DEF:{mar:7,ant:6,pas:-2,ctl:-2},MED:{mar:6,ant:3,pas:-3,ctl:-2},DEL:{rem:-1,des:-2,reg:-1},POR:{}},ev:{atk:-.01,oppAtk:0,lostDef:.03,lostAtk:0,foul:1.15,direct:.3,guard:.97}},
- lirica:{nombre:'Lírica',desc:'Técnica y asociativa: mejor pase, control y creación en el medio, pero menos dura al marcar.',off:{DEF:{pas:3,ctl:3,mar:-4,ant:-4},MED:{pas:5,ctl:5,reg:2,mar:-3,ant:-1},DEL:{ctl:2,des:-1},POR:{pas:4}},ev:{atk:-.005,oppAtk:0,lostDef:0,lostAtk:-.008,foul:.92,direct:0,guard:1}},
- ofensiva:{nombre:'Ofensiva',desc:'Agresiva y de riesgo: más ocasiones, desmarque y definición arriba, pero deja espacios atrás.',off:{DEF:{mar:-4,ant:-5},MED:{des:4,mar:-4},DEL:{rem:4,des:6,reg:3},POR:{}},ev:{atk:.03,oppAtk:.02,lostDef:-.01,lostAtk:.01,foul:1,direct:0,guard:1.04}}};
+ rustica:{nombre:'Rústica',desc:'Física, defensiva y directa: potencia arquero y defensa, gana duelos y sacrifica creatividad y profundidad ofensiva.',off:{POR:{ref:3,par:5,man:3,sal:4,pie:-3},DEF:{mar:7,ant:6,fue:4,cab:3,pas:-2,ctl:-2},MED:{mar:5,ant:3,fue:2,pas:-3,ctl:-2},DEL:{rem:-2,des:-3,reg:-2}},ev:{atk:-.01,oppAtk:0,lostDef:.03,lostAtk:0,foul:1.15,direct:.3,guard:.97}},
+ lirica:{nombre:'Lírica',desc:'Técnica y asociativa: mejora salida, pase, control y circulación, con menor agresividad defensiva.',off:{POR:{pie:5,pas:4,ctl:2},DEF:{pas:3,ctl:3,mar:-4,ant:-3},MED:{pas:5,ctl:5,reg:2,mar:-3,ant:-1},DEL:{pas:2,ctl:2,des:1}},ev:{atk:-.005,oppAtk:0,lostDef:0,lostAtk:-.008,foul:.92,direct:0,guard:1}},
+ ofensiva:{nombre:'Ofensiva',desc:'Agresiva y vertical: potencia velocidad, desmarque y definición arriba, asumiendo riesgos defensivos.',off:{POR:{ref:-2,par:-2,pie:2},DEF:{mar:-4,ant:-5,des:2},MED:{des:4,reg:2,mar:-4},DEL:{rem:4,des:6,reg:3,vel:2,ace:2}},ev:{atk:.03,oppAtk:.02,lostDef:-.01,lostAtk:.01,foul:1,direct:0,guard:1.04}}};
 const validPhil=x=>PHIL_OPTS.includes(x)?x:'equilibrada';
 const phOff=(ph,line,a)=>{const o=PHIL[ph];return o&&o.off[line]?o.off[line][a]||0:0};
 const phDelta=(ph,line)=>{const o=PHIL[ph],w=(PROFILES[line]||PROFILES.MED).w;let s=0;if(o&&o.off[line])for(const a in w)s+=w[a]*(o.off[line][a]||0);return s};
@@ -281,6 +288,6 @@ function catalog(){const out=[];
  DIVS.filter(d=>d.ok).forEach(d=>out.push({key:d.id,id:d.id,cat:'clasico',name:d.name,region:d.country,clubs:d.teams.length,fmts:['liga1','liga2','copa']}));
  CUPS.forEach(c=>{const m=CUP_META[c.id]||{};out.push({key:'cup:'+c.id,id:c.id,cat:'barrial',name:c.name,title:c.title,region:m.region||'',clubs:c.clubs.length,fmts:(m.fmts||['liga1','liga2']).slice()})});
  return out.map(e=>({...e,sizes:Object.fromEntries(e.fmts.map(f=>[f,f=='copa'?KO_SIZES.filter(n=>n<=e.clubs):[...new Set([...LIGA_SIZES.filter(n=>n<=e.clubs),...(e.cat=='barrial'?[e.clubs]:[])])]])),random:e.clubs>=RANDOM_N,randomFmts:e.clubs>=RANDOM_N?e.fmts.filter(f=>f!='copa'):[]}))}
-const API={LEAGUES,KO_SIZES,LIGA_SIZES,RANDOM_N,catalog,CUP_META,NORMAL,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
+const API={LEAGUES,KO_SIZES,LIGA_SIZES,RANDOM_N,catalog,CUP_META,NORMAL,PLAYER_SCALE,TEAM_TIERS,teamTier,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
 
 })();
