@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:58:59.178Z",
+  "updatedAt": "2026-11-05T19:59:18.919Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -503,9 +503,9 @@
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/aldosivi/plantilla",
         "https://www.zerozero.com.ar/jugador/pablo-argoytia/",
-        "https://www.transfermarkt.com.ar/club-atletico-aldosivi-ii/leistungsdaten/verein/72763",
+        "https://pe.soccerway.com/jugador/lambardi-mateo/fqqZMmn2/",
         "https://www.transfermarkt.com.ar/club-atletico-aldosivi-ii/startseite/verein/72763",
-        "https://www.ligaprofesional.ar/clubes/aldosivi",
+        "https://www.transfermarkt.es/bautista-dadin/profil/spieler/1000691",
         "https://www.transfermarkt.com.ar/augusto-fernandez/profil/spieler/1230644"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -874,7 +874,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 1016,
+    "birthDates": 1018,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
