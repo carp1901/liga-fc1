@@ -771,7 +771,7 @@ document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest
  document.addEventListener('keydown',e=>{if(e.key=='Escape')close()})}
 // ===== Carta de jugador (tocar) y cambios arrastrando =====
 let DRAGGED=0;
-const shortPlayerName=n=>{const a=String(n||'').trim().split(/\\s+/);return a.length>1?a[0].charAt(0)+'. '+a.slice(1).join(' '):(a[0]||'')};
+const shortPlayerName=n=>{const a=String(n||'').trim().split(/\s+/);return a.length>1?a[0].charAt(0)+'. '+a.slice(1).join(' '):(a[0]||'')};
 const NAT_FLAGS={'Argentina':'🇦🇷','Uruguay':'🇺🇾','Paraguay':'🇵🇾','Chile':'🇨🇱','Brasil':'🇧🇷','Colombia':'🇨🇴','Ecuador':'🇪🇨','Perú':'🇵🇪','Bolivia':'🇧🇴','Venezuela':'🇻🇪','Siria':'🇸🇾','México':'🇲🇽','Estados Unidos':'🇺🇸','España':'🇪🇸','Portugal':'🇵🇹','Francia':'🇫🇷','Italia':'🇮🇹','Alemania':'🇩🇪','Hungría':'🇭🇺','Malasia':'🇲🇾'},ATL={pas:'Pase',ctl:'Control',reg:'Regate',rem:'Remate',des:'Desmarque',mar:'Marca',ant:'Anticipación',ref:'Reflejos'},POSN={POR:'Arquero',DEF:'Defensor',MED:'Mediocampista',DEL:'Delantero'};
 const pcHash=str=>{let h=7;for(let i=0;i<str.length;i++)h=(h*31+str.charCodeAt(i))>>>0;return h};
 const pcInfo=(x,team,i)=>{const h=pcHash(team+'|'+i+'|'+x.n);return{nat:x.nat||null,age:x.age||(18+(h>>3)%19)}};
