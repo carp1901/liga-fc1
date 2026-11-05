@@ -237,8 +237,8 @@ const ATTRS=['pas','ctl','reg','rem','des','mar','ant','ref','vel','ace','res','
 const PROFILES={
  POR:{off:{ref:9,par:10,man:7,sal:4,pie:-2,ant:2,pas:-8,ctl:-8,vel:-8,ace:-8,res:-5,fue:1,cab:2,cen:-8,pot:-25,agr:-3,reg:-20,rem:-35,des:-25,mar:-12},w:{ref:.24,par:.28,man:.16,sal:.1,pie:.07,ant:.06,pas:.04,ctl:.03,vel:.01,ace:.01}},
  DEF:{off:{mar:8,ant:7,cab:5,fue:4,vel:1,ace:-1,res:3,agr:3,pas:-3,ctl:-5,reg:-12,rem:-18,des:-7,ref:-45,par:-45,man:-45,sal:-45,pie:-5,cen:-4,pot:-8},w:{mar:.22,ant:.17,cab:.1,fue:.1,vel:.09,res:.08,pas:.07,ctl:.05,agr:.04,ace:.03,reg:.02,des:.01,cen:.01,pot:.01}},
- MED:{off:{pas:7,ctl:6,reg:3,ant:3,res:4,vel:1,ace:1,cen:2,mar:-1,rem:-5,fue:-2,cab:-5,agr:-2,ref:-45,par:-45,man:-45,sal:-45,pie:2,pot:-4,des:1},w:{pas:.18,ctl:.14,reg:.09,ant:.1,res:.1,vel:.08,ace:.06,mar:.08,des:.06,cen:.03,fue:.02,pot:.02,agr:.02}},
- DEL:{off:{rem:9,des:8,reg:4,ctl:2,vel:5,ace:5,pot:5,cab:2,pas:-5,mar:-20,ant:-10,fue:1,res:1,agr:1,ref:-45,par:-45,man:-45,sal:-45,pie:-5,cen:1},w:{rem:.18,des:.15,vel:.12,ace:.1,reg:.12,ctl:.08,cab:.06,pot:.06,pas:.05,res:.03,fue:.02,agr:.02,mar:.01,ant:.01,cen:.01}}
+ MED:{off:{pas:7,ctl:6,reg:3,ant:3,res:4,vel:1,ace:1,cen:2,mar:-1,rem:-5,fue:-2,cab:-5,agr:-2,ref:-45,par:-45,man:-45,sal:-45,pie:2,pot:-4,des:1},w:{pas:.18,ctl:.14,reg:.09,ant:.1,res:.12,vel:.08,ace:.06,mar:.08,des:.06,cen:.03,fue:.02,pot:.02,agr:.02}},
+ DEL:{off:{rem:9,des:8,reg:4,ctl:2,vel:5,ace:5,pot:5,cab:2,pas:-5,mar:-20,ant:-10,fue:1,res:1,agr:1,ref:-45,par:-45,man:-45,sal:-45,pie:-5,cen:1},w:{rem:.17,des:.14,vel:.12,ace:.1,reg:.12,ctl:.08,cab:.06,pot:.06,pas:.05,res:.03,fue:.02,agr:.02,mar:.01,ant:.01,cen:.01}}
 };
 const clampA=v=>Math.max(15,Math.min(99,Math.round(v)));
 // media de un jugador en un puesto: promedio ponderado de sus atributos relevantes para ese puesto
