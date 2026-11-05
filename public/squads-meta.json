@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:57:18.517Z",
+  "updatedAt": "2026-11-05T19:57:54.107Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -380,8 +380,7 @@
       "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html",
       "numbersConsulted": "2026-11-06",
       "ageSource": [
-        "https://www.transfermarkt.com.ar/ca-central-cordoba-sde-/kader/verein/31284",
-        "https://www.ligaprofesional.ar/clubes/central-cordoba/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/central-cordoba-santiago-del-estero/plantilla",
         "https://www.transfermarkt.com.ar/club-atletico-central-cordoba-ii/startseite/verein/54494",
         "https://www.transfermarkt.com.ar/federico-rodriguez/profil/spieler/1377860",
         "https://www.transfermarkt.com.ar/michael-santos/profil/spieler/178107",
@@ -872,7 +871,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 949,
+    "birthDates": 979,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
