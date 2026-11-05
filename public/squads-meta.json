@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:04:42.269Z",
+  "updatedAt": "2026-11-05T20:04:59.696Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -94,6 +94,7 @@
       "roleSource": [
         "https://www.transfermarkt.com.ar/club-atletico-river-plate/kader/verein/209",
         "posicion habitual",
+        "https://es.besoccer.com/jugador/Tobias-Andrada-3668014",
         "https://www.tycsports.com/river-plate/lautaro-pereyra-primer-juvenil-debut-coudet-river-id722721.html"
       ]
     },
@@ -166,6 +167,9 @@
       "roleSource": [
         "https://www.transfermarkt.com.ar/estudiantes-de-la-plata/kader/verein/288",
         "https://test-prf27k.estudiantesdelaplata.com/cuatro-juveniles-firmaron-su-contrato/",
+        "https://www.sofascore.com/es/football/player/pereyra-joaquin/1818780",
+        "https://test-prf27k.estudiantesdelaplata.com/cuatro-nuevos-profesionales/",
+        "https://estudiantesdelaplata.com/jugador/joaquin-tobio-burgos/",
         "https://www.transfermarkt.es/edwuin-cetre/profil/spieler/470390"
       ],
       "ageConsulted": "2026-11-05"
@@ -365,7 +369,10 @@
         "https://www.sofascore.com/es-la/football/player/kevin-gutierrez/914145"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-      "roleSource": "https://www.transfermarkt.com.ar/argentinos-juniors/kader/verein/1030",
+      "roleSource": [
+        "https://www.transfermarkt.com.ar/argentinos-juniors/kader/verein/1030",
+        "https://www.transfermarkt.com.ar/facundo-carrizo/profil/spieler/1401625"
+      ],
       "ageConsulted": "2026-11-05"
     },
     "belgrano": {
@@ -1168,8 +1175,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 1013,
-    "missing": 5,
+    "assigned": 1018,
+    "missing": 0,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1182,7 +1189,7 @@
       },
       "river": {
         "total": 27,
-        "specific": 26
+        "specific": 27
       },
       "independiente": {
         "total": 36,
@@ -1190,7 +1197,7 @@
       },
       "estudiantes": {
         "total": 37,
-        "specific": 34
+        "specific": 37
       },
       "velez": {
         "total": 30,
@@ -1226,7 +1233,7 @@
       },
       "argentinos": {
         "total": 33,
-        "specific": 32
+        "specific": 33
       },
       "belgrano": {
         "total": 36,
