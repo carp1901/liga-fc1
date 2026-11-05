@@ -622,9 +622,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 805,
-    "missing": 231,
-    "birthDates": 115,
+    "assigned": 830,
+    "missing": 206,
+    "birthDates": 138,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -649,8 +649,8 @@
       },
       "estudiantes": {
         "total": 38,
-        "assigned": 14,
-        "missing": 24
+        "assigned": 37,
+        "missing": 1
       },
       "velez": {
         "total": 30,
@@ -759,8 +759,8 @@
       },
       "banfield": {
         "total": 35,
-        "assigned": 33,
-        "missing": 2
+        "assigned": 35,
+        "missing": 0
       },
       "rivadavia": {
         "total": 29,
@@ -1050,13 +1050,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 231,
+    "playersMissingAge": 206,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 231,
+    "ages": 206,
     "dorsals": 23
   }
 }
