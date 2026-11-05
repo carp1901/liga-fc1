@@ -6176,7 +6176,8 @@
       "n": "Santino Cambiasso",
       "p": "POR",
       "r": 60,
-      "role": "Arquero"
+      "role": "Arquero",
+      "number": 37
     },
     {
       "n": "Juan Pablo Cozzani",
@@ -6203,61 +6204,71 @@
       "n": "Celias Ingenthron",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 38
     },
     {
       "n": "Agustín Lagos",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 4
     },
     {
       "n": "Víctor Cuesta",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 31
     },
     {
       "n": "Fabricio López",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 8
     },
     {
       "n": "Mateo Mendia",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 34
     },
     {
       "n": "Santiago Quirós",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 32
     },
     {
       "n": "Eugenio Raggio",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 6
     },
     {
       "n": "Juan Ignacio Saborido",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 25
     },
     {
       "n": "Tomás Silva",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 3
     },
     {
       "n": "Ignacio Vázquez",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 13
     },
     {
       "n": "Maximiliano Amarfil",
@@ -6368,7 +6379,8 @@
       "n": "Gonzalo Lencina",
       "p": "DEL",
       "r": 60,
-      "role": "Delantero"
+      "role": "Delantero",
+      "number": 99
     },
     {
       "n": "Nicolás López",
