@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T05:42:50.595Z",
+  "updatedAt": "2026-11-05T05:43:39.366Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -58,7 +58,9 @@
     },
     "velez": {
       "source": "https://www.velezsarsfield.com.ar/futbol/plantel",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/velez",
+      "numbersConsulted": "2026-11-05"
     },
     "racing": {
       "source": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
@@ -87,75 +89,111 @@
     },
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://cahuracan.com/futbol/plantel-profesional",
+      "numbersConsulted": "2026-11-05"
     },
     "argentinos": {
       "source": "https://www.tycsports.com/argentinos-juniors.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/argentinos-juniors/",
+      "numbersConsulted": "2026-11-05"
     },
     "belgrano": {
       "source": "https://www.tycsports.com/belgrano-de-cordoba.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/belgrano/",
+      "numbersConsulted": "2026-11-05"
     },
     "centralcba": {
       "source": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/190-central-cordoba-de-santiago",
+      "numbersConsulted": "2026-11-05"
     },
     "atletico": {
       "source": "https://www.tycsports.com/atletico-tucuman.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/455-atletico-tucuman",
+      "numbersConsulted": "2026-11-05"
     },
     "barracas": {
       "source": "https://www.barracascentral.com/plantel/",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.barracascentral.com/plantel/",
+      "numbersConsulted": "2026-11-05"
     },
     "riestra": {
       "source": "https://deportivoriestra.com.ar/equipo",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://deportivoriestra.com.ar/equipo",
+      "numbersConsulted": "2026-11-05"
     },
     "instituto": {
       "source": "https://www.tycsports.com/instituto.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://institutoacc.com.ar/index.php/category/futbol-plantel/",
+      "numbersConsulted": "2026-11-05"
     },
     "sarmiento": {
       "source": "https://www.tycsports.com/sarmiento-junin.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.golmates.com/es/argentina/equipo/sarmiento-junin/plantilla",
+      "numbersConsulted": "2026-11-05"
     },
     "aldosivi": {
       "source": "https://www.tycsports.com/aldosivi.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.lpf.org.ar/clubes/aldosivi/",
+      "numbersConsulted": "2026-11-05"
     },
     "platense": {
       "source": "https://www.tycsports.com/platense.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/platense/",
+      "numbersConsulted": "2026-11-05"
     },
     "defensa": {
       "source": "https://www.tycsports.com/defensa-y-justicia.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/442-defensa-y-justicia",
+      "numbersConsulted": "2026-11-05"
     },
     "union": {
       "source": "https://www.tycsports.com/union.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/441-union-santa-fe",
+      "numbersConsulted": "2026-11-05"
     },
     "tigre": {
       "source": "https://www.tycsports.com/tigre.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/242-tigre",
+      "numbersConsulted": "2026-11-05"
     },
     "banfield": {
       "source": "https://www.tycsports.com/banfield.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/banfield/",
+      "numbersConsulted": "2026-11-05"
     },
     "rivadavia": {
       "source": "https://www.tycsports.com/independiente-rivadavia.html",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.ligaprofesional.ar/clubes/independiente-rivadavia/",
+      "numbersConsulted": "2026-11-05"
     },
     "gimnasiamza": {
       "source": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
+      "numbersConsulted": "2026-11-05"
     },
     "estudiantesrc": {
       "source": "https://www.aaestudiantesriocuarto.com/",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "numberSource": "https://www.aaestudiantesriocuarto.com/",
+      "numbersConsulted": "2026-11-05"
     }
   },
   "completePrimera": true
