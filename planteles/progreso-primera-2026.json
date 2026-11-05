@@ -48,10 +48,16 @@
       "consultado": "2026-11-05"
     },
     "talleres": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 33,
+      "fuente": "https://www.tycsports.com/talleres-de-cordoba.html",
+      "consultado": "2026-11-05"
     },
     "lanus": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 34,
+      "fuente": "https://www.tycsports.com/lanus.html",
+      "consultado": "2026-11-05"
     },
     "rosario": {
       "estado": "pendiente"
