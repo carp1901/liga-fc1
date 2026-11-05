@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:16:50.215Z",
+  "updatedAt": "2026-11-05T19:50:57.108Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -43,8 +43,9 @@
       "numbersConsulted": "2026-11-05",
       "numberConflict": "Branco Salinardi y Juan Pablo Álvarez figuran ambos con #22 en la página oficial; se deja sin asignar para evitar duplicado.",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/san-lorenzo/",
-        "https://www.sanlorenzo.com.ar/futbol/plantel/agustin-perez"
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/san-lorenzo/plantilla",
+        "https://www.sanlorenzo.com.ar/futbol/plantel/agustin-perez",
+        "https://www.ligaprofesional.ar/clubes/san-lorenzo/"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
       "roleSource": [],
@@ -71,7 +72,9 @@
       "consulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
-        "https://www.ligaprofesional.ar/clubes/river-plate/"
+        "https://es.wikipedia.org/wiki/Tob%C3%ADas_Andrada",
+        "https://as.com/resultados/ficha/deportista/rafael_santos_borre/28741/",
+        "https://www.tycsports.com/river-plate/lautaro-pereyra-primer-juvenil-debut-coudet-river-id722721.html"
       ],
       "ageConsulted": "2026-11-05",
       "ageCoverage": "24/27",
@@ -84,7 +87,10 @@
         "https://statz.ai/player/tomas-galvan/37422953",
         "https://statz.ai/player/sebastian-driussi/333771"
       ],
-      "roleSource": "posicion habitual"
+      "roleSource": [
+        "posicion habitual",
+        "https://www.tycsports.com/river-plate/lautaro-pereyra-primer-juvenil-debut-coudet-river-id722721.html"
+      ]
     },
     "independiente": {
       "source": "https://www.clubaindependiente.com.ar/futbol/plantel",
@@ -93,8 +99,14 @@
       "numbersConsulted": "2026-11-05",
       "numberConflict": "LPF indica #3 y la ficha del club muestra #39; no se asigna hasta resolver la discrepancia.",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/independiente/",
+        "https://clubaindependiente.com.ar/futbol/plantel/perfil/rodrigorey",
         "https://es.wikipedia.org/wiki/Juan_Centuri%C3%B3n_(futbolista)",
+        "https://www.auf.org.uy/santiago-mele/",
+        "https://as.com/resultados/ficha/deportista/joaquin_blazquez/45075/",
+        "https://clubaindependiente.com.ar/futbol/plantel/perfil/fernandocloster",
+        "https://www.ligaprofesional.ar/clubes/independiente/",
+        "https://www.transfermarkt.com.ar/joshua-velardez/profil/spieler/1330832",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/independiente/plantilla",
         "https://www.transfermarkt.com.ar/club-atletico-independiente/kader/verein/1234",
         "https://clubaindependiente.com.ar/futbol/plantel/matheo-benitez-machuca",
         "https://clubaindependiente.com.ar/futbol/plantel/ezequiel-avila"
@@ -107,7 +119,11 @@
       "source": "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
       "consulted": "2026-11-05",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/estudiantes/",
+        "https://www.transfermarkt.com.ar/fabricio-iacovich/profil/spieler/1050051",
+        "https://www.mundodeportivo.com/us/resultados/futbol/liga-argentina-primera-division/equipo/estudiantes-de-la-plata/plantilla",
+        "https://www.transfermarkt.com.ar/rodrigo-borzone/profil/spieler/1181926",
+        "https://test-prf27k.estudiantesdelaplata.com/cuatro-juveniles-firmaron-su-contrato/",
+        "https://www.estudiantesdelaplata.com/jugador/santiago-nunez/",
         "https://www.transfermarkt.com.ar/gaston-benedetti/profil/spieler/843156",
         "https://www.transfermarkt.com.ar/leandro-gonzalez-pirez/profil/spieler/113130",
         "https://www.transfermarkt.com.ar/santiago-arzamendia/profil/spieler/520947",
@@ -130,6 +146,9 @@
         "https://www.transfermarkt.com.ar/franco-basualdo/profil/spieler/1298370",
         "https://www.transfermarkt.com.ar/bautista-kociubinski/profil/spieler/830318",
         "https://www.transfermarkt.com.ar/leandro-alcaraz/profil/spieler/1378924",
+        "https://as.com/resultados/ficha/deportista/guido_carrillo/29676/",
+        "https://www.tycsports.com/liga-profesional-de-futbol/edwuin-cetre-es-el-quinto-refuerzo-de-estudiantes-id561583.html",
+        "https://test-prf27k.estudiantesdelaplata.com/gaich-es-el-primer-refuerzo/",
         "https://www.transfermarkt.com.ar/fabricio-perez/profil/spieler/1298374",
         "https://www.transfermarkt.com.ar/benjamin-sagues-barreiro/profil/spieler/1253295"
       ],
@@ -138,7 +157,10 @@
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
         "https://statz.ai/player/tiago-palacios/37448761"
       ],
-      "roleSource": [],
+      "roleSource": [
+        "https://test-prf27k.estudiantesdelaplata.com/cuatro-juveniles-firmaron-su-contrato/",
+        "https://www.transfermarkt.es/edwuin-cetre/profil/spieler/470390"
+      ],
       "ageConsulted": "2026-11-05"
     },
     "velez": {
@@ -147,8 +169,9 @@
       "numberSource": "https://www.ligaprofesional.ar/clubes/velez",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/velez",
-        "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029"
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/velez-sarsfield/plantilla",
+        "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
+        "https://www.ligaprofesional.ar/clubes/velez"
       ],
       "ratingSource": [
         "https://statz.ai/player/diego-valdes/233682",
@@ -161,8 +184,9 @@
       "source": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
       "consulted": "2026-11-05",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/racing-club",
-        "https://www.transfermarkt.com.ar/club-atletico-racing-club/kader/verein/1447"
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/racing-club/plantilla",
+        "https://www.transfermarkt.com.ar/club-atletico-racing-club/kader/verein/1447",
+        "https://www.ligaprofesional.ar/clubes/racing-club"
       ],
       "numberSource": [],
       "ratingSource": [
@@ -182,7 +206,7 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/lanus/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/lanus/plantilla",
         "https://www.transfermarkt.com.ar/club-atletico-lanus/kader/verein/333"
       ],
       "ratingSource": [
@@ -201,6 +225,7 @@
         "https://www.transfermarkt.com.ar/santino-barbi/profil/spieler/1197308",
         "https://www.transfermarkt.com.ar/jeremias-florentin/profil/spieler/1197896",
         "https://www.transfermarkt.com.ar/ca-talleres/kader/verein/3938",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/talleres-de-cordoba/plantilla",
         "https://www.ligaprofesional.ar/clubes/talleres/",
         "https://www.transfermarkt.com.ar/giovanni-baroni/profil/spieler/1265841",
         "https://www.transfermarkt.com.ar/ca-talleres/kadernaechstesaison/verein/3938/saison_id/2026"
@@ -213,7 +238,7 @@
       "source": "https://rosariocentral.com/plantel-masculino/",
       "consulted": "2026-11-05",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/rosario-central/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/rosario-central/plantilla",
         "https://www.transfermarkt.com.ar/damian-fernandez/profil/spieler/1297991",
         "https://www.transfermarkt.com.ar/ca-rosario-central-ii/startseite/verein/14838",
         "https://www.transfermarkt.com.ar/sebastian-zaracho/profil/spieler/750754",
@@ -223,7 +248,9 @@
         "https://www.transfermarkt.com.ar/club-atletico-rosario-central/kader/verein/1418",
         "https://www.transfermarkt.com.ar/emanuel-coronel/profil/spieler/565194",
         "https://www.transfermarkt.com.ar/alexis-soto/profil/spieler/409272",
-        "https://www.transfermarkt.com.ar/julian-fernandez/profil/spieler/984053"
+        "https://www.transfermarkt.com.ar/julian-fernandez/profil/spieler/984053",
+        "https://rosariocentral.com/jugadores/pol-fernandez/",
+        "https://www.ligaprofesional.ar/clubes/rosario-central/"
       ],
       "numberSource": [],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -233,29 +260,35 @@
     "newells": {
       "source": "https://www.newellsoldboys.com.ar/plantel",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://www.ligaprofesional.ar/clubes/newells/",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/newell-s-old-boys/plantilla",
         "https://www.newellsoldboys.com.ar/plantel",
-        "https://www.transfermarkt.com.ar/martin-ortega/profil/spieler/663118"
+        "https://www.transfermarkt.com.ar/martin-ortega/profil/spieler/663118",
+        "https://www.newellsoldboys.com.ar/noticias/comunicado-oficial-mateo-garcia"
       ],
       "ratingSource": [
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
         "https://statz.ai/player/matias-coccaro/3872629"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/mateo-garcia/rueckennummern/spieler/441287",
       "ageConsulted": "2026-11-05"
     },
     "gimnasia": {
       "source": "https://www.tycsports.com/gimnasia-de-la-plata.html",
       "nationalities": "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-estudiantes-vs-gimnasia-fecha-5-id754866.html",
+      "numberSource": [
+        "https://www.transfermarkt.co/alejo-gelsomino/rueckennummern/spieler/1305354",
+        "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-estudiantes-vs-gimnasia-fecha-5-id754866.html"
+      ],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.transfermarkt.com.ar/club-de-gimnasia-y-esgrima-la-plata/kader/verein/1106",
         "https://www.transfermarkt.com.ar/patricio-schroeder/profil/spieler/1438771",
         "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
+        "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/",
         "https://www.transfermarkt.com.ar/pablo-aguiar/profil/spieler/1305363",
         "https://www.transfermarkt.com.ar/ignacio-miramon/profil/spieler/836518",
         "https://www.transfermarkt.com.ar/leonel-troncoso/bilanz/spieler/1305337",
@@ -269,7 +302,7 @@
         "https://statz.ai/player/agustin-auzmendi/741664",
         "https://statz.ai/player/marcelo-torres/766681"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/",
       "ageConsulted": "2026-11-05"
     },
     "huracan": {
@@ -278,7 +311,7 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
-        "https://www.ligaprofesional.ar/clubes/huracan/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/huracan/plantilla",
         "https://www.transfermarkt.com.ar/hugo-nervo/profil/spieler/107503/",
         "https://www.transfermarkt.com.ar/ca-huracan/kadernaechstesaison/verein/2063/saison_id/2026",
         "https://www.transfermarkt.com.ar/leonardo-gil/profil/spieler/125907"
@@ -646,8 +679,8 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1001,
-    "missing": 17,
+    "assigned": 1003,
+    "missing": 15,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -707,13 +740,13 @@
       },
       "newells": {
         "total": 30,
-        "assigned": 29,
-        "missing": 1
+        "assigned": 30,
+        "missing": 0
       },
       "gimnasia": {
         "total": 36,
-        "assigned": 35,
-        "missing": 1
+        "assigned": 36,
+        "missing": 0
       },
       "argentinos": {
         "total": 33,
@@ -806,7 +839,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 250,
+    "birthDates": 497,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1089,8 +1122,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 48,
-    "missing": 970,
+    "assigned": 53,
+    "missing": 965,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1103,7 +1136,7 @@
       },
       "river": {
         "total": 27,
-        "specific": 21
+        "specific": 22
       },
       "independiente": {
         "total": 36,
@@ -1111,7 +1144,7 @@
       },
       "estudiantes": {
         "total": 37,
-        "specific": 0
+        "specific": 2
       },
       "velez": {
         "total": 30,
@@ -1139,11 +1172,11 @@
       },
       "newells": {
         "total": 30,
-        "specific": 0
+        "specific": 1
       },
       "gimnasia": {
         "total": 36,
-        "specific": 0
+        "specific": 1
       },
       "argentinos": {
         "total": 33,
@@ -1233,7 +1266,7 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 17,
+    "playersMissingDorsal": 15,
     "provisionalRatings": 944,
     "playersWithoutManualAttributes": 1018
   }
