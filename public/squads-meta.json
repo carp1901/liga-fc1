@@ -599,15 +599,15 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 1018,
-    "missing": 1,
-    "birthDates": 250,
+    "assigned": 1019,
+    "missing": 0,
+    "birthDates": 251,
     "total": 1019,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
-        "assigned": 39,
-        "missing": 1
+        "assigned": 40,
+        "missing": 0
       },
       "boca": {
         "total": 32,
@@ -1028,13 +1028,13 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "crossClubDuplicateNames": 7,
-    "playersMissingAge": 1,
+    "playersMissingAge": 0,
     "playersMissingDorsal": 18,
     "provisionalRatings": 957,
     "playersWithoutManualAttributes": 1031
   },
   "pending": {
-    "ages": 1,
+    "ages": 0,
     "dorsals": 18,
     "statisticalRatings": 957
   }
