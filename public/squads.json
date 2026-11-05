@@ -1852,7 +1852,9 @@
       "p": "MED",
       "r": 60,
       "role": "Mediocampista",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 33,
+      "numberSource": "https://www.ligaprofesional.ar/clubes/velez"
     },
     {
       "n": "Ronaldo Martínez",
@@ -2511,7 +2513,9 @@
       "p": "DEF",
       "r": 60,
       "role": "Defensor",
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "number": 10,
+      "numberSource": "https://www.clubtalleres.com.ar/jugadores/lucio-ferrari/"
     },
     {
       "n": "Alexandro Maidana",
