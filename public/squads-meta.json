@@ -23,7 +23,7 @@
     "atletico": 36,
     "barracas": 36,
     "riestra": 32,
-    "instituto": 38,
+    "instituto": 36,
     "sarmiento": 31,
     "aldosivi": 35,
     "platense": 38,
@@ -441,9 +441,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1006,
-    "missing": 23,
-    "total": 1029,
+    "assigned": 1005,
+    "missing": 22,
+    "total": 1027,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -541,9 +541,9 @@
         "missing": 0
       },
       "instituto": {
-        "total": 38,
-        "assigned": 36,
-        "missing": 2
+        "total": 36,
+        "assigned": 35,
+        "missing": 1
       },
       "sarmiento": {
         "total": 31,
@@ -599,10 +599,10 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 955,
-    "missing": 74,
-    "birthDates": 197,
-    "total": 1029,
+    "assigned": 970,
+    "missing": 57,
+    "birthDates": 211,
+    "total": 1027,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -700,9 +700,9 @@
         "missing": 1
       },
       "instituto": {
-        "total": 38,
-        "assigned": 21,
-        "missing": 17
+        "total": 36,
+        "assigned": 36,
+        "missing": 0
       },
       "sarmiento": {
         "total": 31,
@@ -1024,18 +1024,18 @@
   },
   "qualityAudit": {
     "clubs": 30,
-    "players": 1029,
+    "players": 1027,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "crossClubDuplicateNames": 7,
-    "playersMissingAge": 74,
-    "playersMissingDorsal": 23,
+    "playersMissingAge": 57,
+    "playersMissingDorsal": 22,
     "provisionalRatings": 957,
     "playersWithoutManualAttributes": 1031
   },
   "pending": {
-    "ages": 74,
-    "dorsals": 23,
+    "ages": 57,
+    "dorsals": 22,
     "statisticalRatings": 957
   }
 }
