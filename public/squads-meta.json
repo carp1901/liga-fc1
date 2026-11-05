@@ -8,8 +8,9 @@
     "boca": 31,
     "river": 27,
     "independiente": 36,
-    "estudiantes": 38,
-    "velez": 30
+    "estudiantes": 76,
+    "velez": 30,
+    "racing": 39
   },
   "sources": {
     "sanlorenzo": {
@@ -34,6 +35,11 @@
     },
     "velez": {
       "source": "https://www.velezsarsfield.com.ar/futbol/plantel",
+      "consulted": "2026-11-05"
+    },
+    "racing": {
+      "source": "https://www.lpf.org.ar/clubes/racing-club",
+      "complement": "https://www.tycsports.com/racing-club.html",
       "consulted": "2026-11-05"
     }
   },
