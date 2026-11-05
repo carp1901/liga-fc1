@@ -140,8 +140,9 @@
     "atletico": {
       "source": "https://www.tycsports.com/atletico-tucuman.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/455-atletico-tucuman",
-      "numbersConsulted": "2026-11-05"
+      "numberSource": "https://clubatleticotucuman.com.ar/jugadores; https://www.transfermarkt.com.ar/club-atletico-tucuman/rueckennummern/verein/14554",
+      "numbersConsulted": "2026-11-05",
+      "numberCoverage": "36/36"
     },
     "barracas": {
       "source": "https://www.barracascentral.com/plantel/",
