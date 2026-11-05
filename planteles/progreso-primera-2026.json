@@ -95,7 +95,11 @@
       "estado": "pendiente"
     },
     "gimnasia": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 38,
+      "fuente": "https://www.tycsports.com/gimnasia-de-la-plata.html",
+      "fuente_nacionalidades": "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
+      "consultado": "2026-11-05"
     },
     "centralcba": {
       "estado": "pendiente"
