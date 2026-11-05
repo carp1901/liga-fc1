@@ -20,13 +20,13 @@
     "argentinos": 33,
     "belgrano": 37,
     "centralcba": 36,
-    "atletico": 36,
+    "atletico": 35,
     "barracas": 36,
     "riestra": 32,
     "instituto": 36,
-    "sarmiento": 31,
+    "sarmiento": 30,
     "aldosivi": 35,
-    "platense": 38,
+    "platense": 36,
     "defensa": 33,
     "union": 33,
     "tigre": 45,
@@ -441,9 +441,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1005,
-    "missing": 22,
-    "total": 1027,
+    "assigned": 1002,
+    "missing": 21,
+    "total": 1023,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -526,8 +526,8 @@
         "missing": 0
       },
       "atletico": {
-        "total": 36,
-        "assigned": 36,
+        "total": 35,
+        "assigned": 35,
         "missing": 0
       },
       "barracas": {
@@ -546,9 +546,9 @@
         "missing": 1
       },
       "sarmiento": {
-        "total": 31,
+        "total": 30,
         "assigned": 29,
-        "missing": 2
+        "missing": 1
       },
       "aldosivi": {
         "total": 35,
@@ -556,8 +556,8 @@
         "missing": 2
       },
       "platense": {
-        "total": 38,
-        "assigned": 38,
+        "total": 36,
+        "assigned": 36,
         "missing": 0
       },
       "defensa": {
@@ -599,10 +599,10 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 987,
-    "missing": 40,
-    "birthDates": 222,
-    "total": 1027,
+    "assigned": 1006,
+    "missing": 17,
+    "birthDates": 240,
+    "total": 1023,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -671,8 +671,8 @@
       },
       "argentinos": {
         "total": 33,
-        "assigned": 30,
-        "missing": 3
+        "assigned": 33,
+        "missing": 0
       },
       "belgrano": {
         "total": 37,
@@ -685,19 +685,19 @@
         "missing": 0
       },
       "atletico": {
-        "total": 36,
-        "assigned": 32,
-        "missing": 4
+        "total": 35,
+        "assigned": 34,
+        "missing": 1
       },
       "barracas": {
         "total": 36,
-        "assigned": 32,
-        "missing": 4
+        "assigned": 35,
+        "missing": 1
       },
       "riestra": {
         "total": 32,
-        "assigned": 31,
-        "missing": 1
+        "assigned": 32,
+        "missing": 0
       },
       "instituto": {
         "total": 36,
@@ -705,19 +705,19 @@
         "missing": 0
       },
       "sarmiento": {
-        "total": 31,
+        "total": 30,
         "assigned": 29,
-        "missing": 2
+        "missing": 1
       },
       "aldosivi": {
         "total": 35,
-        "assigned": 31,
-        "missing": 4
+        "assigned": 34,
+        "missing": 1
       },
       "platense": {
-        "total": 38,
+        "total": 36,
         "assigned": 36,
-        "missing": 2
+        "missing": 0
       },
       "defensa": {
         "total": 33,
@@ -726,13 +726,13 @@
       },
       "union": {
         "total": 33,
-        "assigned": 29,
-        "missing": 4
+        "assigned": 32,
+        "missing": 1
       },
       "tigre": {
         "total": 45,
-        "assigned": 41,
-        "missing": 4
+        "assigned": 45,
+        "missing": 0
       },
       "banfield": {
         "total": 37,
@@ -1024,18 +1024,18 @@
   },
   "qualityAudit": {
     "clubs": 30,
-    "players": 1027,
+    "players": 1023,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "crossClubDuplicateNames": 7,
-    "playersMissingAge": 40,
-    "playersMissingDorsal": 22,
+    "playersMissingAge": 17,
+    "playersMissingDorsal": 21,
     "provisionalRatings": 957,
     "playersWithoutManualAttributes": 1031
   },
   "pending": {
-    "ages": 40,
-    "dorsals": 22,
+    "ages": 17,
+    "dorsals": 21,
     "statisticalRatings": 957
   }
 }
