@@ -208,7 +208,7 @@ const DIVS=[{id:'ar1',country:'Argentina',name:'Primera División',ok:true,teams
 // order = categorías de arriba a abajo · cup = copa nacional de ese país · real = ¿ya tiene el formato realista cargado? · kl = texto del selector de categorías
 const LEAGUES=[
  {id:'ar',name:'Argentina',order:['ar1','ar2','ar3','ar5','ar4','ar6'],cup:'Copa Argentina',real:true,kl:{2:'(Primera y Nacional)',4:'(hasta B Metro y Federal A)',5:'(+ Primera C)',6:'(+ Promocional Amateur)'}},
- {id:'uy',name:'Uruguay',order:['uy1','uy2'],cup:'Copa Uruguaya',real:false,kl:{2:'(Primera y Segunda)'}}];
+ {id:'uy',name:'Uruguay',order:['uy1','uy2'],cup:'Copa Uruguaya',real:true,kl:{2:'(Primera y Segunda)'}}];
 const teams=DIVS.flatMap(x=>x.teams);
 const TM={};teams.forEach(t=>TM[t.id]=t);
 const FM=[[4,4,2],[4,3,3],[3,5,2],[4,5,1],[5,3,2],[4,5,1],[4,4,2],[3,4,3],[5,4,1],[4,4,2],[4,5,1],[4,5,1],[3,6,1],[5,2,3]];
