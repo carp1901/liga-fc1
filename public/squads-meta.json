@@ -62,7 +62,8 @@
       "source": "https://www.clubaindependiente.com.ar/futbol/plantel",
       "consulted": "2026-11-05",
       "numberSource": "https://www.lpf.org.ar/clubes/independiente/",
-      "numbersConsulted": "2026-11-05"
+      "numbersConsulted": "2026-11-05",
+      "numberConflict": "LPF indica #3 y la ficha del club muestra #39; no se asigna hasta resolver la discrepancia."
     },
     "estudiantes": {
       "source": "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
