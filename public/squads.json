@@ -6865,7 +6865,8 @@
       "n": "Lucas Cacciabue",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 16
     },
     {
       "n": "Tomás Fagioli",
@@ -6878,7 +6879,8 @@
       "n": "Nazareno Fazzi",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 32
     },
     {
       "n": "Ignacio Isla",
