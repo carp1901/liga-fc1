@@ -1063,5 +1063,8 @@
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
+  },
+  "pending": {
+    "ages": 317
   }
 }
