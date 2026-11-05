@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T00:00:00.000Z",
+  "updatedAt": "2026-11-05T05:40:54.259Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -17,7 +17,12 @@
     "huracan": 32,
     "newells": 30,
     "gimnasia": 38,
-    "argentinos": 33
+    "argentinos": 33,
+    "belgrano": 37,
+    "centralcba": 37,
+    "atletico": 36,
+    "barracas": 36,
+    "riestra": 32
   },
   "sources": {
     "sanlorenzo": {
@@ -75,6 +80,26 @@
     },
     "argentinos": {
       "source": "https://www.tycsports.com/argentinos-juniors.html",
+      "consulted": "2026-11-05"
+    },
+    "belgrano": {
+      "source": "https://www.tycsports.com/belgrano-de-cordoba.html",
+      "consulted": "2026-11-05"
+    },
+    "centralcba": {
+      "source": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
+      "consulted": "2026-11-05"
+    },
+    "atletico": {
+      "source": "https://www.tycsports.com/atletico-tucuman.html",
+      "consulted": "2026-11-05"
+    },
+    "barracas": {
+      "source": "https://www.barracascentral.com/plantel/",
+      "consulted": "2026-11-05"
+    },
+    "riestra": {
+      "source": "https://deportivoriestra.com.ar/equipo",
       "consulted": "2026-11-05"
     }
   },
