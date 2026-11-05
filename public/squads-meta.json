@@ -10,7 +10,9 @@
     "independiente": 36,
     "estudiantes": 76,
     "velez": 30,
-    "racing": 39
+    "racing": 39,
+    "lanus": 34,
+    "talleres": 33
   },
   "sources": {
     "sanlorenzo": {
@@ -40,6 +42,14 @@
     "racing": {
       "source": "https://www.lpf.org.ar/clubes/racing-club",
       "complement": "https://www.tycsports.com/racing-club.html",
+      "consulted": "2026-11-05"
+    },
+    "lanus": {
+      "source": "https://www.tycsports.com/lanus.html",
+      "consulted": "2026-11-05"
+    },
+    "talleres": {
+      "source": "https://www.tycsports.com/talleres-de-cordoba.html",
       "consulted": "2026-11-05"
     }
   },
