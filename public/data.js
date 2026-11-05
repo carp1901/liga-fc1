@@ -228,7 +228,7 @@ const POS=['POR','POR','DEF','DEF','DEF','DEF','DEF','DEF','MED','MED','MED','ME
 const PLAYER_SCALE={offline:{min:40,argentinaMax:90,futureEliteMin:91,max:99},online:{min:70,max:85,target:78},tiers:['alto','medio','bajo']};
 // Tres escalones proporcionales dentro de CADA división, ordenados por nivel actual del club.
 const TEAM_TIERS=Object.fromEntries(DIVS.map(d=>{const sorted=d.teams.slice().sort((a,b)=>b.r-a.r||a.name.localeCompare(b.name));const n=sorted.length;return[d.id,Object.fromEntries(sorted.map((t,i)=>[t.id,Math.min(2,Math.floor(i*3/n))]))]}));
-const teamTier=(team,division)=>{const d=division||DIVS.find(x=>x.teams.some(t=>t.id==team));return d?TEAM_TIERS[d.id]?.[team]??2:2};
+const teamTier=(team,division)=>{const d=typeof division=='string'?DIVS.find(x=>x.id==division):division||DIVS.find(x=>x.teams.some(t=>t.id==team));return d?TEAM_TIERS[d.id]?.[team]??2:2};
 // Atributos técnicos, tácticos, físicos y específicos de arquero (15-99).
 // pas pase · ctl control · reg regate · rem definición · des desmarque · mar marca · ant anticipación · ref reflejos
 // vel velocidad · ace aceleración · res resistencia · fue fuerza · cab cabeceo · cen centros · pot potencia de tiro · agr agresividad
