@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:51:36.419Z",
+  "updatedAt": "2026-11-05T19:52:06.258Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -45,7 +45,7 @@
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/san-lorenzo/plantilla",
         "https://www.sanlorenzo.com.ar/futbol/plantel/agustin-perez",
-        "https://www.ligaprofesional.ar/clubes/san-lorenzo/"
+        "https://sanlorenzo.com.ar/futbol-profesional/plantel/perfil/rodrigo-auzmendi"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
       "roleSource": [],
@@ -104,7 +104,7 @@
         "https://www.auf.org.uy/santiago-mele/",
         "https://as.com/resultados/ficha/deportista/joaquin_blazquez/45075/",
         "https://clubaindependiente.com.ar/futbol/plantel/perfil/fernandocloster",
-        "https://www.ligaprofesional.ar/clubes/independiente/",
+        "https://clubaindependiente.com.ar/futbol/plantel/perfil/leonardogodoy",
         "https://www.transfermarkt.com.ar/joshua-velardez/profil/spieler/1330832",
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/independiente/plantilla",
         "https://www.transfermarkt.com.ar/club-atletico-independiente/kader/verein/1234",
@@ -171,6 +171,7 @@
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/velez-sarsfield/plantilla",
         "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
+        "https://velez.com.ar/futbol/plantel/perfil/412-alexveron",
         "https://www.ligaprofesional.ar/clubes/velez"
       ],
       "ratingSource": [
@@ -839,7 +840,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 554,
+    "birthDates": 562,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
