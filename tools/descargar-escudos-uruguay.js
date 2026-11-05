@@ -1,4 +1,4 @@
-// Descarga únicamente escudos uruguayos. Fuentes: FootyLogos (PNG transparente).
+// Descarga únicamente escudos uruguayos. Fuente y atribución: FootyLogos.com (PNG transparente).
 // Los dos clubes sin URL confirmada se omiten; no se inventan escudos.
 const fs = require('fs');
 const sharp = require('sharp');
