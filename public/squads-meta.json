@@ -208,11 +208,7 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
-      "ageSource": [
-        "https://www.transfermarkt.com.ar/hugo-nervo/profil/spieler/107503/",
-        "https://www.ligaprofesional.ar/clubes/huracan/",
-        "https://www.transfermarkt.com.ar/leonardo-gil/profil/spieler/125907"
-      ],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/huracan/",
       "ratingSource": [
         "https://statz.ai/player/lucas-blondel/335745",
         "https://statz.ai/player/maximo-palazzo/37906738",
@@ -258,12 +254,7 @@
       "consulted": "2026-11-05",
       "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html",
       "numbersConsulted": "2026-11-06",
-      "ageSource": [
-        "https://www.transfermarkt.com.ar/ca-central-cordoba-sde-/kader/verein/31284",
-        "https://www.ligaprofesional.ar/clubes/central-cordoba/",
-        "https://www.transfermarkt.com.ar/michael-santos/profil/spieler/178107",
-        "https://www.transfermarkt.com.ar/leonardo-sequeira/profil/spieler/384761"
-      ],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/central-cordoba/",
       "ratingSource": "https://statz.ai/player/michael-santos/187009",
       "roleSource": [],
       "ageConsulted": "2026-11-05"
@@ -445,11 +436,7 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
-      "ageSource": [
-        "https://www.transfermarkt.com.ar/aa-estudiantes-rio-cuarto-/kader/verein/14602",
-        "https://www.transfermarkt.com.ar/gonzalo-maffini/profil/spieler/844242",
-        "https://www.transfermarkt.com.ar/juan-antonini/profil/spieler/667375"
-      ],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/estudiantes-de-rio-cuarto/",
       "ratingSource": [],
       "roleSource": [],
       "ageConsulted": "2026-11-05"
@@ -622,8 +609,8 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 830,
-    "missing": 206,
+    "assigned": 894,
+    "missing": 142,
     "birthDates": 138,
     "total": 1036,
     "byClub": {
@@ -669,8 +656,8 @@
       },
       "talleres": {
         "total": 33,
-        "assigned": 19,
-        "missing": 14
+        "assigned": 31,
+        "missing": 2
       },
       "rosario": {
         "total": 38,
@@ -679,8 +666,8 @@
       },
       "huracan": {
         "total": 32,
-        "assigned": 11,
-        "missing": 21
+        "assigned": 30,
+        "missing": 2
       },
       "newells": {
         "total": 30,
@@ -704,8 +691,8 @@
       },
       "centralcba": {
         "total": 37,
-        "assigned": 19,
-        "missing": 18
+        "assigned": 32,
+        "missing": 5
       },
       "atletico": {
         "total": 36,
@@ -774,8 +761,8 @@
       },
       "estudiantesrc": {
         "total": 32,
-        "assigned": 11,
-        "missing": 21
+        "assigned": 31,
+        "missing": 1
       }
     }
   },
@@ -1050,13 +1037,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 206,
+    "playersMissingAge": 142,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 206,
+    "ages": 142,
     "dorsals": 23
   }
 }
