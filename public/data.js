@@ -241,16 +241,28 @@ const PROFILES={
  MED:{off:{pas:7,ctl:6,reg:3,ant:3,res:4,vel:1,ace:1,cen:2,mar:-1,rem:-5,fue:-2,cab:-5,agr:-2,ref:-45,par:-45,man:-45,sal:-45,pie:2,pot:-4,des:1},w:{pas:.18,ctl:.14,reg:.09,ant:.1,res:.12,vel:.08,ace:.06,mar:.08,des:.06,cen:.03,fue:.02,pot:.02,agr:.02}},
  DEL:{off:{rem:9,des:8,reg:4,ctl:2,vel:5,ace:5,pot:5,cab:2,pas:-5,mar:-20,ant:-10,fue:1,res:1,agr:1,ref:-45,par:-45,man:-45,sal:-45,pie:-5,cen:1},w:{rem:.17,des:.14,vel:.12,ace:.1,reg:.12,ctl:.08,cab:.06,pot:.06,pas:.05,res:.03,fue:.02,agr:.02,mar:.01,ant:.01,cen:.01}}
 };
+const ROLE_OFFSETS={
+ DFC:{mar:5,ant:5,cab:4,fue:3,vel:-2,ace:-2,reg:-4,rem:-3,des:-1},
+ LI:{vel:5,ace:5,res:4,cen:5,reg:3,mar:1,ant:1,cab:-2,fue:-1},
+ LD:{vel:5,ace:5,res:4,cen:4,reg:3,mar:1,ant:1,cab:-2,fue:-1},
+ MCD:{mar:5,ant:4,pas:3,res:3,ctl:1,reg:-1,rem:-2,des:1},
+ MC:{pas:3,ctl:3,reg:1,ant:1,res:2,vis:3,mar:0},
+ MO:{ctl:5,reg:5,pas:4,vis:5,rem:3,des:2,mar:-4,ant:-2},
+ EI:{vel:5,ace:5,reg:5,ctl:3,rem:3,cen:3,mar:-5,ant:-3},
+ ED:{vel:5,ace:5,reg:5,ctl:3,rem:3,cen:3,mar:-5,ant:-3},
+ DC:{rem:5,des:4,pot:4,cab:3,fue:2,vel:1,pas:-2,mar:-6},
+ SD:{rem:4,des:4,ctl:4,reg:3,vis:3,pas:2,mar:-5}
+};
 const clampA=v=>Math.max(15,Math.min(99,Math.round(v)));
 // media de un jugador en un puesto: promedio ponderado de sus atributos relevantes para ese puesto
 const roleOvr=(x,pos)=>{const w=(PROFILES[pos]||PROFILES.MED).w;let s=0;for(const a in w)s+=w[a]*(x.at?x.at[a]:x.r);return s};
-function mkAt(p,r,rr){const P=PROFILES[p]||PROFILES.MED,at={};ATTRS.forEach(a=>at[a]=r+(P.off[a]||0)+(rr()-.5)*12);
+function mkAt(p,r,rr,role){const P=PROFILES[p]||PROFILES.MED,R=ROLE_OFFSETS[role]||{},at={};ATTRS.forEach(a=>at[a]=r+(P.off[a]||0)+(R[a]||0)+(rr()-.5)*12);
  for(let k=0;k<3;k++){let s=0;for(const a in P.w)s+=P.w[a]*at[a];const dl=r-s;ATTRS.forEach(a=>at[a]=Math.max(15,Math.min(99,at[a]+dl)))}   // se recentra para que la media del puesto coincida con r
  ATTRS.forEach(a=>at[a]=clampA(at[a]));return at}
 // completa un jugador: si trae los 8 atributos se respetan (y si falta la media se calcula); si trae algunos, el resto se deriva; si no trae ninguno, se deriva todo de p y r
 const goalkeeperOnly=['ref','par','man','sal'];
 const withAt=(x,key)=>{if(x.at&&ATTRS.filter(a=>a!=='lea').every(a=>typeof x.at[a]=='number')){const age=Number(x.age),lead=Number.isFinite(age)&&age>0?Math.max(35,Math.min(92,Math.round(42+(age-18)*2.1))):50,at={...x.at,lea:x.at.lea??lead};if(x.p!=='POR')goalkeeperOnly.forEach(a=>at[a]=15);return{...x,r:x.r!=null?x.r:Math.round(roleOvr(x,x.p)),at};}
- const r0=x.r!=null?x.r:60,gen=mkAt(x.p,r0,rng(hs('at|'+key+'|'+x.n+'|'+x.p))),age=Number(x.age),lead=Number.isFinite(age)&&age>0?Math.max(35,Math.min(92,Math.round(42+(age-18)*2.1))):50,at={...gen,...(x.at||{}),lea:x.at?.lea??lead};if(x.p!=='POR')goalkeeperOnly.forEach(a=>at[a]=15);return{...x,r:r0,at};};
+ const r0=x.r!=null?x.r:60,gen=mkAt(x.p,r0,rng(hs('at|'+key+'|'+x.n+'|'+x.p)),x.specificRole),age=Number(x.age),lead=Number.isFinite(age)&&age>0?Math.max(35,Math.min(92,Math.round(42+(age-18)*2.1))):50,at={...gen,...(x.at||{}),lea:x.at?.lea??lead};if(x.p!=='POR')goalkeeperOnly.forEach(a=>at[a]=15);return{...x,r:r0,at};};
 const SQ={};let REAL={};try{REAL=require('./squads.json')}catch(e){REAL=(typeof window!=='undefined'&&window.SQUADS)||{}}
 const rawSquad=id=>SQ[id]||(SQ[id]=(REAL[id]||(()=>{const t=TM[id],r=rng(hs('sq'+id));return POS.map(p=>({p,n:String.fromCharCode(65+Math.floor(r()*26))+'. '+AP[Math.floor(r()*AP.length)],r:Math.round(t.r-10+r()*16)}))})()).map((x,i)=>withAt(x,id+'|'+i)));
 let MIX=false;const setMix=b=>{MIX=!!b};
