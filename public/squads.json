@@ -7369,7 +7369,8 @@
       "n": "Nehuén Paz",
       "p": "DEF",
       "r": 60,
-      "role": "Defensor"
+      "role": "Defensor",
+      "number": 14
     },
     {
       "n": "Ignacio Abraham",
@@ -7470,7 +7471,8 @@
       "n": "David Zalazar",
       "p": "MED",
       "r": 60,
-      "role": "Mediocampista"
+      "role": "Mediocampista",
+      "number": 40
     },
     {
       "n": "Jeremías Acosta",
