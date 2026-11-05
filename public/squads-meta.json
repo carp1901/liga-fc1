@@ -593,9 +593,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 701,
-    "missing": 335,
-    "birthDates": 78,
+    "assigned": 711,
+    "missing": 325,
+    "birthDates": 88,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -640,8 +640,8 @@
       },
       "talleres": {
         "total": 33,
-        "assigned": 0,
-        "missing": 33
+        "assigned": 3,
+        "missing": 30
       },
       "rosario": {
         "total": 38,
@@ -650,8 +650,8 @@
       },
       "huracan": {
         "total": 32,
-        "assigned": 9,
-        "missing": 23
+        "assigned": 11,
+        "missing": 21
       },
       "newells": {
         "total": 30,
@@ -675,8 +675,8 @@
       },
       "centralcba": {
         "total": 37,
-        "assigned": 17,
-        "missing": 20
+        "assigned": 19,
+        "missing": 18
       },
       "atletico": {
         "total": 36,
@@ -735,8 +735,8 @@
       },
       "rivadavia": {
         "total": 29,
-        "assigned": 19,
-        "missing": 10
+        "assigned": 20,
+        "missing": 9
       },
       "gimnasiamza": {
         "total": 35,
@@ -745,8 +745,8 @@
       },
       "estudiantesrc": {
         "total": 32,
-        "assigned": 9,
-        "missing": 23
+        "assigned": 11,
+        "missing": 21
       }
     }
   },
@@ -1081,13 +1081,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 335,
+    "playersMissingAge": 325,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 335,
+    "ages": 325,
     "dorsals": 23,
     "statisticalRatings": 962,
     "manualAttributes": 1036,
