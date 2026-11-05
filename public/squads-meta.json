@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T23:00:00.000Z",
+  "updatedAt": "2026-11-05T23:59:00.000Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
+  "ratings": "Medias de juego derivadas de promedios reales de partidos 2026 cuando hay fuente y muestra suficiente; 60 sigue siendo provisional donde no hay promedio verificable.",
   "counts": {
     "sanlorenzo": 39,
     "boca": 31,
@@ -236,8 +236,8 @@
   "completePrimera": true,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 963,
-    "missing": 73,
+    "assigned": 999,
+    "missing": 37,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -306,14 +306,14 @@
         "missing": 1
       },
       "argentinos": {
-        "assigned": 28,
+        "assigned": 30,
         "total": 33,
-        "missing": 5
+        "missing": 3
       },
       "belgrano": {
-        "assigned": 22,
+        "assigned": 33,
         "total": 37,
-        "missing": 15
+        "missing": 4
       },
       "centralcba": {
         "assigned": 35,
@@ -321,9 +321,9 @@
         "missing": 2
       },
       "atletico": {
-        "assigned": 34,
+        "assigned": 36,
         "total": 36,
-        "missing": 2
+        "missing": 0
       },
       "barracas": {
         "assigned": 36,
@@ -336,29 +336,29 @@
         "missing": 0
       },
       "instituto": {
-        "assigned": 34,
+        "assigned": 36,
         "total": 38,
-        "missing": 4
+        "missing": 2
       },
       "sarmiento": {
-        "assigned": 28,
+        "assigned": 29,
         "total": 31,
-        "missing": 3
+        "missing": 2
       },
       "aldosivi": {
-        "assigned": 32,
-        "total": 36,
-        "missing": 4
-      },
-      "platense": {
-        "assigned": 25,
-        "total": 38,
-        "missing": 13
-      },
-      "defensa": {
         "assigned": 33,
         "total": 36,
         "missing": 3
+      },
+      "platense": {
+        "assigned": 38,
+        "total": 38,
+        "missing": 0
+      },
+      "defensa": {
+        "assigned": 35,
+        "total": 36,
+        "missing": 1
       },
       "union": {
         "assigned": 31,
@@ -371,9 +371,9 @@
         "missing": 2
       },
       "banfield": {
-        "assigned": 33,
+        "assigned": 35,
         "total": 35,
-        "missing": 2
+        "missing": 0
       },
       "rivadavia": {
         "assigned": 27,
@@ -391,5 +391,13 @@
         "missing": 0
       }
     }
+  },
+  "dorsalsComplete": false,
+  "ratingCoverage": {
+    "rated": 15,
+    "total": 1036,
+    "provisional": 1021,
+    "source": "Statz.ai, promedio de calificaciones de partidos de Liga Profesional 2026; consultado 2026-11-05",
+    "formula": "r = round(clamp(60 + (promedio_partido_2026 - 6.5) * 20, 40, 90)); aplicado solo con muestra de al menos 10 partidos. El promedio original, cantidad de partidos y URL quedan guardados por jugador."
   }
 }
