@@ -44,7 +44,11 @@
     },
     "boca": {
       "source": "https://www.bocajuniors.com.ar/futbol-masculino",
-      "consulted": "2026-11-05"
+      "consulted": "2026-11-05",
+      "ageSource": "https://www.bocajuniors.com.ar/futbol-masculino",
+      "ageConsulted": "2026-11-05",
+      "ageCoverage": "31/31",
+      "roleCoverage": "27/31"
     },
     "river": {
       "source": "https://www.riverplate.com/football/professional-football/men/squad",
@@ -206,5 +210,6 @@
       "numbersConsulted": "2026-11-05"
     }
   },
-  "completePrimera": true
+  "completePrimera": true,
+  "ageReferenceDate": "2026-11-05"
 }
