@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:52:06.258Z",
+  "updatedAt": "2026-11-05T19:52:24.438Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -45,6 +45,7 @@
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/san-lorenzo/plantilla",
         "https://www.sanlorenzo.com.ar/futbol/plantel/agustin-perez",
+        "https://contenidos2.sanlorenzo.com.ar/futbol-profesional/plantel/perfil/gonzalo-alassia",
         "https://sanlorenzo.com.ar/futbol-profesional/plantel/perfil/rodrigo-auzmendi"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
@@ -104,11 +105,12 @@
         "https://www.auf.org.uy/santiago-mele/",
         "https://as.com/resultados/ficha/deportista/joaquin_blazquez/45075/",
         "https://clubaindependiente.com.ar/futbol/plantel/perfil/fernandocloster",
-        "https://clubaindependiente.com.ar/futbol/plantel/perfil/leonardogodoy",
-        "https://www.transfermarkt.com.ar/joshua-velardez/profil/spieler/1330832",
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/independiente/plantilla",
+        "https://www.transfermarkt.com.ar/joshua-velardez/profil/spieler/1330832",
+        "https://clubaindependiente.com.ar/futbol/plantel/perfil/leonardogodoy",
         "https://www.transfermarkt.com.ar/club-atletico-independiente/kader/verein/1234",
         "https://clubaindependiente.com.ar/futbol/plantel/matheo-benitez-machuca",
+        "https://clubaindependiente.com.ar/futbol/plantel/perfil/maxilianogutierrez",
         "https://clubaindependiente.com.ar/futbol/plantel/ezequiel-avila"
       ],
       "ratingSource": "https://statz.ai/player/rodrigo-rey/333870",
@@ -172,7 +174,9 @@
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/velez-sarsfield/plantilla",
         "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
         "https://velez.com.ar/futbol/plantel/perfil/412-alexveron",
-        "https://www.ligaprofesional.ar/clubes/velez"
+        "https://www.ligaprofesional.ar/clubes/velez",
+        "https://velez.com.ar/futbol/plantel/perfil/422-simonprima",
+        "https://velez.com.ar/futbol/plantel/perfil/423-lautaropiola"
       ],
       "ratingSource": [
         "https://statz.ai/player/diego-valdes/233682",
@@ -187,7 +191,13 @@
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/racing-club/plantilla",
         "https://www.transfermarkt.com.ar/club-atletico-racing-club/kader/verein/1447",
-        "https://www.ligaprofesional.ar/clubes/racing-club"
+        "https://estudiantesdelaplata.com/jugador/marcos-rojo/",
+        "https://www.racingclub.com.ar/futbol/primer-equipo/plantel/jugador/2112_espino/",
+        "https://www.transfermarkt.es/matias-kranevitter/profil/spieler/240900",
+        "https://www.soloascenso.com.ar/perfil/matias-zaracho/20459",
+        "https://www.transfermarkt.com.ar/santiago-sosa/profil/spieler/576026",
+        "https://www.racingclub.com.ar/futbol/primer-equipo/plantel/jugador/2111_ortegoza/",
+        "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/racing-club/plantilla"
       ],
       "numberSource": [],
       "ratingSource": [
@@ -840,7 +850,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 562,
+    "birthDates": 573,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
