@@ -3285,10 +3285,13 @@
     {
       "n": "Josué Reinatti",
       "p": "POR",
-      "r": 60,
+      "r": 76,
       "role": "Arquero",
       "number": 30,
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "matchRating2026": 7.3,
+      "ratingApps2026": 20,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     },
     {
       "n": "Francisco Sciarini",
