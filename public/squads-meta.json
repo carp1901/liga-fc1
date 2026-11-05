@@ -599,9 +599,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 938,
-    "missing": 91,
-    "birthDates": 182,
+    "assigned": 956,
+    "missing": 73,
+    "birthDates": 198,
     "total": 1029,
     "byClub": {
       "sanlorenzo": {
@@ -676,8 +676,8 @@
       },
       "belgrano": {
         "total": 37,
-        "assigned": 29,
-        "missing": 8
+        "assigned": 37,
+        "missing": 0
       },
       "centralcba": {
         "total": 36,
@@ -686,8 +686,8 @@
       },
       "atletico": {
         "total": 36,
-        "assigned": 25,
-        "missing": 11
+        "assigned": 32,
+        "missing": 4
       },
       "barracas": {
         "total": 36,
@@ -716,8 +716,8 @@
       },
       "platense": {
         "total": 38,
-        "assigned": 33,
-        "missing": 5
+        "assigned": 36,
+        "missing": 2
       },
       "defensa": {
         "total": 36,
@@ -1028,13 +1028,13 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "crossClubDuplicateNames": 7,
-    "playersMissingAge": 91,
+    "playersMissingAge": 73,
     "playersMissingDorsal": 23,
     "provisionalRatings": 957,
     "playersWithoutManualAttributes": 1031
   },
   "pending": {
-    "ages": 91,
+    "ages": 73,
     "dorsals": 23,
     "statisticalRatings": 957
   }
