@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera División",
-  "estado": "en recopilación",
+  "estado": "completo",
   "criterio": "solo jugadores confirmados por fuentes; no completar con nombres inventados",
   "clubes": {
     "boca": {
@@ -83,7 +83,10 @@
       "consultado": "2026-11-05"
     },
     "defensa": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 36,
+      "fuente": "https://www.tycsports.com/defensa-y-justicia.html",
+      "consultado": "2026-11-05"
     },
     "newells": {
       "estado": "recopilado",
@@ -92,10 +95,16 @@
       "consultado": "2026-11-05"
     },
     "union": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 33,
+      "fuente": "https://www.tycsports.com/union.html",
+      "consultado": "2026-11-05"
     },
     "tigre": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 49,
+      "fuente": "https://www.tycsports.com/tigre.html",
+      "consultado": "2026-11-05"
     },
     "platense": {
       "estado": "recopilado",
@@ -104,7 +113,10 @@
       "consultado": "2026-11-05"
     },
     "banfield": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 35,
+      "fuente": "https://www.tycsports.com/banfield.html",
+      "consultado": "2026-11-05"
     },
     "gimnasia": {
       "estado": "recopilado",
@@ -120,7 +132,10 @@
       "consultado": "2026-11-05"
     },
     "rivadavia": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 29,
+      "fuente": "https://www.tycsports.com/independiente-rivadavia.html",
+      "consultado": "2026-11-05"
     },
     "instituto": {
       "estado": "recopilado",
@@ -159,10 +174,16 @@
       "consultado": "2026-11-05"
     },
     "gimnasiamza": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 34,
+      "fuente": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
+      "consultado": "2026-11-05"
     },
     "estudiantesrc": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 32,
+      "fuente": "https://www.aaestudiantesriocuarto.com/",
+      "consultado": "2026-11-05"
     }
   }
 }
