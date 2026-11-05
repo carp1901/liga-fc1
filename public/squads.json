@@ -298,10 +298,13 @@
     {
       "n": "Rodrigo Auzmendi",
       "p": "DEL",
-      "r": 60,
+      "r": 67,
       "role": "Delantero",
       "nat": "Argentina",
-      "number": 29
+      "number": 29,
+      "matchRating2026": 6.85,
+      "ratingApps2026": 23,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
     },
     {
       "n": "Alan Salas",
@@ -964,7 +967,7 @@
     {
       "n": "Tomás Galván",
       "p": "MED",
-      "r": 60,
+      "r": 71,
       "role": "Mediocampista",
       "nat": "Argentina",
       "number": 26,
@@ -972,7 +975,10 @@
       "age": 26,
       "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
       "specificRole": "MC",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 7.06,
+      "ratingApps2026": 34,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
     },
     {
       "n": "Lucas Silva",
@@ -5772,9 +5778,12 @@
     {
       "n": "Alex Luna",
       "p": "DEL",
-      "r": 60,
+      "r": 71,
       "role": "Delantero",
-      "number": 10
+      "number": 10,
+      "matchRating2026": 7.04,
+      "ratingApps2026": 29,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
     },
     {
       "n": "Tomás Peralta",
@@ -7395,9 +7404,12 @@
     {
       "n": "Ignacio Russo",
       "p": "DEL",
-      "r": 60,
+      "r": 64,
       "role": "Delantero",
-      "number": 29
+      "number": 29,
+      "matchRating2026": 6.72,
+      "ratingApps2026": 31,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
     },
     {
       "n": "Tiago Serrago",
@@ -7779,10 +7791,13 @@
     {
       "n": "José Florentín",
       "p": "MED",
-      "r": 60,
+      "r": 72,
       "role": "Mediocampista",
       "nat": "Paraguay",
-      "number": 25
+      "number": 25,
+      "matchRating2026": 7.1,
+      "ratingApps2026": 30,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
     },
     {
       "n": "Stefano Moreyra",
@@ -7831,10 +7846,13 @@
     {
       "n": "Alex Arce",
       "p": "DEL",
-      "r": 60,
+      "r": 67,
       "role": "Delantero",
       "nat": "Paraguay",
-      "number": 9
+      "number": 9,
+      "matchRating2026": 6.86,
+      "ratingApps2026": 21,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
     },
     {
       "n": "Rodrigo Atencio",
@@ -7875,9 +7893,12 @@
     {
       "n": "Fabrizio Sartori",
       "p": "DEL",
-      "r": 60,
+      "r": 63,
       "role": "Delantero",
-      "number": 43
+      "number": 43,
+      "matchRating2026": 6.64,
+      "ratingApps2026": 29,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
     }
   ],
   "gimnasiamza": [
