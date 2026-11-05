@@ -6,8 +6,9 @@ const sqOf=(r,team)=>{const c=r.sqc||(r.sqc={});if(c[team])return c[team];const 
 const poolOf=r=>r.cfg.teams?r.cfg.teams.map(i=>TM[i]):r.cfg.div=='all'?DIVS.flatMap(d=>d.teams):r.cfg.cup?(CUPS.find(x=>'cup:'+x.id==r.cfg.div)||{clubs:[]}).clubs.map(i=>TM[i]):(DIVS.find(d=>d.id==r.cfg.div)||{teams:[]}).teams;
 const cl=o=>JSON.parse(JSON.stringify(o)),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),txt=(s,n)=>String(s||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,n);
 const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-function newTac(team){const sq=squad(team),xi=autoXI(sq,0),best=p=>xi.reduce((b,i)=>sq[i].p==p&&(b<0||AV(sq[i],'rem')>AV(sq[b],'rem'))?i:b,-1);
- return{f:0,st:1,pr:1,wing:0,sal:0,mk:0,auto:0,xi,cap:xi.reduce((b,i)=>(sq[i].at?.lea||50)*.65+sq[i].r*.35>(sq[b].at?.lea||50)*.65+sq[b].r*.35?i:b,xi[0]),pk:best('DEL'),k1:TM[team].c1,k2:TM[team].c2}}
+function bestInitialXI(sq){let best={f:0,xi:autoXI(sq,0),score:-Infinity};for(let f=0;f<FM.length;f++){const sl=slots(f),xi=autoXI(sq,f),score=xi.reduce((s,i,k)=>s+(i>=0?roleOvr(sq[i],sl[k])*(sq[i].p==sl[k]?1:.8):0),0);if(score>best.score+1e-7)best={f,xi,score}}return best}
+function newTac(team){const sq=squad(team),pick=bestInitialXI(sq),xi=pick.xi,best=p=>xi.reduce((b,i)=>sq[i].p==p&&(b<0||AV(sq[i],'rem')>AV(sq[b],'rem'))?i:b,-1);
+ return{f:pick.f,st:1,pr:1,wing:0,sal:0,mk:0,auto:0,xi,cap:xi.reduce((b,i)=>(sq[i].at?.lea||50)*.65+sq[i].r*.35>(sq[b].at?.lea||50)*.65+sq[b].r*.35?i:b,xi[0]),pk:best('DEL'),k1:TM[team].c1,k2:TM[team].c2}}
 const COPA_C=64,COPA_K=.5;
 function strength(r,team,tc,off,ph){const sq=sqOf(r,team),sl=slots(tc.f),n=k=>sl.filter(s=>s==k).length,o={a:0,m:0,d:0};
  tc.xi.forEach((i,k)=>{const x=sq[i],s=sl[k],v=off&&off.has(i)?0:(roleOvr(x,s)+phDelta(ph,s))*(x.p==s?1:.8)*(i==tc.cap?1.01+Math.max(0,Math.min(92,Number(x.at?.lea)||50))*.00025:1);if(s=='POR'||s=='DEF')o.d+=v/(1+n('DEF'));else if(s=='MED')o.m+=v/n('MED');else o.a+=v/n('DEL')});
