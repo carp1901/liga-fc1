@@ -735,13 +735,16 @@
     {
       "n": "Santiago Beltrán",
       "p": "POR",
-      "r": 60,
+      "r": 67,
       "role": "Arquero",
       "nat": "Argentina",
       "number": 41,
       "birthDate": "2004-10-04",
       "age": 22,
-      "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla"
+      "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
+      "matchRating2026": 6.84,
+      "ratingApps2026": 35,
+      "ratingSource": "https://statz.ai/player/santiago-beltran/37691347"
     },
     {
       "n": "Jeremías Martinet",
@@ -1062,10 +1065,13 @@
     {
       "n": "Rodrigo Rey",
       "p": "POR",
-      "r": 60,
+      "r": 66,
       "role": "Arquero",
       "nat": "Argentina",
-      "number": 33
+      "number": 33,
+      "matchRating2026": 6.81,
+      "ratingApps2026": 30,
+      "ratingSource": "https://statz.ai/player/rodrigo-rey/333870"
     },
     {
       "n": "Juan Centurión",
@@ -1927,10 +1933,13 @@
     {
       "n": "Facundo Cambeses",
       "p": "POR",
-      "r": 60,
+      "r": 68,
       "role": "Arquero",
       "number": 25,
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "matchRating2026": 6.91,
+      "ratingApps2026": 33,
+      "ratingSource": "https://statz.ai/player/facundo-cambeses/456310"
     },
     {
       "n": "Matías Tagliamonte",
@@ -2148,10 +2157,13 @@
     {
       "n": "Nahuel Losada",
       "p": "POR",
-      "r": 60,
+      "r": 72,
       "role": "Arquero",
       "nat": "Argentina",
-      "number": 26
+      "number": 26,
+      "matchRating2026": 7.09,
+      "ratingApps2026": 29,
+      "ratingSource": "https://statz.ai/player/nahuel-losada/216737"
     },
     {
       "n": "Franco Petroli",
@@ -3509,10 +3521,13 @@
     {
       "n": "Nelson Insfrán",
       "p": "POR",
-      "r": 60,
+      "r": 69,
       "role": "Arquero",
       "number": 23,
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "matchRating2026": 6.93,
+      "ratingApps2026": 28,
+      "ratingSource": "https://statz.ai/player/nelson-insfran/455729"
     },
     {
       "n": "Julián Kadijevic",
@@ -4058,10 +4073,13 @@
     {
       "n": "Thiago Cardozo",
       "p": "POR",
-      "r": 60,
+      "r": 72,
       "role": "Arquero",
       "nat": "Uruguay",
-      "number": 25
+      "number": 25,
+      "matchRating2026": 7.1,
+      "ratingApps2026": 29,
+      "ratingSource": "https://statz.ai/index.php/player/thiago-cardozo/261059"
     },
     {
       "n": "Matías Daniele",
@@ -4676,10 +4694,13 @@
     {
       "n": "Luis Ingolotti",
       "p": "POR",
-      "r": 60,
+      "r": 66,
       "role": "Arquero",
       "nat": "Argentina",
-      "number": 1
+      "number": 1,
+      "matchRating2026": 6.8,
+      "ratingApps2026": 30,
+      "ratingSource": "https://statz.ai/player/luis-ingolotti/8092902"
     },
     {
       "n": "Leonel Di Plácido",
@@ -5240,10 +5261,13 @@
     {
       "n": "Ignacio Arce",
       "p": "POR",
-      "r": 60,
+      "r": 72,
       "role": "Arquero",
       "nat": "Argentina",
-      "number": 1
+      "number": 1,
+      "matchRating2026": 7.12,
+      "ratingApps2026": 29,
+      "ratingSource": "https://statz.ai/player/ignacio-arce/212732"
     },
     {
       "n": "Iván López",
@@ -6523,9 +6547,12 @@
     {
       "n": "Matías Borgogno",
       "p": "POR",
-      "r": 60,
+      "r": 72,
       "role": "Arquero",
-      "number": 1
+      "number": 1,
+      "matchRating2026": 7.1,
+      "ratingApps2026": 30,
+      "ratingSource": "https://statz.ai/player/matias-borgogno/16475673"
     },
     {
       "n": "Facundo Quintana",
@@ -6778,9 +6805,12 @@
     {
       "n": "Matías Mansilla",
       "p": "POR",
-      "r": 60,
+      "r": 68,
       "role": "Arquero",
-      "number": 21
+      "number": 21,
+      "matchRating2026": 6.91,
+      "ratingApps2026": 33,
+      "ratingSource": "https://statz.ai/player/matias-mansilla/13990849"
     },
     {
       "n": "Lucas Meuli",
@@ -7029,9 +7059,12 @@
     {
       "n": "Felipe Zenobio",
       "p": "POR",
-      "r": 60,
+      "r": 67,
       "role": "Arquero",
-      "number": 12
+      "number": 12,
+      "matchRating2026": 6.83,
+      "ratingApps2026": 28,
+      "ratingSource": "https://statz.ai/player/felipe-zenobio/37445057"
     },
     {
       "n": "Federico Álvarez",
