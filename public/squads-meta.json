@@ -1,0 +1,16 @@
+{
+  "season": 2026,
+  "updatedAt": "2026-11-05T00:00:00.000Z",
+  "source": "Planteles recopilados y verificados manualmente",
+  "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
+  "counts": {
+    "sanlorenzo": 39
+  },
+  "sources": {
+    "sanlorenzo": {
+      "source": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
+      "consulted": "2026-11-05"
+    }
+  },
+  "completePrimera": false
+}
