@@ -2,7 +2,7 @@
 const D=typeof require!=='undefined'?require('./data'):window.DATA,{DIVS,CUPS,TM,FM,slots,autoXI,squad,setMix,roleOvr,squadMode,PHIL,phOff,phDelta,validPhil}=D,AV=(x,a)=>x.at?x.at[a]:x.r,avg=(arr,f)=>arr.length?arr.reduce((s,x)=>s+f(x),0)/arr.length:60,rnd=Math.random,rooms={},CFG={randN:10,rVoteT:15,rGraceV:10000,rGraceP:30000,rankMin:10,tick:1000,offline:typeof window!=='undefined',fastWaits:false,realK:D.NORMAL.K,realC:D.NORMAL.C};
 // Fuerza efectiva por modo: equilibrado = plantel normalizado (data.js); normal = diferencias reales atenuadas (CFG.realK) para que la calidad no decida de antemano.
 const cmpV=v=>CFG.realC+(v-CFG.realC)*CFG.realK;
-const sqOf=(r,team)=>{const c=r.sqc||(r.sqc={});if(c[team])return c[team];const mix=!!(r.cfg&&r.cfg.mix),raw=squadMode(team,mix);return c[team]=mix?raw:raw.map(x=>({...x,r:cmpV(x.r),at:Object.fromEntries(Object.keys(x.at).map(a=>[a,cmpV(x.at[a])]))}))};
+const sqOf=(r,team)=>{const c=r.sqc||(r.sqc={});if(c[team])return c[team];const mix=!!(r.cfg&&r.cfg.mix)||r.offline===false,raw=squadMode(team,mix);return c[team]=mix?raw:raw.map(x=>({...x,r:cmpV(x.r),at:Object.fromEntries(Object.keys(x.at).map(a=>[a,cmpV(x.at[a])]))}))};
 const poolOf=r=>r.cfg.teams?r.cfg.teams.map(i=>TM[i]):r.cfg.div=='all'?DIVS.flatMap(d=>d.teams):r.cfg.cup?(CUPS.find(x=>'cup:'+x.id==r.cfg.div)||{clubs:[]}).clubs.map(i=>TM[i]):(DIVS.find(d=>d.id==r.cfg.div)||{teams:[]}).teams;
 const cl=o=>JSON.parse(JSON.stringify(o)),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),txt=(s,n)=>String(s||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,n);
 const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -219,8 +219,8 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
    if(susOf(me).has(inn))err=(me.inj&&me.inj[inn])?'Está lesionado':'Está suspendido: lo expulsaron en el partido anterior';else if(!mm)t.xi[st]=inn;else if(mm.sb[ms]>=5)err='Ya hiciste los 5 cambios del partido';else if(mm.used[ms].has(inn))err='Ese jugador ya salió y no puede volver';else if(mm.off[ms].has(out))err='Un expulsado no se puede reemplazar';else{t.xi[st]=inn;mm.used[ms].add(out);mm.sb[ms]++;mm.pr[ms][inn]=6}}}}
  push(r);return err}
 
-function simGame(ta,tb,o){o=o||{};setMix(!!o.mix);const r={pl:{A:{name:'A',team:ta,tac:o.tacA||newTac(ta),phil:o.philA},B:{name:'B',team:tb,tac:o.tacB||newTac(tb),phil:o.philB}},order:['A','B'],cfg:{mix:!!o.mix,fmt:o.fmt},eid:0},m=newMatch('A','B');for(let min=1;min<=90;min++){m.evs=[];simMin(r,m,min)}return m}   // simula 90 minutos sin sala (para pruebas)
-function teamStrength(team,o){o=o||{};const r={cfg:{mix:!!o.mix}};return strength(r,team,newTac(team),undefined,o.phil)}
+function simGame(ta,tb,o){o=o||{};setMix(!!o.mix);const r={pl:{A:{name:'A',team:ta,tac:o.tacA||newTac(ta),phil:o.philA},B:{name:'B',team:tb,tac:o.tacB||newTac(tb),phil:o.philB}},order:['A','B'],cfg:{mix:!!o.mix,fmt:o.fmt},offline:true,eid:0},m=newMatch('A','B');for(let min=1;min<=90;min++){m.evs=[];simMin(r,m,min)}return m}   // simula 90 minutos sin sala (para pruebas)
+function teamStrength(team,o){o=o||{};const r={cfg:{mix:!!o.mix},offline:true};return strength(r,team,newTac(team),undefined,o.phil)}
 // Mínimo de personas para que un torneo ONLINE sea elegible para ranking. Cuenta jugadores humanos distintos (pid) de la sala; los equipos de la IA no cuentan y los torneos offline nunca son elegibles.
 // OJO: el pid es un id que genera el navegador (no hay cuentas), así que esto cuenta navegadores distintos, no personas verificadas.
 function rankInfo(r){const min=CFG.rankMin,h=Math.max(r.order.filter(p=>!r.pl[p].bot).length,(r.part||[]).length),n=r.cfg.n;return{min,h,n,off:!!r.offline,ok:!r.offline&&n>=min&&(r.phase=='pick'||h>=min)}}
