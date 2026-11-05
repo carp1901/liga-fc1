@@ -32,10 +32,16 @@
       "consultado": "2026-11-05"
     },
     "estudiantes": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 38,
+      "fuente": "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
+      "consultado": "2026-11-05"
     },
     "velez": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 30,
+      "fuente": "https://www.velezsarsfield.com.ar/futbol/plantel",
+      "consultado": "2026-11-05"
     },
     "talleres": {
       "estado": "pendiente"
