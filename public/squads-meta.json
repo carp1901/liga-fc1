@@ -233,7 +233,7 @@
       "numbersConsulted": "2026-11-05"
     }
   },
-  "completePrimera": true,
+  "completePrimera": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
     "assigned": 1008,
@@ -394,10 +394,17 @@
   },
   "dorsalsComplete": false,
   "ratingCoverage": {
-    "rated": 37,
+    "rated": 39,
     "total": 1036,
-    "provisional": 999,
+    "provisional": 997,
     "source": "Statz.ai y Sportlumy, promedios de calificaciones de partidos de Liga Profesional 2026/27; consulta 2026-11-05/06.",
     "formula": "r = round(clamp(60 + (promedio_partido - 6.5) * 20, 40, 90)); se registra el promedio original, cantidad de partidos y fuente. Solo se aplica con al menos 10 apariciones. Jugadores sin muestra verificable conservan media provisional 60."
+  },
+  "qualityAudit": {
+    "clubs": 30,
+    "players": 1036,
+    "duplicateNumbers": 0,
+    "positionOrderIssues": 1,
+    "unverifiedDorsals": 28
   }
 }
