@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T23:59:00.000Z",
+  "updatedAt": "2026-11-06",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "Medias de juego derivadas de promedios reales de partidos 2026 cuando hay fuente y muestra suficiente; 60 sigue siendo provisional donde no hay promedio verificable.",
+  "ratings": "Medias individuales basadas en promedio de rendimiento por partido cuando existe muestra de al menos 10 apariciones; 60 provisional donde no hay datos verificables.",
   "counts": {
     "sanlorenzo": 39,
     "boca": 31,
@@ -394,10 +394,10 @@
   },
   "dorsalsComplete": false,
   "ratingCoverage": {
-    "rated": 21,
+    "rated": 37,
     "total": 1036,
-    "provisional": 1015,
-    "source": "Statz.ai, promedios de calificaciones de partidos de Liga Profesional 2026; consultado 2026-11-05",
-    "formula": "r = round(clamp(60 + (promedio_partido_2026 - 6.5) * 20, 40, 90)); aplicado solo con muestra de al menos 10 partidos. El promedio original, cantidad de partidos y URL quedan guardados por jugador."
+    "provisional": 999,
+    "source": "Statz.ai y Sportlumy, promedios de calificaciones de partidos de Liga Profesional 2026/27; consulta 2026-11-05/06.",
+    "formula": "r = round(clamp(60 + (promedio_partido - 6.5) * 20, 40, 90)); se registra el promedio original, cantidad de partidos y fuente. Solo se aplica con al menos 10 apariciones. Jugadores sin muestra verificable conservan media provisional 60."
   }
 }
