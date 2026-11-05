@@ -1,0 +1,42 @@
+name: Descargar escudos uruguayos
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'crests-urls.json'
+      - 'tools/descargar-escudos-uruguay.js'
+      - '.github/workflows/descargar-escudos-uruguay.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar Sharp
+        run: npm install --no-save sharp
+
+      - name: Descargar y optimizar escudos uruguayos
+        run: node tools/descargar-escudos-uruguay.js
+
+      - name: Guardar escudos
+        run: |
+          git add public/crests/uy_*.png
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Agregar escudos de clubes uruguayos"
+            git push
+          else
+            echo "No se detectaron escudos nuevos."
+          fi
