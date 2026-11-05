@@ -40,7 +40,8 @@
       "source": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
       "consulted": "2026-11-05",
       "numberSource": "https://sanlorenzo.com.ar/futbol-profesional/plantel",
-      "numbersConsulted": "2026-11-05"
+      "numbersConsulted": "2026-11-05",
+      "numberConflict": "Branco Salinardi y Juan Pablo Álvarez figuran ambos con #22 en la página oficial; se deja sin asignar para evitar duplicado."
     },
     "boca": {
       "source": "https://www.bocajuniors.com.ar/futbol-masculino",
