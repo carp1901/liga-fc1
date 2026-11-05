@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T19:58:05.433Z",
+  "updatedAt": "2026-11-05T19:58:33.018Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -101,7 +101,7 @@
       "numberConflict": "LPF indica #3 y la ficha del club muestra #39; no se asigna hasta resolver la discrepancia.",
       "ageSource": [
         "https://clubaindependiente.com.ar/futbol/plantel/perfil/rodrigorey",
-        "https://es.wikipedia.org/wiki/Juan_Centuri%C3%B3n_(futbolista)",
+        "https://www.sofascore.com/es/football/player/juan-manuel-centurion/2082117",
         "https://www.auf.org.uy/santiago-mele/",
         "https://as.com/resultados/ficha/deportista/joaquin_blazquez/45075/",
         "https://clubaindependiente.com.ar/futbol/plantel/perfil/fernandocloster",
@@ -174,7 +174,8 @@
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/velez-sarsfield/plantilla",
         "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
         "https://velez.com.ar/futbol/plantel/perfil/412-alexveron",
-        "https://www.ligaprofesional.ar/clubes/velez",
+        "https://www.velez.com.ar/futbol/plantel/perfil/426-thiagoaguirre",
+        "https://velez.com.ar/futbol/notas/2025/09/02/153511_juan-policella-primera-firma",
         "https://velez.com.ar/futbol/plantel/perfil/422-simonprima",
         "https://velez.com.ar/futbol/plantel/perfil/423-lautaropiola"
       ],
@@ -237,7 +238,7 @@
         "https://www.transfermarkt.com.ar/jeremias-florentin/profil/spieler/1197896",
         "https://www.transfermarkt.com.ar/ca-talleres/kader/verein/3938",
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/talleres-de-cordoba/plantilla",
-        "https://www.ligaprofesional.ar/clubes/talleres/",
+        "https://www.transfermarkt.es/thiago-baroni/profil/spieler/1516248",
         "https://www.transfermarkt.com.ar/giovanni-baroni/profil/spieler/1265841",
         "https://www.transfermarkt.com.ar/ca-talleres/kadernaechstesaison/verein/3938/saison_id/2026"
       ],
@@ -261,7 +262,7 @@
         "https://www.transfermarkt.com.ar/alexis-soto/profil/spieler/409272",
         "https://www.transfermarkt.com.ar/julian-fernandez/profil/spieler/984053",
         "https://rosariocentral.com/jugadores/pol-fernandez/",
-        "https://www.ligaprofesional.ar/clubes/rosario-central/"
+        "https://www.transfermarkt.es/lisandro-duarte/profil/spieler/1511136"
       ],
       "numberSource": [],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -275,7 +276,8 @@
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/newell-s-old-boys/plantilla",
-        "https://www.newellsoldboys.com.ar/plantel",
+        "https://www.bdfutbol.com/es/j/j730291.html",
+        "https://www.newellsoldboys.com.ar/plantel/alejo-montero",
         "https://www.transfermarkt.com.ar/martin-ortega/profil/spieler/663118",
         "https://www.newellsoldboys.com.ar/noticias/comunicado-oficial-mateo-garcia"
       ],
@@ -365,7 +367,7 @@
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/belgrano/plantilla",
         "https://www.transfermarkt.com.ar/ca-belgrano-ii/startseite/verein/61444",
-        "https://www.ligaprofesional.ar/clubes/belgrano/"
+        "https://www.zerozero.com.ar/jugador/agustin-bono/3508495"
       ],
       "ratingSource": [
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -533,6 +535,7 @@
         "https://www.transfermarkt.com.ar/guido-mainero/leistungsdaten/spieler/441270",
         "https://cap.org.ar/2026/01/bautista-merlini-vuelve-a-platense-despues-de-mas-de-10-anos/",
         "https://cap.org.ar/2024/01/franco-minerva-firmo-su-primer-contrato-y-es-jugador-profesional/",
+        "https://www.sofascore.com/es/football/player/demian-troya/2142456",
         "https://www.transfermarkt.com.ar/franco-zapiola/verletzungen/spieler/909349",
         "https://cap.org.ar/2026/01/hector-bobadilla-llega-a-platense-para-debutar-en-el-futbol-argentino/",
         "https://cap.org.ar/2026/08/luciano-gimenez-es-nuevo-delantero-de-platense/",
@@ -871,7 +874,7 @@
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
-    "birthDates": 1005,
+    "birthDates": 1014,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
