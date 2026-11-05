@@ -60,7 +60,10 @@
       "consultado": "2026-11-05"
     },
     "rosario": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 38,
+      "fuente": "https://rosariocentral.com/plantel-masculino/",
+      "consultado": "2026-11-05"
     },
     "huracan": {
       "estado": "pendiente"
