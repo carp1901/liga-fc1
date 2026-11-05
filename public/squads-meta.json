@@ -118,24 +118,24 @@
     "argentinos": {
       "source": "https://www.tycsports.com/argentinos-juniors.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/458-argentinos-juniors",
-      "numbersConsulted": "2026-11-05",
+      "numberSource": "https://www.promiedos.com.ar/team/argentinos-juniors/ihb",
+      "numbersConsulted": "2026-11-06",
       "numberCoverage": "30/33",
       "numberConflict": "Santiago Silveira y Federico Mancuello sin dorsal confirmado. Mateo Mendoza figura sin número en la ficha LPF; no asignar #23, que corresponde a Hernán López Muñoz."
     },
     "belgrano": {
       "source": "https://www.tycsports.com/belgrano-de-cordoba.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278023.html",
-      "numbersConsulted": "2026-11-05",
+      "numberSource": "https://marcadores.diez.hn/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html",
+      "numbersConsulted": "2026-11-06",
       "numberCoverage": "33/37",
       "numberConflict": "Biani, Bonomo, Charras y Melano quedan sin dorsal confirmado. Hernándes #8 y Cortes #51 se ajustan al listado LPF."
     },
     "centralcba": {
       "source": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html",
-      "numbersConsulted": "2026-11-05"
+      "numberSource": "https://marcadores.diez.hn/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html",
+      "numbersConsulted": "2026-11-06"
     },
     "atletico": {
       "source": "https://www.tycsports.com/atletico-tucuman.html",
@@ -236,8 +236,8 @@
   "completePrimera": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1008,
-    "missing": 28,
+    "assigned": 1011,
+    "missing": 25,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -307,18 +307,18 @@
       },
       "argentinos": {
         "total": 33,
-        "assigned": 31,
-        "missing": 2
+        "assigned": 32,
+        "missing": 1
       },
       "belgrano": {
         "total": 37,
-        "assigned": 35,
-        "missing": 2
+        "assigned": 36,
+        "missing": 1
       },
       "centralcba": {
         "total": 37,
-        "assigned": 36,
-        "missing": 1
+        "assigned": 37,
+        "missing": 0
       },
       "atletico": {
         "total": 36,
@@ -404,7 +404,7 @@
     "clubs": 30,
     "players": 1036,
     "duplicateNumbers": 0,
-    "positionOrderIssues": 1,
-    "unverifiedDorsals": 28
+    "positionOrderIssues": 0,
+    "unverifiedDorsals": 25
   }
 }
