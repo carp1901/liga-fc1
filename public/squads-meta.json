@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:03:30.454Z",
+  "updatedAt": "2026-11-05T20:03:54.876Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "62 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -248,7 +248,7 @@
         "https://www.transfermarkt.com.ar/ca-talleres/kadernaechstesaison/verein/3938/saison_id/2026"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-talleres-cordoba/kader/verein/393",
       "ageConsulted": "2026-11-05"
     },
     "rosario": {
@@ -482,7 +482,7 @@
         "https://www.transfermarkt.com.ar/matias-tissera/profil/spieler/503001"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/instituto-atletico-central-cordoba/kader/verein/11510",
       "ageConsulted": "2026-11-05"
     },
     "sarmiento": {
@@ -501,7 +501,7 @@
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
         "https://statz.ai/player/junior-marabel/258037"
       ],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-sarmiento-de-junin/kader/verein/1073",
       "ageConsulted": "2026-11-05"
     },
     "aldosivi": {
@@ -520,7 +520,7 @@
         "https://www.transfermarkt.com.ar/augusto-fernandez/profil/spieler/1230644"
       ],
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/club-atletico-aldosivi/kader/verein/1006",
       "ageConsulted": "2026-11-05"
     },
     "platense": {
@@ -559,7 +559,7 @@
         "https://www.transfermarkt.com.ar/manuel-tucker/profil/spieler/1207136"
       ],
       "ratingSource": [],
-      "roleSource": [],
+      "roleSource": "https://www.transfermarkt.com.ar/ca-platense/kader/verein/1109",
       "ageConsulted": "2026-11-05"
     },
     "defensa": {
@@ -1168,8 +1168,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 462,
-    "missing": 556,
+    "assigned": 632,
+    "missing": 386,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -1206,7 +1206,7 @@
       },
       "talleres": {
         "total": 33,
-        "specific": 0
+        "specific": 33
       },
       "rosario": {
         "total": 38,
@@ -1250,19 +1250,19 @@
       },
       "instituto": {
         "total": 36,
-        "specific": 0
+        "specific": 36
       },
       "sarmiento": {
         "total": 30,
-        "specific": 0
+        "specific": 30
       },
       "aldosivi": {
         "total": 35,
-        "specific": 0
+        "specific": 35
       },
       "platense": {
         "total": 36,
-        "specific": 0
+        "specific": 36
       },
       "defensa": {
         "total": 36,
