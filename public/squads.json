@@ -479,7 +479,7 @@
     {
       "n": "Leandro Paredes",
       "p": "MED",
-      "r": 80,
+      "r": 79,
       "role": "Mediocampista",
       "nat": "Argentina",
       "number": 5,
@@ -488,9 +488,9 @@
       "ageSource": "https://www.bocajuniors.com.ar/futbol-masculino",
       "specificRole": "MC",
       "roleSource": "posicion habitual",
-      "matchRating2026": 7.5,
-      "ratingApps2026": 25,
-      "ratingSource": "https://statz.ai/player/leandro-paredes/129419"
+      "matchRating2026": 7.46,
+      "ratingApps2026": 24,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     },
     {
       "n": "Rodrigo Battaglia",
@@ -854,7 +854,7 @@
     {
       "n": "Nicolás Otamendi",
       "p": "DEF",
-      "r": 60,
+      "r": 76,
       "role": "Defensor",
       "nat": "Argentina",
       "number": 30,
@@ -862,7 +862,10 @@
       "age": 38,
       "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
       "specificRole": "DFC",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 7.31,
+      "ratingApps2026": 14,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     },
     {
       "n": "Facundo González",
@@ -932,7 +935,7 @@
     {
       "n": "Thiago Almada",
       "p": "MED",
-      "r": 60,
+      "r": 79,
       "role": "Mediocampista",
       "nat": "Argentina",
       "number": 23,
@@ -940,7 +943,10 @@
       "age": 25,
       "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
       "specificRole": "MO",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 7.44,
+      "ratingApps2026": 11,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     },
     {
       "n": "Juan Cruz Meza",
@@ -1008,7 +1014,7 @@
     {
       "n": "Ángel Correa",
       "p": "DEL",
-      "r": 60,
+      "r": 76,
       "role": "Delantero",
       "nat": "Argentina",
       "number": 10,
@@ -1016,7 +1022,10 @@
       "age": 31,
       "ageSource": "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/river-plate/plantilla",
       "specificRole": "SD",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 7.31,
+      "ratingApps2026": 13,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     },
     {
       "n": "Lucas Beltrán",
@@ -2741,10 +2750,13 @@
     {
       "n": "Gastón Ávila",
       "p": "DEF",
-      "r": 60,
+      "r": 79,
       "role": "Defensor",
       "nat": "Argentina",
-      "number": 13
+      "number": 13,
+      "matchRating2026": 7.44,
+      "ratingApps2026": 27,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     },
     {
       "n": "Facundo Mallo Blanco",
@@ -3667,10 +3679,13 @@
     {
       "n": "Ignacio Fernández",
       "p": "MED",
-      "r": 60,
+      "r": 76,
       "role": "Mediocampista",
       "number": 8,
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "matchRating2026": 7.32,
+      "ratingApps2026": 31,
+      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
     },
     {
       "n": "Agustín Martínez",
