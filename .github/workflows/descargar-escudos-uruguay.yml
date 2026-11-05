@@ -31,6 +31,7 @@ jobs:
 
       - name: Guardar escudos
         run: |
+          git pull --rebase origin main
           git add public/crests/uy_*.png
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
