@@ -397,7 +397,7 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
-      "ageSource": "https://www.ligaprofesional.ar/clubes/tigre",
+      "ageSource": "https://www.transfermarkt.com.ar/ca-tigre/kader/verein/11831",
       "ratingSource": [
         "https://statz.ai/player/felipe-zenobio/37445057",
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
@@ -628,9 +628,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 763,
-    "missing": 273,
-    "birthDates": 103,
+    "assigned": 771,
+    "missing": 265,
+    "birthDates": 115,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -760,8 +760,8 @@
       },
       "tigre": {
         "total": 49,
-        "assigned": 29,
-        "missing": 20
+        "assigned": 37,
+        "missing": 12
       },
       "banfield": {
         "total": 35,
@@ -1056,12 +1056,12 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 273,
+    "playersMissingAge": 265,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 273
+    "ages": 265
   }
 }
