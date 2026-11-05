@@ -7,7 +7,9 @@
     "sanlorenzo": 39,
     "boca": 31,
     "river": 27,
-    "independiente": 36
+    "independiente": 36,
+    "estudiantes": 38,
+    "velez": 30
   },
   "sources": {
     "sanlorenzo": {
@@ -24,6 +26,14 @@
     },
     "independiente": {
       "source": "https://www.clubaindependiente.com.ar/futbol/plantel",
+      "consulted": "2026-11-05"
+    },
+    "estudiantes": {
+      "source": "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
+      "consulted": "2026-11-05"
+    },
+    "velez": {
+      "source": "https://www.velezsarsfield.com.ar/futbol/plantel",
       "consulted": "2026-11-05"
     }
   },
