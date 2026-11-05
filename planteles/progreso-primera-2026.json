@@ -71,7 +71,10 @@
       "consultado": "2026-11-05"
     },
     "belgrano": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 37,
+      "fuente": "https://www.tycsports.com/belgrano-de-cordoba.html",
+      "consultado": "2026-11-05"
     },
     "argentinos": {
       "estado": "recopilado",
@@ -108,7 +111,10 @@
       "consultado": "2026-11-05"
     },
     "centralcba": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 37,
+      "fuente": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
+      "consultado": "2026-11-05"
     },
     "rivadavia": {
       "estado": "pendiente"
@@ -117,13 +123,22 @@
       "estado": "pendiente"
     },
     "atletico": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 36,
+      "fuente": "https://www.tycsports.com/atletico-tucuman.html",
+      "consultado": "2026-11-05"
     },
     "barracas": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 36,
+      "fuente": "https://www.barracascentral.com/plantel/",
+      "consultado": "2026-11-05"
     },
     "riestra": {
-      "estado": "pendiente"
+      "estado": "recopilado",
+      "jugadores": 32,
+      "fuente": "https://deportivoriestra.com.ar/equipo",
+      "consultado": "2026-11-05"
     },
     "sarmiento": {
       "estado": "pendiente"
