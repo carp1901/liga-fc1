@@ -7,6 +7,7 @@
 const fs=require('fs'),path=require('path');
 const file=process.argv[2];
 const REQUIRE_PRIMERA=process.argv.includes('--require-primera-complete');
+const DRY_RUN=process.argv.includes('--dry-run');
 if(!file){console.error('Uso: node import-squads.js archivo.csv [--require-primera-complete]');process.exit(1)}
 function parseCSV(s){
  const rows=[];let row=[],v='',q=false;
@@ -60,6 +61,7 @@ try{previousMeta=JSON.parse(fs.readFileSync(path.join(pub,'squads-meta.json'),'u
 const merged={...previous,...out},allSources={...(previousMeta.sources||{}),...sources};
 const counts=Object.fromEntries(Object.entries(merged).map(([id,s])=>[id,s.length]));
 for(const [id,n] of Object.entries(counts))if(n<11)console.warn('PENDIENTE:',id,'solo tiene',n,'jugadores; no se agregaron jugadores ficticios.');
+if(DRY_RUN){console.log('Validación correcta (modo dry-run):',Object.keys(out).length,'clubes del archivo,',Object.values(out).reduce((a,s)=>a+s.length,0),'jugadores. No se modificaron archivos.');process.exit(0)}
 fs.writeFileSync(path.join(pub,'squads.json'),JSON.stringify(merged));
 fs.writeFileSync(path.join(pub,'squads.js'),'window.SQUADS='+JSON.stringify(merged)+';');
 fs.writeFileSync(path.join(pub,'squads-meta.json'),JSON.stringify({season:2026,updatedAt:new Date().toISOString(),source:'Planteles recopilados y verificados manualmente',ratings:'60 neutral si no se informa un valor; no son estadísticas oficiales',counts,sources:allSources,completePrimera:PRIMERA.every(id=>merged[id]&&merged[id].length>=11)},null,2));
