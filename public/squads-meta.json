@@ -599,9 +599,9 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 908,
-    "missing": 128,
-    "birthDates": 152,
+    "assigned": 911,
+    "missing": 125,
+    "birthDates": 155,
     "total": 1036,
     "byClub": {
       "sanlorenzo": {
@@ -646,8 +646,8 @@
       },
       "talleres": {
         "total": 33,
-        "assigned": 31,
-        "missing": 2
+        "assigned": 32,
+        "missing": 1
       },
       "rosario": {
         "total": 38,
@@ -656,8 +656,8 @@
       },
       "huracan": {
         "total": 32,
-        "assigned": 30,
-        "missing": 2
+        "assigned": 32,
+        "missing": 0
       },
       "newells": {
         "total": 30,
@@ -1027,13 +1027,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 128,
+    "playersMissingAge": 125,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 128,
+    "ages": 125,
     "dorsals": 23
   }
 }
