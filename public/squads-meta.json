@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T05:42:28.546Z",
+  "updatedAt": "2026-11-05T05:42:50.595Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "60 neutral si no se informa un valor; no son estadísticas oficiales",
   "counts": {
@@ -32,7 +32,7 @@
     "tigre": 49,
     "banfield": 35,
     "rivadavia": 29,
-    "gimnasiamza": 34,
+    "gimnasiamza": 35,
     "estudiantesrc": 32
   },
   "sources": {
