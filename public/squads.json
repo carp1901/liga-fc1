@@ -658,7 +658,7 @@
     {
       "n": "Miguel Merentiel",
       "p": "DEL",
-      "r": 60,
+      "r": 68,
       "role": "Delantero",
       "nat": "Uruguay",
       "number": 16,
@@ -666,7 +666,10 @@
       "age": 30,
       "ageSource": "https://www.bocajuniors.com.ar/futbol-masculino",
       "specificRole": "DC",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 6.9,
+      "ratingApps2026": 27,
+      "ratingSource": "https://statz.ai/player/miguel-merentiel/429996"
     },
     {
       "n": "Leonel Flores",
@@ -684,7 +687,7 @@
     {
       "n": "Sebastián Villa",
       "p": "DEL",
-      "r": 60,
+      "r": 74,
       "role": "Delantero",
       "nat": "Colombia",
       "number": 22,
@@ -692,7 +695,10 @@
       "age": 30,
       "ageSource": "https://www.bocajuniors.com.ar/futbol-masculino",
       "specificRole": "EI",
-      "roleSource": "posicion habitual"
+      "roleSource": "posicion habitual",
+      "matchRating2026": 7.2,
+      "ratingApps2026": 27,
+      "ratingSource": "https://statz.ai/player/sebastian-villa/238611"
     },
     {
       "n": "Adam Bareiro",
@@ -1763,10 +1769,13 @@
     {
       "n": "Diego Valdés",
       "p": "MED",
-      "r": 60,
+      "r": 68,
       "role": "Mediocampista",
       "nat": "Chile",
-      "number": 10
+      "number": 10,
+      "matchRating2026": 6.9,
+      "ratingApps2026": 25,
+      "ratingSource": "https://statz.ai/player/diego-valdes/233682"
     },
     {
       "n": "Rodrigo Aliendro",
@@ -1818,10 +1827,13 @@
     {
       "n": "Ronaldo Martínez",
       "p": "DEL",
-      "r": 60,
+      "r": 70,
       "role": "Delantero",
       "nat": "Argentina",
-      "number": 77
+      "number": 77,
+      "matchRating2026": 7,
+      "ratingApps2026": 30,
+      "ratingSource": "https://statz.ai/player/ronaldo-martinez/258143"
     },
     {
       "n": "Dilan Godoy",
@@ -2349,10 +2361,13 @@
     {
       "n": "Eduardo Salvio",
       "p": "DEL",
-      "r": 60,
+      "r": 66,
       "role": "Delantero",
       "nat": "Argentina",
-      "number": 11
+      "number": 11,
+      "matchRating2026": 6.8,
+      "ratingApps2026": 31,
+      "ratingSource": "https://statz.ai/player/eduardo-salvio/159096"
     },
     {
       "n": "Yoshan Valois",
@@ -2906,10 +2921,13 @@
     {
       "n": "Ángel Di María",
       "p": "DEL",
-      "r": 60,
+      "r": 78,
       "role": "Delantero",
       "nat": "Argentina",
-      "number": 11
+      "number": 11,
+      "matchRating2026": 7.4,
+      "ratingApps2026": 27,
+      "ratingSource": "https://statz.ai/player/angel-di-maria/4105"
     },
     {
       "n": "Tomás Badaloni",
@@ -3154,10 +3172,13 @@
     {
       "n": "Jordy Caicedo",
       "p": "DEL",
-      "r": 60,
+      "r": 66,
       "role": "Delantero",
       "nat": "Ecuador",
-      "number": 9
+      "number": 9,
+      "matchRating2026": 6.8,
+      "ratingApps2026": 28,
+      "ratingSource": "https://statz.ai/player/jordy-caicedo/244493"
     },
     {
       "n": "Óscar Cortés",
@@ -3733,10 +3754,13 @@
     {
       "n": "Marcelo Torres",
       "p": "DEL",
-      "r": 60,
+      "r": 66,
       "role": "Delantero",
       "number": 32,
-      "nat": "Argentina"
+      "nat": "Argentina",
+      "matchRating2026": 6.8,
+      "ratingApps2026": 27,
+      "ratingSource": "https://statz.ai/player/marcelo-torres/766681"
     },
     {
       "n": "Maximiliano Zalazar",
@@ -4235,10 +4259,13 @@
     {
       "n": "Lucas Zelarayán",
       "p": "MED",
-      "r": 60,
+      "r": 76,
       "role": "Mediocampista",
       "nat": "Argentina",
-      "number": 10
+      "number": 10,
+      "matchRating2026": 7.3,
+      "ratingApps2026": 30,
+      "ratingSource": "https://statz.ai/player/lucas-zelarayan/253723"
     },
     {
       "n": "Agustín Bono",
@@ -4578,10 +4605,13 @@
     {
       "n": "Michael Santos",
       "p": "DEL",
-      "r": 60,
+      "r": 68,
       "role": "Delantero",
       "nat": "Uruguay",
-      "number": 27
+      "number": 27,
+      "matchRating2026": 6.9,
+      "ratingApps2026": 25,
+      "ratingSource": "https://statz.ai/player/michael-santos/187009"
     },
     {
       "n": "Leonardo Sequeira",
@@ -5908,10 +5938,13 @@
     {
       "n": "Junior Marabel",
       "p": "DEL",
-      "r": 60,
+      "r": 68,
       "role": "Delantero",
       "nat": "Paraguay",
-      "number": 27
+      "number": 27,
+      "matchRating2026": 6.9,
+      "ratingApps2026": 31,
+      "ratingSource": "https://statz.ai/player/junior-marabel/258037"
     },
     {
       "n": "Brandon Márquez",
@@ -6862,9 +6895,12 @@
     {
       "n": "Julián Palacios",
       "p": "MED",
-      "r": 60,
+      "r": 68,
       "role": "Mediocampista",
-      "number": 20
+      "number": 20,
+      "matchRating2026": 6.9,
+      "ratingApps2026": 30,
+      "ratingSource": "https://statz.ai/player/julian-palacios/37357223"
     },
     {
       "n": "Mateo Peresutti",
@@ -6925,9 +6961,12 @@
     {
       "n": "Cristian Tarragona",
       "p": "DEL",
-      "r": 60,
+      "r": 74,
       "role": "Delantero",
-      "number": 25
+      "number": 25,
+      "matchRating2026": 7.2,
+      "ratingApps2026": 31,
+      "ratingSource": "https://statz.ai/player/cristian-tarragona/215256"
     },
     {
       "n": "Santino Vera",
@@ -7895,9 +7934,12 @@
     {
       "n": "Facundo Lencioni",
       "p": "MED",
-      "r": 60,
+      "r": 74,
       "role": "Mediocampista",
-      "number": 26
+      "number": 26,
+      "matchRating2026": 7.2,
+      "ratingApps2026": 30,
+      "ratingSource": "https://statz.ai/player/facundo-lencioni/37568087"
     },
     {
       "n": "Tomás O'Connor",
@@ -7930,10 +7972,13 @@
     {
       "n": "Agustín Módica",
       "p": "DEL",
-      "r": 60,
+      "r": 70,
       "role": "Delantero",
       "nat": "Italia",
-      "number": 9
+      "number": 9,
+      "matchRating2026": 7,
+      "ratingApps2026": 27,
+      "ratingSource": "https://statz.ai/player/agustin-modica/37718748"
     },
     {
       "n": "Nicolás Romano",
