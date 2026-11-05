@@ -266,9 +266,10 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
-      "ageSource": [],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/deportivo-riestra/",
       "ratingSource": "https://statz.ai/player/ignacio-arce/212732",
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "instituto": {
       "source": "https://www.tycsports.com/instituto.html",
@@ -277,9 +278,10 @@
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/38",
       "numberConflict": "Lautaro Ludueña queda sin dorsal confirmado. Franco Jara no se asigna: el #29 de la fuente secundaria colisiona con Marcos Ledesma (#29 oficial). Medina #61 y Peralta #63 contrastados con plantel 2026.",
-      "ageSource": [],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/instituto/",
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "sarmiento": {
       "source": "https://www.tycsports.com/sarmiento-junin.html",
@@ -288,9 +290,10 @@
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "29/31",
       "numberConflict": "Lautaro Monza y Roque Maisterra sin dorsal confirmado; Elián Giménez #23.",
-      "ageSource": [],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/sarmiento/",
       "ratingSource": "https://statz.ai/player/junior-marabel/258037",
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "aldosivi": {
       "source": "https://www.tycsports.com/aldosivi.html",
@@ -312,9 +315,10 @@
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "38/38",
-      "ageSource": [],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/platense/",
       "ratingSource": [],
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "defensa": {
       "source": "https://www.tycsports.com/defensa-y-justicia.html",
@@ -342,13 +346,14 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-06",
-      "ageSource": [],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/union/",
       "ratingSource": [
         "https://statz.ai/player/matias-mansilla/13990849",
         "https://statz.ai/player/julian-palacios/37357223",
         "https://statz.ai/player/cristian-tarragona/215256"
       ],
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "tigre": {
       "source": [
@@ -358,12 +363,13 @@
       "consulted": "2026-11-05",
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
-      "ageSource": [],
+      "ageSource": "https://www.ligaprofesional.ar/clubes/tigre",
       "ratingSource": [
         "https://statz.ai/player/felipe-zenobio/37445057",
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
       ],
-      "roleSource": []
+      "roleSource": [],
+      "ageConsulted": "2026-11-05"
     },
     "banfield": {
       "source": "https://www.tycsports.com/banfield.html",
@@ -576,8 +582,8 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 267,
-    "missing": 769,
+    "assigned": 417,
+    "missing": 619,
     "birthDates": 55,
     "total": 1036,
     "byClub": {
@@ -673,18 +679,18 @@
       },
       "riestra": {
         "total": 32,
-        "assigned": 0,
-        "missing": 32
+        "assigned": 11,
+        "missing": 21
       },
       "instituto": {
         "total": 38,
-        "assigned": 0,
-        "missing": 38
+        "assigned": 21,
+        "missing": 17
       },
       "sarmiento": {
         "total": 31,
-        "assigned": 0,
-        "missing": 31
+        "assigned": 27,
+        "missing": 4
       },
       "aldosivi": {
         "total": 36,
@@ -693,8 +699,8 @@
       },
       "platense": {
         "total": 38,
-        "assigned": 0,
-        "missing": 38
+        "assigned": 33,
+        "missing": 5
       },
       "defensa": {
         "total": 36,
@@ -703,13 +709,13 @@
       },
       "union": {
         "total": 33,
-        "assigned": 0,
-        "missing": 33
+        "assigned": 29,
+        "missing": 4
       },
       "tigre": {
         "total": 49,
-        "assigned": 0,
-        "missing": 49
+        "assigned": 29,
+        "missing": 20
       },
       "banfield": {
         "total": 35,
@@ -1064,13 +1070,13 @@
     "players": 1036,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 769,
+    "playersMissingAge": 619,
     "playersMissingDorsal": 23,
     "provisionalRatings": 962,
     "playersWithoutManualAttributes": 1036
   },
   "pending": {
-    "ages": 769,
+    "ages": 619,
     "dorsals": 23,
     "statisticalRatings": 962,
     "manualAttributes": 1036,
