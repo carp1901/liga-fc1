@@ -35,6 +35,7 @@ rows.forEach((r,i)=>{
  const key=club+'|'+name.toLowerCase();
  if(seen[key]){errors.push('Fila '+(i+2)+': jugador duplicado en '+club+': '+name);return}seen[key]=1;
  const player={n:name,p:pos,r:Math.round(rating),role:get('rol')||rawPos};
+ if(get('nat'))player.nat=get('nat');
  if(get('id'))player.id=get('id');
  if(age!=null)player.age=age;
  if(number!=null)player.number=number;
