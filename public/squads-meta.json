@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:10:04.661Z",
+  "updatedAt": "2026-11-06T23:10:43.050Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -375,7 +375,7 @@
     "centralcba": {
       "source": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html",
+      "numberSource": "https://fcscoutdb.com/clubs/central-cordoba",
       "numbersConsulted": "2026-11-06",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/central-cordoba-santiago-del-estero/plantilla",
@@ -384,7 +384,7 @@
         "https://www.transfermarkt.com.ar/michael-santos/profil/spieler/178107",
         "https://www.transfermarkt.com.ar/leonardo-sequeira/profil/spieler/384761"
       ],
-      "ratingSource": "https://statz.ai/player/michael-santos/187009",
+      "ratingSource": "https://fcscoutdb.com/clubs/central-cordoba",
       "roleSource": "https://www.transfermarkt.com.ar/ca-central-cordoba-sde/kader/verein/14761",
       "ageConsulted": "2026-11-05"
     },
@@ -429,13 +429,13 @@
     "riestra": {
       "source": "https://deportivoriestra.com.ar/equipo",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/deportivo-riestra",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/deportivo-riestra/plantilla",
         "https://www.transfermarkt.com.ar/dariel-sanchez/profil/spieler/1330126"
       ],
-      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
+      "ratingSource": "https://fcscoutdb.com/clubs/deportivo-riestra",
       "roleSource": "https://www.transfermarkt.com.ar/deportivo-riestra/kader/verein/18591",
       "ageConsulted": "2026-11-05"
     },
@@ -574,7 +574,7 @@
     "union": {
       "source": "https://www.tycsports.com/union.html",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/union-de-santa-fe",
       "numbersConsulted": "2026-11-06",
       "ageSource": [
         "https://www.transfermarkt.com.ar/agustin-chavez/leistungsdaten/spieler/1285257",
@@ -583,11 +583,7 @@
         "https://www.transfermarkt.com.ar/ca-union-santa-fe-ii/kader/verein/45045",
         "https://www.transfermarkt.com.ar/juan-pablo-luduena/profil/spieler/1103988"
       ],
-      "ratingSource": [
-        "https://statz.ai/player/matias-mansilla/13990849",
-        "https://statz.ai/player/julian-palacios/37357223",
-        "https://statz.ai/player/cristian-tarragona/215256"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/union-de-santa-fe",
       "roleSource": "https://www.transfermarkt.com.ar/ca-union-de-santa-fe/kader/verein/709",
       "ageConsulted": "2026-11-05"
     },
@@ -619,11 +615,11 @@
     "banfield": {
       "source": "https://www.tycsports.com/banfield.html",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/banfield",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "35/35",
       "ageSource": "https://clubabanfield.org/plantel-profesional-masculino/",
-      "ratingSource": [],
+      "ratingSource": "https://fcscoutdb.com/clubs/banfield",
       "roleSource": "https://www.transfermarkt.com.ar/ca-banfield/kader/verein/1120",
       "ageConsulted": "2026-11-05"
     },
@@ -802,8 +798,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 1,
-        "provisionalRatings": 35
+        "verifiedRatings": 28,
+        "provisionalRatings": 8
       },
       "atletico": {
         "total": 35,
@@ -823,8 +819,8 @@
         "total": 32,
         "assigned": 32,
         "missing": 0,
-        "verifiedRatings": 1,
-        "provisionalRatings": 31
+        "verifiedRatings": 28,
+        "provisionalRatings": 4
       },
       "instituto": {
         "total": 36,
@@ -865,8 +861,8 @@
         "total": 32,
         "assigned": 32,
         "missing": 0,
-        "verifiedRatings": 3,
-        "provisionalRatings": 29
+        "verifiedRatings": 27,
+        "provisionalRatings": 5
       },
       "tigre": {
         "total": 47,
@@ -879,8 +875,8 @@
         "total": 35,
         "assigned": 35,
         "missing": 0,
-        "verifiedRatings": 0,
-        "provisionalRatings": 35
+        "verifiedRatings": 30,
+        "provisionalRatings": 5
       },
       "rivadavia": {
         "total": 29,
@@ -1319,9 +1315,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 646,
+    "rated": 754,
     "total": 1018,
-    "provisional": 372,
+    "provisional": 264,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
@@ -1337,7 +1333,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 372,
+    "provisionalRatings": 264,
     "playersWithoutManualAttributes": 1018
   }
 }
