@@ -1,189 +1,315 @@
 {
   "temporada": 2026,
   "division": "Primera División",
-  "estado": "completo",
+  "estado": "planteles cargados; medias en revisión",
   "criterio": "solo jugadores confirmados por fuentes; no completar con nombres inventados",
   "clubes": {
     "boca": {
       "estado": "recopilado",
       "jugadores": 31,
       "fuente": "https://www.bocajuniors.com.ar/futbol-masculino",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 31,
+      "medias_provisionales": 0,
+      "dorsales_asignados": 31,
+      "dorsales_faltantes": 0
     },
     "river": {
       "estado": "recopilado",
       "jugadores": 27,
       "fuente": "https://www.riverplate.com/football/professional-football/men/squad",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 27,
+      "medias_provisionales": 0,
+      "dorsales_asignados": 27,
+      "dorsales_faltantes": 0
     },
     "racing": {
       "estado": "recopilado",
-      "jugadores": 27,
+      "jugadores": 24,
       "fuente": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 21,
+      "medias_provisionales": 3,
+      "dorsales_asignados": 24,
+      "dorsales_faltantes": 0
     },
     "independiente": {
       "estado": "recopilado",
       "jugadores": 36,
       "fuente": "https://www.clubaindependiente.com.ar/futbol/plantel",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 28,
+      "medias_provisionales": 8,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "sanlorenzo": {
       "estado": "recopilado",
-      "jugadores": 39,
+      "jugadores": 40,
       "fuente": "https://www.lpf.org.ar/clubes/san-lorenzo/",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 36,
+      "medias_provisionales": 4,
+      "dorsales_asignados": 40,
+      "dorsales_faltantes": 0
     },
     "estudiantes": {
       "estado": "recopilado",
-      "jugadores": 38,
+      "jugadores": 37,
       "fuente": "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 31,
+      "medias_provisionales": 6,
+      "dorsales_asignados": 37,
+      "dorsales_faltantes": 0
     },
     "velez": {
       "estado": "recopilado",
       "jugadores": 30,
       "fuente": "https://www.velezsarsfield.com.ar/futbol/plantel",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 30,
+      "medias_provisionales": 0,
+      "dorsales_asignados": 30,
+      "dorsales_faltantes": 0
     },
     "talleres": {
       "estado": "recopilado",
       "jugadores": 33,
       "fuente": "https://www.tycsports.com/talleres-de-cordoba.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 28,
+      "medias_provisionales": 5,
+      "dorsales_asignados": 33,
+      "dorsales_faltantes": 0
     },
     "lanus": {
       "estado": "recopilado",
       "jugadores": 34,
       "fuente": "https://www.tycsports.com/lanus.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 25,
+      "medias_provisionales": 9,
+      "dorsales_asignados": 34,
+      "dorsales_faltantes": 0
     },
     "rosario": {
       "estado": "recopilado",
       "jugadores": 38,
       "fuente": "https://rosariocentral.com/plantel-masculino/",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 34,
+      "medias_provisionales": 4,
+      "dorsales_asignados": 38,
+      "dorsales_faltantes": 0
     },
     "huracan": {
       "estado": "recopilado",
       "jugadores": 32,
       "fuente": "https://www.tycsports.com/huracan.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 27,
+      "medias_provisionales": 5,
+      "dorsales_asignados": 32,
+      "dorsales_faltantes": 0
     },
     "belgrano": {
       "estado": "recopilado",
-      "jugadores": 37,
+      "jugadores": 36,
       "fuente": "https://www.tycsports.com/belgrano-de-cordoba.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 26,
+      "medias_provisionales": 10,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "argentinos": {
       "estado": "recopilado",
       "jugadores": 33,
       "fuente": "https://www.tycsports.com/argentinos-juniors.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 29,
+      "medias_provisionales": 4,
+      "dorsales_asignados": 33,
+      "dorsales_faltantes": 0
     },
     "defensa": {
       "estado": "recopilado",
       "jugadores": 36,
       "fuente": "https://www.tycsports.com/defensa-y-justicia.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 31,
+      "medias_provisionales": 5,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "newells": {
       "estado": "recopilado",
-      "jugadores": 30,
+      "jugadores": 31,
       "fuente": "https://www.newellsoldboys.com.ar/plantel",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 30,
+      "medias_provisionales": 1,
+      "dorsales_asignados": 31,
+      "dorsales_faltantes": 0
     },
     "union": {
       "estado": "recopilado",
       "jugadores": 33,
       "fuente": "https://www.tycsports.com/union.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 28,
+      "medias_provisionales": 5,
+      "dorsales_asignados": 33,
+      "dorsales_faltantes": 0
     },
     "tigre": {
       "estado": "recopilado",
-      "jugadores": 49,
+      "jugadores": 47,
       "fuente": "https://www.tycsports.com/tigre.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 26,
+      "medias_provisionales": 21,
+      "dorsales_asignados": 47,
+      "dorsales_faltantes": 0
     },
     "platense": {
       "estado": "recopilado",
-      "jugadores": 38,
+      "jugadores": 36,
       "fuente": "https://www.tycsports.com/platense.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 32,
+      "medias_provisionales": 4,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "banfield": {
       "estado": "recopilado",
       "jugadores": 35,
       "fuente": "https://www.tycsports.com/banfield.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 32,
+      "medias_provisionales": 3,
+      "dorsales_asignados": 35,
+      "dorsales_faltantes": 0
     },
     "gimnasia": {
       "estado": "recopilado",
-      "jugadores": 38,
+      "jugadores": 36,
       "fuente": "https://www.tycsports.com/gimnasia-de-la-plata.html",
       "fuente_nacionalidades": "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 25,
+      "medias_provisionales": 11,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "centralcba": {
       "estado": "recopilado",
-      "jugadores": 37,
+      "jugadores": 36,
       "fuente": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 28,
+      "medias_provisionales": 8,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "rivadavia": {
       "estado": "recopilado",
-      "jugadores": 29,
+      "jugadores": 28,
       "fuente": "https://www.tycsports.com/independiente-rivadavia.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 28,
+      "medias_provisionales": 0,
+      "dorsales_asignados": 28,
+      "dorsales_faltantes": 0
     },
     "instituto": {
       "estado": "recopilado",
-      "jugadores": 38,
+      "jugadores": 36,
       "fuente": "https://www.tycsports.com/instituto.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 25,
+      "medias_provisionales": 11,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "atletico": {
       "estado": "recopilado",
-      "jugadores": 36,
+      "jugadores": 35,
       "fuente": "https://www.tycsports.com/atletico-tucuman.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 32,
+      "medias_provisionales": 3,
+      "dorsales_asignados": 35,
+      "dorsales_faltantes": 0
     },
     "barracas": {
       "estado": "recopilado",
       "jugadores": 36,
       "fuente": "https://www.barracascentral.com/plantel/",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 29,
+      "medias_provisionales": 7,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "riestra": {
       "estado": "recopilado",
       "jugadores": 32,
       "fuente": "https://deportivoriestra.com.ar/equipo",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 31,
+      "medias_provisionales": 1,
+      "dorsales_asignados": 32,
+      "dorsales_faltantes": 0
     },
     "sarmiento": {
       "estado": "recopilado",
-      "jugadores": 31,
+      "jugadores": 30,
       "fuente": "https://www.tycsports.com/sarmiento-junin.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 26,
+      "medias_provisionales": 4,
+      "dorsales_asignados": 30,
+      "dorsales_faltantes": 0
     },
     "aldosivi": {
       "estado": "recopilado",
       "jugadores": 36,
       "fuente": "https://www.tycsports.com/aldosivi.html",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 24,
+      "medias_provisionales": 12,
+      "dorsales_asignados": 36,
+      "dorsales_faltantes": 0
     },
     "gimnasiamza": {
       "estado": "recopilado",
-      "jugadores": 35,
+      "jugadores": 31,
       "fuente": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 25,
+      "medias_provisionales": 6,
+      "dorsales_asignados": 31,
+      "dorsales_faltantes": 0
     },
     "estudiantesrc": {
       "estado": "recopilado",
       "jugadores": 32,
       "fuente": "https://www.aaestudiantesriocuarto.com/",
-      "consultado": "2026-11-05"
+      "consultado": "2026-11-05",
+      "medias_con_fuente": 28,
+      "medias_provisionales": 4,
+      "dorsales_asignados": 32,
+      "dorsales_faltantes": 0
     }
-  }
+  },
+  "jugadores_total": 1017,
+  "medias_con_fuente": 853,
+  "medias_provisionales": 164,
+  "dorsales_asignados": 1017,
+  "dorsales_faltantes": 0,
+  "actualizado": "2026-11-06"
 }
