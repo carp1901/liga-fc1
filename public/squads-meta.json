@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:47:18.427Z",
+  "updatedAt": "2026-11-06T23:48:01.034Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "865 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "866 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -124,6 +124,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/independiente",
+        "https://www.fifacm.com/26/player/81265",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jonathan-de-irastorza/74818",
         "https://www.ea.com/en/games/ea-sports-fc/ratings/teams-ratings/independiente/110093",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/maximiliano-gutierrez/71740"
@@ -1369,9 +1370,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 865,
+    "rated": 866,
     "total": 1013,
-    "provisional": 148,
+    "provisional": 147,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1390,8 +1391,8 @@
       },
       "independiente": {
         "total": 36,
-        "verified": 29,
-        "provisional": 7
+        "verified": 30,
+        "provisional": 6
       },
       "estudiantes": {
         "total": 37,
@@ -1539,7 +1540,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 148,
+    "provisionalRatings": 147,
     "playersWithoutManualAttributes": 1005
   }
 }
