@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:06:22.794Z",
+  "updatedAt": "2026-11-06T23:07:15.935Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -725,8 +725,8 @@
         "total": 27,
         "assigned": 27,
         "missing": 0,
-        "verifiedRatings": 8,
-        "provisionalRatings": 19
+        "verifiedRatings": 27,
+        "provisionalRatings": 0
       },
       "independiente": {
         "total": 36,
@@ -739,8 +739,8 @@
         "total": 37,
         "assigned": 37,
         "missing": 0,
-        "verifiedRatings": 3,
-        "provisionalRatings": 34
+        "verifiedRatings": 31,
+        "provisionalRatings": 6
       },
       "velez": {
         "total": 30,
@@ -774,8 +774,8 @@
         "total": 38,
         "assigned": 38,
         "missing": 0,
-        "verifiedRatings": 4,
-        "provisionalRatings": 34
+        "verifiedRatings": 34,
+        "provisionalRatings": 4
       },
       "huracan": {
         "total": 32,
@@ -900,8 +900,8 @@
         "total": 29,
         "assigned": 29,
         "missing": 0,
-        "verifiedRatings": 3,
-        "provisionalRatings": 26
+        "verifiedRatings": 28,
+        "provisionalRatings": 1
       },
       "gimnasiamza": {
         "total": 31,
@@ -1333,9 +1333,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 340,
+    "rated": 442,
     "total": 1018,
-    "provisional": 678,
+    "provisional": 576,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
@@ -1351,7 +1351,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 678,
+    "provisionalRatings": 576,
     "playersWithoutManualAttributes": 1018
   }
 }
