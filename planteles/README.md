@@ -4,16 +4,16 @@ La recopilación se hace por etapas y se guarda en el propio juego. No se consul
 
 ## Primera División
 
-- Fuente principal: página oficial de plantel del propio club, cuando esté disponible.
-- Segunda fuente: Liga Profesional/AFA y páginas oficiales de las competiciones.
-- Promiedos: fuente complementaria para clubes sin una ficha oficial accesible y para detectar diferencias.
-- Transfermarkt: contraste manual puntual; no se automatiza su extracción.
+- Planteles y dorsales: página oficial del club y Liga Profesional/AFA; Promiedos y Transfermarkt sirven como contraste.
+- Medias: OVR de EA SPORTS FC 27, contrastado con FCScoutDB y cartas oficiales de EA.
+- Cuando no existe carta, se usan promedios de rendimiento de Statz.ai/Sportlumy si hay al menos 10 apariciones.
 - Si dos fuentes discrepan, prevalece el club o la competición oficial y la diferencia queda pendiente de revisión.
 - No copiar fotos.
-- No inventar nombres, dorsales, edades ni estadísticas para completar planteles.
-- Si falta un dato, dejarlo vacío. Si falta un jugador, el club queda pendiente.
+- No inventar nombres, edades ni estadísticas.
+- Si no aparece un dorsal oficial y el proyecto autoriza asignarlo, usar un número libre y dejar `dorsal_source` como `Asignado internamente`; nunca presentarlo como oficial.
+- Si falta un dato verificable, dejarlo vacío. Si falta un jugador, el club queda pendiente.
 - Las edades se calculan desde fecha de nacimiento usando la referencia 05/11/2026 cuando esa fecha está documentada.
-- La media 60 es provisional cuando no hay una muestra estadística verificable. Las medias respaldadas conservan promedio, partidos y fuente.
+- La media 60 es provisional cuando no hay OVR de EA FC 27 ni una muestra estadística verificable. Toda media contrastada conserva su fuente.
 - Los atributos técnicos/físicos que no tienen observación individual se derivan en `public/data.js` por perfil de posición y media; no se presentan como estadísticas reales.
 
 ## Formato CSV
@@ -29,7 +29,7 @@ Campos principales:
 - `rol`, `rol_especifico`, `fuente_rol`.
 - `nat`, `abreviatura`, `pie`, `posiciones_secundarias`, `id`.
 - `pas`, `ctl`, `reg`, `rem`, `des`, `mar`, `ant`, `ref`: atributos manuales opcionales (15-99).
-- `match_rating_2026`, `rating_apps_2026`, `rating_source`: respaldo de medias estadísticas.
+- `match_rating_2026`, `rating_apps_2026`, `rating_source`: respaldo de OVR EA FC 27 o promedio estadístico; `rating_source` identifica la fuente.
 
 ## Importación
 
