@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:41:56.972Z",
+  "updatedAt": "2026-11-06T23:42:21.938Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "859 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -58,6 +58,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/san-lorenzo-de-almagro",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/nahuel-arias/279196",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/matias-reali/70703"
       ],
       "roleSource": [
@@ -123,6 +124,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/independiente",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jonathan-de-irastorza/74818",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/maximiliano-gutierrez/71740"
       ],
       "roleSource": "https://www.transfermarkt.es/ca-independiente/kader/verein/1234",
@@ -277,7 +279,13 @@
         "https://www.transfermarkt.es/lisandro-duarte/profil/spieler/1511136"
       ],
       "numberSource": [],
-      "ratingSource": "https://fcscoutdb.com/clubs/rosario-central",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/rosario-central",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/damian-fernandez/75793",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/elias-veron/82213",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-ramos/84516",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lisandro-duarte/85560"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-rosario-central/kader/verein/1417",
       "ageConsulted": "2026-11-05"
     },
@@ -300,7 +308,10 @@
         "https://www.newellsoldboys.com.ar/noticias/comunicado-oficial-mateo-garcia",
         "https://www.transfermarkt.com.ar/club-atletico-racing-club/kader/verein/1447"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/newell-s-old-boys",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/newell-s-old-boys",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jeronimo-gomez-mattar/80108"
+      ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/ca-newells-old-boys/kader/verein/1034",
         "https://www.transfermarkt.com.ar/mateo-garcia/rueckennummern/spieler/441287",
@@ -398,7 +409,10 @@
         "https://www.transfermarkt.com.ar/ca-belgrano-ii/startseite/verein/61444",
         "https://www.zerozero.com.ar/jugador/agustin-bono/3508495"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/belgrano-de-cordoba",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/belgrano-de-cordoba",
+        "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/belgrano/111022"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-belgrano-de-cordoba/kader/verein/1290",
       "ageConsulted": "2026-11-05"
     },
@@ -436,7 +450,11 @@
         "https://www.transfermarkt.com.ar/nicolas-lamendola/profil/spieler/626014",
         "https://www.transfermarkt.com.ar/franco-nicola/profil/spieler/1015626"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/atletico-tucuman",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/atletico-tucuman",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lautaro-godoy/74790",
+        "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/facundo-pimienta/75651"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-atletico-tucuman/kader/verein/1090",
       "ageConsulted": "2026-11-05"
     },
@@ -495,6 +513,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/instituto-de-cordoba",
+        "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/agustin-massaccesi/83589",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/manuel-romero/275257"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/instituto-atletico-central-cordoba/kader/verein/11510",
@@ -619,7 +638,10 @@
         "https://www.defensayjusticia.org.ar/juan-manuel-gutierrez/",
         "https://www.transfermarkt.com.ar/tiziano-perrotta/profil/spieler/1324736"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/defensa-y-justicia",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/defensa-y-justicia",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/damian-fernandez/75793"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-defensa-y-justicia/kader/verein/1244",
       "ageConsulted": "2026-11-05"
     },
@@ -639,7 +661,10 @@
         "https://www.transfermarkt.com.ar/ca-union-santa-fe-ii/kader/verein/45045",
         "https://www.transfermarkt.com.ar/juan-pablo-luduena/profil/spieler/1103988"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/union-de-santa-fe",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/union-de-santa-fe",
+        "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/valentin-jesus-cerrudo/87957"
+      ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/ca-union-de-santa-fe/kader/verein/709",
         "https://www.transfermarkt.com.ar/racing-club/kader/verein/1444"
