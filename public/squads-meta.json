@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-05T20:08:34.903Z",
+  "updatedAt": "2026-11-06T01:10:31.614Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "74 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -356,7 +356,10 @@
     "argentinos": {
       "source": "https://www.tycsports.com/argentinos-juniors.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/458-argentinos-juniors",
+      "numberSource": [
+        "https://www.lpf.org.ar/clubes/argentinos-juniors",
+        "https://www.mundoascenso.com.ar/plantel/458-argentinos-juniors"
+      ],
       "numbersConsulted": "2026-11-06",
       "numberCoverage": "30/33",
       "numberConflict": "Santiago Silveira y Federico Mancuello sin dorsal confirmado. Mateo Mendoza figura sin número en la ficha LPF; no asignar #23, que corresponde a Hernán López Muñoz.",
@@ -732,8 +735,8 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1005,
-    "missing": 13,
+    "assigned": 1006,
+    "missing": 12,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
@@ -803,8 +806,8 @@
       },
       "argentinos": {
         "total": 33,
-        "assigned": 32,
-        "missing": 1
+        "assigned": 33,
+        "missing": 0
       },
       "belgrano": {
         "total": 36,
@@ -1319,7 +1322,7 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 13,
+    "playersMissingDorsal": 12,
     "provisionalRatings": 944,
     "playersWithoutManualAttributes": 1018
   }
