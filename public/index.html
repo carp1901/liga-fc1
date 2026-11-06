@@ -887,8 +887,9 @@ function ceremony(t,mine,opp,names,home,ids){const dur=18000,p=c01((t-cerT0)/dur
  if(p>.6&&p<.8){const f=Math.floor(p*420);if(f%9<2){cx.fillStyle='rgba(255,255,255,.85)';for(let k=0;k<4;k++){cx.beginPath();cx.arc(40+((k*173+f*53)%640),H-10-((k*37)%12),2.6,0,7);cx.fill()}}}}
 function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=='pick')return;
  {const mp=MPH.includes(S.phase);if((mp&&!ownM())||(S.elim&&['lobby','pre'].includes(S.phase))){noGame();return}}
- const spec=!!specM(),m=ownM(),t=performance.now(),own=spec?m.a:S.me.team,ph=S.phase,home=!m||m.a==own,sqA=DATA.squad(own),sqB=oppId?DATA.squad(oppId):null,
+ const spec=!!specM(),m=ownM(),t=performance.now(),own=spec?m.a:S.me.team,ph=S.phase,home=!m||m.a==own,
   PK=m?pairKits(dispKit(m.a,m.ra),dispKit(m.b,m.rb)):null,mine={f:m?(home?m.fa:m.fb):S.me.tac.f,k:m?(home?PK[0]:PK[1]):dispKit(S.me.team,[S.me.tac.k1,S.me.tac.k2])},opp=m?{f:home?m.fb:m.fa,k:home?PK[1]:PK[0]}:null,oppId=m?(home?m.b:m.a):null;
+ const sqA=DATA.squad(own),sqB=oppId?DATA.squad(oppId):null;
  const re=SIM.setup(mine.f,opp?opp.f:null,m?m.a+m.b+S.round:'x'+S.round),flip=ph=='m2'||ph=='fin'||ph=='awd',fX=x=>flip?W-x:x;
  const mk=m?(m.a+'|'+m.b+'|'+S.round):'';if(mk!==lastMK){lastMK=mk;SIM.q=[];SIM.hardRest();CNT=new Set();SG={};SA={};PG=[];GT=null;SH=[0,0];if(m)syncScore(m,home)}
  const PW=(ph=='psel'||ph=='pso')&&!specM()&&m&&S.ps&&S.ps.items.length&&!S.ps.items.some(x=>x.a==m.a&&x.b==m.b);if(PW){SIM.frozen=true;PWon=1}else if(PWon){PWon=0;if(ph=='pso'){SIM.frozen=false;SIM.q=[];SIM.hardRest()}}
