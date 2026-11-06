@@ -380,7 +380,27 @@ async function cupGo(id){const cd=LG=='uy'?ENG.copaLiga('uy',id):ENG.copaSuelta(
 async function cxSeason(){OFF=true;SPD=CAR.spd||1;room='cls'+Math.random().toString(36).slice(2,7);if(!$('#nm').value.trim())$('#nm').value='DT';
  let e=await post({a:'create',off:1,speed:SPD,cfg:ENG.careerCfg(CAR)});if(!e)e=await post({a:'pick',team:CAR.me.club});
  if(e){OFF=false;CAR=null;$('#cxer').textContent=e;return false}lastKey='';SAVEDAT=0;SLERR=false;start();careerSave();return true}
-async function cxGoReal(id){const car=ENG.realNew({lg:LG,me:{club:id},spd:1});if(car.error){alert(car.error);return}CAR=car;await cxSeason()}
+let CXBUSY=false;
+function cxLoading(on,msg='Cargando carrera…'){
+ let el=$('#cxload');
+ if(on){
+  if(!el){el=document.createElement('div');el.id='cxload';el.style.cssText='position:fixed;inset:0;z-index:9999;background:#07130feF;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:#f2efe3;font:700 20px Barlow,sans-serif';el.innerHTML='<div style="background:#1b3a29;border:1px solid #75aadb66;border-radius:14px;padding:22px 28px;min-width:210px;box-shadow:0 12px 40px #0008"><div style="font-size:30px;margin-bottom:10px">⚽</div><div id="cxloadtxt">Cargando carrera…</div><div style="height:4px;background:#ffffff22;border-radius:9px;overflow:hidden;margin-top:16px"><div style="height:100%;width:40%;background:#f2b705;border-radius:9px;animation:cxloadmove 1.1s ease-in-out infinite alternate"></div></div></div>';document.body.appendChild(el);
+   if(!document.getElementById('cxloadstyle')){const st=document.createElement('style');st.id='cxloadstyle';st.textContent='@keyframes cxloadmove{from{transform:translateX(-10%);width:25%}to{transform:translateX(170%);width:55%}}';document.head.appendChild(st)}
+  }
+  $('#cxloadtxt').textContent=msg;el.hidden=false;
+ }else if(el)el.remove();
+}
+async function cxGoReal(id){
+ if(CXBUSY)return;CXBUSY=true;cxLoading(true);
+ try{
+  // Dejar que el navegador pinte el aviso antes de ejecutar la preparación de la temporada.
+  await new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));
+  const car=ENG.realNew({lg:LG,me:{club:id},spd:1});
+  if(car.error){alert(car.error);return}
+  CAR=car;await cxSeason();
+ }catch(e){$('#cxer').textContent='No se pudo iniciar la carrera. Volvé a intentarlo.';console.error(e)}
+ finally{cxLoading(false);CXBUSY=false}
+}
 async function cxGo(){if(!PC.me.club){$('#cxer').textContent='Elegí tu club';return}$('#cxer').textContent='';
  const car=ENG.careerNew({lg:LG,k:PC.k,n:PC.n,ud:PC.ud,fmt:PC.fmt,picks:PC.picks,me:PC.me,spd:PC.spd});if(car.error){$('#cxer').textContent=car.error;return}CAR=car;await cxSeason()}
 $('#cxgo').onclick=cxGo;
@@ -867,7 +887,7 @@ function ceremony(t,mine,opp,names,home,ids){const dur=18000,p=c01((t-cerT0)/dur
  if(p>.6&&p<.8){const f=Math.floor(p*420);if(f%9<2){cx.fillStyle='rgba(255,255,255,.85)';for(let k=0;k<4;k++){cx.beginPath();cx.arc(40+((k*173+f*53)%640),H-10-((k*37)%12),2.6,0,7);cx.fill()}}}}
 function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=='pick')return;
  {const mp=MPH.includes(S.phase);if((mp&&!ownM())||(S.elim&&['lobby','pre'].includes(S.phase))){noGame();return}}
- const spec=!!specM(),m=ownM(),t=performance.now(),own=spec?m.a:S.me.team,ph=S.phase,home=!m||m.a==own,
+ const spec=!!specM(),m=ownM(),t=performance.now(),own=spec?m.a:S.me.team,ph=S.phase,home=!m||m.a==own,sqA=DATA.squad(own),sqB=oppId?DATA.squad(oppId):null,
   PK=m?pairKits(dispKit(m.a,m.ra),dispKit(m.b,m.rb)):null,mine={f:m?(home?m.fa:m.fb):S.me.tac.f,k:m?(home?PK[0]:PK[1]):dispKit(S.me.team,[S.me.tac.k1,S.me.tac.k2])},opp=m?{f:home?m.fb:m.fa,k:home?PK[1]:PK[0]}:null,oppId=m?(home?m.b:m.a):null;
  const re=SIM.setup(mine.f,opp?opp.f:null,m?m.a+m.b+S.round:'x'+S.round),flip=ph=='m2'||ph=='fin'||ph=='awd',fX=x=>flip?W-x:x;
  const mk=m?(m.a+'|'+m.b+'|'+S.round):'';if(mk!==lastMK){lastMK=mk;SIM.q=[];SIM.hardRest();CNT=new Set();SG={};SA={};PG=[];GT=null;SH=[0,0];if(m)syncScore(m,home)}
@@ -902,7 +922,7 @@ function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=
   if(SH0&&SH0.k!='g'&&SIM.n-SH0.n>8&&SIM.n-SH0.n<80){const tx={s:'¡ATAJÓ!',o:'AFUERA',w:'¡BARRERA!'}[SH0.k],gxp=fX(SH0.x1);cx.font='700 24px "Barlow Condensed",sans-serif';cx.textAlign=gxp<W/2?'left':'right';cx.fillStyle='#000a';cx.fillText(tx,(gxp<W/2?Q.X0+14:Q.X0+Q.FW-14)+1,H/2-60);cx.fillStyle=SH0.k=='s'?'#6cf0a0':'#f2b705';cx.fillText(tx,gxp<W/2?Q.X0+14:Q.X0+Q.FW-14,H/2-62)}
   const OF=SIM.offs;if(OF&&SIM.n-OF.n<110){const a=Math.min(1,(110-(SIM.n-OF.n))/40);cx.strokeStyle=`rgba(255,140,40,${a})`;cx.lineWidth=2;cx.setLineDash([8,6]);cx.beginPath();cx.moveTo(fX(OF.x),Q.Y0);cx.lineTo(fX(OF.x),Q.Y0+Q.FH);cx.stroke();cx.setLineDash([]);if(OF.p){cx.beginPath();cx.arc(fX(OF.p.x),OF.p.y,Q.R+5,0,7);cx.stroke()}}   // línea de fuera de juego
   SIM.P.forEach(p=>{if(p.off&&!p.walk)return;const px=fX(p.x),jq=p.jp!=null?(SIM.n-p.jp)/24:2,oyj=jq>=0&&jq<1?Math.sin(Math.PI*jq)*10:0,T=p.s?opp:mine,gk=p.k==0,inf=m?(p.s==0?(home?m.pa:m.pb):(home?m.pb:m.pa)):null,yel=!!(inf&&inf.y.includes(p.k)),gl=inf?(SG[p.s+':'+inf.x[p.k]]||0):0,as=inf?(SA[p.s+':'+inf.x[p.k]]||0):0,fill=gk?'#39424b':T.k[0],
-    num0=inf?inf.n[p.k]:(p.s==0&&S.me.tac?DOR[S.me.tac.xi[p.k]]:''),num=Number.isFinite(+num0)&&+num0>0?String(+num0):'',capk=inf?inf.c:(p.s==0&&S.me.tac?S.me.tac.xi.indexOf(S.me.tac.cap):-9);
+    player0=inf?(p.s==0?sqA:sqB)?.[inf.x[p.k]]:null,num0=inf?(Number(inf.n[p.k])>0?inf.n[p.k]:(Number(player0?.number)>0?player0.number:'')):(p.s==0&&S.me.tac?DOR[S.me.tac.xi[p.k]]:''),num=Number.isFinite(+num0)&&+num0>0?String(+num0):'',capk=inf?inf.c:(p.s==0&&S.me.tac?S.me.tac.xi.indexOf(S.me.tac.cap):-9);
    if(oyj){cx.fillStyle='#0005';cx.beginPath();cx.ellipse(px,p.y+Q.R*.7,Q.R*(1-.2*oyj/10),4,0,0,7);cx.fill();cx.save();cx.translate(0,-oyj)}
    if(yel){cx.shadowColor='#ffd400';cx.shadowBlur=18}
    const fl2=p.fell&&SIM.n-p.fell<50;if(fl2)cx.globalAlpha=.55;{let bc=yel?'#ffd400':(gk?T.k[0]:T.k[1]),lw=3;let kf=0;if(p.kk!=null&&SIM.n-p.kk<30){kf=1-(SIM.n-p.kk)/30;const o=lum(bc)>.5?'#000000':'#ffffff';bc=Math.abs(lum(o)-lum(fill))<.25?'#ffe45a':o;lw=5;cx.shadowColor=bc;cx.shadowBlur=16*kf+4}if(p.dv&&SIM.n-p.dv.n<p.dv.dur+28){const dd=p.dv,sx=(flip?-1:1),ang=Math.atan2(dd.ty-dd.sy,(dd.tx-dd.sx)*sx),q=Math.min(1,(SIM.n-dd.n)/dd.dur);cx.save();cx.translate(px,p.y);cx.rotate(ang);cx.scale(1+.35*Math.sin(Math.PI*Math.min(1,q)),1-.2*Math.sin(Math.PI*Math.min(1,q)));cx.fillStyle=fill;cx.strokeStyle=bc;cx.lineWidth=lw;cx.beginPath();cx.arc(0,0,Q.R,0,7);cx.fill();cx.stroke();cx.fillStyle='#fff';cx.strokeStyle='#222';cx.lineWidth=1.5;[-4,4].forEach(o=>{cx.beginPath();cx.arc(Q.R+3,o,3.6,0,7);cx.fill();cx.stroke()});cx.restore()}else disc(px,p.y,fill,bc,lw);if(kf){cx.shadowBlur=0;cx.strokeStyle=bc;cx.globalAlpha=kf*(fl2?.55:1);cx.lineWidth=2;cx.beginPath();cx.arc(px,p.y,Q.R+4+(1-kf)*8,0,7);cx.stroke();cx.globalAlpha=fl2?.55:1}}cx.shadowBlur=0;
