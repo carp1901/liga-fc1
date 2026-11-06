@@ -79,8 +79,8 @@
       "jugadores": 32,
       "fuente": "https://www.tycsports.com/talleres-de-cordoba.html",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 28,
-      "medias_provisionales": 4,
+      "medias_con_fuente": 29,
+      "medias_provisionales": 3,
       "dorsales_asignados": 32,
       "dorsales_faltantes": 0
     },
@@ -106,12 +106,12 @@
     },
     "huracan": {
       "estado": "recopilado",
-      "jugadores": 32,
+      "jugadores": 31,
       "fuente": "https://www.tycsports.com/huracan.html",
       "consultado": "2026-11-05",
       "medias_con_fuente": 27,
-      "medias_provisionales": 5,
-      "dorsales_asignados": 32,
+      "medias_provisionales": 4,
+      "dorsales_asignados": 31,
       "dorsales_faltantes": 0
     },
     "belgrano": {
@@ -306,9 +306,9 @@
       "dorsales_faltantes": 0
     }
   },
-  "jugadores_total": 1014,
-  "medias_con_fuente": 864,
-  "medias_provisionales": 150,
+  "jugadores_total": 1013,
+  "medias_con_fuente": 865,
+  "medias_provisionales": 148,
   "dorsales_asignados": 1014,
   "dorsales_faltantes": 0,
   "actualizado": "2026-11-06",
@@ -342,9 +342,17 @@
       "Francisco Gómez (EA FC26)",
       "Iván Erquiaga (EA FC26)",
       "Alex Juárez (EA FC26)",
-      "Agustín Mangiaut (EA FC26)"
+      "Agustín Mangiaut (EA FC26)",
+      "Jeremías Gallard (EA FC26)"
     ],
     "criterio": "OVR individual contrastado con fichas o tablas oficiales EA SPORTS FC 27",
-    "resultado": "Se sustituyeron medias provisionales por OVR publicados cuando correspondía; las medias 60 se conservaron solo cuando EA las confirma.; respaldo FC26 aplicado a Tomás Parmo 64, Francisco Gómez 52 e Iván Erquiaga 67.; Alex Juárez 59 y Agustín Mangiaut 61 contrastados con EA FC26."
+    "resultado": "Se sustituyeron medias provisionales por OVR publicados cuando correspondía; las medias 60 se conservaron solo cuando EA las confirma.; respaldo FC26 aplicado a Tomás Parmo 64, Francisco Gómez 52 e Iván Erquiaga 67.; Alex Juárez 59 y Agustín Mangiaut 61 contrastados con EA FC26.; Jeremías Gallard 61 (EA FC26)."
+  },
+  "ultima_revision_planteles": {
+    "fecha": "2026-11-06",
+    "cambios": [
+      "Mauro Villar retirado de Huracán: transferencia a Cerro confirmada en septiembre de 2026, tras dejar Huracán en enero.",
+      "Bruno Andrada corregido a Brian Andrada; posición específica EI verificada con FotMob."
+    ]
   }
 }
