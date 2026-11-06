@@ -29,8 +29,8 @@
       "jugadores": 23,
       "fuente": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 20,
-      "medias_provisionales": 3,
+      "medias_con_fuente": 21,
+      "medias_provisionales": 2,
       "dorsales_asignados": 23,
       "dorsales_faltantes": 0
     },
@@ -119,8 +119,8 @@
       "jugadores": 36,
       "fuente": "https://www.tycsports.com/belgrano-de-cordoba.html",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 26,
-      "medias_provisionales": 10,
+      "medias_con_fuente": 27,
+      "medias_provisionales": 9,
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0
     },
@@ -179,8 +179,8 @@
       "jugadores": 36,
       "fuente": "https://www.tycsports.com/platense.html",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 32,
-      "medias_provisionales": 4,
+      "medias_con_fuente": 33,
+      "medias_provisionales": 3,
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0
     },
@@ -250,8 +250,8 @@
       "jugadores": 36,
       "fuente": "https://www.barracascentral.com/plantel/",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 29,
-      "medias_provisionales": 7,
+      "medias_con_fuente": 30,
+      "medias_provisionales": 6,
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0
     },
@@ -307,8 +307,8 @@
     }
   },
   "jugadores_total": 1014,
-  "medias_con_fuente": 854,
-  "medias_provisionales": 160,
+  "medias_con_fuente": 858,
+  "medias_provisionales": 156,
   "dorsales_asignados": 1014,
   "dorsales_faltantes": 0,
   "actualizado": "2026-11-06"
