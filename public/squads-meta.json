@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:44:35.557Z",
+  "updatedAt": "2026-11-06T23:44:49.553Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "862 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "864 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -389,7 +389,10 @@
         "https://www.transfermarkt.com.ar/alan-alcaraz/profil/spieler/1309716",
         "https://www.sofascore.com/es-la/football/player/kevin-gutierrez/914145"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/argentinos-juniors",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/argentinos-juniors",
+        "https://www.ea.com/es-mx/games/ea-sports-fc/ratings/player-ratings/agustin-mangiaut/75072"
+      ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/argentinos-juniors/kader/verein/1030",
         "https://www.transfermarkt.com.ar/facundo-carrizo/profil/spieler/1401625"
@@ -472,7 +475,10 @@
         "https://www.transfermarkt.com.ar/alex-juarez/profil/spieler/1029492",
         "https://www.transfermarkt.com.ar/francisco-cora/profil/spieler/1404969"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/barracas-central",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/barracas-central",
+        "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/alex-juarez/271277"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-barracas-central/kader/verein/6212",
       "ageConsulted": "2026-11-05"
     },
@@ -1359,9 +1365,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 862,
+    "rated": 864,
     "total": 1014,
-    "provisional": 152,
+    "provisional": 150,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1430,8 +1436,8 @@
       },
       "argentinos": {
         "total": 33,
-        "verified": 29,
-        "provisional": 4
+        "verified": 30,
+        "provisional": 3
       },
       "belgrano": {
         "total": 36,
@@ -1450,8 +1456,8 @@
       },
       "barracas": {
         "total": 36,
-        "verified": 30,
-        "provisional": 6
+        "verified": 31,
+        "provisional": 5
       },
       "riestra": {
         "total": 32,
@@ -1529,7 +1535,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 152,
+    "provisionalRatings": 150,
     "playersWithoutManualAttributes": 1006
   }
 }
