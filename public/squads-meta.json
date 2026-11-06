@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:50:15.105Z",
+  "updatedAt": "2026-11-06T23:51:03.033Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "872 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "873 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -238,7 +238,10 @@
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/lanus/plantilla",
         "https://www.transfermarkt.com.ar/club-atletico-lanus/kader/verein/333"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/lanus",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/lanus",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/teams-ratings/lanus/110395"
+      ],
       "roleSource": "https://www.transfermarkt.es/ca-lanus/kader/verein/333",
       "ageConsulted": "2026-11-05"
     },
@@ -1376,9 +1379,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 872,
+    "rated": 873,
     "total": 1013,
-    "provisional": 141,
+    "provisional": 140,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1417,8 +1420,8 @@
       },
       "lanus": {
         "total": 34,
-        "verified": 25,
-        "provisional": 9
+        "verified": 26,
+        "provisional": 8
       },
       "talleres": {
         "total": 32,
@@ -1546,7 +1549,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 141,
+    "provisionalRatings": 140,
     "playersWithoutManualAttributes": 1005
   }
 }
