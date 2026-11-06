@@ -1111,6 +1111,7 @@ function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=
  cx.fillStyle='#2d7a46';cx.fillRect(0,0,W,H);for(let i=0;i<10;i++){if(i%2){cx.fillStyle='#ffffff10';cx.fillRect(20+i*(W-40)/10,20,(W-40)/10,H-40)}}
  cx.strokeStyle='#ffffffaa';cx.lineWidth=2;cx.strokeRect(20,20,W-40,H-40);cx.beginPath();cx.moveTo(W/2,20);cx.lineTo(W/2,H-20);cx.stroke();cx.beginPath();cx.arc(W/2,H/2,59,0,7);cx.stroke();cx.fillStyle='#ffffffaa';cx.beginPath();cx.arc(W/2,H/2,3,0,7);cx.fill();
  [0,1].forEach(sd=>{const gl=sd?W-20:20,dr=sd?-1:1;cx.strokeRect(sd?gl-107:gl,H/2-130,107,260);cx.strokeRect(sd?gl-36:gl,H/2-59,36,118);cx.beginPath();cx.arc(gl+dr*71,H/2,3,0,7);cx.fill();cx.beginPath();cx.arc(gl+dr*71,H/2,59,sd?Math.PI-.93:-.93,sd?Math.PI+.93:.93);cx.stroke()});
+  if(SIM.endScene){cx.fillStyle='#17221d';cx.fillRect(W/2-43,H-20,86,20);cx.strokeStyle='#c8b98b';cx.lineWidth=2;cx.strokeRect(W/2-43,H-20,86,20);cx.fillStyle='#e7e0c8';cx.font='700 9px Barlow,sans-serif';cx.textAlign='center';cx.fillText('VESTUARIOS',W/2,H-7)}
  [[20,20,0],[W-20,20,1],[W-20,H-20,2],[20,H-20,3]].forEach(([x,y,q])=>{cx.beginPath();cx.arc(x,y,8,q*Math.PI/2,(q+1)*Math.PI/2);cx.stroke()});
  cx.fillStyle='#ffffff30';cx.fillRect(Q.X0-16,Q.GY0,16,Q.GY1-Q.GY0);cx.fillRect(Q.X0+Q.FW,Q.GY0,16,Q.GY1-Q.GY0);
  const B=SIM.B,sc=SIM.sc;
