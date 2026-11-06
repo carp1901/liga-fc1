@@ -1,6 +1,6 @@
 (function(){
 // Equipos 2026 (Argentina). Formato: id|nombre|color1|color2|nivel(1-100). Los colores y niveles son aproximados.
-// Planteles: se generan con nombres argentinos verosímiles; para datos reales usá tools/import-squads.js (ver README).
+// Planteles: se generan con nombres argentinos verosímiles; para datos reales usá import-squads.js (ver planteles/README.md).
 const mk=s=>s.split('\n').map(l=>{const[id,name,c1,c2,r]=l.split('|');return{id,name,c1,c2,r:+r}});
 const R1=`boca|Boca Juniors|#103f91|#f7c600|80
 river|River Plate|#f4f4f4|#e30613|82
