@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:11:47.002Z",
+  "updatedAt": "2026-11-06T23:14:00.087Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -676,7 +676,8 @@
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
       "consulted": "2026-11-05",
       "minimumAppearances": 10
-    }
+    },
+    "eaFc27OfficialCards": "https://www.ea.com/games/ea-sports-fc/ratings"
   },
   "completePrimera": true,
   "dataQualityComplete": false,
@@ -732,8 +733,8 @@
         "total": 27,
         "assigned": 27,
         "missing": 0,
-        "verifiedRatings": 19,
-        "provisionalRatings": 8
+        "verifiedRatings": 23,
+        "provisionalRatings": 4
       },
       "lanus": {
         "total": 34,
@@ -760,8 +761,8 @@
         "total": 32,
         "assigned": 32,
         "missing": 0,
-        "verifiedRatings": 25,
-        "provisionalRatings": 7
+        "verifiedRatings": 27,
+        "provisionalRatings": 5
       },
       "newells": {
         "total": 30,
@@ -1312,15 +1313,15 @@
     }
   },
   "ratingCoverage": {
-    "rated": 835,
+    "rated": 841,
     "total": 1018,
-    "provisional": 183,
+    "provisional": 177,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
   "attributeCoverage": {
-    "manualPlayers": 0,
-    "derivedPlayers": 1018,
+    "manualPlayers": 6,
+    "derivedPlayers": 1012,
     "method": "Atributos derivados por puesto y media; se completarán con atributos individuales contrastados."
   },
   "qualityAudit": {
@@ -1330,7 +1331,8 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 183,
-    "playersWithoutManualAttributes": 1018
+    "provisionalRatings": 177,
+    "playersWithoutManualAttributes": 1018,
+    "playersWithManualAttributes": 6
   }
 }
