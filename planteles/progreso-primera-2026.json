@@ -230,8 +230,8 @@
       "jugadores": 36,
       "fuente": "https://www.tycsports.com/instituto.html",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 25,
-      "medias_provisionales": 11,
+      "medias_con_fuente": 26,
+      "medias_provisionales": 10,
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0
     },
@@ -307,9 +307,19 @@
     }
   },
   "jugadores_total": 1014,
-  "medias_con_fuente": 858,
-  "medias_provisionales": 156,
+  "medias_con_fuente": 859,
+  "medias_provisionales": 155,
   "dorsales_asignados": 1014,
   "dorsales_faltantes": 0,
-  "actualizado": "2026-11-06"
+  "actualizado": "2026-11-06",
+  "ultima_revision_medias": {
+    "fecha": "2026-11-06",
+    "jugadores": [
+      "Diego Mondino",
+      "Fermín Antonini",
+      "Juan Manuel Romero"
+    ],
+    "criterio": "OVR contrastado con ficha oficial EA SPORTS FC 27",
+    "resultado": "Diego Mondino 55; Fermín Antonini 60; Juan Manuel Romero 62"
+  }
 }
