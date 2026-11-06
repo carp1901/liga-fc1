@@ -1,21 +1,21 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:14:00.087Z",
+  "updatedAt": "2026-11-06T23:17:00.289Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
-    "sanlorenzo": 39,
+    "sanlorenzo": 40,
     "boca": 31,
     "river": 27,
     "independiente": 36,
     "estudiantes": 37,
     "velez": 30,
-    "racing": 27,
+    "racing": 24,
     "lanus": 34,
     "talleres": 33,
     "rosario": 38,
     "huracan": 32,
-    "newells": 30,
+    "newells": 31,
     "gimnasia": 36,
     "argentinos": 33,
     "belgrano": 36,
@@ -28,10 +28,10 @@
     "aldosivi": 36,
     "platense": 36,
     "defensa": 36,
-    "union": 32,
+    "union": 33,
     "tigre": 47,
     "banfield": 35,
-    "rivadavia": 29,
+    "rivadavia": 28,
     "gimnasiamza": 31,
     "estudiantesrc": 32
   },
@@ -683,15 +683,15 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1018,
+    "assigned": 1017,
     "missing": 0,
-    "total": 1018,
+    "total": 1017,
     "byClub": {
       "sanlorenzo": {
-        "total": 39,
-        "assigned": 39,
+        "total": 40,
+        "assigned": 40,
         "missing": 0,
-        "verifiedRatings": 35,
+        "verifiedRatings": 36,
         "provisionalRatings": 4
       },
       "boca": {
@@ -712,8 +712,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 27,
-        "provisionalRatings": 9
+        "verifiedRatings": 28,
+        "provisionalRatings": 8
       },
       "estudiantes": {
         "total": 37,
@@ -730,11 +730,11 @@
         "provisionalRatings": 1
       },
       "racing": {
-        "total": 27,
-        "assigned": 27,
+        "total": 24,
+        "assigned": 24,
         "missing": 0,
-        "verifiedRatings": 23,
-        "provisionalRatings": 4
+        "verifiedRatings": 21,
+        "provisionalRatings": 3
       },
       "lanus": {
         "total": 34,
@@ -765,10 +765,10 @@
         "provisionalRatings": 5
       },
       "newells": {
-        "total": 30,
-        "assigned": 30,
+        "total": 31,
+        "assigned": 31,
         "missing": 0,
-        "verifiedRatings": 29,
+        "verifiedRatings": 30,
         "provisionalRatings": 1
       },
       "gimnasia": {
@@ -856,10 +856,10 @@
         "provisionalRatings": 7
       },
       "union": {
-        "total": 32,
-        "assigned": 32,
+        "total": 33,
+        "assigned": 33,
         "missing": 0,
-        "verifiedRatings": 27,
+        "verifiedRatings": 28,
         "provisionalRatings": 5
       },
       "tigre": {
@@ -877,11 +877,11 @@
         "provisionalRatings": 5
       },
       "rivadavia": {
-        "total": 29,
-        "assigned": 29,
+        "total": 28,
+        "assigned": 28,
         "missing": 0,
         "verifiedRatings": 28,
-        "provisionalRatings": 1
+        "provisionalRatings": 0
       },
       "gimnasiamza": {
         "total": 31,
@@ -1313,26 +1313,26 @@
     }
   },
   "ratingCoverage": {
-    "rated": 841,
-    "total": 1018,
-    "provisional": 177,
+    "rated": 843,
+    "total": 1017,
+    "provisional": 174,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
   "attributeCoverage": {
-    "manualPlayers": 6,
-    "derivedPlayers": 1012,
+    "manualPlayers": 9,
+    "derivedPlayers": 1008,
     "method": "Atributos derivados por puesto y media; se completarán con atributos individuales contrastados."
   },
   "qualityAudit": {
     "clubs": 30,
-    "players": 1018,
+    "players": 1017,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 177,
+    "provisionalRatings": 174,
     "playersWithoutManualAttributes": 1018,
-    "playersWithManualAttributes": 6
+    "playersWithManualAttributes": 9
   }
 }
