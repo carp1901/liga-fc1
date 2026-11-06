@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:22:58.778Z",
+  "updatedAt": "2026-11-06T23:25:18.237Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "853 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -782,8 +782,8 @@
         "total": 23,
         "assigned": 23,
         "missing": 0,
-        "verifiedRatings": 20,
-        "provisionalRatings": 3
+        "verifiedRatings": 21,
+        "provisionalRatings": 2
       },
       "lanus": {
         "total": 34,
@@ -838,8 +838,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 26,
-        "provisionalRatings": 10
+        "verifiedRatings": 27,
+        "provisionalRatings": 9
       },
       "centralcba": {
         "total": 36,
@@ -859,8 +859,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 29,
-        "provisionalRatings": 7
+        "verifiedRatings": 30,
+        "provisionalRatings": 6
       },
       "riestra": {
         "total": 32,
@@ -894,8 +894,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 32,
-        "provisionalRatings": 4
+        "verifiedRatings": 33,
+        "provisionalRatings": 3
       },
       "defensa": {
         "total": 36,
@@ -1362,9 +1362,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 854,
+    "rated": 858,
     "total": 1014,
-    "provisional": 160,
+    "provisional": 156,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1412,8 +1412,8 @@
         "total": 23,
         "assigned": 23,
         "missing": 0,
-        "verifiedRatings": 20,
-        "provisionalRatings": 3
+        "verifiedRatings": 21,
+        "provisionalRatings": 2
       },
       "lanus": {
         "total": 34,
@@ -1468,8 +1468,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 26,
-        "provisionalRatings": 10
+        "verifiedRatings": 27,
+        "provisionalRatings": 9
       },
       "centralcba": {
         "total": 36,
@@ -1489,8 +1489,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 29,
-        "provisionalRatings": 7
+        "verifiedRatings": 30,
+        "provisionalRatings": 6
       },
       "riestra": {
         "total": 32,
@@ -1524,8 +1524,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 32,
-        "provisionalRatings": 4
+        "verifiedRatings": 33,
+        "provisionalRatings": 3
       },
       "defensa": {
         "total": 36,
@@ -1577,7 +1577,7 @@
         "provisionalRatings": 4
       }
     },
-    "source": "EA SPORTS FC 27 (FCScoutDB y cartas oficiales EA), Statz.ai y Sportlumy.",
+    "source": "EA SPORTS FC 27 (FCScoutDB y cartas oficiales EA), Sofascore, Statz.ai y Sportlumy.",
     "formula": "Se prioriza el OVR de EA FC 27; si no existe, se usa promedio de partido con al menos 10 apariciones. Sin fuente individual, la media 60 queda provisional."
   },
   "attributeCoverage": {
@@ -1592,7 +1592,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 160,
+    "provisionalRatings": 156,
     "playersWithoutManualAttributes": 1008
   }
 }
