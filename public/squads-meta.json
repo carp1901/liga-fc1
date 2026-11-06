@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T05:22:39.600Z",
-  "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "74 medias respaldadas por promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "updatedAt": "2026-11-06T23:04:13.043Z",
+  "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
+  "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
     "sanlorenzo": 39,
     "boca": 31,
@@ -48,7 +48,7 @@
         "https://contenidos2.sanlorenzo.com.ar/futbol-profesional/plantel/perfil/gonzalo-alassia",
         "https://sanlorenzo.com.ar/futbol-profesional/plantel/perfil/rodrigo-auzmendi"
       ],
-      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
+      "ratingSource": "https://fcscoutdb.com/clubs/san-lorenzo-de-almagro",
       "roleSource": "https://www.transfermarkt.es/ca-san-lorenzo-de-almagro/kader/verein/1775",
       "ageConsulted": "2026-11-05"
     },
@@ -60,12 +60,7 @@
       "ageCoverage": "31/31",
       "roleCoverage": "27/31",
       "numberSource": [],
-      "ratingSource": [
-        "https://statz.ai/player/lautaro-blanco/37547039",
-        "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-        "https://statz.ai/player/miguel-merentiel/429996",
-        "https://statz.ai/player/sebastian-villa/238611"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/boca-juniors",
       "roleSource": [
         "https://www.transfermarkt.com.ar/club-atletico-boca-juniors/kader/verein/189",
         "posicion habitual"
@@ -118,7 +113,7 @@
         "https://clubaindependiente.com.ar/futbol/plantel/perfil/maxilianogutierrez",
         "https://clubaindependiente.com.ar/futbol/plantel/ezequiel-avila"
       ],
-      "ratingSource": "https://statz.ai/player/rodrigo-rey/333870",
+      "ratingSource": "https://fcscoutdb.com/clubs/independiente",
       "roleSource": "https://www.transfermarkt.es/ca-independiente/kader/verein/1234",
       "ageConsulted": "2026-11-05"
     },
@@ -230,10 +225,7 @@
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/lanus/plantilla",
         "https://www.transfermarkt.com.ar/club-atletico-lanus/kader/verein/333"
       ],
-      "ratingSource": [
-        "https://statz.ai/player/nahuel-losada/216737",
-        "https://statz.ai/player/eduardo-salvio/159096"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/lanus",
       "roleSource": "https://www.transfermarkt.es/ca-lanus/kader/verein/333",
       "ageConsulted": "2026-11-05"
     },
@@ -735,19 +727,19 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1006,
-    "missing": 12,
+    "assigned": 1011,
+    "missing": 7,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
         "total": 39,
-        "assigned": 37,
-        "missing": 2
+        "assigned": 39,
+        "missing": 0
       },
       "boca": {
         "total": 31,
-        "assigned": 30,
-        "missing": 1
+        "assigned": 31,
+        "missing": 0
       },
       "river": {
         "total": 27,
@@ -756,8 +748,8 @@
       },
       "independiente": {
         "total": 36,
-        "assigned": 35,
-        "missing": 1
+        "assigned": 36,
+        "missing": 0
       },
       "estudiantes": {
         "total": 37,
@@ -776,8 +768,8 @@
       },
       "lanus": {
         "total": 34,
-        "assigned": 33,
-        "missing": 1
+        "assigned": 34,
+        "missing": 0
       },
       "talleres": {
         "total": 33,
@@ -1305,16 +1297,16 @@
     }
   },
   "ratingCoverage": {
-    "rated": 74,
+    "rated": 184,
     "total": 1018,
-    "provisional": 944,
-    "source": "Statz.ai y Sportlumy; promedios individuales de partido con muestra mínima de 10 apariciones.",
-    "formula": "r = round(clamp(60 + (promedio_partido - 6.5) * 20, 40, 90)); solo se aplica con al menos 10 apariciones."
+    "provisional": 834,
+    "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
+    "formula": "Se prioriza el OVR vigente de EA FC 27; cuando no existe carta o dato individual, se conserva media provisional hasta completar la revisión."
   },
   "attributeCoverage": {
     "manualPlayers": 0,
     "derivedPlayers": 1018,
-    "method": "public/data.js deriva atributos por rol específico, posición y media."
+    "method": "Atributos derivados por puesto y media; se completarán con atributos individuales contrastados."
   },
   "qualityAudit": {
     "clubs": 30,
@@ -1322,8 +1314,8 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 12,
-    "provisionalRatings": 944,
+    "playersMissingDorsal": 7,
+    "provisionalRatings": 834,
     "playersWithoutManualAttributes": 1018
   }
 }
