@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:42:21.938Z",
+  "updatedAt": "2026-11-06T23:42:47.905Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "859 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -640,7 +640,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/defensa-y-justicia",
-        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/damian-fernandez/75793"
+        "https://www.fotmob.com/es/players/1087551/damian-fernandez"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-defensa-y-justicia/kader/verein/1244",
       "ageConsulted": "2026-11-05"
