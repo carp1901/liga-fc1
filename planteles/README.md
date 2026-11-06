@@ -6,7 +6,7 @@ La recopilación se hace por etapas y se guarda en el propio juego. No se consul
 
 - Planteles y dorsales: página oficial del club y Liga Profesional/AFA; Promiedos y Transfermarkt sirven como contraste.
 - Medias: OVR de EA SPORTS FC 27, contrastado con FCScoutDB y cartas oficiales de EA.
-- Cuando no existe carta, se usan promedios de rendimiento de Statz.ai/Sportlumy si hay al menos 10 apariciones.
+- Cuando no existe carta, se usan promedios de rendimiento de Sofascore, Statz.ai y Sportlumy si hay al menos 10 apariciones.
 - Si dos fuentes discrepan, prevalece el club o la competición oficial y la diferencia queda pendiente de revisión.
 - No copiar fotos.
 - No inventar nombres, edades ni estadísticas.
