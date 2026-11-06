@@ -927,7 +927,7 @@ const kitDisc=(x,y,id,k,bc,lw,r)=>{const cfg=KIT_STYLES[id]||{},st=cfg.s||'plain
  else if(st=='hband')cx.fillRect(x-r,y-r*.3,r*2,r*.6);
  else if(st=='stripes'){const w=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r+i*w,y-r,w,r*2)}
  else if(st=='half')cx.fillRect(x,y-r,r,r*2);
- else if(st=='sash3'){cx.fillStyle=c3;cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillRect(-r*1.5,-r*.25,r*3,r*.5);cx.restore()}
+ else if(st=='sash3'){cx.fillStyle=c1;cx.fillRect(x,y-r,r,r*2);cx.fillStyle=c3;cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillRect(-r*1.5,-r*.25,r*3,r*.5);cx.restore()}
  else if(st=='v'||st=='v3'){cx.beginPath();cx.moveTo(x-r*.95,y-r);cx.lineTo(x-r*.4,y-r);cx.lineTo(x,y+r*.18);cx.lineTo(x+r*.4,y-r);cx.lineTo(x+r*.95,y-r);cx.lineTo(x,y+r*.8);cx.closePath();cx.fill();if(st=='v3'&&c3){cx.strokeStyle=c3;cx.lineWidth=Math.max(1.5,r*.13);cx.stroke()}}
  else{cx.beginPath();cx.arc(x,y-r*.95,r*.55,0,Math.PI);cx.fill()}   // lisa: cuello y detalles del color secundario
  cx.restore();cx.strokeStyle=bc;cx.lineWidth=lw||3;cx.beginPath();cx.arc(x,y,r,0,7);cx.stroke()},
