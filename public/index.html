@@ -907,7 +907,10 @@ const KIT_STYLES={
  uy_artigas:{s:'sash',c1:'#ffffff',c2:'#e21b2d',n:'#17499a'},
  uy_atenas:{s:'sash',c1:'#14254f',c2:'#e21b2d',n:'#ffffff'},
  uy_danubio:{s:'sash',c1:'#ffffff',c2:'#111111',n:'#111111'},
- uy_nacional:{s:'sash',c1:'#ffffff',c2:'#d1001f',n:'#d1001f'},
+ uy_nacional:{s:'sash',c1:'#0b2a5e',c2:'#ffffff',n:'#d1001f'},
+ uy_progreso:{s:'stripes',c1:'#0b3d91',c2:'#ffffff',n:'#d1001f'},
+ uy_torque:{s:'plain',c1:'#7fb3e0',c2:'#f4d000',n:'#f4d000'},
+
  uy_central:{s:'sash',c1:'#d1001f',c2:'#4b237c',n:'#ffffff'},
  uy_riverplate:{s:'sash',n:'#ffffff'},
 
@@ -1076,7 +1079,7 @@ function ceremony(t,mine,opp,names,home,ids){const dur=18000,p=c01((t-cerT0)/dur
   const k=[[e,cx0,H+22],[.10+e,cx0,rowY],[.17+e,rx,rowY]];   // salen de a uno, en fila, hasta el medio y ahí se abren a su lugar
   if(s==visS){k.push([.34+d,rx,rowY+15],[.47+d,rx+(s==1?-330:330),rowY+15],[.50+d,rx+(s==1?-330:330),rowY+15],[.62+d,rx,rowY+15],[.66+d,rx,rowY])}else k.push([.66+d,rx,rowY]);
   const[px,py]=photo(s,i);k.push([.72+d,px,py],[.8,px,py],[1,q.x,q.y]);
-  const[x,y0]=walkAt(k,p),bob=(p>.13&&p<.99)?Math.abs(Math.sin(p*60*Math.PI+i))*1.2:0,gk=q.k==0;disc(x,y0-bob,gk?'#39424b':T.k[0],gk?T.k[0]:T.k[1],3)});
+  const[x,y0]=walkAt(k,p),bob=(p>.13&&p<.99)?Math.abs(Math.sin(p*60*Math.PI+i))*1.2:0,gk=q.k==0;if(gk)disc(x,y0-bob,'#39424b',T.k[1],3);else kitDisc(x,y0-bob,s==0?ids[0]:ids[1],T.k,T.k[1],3,10)});
  (SIM.refs||[]).forEach(r=>{const k=r.role=='ref'?[[.02,W/2,H+24],[.2,W/2,H/2+46]]:r.role=='l1'?[[.02,W/2-40,H+24],[.2,W/2-60,12]]:[[.02,W/2+40,H+24],[.2,W/2+60,H-12]],[x,y]=walkAt(k,p);disc(x,y,'#2fbf5f','#145a2a',2,r.role=='ref'?11:9)});
  if(p>.36&&p<.84){const a=Math.min(1,(p-.36)/.05,(.84-p)/.05);cx.font='700 24px "Barlow Condensed",sans-serif';cx.textAlign='center';cx.fillStyle=`rgba(0,0,0,${a*.6})`;cx.fillText(names[0],W*.27+2,H/2-62);cx.fillText(names[1],W*.73+2,H/2-62);cx.fillStyle=`rgba(255,255,255,${a})`;cx.fillText(names[0],W*.27,H/2-64);cx.fillText(names[1],W*.73,H/2-64)}
  if(p>.6&&p<.8){const f=Math.floor(p*420);if(f%9<2){cx.fillStyle='rgba(255,255,255,.85)';for(let k=0;k<4;k++){cx.beginPath();cx.arc(40+((k*173+f*53)%640),H-10-((k*37)%12),2.6,0,7);cx.fill()}}}}
