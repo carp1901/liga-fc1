@@ -129,8 +129,8 @@
       "jugadores": 33,
       "fuente": "https://www.tycsports.com/argentinos-juniors.html",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 29,
-      "medias_provisionales": 4,
+      "medias_con_fuente": 30,
+      "medias_provisionales": 3,
       "dorsales_asignados": 33,
       "dorsales_faltantes": 0
     },
@@ -250,8 +250,8 @@
       "jugadores": 36,
       "fuente": "https://www.barracascentral.com/plantel/",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 30,
-      "medias_provisionales": 6,
+      "medias_con_fuente": 31,
+      "medias_provisionales": 5,
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0
     },
@@ -307,8 +307,8 @@
     }
   },
   "jugadores_total": 1014,
-  "medias_con_fuente": 862,
-  "medias_provisionales": 152,
+  "medias_con_fuente": 864,
+  "medias_provisionales": 150,
   "dorsales_asignados": 1014,
   "dorsales_faltantes": 0,
   "actualizado": "2026-11-06",
@@ -340,9 +340,11 @@
       "Luciano Sábato",
       "Tomás Parmo (EA FC26)",
       "Francisco Gómez (EA FC26)",
-      "Iván Erquiaga (EA FC26)"
+      "Iván Erquiaga (EA FC26)",
+      "Alex Juárez (EA FC26)",
+      "Agustín Mangiaut (EA FC26)"
     ],
     "criterio": "OVR individual contrastado con fichas o tablas oficiales EA SPORTS FC 27",
-    "resultado": "Se sustituyeron medias provisionales por OVR publicados cuando correspondía; las medias 60 se conservaron solo cuando EA las confirma.; respaldo FC26 aplicado a Tomás Parmo 64, Francisco Gómez 52 e Iván Erquiaga 67."
+    "resultado": "Se sustituyeron medias provisionales por OVR publicados cuando correspondía; las medias 60 se conservaron solo cuando EA las confirma.; respaldo FC26 aplicado a Tomás Parmo 64, Francisco Gómez 52 e Iván Erquiaga 67.; Alex Juárez 59 y Agustín Mangiaut 61 contrastados con EA FC26."
   }
 }
