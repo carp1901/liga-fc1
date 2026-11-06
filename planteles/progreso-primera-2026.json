@@ -169,8 +169,8 @@
       "jugadores": 46,
       "fuente": "https://www.tycsports.com/tigre.html",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 26,
-      "medias_provisionales": 20,
+      "medias_con_fuente": 28,
+      "medias_provisionales": 18,
       "dorsales_asignados": 46,
       "dorsales_faltantes": 0
     },
@@ -307,8 +307,8 @@
     }
   },
   "jugadores_total": 1013,
-  "medias_con_fuente": 870,
-  "medias_provisionales": 143,
+  "medias_con_fuente": 872,
+  "medias_provisionales": 141,
   "dorsales_asignados": 1014,
   "dorsales_faltantes": 0,
   "actualizado": "2026-11-06",
@@ -348,10 +348,12 @@
       "Felipe Anso (EA FC26)",
       "Augusto Fernández (EA FC27)",
       "Martín García (EA FC27)",
-      "Juan Bautista Dadín (EA FC27)"
+      "Juan Bautista Dadín (EA FC27)",
+      "Luka Fuster (EA FC27)",
+      "Juan Manuel Villalba (EA FC27)"
     ],
     "criterio": "OVR individual contrastado con fichas o tablas oficiales EA SPORTS FC 27",
-    "resultado": "Se sustituyeron medias provisionales por OVR publicados cuando correspondía; las medias 60 se conservaron solo cuando EA las confirma.; respaldo FC26 aplicado a Tomás Parmo 64, Francisco Gómez 52 e Iván Erquiaga 67.; Alex Juárez 59 y Agustín Mangiaut 61 contrastados con EA FC26.; Jeremías Gallard 61 (EA FC26).; Fernando Closter 57 (EA FC26).; Felipe Anso 53 (EA FC26, Futship).; Augusto Fernández 55, Martín García 60 y Bautista Dadín 64 (EA FC27)."
+    "resultado": "Se sustituyeron medias provisionales por OVR publicados cuando correspondía; las medias 60 se conservaron solo cuando EA las confirma.; respaldo FC26 aplicado a Tomás Parmo 64, Francisco Gómez 52 e Iván Erquiaga 67.; Alex Juárez 59 y Agustín Mangiaut 61 contrastados con EA FC26.; Jeremías Gallard 61 (EA FC26).; Fernando Closter 57 (EA FC26).; Felipe Anso 53 (EA FC26, Futship).; Augusto Fernández 55, Martín García 60 y Bautista Dadín 64 (EA FC27).; Luka Fuster 58 y Juan Manuel Villalba 61 (EA FC27)."
   },
   "ultima_revision_planteles": {
     "fecha": "2026-11-06",
