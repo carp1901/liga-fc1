@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:08:18.013Z",
+  "updatedAt": "2026-11-06T23:10:04.661Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -172,7 +172,7 @@
     "velez": {
       "source": "https://www.velezsarsfield.com.ar/futbol/plantel",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/velez",
+      "numberSource": "https://fcscoutdb.com/clubs/velez-sarsfield",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/velez-sarsfield/plantilla",
@@ -183,10 +183,7 @@
         "https://velez.com.ar/futbol/plantel/perfil/422-simonprima",
         "https://velez.com.ar/futbol/plantel/perfil/423-lautaropiola"
       ],
-      "ratingSource": [
-        "https://statz.ai/player/diego-valdes/233682",
-        "https://statz.ai/player/ronaldo-martinez/258143"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/velez-sarsfield",
       "roleSource": "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
       "ageConsulted": "2026-11-05"
     },
@@ -296,10 +293,7 @@
       "source": "https://www.tycsports.com/gimnasia-de-la-plata.html",
       "nationalities": "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
       "consulted": "2026-11-05",
-      "numberSource": [
-        "https://www.transfermarkt.co/alejo-gelsomino/rueckennummern/spieler/1305354",
-        "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-estudiantes-vs-gimnasia-fecha-5-id754866.html"
-      ],
+      "numberSource": "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-la-plata",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/gimnasia-la-plata/plantilla",
@@ -312,12 +306,7 @@
         "https://www.transfermarkt.com.ar/jorge-de-asis/profil/spieler/1305372",
         "https://www.transfermarkt.com.ar/lucas-janson/profil/spieler/238448"
       ],
-      "ratingSource": [
-        "https://statz.ai/player/nelson-insfran/455729",
-        "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-        "https://statz.ai/player/agustin-auzmendi/741664",
-        "https://statz.ai/player/marcelo-torres/766681"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-la-plata",
       "roleSource": [
         "https://www.transfermarkt.com.ar/ca-gimnasia-y-esgrima-la-plata/kader/verein/1104",
         "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/"
@@ -402,7 +391,7 @@
     "atletico": {
       "source": "https://www.tycsports.com/atletico-tucuman.html",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/atletico-tucuman",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/36",
       "ageSource": [
@@ -417,17 +406,14 @@
         "https://www.transfermarkt.com.ar/nicolas-lamendola/profil/spieler/626014",
         "https://www.transfermarkt.com.ar/franco-nicola/profil/spieler/1015626"
       ],
-      "ratingSource": [
-        "https://statz.ai/player/luis-ingolotti/8092902",
-        "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/atletico-tucuman",
       "roleSource": "https://www.transfermarkt.com.ar/ca-atletico-tucuman/kader/verein/1090",
       "ageConsulted": "2026-11-05"
     },
     "barracas": {
       "source": "https://www.barracascentral.com/plantel/",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/barracas-central",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.barracascentral.com/plantel/",
@@ -436,7 +422,7 @@
         "https://www.transfermarkt.com.ar/alex-juarez/profil/spieler/1029492",
         "https://www.transfermarkt.com.ar/francisco-cora/profil/spieler/1404969"
       ],
-      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
+      "ratingSource": "https://fcscoutdb.com/clubs/barracas-central",
       "roleSource": "https://www.transfermarkt.com.ar/ca-barracas-central/kader/verein/6212",
       "ageConsulted": "2026-11-05"
     },
@@ -746,8 +732,8 @@
         "total": 30,
         "assigned": 30,
         "missing": 0,
-        "verifiedRatings": 2,
-        "provisionalRatings": 28
+        "verifiedRatings": 29,
+        "provisionalRatings": 1
       },
       "racing": {
         "total": 27,
@@ -795,8 +781,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 4,
-        "provisionalRatings": 32
+        "verifiedRatings": 25,
+        "provisionalRatings": 11
       },
       "argentinos": {
         "total": 33,
@@ -823,15 +809,15 @@
         "total": 35,
         "assigned": 35,
         "missing": 0,
-        "verifiedRatings": 2,
-        "provisionalRatings": 33
+        "verifiedRatings": 32,
+        "provisionalRatings": 3
       },
       "barracas": {
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 1,
-        "provisionalRatings": 35
+        "verifiedRatings": 29,
+        "provisionalRatings": 7
       },
       "riestra": {
         "total": 32,
@@ -1333,9 +1319,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 540,
+    "rated": 646,
     "total": 1018,
-    "provisional": 478,
+    "provisional": 372,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
@@ -1351,7 +1337,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 478,
+    "provisionalRatings": 372,
     "playersWithoutManualAttributes": 1018
   }
 }
