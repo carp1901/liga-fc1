@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:27:09.331Z",
+  "updatedAt": "2026-11-06T23:41:56.972Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "858 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "859 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -493,7 +493,10 @@
         "https://www.transfermarkt.com.ar/facundo-suarez/profil/spieler/702259",
         "https://www.transfermarkt.com.ar/matias-tissera/profil/spieler/503001"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/instituto-de-cordoba",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/instituto-de-cordoba",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/manuel-romero/275257"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/instituto-atletico-central-cordoba/kader/verein/11510",
       "ageConsulted": "2026-11-05"
     },
@@ -711,7 +714,9 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-de-mendoza",
-        "https://www.sofascore.com/football/player/juan-franco/926812"
+        "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/diego-mondino/83441",
+        "https://www.sofascore.com/football/player/juan-franco/926812",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/fermin-antonini/233440"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/gimnasia-y-esgrima-de-mendoza/kader/verein/1099",
       "ageConsulted": "2026-11-05"
@@ -1313,9 +1318,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 858,
+    "rated": 859,
     "total": 1014,
-    "provisional": 156,
+    "provisional": 155,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1414,8 +1419,8 @@
       },
       "instituto": {
         "total": 36,
-        "verified": 25,
-        "provisional": 11
+        "verified": 26,
+        "provisional": 10
       },
       "sarmiento": {
         "total": 30,
@@ -1483,7 +1488,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 156,
+    "provisionalRatings": 155,
     "playersWithoutManualAttributes": 1006
   }
 }
