@@ -1008,6 +1008,19 @@ const KIT_STYLES={
  uy_racing:{s:'stripes',c1:'#0a7d3b',c2:'#ffffff',n:'#ffffff'},
  uy_wanderers:{s:'stripes',c1:'#111111',c2:'#ffffff',n:'#ffffff'},
 
+ // Otros patrones geométricos que también se ven en los escudos
+ ferro:{s:'v',c1:'#0a7d3b',c2:'#ffffff',n:'#ffffff'},
+ tigre:{s:'cross',c1:'#0b2a5e',c2:'#d1001f',n:'#ffffff'},
+ atenascross:{s:'cross',c1:'#65b9e8',c2:'#ffffff',n:'#17499a'},
+ sportivobelgrano:{s:'cross',c1:'#078a68',c2:'#ffffff',n:'#078a68'},
+ tucumancentral:{s:'diamond',c1:'#d1001f',c2:'#ffffff',n:'#d1001f'},
+ centralnorte:{s:'diagHalf',c1:'#ffffff',c2:'#111111',n:'#111111'},
+ realpilar:{s:'diagHalf',c1:'#555555',c2:'#111111',n:'#ffffff'},
+ gbrown:{s:'diagHalf',c1:'#ffffff',c2:'#0b2a5e',n:'#0b2a5e'},
+ uy_albion:{s:'diagHalf',c1:'#0b3d91',c2:'#d1001f',n:'#ffffff'},
+ liniers:{s:'checker',c1:'#169ed4',c2:'#ffffff',n:'#ffffff'},
+ mandarinas:{s:'tricolor',c1:'#078a43',c2:'#f4d000',c3:'#078a43',n:'#111111'},
+ camioneros:{s:'hstripes',c1:'#078a43',c2:'#ffffff',n:'#078a43'},
  // Patrones adicionales que aparecen en otros escudos
  atlanta:{s:'stripes',c1:'#0b2a5e',c2:'#f4d000',n:'#f4d000'},
  alvarado:{s:'sash',c1:'#0b2a5e',c2:'#ffffff',n:'#ffffff'},
@@ -1034,7 +1047,7 @@ const kitDisc=(x,y,id,k,bc,lw,r)=>{const cfg=KIT_STYLES[id]||{},st=cfg.s||'plain
  if(st=='sash'){cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillRect(-r*1.5,-r*.27,r*3,r*.54);cx.restore()}
  else if(st=='hband')cx.fillRect(x-r,y-r*.3,r*2,r*.6);
  else if(st=='stripes'){const w=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r+i*w,y-r,w,r*2)}
- else if(st=='half')cx.fillRect(x,y-r,r,r*2);else if(st=='hstripes'){const h=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r,y-r+i*h,r*2,h)}else if(st=='tricolor'){cx.fillStyle=c1;cx.fillRect(x-r,y-r,r*2/3,r*2);cx.fillStyle=c3;cx.fillRect(x+r/3,y-r,r*2/3,r*2)}else if(st=='sash2'){cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillStyle=c1;cx.fillRect(-r*1.5,-r*.36,r*3,r*.22);cx.fillStyle=c3;cx.fillRect(-r*1.5,r*.14,r*3,r*.22);cx.restore()}else if(st=='checker'){cx.fillRect(x-r,y-r,r,r);cx.fillRect(x,y,r,r);cx.fillStyle=c1;cx.fillRect(x,y-r,r,r);cx.fillRect(x-r,y,r,r)}
+ else if(st=='half')cx.fillRect(x,y-r,r,r*2);else if(st=='hstripes'){const h=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r,y-r+i*h,r*2,h)}else if(st=='tricolor'){cx.fillStyle=c0;cx.fillRect(x-r,y-r,r*2/3,r*2);cx.fillStyle=c1;cx.fillRect(x-r/3,y-r,r*2/3,r*2);cx.fillStyle=c3;cx.fillRect(x+r/3,y-r,r*2/3,r*2)}else if(st=='diagHalf'){cx.beginPath();cx.moveTo(x-r,y-r);cx.lineTo(x+r,y-r);cx.lineTo(x-r,y+r);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='cross'){cx.fillStyle=c1;cx.fillRect(x-r,y-r*.22,r*2,r*.44);cx.fillRect(x-r*.22,y-r,r*.44,r*2)}else if(st=='diamond'){cx.beginPath();cx.moveTo(x,y-r);cx.lineTo(x+r,y);cx.lineTo(x,y+r);cx.lineTo(x-r,y);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='sash2'){cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillStyle=c1;cx.fillRect(-r*1.5,-r*.36,r*3,r*.22);cx.fillStyle=c3;cx.fillRect(-r*1.5,r*.14,r*3,r*.22);cx.restore()}else if(st=='checker'){cx.fillRect(x-r,y-r,r,r);cx.fillRect(x,y,r,r);cx.fillStyle=c1;cx.fillRect(x,y-r,r,r);cx.fillRect(x-r,y,r,r)}
  else if(st=='sash3'){cx.fillStyle=c1;cx.fillRect(x,y-r,r,r*2);cx.fillStyle=c3;cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillRect(-r*1.5,-r*.25,r*3,r*.5);cx.restore()}
  else if(st=='v3'){/* Brown de Adrogué: tres zonas completas, sin contorno decorativo: arriba celeste, V negra y abajo roja */cx.fillStyle=c3||'#d1001f';cx.fillRect(x-r,y-r,r*2,r*2);cx.beginPath();cx.moveTo(x-r,y-r);cx.lineTo(x+r,y-r);cx.lineTo(x+r,y-r*.55);cx.lineTo(x,y+r*.35);cx.lineTo(x-r,y-r*.55);cx.closePath();cx.fillStyle=c0;cx.fill();cx.beginPath();cx.moveTo(x-r,y-r*.55);cx.lineTo(x,y+r*.35);cx.lineTo(x+r,y-r*.55);cx.lineTo(x+r,y-r*.25);cx.lineTo(x,y+r*.65);cx.lineTo(x-r,y-r*.25);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='v'){cx.beginPath();cx.moveTo(x-r*.95,y-r);cx.lineTo(x-r*.4,y-r);cx.lineTo(x,y+r*.18);cx.lineTo(x+r*.4,y-r);cx.lineTo(x+r*.95,y-r);cx.lineTo(x,y+r*.8);cx.closePath();cx.fill()}
  else{cx.beginPath();cx.arc(x,y-r*.95,r*.55,0,Math.PI);cx.fill()}   // lisa: cuello y detalles del color secundario
