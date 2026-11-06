@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:44:49.553Z",
+  "updatedAt": "2026-11-06T23:46:32.727Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "864 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "865 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -14,7 +14,7 @@
     "lanus": 34,
     "talleres": 32,
     "rosario": 38,
-    "huracan": 32,
+    "huracan": 31,
     "newells": 31,
     "gimnasia": 36,
     "argentinos": 33,
@@ -258,7 +258,10 @@
         "https://www.transfermarkt.com.ar/giovanni-baroni/profil/spieler/1265841",
         "https://www.transfermarkt.com.ar/ca-talleres/kadernaechstesaison/verein/3938/saison_id/2026"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/talleres-de-cordoba",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/talleres-de-cordoba",
+        "https://fifaindex.com/es/jugadores/74849-jeremias-gallard/fc26"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-talleres-cordoba/kader/verein/393",
       "ageConsulted": "2026-11-05"
     },
@@ -351,10 +354,7 @@
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
       "consulted": "2026-11-05",
-      "numberSource": [
-        "https://www.transfermarkt.com.ar/club-atletico-huracan/rueckennummern/verein/2063",
-        "Asignado internamente: sin dorsal oficial confirmado"
-      ],
+      "numberSource": "https://www.transfermarkt.com.ar/club-atletico-huracan/rueckennummern/verein/2063",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/huracan/plantilla",
@@ -757,7 +757,8 @@
         "https://canchallena.lanacion.com.ar/equipo/gimnasia-mendoza-9vph9w7uflam4cks28dfp98h4/",
         "https://www.transfermarkt.com.ar/imanol-gonzalez/profil/spieler/426529",
         "https://www.transfermarkt.com.ar/ca-gimnasia-y-esgrima-mendoza-/startseite/verein/14687",
-        "https://www.transfermarkt.com.ar/luciano-cingolani/profil/spieler/847293"
+        "https://www.transfermarkt.com.ar/luciano-cingolani/profil/spieler/847293",
+        "https://www.fotmob.com/es/players/618779/brian-andrada"
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-de-mendoza",
@@ -765,7 +766,10 @@
         "https://www.sofascore.com/football/player/juan-franco/926812",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/fermin-antonini/233440"
       ],
-      "roleSource": "https://www.transfermarkt.com.ar/gimnasia-y-esgrima-de-mendoza/kader/verein/1099",
+      "roleSource": [
+        "https://www.transfermarkt.com.ar/gimnasia-y-esgrima-de-mendoza/kader/verein/1099",
+        "https://www.fotmob.com/es/players/618779/brian-andrada"
+      ],
       "ageConsulted": "2026-11-05"
     },
     "estudiantesrc": {
@@ -795,9 +799,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1014,
+    "assigned": 1013,
     "missing": 0,
-    "total": 1014,
+    "total": 1013,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -850,8 +854,8 @@
         "missing": 0
       },
       "huracan": {
-        "total": 32,
-        "assigned": 32,
+        "total": 31,
+        "assigned": 31,
         "missing": 0
       },
       "newells": {
@@ -953,10 +957,10 @@
   },
   "dorsalsComplete": true,
   "ageCoverage": {
-    "assigned": 1014,
+    "assigned": 1013,
     "missing": 0,
-    "birthDates": 1014,
-    "total": 1014,
+    "birthDates": 1013,
+    "total": 1013,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1009,8 +1013,8 @@
         "missing": 0
       },
       "huracan": {
-        "total": 32,
-        "assigned": 32,
+        "total": 31,
+        "assigned": 31,
         "missing": 0
       },
       "newells": {
@@ -1111,9 +1115,9 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 671,
+    "assigned": 670,
     "missing": 343,
-    "total": 1014,
+    "total": 1013,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1156,8 +1160,8 @@
         "assigned": 38
       },
       "huracan": {
-        "total": 32,
-        "assigned": 32
+        "total": 31,
+        "assigned": 31
       },
       "newells": {
         "total": 31,
@@ -1238,9 +1242,9 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 1014,
+    "assigned": 1013,
     "missing": 0,
-    "total": 1014,
+    "total": 1013,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1283,8 +1287,8 @@
         "specific": 38
       },
       "huracan": {
-        "total": 32,
-        "specific": 32
+        "total": 31,
+        "specific": 31
       },
       "newells": {
         "total": 31,
@@ -1365,9 +1369,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 864,
-    "total": 1014,
-    "provisional": 150,
+    "rated": 865,
+    "total": 1013,
+    "provisional": 148,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1411,8 +1415,8 @@
       },
       "talleres": {
         "total": 32,
-        "verified": 28,
-        "provisional": 4
+        "verified": 29,
+        "provisional": 3
       },
       "rosario": {
         "total": 38,
@@ -1420,9 +1424,9 @@
         "provisional": 4
       },
       "huracan": {
-        "total": 32,
+        "total": 31,
         "verified": 27,
-        "provisional": 5
+        "provisional": 4
       },
       "newells": {
         "total": 31,
@@ -1525,17 +1529,17 @@
   },
   "attributeCoverage": {
     "manualPlayers": 8,
-    "derivedPlayers": 1006,
+    "derivedPlayers": 1005,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 30,
-    "players": 1014,
+    "players": 1013,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 150,
-    "playersWithoutManualAttributes": 1006
+    "provisionalRatings": 148,
+    "playersWithoutManualAttributes": 1005
   }
 }
