@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:04:13.043Z",
+  "updatedAt": "2026-11-06T23:05:47.116Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -25,14 +25,14 @@
     "riestra": 32,
     "instituto": 36,
     "sarmiento": 30,
-    "aldosivi": 35,
+    "aldosivi": 36,
     "platense": 36,
     "defensa": 36,
     "union": 32,
     "tigre": 47,
     "banfield": 35,
     "rivadavia": 29,
-    "gimnasiamza": 32,
+    "gimnasiamza": 31,
     "estudiantesrc": 32
   },
   "sources": {
@@ -327,7 +327,7 @@
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.transfermarkt.com.ar/club-atletico-huracan/rueckennummern/verein/2063",
+      "numberSource": "https://fcscoutdb.com/clubs/huracan",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/huracan/plantilla",
@@ -335,13 +335,7 @@
         "https://www.transfermarkt.com.ar/ca-huracan/kadernaechstesaison/verein/2063/saison_id/2026",
         "https://www.transfermarkt.com.ar/leonardo-gil/profil/spieler/125907"
       ],
-      "ratingSource": [
-        "https://statz.ai/player/lucas-blondel/335745",
-        "https://statz.ai/player/maximo-palazzo/37906738",
-        "https://statz.ai/player/emmanuel-ojeda/334106",
-        "https://statz.ai/player/jordy-caicedo/244493",
-        "https://statz.ai/player/oscar-cortes/37615016"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/huracan",
       "roleSource": "https://www.transfermarkt.com.ar/ca-huracan/kader/verein/2063",
       "ageConsulted": "2026-11-05"
     },
@@ -462,7 +456,7 @@
     "instituto": {
       "source": "https://www.tycsports.com/instituto.html",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/instituto-de-cordoba",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/38",
       "numberConflict": "Lautaro Ludueña queda sin dorsal confirmado. Franco Jara no se asigna: el #29 de la fuente secundaria colisiona con Marcos Ledesma (#29 oficial). Medina #61 y Peralta #63 contrastados con plantel 2026.",
@@ -483,14 +477,14 @@
         "https://www.transfermarkt.com.ar/facundo-suarez/profil/spieler/702259",
         "https://www.transfermarkt.com.ar/matias-tissera/profil/spieler/503001"
       ],
-      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players",
+      "ratingSource": "https://fcscoutdb.com/clubs/instituto-de-cordoba",
       "roleSource": "https://www.transfermarkt.com.ar/instituto-atletico-central-cordoba/kader/verein/11510",
       "ageConsulted": "2026-11-05"
     },
     "sarmiento": {
       "source": "https://www.tycsports.com/sarmiento-junin.html",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/sarmiento",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "29/31",
       "numberConflict": "Lautaro Monza y Roque Maisterra sin dorsal confirmado; Elián Giménez #23.",
@@ -499,17 +493,14 @@
         "https://www.diez.hn/liganacional/lautaro-monza-sarmiento-2026",
         "https://www.transfermarkt.com.ar/elian-gimenez/marktwertverlauf/spieler/1290521"
       ],
-      "ratingSource": [
-        "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-        "https://statz.ai/player/junior-marabel/258037"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/sarmiento",
       "roleSource": "https://www.transfermarkt.com.ar/ca-sarmiento-de-junin/kader/verein/1073",
       "ageConsulted": "2026-11-05"
     },
     "aldosivi": {
       "source": "https://www.tycsports.com/aldosivi.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.mundoascenso.com.ar/plantel/53-aldosivi",
+      "numberSource": "https://fcscoutdb.com/clubs/aldosivi",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "33/36",
       "numberConflict": "Braian Cufré (#13) entra en conflicto con Federico Gino (#13) del listado LPF; León Lambardi y Joaquín Salinas sin confirmación actual inequívoca. Pablo Argoytia #37 confirmado en planilla de partido.",
@@ -521,7 +512,7 @@
         "https://www.transfermarkt.es/bautista-dadin/profil/spieler/1000691",
         "https://www.transfermarkt.com.ar/augusto-fernandez/profil/spieler/1230644"
       ],
-      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
+      "ratingSource": "https://fcscoutdb.com/clubs/aldosivi",
       "roleSource": "https://www.transfermarkt.com.ar/club-atletico-aldosivi/kader/verein/1006",
       "ageConsulted": "2026-11-05"
     },
@@ -567,7 +558,7 @@
     "defensa": {
       "source": "https://www.tycsports.com/defensa-y-justicia.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-defensa-y-justicia-vs-independiente-fecha-15-id769669.html",
+      "numberSource": "https://fcscoutdb.com/clubs/defensa-y-justicia",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "35/36",
       "numberConflict": "Juan Pablo Moreno sin dorsal confirmado; Matías Borgogno #1 según plantel 2026/27.",
@@ -590,15 +581,7 @@
         "https://www.defensayjusticia.org.ar/juan-manuel-gutierrez/",
         "https://www.transfermarkt.com.ar/tiziano-perrotta/profil/spieler/1324736"
       ],
-      "ratingSource": [
-        "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-        "https://statz.ai/player/damian-fernandez/37261254",
-        "https://statz.ai/player/david-martinez/6984749",
-        "https://statz.ai/player/david-barbona/214967",
-        "https://statz.ai/player/cesar-perez/36481743",
-        "https://statz.ai/player/leandro-fernandez/212274",
-        "https://statz.ai/player/juan-gutierrez/17158436"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/defensa-y-justicia",
       "roleSource": "https://www.transfermarkt.com.ar/ca-defensa-y-justicia/kader/verein/1244",
       "ageConsulted": "2026-11-05"
     },
@@ -628,7 +611,7 @@
         "https://gol.conmebol.com/sudamericana/es/news/tigre-en-la-conmebol-sudamericana-2026-resultados-plantel-y-calendario"
       ],
       "consulted": "2026-11-05",
-      "numberSource": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-huracan-vs-tigre-fecha-15-id769085.html",
+      "numberSource": "https://fcscoutdb.com/clubs/tigre",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/tigre/plantilla",
@@ -643,10 +626,7 @@
         "https://www.transfermarkt.com.ar/ignacio-russo/profil/spieler/833130",
         "https://www.transfermarkt.com.ar/ian-subiabre/profil/spieler/1074969"
       ],
-      "ratingSource": [
-        "https://statz.ai/player/felipe-zenobio/37445057",
-        "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/tigre",
       "roleSource": "https://www.transfermarkt.com.ar/ca-tigre/kader/verein/1188",
       "ageConsulted": "2026-11-05"
     },
@@ -682,7 +662,7 @@
     "gimnasiamza": {
       "source": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-de-mendoza",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.transfermarkt.com.ar/santiago-roggero/profil/spieler/1308912",
@@ -693,11 +673,7 @@
         "https://www.transfermarkt.com.ar/luciano-cingolani/profil/spieler/847293",
         "https://www.transfermarkt.com.ar/nicolas-linares/profil/spieler/534616"
       ],
-      "ratingSource": [
-        "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-        "https://statz.ai/player/facundo-lencioni/37568087",
-        "https://statz.ai/player/agustin-modica/37718748"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-de-mendoza",
       "roleSource": "https://www.transfermarkt.com.ar/gimnasia-y-esgrima-de-mendoza/kader/verein/1099",
       "ageConsulted": "2026-11-05"
     },
@@ -727,163 +703,223 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1011,
-    "missing": 7,
+    "assigned": 1018,
+    "missing": 0,
     "total": 1018,
     "byClub": {
       "sanlorenzo": {
         "total": 39,
         "assigned": 39,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 35,
+        "provisionalRatings": 4
       },
       "boca": {
         "total": 31,
         "assigned": 31,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 0
       },
       "river": {
         "total": 27,
         "assigned": 27,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 8,
+        "provisionalRatings": 19
       },
       "independiente": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 27,
+        "provisionalRatings": 9
       },
       "estudiantes": {
         "total": 37,
         "assigned": 37,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 3,
+        "provisionalRatings": 34
       },
       "velez": {
         "total": 30,
         "assigned": 30,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 2,
+        "provisionalRatings": 28
       },
       "racing": {
         "total": 27,
         "assigned": 27,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 3,
+        "provisionalRatings": 24
       },
       "lanus": {
         "total": 34,
         "assigned": 34,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 25,
+        "provisionalRatings": 9
       },
       "talleres": {
         "total": 33,
         "assigned": 33,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 1,
+        "provisionalRatings": 32
       },
       "rosario": {
         "total": 38,
         "assigned": 38,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 4,
+        "provisionalRatings": 34
       },
       "huracan": {
         "total": 32,
-        "assigned": 31,
-        "missing": 1
+        "assigned": 32,
+        "missing": 0,
+        "verifiedRatings": 25,
+        "provisionalRatings": 7
       },
       "newells": {
         "total": 30,
         "assigned": 30,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 3,
+        "provisionalRatings": 27
       },
       "gimnasia": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 4,
+        "provisionalRatings": 32
       },
       "argentinos": {
         "total": 33,
         "assigned": 33,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 2,
+        "provisionalRatings": 31
       },
       "belgrano": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 3,
+        "provisionalRatings": 33
       },
       "centralcba": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 1,
+        "provisionalRatings": 35
       },
       "atletico": {
         "total": 35,
         "assigned": 35,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 2,
+        "provisionalRatings": 33
       },
       "barracas": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 1,
+        "provisionalRatings": 35
       },
       "riestra": {
         "total": 32,
         "assigned": 32,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 1,
+        "provisionalRatings": 31
       },
       "instituto": {
         "total": 36,
-        "assigned": 35,
-        "missing": 1
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 23,
+        "provisionalRatings": 13
       },
       "sarmiento": {
         "total": 30,
-        "assigned": 29,
-        "missing": 1
+        "assigned": 30,
+        "missing": 0,
+        "verifiedRatings": 26,
+        "provisionalRatings": 4
       },
       "aldosivi": {
-        "total": 35,
-        "assigned": 34,
-        "missing": 1
+        "total": 36,
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 24,
+        "provisionalRatings": 12
       },
       "platense": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 0,
+        "provisionalRatings": 36
       },
       "defensa": {
         "total": 36,
-        "assigned": 35,
-        "missing": 1
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 29,
+        "provisionalRatings": 7
       },
       "union": {
         "total": 32,
         "assigned": 32,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 3,
+        "provisionalRatings": 29
       },
       "tigre": {
         "total": 47,
-        "assigned": 46,
-        "missing": 1
+        "assigned": 47,
+        "missing": 0,
+        "verifiedRatings": 26,
+        "provisionalRatings": 21
       },
       "banfield": {
         "total": 35,
         "assigned": 35,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 0,
+        "provisionalRatings": 35
       },
       "rivadavia": {
         "total": 29,
         "assigned": 29,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 3,
+        "provisionalRatings": 26
       },
       "gimnasiamza": {
-        "total": 32,
+        "total": 31,
         "assigned": 31,
-        "missing": 1
+        "missing": 0,
+        "verifiedRatings": 3,
+        "provisionalRatings": 28
       },
       "estudiantesrc": {
         "total": 32,
         "assigned": 32,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 0,
+        "provisionalRatings": 32
       }
     }
   },
-  "dorsalsComplete": false,
+  "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 1018,
     "missing": 0,
@@ -1297,11 +1333,11 @@
     }
   },
   "ratingCoverage": {
-    "rated": 184,
+    "rated": 318,
     "total": 1018,
-    "provisional": 834,
+    "provisional": 700,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
-    "formula": "Se prioriza el OVR vigente de EA FC 27; cuando no existe carta o dato individual, se conserva media provisional hasta completar la revisión."
+    "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
   "attributeCoverage": {
     "manualPlayers": 0,
@@ -1314,8 +1350,8 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 7,
-    "provisionalRatings": 834,
+    "playersMissingDorsal": 0,
+    "provisionalRatings": 700,
     "playersWithoutManualAttributes": 1018
   }
 }
