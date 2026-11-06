@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:17:00.289Z",
+  "updatedAt": "2026-11-06T23:18:16.822Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -726,8 +726,8 @@
         "total": 30,
         "assigned": 30,
         "missing": 0,
-        "verifiedRatings": 29,
-        "provisionalRatings": 1
+        "verifiedRatings": 30,
+        "provisionalRatings": 0
       },
       "racing": {
         "total": 24,
@@ -817,15 +817,15 @@
         "total": 32,
         "assigned": 32,
         "missing": 0,
-        "verifiedRatings": 28,
-        "provisionalRatings": 4
+        "verifiedRatings": 31,
+        "provisionalRatings": 1
       },
       "instituto": {
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 23,
-        "provisionalRatings": 13
+        "verifiedRatings": 25,
+        "provisionalRatings": 11
       },
       "sarmiento": {
         "total": 30,
@@ -852,8 +852,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 29,
-        "provisionalRatings": 7
+        "verifiedRatings": 31,
+        "provisionalRatings": 5
       },
       "union": {
         "total": 33,
@@ -873,8 +873,8 @@
         "total": 35,
         "assigned": 35,
         "missing": 0,
-        "verifiedRatings": 30,
-        "provisionalRatings": 5
+        "verifiedRatings": 32,
+        "provisionalRatings": 3
       },
       "rivadavia": {
         "total": 28,
@@ -1313,9 +1313,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 843,
+    "rated": 853,
     "total": 1017,
-    "provisional": 174,
+    "provisional": 164,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
@@ -1331,7 +1331,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 174,
+    "provisionalRatings": 164,
     "playersWithoutManualAttributes": 1018,
     "playersWithManualAttributes": 9
   }
