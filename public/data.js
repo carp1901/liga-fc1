@@ -82,7 +82,7 @@ excursionistas|Excursionistas|#0b2a5a|#ffffff|49
 flandria|Flandria|#f4d000|#0b2a5a|50
 ituzaingo|Ituzaingó|#d1001f|#ffffff|47
 realpilar|Real Pilar|#0b3d91|#ffffff|48
-sanmartinburzaco|San Martín (B)|#d1001f|#111111|47
+sanmartinburzaco|San Martín (B)|#0b2a5a|#ffffff|47
 sportivoitaliano|Sp. Italiano|#0b3d91|#d1001f|50
 talleresre|Talleres (RE)|#0b2a5a|#ffffff|50
 uai|UAI Urquiza|#0b2a5a|#f4d000|50
