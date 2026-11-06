@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:05:47.116Z",
+  "updatedAt": "2026-11-06T23:06:22.794Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -907,8 +907,8 @@
         "total": 31,
         "assigned": 31,
         "missing": 0,
-        "verifiedRatings": 3,
-        "provisionalRatings": 28
+        "verifiedRatings": 25,
+        "provisionalRatings": 6
       },
       "estudiantesrc": {
         "total": 32,
@@ -1333,9 +1333,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 318,
+    "rated": 340,
     "total": 1018,
-    "provisional": 700,
+    "provisional": 678,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
@@ -1351,7 +1351,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 700,
+    "provisionalRatings": 678,
     "playersWithoutManualAttributes": 1018
   }
 }
