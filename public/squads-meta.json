@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:07:15.935Z",
+  "updatedAt": "2026-11-06T23:08:18.013Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -753,8 +753,8 @@
         "total": 27,
         "assigned": 27,
         "missing": 0,
-        "verifiedRatings": 3,
-        "provisionalRatings": 24
+        "verifiedRatings": 19,
+        "provisionalRatings": 8
       },
       "lanus": {
         "total": 34,
@@ -802,15 +802,15 @@
         "total": 33,
         "assigned": 33,
         "missing": 0,
-        "verifiedRatings": 2,
-        "provisionalRatings": 31
+        "verifiedRatings": 29,
+        "provisionalRatings": 4
       },
       "belgrano": {
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 3,
-        "provisionalRatings": 33
+        "verifiedRatings": 26,
+        "provisionalRatings": 10
       },
       "centralcba": {
         "total": 36,
@@ -865,8 +865,8 @@
         "total": 36,
         "assigned": 36,
         "missing": 0,
-        "verifiedRatings": 0,
-        "provisionalRatings": 36
+        "verifiedRatings": 32,
+        "provisionalRatings": 4
       },
       "defensa": {
         "total": 36,
@@ -1333,9 +1333,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 442,
+    "rated": 540,
     "total": 1018,
-    "provisional": 576,
+    "provisional": 478,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
@@ -1351,7 +1351,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 576,
+    "provisionalRatings": 478,
     "playersWithoutManualAttributes": 1018
   }
 }
