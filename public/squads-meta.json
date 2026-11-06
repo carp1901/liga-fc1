@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:21:09.723Z",
+  "updatedAt": "2026-11-06T23:22:58.778Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "853 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -10,9 +10,9 @@
     "independiente": 36,
     "estudiantes": 37,
     "velez": 30,
-    "racing": 24,
+    "racing": 23,
     "lanus": 34,
-    "talleres": 33,
+    "talleres": 32,
     "rosario": 38,
     "huracan": 32,
     "newells": 31,
@@ -29,7 +29,7 @@
     "platense": 36,
     "defensa": 36,
     "union": 33,
-    "tigre": 47,
+    "tigre": 46,
     "banfield": 35,
     "rivadavia": 28,
     "gimnasiamza": 31,
@@ -732,159 +732,219 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-05",
   "numberCoverage": {
-    "assigned": 1017,
+    "assigned": 1014,
     "missing": 0,
-    "total": 1017,
+    "total": 1014,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
         "assigned": 40,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 36,
+        "provisionalRatings": 4
       },
       "boca": {
         "total": 31,
         "assigned": 31,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 0
       },
       "river": {
         "total": 27,
         "assigned": 27,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 27,
+        "provisionalRatings": 0
       },
       "independiente": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 8
       },
       "estudiantes": {
         "total": 37,
         "assigned": 37,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 6
       },
       "velez": {
         "total": 30,
         "assigned": 30,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 30,
+        "provisionalRatings": 0
       },
       "racing": {
-        "total": 24,
-        "assigned": 24,
-        "missing": 0
+        "total": 23,
+        "assigned": 23,
+        "missing": 0,
+        "verifiedRatings": 20,
+        "provisionalRatings": 3
       },
       "lanus": {
         "total": 34,
         "assigned": 34,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 25,
+        "provisionalRatings": 9
       },
       "talleres": {
-        "total": 33,
-        "assigned": 33,
-        "missing": 0
+        "total": 32,
+        "assigned": 32,
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 4
       },
       "rosario": {
         "total": 38,
         "assigned": 38,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 34,
+        "provisionalRatings": 4
       },
       "huracan": {
         "total": 32,
         "assigned": 32,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 27,
+        "provisionalRatings": 5
       },
       "newells": {
         "total": 31,
         "assigned": 31,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 30,
+        "provisionalRatings": 1
       },
       "gimnasia": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 25,
+        "provisionalRatings": 11
       },
       "argentinos": {
         "total": 33,
         "assigned": 33,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 29,
+        "provisionalRatings": 4
       },
       "belgrano": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 26,
+        "provisionalRatings": 10
       },
       "centralcba": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 8
       },
       "atletico": {
         "total": 35,
         "assigned": 35,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 32,
+        "provisionalRatings": 3
       },
       "barracas": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 29,
+        "provisionalRatings": 7
       },
       "riestra": {
         "total": 32,
         "assigned": 32,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 1
       },
       "instituto": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 25,
+        "provisionalRatings": 11
       },
       "sarmiento": {
         "total": 30,
         "assigned": 30,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 26,
+        "provisionalRatings": 4
       },
       "aldosivi": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 24,
+        "provisionalRatings": 12
       },
       "platense": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 32,
+        "provisionalRatings": 4
       },
       "defensa": {
         "total": 36,
         "assigned": 36,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 5
       },
       "union": {
         "total": 33,
         "assigned": 33,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 5
       },
       "tigre": {
-        "total": 47,
-        "assigned": 47,
-        "missing": 0
+        "total": 46,
+        "assigned": 46,
+        "missing": 0,
+        "verifiedRatings": 26,
+        "provisionalRatings": 20
       },
       "banfield": {
         "total": 35,
         "assigned": 35,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 32,
+        "provisionalRatings": 3
       },
       "rivadavia": {
         "total": 28,
         "assigned": 28,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 0
       },
       "gimnasiamza": {
         "total": 31,
         "assigned": 31,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 27,
+        "provisionalRatings": 4
       },
       "estudiantesrc": {
         "total": 32,
         "assigned": 32,
-        "missing": 0
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 4
       }
     }
   },
@@ -1302,159 +1362,219 @@
     }
   },
   "ratingCoverage": {
-    "rated": 853,
-    "total": 1017,
-    "provisional": 164,
+    "rated": 854,
+    "total": 1014,
+    "provisional": 160,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
-        "verified": 36,
-        "provisional": 4
+        "assigned": 40,
+        "missing": 0,
+        "verifiedRatings": 36,
+        "provisionalRatings": 4
       },
       "boca": {
         "total": 31,
-        "verified": 31,
-        "provisional": 0
+        "assigned": 31,
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 0
       },
       "river": {
         "total": 27,
-        "verified": 27,
-        "provisional": 0
+        "assigned": 27,
+        "missing": 0,
+        "verifiedRatings": 27,
+        "provisionalRatings": 0
       },
       "independiente": {
         "total": 36,
-        "verified": 28,
-        "provisional": 8
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 8
       },
       "estudiantes": {
         "total": 37,
-        "verified": 31,
-        "provisional": 6
+        "assigned": 37,
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 6
       },
       "velez": {
         "total": 30,
-        "verified": 30,
-        "provisional": 0
+        "assigned": 30,
+        "missing": 0,
+        "verifiedRatings": 30,
+        "provisionalRatings": 0
       },
       "racing": {
-        "total": 24,
-        "verified": 21,
-        "provisional": 3
+        "total": 23,
+        "assigned": 23,
+        "missing": 0,
+        "verifiedRatings": 20,
+        "provisionalRatings": 3
       },
       "lanus": {
         "total": 34,
-        "verified": 25,
-        "provisional": 9
+        "assigned": 34,
+        "missing": 0,
+        "verifiedRatings": 25,
+        "provisionalRatings": 9
       },
       "talleres": {
-        "total": 33,
-        "verified": 28,
-        "provisional": 5
+        "total": 32,
+        "assigned": 32,
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 4
       },
       "rosario": {
         "total": 38,
-        "verified": 34,
-        "provisional": 4
+        "assigned": 38,
+        "missing": 0,
+        "verifiedRatings": 34,
+        "provisionalRatings": 4
       },
       "huracan": {
         "total": 32,
-        "verified": 27,
-        "provisional": 5
+        "assigned": 32,
+        "missing": 0,
+        "verifiedRatings": 27,
+        "provisionalRatings": 5
       },
       "newells": {
         "total": 31,
-        "verified": 30,
-        "provisional": 1
+        "assigned": 31,
+        "missing": 0,
+        "verifiedRatings": 30,
+        "provisionalRatings": 1
       },
       "gimnasia": {
         "total": 36,
-        "verified": 25,
-        "provisional": 11
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 25,
+        "provisionalRatings": 11
       },
       "argentinos": {
         "total": 33,
-        "verified": 29,
-        "provisional": 4
+        "assigned": 33,
+        "missing": 0,
+        "verifiedRatings": 29,
+        "provisionalRatings": 4
       },
       "belgrano": {
         "total": 36,
-        "verified": 26,
-        "provisional": 10
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 26,
+        "provisionalRatings": 10
       },
       "centralcba": {
         "total": 36,
-        "verified": 28,
-        "provisional": 8
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 8
       },
       "atletico": {
         "total": 35,
-        "verified": 32,
-        "provisional": 3
+        "assigned": 35,
+        "missing": 0,
+        "verifiedRatings": 32,
+        "provisionalRatings": 3
       },
       "barracas": {
         "total": 36,
-        "verified": 29,
-        "provisional": 7
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 29,
+        "provisionalRatings": 7
       },
       "riestra": {
         "total": 32,
-        "verified": 31,
-        "provisional": 1
+        "assigned": 32,
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 1
       },
       "instituto": {
         "total": 36,
-        "verified": 25,
-        "provisional": 11
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 25,
+        "provisionalRatings": 11
       },
       "sarmiento": {
         "total": 30,
-        "verified": 26,
-        "provisional": 4
+        "assigned": 30,
+        "missing": 0,
+        "verifiedRatings": 26,
+        "provisionalRatings": 4
       },
       "aldosivi": {
         "total": 36,
-        "verified": 24,
-        "provisional": 12
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 24,
+        "provisionalRatings": 12
       },
       "platense": {
         "total": 36,
-        "verified": 32,
-        "provisional": 4
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 32,
+        "provisionalRatings": 4
       },
       "defensa": {
         "total": 36,
-        "verified": 31,
-        "provisional": 5
+        "assigned": 36,
+        "missing": 0,
+        "verifiedRatings": 31,
+        "provisionalRatings": 5
       },
       "union": {
         "total": 33,
-        "verified": 28,
-        "provisional": 5
+        "assigned": 33,
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 5
       },
       "tigre": {
-        "total": 47,
-        "verified": 26,
-        "provisional": 21
+        "total": 46,
+        "assigned": 46,
+        "missing": 0,
+        "verifiedRatings": 26,
+        "provisionalRatings": 20
       },
       "banfield": {
         "total": 35,
-        "verified": 32,
-        "provisional": 3
+        "assigned": 35,
+        "missing": 0,
+        "verifiedRatings": 32,
+        "provisionalRatings": 3
       },
       "rivadavia": {
         "total": 28,
-        "verified": 28,
-        "provisional": 0
+        "assigned": 28,
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 0
       },
       "gimnasiamza": {
         "total": 31,
-        "verified": 25,
-        "provisional": 6
+        "assigned": 31,
+        "missing": 0,
+        "verifiedRatings": 27,
+        "provisionalRatings": 4
       },
       "estudiantesrc": {
         "total": 32,
-        "verified": 28,
-        "provisional": 4
+        "assigned": 32,
+        "missing": 0,
+        "verifiedRatings": 28,
+        "provisionalRatings": 4
       }
     },
     "source": "EA SPORTS FC 27 (FCScoutDB y cartas oficiales EA), Statz.ai y Sportlumy.",
@@ -1467,12 +1587,12 @@
   },
   "qualityAudit": {
     "clubs": 30,
-    "players": 1017,
+    "players": 1014,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 164,
+    "provisionalRatings": 160,
     "playersWithoutManualAttributes": 1008
   }
 }
