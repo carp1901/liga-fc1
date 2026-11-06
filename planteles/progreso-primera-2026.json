@@ -317,9 +317,22 @@
     "jugadores": [
       "Diego Mondino",
       "Fermín Antonini",
-      "Juan Manuel Romero"
+      "Juan Manuel Romero",
+      "Nahuel Arias",
+      "Jonathan De Irastorza",
+      "Jerónimo Gómez Mattar",
+      "Valentín Cerrudo",
+      "Elías Verón",
+      "Lisandro Duarte",
+      "Lucas Ramos López",
+      "Damián Fernández",
+      "Ramiro Tulián",
+      "Gonzalo Zelarayán",
+      "Lautaro Godoy",
+      "Facundo Pimienta",
+      "Agustín Massaccesi"
     ],
-    "criterio": "OVR contrastado con ficha oficial EA SPORTS FC 27",
-    "resultado": "Diego Mondino 55; Fermín Antonini 60; Juan Manuel Romero 62"
+    "criterio": "OVR individual contrastado con fichas o tablas oficiales EA SPORTS FC 27",
+    "resultado": "Se sustituyeron medias provisionales por OVR publicados cuando correspondía; las medias 60 se conservaron solo cuando EA las confirma."
   }
 }
