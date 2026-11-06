@@ -155,7 +155,7 @@ select{pointer-events:none}
 </div></div>
 </main>
 <div id="shm" hidden><div class="shb"><div id="shi"></div><div class="nt" id="shn"></div><div class="rw"><button class="bt ok" id="shs">compartir</button><button class="bt ok" id="shd">descargar</button></div><button class="bk" id="shx">‹ cerrar</button></div></div>
-<script src="squads.js?v=20261106-primera-lote8"></script><script src="data.js"></script><script src="engine.js?v=20261106-dorsales"></script><script src="sim2d.js"></script><script>
+<script src="squads.js?v=20261106-primera-lote9"></script><script src="data.js"></script><script src="engine.js?v=20261106-dorsales"></script><script src="sim2d.js"></script><script>
 const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let DV=[],TM={},S=null,room,sel=null,evAt=0,evKey='',OFF=false,CAL=[],showCal=false,SPD=1,showInfo=false,tcOpen=true,TMSG='',TMT=0;const FN=['4-4-2','4-3-3','3-5-2','4-5-1','5-3-2','4-2-3-1','4-2-2-2','3-4-3','5-4-1','4-3-1-2','4-1-4-1','4-4-1-1','3-4-2-1','5-2-3'];
 let pid;try{pid=localStorage.pid||(localStorage.pid=Math.random().toString(36).slice(2)+Date.now().toString(36))}catch(e){pid=Math.random().toString(36).slice(2)}
@@ -1074,15 +1074,16 @@ const crestIm=id=>{crestLoad(id);return CRS[id]=='ok'?CIM[id]:null};
 const bigCrest=(id,x,y,s,a)=>{const im=crestIm(id),t=TM[id];cx.save();cx.globalAlpha=a;if(im){cx.drawImage(im,x-s/2,y-s/2,s,s*im.naturalHeight/im.naturalWidth)}else{cx.fillStyle=t.c1;cx.beginPath();cx.arc(x,y,s/2,0,7);cx.fill();cx.fillStyle=t.c2;cx.beginPath();cx.arc(x,y,s/4,0,7);cx.fill()}cx.restore()};
 const walkAt=(k,p)=>{if(p<=k[0][0])return[k[0][1],k[0][2]];for(let i=0;i<k.length-1;i++){const a=k[i],b=k[i+1];if(p<=b[0]){const u=(p-a[0])/Math.max(1e-9,b[0]-a[0]),e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;return[a[1]+(b[1]-a[1])*e,a[2]+(b[2]-a[2])*e]}}const l=k[k.length-1];return[l[1],l[2]]};
 // ceremonia de ~14 s: salen por el lateral y caminan a su lugar en la fila, el visitante saluda pasando frente al local, foto del XI (6 abajo / 5 arriba) y trotan a su posición
-function ceremony(t,mine,opp,names,home,ids){const dur=18000,p=c01((t-cerT0)/dur),rowY=H/2+26,hx=i=>Q.X0+30+i*(W/2-70)/10,awx=i=>W-hx(i),visS=home?1:0,locS=1-visS;
+function ceremony(t,mine,opp,names,home,ids,m){const dur=18000,p=c01((t-cerT0)/dur),rowY=H/2+26,hx=i=>Q.X0+30+i*(W/2-70)/10,awx=i=>W-hx(i),visS=home?1:0,locS=1-visS;
  const ca=Math.min(1,p/.08)*(1-c01((p-.84)/.12));if(ca>0&&ids){bigCrest(ids[0],W*.2,H/2,170,.28*ca);bigCrest(ids[1],W*.8,H/2,170,.28*ca)}
  const rowX=(s,i)=>s==0?hx(i):awx(i),photo=(s,i)=>{const back=i<5,off=back?(i-2)*46:(i-7.5)*46,px=s==0?W*.27+off:W-(W*.27+off);return[px,back?H/2-12:H/2+30]};
- SIM.P.forEach(q=>{const s=q.s,i=q.k,T=s==0?mine:opp,d=(i%4)*.012,e=i*.012,cx0=W/2+(s==0?-26:26),rx=rowX(s,i);
+  const squads=ids.map(id=>DATA.squad(id)||[]),shirt=(s,i)=>{const info=m?(s==0?(home?m.pa:m.pb):(home?m.pb:m.pa)):null,ix=info&&info.x?info.x[i]:null;return ix!=null?(squads[s][ix]||{}).number:0};
+ SIM.P.forEach(q=>{const s=q.s,i=q.k,T=s==0?mine:opp,dor=Number(shirt(s,i)),d=(i%4)*.012,e=i*.012,cx0=W/2+(s==0?-26:26),rx=rowX(s,i);
   // 1) entran por el lateral y se forman en la fila · 2) el visitante da un paso al frente y camina por delante de los locales · 3) saludo · 4) vuelve a su lugar · 5) foto del XI · 6) cada uno trota a su posición
   const k=[[e,cx0,H+22],[.10+e,cx0,rowY],[.17+e,rx,rowY]];   // salen de a uno, en fila, hasta el medio y ahí se abren a su lugar
   if(s==visS){k.push([.34+d,rx,rowY+15],[.47+d,rx+(s==1?-330:330),rowY+15],[.50+d,rx+(s==1?-330:330),rowY+15],[.62+d,rx,rowY+15],[.66+d,rx,rowY])}else k.push([.66+d,rx,rowY]);
   const[px,py]=photo(s,i);k.push([.72+d,px,py],[.8,px,py],[1,q.x,q.y]);
-  const[x,y0]=walkAt(k,p),bob=(p>.13&&p<.99)?Math.abs(Math.sin(p*60*Math.PI+i))*1.2:0,gk=q.k==0;if(gk)disc(x,y0-bob,'#39424b',T.k[1],3);else kitDisc(x,y0-bob,s==0?ids[0]:ids[1],T.k,T.k[1],3,10)});
+  const[x,y0]=walkAt(k,p),bob=(p>.13&&p<.99)?Math.abs(Math.sin(p*60*Math.PI+i))*1.2:0,gk=q.k==0;if(gk)disc(x,y0-bob,'#39424b',T.k[1],3);else kitDisc(x,y0-bob,ids[s],T.k,T.k[1],3,10);if(dor>0){const nc=gk?'#fff':numInk(ids[s],T.k,T.k[0]);cx.font='700 7px Barlow,sans-serif';cx.textAlign='center';cx.lineJoin='round';cx.lineWidth=2;cx.strokeStyle=lum(nc)>.5?'#000d':'#fff9';cx.strokeText(String(dor),x,y0-bob+2.5);cx.fillStyle=nc;cx.fillText(String(dor),x,y0-bob+2.5)}});
  (SIM.refs||[]).forEach(r=>{const k=r.role=='ref'?[[.02,W/2,H+24],[.2,W/2,H/2+46]]:r.role=='l1'?[[.02,W/2-40,H+24],[.2,W/2-60,12]]:[[.02,W/2+40,H+24],[.2,W/2+60,H-12]],[x,y]=walkAt(k,p);disc(x,y,'#2fbf5f','#145a2a',2,r.role=='ref'?11:9)});
  if(p>.36&&p<.84){const a=Math.min(1,(p-.36)/.05,(.84-p)/.05);cx.font='700 24px "Barlow Condensed",sans-serif';cx.textAlign='center';cx.fillStyle=`rgba(0,0,0,${a*.6})`;cx.fillText(names[0],W*.27+2,H/2-62);cx.fillText(names[1],W*.73+2,H/2-62);cx.fillStyle=`rgba(255,255,255,${a})`;cx.fillText(names[0],W*.27,H/2-64);cx.fillText(names[1],W*.73,H/2-64)}
  if(p>.6&&p<.8){const f=Math.floor(p*420);if(f%9<2){cx.fillStyle='rgba(255,255,255,.85)';for(let k=0;k<4;k++){cx.beginPath();cx.arc(40+((k*173+f*53)%640),H-10-((k*37)%12),2.6,0,7);cx.fill()}}}}
@@ -1116,7 +1117,7 @@ function frame(){requestAnimationFrame(frame);if(!S||!S.me||!S.me.team||S.phase=
  [[20,20,0],[W-20,20,1],[W-20,H-20,2],[20,H-20,3]].forEach(([x,y,q])=>{cx.beginPath();cx.arc(x,y,8,q*Math.PI/2,(q+1)*Math.PI/2);cx.stroke()});
  cx.fillStyle='#ffffff30';cx.fillRect(Q.X0-16,Q.GY0,16,Q.GY1-Q.GY0);cx.fillRect(Q.X0+Q.FW,Q.GY0,16,Q.GY1-Q.GY0);
  const B=SIM.B,sc=SIM.sc;
- if(ph=='cer'&&m)ceremony(t,mine,opp,[TM[own].name,TM[oppId].name],home,[own,oppId]);
+ if(ph=='cer'&&m)ceremony(t,mine,opp,[TM[own].name,TM[oppId].name],home,[own,oppId],m);
  else{
   const bs=Math.hypot(B.vx,B.vy),L=SIM.link,SH0=SIM.shot;
   // estela de la pelota: puntos que se desvanecen siguiendo su recorrido real (curvo)
