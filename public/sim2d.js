@@ -31,7 +31,7 @@ class Sim{
  tg(p,x,y,o){if(p)p.tg=o?{x:clamp(x,X0-16,X0+FW+16),y:clamp(y,Y0-16,Y0+FH+16),out:1}:{x:clamp(x,X0+R,X0+FW-R),y:clamp(y,Y0+R,Y0+FH-R)}}
  clr(){this.P.forEach(p=>{p.tg=null;p.vmx=0})}
  rest(){const S=this,B=S.B;S.P.forEach(p=>{p.walk=0;p.pw=null});S.sc=null;S.ko=null;S.rp=null;S.pre=null;S.koP=null;S.fx=null;S.freeze=0;S.runner=null;S.prev=null;S.counter=null;S.build=null;S.third=null;S.sb=null;S.trail=[];S.link=null;S.shot=null;S.run=null;S.clr();S.offs=null;S.mkm=[new Map(),new Map()];S.refs=[{x:W/2,y:H/2+40,role:'ref'},{x:W/2,y:Y0-9,role:'l1'},{x:W/2,y:Y0+FH+9,role:'l2'}];S.P.forEach(p=>{p.hy=p.hy0;p.swpT=0;const h=S.hp(p);p.x=h.x;p.y=h.y;p.vx=p.vy=0;p.cool=0;p.hold=0});B.x=W/2;B.y=H/2;B.vx=B.vy=0;B.free=false;B.own=null;B.recv=null}
- hardRest(){this.q=[];this.gq=[];this.gap=0;this.rest()}
+ hardRest(){this.q=[];this.gq=[];this.gap=0;this.endScene=null;this.rest()}
  kickoff(side,soft){const S=this,B=S.B,old=soft?S.P.map(p=>[p.x,p.y]):null;S.rest();S.ko=null;const o=S.P.find(p=>p.s==side&&p.k==10&&!p.off)||S.P.find(p=>!p.off);if(!o)return;o.x=W/2+(o.s?14:-14);o.y=H/2;B.own=o;S.poss=o.s;o.hold=0;o.wait=24;S.koP=o;
   if(old){let md=0;S.P.forEach((p,i)=>{if(p.off)return;const hx=p.x,hy=p.y;p.x=old[i][0];p.y=old[i][1];md=Math.max(md,Math.hypot(hx-p.x,hy-p.y));S.tg(p,hx,hy);p.vmx=4.2});const w=clamp(Math.ceil(md/4.2)+18,30,170);S.P.forEach(p=>{p.cool=w+4});B.own=null;B.x=W/2;B.y=H/2;S.ko={t:S.n+w,o};S.gap=w+10}}   // después de un gol los jugadores vuelven caminando a sus posiciones (no aparecen de golpe) y recién ahí se saca del medio
  
@@ -40,7 +40,7 @@ class Sim{
  subAnim(s,k,num){const S=this,p=S.P.find(q=>q.s==s&&q.k==k);if(!p||p.off||S.frozen||S.n<40)return;(S.gh=S.gh||[]).push({x:p.x,y:p.y,s,num,n:S.n,top:p.y<H/2});if(S.B.own===p){S.B.own=null;S.B.free=true}const top=p.y<H/2;p.y=top?Y0+1:Y0+FH-1;p.vx=p.vy=0;p.sub=S.n;p.sm=S.ctx?S.ctx.min:0;p.cool=20;p.hold=0}
  walkStep(){const S=this;(S.gh=S.gh||[]).forEach(g=>{const ty=g.top?Y0-16:Y0+FH+16,dy=ty-g.y;if(Math.abs(dy)>1.5){const v=Math.min(1.9,Math.abs(dy));g.y+=Math.sign(dy)*v;g.x+=(g.s?-1:1)*.15}});S.gh=S.gh.filter(g=>S.n-g.n<170);S.P.forEach(p=>{if(!p.walk)return;const tx=W/2+(p.s?40:-40),ty=Y0+FH+26,dx=tx-p.x,dy=ty-p.y,d=Math.hypot(dx,dy);if(d<3||p.y>Y0+FH+14){p.walk=0;return}const v=Math.min(1.7,d);p.x+=dx/d*v;p.y+=dy/d*v;p.fx=dx/d;p.fy=dy/d;p.hd=Math.atan2(dy,dx)})}
   endMatch(winner){if(this.endScene)return;this.endScene={winner,start:this.n};this.q=[];this.gq=[];this.sc=null;this.rp=null;this.B.own=null;this.B.recv=null;this.B.free=true;this.frozen=false;this.P.forEach(p=>{p.tg=null;p.vx=p.vy=0;p.walk=1;p.endWalk=1;p.cheer=winner!=null&&p.s===winner?1:0})}
-  endWalkStep(){const S=this,el=S.n-S.endScene.start;S.P.forEach(p=>{if(p.endWalk&&p.cheer&&el<90){p.walk=0;p.x+=Math.sin(S.n/5+p.k)*.18}else{p.cheer=0;p.walk=1}});S.walkStep()}
+  endWalkStep(){const S=this,el=S.n-S.endScene.start;if(el>=300){S.P.forEach(p=>{p.walk=0;p.cheer=0});S.endScene.done=1;S.frozen=true;return}S.P.forEach(p=>{if(p.endWalk&&p.cheer&&el<90){p.walk=0;p.x+=Math.sin(S.n/5+p.k)*.18}else{p.cheer=0;p.walk=1}});S.walkStep()}
  geo(as){const g=this.pso?0:as;return{gx:g?X0:X0+FW,dir:g?-1:1,ds:1-as}}   // en la tanda de penales todos se patean al mismo arco
  near(arr,pt){return arr.reduce((b,p)=>!b||dist(p,pt)<dist(b,pt)?p:b,null)}
  psp(d){return clamp(d/24,3.8,6.2)*this.fs}
