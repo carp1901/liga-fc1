@@ -5,7 +5,7 @@ La recopilación se hace por etapas y se guarda en el propio juego. No se consul
 ## Primera División
 
 - Planteles y dorsales: página oficial del club y Liga Profesional/AFA; Promiedos y Transfermarkt sirven como contraste.
-- Medias: OVR de EA SPORTS FC 27, contrastado con FCScoutDB y cartas oficiales de EA.
+- Medias: OVR de EA SPORTS FC 27, contrastado con FCScoutDB y cartas oficiales de EA. Una página de club de FCScoutDB solo respalda la media si el jugador aparece en su tabla y coincide el OVR; no usar la valoración global del club como media individual.
 - Cuando no existe carta, se usan promedios de rendimiento de Sofascore, Statz.ai y Sportlumy si hay al menos 10 apariciones.
 - Si dos fuentes discrepan, prevalece el club o la competición oficial y la diferencia queda pendiente de revisión.
 - No copiar fotos.
@@ -13,7 +13,7 @@ La recopilación se hace por etapas y se guarda en el propio juego. No se consul
 - Si no aparece un dorsal oficial y el proyecto autoriza asignarlo, usar un número libre y dejar `dorsal_source` como `Asignado internamente`; nunca presentarlo como oficial.
 - Si falta un dato verificable, dejarlo vacío. Si falta un jugador, el club queda pendiente.
 - Las edades se calculan desde fecha de nacimiento usando la referencia 05/11/2026 cuando esa fecha está documentada.
-- La media 60 es provisional cuando no hay OVR de EA FC 27 ni una muestra estadística verificable. Toda media contrastada conserva su fuente.
+- La media 60 es provisional cuando no hay OVR individual de EA FC 27 ni una muestra estadística verificable. Una media puede ser 60 y estar verificada si EA publica ese OVR; no subirla por criterio subjetivo. Toda media contrastada conserva una fuente específica del jugador o una página de club donde figure su fila.
 - Los atributos técnicos/físicos que no tienen observación individual se derivan en `public/data.js` por perfil de posición y media; no se presentan como estadísticas reales.
 
 ## Formato CSV
