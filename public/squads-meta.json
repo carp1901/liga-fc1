@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:10:43.050Z",
+  "updatedAt": "2026-11-06T23:11:47.002Z",
   "source": "Planteles 2026: fuentes oficiales de clubes y valoraciones de EA FC 27 contrastadas en FCScoutDB",
   "ratings": "Medias individuales contrastadas con EA SPORTS FC 27 (FCScoutDB) y estadísticas de rendimiento; los jugadores sin fuente individual conservan una media provisional.",
   "counts": {
@@ -229,7 +229,7 @@
     "talleres": {
       "source": "https://www.tycsports.com/talleres-de-cordoba.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.clubtalleres.com.ar/jugadores/lucio-ferrari/",
+      "numberSource": "https://fcscoutdb.com/clubs/talleres-de-cordoba",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.transfermarkt.com.ar/santino-barbi/profil/spieler/1197308",
@@ -240,7 +240,7 @@
         "https://www.transfermarkt.com.ar/giovanni-baroni/profil/spieler/1265841",
         "https://www.transfermarkt.com.ar/ca-talleres/kadernaechstesaison/verein/3938/saison_id/2026"
       ],
-      "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
+      "ratingSource": "https://fcscoutdb.com/clubs/talleres-de-cordoba",
       "roleSource": "https://www.transfermarkt.com.ar/ca-talleres-cordoba/kader/verein/393",
       "ageConsulted": "2026-11-05"
     },
@@ -270,7 +270,7 @@
     "newells": {
       "source": "https://www.newellsoldboys.com.ar/plantel",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/newells/",
+      "numberSource": "https://fcscoutdb.com/clubs/newell-s-old-boys",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/newell-s-old-boys/plantilla",
@@ -279,10 +279,7 @@
         "https://www.transfermarkt.com.ar/martin-ortega/profil/spieler/663118",
         "https://www.newellsoldboys.com.ar/noticias/comunicado-oficial-mateo-garcia"
       ],
-      "ratingSource": [
-        "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
-        "https://statz.ai/player/matias-coccaro/3872629"
-      ],
+      "ratingSource": "https://fcscoutdb.com/clubs/newell-s-old-boys",
       "roleSource": [
         "https://www.transfermarkt.com.ar/ca-newells-old-boys/kader/verein/1034",
         "https://www.transfermarkt.com.ar/mateo-garcia/rueckennummern/spieler/441287"
@@ -662,7 +659,7 @@
     "estudiantesrc": {
       "source": "https://www.aaestudiantesriocuarto.com/",
       "consulted": "2026-11-05",
-      "numberSource": [],
+      "numberSource": "https://fcscoutdb.com/clubs/estudiantes-de-rio-cuarto",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/estudiantes-rio-cuarto/plantilla",
@@ -671,7 +668,7 @@
         "https://www.transfermarkt.com.ar/juan-antonini/profil/spieler/667375",
         "https://www.transfermarkt.com.ar/abel-francisco-romero/profil/spieler/1103451"
       ],
-      "ratingSource": [],
+      "ratingSource": "https://fcscoutdb.com/clubs/estudiantes-de-rio-cuarto",
       "roleSource": "https://www.transfermarkt.com.ar/estudiantes-de-rio-cuarto/kader/verein/11015",
       "ageConsulted": "2026-11-05"
     },
@@ -749,8 +746,8 @@
         "total": 33,
         "assigned": 33,
         "missing": 0,
-        "verifiedRatings": 1,
-        "provisionalRatings": 32
+        "verifiedRatings": 28,
+        "provisionalRatings": 5
       },
       "rosario": {
         "total": 38,
@@ -770,8 +767,8 @@
         "total": 30,
         "assigned": 30,
         "missing": 0,
-        "verifiedRatings": 3,
-        "provisionalRatings": 27
+        "verifiedRatings": 29,
+        "provisionalRatings": 1
       },
       "gimnasia": {
         "total": 36,
@@ -896,8 +893,8 @@
         "total": 32,
         "assigned": 32,
         "missing": 0,
-        "verifiedRatings": 0,
-        "provisionalRatings": 32
+        "verifiedRatings": 28,
+        "provisionalRatings": 4
       }
     }
   },
@@ -1315,9 +1312,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 754,
+    "rated": 835,
     "total": 1018,
-    "provisional": 264,
+    "provisional": 183,
     "source": "FCScoutDB (EA SPORTS FC 27), Statz.ai y Sportlumy",
     "formula": "Se prioriza el OVR de EA FC 27; cuando no hay carta, la media queda provisional hasta revisar fuentes de rendimiento."
   },
@@ -1333,7 +1330,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 264,
+    "provisionalRatings": 183,
     "playersWithoutManualAttributes": 1018
   }
 }
