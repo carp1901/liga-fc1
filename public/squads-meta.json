@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:48:01.034Z",
+  "updatedAt": "2026-11-06T23:48:54.685Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "866 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "867 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -569,7 +569,8 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/aldosivi",
-        "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/aldosivi/111707"
+        "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/aldosivi/111707",
+        "https://www.futship.com/26/team/111707-aldosivi"
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/club-atletico-aldosivi/kader/verein/1006",
@@ -1370,9 +1371,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 866,
+    "rated": 867,
     "total": 1013,
-    "provisional": 147,
+    "provisional": 146,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1481,8 +1482,8 @@
       },
       "aldosivi": {
         "total": 36,
-        "verified": 24,
-        "provisional": 12
+        "verified": 25,
+        "provisional": 11
       },
       "platense": {
         "total": 36,
@@ -1540,7 +1541,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 147,
+    "provisionalRatings": 146,
     "playersWithoutManualAttributes": 1005
   }
 }
