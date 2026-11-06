@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:49:28.544Z",
+  "updatedAt": "2026-11-06T23:50:15.105Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "870 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "872 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -710,7 +710,9 @@
         "https://www.transfermarkt.com.ar/ian-subiabre/profil/spieler/1074969"
       ],
       "ratingSource": [
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/luka-fuster/73843",
         "https://fcscoutdb.com/clubs/tigre",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/teams-ratings/tigre/111715",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/ignacio-peluffo/81912"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-tigre/kader/verein/1188",
@@ -1374,9 +1376,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 870,
+    "rated": 872,
     "total": 1013,
-    "provisional": 143,
+    "provisional": 141,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1505,8 +1507,8 @@
       },
       "tigre": {
         "total": 46,
-        "verified": 26,
-        "provisional": 20
+        "verified": 28,
+        "provisional": 18
       },
       "banfield": {
         "total": 35,
@@ -1544,7 +1546,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 143,
+    "provisionalRatings": 141,
     "playersWithoutManualAttributes": 1005
   }
 }
