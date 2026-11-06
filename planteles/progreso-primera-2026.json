@@ -26,12 +26,12 @@
     },
     "racing": {
       "estado": "recopilado",
-      "jugadores": 24,
+      "jugadores": 23,
       "fuente": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 21,
+      "medias_con_fuente": 20,
       "medias_provisionales": 3,
-      "dorsales_asignados": 24,
+      "dorsales_asignados": 23,
       "dorsales_faltantes": 0
     },
     "independiente": {
@@ -76,12 +76,12 @@
     },
     "talleres": {
       "estado": "recopilado",
-      "jugadores": 33,
+      "jugadores": 32,
       "fuente": "https://www.tycsports.com/talleres-de-cordoba.html",
       "consultado": "2026-11-05",
       "medias_con_fuente": 28,
-      "medias_provisionales": 5,
-      "dorsales_asignados": 33,
+      "medias_provisionales": 4,
+      "dorsales_asignados": 32,
       "dorsales_faltantes": 0
     },
     "lanus": {
@@ -166,12 +166,12 @@
     },
     "tigre": {
       "estado": "recopilado",
-      "jugadores": 47,
+      "jugadores": 46,
       "fuente": "https://www.tycsports.com/tigre.html",
       "consultado": "2026-11-05",
       "medias_con_fuente": 26,
-      "medias_provisionales": 21,
-      "dorsales_asignados": 47,
+      "medias_provisionales": 20,
+      "dorsales_asignados": 46,
       "dorsales_faltantes": 0
     },
     "platense": {
@@ -290,8 +290,8 @@
       "jugadores": 31,
       "fuente": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 25,
-      "medias_provisionales": 6,
+      "medias_con_fuente": 27,
+      "medias_provisionales": 4,
       "dorsales_asignados": 31,
       "dorsales_faltantes": 0
     },
@@ -306,10 +306,10 @@
       "dorsales_faltantes": 0
     }
   },
-  "jugadores_total": 1017,
-  "medias_con_fuente": 853,
-  "medias_provisionales": 164,
-  "dorsales_asignados": 1017,
+  "jugadores_total": 1014,
+  "medias_con_fuente": 854,
+  "medias_provisionales": 160,
+  "dorsales_asignados": 1014,
   "dorsales_faltantes": 0,
   "actualizado": "2026-11-06"
 }
