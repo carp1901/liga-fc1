@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:51:03.033Z",
+  "updatedAt": "2026-11-06T23:52:11.579Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "873 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "875 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -172,6 +172,7 @@
       "numberSource": [],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/estudiantes-de-la-plata",
+        "https://www.fifacm.com/players?nations=52&order=asc&position=CB&sort=likes&teams=101083&vid=435",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/baltasar-rodriguez/275343"
       ],
       "roleSource": [
@@ -395,7 +396,8 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/argentinos-juniors",
-        "https://www.ea.com/es-mx/games/ea-sports-fc/ratings/player-ratings/agustin-mangiaut/75072"
+        "https://www.ea.com/es-mx/games/ea-sports-fc/ratings/player-ratings/agustin-mangiaut/75072",
+        "https://www.fifacm.com/players?foot=Left&nations=52&order=asc&page=1&sort=overallrating&teams=111019&vid=429"
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/argentinos-juniors/kader/verein/1030",
@@ -1379,9 +1381,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 873,
+    "rated": 875,
     "total": 1013,
-    "provisional": 140,
+    "provisional": 138,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1405,8 +1407,8 @@
       },
       "estudiantes": {
         "total": 37,
-        "verified": 31,
-        "provisional": 6
+        "verified": 32,
+        "provisional": 5
       },
       "velez": {
         "total": 30,
@@ -1450,8 +1452,8 @@
       },
       "argentinos": {
         "total": 33,
-        "verified": 30,
-        "provisional": 3
+        "verified": 31,
+        "provisional": 2
       },
       "belgrano": {
         "total": 36,
@@ -1549,7 +1551,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 140,
+    "provisionalRatings": 138,
     "playersWithoutManualAttributes": 1005
   }
 }
