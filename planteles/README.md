@@ -5,7 +5,7 @@ La recopilación se hace por etapas y se guarda en el propio juego. No se consul
 ## Primera División
 
 - Planteles y dorsales: página oficial del club y Liga Profesional/AFA; Promiedos y Transfermarkt sirven como contraste.
-- Medias: priorizar OVR de EA SPORTS FC 27; si el jugador no aparece en esa edición, usar EA SPORTS FC 26 como respaldo y dejar la edición identificada en `rating_source`. Contrastar con FCScoutDB y cartas oficiales de EA. Una página de club de FCScoutDB solo respalda la media si el jugador aparece en su tabla y coincide el OVR; no usar la valoración global del club como media individual.
+- Medias: priorizar OVR de EA SPORTS FC 27; si el jugador no aparece en esa edición, usar EA SPORTS FC 26 como respaldo (FIFAIndex/FIFACM cuando no haya ficha EA) y dejar la edición identificada en `rating_source`. Contrastar con FCScoutDB y cartas oficiales de EA. Una página de club de FCScoutDB solo respalda la media si el jugador aparece en su tabla y coincide el OVR; no usar la valoración global del club como media individual.
 - Cuando no existe carta, se usan promedios de rendimiento de Sofascore, Statz.ai, Sportlumy o FotMob si hay al menos 10 apariciones.
 - Si dos fuentes discrepan, prevalece el club o la competición oficial y la diferencia queda pendiente de revisión.
 - No copiar fotos.
