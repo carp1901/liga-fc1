@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:46:50.975Z",
+  "updatedAt": "2026-11-06T23:47:18.427Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "865 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "865 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -1524,8 +1524,8 @@
         "provisional": 4
       }
     },
-    "source": "EA SPORTS FC 27 (FCScoutDB y cartas oficiales EA), Sofascore, Statz.ai y Sportlumy.",
-    "formula": "Se prioriza el OVR de EA FC 27; si no existe, se usa promedio de partido con al menos 10 apariciones. Sin fuente individual, la media 60 queda provisional."
+    "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob.",
+    "formula": "Se prioriza el OVR de EA FC 27; si no existe, se usa EA FC 26 como respaldo. Sin carta, se usa promedio de partido con al menos 10 apariciones. Sin fuente individual, la media 60 queda provisional."
   },
   "attributeCoverage": {
     "manualPlayers": 8,
