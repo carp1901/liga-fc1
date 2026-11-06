@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:43:10.750Z",
+  "updatedAt": "2026-11-06T23:44:35.557Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "859 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "862 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -125,6 +125,7 @@
       "ratingSource": [
         "https://fcscoutdb.com/clubs/independiente",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jonathan-de-irastorza/74818",
+        "https://www.ea.com/en/games/ea-sports-fc/ratings/teams-ratings/independiente/110093",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/maximiliano-gutierrez/71740"
       ],
       "roleSource": "https://www.transfermarkt.es/ca-independiente/kader/verein/1234",
@@ -215,6 +216,7 @@
       ],
       "numberSource": [],
       "ratingSource": [
+        "https://www.fifacm.com/players?nations=52&order=asc&page=1&sort=overallrating&teams=101085&vid=412",
         "https://fcscoutdb.com/clubs/racing-club-de-avellaneda",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/gaston-martirena/255878",
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -513,6 +515,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/instituto-de-cordoba",
+        "https://www.fifacm.com/26/player/243521",
         "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/agustin-massaccesi/83589",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/manuel-romero/275257"
       ],
@@ -1356,9 +1359,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 859,
+    "rated": 862,
     "total": 1014,
-    "provisional": 155,
+    "provisional": 152,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1377,8 +1380,8 @@
       },
       "independiente": {
         "total": 36,
-        "verified": 28,
-        "provisional": 8
+        "verified": 29,
+        "provisional": 7
       },
       "estudiantes": {
         "total": 37,
@@ -1392,8 +1395,8 @@
       },
       "racing": {
         "total": 23,
-        "verified": 21,
-        "provisional": 2
+        "verified": 22,
+        "provisional": 1
       },
       "lanus": {
         "total": 34,
@@ -1457,8 +1460,8 @@
       },
       "instituto": {
         "total": 36,
-        "verified": 26,
-        "provisional": 10
+        "verified": 27,
+        "provisional": 9
       },
       "sarmiento": {
         "total": 30,
@@ -1526,7 +1529,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 155,
+    "provisionalRatings": 152,
     "playersWithoutManualAttributes": 1006
   }
 }
