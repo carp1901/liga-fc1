@@ -1008,6 +1008,23 @@ const KIT_STYLES={
  uy_racing:{s:'stripes',c1:'#0a7d3b',c2:'#ffffff',n:'#ffffff'},
  uy_wanderers:{s:'stripes',c1:'#111111',c2:'#ffffff',n:'#ffffff'},
 
+ // Patrones adicionales que aparecen en otros escudos
+ atlanta:{s:'stripes',c1:'#0b2a5e',c2:'#f4d000',n:'#f4d000'},
+ alvarado:{s:'sash',c1:'#0b2a5e',c2:'#ffffff',n:'#ffffff'},
+ sanmartintuc:{s:'stripes',c1:'#d1001f',c2:'#ffffff',n:'#d1001f'},
+ soldemayo:{s:'sash',c1:'#62d7f5',c2:'#ffffff',n:'#0b2a5e'},
+ estrellaberisso:{s:'stripes',c1:'#111111',c2:'#ffffff',n:'#ffffff'},
+ fcezeiza:{s:'sash',c1:'#17499a',c2:'#ffffff',n:'#17499a'},
+ hacoaj:{s:'sash2',c1:'#ffffff',c2:'#4b1688',c3:'#4b1688',n:'#4b1688'},
+ sportivoitaliano:{s:'tricolor',c1:'#078a43',c2:'#ffffff',c3:'#e21b2d',n:'#ffffff'},
+ espanol:{s:'tricolor',c1:'#20a6d2',c2:'#ffffff',c3:'#d1001f',n:'#111111'},
+ kimberley:{s:'stripes',c1:'#078a43',c2:'#ffffff',n:'#078a43'},
+ puertonuevo:{s:'stripes',c1:'#f4d000',c2:'#17499a',n:'#f4d000'},
+ jjurquiza:{s:'hstripes',c1:'#ffffff',c2:'#66c6e8',n:'#17499a'},
+ uy_defensor:{s:'hstripes',c1:'#ffffff',c2:'#6b2a8a',n:'#6b2a8a'},
+ uy_cerro:{s:'hstripes',c1:'#ffffff',c2:'#67c4e9',n:'#0b2a5a'},
+ uy_fenix:{s:'half',c1:'#6b2a8a',c2:'#ffffff',n:'#ffffff'},
+ paraguayo:{s:'sash2',c1:'#ffffff',c2:'#e21b2d',c3:'#17499a',n:'#17499a'},
  // Diseños especiales presentes en el PNG
  defglew:{s:'checker',c1:'#111111',c2:'#ffffff',n:'#ffffff'},
  mercedes:{s:'checker',c1:'#111111',c2:'#ffffff',n:'#ffffff'},
@@ -1017,7 +1034,7 @@ const kitDisc=(x,y,id,k,bc,lw,r)=>{const cfg=KIT_STYLES[id]||{},st=cfg.s||'plain
  if(st=='sash'){cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillRect(-r*1.5,-r*.27,r*3,r*.54);cx.restore()}
  else if(st=='hband')cx.fillRect(x-r,y-r*.3,r*2,r*.6);
  else if(st=='stripes'){const w=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r+i*w,y-r,w,r*2)}
- else if(st=='half')cx.fillRect(x,y-r,r,r*2);else if(st=='checker'){cx.fillRect(x-r,y-r,r,r);cx.fillRect(x,y,r,r);cx.fillStyle=c1;cx.fillRect(x,y-r,r,r);cx.fillRect(x-r,y,r,r)}
+ else if(st=='half')cx.fillRect(x,y-r,r,r*2);else if(st=='hstripes'){const h=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r,y-r+i*h,r*2,h)}else if(st=='tricolor'){cx.fillStyle=c1;cx.fillRect(x-r,y-r,r*2/3,r*2);cx.fillStyle=c3;cx.fillRect(x+r/3,y-r,r*2/3,r*2)}else if(st=='sash2'){cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillStyle=c1;cx.fillRect(-r*1.5,-r*.36,r*3,r*.22);cx.fillStyle=c2;cx.fillRect(-r*1.5,r*.14,r*3,r*.22);cx.restore()}else if(st=='checker'){cx.fillRect(x-r,y-r,r,r);cx.fillRect(x,y,r,r);cx.fillStyle=c1;cx.fillRect(x,y-r,r,r);cx.fillRect(x-r,y,r,r)}
  else if(st=='sash3'){cx.fillStyle=c1;cx.fillRect(x,y-r,r,r*2);cx.fillStyle=c3;cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillRect(-r*1.5,-r*.25,r*3,r*.5);cx.restore()}
  else if(st=='v3'){/* Brown de Adrogué: tres zonas completas, sin contorno decorativo: arriba celeste, V negra y abajo roja */cx.fillStyle=c3||'#d1001f';cx.fillRect(x-r,y-r,r*2,r*2);cx.beginPath();cx.moveTo(x-r,y-r);cx.lineTo(x+r,y-r);cx.lineTo(x+r,y-r*.55);cx.lineTo(x,y+r*.35);cx.lineTo(x-r,y-r*.55);cx.closePath();cx.fillStyle=c0;cx.fill();cx.beginPath();cx.moveTo(x-r,y-r*.55);cx.lineTo(x,y+r*.35);cx.lineTo(x+r,y-r*.55);cx.lineTo(x+r,y-r*.25);cx.lineTo(x,y+r*.65);cx.lineTo(x-r,y-r*.25);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='v'){cx.beginPath();cx.moveTo(x-r*.95,y-r);cx.lineTo(x-r*.4,y-r);cx.lineTo(x,y+r*.18);cx.lineTo(x+r*.4,y-r);cx.lineTo(x+r*.95,y-r);cx.lineTo(x,y+r*.8);cx.closePath();cx.fill()}
  else{cx.beginPath();cx.arc(x,y-r*.95,r*.55,0,Math.PI);cx.fill()}   // lisa: cuello y detalles del color secundario
