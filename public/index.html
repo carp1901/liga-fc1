@@ -884,7 +884,7 @@ const KIT_STYLES={
  midland:{s:'sash',c1:'#ffffff',c2:'#17499a',n:'#111111'},
  allboys:{s:'sash',c1:'#ffffff',c2:'#111111',n:'#111111'},
  acassuso:{s:'plain',c1:'#0b2a5a',c2:'#ffffff',n:'#ffffff'},
- antoniana:{s:'sash',c1:'#173b58',c2:'#ffffff',n:'#173b58'},
+ antoniana:{s:'sash3',c1:'#173b58',c2:'#4b3025',c3:'#ffffff',n:'#173b58'},
  argentinoquilmes:{s:'sash',c1:'#ffffff',c2:'#65c8ed',n:'#65c8ed'},
  argentinorosario:{s:'sash',c1:'#0860b5',c2:'#ffffff',n:'#ffffff'},
  arsenal:{s:'sash',c1:'#59c2e8',c2:'#e21b2d',n:'#ffffff'},
@@ -914,11 +914,11 @@ const KIT_STYLES={
  uy_central:{s:'sash',c1:'#d1001f',c2:'#4b237c',n:'#ffffff'},
  uy_riverplate:{s:'sash',n:'#ffffff'},
 
- moron:{s:'hband',c1:'#d1001f',c2:'#ffffff',n:'#ffffff'},
+ moron:{s:'hband',c1:'#ffffff',c2:'#d1001f',n:'#d1001f'},
  // Franja horizontal central, como Boca
  boca:{s:'hband',n:'#f7c600'},
  riestra:{s:'hband',n:'#ffffff'},
- gimnasia:{s:'hstripes',c1:'#ffffff',c2:'#0b2a5e',n:'#0b2a5e'},
+ gimnasia:{s:'hband',c1:'#ffffff',c2:'#0b2a5e',n:'#0b2a5e'},
  gimnasiajujuy:{s:'hband',c1:'#ffffff',c2:'#32b8e8',n:'#111111'},
  guemes:{s:'hband',c1:'#0b2a5a',c2:'#e21b2d',n:'#ffffff'},
  gimcdu:{s:'hband',c1:'#ffffff',c2:'#5ba9dc',n:'#ffffff'},
@@ -1015,7 +1015,7 @@ const KIT_STYLES={
 
  // Otros patrones geométricos que también se ven en los escudos
  ferro:{s:'v',c1:'#0a7d3b',c2:'#ffffff',n:'#ffffff'},
- tigre:{s:'cross',c1:'#0b2a5e',c2:'#d1001f',n:'#ffffff'},
+ tigre:{s:'hband',c1:'#0b2a5e',c2:'#d1001f',n:'#ffffff'},
  atenas:{s:'cross',c1:'#65b9e8',c2:'#ffffff',n:'#17499a'},
  sportivobelgrano:{s:'cross',c1:'#078a68',c2:'#ffffff',n:'#078a68'},
  tucumancentral:{s:'diamond',c1:'#d1001f',c2:'#ffffff',n:'#d1001f'},
@@ -1043,24 +1043,25 @@ const KIT_STYLES={
  uy_cerro:{s:'hstripes',c1:'#ffffff',c2:'#67c4e9',n:'#0b2a5a'},
  uy_fenix:{s:'half',c1:'#6b2a8a',c2:'#ffffff',n:'#ffffff'},
  paraguayo:{s:'sash2',c1:'#ffffff',c2:'#e21b2d',c3:'#17499a',n:'#17499a'},
- antoniana:{s:'sash3',c1:'#d1001f',c2:'#17499a',c3:'#ffffff',n:'#ffffff'},
- sanmartinformosa:{s:'hband',c1:'#d1001f',c2:'#ffffff',n:'#ffffff'},
- villadalmine:{s:'plain',c1:'#ffffff',c2:'#6a2c91',n:'#6a2c91'},
+ ,
+ sanmartinformosa:{s:'hband',c1:'#0b2a5e',c2:'#ffffff',n:'#0b2a5e'},
+ villadalmine:{s:'plain',c1:'#6a2c91',c2:'#ffffff',n:'#ffffff'},
  gbrown:{s:'sash',c1:'#0b3d91',c2:'#ffffff',n:'#ffffff'},
- alem:{s:'hband',c1:'#ffffff',c2:'#d1001f',n:'#d1001f'},
- lujan:{s:'sash',c1:'#d1001f',c2:'#ffffff',n:'#111111'},
- uai:{s:'plain',c1:'#0b2a5e',c2:'#6b1f3a',n:'#ffffff'},
+ alem:{s:'hband',c1:'#0b3d91',c2:'#f4d000',n:'#f4d000'},
+ lujan:{s:'sash',c1:'#ffffff',c2:'#d1001f',n:'#111111'},
+ uai:{s:'plain',c1:'#49bde8',c2:'#7b203f',n:'#ffffff'},
  sat:{s:'quadri',c1:'#111111',c2:'#d1001f',c3:'#17499a',c4:'#078a43',n:'#ffffff'},
+ alumni:{s:'stripes',c1:'#d1001f',c2:'#ffffff',n:'#d1001f'},
  // Diseños especiales presentes en el PNG
- defglew:{s:'checker',c1:'#111111',c2:'#ffffff',n:'#ffffff'},
- mercedes:{s:'checker',c1:'#111111',c2:'#ffffff',n:'#ffffff'},
+ defglew:{s:'checker',c1:'#111111',c2:'#ffffff',n:'#ffffff',b:'#d4a900'},
+ mercedes:{s:'stripes',c1:'#111111',c2:'#ffffff',n:'#111111'},
 };
 const PR=Q.R*1.08;   // fichas 2D más compactas; no modifica la física ni las posiciones
 const kitDisc=(x,y,id,k,bc,lw,r)=>{const cfg=KIT_STYLES[id]||{},st=cfg.s||'plain',c0=cfg.c1||k[0],c1=cfg.c2||k[1],c3=cfg.c3||thirdOf(id,k),c4=cfg.c4||thirdOf(id,k);cx.save();cx.beginPath();cx.arc(x,y,r,0,7);cx.clip();cx.fillStyle=c0;cx.fillRect(x-r,y-r,r*2,r*2);cx.fillStyle=c1;
  if(st=='sash'){cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillRect(-r*1.5,-r*.27,r*3,r*.54);cx.restore()}
  else if(st=='hband')cx.fillRect(x-r,y-r*.3,r*2,r*.6);
  else if(st=='stripes'){const w=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r+i*w,y-r,w,r*2)}
- else if(st=='half')cx.fillRect(x,y-r,r,r*2);else if(st=='hstripes'){const h=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r,y-r+i*h,r*2,h)}else if(st=='tricolor'){cx.fillStyle=c0;cx.fillRect(x-r,y-r,r*2/3,r*2);cx.fillStyle=c1;cx.fillRect(x-r/3,y-r,r*2/3,r*2);cx.fillStyle=c3;cx.fillRect(x+r/3,y-r,r*2/3,r*2)}else if(st=='diagHalf'){cx.beginPath();cx.moveTo(x-r,y-r);cx.lineTo(x+r,y-r);cx.lineTo(x-r,y+r);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='cross'){cx.fillStyle=c1;cx.fillRect(x-r,y-r*.22,r*2,r*.44);cx.fillRect(x-r*.22,y-r,r*.44,r*2)}else if(st=='diamond'){cx.beginPath();cx.moveTo(x,y-r);cx.lineTo(x+r,y);cx.lineTo(x,y+r);cx.lineTo(x-r,y);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='sash2'){cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillStyle=c1;cx.fillRect(-r*1.5,-r*.36,r*3,r*.22);cx.fillStyle=c3;cx.fillRect(-r*1.5,r*.14,r*3,r*.22);cx.restore()}else if(st=='checker'){cx.fillRect(x-r,y-r,r,r);cx.fillRect(x,y,r,r);cx.fillStyle=c1;cx.fillRect(x,y-r,r,r);cx.fillRect(x-r,y,r,r)}else if(st=='quadri'){const w=r/2;cx.fillStyle=c0;cx.fillRect(x-r,y-r,w,r*2);cx.fillStyle=c1;cx.fillRect(x-r/2,y-r,w,r*2);cx.fillStyle=c3;cx.fillRect(x,y-r,w,r*2);cx.fillStyle=c4;cx.fillRect(x+r/2,y-r,w,r*2)}
+ else if(st=='half')cx.fillRect(x,y-r,r,r*2);else if(st=='hstripes'){const h=r*2/5;for(let i=1;i<5;i+=2)cx.fillRect(x-r,y-r+i*h,r*2,h)}else if(st=='tricolor'){cx.fillStyle=c0;cx.fillRect(x-r,y-r,r*2/3,r*2);cx.fillStyle=c1;cx.fillRect(x-r/3,y-r,r*2/3,r*2);cx.fillStyle=c3;cx.fillRect(x+r/3,y-r,r*2/3,r*2)}else if(st=='diagHalf'){cx.beginPath();cx.moveTo(x-r,y-r);cx.lineTo(x+r,y-r);cx.lineTo(x-r,y+r);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='cross'){cx.fillStyle=c1;cx.fillRect(x-r,y-r*.22,r*2,r*.44);cx.fillRect(x-r*.22,y-r,r*.44,r*2)}else if(st=='diamond'){cx.beginPath();cx.moveTo(x,y-r);cx.lineTo(x+r,y);cx.lineTo(x,y+r);cx.lineTo(x-r,y);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='sash2'){cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillStyle=c1;cx.fillRect(-r*1.5,-r*.36,r*3,r*.22);cx.fillStyle=c3;cx.fillRect(-r*1.5,r*.14,r*3,r*.22);cx.restore()}else if(st=='checker'){cx.fillStyle=c0;cx.fillRect(x-r,y-r,r,r);cx.fillRect(x,y,r,r);cx.fillStyle=c1;cx.fillRect(x,y-r,r,r);cx.fillRect(x-r,y,r,r)}else if(st=='quadri'){const w=r/2;cx.fillStyle=c0;cx.fillRect(x-r,y-r,w,r*2);cx.fillStyle=c1;cx.fillRect(x-r/2,y-r,w,r*2);cx.fillStyle=c3;cx.fillRect(x,y-r,w,r*2);cx.fillStyle=c4;cx.fillRect(x+r/2,y-r,w,r*2)}
  else if(st=='sash3'){/* Tres zonas reales: fondo inferior (segundo color), triángulo superior (primer color) y banda diagonal (tercer color) */cx.fillStyle=c1;cx.fillRect(x-r,y-r,r*2,r*2);cx.beginPath();cx.moveTo(x-r,y-r);cx.lineTo(x+r,y-r);cx.lineTo(x-r,y+r);cx.closePath();cx.fillStyle=c0;cx.fill();cx.save();cx.translate(x,y);cx.rotate(-Math.PI/4);cx.fillStyle=c3;cx.fillRect(-r*1.5,-r*.25,r*3,r*.5);cx.restore()}
  else if(st=='v3'){/* Brown de Adrogué: tres zonas completas, sin contorno decorativo: arriba celeste, V negra y abajo roja */cx.fillStyle=c3||'#d1001f';cx.fillRect(x-r,y-r,r*2,r*2);cx.beginPath();cx.moveTo(x-r,y-r);cx.lineTo(x+r,y-r);cx.lineTo(x+r,y-r*.55);cx.lineTo(x,y+r*.35);cx.lineTo(x-r,y-r*.55);cx.closePath();cx.fillStyle=c0;cx.fill();cx.beginPath();cx.moveTo(x-r,y-r*.55);cx.lineTo(x,y+r*.35);cx.lineTo(x+r,y-r*.55);cx.lineTo(x+r,y-r*.25);cx.lineTo(x,y+r*.65);cx.lineTo(x-r,y-r*.25);cx.closePath();cx.fillStyle=c1;cx.fill()}else if(st=='v'){cx.beginPath();cx.moveTo(x-r*.95,y-r);cx.lineTo(x-r*.4,y-r);cx.lineTo(x,y+r*.18);cx.lineTo(x+r*.4,y-r);cx.lineTo(x+r*.95,y-r);cx.lineTo(x,y+r*.8);cx.closePath();cx.fill()}
  else{cx.beginPath();cx.arc(x,y-r*.95,r*.55,0,Math.PI);cx.fill()}   // lisa: cuello y detalles del color secundario
