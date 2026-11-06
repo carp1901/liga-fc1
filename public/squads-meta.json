@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:42:47.905Z",
+  "updatedAt": "2026-11-06T23:43:10.750Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "859 medias respaldadas por cartas EA SPORTS FC 27/FCScoutDB o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -604,7 +604,8 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/platense",
-        "https://www.sofascore.com/es-la/football/player/mendia-mateo/1537927"
+        "https://www.sofascore.com/es-la/football/player/mendia-mateo/1537927",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/santiago-dalmasso/74776"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-platense/kader/verein/1109",
       "ageConsulted": "2026-11-05"
@@ -640,7 +641,9 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/defensa-y-justicia",
-        "https://www.fotmob.com/es/players/1087551/damian-fernandez"
+        "https://www.fotmob.com/es/players/1087551/damian-fernandez",
+        "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/juan-pablo-moreno/83312",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/tomas-perez/276605"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-defensa-y-justicia/kader/verein/1244",
       "ageConsulted": "2026-11-05"
@@ -692,7 +695,10 @@
         "https://www.transfermarkt.com.ar/ignacio-russo/profil/spieler/833130",
         "https://www.transfermarkt.com.ar/ian-subiabre/profil/spieler/1074969"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/tigre",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/tigre",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/ignacio-peluffo/81912"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-tigre/kader/verein/1188",
       "ageConsulted": "2026-11-05"
     },
@@ -703,7 +709,11 @@
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "35/35",
       "ageSource": "https://clubabanfield.org/plantel-profesional-masculino/",
-      "ratingSource": "https://fcscoutdb.com/clubs/banfield",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/banfield",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-palavecino/70443",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/matias-hernandez/269500"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-banfield/kader/verein/1120",
       "ageConsulted": "2026-11-05"
     },
@@ -717,7 +727,10 @@
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/independiente-rivadavia/plantilla",
         "https://www.transfermarkt.com.ar/matias-salvo/profil/spieler/1307274"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/independiente-rivadavia",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/independiente-rivadavia",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/luciano-sabato/83450"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-independiente-rivadavia/kader/verein/1236",
       "ageConsulted": "2026-11-05"
     },
