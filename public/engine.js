@@ -80,7 +80,7 @@ function simMin(r,m,min){const A=r.pl[m.a],B=r.pl[m.b];if(!A||!B)return;const P=
  else if(rnd()>=clamp(.65-(ea(t,shx,lk2,'rem')-50)/100-duel/600,.15,.56)){ev.x='s';m.st[t][2]++;rate(m,t,sh,.12);rate(m,1-t,gk,.45)}
  else{ev.x='o';rate(m,t,sh,-.12)}
  m.evs.push(ev);
- if(ev.x!='g'&&rnd()<(ev.x=='s'?.4:.15)*[.8,1,1.25][atc.st]){m.st[t][3]++;m.xg[t]+=.06;const cg=rnd()<.10&&!m.evs.some(z=>z.x=='g'),c={id:eid(r),k:'cor',m:min,t,x:cg?'g':'c'};
+ if(ev.x!='g'&&rnd()<(ev.x=='s'?.4:.15)*[.95,1,1.05][atc.st]){m.st[t][3]++;m.xg[t]+=.06;const cg=rnd()<.10&&!m.evs.some(z=>z.x=='g'),c={id:eid(r),k:'cor',m:min,t,x:cg?'g':'c'};
   if(cg){const sl=slots(atc.f),w=[];atc.xi.forEach((x,k)=>{if(k&&!m.off[t].has(x))for(let n=0;n<({DEF:2,MED:1,DEL:3}[sl[k]]||1);n++)w.push(x)});const hd=w[Math.floor(rnd()*w.length)];m.st[t][1]++;c.n=nm(r,m,t,hd);c.si=hd;scoreG(r,m,t,hd,min,'cor',-1)}
   m.evs.push(c)}}
 const zonesOk=c=>Array.isArray(c.zones)&&(c.zones.length==2||c.zones.length==4)&&c.zones.every(a=>Array.isArray(a)&&a.length>=4)&&c.zones.flat().length==c.teams.length&&new Set(c.zones.flat()).size==c.teams.length&&c.zones.flat().every(id=>c.teams.includes(id));
