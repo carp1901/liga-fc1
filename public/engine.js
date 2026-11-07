@@ -12,7 +12,7 @@ function newTac(team){const sq=squad(team),pick=bestInitialXI(sq),xi=pick.xi,bes
 const COPA_C=64,COPA_K=.5;
 function strength(r,team,tc,off,ph){const sq=sqOf(r,team),sl=slots(tc.f),n=k=>sl.filter(s=>s==k).length,o={a:0,m:0,d:0};
  tc.xi.forEach((i,k)=>{const x=sq[i],s=sl[k],v=off&&off.has(i)?0:(roleOvr(x,s)+phDelta(ph,s))*(x.p==s?1:.8)*(i==tc.cap?1.01+Math.max(0,Math.min(92,Number(x.at?.lea)||50))*.00025:1);if(s=='POR'||s=='DEF')o.d+=v/(1+n('DEF'));else if(s=='MED')o.m+=v/n('MED');else o.a+=v/n('DEL')});
- o.a*=[.97,1,1.04][tc.st];o.d*=[1.04,1,.97][tc.st];o.m*=[.99,1,1.02][tc.pr];o.d*=[1.02,1,.99][tc.pr];if(r.cfg&&r.cfg.fmt=='copa'&&!r.cfg.mix){for(const k of['a','m','d'])o[k]=COPA_C+(o[k]-COPA_C)*COPA_K}return o}   // Copa: las diferencias entre divisiones se acortan (el ascenso puede dar pelea)
+ o.a*=[.97,1,1.04][tc.st];o.d*=[1.04,1,.97][tc.st];o.m*=[.99,1,1.02][tc.pr];o.d*=[1.02,1,.99][tc.pr];if(r.cfg&&r.cfg.fmt=='copa'&&!r.cfg.mix){for(const k of['a','m','d'])o[k]=COPA_C+(o[k]-COPA_C)*COPA_K}const adj=Number(r.cfg&&r.cfg.teamAdj&&r.cfg.teamAdj[team]);if(adj>0&&adj!==1)for(const k of['a','m','d'])o[k]*=adj;return o}   // Copa: las diferencias entre divisiones se acortan (el ascenso puede dar pelea)
 function chain(tc,wing,off){const[d,m,a]=FM[tc.f],ln0=[[0],[...Array(d).keys()].map(i=>1+i),[...Array(m).keys()].map(i=>1+d+i),[...Array(a).keys()].map(i=>1+d+m+i)],ln=ln0.map(x=>{const y=off?x.filter(s=>!off.has(tc.xi[s])):x;return y.length?y:x}),
  yOf=(l,s)=>(ln[l].indexOf(s)+1)/(ln[l].length+1),pick=(l,ty)=>ln[l].reduce((b,s)=>Math.abs(yOf(l,s)-ty)<Math.abs(yOf(l,b)-ty)?s:b,ln[l][0]);
  const side=rnd()<.5?.12:.88;let l=rnd()<.3?0:1,cur=pick(l,.5),ch=[cur];
@@ -227,8 +227,8 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
    if(susOf(me).has(inn))err=(me.inj&&me.inj[inn])?'Está lesionado':'Está suspendido: lo expulsaron en el partido anterior';else if(!mm)t.xi[st]=inn;else if(mm.sb[ms]>=5)err='Ya hiciste los 5 cambios del partido';else if(mm.used[ms].has(inn))err='Ese jugador ya salió y no puede volver';else if(mm.off[ms].has(out))err='Un expulsado no se puede reemplazar';else{t.xi[st]=inn;mm.used[ms].add(out);(m.subIn=m.subIn||[new Set(),new Set()])[ms].add(inn);mm.sb[ms]++;mm.pr[ms][inn]=6}}}}
  push(r);return err}
 
-function simGame(ta,tb,o){o=o||{};setMix(!!o.mix);const r={pl:{A:{name:'A',team:ta,tac:o.tacA||newTac(ta),phil:o.philA},B:{name:'B',team:tb,tac:o.tacB||newTac(tb),phil:o.philB}},order:['A','B'],cfg:{mix:!!o.mix,fmt:o.fmt},offline:true,eid:0},m=newMatch('A','B');for(let min=1;min<=90;min++){m.evs=[];simMin(r,m,min)}return m}   // simula 90 minutos sin sala (para pruebas)
-function teamStrength(team,o){o=o||{};setMix(!!o.mix);const r={cfg:{mix:!!o.mix},offline:true};return strength(r,team,newTac(team),undefined,o.phil)}
+function simGame(ta,tb,o){o=o||{};setMix(!!o.mix);const r={pl:{A:{name:'A',team:ta,tac:o.tacA||newTac(ta),phil:o.philA},B:{name:'B',team:tb,tac:o.tacB||newTac(tb),phil:o.philB}},order:['A','B'],cfg:{mix:!!o.mix,fmt:o.fmt,teamAdj:o.teamAdj||{}},offline:true,eid:0},m=newMatch('A','B');for(let min=1;min<=90;min++){m.evs=[];simMin(r,m,min)}return m}   // simula 90 minutos sin sala (para pruebas)
+function teamStrength(team,o){o=o||{};setMix(!!o.mix);const r={cfg:{mix:!!o.mix,teamAdj:o.teamAdj||{}},offline:true};return strength(r,team,newTac(team),undefined,o.phil)}
 // Mínimo de personas para que un torneo ONLINE sea elegible para ranking. Cuenta jugadores humanos distintos (pid) de la sala; los equipos de la IA no cuentan y los torneos offline nunca son elegibles.
 // OJO: el pid es un id que genera el navegador (no hay cuentas), así que esto cuenta navegadores distintos, no personas verificadas.
 function rankInfo(r){const min=CFG.rankMin,h=Math.max(r.order.filter(p=>!r.pl[p].bot).length,(r.part||[]).length),n=r.cfg.n;return{min,h,n,off:!!r.offline,ok:!r.offline&&n>=min&&(r.phase=='pick'||h>=min)}}
@@ -361,11 +361,11 @@ function recCareer(r){if(r.careered)return;r.careered=1;if(!CFG.onCareer)return;
 // ---- Clásico personalizado: temporadas con ascensos y descensos.
 // Una carrera = k categorías con n clubes cada una y ud ascensos/descensos entre categorías vecinas. La categoría del jugador se juega en una sala normal
 // (cfg.div='custom', cfg.teams); las demás se simulan con simGame al cerrar la temporada. El estado es un objeto JSON simple que el navegador guarda en la ranura de carrera.
-function simTab(teams,fmt){const T={};teams.forEach(id=>T[id]={id,pts:0,g:0,gf:0,ga:0});
- const play=(a,b)=>{const m=simGame(a,b,{mix:false}),A=T[a],B=T[b];A.gf+=m.ga;A.ga+=m.gb;B.gf+=m.gb;B.ga+=m.ga;if(m.ga>m.gb){A.pts+=3;A.g++}else if(m.ga<m.gb){B.pts+=3;B.g++}else{A.pts++;B.pts++}};
+function simTab(teams,fmt,adj){const T={};teams.forEach(id=>T[id]={id,pts:0,g:0,gf:0,ga:0});
+ const play=(a,b)=>{const m=simGame(a,b,{mix:false,teamAdj:adj}),A=T[a],B=T[b];A.gf+=m.ga;A.ga+=m.gb;B.gf+=m.gb;B.ga+=m.ga;if(m.ga>m.gb){A.pts+=3;A.g++}else if(m.ga<m.gb){B.pts+=3;B.g++}else{A.pts++;B.pts++}};
  for(let i=0;i<teams.length;i++)for(let j=i+1;j<teams.length;j++){const h=rnd()<.5,a=h?teams[i]:teams[j],b=h?teams[j]:teams[i];play(a,b);if(fmt=='liga2')play(b,a)}
  return Object.values(T).sort(cmpT)}
-const simSeason=(t,f)=>simTab(t,f).map(q=>q.id);
+const simSeason=(t,f,adj)=>simTab(t,f,adj).map(q=>q.id);
 const CXORD=['ar1','ar2','ar3','ar5','ar4','ar6'],CXLVL=[0,1,2,2,3,4],CXKS=[1,2,4,5,6],METRO=new Set(['sur','oeste','norte','caba'].flatMap(id=>(CUPS.find(c=>c.id==id)||{clubs:[]}).clubs));
 const isMetro=id=>METRO.has(id);
 function careerNew(o){o=o||{};const lg=o.lg=='uy'?'uy':'ar',divs=(lg=='uy'?['uy1','uy2']:CXORD).map(id=>DIVS.find(d=>d.id==id)).filter(d=>d&&d.ok),lgSet=new Set(divs.flatMap(d=>d.teams.map(t=>t.id))),k=Math.floor(+o.k),n=Math.floor(+o.n),ud=Math.floor(+o.ud),fmt=o.fmt,me=o.me||{};
@@ -405,14 +405,14 @@ const CLP=Object.values(CLAS).flatMap(x=>x.split(',').map(p=>p.split('-')));
 const zsplit=(ids,zs,div)=>{const set=new Set(ids),Z=zs.map(()=>[]),pr=div&&CLAS[div]&&zs.length==2?shuf(CLAS[div].split(',').map(p=>p.split('-')).filter(p=>p.every(t=>set.has(t)))):[],used=new Set();
  pr.forEach(([a,b])=>{const i=Z[0].length<zs[0]&&(Z[1].length>=zs[1]||rnd()<.5)?0:1,j=1-i;if(Z[i].length<zs[i]&&Z[j].length<zs[j]){Z[i].push(a);Z[j].push(b);used.add(a);used.add(b)}});
  const rest=shuf(ids.filter(t=>!used.has(t)));Z.forEach((z,i)=>{while(z.length<zs[i]&&rest.length)z.push(rest.pop())});return Z.map(z=>shuf(z))};
-const pdl=(a,b)=>{const m=simGame(a,b,{mix:false});return[m.ga,m.gb]};
+const pdl=(a,b,adj)=>{const m=simGame(a,b,{mix:false,teamAdj:adj});return[m.ga,m.gb]};
 // Partido único: local el primero; si empatan gana el primero (mejor ubicado) o, en cancha neutral, penales.
-const kt=(a,b,pen)=>{const[x,y]=pdl(a,b);return x!=y?(x>y?a:b):pen?(rnd()<.5?a:b):a};
+const kt=(a,b,pen,adj)=>{const[x,y]=pdl(a,b,adj);return x!=y?(x>y?a:b):pen?(rnd()<.5?a:b):a};
 // Ida y vuelta: a = mejor ubicado (cierra de local); suma de goles y, si empatan, avanza a.
-const k2=(a,b)=>{const[x1,y1]=pdl(b,a),[x2,y2]=pdl(a,b);return y1+x2>=x1+y2?a:b};
+const k2=(a,b,adj)=>{const[x1,y1]=pdl(b,a,adj),[x2,y2]=pdl(a,b,adj);return y1+x2>=x1+y2?a:b};
 // Llave por siembra (con pases libres a los mejores sembrados si no es potencia de 2); devuelve {w, rds:[{n,m:[{a,b,w}]}]}.
-function zKO(seeds,two){let al=seeds.slice();const rds=[],P=2**Math.ceil(Math.log2(al.length)),by=P-al.length;
- const rd=(ent,first)=>{const m=[];for(let i=0;i<ent.length/2;i++){const a=ent[i],b=ent[ent.length-1-i];m.push({a,b,w:two=='pen'?kt(a,b,1):two?k2(a,b):kt(a,b)})}return m};
+function zKO(seeds,two,adj){let al=seeds.slice();const rds=[],P=2**Math.ceil(Math.log2(al.length)),by=P-al.length;
+ const rd=(ent,first)=>{const m=[];for(let i=0;i<ent.length/2;i++){const a=ent[i],b=ent[ent.length-1-i];m.push({a,b,w:two=='pen'?kt(a,b,1,adj):two?k2(a,b,adj):kt(a,b,undefined,adj)})}return m};
  const nm=n=>n==2?'Final':n==4?'Semifinales':n==8?'Cuartos de final':n==16?'Octavos de final':'1.ª fase';
  if(by){const ent=al.slice(by),m=rd(ent),ws=m.map(x=>x.w);rds.push({n:'1.ª fase',m});al=[...al.slice(0,by),...ws].sort((x,y)=>seeds.indexOf(x)-seeds.indexOf(y))}
  while(al.length>1){const m=rd(al);rds.push({n:nm(al.length),m});al=m.map(x=>x.w).sort((x,y)=>seeds.indexOf(x)-seeds.indexOf(y))}
