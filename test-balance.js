@@ -6,16 +6,34 @@ const ENG=require('./public/engine');
 
 const clubs=DATA.DIVS.find(d=>d.id==='ar1').teams.map(t=>t.id);
 if(clubs.length!==30)throw new Error('Primera debe tener 30 clubes; encontrados: '+clubs.length);
+const career=ENG.realNew({me:{club:'river'}});
+const zones=career.zones.ar1;
+if(!zones||zones.length!==2||zones.some(z=>z.length!==15))throw new Error('La Primera realista no tiene dos zonas de 15 clubes');
 
 const seasons=Number(process.env.BALANCE_SEASONS||100);
+const tournamentCount=seasons*2;
 const stats=Object.fromEntries(clubs.map(id=>[id,{champ:0,top4:0,top8:0,pos:0}]));
-for(let s=0;s<seasons;s++){
-  const table=ENG.simSeason(clubs,'liga1');
-  table.forEach((id,i)=>{const x=stats[id];x.pos+=i+1;if(i===0)x.champ++;if(i<4)x.top4++;if(i<8)x.top8++});
+const zero=Object.fromEntries(clubs.map(id=>[id,{id,pts:0,g:0,gf:0,ga:0}]));
+function standings(ids){
+  const order=ENG.simSeason(ids,'liga1');
+  const table=order.map((id,i)=>({id,pts:100-i,g:50-i,gf:100-i,ga:0}));
+  order.forEach((id,i)=>{const x=stats[id];x.pos+=i+1;if(i<4)x.top4++;if(i<8)x.top8++});
+  return table;
 }
-const ranked=clubs.map(id=>({id,...stats[id],avgPos:+(stats[id].pos/seasons).toFixed(2),
-  champPct:+(stats[id].champ/seasons*100).toFixed(1),top4Pct:+(stats[id].top4/seasons*100).toFixed(1),
-  top8Pct:+(stats[id].top8/seasons*100).toFixed(1)})).sort((a,b)=>a.avgPos-b.avgPos);
+const champions=[];
+for(let s=0;s<seasons;s++){
+  for(const name of ['Apertura','Clausura']){
+    const table=[...standings(zones[0]),...standings(zones[1])];
+    const seeds=ENG.poSeeds(zones,table,[zero],0);
+    if(!seeds||seeds.length!==16)throw new Error('No se generaron los 16 clasificados de '+name);
+    const champ=ENG.poSim(seeds,name).champ;
+    stats[champ].champ++;
+    champions.push(champ);
+  }
+}
+const ranked=clubs.map(id=>({id,...stats[id],avgPos:+(stats[id].pos/tournamentCount).toFixed(2),
+  champPct:+(stats[id].champ/tournamentCount*100).toFixed(1),top4Pct:+(stats[id].top4/tournamentCount*100).toFixed(1),
+  top8Pct:+(stats[id].top8/tournamentCount*100).toFixed(1)})).sort((a,b)=>a.avgPos-b.avgPos);
 
 function bestXI(team){
   const sq=DATA.squad(team);let best=null;
@@ -47,7 +65,9 @@ function tacticalSample(st,pr,n=300){
     goalsFor:+(out.gf/n).toFixed(2),goalsAgainst:+(out.ga/n).toFixed(2)};
 }
 const tactics=[tacticalSample(0,0),tacticalSample(1,1),tacticalSample(2,2)];
-const result={seasons,clubs:clubs.length,champions:ranked.filter(x=>x.champ>0).length,
+const result={format:'Primera realista: dos zonas de 15, top 8 por zona y playoffs de 16; Apertura y Clausura',
+  seasons,tournaments:tournamentCount,clubs:clubs.length,zoneA:zones[0],zoneB:zones[1],
+  champions:[...new Set(champions)].length,
   avgPositionSpread:+(Math.max(...ranked.map(x=>x.avgPos))-Math.min(...ranked.map(x=>x.avgPos))).toFixed(2),
   titleDistribution:ranked.map(({id,champ,champPct,avgPos,top4Pct,top8Pct})=>({id,champ,champPct,avgPos,top4Pct,top8Pct})),
   strongestXI:quality.slice(0,5),weakestXI:quality.slice(-5).reverse(),tacticalComparison:tactics};
