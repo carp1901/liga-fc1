@@ -13,18 +13,18 @@ if(!zones||zones.length!==2||zones.some(z=>z.length!==15))throw new Error('La Pr
 const seasons=Number(process.env.BALANCE_SEASONS||100);
 const tournamentCount=seasons*2;
 const stats=Object.fromEntries(clubs.map(id=>[id,{champ:0,top4:0,top8:0,pos:0}]));
-const zero=Object.fromEntries(clubs.map(id=>[id,{id,pts:0,g:0,gf:0,ga:0}]));
 function standings(ids){
   const order=ENG.simSeason(ids,'liga1');
-  const table=order.map((id,i)=>({id,pts:100-i,g:50-i,gf:100-i,ga:0}));
+  const rows=order.map((id,i)=>({id,pts:100-i,g:50-i,gf:100-i,ga:0}));
+  const map=Object.fromEntries(rows.map(x=>[x.id,x]));
   order.forEach((id,i)=>{const x=stats[id];x.pos+=i+1;if(i<4)x.top4++;if(i<8)x.top8++});
-  return table;
+  return{rows,map};
 }
 const champions=[];
 for(let s=0;s<seasons;s++){
   for(const name of ['Apertura','Clausura']){
-    const table=[...standings(zones[0]),...standings(zones[1])];
-    const seeds=ENG.poSeeds(zones,table,[zero],0);
+    const A=standings(zones[0]),B=standings(zones[1]),table=[...A.rows,...B.rows],seasonMap={...A.map,...B.map};
+    const seeds=ENG.poSeeds(zones,table,[seasonMap],0);
     if(!seeds||seeds.length!==16)throw new Error('No se generaron los 16 clasificados de '+name);
     const champ=ENG.poSim(seeds,name).champ;
     stats[champ].champ++;
