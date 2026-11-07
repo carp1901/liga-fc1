@@ -16,7 +16,7 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "151 jugadores; 136 roles específicos con fuente. Se corrigió la posición general de Dylan Durán (Chacarita) a defensor según ficha individual 2026. Roles específicos, dorsales y medias continúan en revisión.",
+      "estado": "151 jugadores; 136 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 151,
       "clubes": {
         "allboys": 25,
@@ -40,7 +40,7 @@
         "gimnasiajujuy",
         "almagro"
       ],
-      "estado": "172 jugadores; 133 roles específicos con fuente. Se verificaron y completaron 17 roles de arqueros de los seis clubes con planteles 2026. Dorsales y medias siguen pendientes de contraste.",
+      "estado": "172 jugadores; 140 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 172,
       "clubes": {
         "chaco": 32,
@@ -50,7 +50,7 @@
         "gimnasiajujuy": 31,
         "almagro": 23
       },
-      "roles_especificos": 133
+      "roles_especificos": 140
     },
     {
       "bloque": 3,
@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "200 jugadores cargados; 103 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "184 jugadores; 108 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 184,
       "clubes": {
         "racingcba": 22,
@@ -88,7 +88,7 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "204 jugadores cargados; 108 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "190 jugadores; 113 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 190,
       "clubes": {
         "almirantebrown": 24,
@@ -112,7 +112,7 @@
         "maipu",
         "quilmes"
       ],
-      "estado": "198 jugadores cargados; 96 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "153 jugadores; 115 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 153,
       "clubes": {
         "centralnorte": 22,
@@ -136,7 +136,7 @@
         "rafaela",
         "midland"
       ],
-      "estado": "195 jugadores cargados; 123 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "156 jugadores; 121 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 156,
       "clubes": {
         "sanmiguel": 28,
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 726/1006 (72.2%). Continúa la verificación de roles, dorsales y medias.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 733/1006 (72.9%). Continúa la verificación de roles, dorsales y medias.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -165,31 +165,31 @@
     "medias_60": 68,
     "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 726,
+    "roles_especificos_asignados": 733,
     "estado_ci": "passed",
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
-    "roles_especificos_pendientes": 280,
+    "roles_especificos_pendientes": 273,
     "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
-      123,
-      116,
+      136,
+      140,
       108,
       113,
       115,
       121
     ],
-    "porcentaje_roles_especificos": 69.2,
-    "ultima_revision": "2026-11-07: se completaron 17 roles de arqueros en bloque 2 con fuentes de planteles 2026; corrección posicional de Dylan Durán en bloque 1."
+    "porcentaje_roles_especificos": 72.9,
+    "ultima_revision": "2026-11-07: se verificaron 17 roles de arqueros en bloque 2 en la tanda anterior; nueva tanda añade 7 roles específicos de Chaco For Ever y Deportivo Morón, y corrige la posición de Joaquín Jara según perfil de jugador."
   },
   "estado_por_club": [
     {
       "club_id": "allboys",
       "nombre": "All Boys",
       "jugadores": 25,
-      "roles_especificos": 22,
-      "roles_pendientes": 3,
-      "porcentaje_roles": 88,
+      "roles_especificos": 24,
+      "roles_pendientes": 1,
+      "porcentaje_roles": 96,
       "estado": "pendiente",
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
@@ -197,9 +197,9 @@
       "club_id": "ferro",
       "nombre": "Ferro",
       "jugadores": 32,
-      "roles_especificos": 21,
-      "roles_pendientes": 11,
-      "porcentaje_roles": 65.6,
+      "roles_especificos": 24,
+      "roles_pendientes": 8,
+      "porcentaje_roles": 75,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -207,9 +207,9 @@
       "club_id": "madryn",
       "nombre": "Deportivo Madryn",
       "jugadores": 23,
-      "roles_especificos": 21,
-      "roles_pendientes": 2,
-      "porcentaje_roles": 91.3,
+      "roles_especificos": 23,
+      "roles_pendientes": 0,
+      "porcentaje_roles": 100,
       "estado": "pendiente",
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
@@ -217,9 +217,9 @@
       "club_id": "nuevachicago",
       "nombre": "Nueva Chicago",
       "jugadores": 23,
-      "roles_especificos": 18,
-      "roles_pendientes": 5,
-      "porcentaje_roles": 78.3,
+      "roles_especificos": 20,
+      "roles_pendientes": 3,
+      "porcentaje_roles": 87,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -227,9 +227,9 @@
       "club_id": "chacarita",
       "nombre": "Chacarita",
       "jugadores": 25,
-      "roles_especificos": 21,
-      "roles_pendientes": 4,
-      "porcentaje_roles": 84,
+      "roles_especificos": 23,
+      "roles_pendientes": 2,
+      "porcentaje_roles": 92,
       "estado": "pendiente",
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
@@ -237,9 +237,9 @@
       "club_id": "atlanta",
       "nombre": "Atlanta",
       "jugadores": 23,
-      "roles_especificos": 20,
-      "roles_pendientes": 3,
-      "porcentaje_roles": 87,
+      "roles_especificos": 22,
+      "roles_pendientes": 1,
+      "porcentaje_roles": 95.7,
       "estado": "pendiente",
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
@@ -247,9 +247,9 @@
       "club_id": "chaco",
       "nombre": "Chaco For Ever",
       "jugadores": 32,
-      "roles_especificos": 17,
-      "roles_pendientes": 15,
-      "porcentaje_roles": 53.1,
+      "roles_especificos": 25,
+      "roles_pendientes": 7,
+      "porcentaje_roles": 78.1,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -257,9 +257,9 @@
       "club_id": "moron",
       "nombre": "Deportivo Morón",
       "jugadores": 29,
-      "roles_especificos": 19,
-      "roles_pendientes": 10,
-      "porcentaje_roles": 65.5,
+      "roles_especificos": 25,
+      "roles_pendientes": 4,
+      "porcentaje_roles": 86.2,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -267,9 +267,9 @@
       "club_id": "estudiantesba",
       "nombre": "Estudiantes de Buenos Aires",
       "jugadores": 33,
-      "roles_especificos": 15,
-      "roles_pendientes": 18,
-      "porcentaje_roles": 45.5,
+      "roles_especificos": 18,
+      "roles_pendientes": 15,
+      "porcentaje_roles": 54.5,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -277,9 +277,9 @@
       "club_id": "sanmartintuc",
       "nombre": "San Martín de Tucumán",
       "jugadores": 24,
-      "roles_especificos": 22,
-      "roles_pendientes": 2,
-      "porcentaje_roles": 91.7,
+      "roles_especificos": 24,
+      "roles_pendientes": 0,
+      "porcentaje_roles": 100,
       "estado": "pendiente",
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
@@ -287,9 +287,9 @@
       "club_id": "gimnasiajujuy",
       "nombre": "Gimnasia de Jujuy",
       "jugadores": 31,
-      "roles_especificos": 22,
-      "roles_pendientes": 9,
-      "porcentaje_roles": 71,
+      "roles_especificos": 25,
+      "roles_pendientes": 6,
+      "porcentaje_roles": 80.6,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -297,9 +297,9 @@
       "club_id": "almagro",
       "nombre": "Almagro",
       "jugadores": 23,
-      "roles_especificos": 21,
-      "roles_pendientes": 2,
-      "porcentaje_roles": 91.3,
+      "roles_especificos": 23,
+      "roles_pendientes": 0,
+      "porcentaje_roles": 100,
       "estado": "pendiente",
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
