@@ -40,7 +40,7 @@
         "gimnasiajujuy",
         "almagro"
       ],
-      "estado": "172 jugadores; 153 roles específicos respaldados. Se completaron seis asignaciones verificadas en Chaco For Ever y Gimnasia de Jujuy.",
+      "estado": "172 jugadores; 155 roles específicos respaldados. Se añadieron DFC a Jorge Zules Caicedo y Tiago Chamorro; se corrigieron nombres contrastando fechas de nacimiento.",
       "jugadores": 172,
       "clubes": {
         "chaco": 32,
@@ -50,7 +50,7 @@
         "gimnasiajujuy": 31,
         "almagro": 23
       },
-      "roles_especificos": 153
+      "roles_especificos": 155
     },
     {
       "bloque": 3,
@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "184 jugadores; 146 roles específicos respaldados. Se completó Matías Gómez (MC) en Los Andes.",
+      "estado": "184 jugadores; 149 roles específicos respaldados. Se añadieron MCD a Gonzalo Cozzoni, DC a Franco Tisera y LI a Rodrigo Mazur; se corrigieron nombres y posiciones con datos 2026.",
       "jugadores": 184,
       "clubes": {
         "racingcba": 22,
@@ -74,7 +74,7 @@
         "temperley": 33,
         "guemes": 33
       },
-      "roles_especificos": 146
+      "roles_especificos": 149
     },
     {
       "bloque": 4,
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 850/1006 (84.5%). Continúa la verificación de roles, dorsales y medias.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 855/1006 (84.9%). Continúa la verificación de roles, dorsales y medias.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -165,22 +165,22 @@
     "medias_60": 68,
     "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 850,
+    "roles_especificos_asignados": 855,
     "estado_ci": "passed",
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
-    "roles_especificos_pendientes": 156,
-    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC. En Midland se contrastaron cuatro dorsales repetidos en planillas de partidos 2026 (Aguilar 15, Frattini 16, Olavarría 13 y Canalda 14); no se contabilizan como dorsales oficiales de plantel sin nómina oficial. En Midland se corrigieron además las posiciones generales de Lautaro Díaz Laharque (MED→DEF, LD) y Matías Flores (MED→DEL, DC), y el subrol de Facundo Marín (EI→MI), según la ficha estadística 2026 de Pelotita. En Estudiantes BA se confirmaron Juan Sánchez de León (MC) y Mateo Acosta (DC) con la ficha estadística 2026 de Pelotita. En esta tanda se añadieron seis roles respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI), Tomás Rodríguez (DEF) y Lucas Villegas (MED; corrección de posición general) en Ciudad de Bolívar, y Juan Valdez Chamorro (MP, Agropecuario), según estadísticas individuales 2026 de Pelotita. En esta tanda se añadieron cuatro roles específicos respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI, Ciudad de Bolívar) y Juan Valdez Chamorro (MP, Agropecuario). También se corrigieron las posiciones generales de Tomás Rodríguez (DEF) y Lucas Villegas (MED) en Ciudad de Bolívar sin inventar subroles, según estadísticas individuales 2026 de Pelotita. Nueva tanda: Facundo García (DC, Ferro) y Román Rodríguez (MC, Estudiantes BA) con subroles respaldados por estadísticas individuales 2026; Juan Pablo Córdoba (Gimnasia de Jujuy) corregido a posición general DEF, sin asignar subrol no documentado. Nicolás Borsotti (MC, Defensores de Belgrano) se completó con la ficha estadística individual 2026 de Pelotita. Nueva tanda de ocho roles respaldados: Gonzalo Valdivia (LI), Segundo Rodríguez (DFC) y Matías Ferrari (MC) en Mitre; Nicolás Paz (DFC) en San Martín SJ; Lucas Picech (DFC) y Bautista Maillier (MC) en Colón; Matías Molina (LD) en Agropecuario. Además, Santiago Nogales de Gimnasia y Tiro se corrigió de DEL a POR y se le asignó POR. Se usaron fichas individuales y plantilla de club actualizada. Nueva tanda: Gonzalo Melgarejo (MI) y Brian Guerra (MD) en Chaco For Ever, y Matías Gómez (MC) en Los Andes. Melgarejo se corrigió además de posición general DEF a MED, respaldado por su perfil de temporada y la descripción de su función por banda izquierda. En Gimnasia de Jujuy se completaron Gonzalo Villarreal (DFC), Sebastián Sánchez (DFC) y Juan Pablo Córdoba (DFC), este último respaldado por su participación como central en la planilla del partido ante Patronato. Agustín Zabaleta (DC, Chaco For Ever) se completó como delantero centro con ficha individual de Transfermarkt. Nueva revisión con estadísticas de plantel 2026: Ezequiel Ozuna corregido a DEF/LI; Federico Cuzzani, Gonzalo Castellani y Nicolás Gómez corregidos a MED/MI en Ferro. Ignacio Lago corregido a MED/MI en Colón. Se prioriza el subrol publicado en la ficha de temporada y no se fuerza un subrol cuando la fuente sólo indica DEF/MED/DEL.",
+    "roles_especificos_pendientes": 151,
+    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC. En Midland se contrastaron cuatro dorsales repetidos en planillas de partidos 2026 (Aguilar 15, Frattini 16, Olavarría 13 y Canalda 14); no se contabilizan como dorsales oficiales de plantel sin nómina oficial. En Midland se corrigieron además las posiciones generales de Lautaro Díaz Laharque (MED→DEF, LD) y Matías Flores (MED→DEL, DC), y el subrol de Facundo Marín (EI→MI), según la ficha estadística 2026 de Pelotita. En Estudiantes BA se confirmaron Juan Sánchez de León (MC) y Mateo Acosta (DC) con la ficha estadística 2026 de Pelotita. En esta tanda se añadieron seis roles respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI), Tomás Rodríguez (DEF) y Lucas Villegas (MED; corrección de posición general) en Ciudad de Bolívar, y Juan Valdez Chamorro (MP, Agropecuario), según estadísticas individuales 2026 de Pelotita. En esta tanda se añadieron cuatro roles específicos respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI, Ciudad de Bolívar) y Juan Valdez Chamorro (MP, Agropecuario). También se corrigieron las posiciones generales de Tomás Rodríguez (DEF) y Lucas Villegas (MED) en Ciudad de Bolívar sin inventar subroles, según estadísticas individuales 2026 de Pelotita. Nueva tanda: Facundo García (DC, Ferro) y Román Rodríguez (MC, Estudiantes BA) con subroles respaldados por estadísticas individuales 2026; Juan Pablo Córdoba (Gimnasia de Jujuy) corregido a posición general DEF, sin asignar subrol no documentado. Nicolás Borsotti (MC, Defensores de Belgrano) se completó con la ficha estadística individual 2026 de Pelotita. Nueva tanda de ocho roles respaldados: Gonzalo Valdivia (LI), Segundo Rodríguez (DFC) y Matías Ferrari (MC) en Mitre; Nicolás Paz (DFC) en San Martín SJ; Lucas Picech (DFC) y Bautista Maillier (MC) en Colón; Matías Molina (LD) en Agropecuario. Además, Santiago Nogales de Gimnasia y Tiro se corrigió de DEL a POR y se le asignó POR. Se usaron fichas individuales y plantilla de club actualizada. Nueva tanda: Gonzalo Melgarejo (MI) y Brian Guerra (MD) en Chaco For Ever, y Matías Gómez (MC) en Los Andes. Melgarejo se corrigió además de posición general DEF a MED, respaldado por su perfil de temporada y la descripción de su función por banda izquierda. En Gimnasia de Jujuy se completaron Gonzalo Villarreal (DFC), Sebastián Sánchez (DFC) y Juan Pablo Córdoba (DFC), este último respaldado por su participación como central en la planilla del partido ante Patronato. Agustín Zabaleta (DC, Chaco For Ever) se completó como delantero centro con ficha individual de Transfermarkt. Nueva revisión con estadísticas de plantel 2026: Ezequiel Ozuna corregido a DEF/LI; Federico Cuzzani, Gonzalo Castellani y Nicolás Gómez corregidos a MED/MI en Ferro. Ignacio Lago corregido a MED/MI en Colón. Se prioriza el subrol publicado en la ficha de temporada y no se fuerza un subrol cuando la fuente sólo indica DEF/MED/DEL. Nueva tanda: se verificaron por fecha de nacimiento y se corrigieron nombres de Franco Molina, Jorge Zules Caicedo, Tiago Chamorro y Mauricio Tevez en Chaco For Ever; Jorge Zules Caicedo y Tiago Chamorro reciben DFC. En Los Andes se corrigieron Aaron Sandoval, Thiago Cicerone, Franco Tisera y Leandro Alegre; Gonzalo Cozzoni pasa a MED/MCD y Franco Tisera a DEL/DC. En Temperley se corrigieron Iago Iriarte y León Trebotic, y Rodrigo Mazur recibe DEF/LI. Los subroles se asignaron sólo donde hay fuente explícita.",
     "roles_especificos_por_bloque": [
       138,
-      153,
-      146,
+      155,
+      149,
       141,
       132,
       140
     ],
-    "porcentaje_roles_especificos": 84.5,
-    "ultima_revision": "2026-11-07: 850/1006 roles específicos respaldados (84.5%). Correcciones de posición/subrol en Ferro y Colón. No se modificó Primera División.",
+    "porcentaje_roles_especificos": 84.9,
+    "ultima_revision": "2026-11-07: 855/1006 roles específicos respaldados (84.9%). Cinco roles nuevos y depuración de nombres/posiciones en Chaco For Ever, Los Andes y Temperley. No se modificó Primera División.",
     "dorsales_contrastados_en_planillas": 4
   },
   "estado_por_club": [
@@ -248,9 +248,9 @@
       "club_id": "chaco",
       "nombre": "Chaco For Ever",
       "jugadores": 32,
-      "roles_especificos": 26,
-      "roles_pendientes": 6,
-      "porcentaje_roles": 81.3,
+      "roles_especificos": 28,
+      "roles_pendientes": 4,
+      "porcentaje_roles": 87.5,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -318,9 +318,9 @@
       "club_id": "losandes",
       "nombre": "Los Andes",
       "jugadores": 32,
-      "roles_especificos": 26,
-      "roles_pendientes": 6,
-      "porcentaje_roles": 81.3,
+      "roles_especificos": 28,
+      "roles_pendientes": 4,
+      "porcentaje_roles": 87.5,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -348,9 +348,9 @@
       "club_id": "temperley",
       "nombre": "Temperley",
       "jugadores": 33,
-      "roles_especificos": 21,
-      "roles_pendientes": 12,
-      "porcentaje_roles": 63.6,
+      "roles_especificos": 22,
+      "roles_pendientes": 11,
+      "porcentaje_roles": 66.7,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
