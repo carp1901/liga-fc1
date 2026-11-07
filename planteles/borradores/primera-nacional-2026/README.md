@@ -7,8 +7,9 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
 - 1.006 registros de jugadores en la base de trabajo.
-- 947/1.006 roles específicos respaldados por fuente (94,1%).
+- 950/1.006 roles específicos respaldados por fuente (94,4%).
 - Cuatro dorsales de Midland contrastados en varias planillas de partidos 2026; el resto sigue asignado internamente. No se presentan como numeración oficial de plantel.
+- ${total-roles} jugadores conservan su posición general, pero sin subrol específico verificable; no se inventan subroles.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
 - Ningún club se considera completo bajo el criterio integral.
 - Revisión adicional publicada: 182 correcciones y asignaciones de posición/subrol en varios clubes, contrastadas con estadísticas individuales 2026.
