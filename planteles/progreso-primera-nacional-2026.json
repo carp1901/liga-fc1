@@ -85,7 +85,16 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "pendiente"
+      "estado": "204 jugadores cargados en borrador para 6 clubes; fechas de nacimiento verificadas; dorsales internos; revisión de plantel y medias pendiente.",
+      "jugadores": 204,
+      "clubes": {
+        "almirantebrown": 38,
+        "ciudadbolivar": 34,
+        "colon": 32,
+        "tristansuarez": 33,
+        "agropecuario": 33,
+        "patronato": 34
+      }
     },
     {
       "bloque": 5,
