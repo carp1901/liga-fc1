@@ -1,0 +1,94 @@
+{
+  "temporada": 2026,
+  "division": "Primera Nacional",
+  "estado": "En curso: bloque 1 de 6. La recopilación inicial está cargada en CSV y todavía no se publicó en el juego; faltan auditoría final de fechas, dorsales y revisión de medias.",
+  "total_clubes": 36,
+  "bloques": [
+    {
+      "bloque": 1,
+      "zonaA": [
+        "allboys",
+        "ferro",
+        "madryn"
+      ],
+      "zonaB": [
+        "nuevachicago",
+        "chacarita",
+        "atlanta"
+      ],
+      "estado": "recopilación inicial cargada; revisión pendiente"
+    },
+    {
+      "bloque": 2,
+      "zonaA": [
+        "chaco",
+        "moron",
+        "estudiantesba"
+      ],
+      "zonaB": [
+        "sanmartintuc",
+        "gimnasiajujuy",
+        "almagro"
+      ],
+      "estado": "pendiente"
+    },
+    {
+      "bloque": 3,
+      "zonaA": [
+        "racingcba",
+        "losandes",
+        "mitre"
+      ],
+      "zonaB": [
+        "sanmartinsj",
+        "temperley",
+        "guemes"
+      ],
+      "estado": "pendiente"
+    },
+    {
+      "bloque": 4,
+      "zonaA": [
+        "almirantebrown",
+        "ciudadbolivar",
+        "colon"
+      ],
+      "zonaB": [
+        "tristansuarez",
+        "agropecuario",
+        "patronato"
+      ],
+      "estado": "pendiente"
+    },
+    {
+      "bloque": 5,
+      "zonaA": [
+        "centralnorte",
+        "godoycruz",
+        "santelmo"
+      ],
+      "zonaB": [
+        "gimnasiatiro",
+        "maipu",
+        "quilmes"
+      ],
+      "estado": "pendiente"
+    },
+    {
+      "bloque": 6,
+      "zonaA": [
+        "sanmiguel",
+        "defensoresbelgrano",
+        "acassuso"
+      ],
+      "zonaB": [
+        "colegiales",
+        "rafaela",
+        "midland"
+      ],
+      "estado": "pendiente"
+    }
+  ],
+  "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
+  "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes."
+}
