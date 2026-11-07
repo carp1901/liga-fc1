@@ -105,15 +105,17 @@ function makeTac(team,st=1,pr=1,formation){
  const pk=xi.reduce((best,i)=>sq[i].p==='DEL'&&(best<0||(sq[i].at?.rem||0)>(sq[best].at?.rem||0))?i:best,-1);
  return{f:b.f,st,pr,wing:0,sal:0,mk:0,auto:0,xi,cap,pk,k1:DATA.TM[team].c1,k2:DATA.TM[team].c2};
 }
+const tacticalMatchups=[['river','banfield'],['boca','riestra'],['lanus','sarmiento'],['rosario','estudiantesrc'],['racing','instituto']];
 function tacticalSample(label,st,pr,formation,n=300){
- const A='river',B='banfield',ta=makeTac(A,st,pr,formation),tb=makeTac(B,1,1),out={w:0,d:0,l:0,gf:0,ga:0};
+ const out={w:0,d:0,l:0,gf:0,ga:0},perPair=n/tacticalMatchups.length;
  for(let i=0;i<n;i++){
+  const [A,B]=tacticalMatchups[Math.floor(i/perPair)],ta=makeTac(A,st,pr,formation),tb=makeTac(B,1,1);
   const swap=i%2===1,m=swap?ENG.simGame(B,A,{mix:false,tacA:tb,tacB:ta}):ENG.simGame(A,B,{mix:false,tacA:ta,tacB:tb});
   const gf=swap?m.gb:m.ga,ga=swap?m.ga:m.gb;out.gf+=gf;out.ga+=ga;
   if(gf>ga)out.w++;else if(gf===ga)out.d++;else out.l++;
  }
  return{configuration:label,matches:n,w:out.w,d:out.d,l:out.l,ppg:+((out.w*3+out.d)/n).toFixed(3),
-  goalsFor:+(out.gf/n).toFixed(2),goalsAgainst:+(out.ga/n).toFixed(2),formation:DATA.FN[ta.f]};
+  goalsFor:+(out.gf/n).toFixed(2),goalsAgainst:+(out.ga/n).toFixed(2),formation:formation==null?'mejor XI':DATA.FN[formation]};
 }
 const tactics=[
  tacticalSample('equilibrada',1,1,null),
@@ -121,8 +123,13 @@ const tactics=[
  tacticalSample('ofensiva',2,1,null),
  tacticalSample('presion baja',1,0,null),
  tacticalSample('presion alta',1,2,null),
+ tacticalSample('ofensiva + presion alta',2,2,null),
+ tacticalSample('defensiva + presion baja',0,0,null),
  tacticalSample('4-3-3',1,1,1),
- tacticalSample('4-4-2',1,1,0)
+ tacticalSample('4-4-2',1,1,0),
+ tacticalSample('4-5-1',1,1,3),
+ tacticalSample('3-5-2',1,1,2),
+ tacticalSample('4-2-3-1',1,1,5)
 ];
 const strengthRanking=clubs.map(id=>({id,attack:+rates[id].a.toFixed(2),midfield:+rates[id].m.toFixed(2),defense:+rates[id].d.toFixed(2),overall:+((rates[id].a+rates[id].m+rates[id].d)/3).toFixed(2)})).sort((a,b)=>b.overall-a.overall);
 const result={
@@ -136,6 +143,6 @@ const result={
  titleDistribution:ranked.map(({id,champ,champPct,avgPos,top4Pct,top8Pct})=>({id,champ,champPct,avgPos,top4Pct,top8Pct})),
  strongestXI:clubs.map(id=>{const b=bestXI(id);return{id,xi:+(b.score/11).toFixed(2),formation:DATA.FN[b.f]}}).sort((a,b)=>b.xi-a.xi).slice(0,5),
  weakestXI:clubs.map(id=>{const b=bestXI(id);return{id,xi:+(b.score/11).toFixed(2),formation:DATA.FN[b.f]}}).sort((a,b)=>a.xi-b.xi).slice(0,5),
- tacticalComparison:tactics
+ tacticalMatchups,tacticalComparison:tactics
 };
 console.log(JSON.stringify(result,null,2));
