@@ -49,10 +49,16 @@ function primFixtures(zA,zB,reverse){
  }
  throw new Error('No se pudo generar el fixture de Primera');
 }
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const rates=Object.fromEntries(clubs.map(id=>[id,ENG.teamStrength(id,{mix:false})]));
+function preGoals(lambda){const lim=Math.exp(-lambda);let p=1,k=0;do{k++;p*=Math.random()}while(p>lim&&k<9);return k-1}
 function playStage(fx,zones){
  const T=Object.fromEntries(clubs.map(id=>[id,{id,pj:0,g:0,e:0,p:0,gf:0,ga:0,pts:0}]));
  for(const round of fx)for(const [home,away] of round){
-  const m=ENG.simGame(home,away,{mix:false}),h=m.ga,a=m.gb,A=T[home],B=T[away];
+  const A0=rates[home],B0=rates[away],mid=clamp(Math.pow((A0.m||65)/(B0.m||65),.22),.9,1.1);
+  const h=preGoals(clamp(1.08*Math.pow((A0.a||65)/(B0.d||65),1.18)*mid*1.045,.16,3.1));
+  const a=preGoals(clamp(1.08*Math.pow((B0.a||65)/(A0.d||65),1.18)/mid*.96,.14,2.85));
+  const A=T[home],B=T[away];
   A.pj++;B.pj++;A.gf+=h;A.ga+=a;B.gf+=a;B.ga+=h;
   if(h>a){A.pts+=3;A.g++;B.p++}else if(h<a){B.pts+=3;B.g++;A.p++}else{A.pts++;B.pts++;A.e++;B.e++}
  }
@@ -119,7 +125,7 @@ const tactics=[
  tacticalSample('4-4-2',1,1,0)
 ];
 const result={
- format:'Primera realista del motor: Apertura y Clausura; cada torneo con 16 fechas, 14 partidos intrazona y 2 interzonales por club; top 8 de cada zona y playoffs de 16',
+ format:'Primera realista: Apertura y Clausura; fixture exacto del motor (16 fechas, 14 partidos intrazona y 2 interzonales por club), top 8 por zona y playoffs de 16. Liga simulada con el modelo rápido preZ del propio motor; playoffs y muestra táctica con simGame real.',
  seasons,tournaments,clubs:clubs.length,zoneAssignmentSamples:seasons,
  zoneDistribution:clubs.map(id=>({id,zoneA:zoneCounts[id].a,zoneB:zoneCounts[id].b})),
  uniqueChampions:[...new Set(champions)].length,
