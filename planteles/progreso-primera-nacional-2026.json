@@ -16,7 +16,7 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "222 jugadores cargados; 108 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "222 jugadores cargados; 108 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 222,
       "clubes": {
         "allboys": 36,
@@ -40,7 +40,7 @@
         "gimnasiajujuy",
         "almagro"
       ],
-      "estado": "203 jugadores cargados; 115 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "203 jugadores cargados; 115 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 203,
       "clubes": {
         "chaco": 32,
@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "200 jugadores cargados; 103 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "200 jugadores cargados; 103 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 200,
       "clubes": {
         "racingcba": 38,
@@ -88,7 +88,7 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "204 jugadores cargados; 108 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "204 jugadores cargados; 108 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 204,
       "clubes": {
         "almirantebrown": 38,
@@ -112,7 +112,7 @@
         "maipu",
         "quilmes"
       ],
-      "estado": "198 jugadores cargados; 96 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "198 jugadores cargados; 96 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 198,
       "clubes": {
         "centralnorte": 36,
@@ -136,50 +136,50 @@
         "rafaela",
         "midland"
       ],
-      "estado": "222 jugadores cargados; 92 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 222,
+      "estado": "193 jugadores cargados; 123 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
+      "jugadores": 193,
       "clubes": {
         "sanmiguel": 28,
-        "defensoresbelgrano": 45,
+        "defensoresbelgrano": 26,
         "acassuso": 46,
-        "colegiales": 31,
+        "colegiales": 21,
         "rafaela": 39,
         "midland": 33
       },
-      "roles_especificos": 92
+      "roles_especificos": 123
     }
   ],
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1249,
-  "estado_general": "Carga inicial de 1.249 jugadores en 36 clubes, seis bloques equilibrados por zonas oficiales AFA. Primera pasada de roles específicos con fuentes de planteles 2026: 622/1.249 (49.8%); se corrigieron coincidencias de apellidos ambiguas usando iniciales y se retiraron asignaciones sin coincidencia suficiente. Quedan 627 roles pendientes. Edades y nacionalidades completas; dorsales asignados internamente, sin verificación oficial individual. Medias identificadas como estimaciones cuando no hay OVR EA individual; la revisión de nivel continúa. Publicación en main pendiente.",
+  "jugadores_borrador": 1220,
+  "estado_general": "Carga revisada de 1220 jugadores en 36 clubes. Se aplicó criterio de plantel principal (participación comprobable y suplentes funcionales) a Defensores de Belgrano y Colegiales; no se agregan juveniles de reserva ni jugadores sin minutos. Roles específicos con fuente: 653/1220 (53.5%). Dorsales asignados internamente; sin verificación oficial individual. Medias identificadas como estimaciones cuando no hay OVR EA individual. Publicación en main pendiente.",
   "auditoria_final": {
-    "jugadores": 1249,
+    "jugadores": 1220,
     "clubes": 36,
-    "edades_con_fecha_nacimiento": 1249,
-    "dorsales_asignados": 1249,
+    "edades_con_fecha_nacimiento": 1220,
+    "dorsales_asignados": 1220,
     "dorsales_oficiales_verificados": 0,
-    "nacionalidades_asignadas": 1249,
-    "medias_estimadas": 1249,
-    "medias_60": 65,
-    "porcentaje_media_60": 5.2,
+    "nacionalidades_asignadas": 1220,
+    "medias_estimadas": 1220,
+    "medias_60": 72,
+    "porcentaje_media_60": 5.9,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 622,
+    "roles_especificos_asignados": 653,
     "estado_ci": "passed",
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
-    "roles_especificos_pendientes": 627,
-    "estado_refinamiento": "En curso: seis bloques con primera pasada de roles específicos y fuentes; se corrigieron homónimos usando iniciales cuando estaban disponibles. Falta cubrir roles restantes, revisar individualmente las asignaciones y contrastar dorsales oficiales.",
+    "roles_especificos_pendientes": 567,
+    "estado_refinamiento": "En curso: se depuraron Defensores de Belgrano (26 jugadores, 24 con rol específico) y Colegiales (23 jugadores, 21 con rol específico) según apariciones 2026; juveniles sin participación y jugadores con uso mínimo quedaron fuera. Continúa la revisión individual de roles, dorsales oficiales y medias.",
     "roles_especificos_por_bloque": [
       108,
       115,
       103,
       108,
       96,
-      92
+      123
     ],
-    "porcentaje_roles_especificos": 49.8
+    "porcentaje_roles_especificos": 53.5
   },
   "estado_por_club": [
     {
@@ -495,12 +495,12 @@
     {
       "club_id": "defensoresbelgrano",
       "nombre": "Defensores de Belgrano",
-      "jugadores": 45,
-      "roles_especificos": 7,
-      "roles_pendientes": 38,
-      "porcentaje_roles": 15.6,
+      "jugadores": 26,
+      "roles_especificos": 23,
+      "roles_pendientes": 3,
+      "porcentaje_roles": 88.5,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel principal depurado por participación 2026; faltan contraste oficial de dorsales y revisión individual de medias/atributos"
     },
     {
       "club_id": "acassuso",
@@ -515,12 +515,12 @@
     {
       "club_id": "colegiales",
       "nombre": "Colegiales",
-      "jugadores": 31,
-      "roles_especificos": 5,
-      "roles_pendientes": 26,
-      "porcentaje_roles": 16.1,
+      "jugadores": 21,
+      "roles_especificos": 20,
+      "roles_pendientes": 1,
+      "porcentaje_roles": 95.2,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel principal depurado por participación 2026; faltan contraste oficial de dorsales y revisión individual de medias/atributos"
     },
     {
       "club_id": "rafaela",
