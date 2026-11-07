@@ -16,7 +16,7 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "151 jugadores; 136 roles específicos con fuente; roles de arqueros contrastados y posición de Rodrigo Ramírez corregida con fuente. Dorsales aún pendientes de verificación oficial.",
+      "estado": "151 jugadores; 136 roles específicos con fuente. Se corrigió la posición general de Dylan Durán (Chacarita) a defensor según ficha individual 2026. Roles específicos, dorsales y medias continúan en revisión.",
       "jugadores": 151,
       "clubes": {
         "allboys": 25,
@@ -179,7 +179,8 @@
       115,
       121
     ],
-    "porcentaje_roles_especificos": 69.2
+    "porcentaje_roles_especificos": 69.2,
+    "ultima_revision": "2026-11-07: corrección posicional de Dylan Durán con ficha Solo Ascenso; no altera el total de roles específicos."
   },
   "estado_por_club": [
     {
