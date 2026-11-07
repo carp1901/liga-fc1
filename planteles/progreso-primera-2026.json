@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera División",
-  "estado": "Primera completa en datos esenciales; 30/30 clubes y 1.013/1.013 jugadores con media, edad, dorsal, nacionalidad y rol específico; pendiente opcional de pie dominante y revisión final de estimaciones.",
+  "estado": "Primera División 2026 aprobada para avanzar a Primera Nacional: 30/30 clubes y 1.013/1.013 jugadores completos en datos esenciales; 138 estimaciones razonables aceptadas según criterio del proyecto.",
   "criterio": "Medias oficiales EA FC27/FC26 cuando existen; 138 estimaciones propias identificadas para jugadores sin OVR oficial. No se inventan jugadores ni nacionalidades: cada nacionalidad completada conserva su fuente en nat_source.",
   "clubes": {
     "boca": {
@@ -418,5 +418,29 @@
   "atributos_por_jugador": 21,
   "pies_asignados": 1,
   "pies_faltantes": 1012,
-  "pie_dominante_opcional": true
+  "pie_dominante_opcional": true,
+  "revision_final": {
+    "fecha": "2026-11-07",
+    "resultado": "APROBADA",
+    "criterio": "No se exige exactitud absoluta; las medias estimadas son aceptables si mantienen una escala coherente con el nivel del jugador y del club.",
+    "controles": {
+      "clubes": "30/30",
+      "jugadores": "1.013/1.013",
+      "dorsales": "1.013 asignados; 0 faltantes y 0 duplicados",
+      "edades": "1.013 asignadas; 0 faltantes",
+      "nacionalidades": "1.013 asignadas; 0 faltantes",
+      "rolesEspecificos": "1.013 asignados; 0 faltantes",
+      "atributos": "21 atributos por jugador; 1.013 completos",
+      "medias": "875 con fuente individual y 138 estimaciones propias identificadas; 0 medias provisionales sin fuente",
+      "medias60": "40 jugadores con media 60 (3,9% del total), no una asignación masiva por defecto",
+      "equilibrio": "Promedios generales por plantel entre 62,9 y 72,8; progresión coherente entre clubes",
+      "dorsales2D": "Revisada la ruta de datos: la alineación usa índices del plantel y el render 2D obtiene el dorsal desde el jugador correspondiente.",
+      "atributosArquero": "Los jugadores de campo no reciben atributos exclusivos de arquero; validación incluida en test-squads.js"
+    },
+    "pendientesNoBloqueantes": [
+      "Pie dominante: 1.012 sin dato; campo opcional y no afecta la carga ni el funcionamiento de los planteles.",
+      "Las 138 medias estimadas pueden refinarse más adelante si aparece información mejor."
+    ],
+    "alcance": "Revisión estática del CSV, metadatos, planteles publicados, reglas de atributos y ruta de dorsales 2D. La suite automatizada queda a cargo del workflow de validación activado por este cambio."
+  }
 }
