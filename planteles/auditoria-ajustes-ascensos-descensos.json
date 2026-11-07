@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "checks": 15,
+  "examples": {
+    "promotion": 1.035,
+    "relegation": 0.965,
+    "twoTierPromotion": 1.07,
+    "twoTierRelegation": 0.93,
+    "secondSeason": 1.0175,
+    "sameTierMetroFederalA": 1
+  },
+  "integration": "careerClose confirmó el descenso de Primera a Nacional"
+}
