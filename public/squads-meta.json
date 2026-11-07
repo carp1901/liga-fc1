@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-07T01:30:25.310Z",
+  "updatedAt": "2026-11-07T01:31:17.094Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "875 medias con fuente individual + 138 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -743,7 +743,10 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-platense/kader/verein/1109",
       "ageConsulted": "2026-11-05",
-      "natSource": "https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_Platense"
+      "natSource": [
+        "https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_Platense",
+        "https://cap.org.ar/2026/09/bruno-sepulveda-llega-para-reforzar-al-equipo-de-palermo/"
+      ]
     },
     "defensa": {
       "source": "https://www.tycsports.com/defensa-y-justicia.html",
@@ -852,7 +855,10 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-tigre/kader/verein/1188",
       "ageConsulted": "2026-11-05",
-      "natSource": "https://www.365scores.com/es/football/team/tigre-883/squad"
+      "natSource": [
+        "https://www.golmates.com/es/argentina/equipo/tigre/plantilla",
+        "https://www.365scores.com/es/football/team/tigre-883/squad"
+      ]
     },
     "banfield": {
       "source": "https://www.tycsports.com/banfield.html",
@@ -872,7 +878,10 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-banfield/kader/verein/1120",
       "ageConsulted": "2026-11-05",
-      "natSource": "https://www.365scores.com/es/football/team/banfield-878/squad"
+      "natSource": [
+        "https://www.365scores.com/es/football/team/banfield-878/squad",
+        "https://www.ligaprofesional.ar/clubes/banfield"
+      ]
     },
     "rivadavia": {
       "source": "https://www.tycsports.com/independiente-rivadavia.html",
@@ -890,7 +899,11 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-independiente-rivadavia/kader/verein/1236",
       "ageConsulted": "2026-11-05",
-      "natSource": "https://champsheep.com/es/teams/independiente-rivadavia-252"
+      "natSource": [
+        "https://csir.com.ar/plantel/nicolas-bolcato",
+        "https://champsheep.com/es/teams/independiente-rivadavia-252",
+        "https://csir.com.ar/plantel/luciano-sabato"
+      ]
     },
     "gimnasiamza": {
       "source": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
@@ -1276,8 +1289,8 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 975,
-    "missing": 38,
+    "assigned": 999,
+    "missing": 14,
     "total": 1013,
     "byClub": {
       "sanlorenzo": {
@@ -1370,7 +1383,7 @@
       },
       "platense": {
         "total": 36,
-        "assigned": 32
+        "assigned": 33
       },
       "defensa": {
         "total": 36,
@@ -1382,15 +1395,15 @@
       },
       "tigre": {
         "total": 46,
-        "assigned": 27
+        "assigned": 45
       },
       "banfield": {
         "total": 35,
-        "assigned": 33
+        "assigned": 35
       },
       "rivadavia": {
         "total": 28,
-        "assigned": 25
+        "assigned": 27
       },
       "gimnasiamza": {
         "total": 31,
@@ -1398,7 +1411,7 @@
       },
       "estudiantesrc": {
         "total": 32,
-        "assigned": 31
+        "assigned": 32
       }
     }
   },
@@ -1734,7 +1747,7 @@
     "verifiedRatings": 875,
     "estimatedRatings": 138,
     "provisionalRatings": 0,
-    "playersMissingNationality": 38,
+    "playersMissingNationality": 14,
     "playersMissingFoot": 1012,
     "playersMissingSpecificRole": 0,
     "playersWithoutManualAttributes": 866
