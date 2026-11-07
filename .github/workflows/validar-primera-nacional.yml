@@ -4,6 +4,7 @@ on:
     branches: [primera-nacional-2026-bloques]
     paths:
       - 'planteles/primera-nacional-2026-bloque1.csv'
+      - 'planteles/primera-nacional-2026-bloque2.csv'
       - 'test-primera-nacional.js'
       - 'import-squads.js'
       - 'public/data.js'
