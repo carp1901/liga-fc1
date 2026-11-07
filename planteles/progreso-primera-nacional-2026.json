@@ -180,5 +180,373 @@
       92
     ],
     "porcentaje_roles_especificos": 49.8
+  },
+  "estado_por_club": [
+    {
+      "club_id": "allboys",
+      "nombre": "All Boys",
+      "jugadores": 36,
+      "roles_especificos": 18,
+      "roles_pendientes": 18,
+      "porcentaje_roles": 50,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "ferro",
+      "nombre": "Ferro",
+      "jugadores": 32,
+      "roles_especificos": 21,
+      "roles_pendientes": 11,
+      "porcentaje_roles": 65.6,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "madryn",
+      "nombre": "Deportivo Madryn",
+      "jugadores": 38,
+      "roles_especificos": 15,
+      "roles_pendientes": 23,
+      "porcentaje_roles": 39.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "nuevachicago",
+      "nombre": "Nueva Chicago",
+      "jugadores": 44,
+      "roles_especificos": 20,
+      "roles_pendientes": 24,
+      "porcentaje_roles": 45.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "chacarita",
+      "nombre": "Chacarita",
+      "jugadores": 37,
+      "roles_especificos": 18,
+      "roles_pendientes": 19,
+      "porcentaje_roles": 48.6,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "atlanta",
+      "nombre": "Atlanta",
+      "jugadores": 35,
+      "roles_especificos": 16,
+      "roles_pendientes": 19,
+      "porcentaje_roles": 45.7,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "chaco",
+      "nombre": "Chaco For Ever",
+      "jugadores": 32,
+      "roles_especificos": 17,
+      "roles_pendientes": 15,
+      "porcentaje_roles": 53.1,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "moron",
+      "nombre": "Deportivo Morón",
+      "jugadores": 29,
+      "roles_especificos": 19,
+      "roles_pendientes": 10,
+      "porcentaje_roles": 65.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "estudiantesba",
+      "nombre": "Estudiantes de Buenos Aires",
+      "jugadores": 33,
+      "roles_especificos": 15,
+      "roles_pendientes": 18,
+      "porcentaje_roles": 45.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "sanmartintuc",
+      "nombre": "San Martín de Tucumán",
+      "jugadores": 39,
+      "roles_especificos": 23,
+      "roles_pendientes": 16,
+      "porcentaje_roles": 59,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "gimnasiajujuy",
+      "nombre": "Gimnasia de Jujuy",
+      "jugadores": 31,
+      "roles_especificos": 22,
+      "roles_pendientes": 9,
+      "porcentaje_roles": 71,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "almagro",
+      "nombre": "Almagro",
+      "jugadores": 39,
+      "roles_especificos": 19,
+      "roles_pendientes": 20,
+      "porcentaje_roles": 48.7,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "racingcba",
+      "nombre": "Racing de Córdoba",
+      "jugadores": 38,
+      "roles_especificos": 15,
+      "roles_pendientes": 23,
+      "porcentaje_roles": 39.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "losandes",
+      "nombre": "Los Andes",
+      "jugadores": 32,
+      "roles_especificos": 17,
+      "roles_pendientes": 15,
+      "porcentaje_roles": 53.1,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "mitre",
+      "nombre": "Mitre de Santiago",
+      "jugadores": 30,
+      "roles_especificos": 19,
+      "roles_pendientes": 11,
+      "porcentaje_roles": 63.3,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "sanmartinsj",
+      "nombre": "San Martín de San Juan",
+      "jugadores": 34,
+      "roles_especificos": 17,
+      "roles_pendientes": 17,
+      "porcentaje_roles": 50,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "temperley",
+      "nombre": "Temperley",
+      "jugadores": 33,
+      "roles_especificos": 16,
+      "roles_pendientes": 17,
+      "porcentaje_roles": 48.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "guemes",
+      "nombre": "Güemes",
+      "jugadores": 33,
+      "roles_especificos": 19,
+      "roles_pendientes": 14,
+      "porcentaje_roles": 57.6,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "almirantebrown",
+      "nombre": "Almirante Brown",
+      "jugadores": 38,
+      "roles_especificos": 16,
+      "roles_pendientes": 22,
+      "porcentaje_roles": 42.1,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "ciudadbolivar",
+      "nombre": "Ciudad de Bolívar",
+      "jugadores": 34,
+      "roles_especificos": 18,
+      "roles_pendientes": 16,
+      "porcentaje_roles": 52.9,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "colon",
+      "nombre": "Colón",
+      "jugadores": 32,
+      "roles_especificos": 17,
+      "roles_pendientes": 15,
+      "porcentaje_roles": 53.1,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "tristansuarez",
+      "nombre": "Tristán Suárez",
+      "jugadores": 33,
+      "roles_especificos": 17,
+      "roles_pendientes": 16,
+      "porcentaje_roles": 51.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "agropecuario",
+      "nombre": "Agropecuario",
+      "jugadores": 33,
+      "roles_especificos": 16,
+      "roles_pendientes": 17,
+      "porcentaje_roles": 48.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "patronato",
+      "nombre": "Patronato",
+      "jugadores": 34,
+      "roles_especificos": 24,
+      "roles_pendientes": 10,
+      "porcentaje_roles": 70.6,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "centralnorte",
+      "nombre": "Central Norte",
+      "jugadores": 36,
+      "roles_especificos": 16,
+      "roles_pendientes": 20,
+      "porcentaje_roles": 44.4,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "godoycruz",
+      "nombre": "Godoy Cruz",
+      "jugadores": 37,
+      "roles_especificos": 15,
+      "roles_pendientes": 22,
+      "porcentaje_roles": 40.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "santelmo",
+      "nombre": "San Telmo",
+      "jugadores": 32,
+      "roles_especificos": 17,
+      "roles_pendientes": 15,
+      "porcentaje_roles": 53.1,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "gimnasiatiro",
+      "nombre": "Gimnasia y Tiro",
+      "jugadores": 30,
+      "roles_especificos": 18,
+      "roles_pendientes": 12,
+      "porcentaje_roles": 60,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "maipu",
+      "nombre": "Deportivo Maipú",
+      "jugadores": 30,
+      "roles_especificos": 11,
+      "roles_pendientes": 19,
+      "porcentaje_roles": 36.7,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "quilmes",
+      "nombre": "Quilmes",
+      "jugadores": 33,
+      "roles_especificos": 19,
+      "roles_pendientes": 14,
+      "porcentaje_roles": 57.6,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "sanmiguel",
+      "nombre": "San Miguel",
+      "jugadores": 28,
+      "roles_especificos": 21,
+      "roles_pendientes": 7,
+      "porcentaje_roles": 75,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "defensoresbelgrano",
+      "nombre": "Defensores de Belgrano",
+      "jugadores": 45,
+      "roles_especificos": 7,
+      "roles_pendientes": 38,
+      "porcentaje_roles": 15.6,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "acassuso",
+      "nombre": "Acassuso",
+      "jugadores": 46,
+      "roles_especificos": 19,
+      "roles_pendientes": 27,
+      "porcentaje_roles": 41.3,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "colegiales",
+      "nombre": "Colegiales",
+      "jugadores": 31,
+      "roles_especificos": 5,
+      "roles_pendientes": 26,
+      "porcentaje_roles": 16.1,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "rafaela",
+      "nombre": "Atlético de Rafaela",
+      "jugadores": 39,
+      "roles_especificos": 22,
+      "roles_pendientes": 17,
+      "porcentaje_roles": 56.4,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "midland",
+      "nombre": "Midland",
+      "jugadores": 33,
+      "roles_especificos": 18,
+      "roles_pendientes": 15,
+      "porcentaje_roles": 54.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    }
+  ],
+  "criterio_club_completo": "No marcar completo hasta verificar nómina vigente, roles específicos y dorsales oficiales, además de revisar medias/atributos y datos individuales.",
+  "resumen_clubes": {
+    "completos": 0,
+    "pendientes": 36,
+    "nota": "Los 36 tienen carga base de jugadores y campos generales, pero ninguno alcanza el criterio integral de club completo."
   }
 }
