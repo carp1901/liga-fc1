@@ -88,7 +88,7 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "190 jugadores; 138 roles específicos respaldados. Revisión de posiciones y subroles contrastados con estadísticas individuales 2026.",
+      "estado": "190 jugadores; 136 roles específicos respaldados. Revisión de posiciones y subroles contrastados con estadísticas individuales 2026.",
       "jugadores": 190,
       "clubes": {
         "almirantebrown": 24,
@@ -98,7 +98,7 @@
         "agropecuario": 33,
         "patronato": 34
       },
-      "roles_especificos": 138
+      "roles_especificos": 136
     },
     {
       "bloque": 5,
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 833/1006 (82.8%). Continúa la verificación de roles, dorsales y medias.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 831/1006 (82.6%). Continúa la verificación de roles, dorsales y medias.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -165,22 +165,22 @@
     "medias_60": 68,
     "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 833,
+    "roles_especificos_asignados": 831,
     "estado_ci": "passed",
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
-    "roles_especificos_pendientes": 173,
-    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC. En Midland se contrastaron cuatro dorsales repetidos en planillas de partidos 2026 (Aguilar 15, Frattini 16, Olavarría 13 y Canalda 14); no se contabilizan como dorsales oficiales de plantel sin nómina oficial. En Midland se corrigieron además las posiciones generales de Lautaro Díaz Laharque (MED→DEF, LD) y Matías Flores (MED→DEL, DC), y el subrol de Facundo Marín (EI→MI), según la ficha estadística 2026 de Pelotita. En Estudiantes BA se confirmaron Juan Sánchez de León (MC) y Mateo Acosta (DC) con la ficha estadística 2026 de Pelotita. En esta tanda se añadieron seis roles respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI), Tomás Rodríguez (DEF) y Lucas Villegas (MED; corrección de posición general) en Ciudad de Bolívar, y Juan Valdez Chamorro (MP, Agropecuario), según estadísticas individuales 2026 de Pelotita.",
+    "roles_especificos_pendientes": 175,
+    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC. En Midland se contrastaron cuatro dorsales repetidos en planillas de partidos 2026 (Aguilar 15, Frattini 16, Olavarría 13 y Canalda 14); no se contabilizan como dorsales oficiales de plantel sin nómina oficial. En Midland se corrigieron además las posiciones generales de Lautaro Díaz Laharque (MED→DEF, LD) y Matías Flores (MED→DEL, DC), y el subrol de Facundo Marín (EI→MI), según la ficha estadística 2026 de Pelotita. En Estudiantes BA se confirmaron Juan Sánchez de León (MC) y Mateo Acosta (DC) con la ficha estadística 2026 de Pelotita. En esta tanda se añadieron seis roles respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI), Tomás Rodríguez (DEF) y Lucas Villegas (MED; corrección de posición general) en Ciudad de Bolívar, y Juan Valdez Chamorro (MP, Agropecuario), según estadísticas individuales 2026 de Pelotita. En esta tanda se añadieron cuatro roles específicos respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI, Ciudad de Bolívar) y Juan Valdez Chamorro (MP, Agropecuario). También se corrigieron las posiciones generales de Tomás Rodríguez (DEF) y Lucas Villegas (MED) en Ciudad de Bolívar sin inventar subroles, según estadísticas individuales 2026 de Pelotita.",
     "roles_especificos_por_bloque": [
       137,
       146,
       141,
-      138,
+      136,
       131,
       139
     ],
-    "porcentaje_roles_especificos": 82.8,
-    "ultima_revision": "2026-11-07: revisión cruzada de estadísticas individuales 2026; nueva tanda de seis roles/ajustes en Los Andes, Güemes, Ciudad de Bolívar y Agropecuario. No se modificó Primera División.",
+    "porcentaje_roles_especificos": 82.6,
+    "ultima_revision": "2026-11-07: revisión cruzada de estadísticas individuales 2026; nueva tanda de cuatro roles específicos y dos ajustes generales en Los Andes, Güemes, Ciudad de Bolívar y Agropecuario. No se modificó Primera División.",
     "dorsales_contrastados_en_planillas": 4
   },
   "estado_por_club": [
@@ -378,9 +378,9 @@
       "club_id": "ciudadbolivar",
       "nombre": "Ciudad de Bolívar",
       "jugadores": 34,
-      "roles_especificos": 24,
-      "roles_pendientes": 10,
-      "porcentaje_roles": 70.6,
+      "roles_especificos": 22,
+      "roles_pendientes": 12,
+      "porcentaje_roles": 64.7,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
