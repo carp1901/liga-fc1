@@ -131,9 +131,21 @@
         "rafaela",
         "midland"
       ],
-      "estado": "pendiente"
+      "estado": "205 jugadores cargados en borrador para los 6 clubes finales; edades calculadas al 06/11/2026; dorsales internos; revisión final pendiente.",
+      "jugadores": 205,
+      "clubes": {
+        "sanmiguel": 28,
+        "defensoresbelgrano": 28,
+        "acassuso": 46,
+        "colegiales": 31,
+        "rafaela": 39,
+        "midland": 33
+      }
     }
   ],
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
-  "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes."
+  "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
+  "clubes_cubiertos": 36,
+  "jugadores_borrador": 1232,
+  "estado_general": "Los seis bloques están cargados en borrador para los 36 clubes. Falta consolidar el CSV maestro, auditar planteles y posiciones, contrastar dorsales oficiales, revisar estimaciones de medias y ejecutar validación integral antes de importar al juego."
 }
