@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-07T00:01:30.088Z",
+  "updatedAt": "2026-11-07T00:28:10.898Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "875 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
+  "ratings": "1013 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -41,7 +41,10 @@
         "https://sanlorenzo.com.ar/futbol-profesional/plantel",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/matias-reali/70703"
       ],
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [
         "Asignado internamente: juvenil sin dorsal oficial publicado",
         "https://fcscoutdb.com/clubs/san-lorenzo-de-almagro",
@@ -58,6 +61,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/san-lorenzo-de-almagro",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/nahuel-arias/279196",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/matias-reali/70703"
       ],
@@ -104,7 +108,10 @@
     },
     "independiente": {
       "source": "https://www.clubaindependiente.com.ar/futbol/plantel",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": "https://fcscoutdb.com/clubs/independiente",
       "numbersConsulted": "2026-11-05",
       "numberConflict": "LPF indica #3 y la ficha del club muestra #39; no se asigna hasta resolver la discrepancia.",
@@ -124,6 +131,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/independiente",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.fifacm.com/26/player/81265",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jonathan-de-irastorza/74818",
         "https://www.ea.com/en/games/ea-sports-fc/ratings/teams-ratings/independiente/110093",
@@ -180,6 +188,7 @@
       "ratingSource": [
         "https://fcscoutdb.com/clubs/estudiantes-de-la-plata",
         "https://www.fifacm.com/players?nations=52&order=asc&position=CB&sort=likes&teams=101083&vid=435",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/baltasar-rodriguez/275343",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/marcos-rojo/201862"
       ],
@@ -214,7 +223,10 @@
     },
     "racing": {
       "source": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/racing-club/plantilla",
         "https://www.racingclub.com.ar/futbol/primer-equipo/plantel/jugador/2112_espino/",
@@ -227,6 +239,7 @@
       "numberSource": [],
       "ratingSource": [
         "https://www.fifacm.com/players?nations=52&order=asc&page=1&sort=overallrating&teams=101085&vid=412",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fcscoutdb.com/clubs/racing-club-de-avellaneda",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/gaston-martirena/255878",
         "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
@@ -240,7 +253,10 @@
         "https://www.ligaprofesional.ar/clubes/lanus/",
         "https://www.tycsports.com/lanus.html"
       ],
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-06",
+        "2026-11-05"
+      ],
       "numberSource": "https://estadisticas.clublanus.com/jugadores/mariano-gerez",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
@@ -248,6 +264,7 @@
         "https://www.transfermarkt.com.ar/club-atletico-lanus/kader/verein/333"
       ],
       "ratingSource": [
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fcscoutdb.com/clubs/lanus",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/teams-ratings/lanus/110395"
       ],
@@ -256,7 +273,10 @@
     },
     "talleres": {
       "source": "https://www.tycsports.com/talleres-de-cordoba.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [
         "https://www.clubtalleres.com.ar/jugadores/lucio-ferrari/",
         "https://www.sofascore.com/es/football/player/jeremias-gallard/1837210"
@@ -273,6 +293,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/talleres-de-cordoba",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fifaindex.com/es/jugadores/74849-jeremias-gallard/fc26"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-talleres-cordoba/kader/verein/393",
@@ -280,7 +301,10 @@
     },
     "rosario": {
       "source": "https://rosariocentral.com/plantel-masculino/",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/rosario-central/plantilla",
         "https://www.transfermarkt.com.ar/damian-fernandez/profil/spieler/1297991",
@@ -300,6 +324,7 @@
       "ratingSource": [
         "https://fcscoutdb.com/clubs/rosario-central",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/damian-fernandez/75793",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/elias-veron/82213",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-ramos/84516",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lisandro-duarte/85560"
@@ -312,7 +337,10 @@
         "https://www.newellsoldboys.com.ar/plantel",
         "https://fcscoutdb.com/clubs/newell-s-old-boys"
       ],
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [
         "https://www.ligaprofesional.ar/clubes/newells/",
         "https://fcscoutdb.com/clubs/newell-s-old-boys"
@@ -328,6 +356,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/newell-s-old-boys",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jeronimo-gomez-mattar/80108"
       ],
       "roleSource": [
@@ -340,7 +369,10 @@
     "gimnasia": {
       "source": "https://www.tycsports.com/gimnasia-de-la-plata.html",
       "nationalities": "https://www.ligaprofesional.ar/clubes/gimnasia-lp",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-06",
+        "2026-11-05"
+      ],
       "numberSource": [
         "https://www.transfermarkt.co/alejo-gelsomino/rueckennummern/spieler/1305354",
         "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-estudiantes-vs-gimnasia-fecha-5-id754866.html"
@@ -357,7 +389,10 @@
         "https://www.transfermarkt.com.ar/jorge-de-asis/profil/spieler/1305372",
         "https://www.transfermarkt.com.ar/lucas-janson/profil/spieler/238448"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-la-plata",
+      "ratingSource": [
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
+        "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-la-plata"
+      ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/ca-gimnasia-y-esgrima-la-plata/kader/verein/1104",
         "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/"
@@ -366,7 +401,10 @@
     },
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": "https://www.transfermarkt.com.ar/club-atletico-huracan/rueckennummern/verein/2063",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
@@ -378,6 +416,7 @@
       "ratingSource": [
         "https://fcscoutdb.com/clubs/huracan",
         "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/huracan/111711",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/martin-nervo/213581",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/juan-bisanz/274401"
       ],
@@ -386,7 +425,10 @@
     },
     "argentinos": {
       "source": "https://www.tycsports.com/argentinos-juniors.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [
         "https://www.lpf.org.ar/clubes/argentinos-juniors",
         "https://www.mundoascenso.com.ar/plantel/458-argentinos-juniors"
@@ -405,6 +447,7 @@
       "ratingSource": [
         "https://fcscoutdb.com/clubs/argentinos-juniors",
         "https://www.ea.com/es-mx/games/ea-sports-fc/ratings/player-ratings/agustin-mangiaut/75072",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.fifacm.com/players?foot=Left&nations=52&order=asc&page=1&sort=overallrating&teams=111019&vid=429"
       ],
       "roleSource": [
@@ -415,7 +458,10 @@
     },
     "belgrano": {
       "source": "https://www.tycsports.com/belgrano-de-cordoba.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [
         "https://www.bdfutbol.com/es/t/t2026-278023.html",
         "https://fcscoutdb.com/clubs/belgrano-de-cordoba"
@@ -430,6 +476,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/belgrano-de-cordoba",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/belgrano/111022"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-belgrano-de-cordoba/kader/verein/1290",
@@ -437,7 +484,10 @@
     },
     "centralcba": {
       "source": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html",
       "numbersConsulted": "2026-11-06",
       "ageSource": [
@@ -447,13 +497,19 @@
         "https://www.transfermarkt.com.ar/michael-santos/profil/spieler/178107",
         "https://www.transfermarkt.com.ar/leonardo-sequeira/profil/spieler/384761"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/central-cordoba",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/central-cordoba",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-central-cordoba-sde/kader/verein/14761",
       "ageConsulted": "2026-11-05"
     },
     "atletico": {
       "source": "https://www.tycsports.com/atletico-tucuman.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/36",
@@ -471,6 +527,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/atletico-tucuman",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lautaro-godoy/74790",
         "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/facundo-pimienta/75651"
       ],
@@ -479,7 +536,10 @@
     },
     "barracas": {
       "source": "https://www.barracascentral.com/plantel/",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": "https://fcscoutdb.com/clubs/barracas-central",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
@@ -491,27 +551,37 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/barracas-central",
-        "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/alex-juarez/271277"
+        "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/alex-juarez/271277",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-barracas-central/kader/verein/6212",
       "ageConsulted": "2026-11-05"
     },
     "riestra": {
       "source": "https://deportivoriestra.com.ar/equipo",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/deportivo-riestra/plantilla",
         "https://www.transfermarkt.com.ar/dariel-sanchez/profil/spieler/1330126"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/deportivo-riestra",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/deportivo-riestra",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/deportivo-riestra/kader/verein/18591",
       "ageConsulted": "2026-11-05"
     },
     "instituto": {
       "source": "https://www.tycsports.com/instituto.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-06",
+        "2026-11-05"
+      ],
       "numberSource": "https://marcadores.diez.hn/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/38",
@@ -534,6 +604,7 @@
         "https://www.transfermarkt.com.ar/matias-tissera/profil/spieler/503001"
       ],
       "ratingSource": [
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fcscoutdb.com/clubs/instituto-de-cordoba",
         "https://www.fifacm.com/26/player/243521",
         "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/agustin-massaccesi/83589",
@@ -544,7 +615,10 @@
     },
     "sarmiento": {
       "source": "https://www.tycsports.com/sarmiento-junin.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": "Asignado internamente: sin dorsal oficial confirmado",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "29/31",
@@ -554,7 +628,10 @@
         "https://www.diez.hn/liganacional/lautaro-monza-sarmiento-2026",
         "https://www.transfermarkt.com.ar/elian-gimenez/marktwertverlauf/spieler/1290521"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/sarmiento",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/sarmiento",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-sarmiento-de-junin/kader/verein/1073",
       "ageConsulted": "2026-11-05"
     },
@@ -563,7 +640,10 @@
         "https://www.tycsports.com/aldosivi.html",
         "https://fcscoutdb.com/clubs/aldosivi"
       ],
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-06",
+        "2026-11-05"
+      ],
       "numberSource": [
         "https://fcscoutdb.com/clubs/aldosivi",
         "https://www.mundoascenso.com.ar/plantel/53-aldosivi"
@@ -581,6 +661,7 @@
         "https://www.transfermarkt.com.ar/augusto-fernandez/profil/spieler/1230644"
       ],
       "ratingSource": [
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fcscoutdb.com/clubs/aldosivi",
         "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/aldosivi/111707",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/martin-garcia/80086",
@@ -599,7 +680,10 @@
         "https://www.tycsports.com/platense.html",
         "https://www.ligaprofesional.ar/clubes/platense/"
       ],
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "38/38",
@@ -631,6 +715,7 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/platense",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.sofascore.com/es-la/football/player/mendia-mateo/1537927",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/santiago-dalmasso/74776"
       ],
@@ -639,7 +724,10 @@
     },
     "defensa": {
       "source": "https://www.tycsports.com/defensa-y-justicia.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [
         "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-defensa-y-justicia-vs-independiente-fecha-15-id769669.html",
         "https://fcscoutdb.com/clubs/defensa-y-justicia"
@@ -669,6 +757,7 @@
       "ratingSource": [
         "https://fcscoutdb.com/clubs/defensa-y-justicia",
         "https://www.fotmob.com/es/players/1087551/damian-fernandez",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/juan-pablo-moreno/83312",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/tomas-perez/276605"
       ],
@@ -680,7 +769,10 @@
         "https://www.tycsports.com/union.html",
         "https://fcscoutdb.com/clubs/union-de-santa-fe"
       ],
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-06",
+        "2026-11-05"
+      ],
       "numberSource": "https://fcscoutdb.com/clubs/union-de-santa-fe",
       "numbersConsulted": "2026-11-06",
       "ageSource": [
@@ -692,6 +784,7 @@
         "https://www.transfermarkt.com.ar/juan-pablo-luduena/profil/spieler/1103988"
       ],
       "ratingSource": [
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fcscoutdb.com/clubs/union-de-santa-fe",
         "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/valentin-jesus-cerrudo/87957"
       ],
@@ -706,7 +799,10 @@
         "https://www.tycsports.com/tigre.html",
         "https://gol.conmebol.com/sudamericana/es/news/tigre-en-la-conmebol-sudamericana-2026-resultados-plantel-y-calendario"
       ],
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-huracan-vs-tigre-fecha-15-id769085.html",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
@@ -724,6 +820,7 @@
       ],
       "ratingSource": [
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/luka-fuster/73843",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fcscoutdb.com/clubs/tigre",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/teams-ratings/tigre/111715",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/ignacio-peluffo/81912"
@@ -733,13 +830,17 @@
     },
     "banfield": {
       "source": "https://www.tycsports.com/banfield.html",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "35/35",
       "ageSource": "https://clubabanfield.org/plantel-profesional-masculino/",
       "ratingSource": [
         "https://fcscoutdb.com/clubs/banfield",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-palavecino/70443",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/matias-hernandez/269500"
       ],
@@ -765,7 +866,10 @@
     },
     "gimnasiamza": {
       "source": "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-06",
+        "2026-11-05"
+      ],
       "numberSource": [
         "https://www.sofascore.com/football/player/juan-franco/926812",
         "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-de-mendoza"
@@ -781,6 +885,7 @@
         "https://www.fotmob.com/es/players/618779/brian-andrada"
       ],
       "ratingSource": [
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-de-mendoza",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/diego-mondino/83441",
         "https://www.sofascore.com/football/player/juan-franco/926812",
@@ -794,7 +899,10 @@
     },
     "estudiantesrc": {
       "source": "https://www.aaestudiantesriocuarto.com/",
-      "consulted": "2026-11-05",
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "numberSource": [],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
@@ -804,7 +912,10 @@
         "https://www.transfermarkt.com.ar/juan-antonini/profil/spieler/667375",
         "https://www.transfermarkt.com.ar/abel-francisco-romero/profil/spieler/1103451"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/estudiantes-de-rio-cuarto",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/estudiantes-de-rio-cuarto",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/estudiantes-de-rio-cuarto/kader/verein/11015",
       "ageConsulted": "2026-11-05"
     },
@@ -1389,14 +1500,14 @@
     }
   },
   "ratingCoverage": {
-    "rated": 875,
+    "rated": 1013,
     "total": 1013,
-    "provisional": 138,
+    "provisional": 0,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
-        "verified": 36,
-        "provisional": 4
+        "verified": 40,
+        "provisional": 0
       },
       "boca": {
         "total": 31,
@@ -1410,13 +1521,13 @@
       },
       "independiente": {
         "total": 36,
-        "verified": 30,
-        "provisional": 6
+        "verified": 36,
+        "provisional": 0
       },
       "estudiantes": {
         "total": 38,
-        "verified": 33,
-        "provisional": 5
+        "verified": 38,
+        "provisional": 0
       },
       "velez": {
         "total": 30,
@@ -1425,108 +1536,108 @@
       },
       "racing": {
         "total": 22,
-        "verified": 21,
-        "provisional": 1
+        "verified": 22,
+        "provisional": 0
       },
       "lanus": {
         "total": 34,
-        "verified": 26,
-        "provisional": 8
+        "verified": 34,
+        "provisional": 0
       },
       "talleres": {
         "total": 32,
-        "verified": 29,
-        "provisional": 3
+        "verified": 32,
+        "provisional": 0
       },
       "rosario": {
         "total": 38,
-        "verified": 34,
-        "provisional": 4
+        "verified": 38,
+        "provisional": 0
       },
       "huracan": {
         "total": 31,
-        "verified": 27,
-        "provisional": 4
+        "verified": 31,
+        "provisional": 0
       },
       "newells": {
         "total": 31,
-        "verified": 30,
-        "provisional": 1
+        "verified": 31,
+        "provisional": 0
       },
       "gimnasia": {
         "total": 36,
-        "verified": 25,
-        "provisional": 11
+        "verified": 36,
+        "provisional": 0
       },
       "argentinos": {
         "total": 33,
-        "verified": 31,
-        "provisional": 2
+        "verified": 33,
+        "provisional": 0
       },
       "belgrano": {
         "total": 36,
-        "verified": 27,
-        "provisional": 9
+        "verified": 36,
+        "provisional": 0
       },
       "centralcba": {
         "total": 36,
-        "verified": 28,
-        "provisional": 8
+        "verified": 36,
+        "provisional": 0
       },
       "atletico": {
         "total": 35,
-        "verified": 32,
-        "provisional": 3
+        "verified": 35,
+        "provisional": 0
       },
       "barracas": {
         "total": 36,
-        "verified": 31,
-        "provisional": 5
+        "verified": 36,
+        "provisional": 0
       },
       "riestra": {
         "total": 32,
-        "verified": 31,
-        "provisional": 1
+        "verified": 32,
+        "provisional": 0
       },
       "instituto": {
         "total": 36,
-        "verified": 27,
-        "provisional": 9
+        "verified": 36,
+        "provisional": 0
       },
       "sarmiento": {
         "total": 30,
-        "verified": 26,
-        "provisional": 4
+        "verified": 30,
+        "provisional": 0
       },
       "aldosivi": {
         "total": 36,
-        "verified": 28,
-        "provisional": 8
+        "verified": 36,
+        "provisional": 0
       },
       "platense": {
         "total": 36,
-        "verified": 33,
-        "provisional": 3
+        "verified": 36,
+        "provisional": 0
       },
       "defensa": {
         "total": 36,
-        "verified": 31,
-        "provisional": 5
+        "verified": 36,
+        "provisional": 0
       },
       "union": {
         "total": 33,
-        "verified": 28,
-        "provisional": 5
+        "verified": 33,
+        "provisional": 0
       },
       "tigre": {
         "total": 46,
-        "verified": 28,
-        "provisional": 18
+        "verified": 46,
+        "provisional": 0
       },
       "banfield": {
         "total": 35,
-        "verified": 32,
-        "provisional": 3
+        "verified": 35,
+        "provisional": 0
       },
       "rivadavia": {
         "total": 28,
@@ -1535,21 +1646,21 @@
       },
       "gimnasiamza": {
         "total": 31,
-        "verified": 27,
-        "provisional": 4
+        "verified": 31,
+        "provisional": 0
       },
       "estudiantesrc": {
         "total": 32,
-        "verified": 28,
-        "provisional": 4
+        "verified": 32,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob.",
     "formula": "Se prioriza el OVR de EA FC 27; si no existe, se usa EA FC 26 como respaldo. Sin carta, se usa promedio de partido con al menos 10 apariciones. Sin fuente individual, la media 60 queda provisional."
   },
   "attributeCoverage": {
-    "manualPlayers": 9,
-    "derivedPlayers": 1004,
+    "manualPlayers": 147,
+    "derivedPlayers": 866,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
@@ -1559,7 +1670,7 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "provisionalRatings": 138,
-    "playersWithoutManualAttributes": 1004
+    "provisionalRatings": 0,
+    "playersWithoutManualAttributes": 866
   }
 }
