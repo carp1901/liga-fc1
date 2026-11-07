@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 855/1006 (84.9%). Continúa la verificación de roles, dorsales y medias.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 855/1006 (85.0%). Continúa la verificación de roles, dorsales y medias.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -179,8 +179,8 @@
       132,
       140
     ],
-    "porcentaje_roles_especificos": 84.9,
-    "ultima_revision": "2026-11-07: 855/1006 roles específicos respaldados (84.9%). Cinco roles nuevos y depuración de nombres/posiciones en Chaco For Ever, Los Andes y Temperley. No se modificó Primera División.",
+    "porcentaje_roles_especificos": 85,
+    "ultima_revision": "2026-11-07: 855/1006 roles específicos respaldados (85.0%). Cinco roles nuevos y depuración de nombres/posiciones en Chaco For Ever, Los Andes y Temperley. No se modificó Primera División.",
     "dorsales_contrastados_en_planillas": 4
   },
   "estado_por_club": [
