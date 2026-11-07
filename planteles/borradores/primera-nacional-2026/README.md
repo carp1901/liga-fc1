@@ -7,13 +7,13 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
 - 1.006 registros de jugadores en la base de trabajo.
-- 818/1.006 roles específicos respaldados por fuente (81,3%).
+- 825/1.006 roles específicos respaldados por fuente (82,0%).
 - Dorsales asignados internamente: falta el contraste oficial individual.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
 - Ningún club se considera completo bajo el criterio integral.
 
 ## Próximas tareas
-1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 2–6: roles de arquero completados donde faltaban y subroles contrastados con estadísticas individuales 2026).
+1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales).
 2. Verificar dorsales oficiales y resolver conflictos sin inventar numeración.
 3. Revisar medias y atributos individuales; separar OVR documentado de estimaciones.
 4. Depurar planteles y comprobar nóminas de Primera Nacional 2026.
