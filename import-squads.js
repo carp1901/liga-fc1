@@ -2,8 +2,8 @@
 // Uso: node import-squads.js planteles/primera-2026.csv
 // Validación: node import-squads.js planteles/primera-2026.csv --dry-run --require-primera-complete
 // Publicación: node import-squads.js planteles/primera-2026.csv --require-primera-complete
-// No inventa jugadores, dorsales, edades ni estadísticas. Las medias sin datos verificados quedan en 60.
-// Los atributos no observados se derivan en public/data.js según puesto y media.
+// No inventa jugadores, dorsales ni edades. Las medias pueden ser oficiales o estimaciones propias claramente identificadas.
+// Los atributos estimados se guardan en CSV; los no observados se derivan en public/data.js según puesto y media.
 const fs=require('fs'),path=require('path');
 const file=process.argv[2],REQUIRE_PRIMERA=process.argv.includes('--require-primera-complete'),DRY_RUN=process.argv.includes('--dry-run');
 const AGE_REFERENCE_DATE='2026-11-05';
