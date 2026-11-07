@@ -17,16 +17,16 @@
         "atlanta"
       ],
       "estado": "222 jugadores cargados; 108 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 186,
+      "jugadores": 174,
       "clubes": {
         "allboys": 36,
         "ferro": 32,
         "madryn": 23,
         "nuevachicago": 23,
-        "chacarita": 37,
+        "chacarita": 25,
         "atlanta": 35
       },
-      "roles_especificos": 112
+      "roles_especificos": 115
     },
     {
       "bloque": 2,
@@ -65,16 +65,16 @@
         "guemes"
       ],
       "estado": "200 jugadores cargados; 103 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 200,
+      "jugadores": 184,
       "clubes": {
-        "racingcba": 38,
+        "racingcba": 22,
         "losandes": 32,
         "mitre": 30,
         "sanmartinsj": 34,
         "temperley": 33,
         "guemes": 33
       },
-      "roles_especificos": 103
+      "roles_especificos": 108
     },
     {
       "bloque": 4,
@@ -89,16 +89,16 @@
         "patronato"
       ],
       "estado": "204 jugadores cargados; 108 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 204,
+      "jugadores": 190,
       "clubes": {
-        "almirantebrown": 38,
+        "almirantebrown": 24,
         "ciudadbolivar": 34,
         "colon": 32,
         "tristansuarez": 33,
         "agropecuario": 33,
         "patronato": 34
       },
-      "roles_especificos": 108
+      "roles_especificos": 113
     },
     {
       "bloque": 5,
@@ -152,34 +152,34 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1085,
-  "estado_general": "Planteles depurados con criterio de primera plantilla: titulares, rotación y banco funcional con participación en la categoría. Juveniles de reserva y futbolistas sin minutos o con uso marginal quedan para futura cantera. Total 1085 jugadores; roles específicos con fuente 671/1085 (61.8%). Dorsales internos pendientes de verificación oficial; medias estimadas pendientes de contraste con datos de Football Manager/EA FC.",
+  "jugadores_borrador": 1043,
+  "estado_general": "Planteles depurados con criterio de primera plantilla: titulares, rotación y banco funcional con participación en la categoría. Juveniles de reserva y futbolistas sin minutos o con uso marginal quedan para futura cantera. Total 1043 jugadores; roles específicos con fuente 684/1043 (65.6%). Dorsales internos pendientes de verificación oficial; medias estimadas pendientes de contraste con datos de Football Manager/EA FC.",
   "auditoria_final": {
-    "jugadores": 1085,
+    "jugadores": 1043,
     "clubes": 36,
-    "edades_con_fecha_nacimiento": 1085,
-    "dorsales_asignados": 1085,
+    "edades_con_fecha_nacimiento": 1043,
+    "dorsales_asignados": 1043,
     "dorsales_oficiales_verificados": 0,
-    "nacionalidades_asignadas": 1085,
-    "medias_estimadas": 1085,
+    "nacionalidades_asignadas": 1043,
+    "medias_estimadas": 1043,
     "medias_60": 68,
-    "porcentaje_media_60": 6.3,
+    "porcentaje_media_60": 6.5,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 671,
+    "roles_especificos_asignados": 684,
     "estado_ci": "passed",
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
-    "roles_especificos_pendientes": 414,
-    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro y Atlético Rafaela. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
+    "roles_especificos_pendientes": 359,
+    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown y Chacarita. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
-      112,
+      115,
       116,
-      103,
       108,
+      113,
       111,
       121
     ],
-    "porcentaje_roles_especificos": 61.8
+    "porcentaje_roles_especificos": 65.6
   },
   "estado_por_club": [
     {
@@ -225,12 +225,12 @@
     {
       "club_id": "chacarita",
       "nombre": "Chacarita",
-      "jugadores": 37,
-      "roles_especificos": 18,
-      "roles_pendientes": 19,
-      "porcentaje_roles": 48.6,
+      "jugadores": 25,
+      "roles_especificos": 21,
+      "roles_pendientes": 4,
+      "porcentaje_roles": 84,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "atlanta",
@@ -305,12 +305,12 @@
     {
       "club_id": "racingcba",
       "nombre": "Racing de Córdoba",
-      "jugadores": 38,
-      "roles_especificos": 15,
-      "roles_pendientes": 23,
-      "porcentaje_roles": 39.5,
+      "jugadores": 22,
+      "roles_especificos": 20,
+      "roles_pendientes": 2,
+      "porcentaje_roles": 90.9,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "losandes",
@@ -365,12 +365,12 @@
     {
       "club_id": "almirantebrown",
       "nombre": "Almirante Brown",
-      "jugadores": 38,
-      "roles_especificos": 16,
-      "roles_pendientes": 22,
-      "porcentaje_roles": 42.1,
+      "jugadores": 24,
+      "roles_especificos": 21,
+      "roles_pendientes": 3,
+      "porcentaje_roles": 87.5,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "ciudadbolivar",
