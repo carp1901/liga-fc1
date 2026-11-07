@@ -10,6 +10,8 @@ on:
       - 'public/player-development.js'
       - 'test-balance.js'
       - '.github/workflows/balance.yml'
+permissions:
+  contents: write
 jobs:
   audit:
     runs-on: ubuntu-latest
@@ -20,17 +22,27 @@ jobs:
         with:
           node-version: 20
       - name: Simular temporadas y comparar tácticas
-        run: node test-balance.js | tee balance-report.json
+        run: node test-balance.js > balance-report.json
       - name: Publicar resultados
         if: always()
         run: |
           echo '## Auditoría de equilibrio de Primera' >> "$GITHUB_STEP_SUMMARY"
-          if [ -f balance-report.json ]; then
+          if [ -s balance-report.json ]; then
             echo 'Resultados de temporadas y comparación táctica:' >> "$GITHUB_STEP_SUMMARY"
             echo '```json' >> "$GITHUB_STEP_SUMMARY"
             cat balance-report.json >> "$GITHUB_STEP_SUMMARY"
             echo '```' >> "$GITHUB_STEP_SUMMARY"
           fi
+      - name: Guardar informe en la rama de auditoría
+        if: success()
+        run: |
+          mkdir -p planteles
+          cp balance-report.json planteles/auditoria-equilibrio-primera.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add planteles/auditoria-equilibrio-primera.json
+          git commit -m 'Record Primera balance audit results'
+          git push
       - uses: actions/upload-artifact@v4
         if: always() && hashFiles('balance-report.json') != ''
         with:
