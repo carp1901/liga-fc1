@@ -78,4 +78,4 @@ function recordAppearance(profile, player, match) {
   return {profile:p,player:next,changed:!!delta,delta};
 }
 
-module.exports={cycleMatches,potentialFor,createProfile,recordAppearance};
+const API={cycleMatches,potentialFor,createProfile,recordAppearance};\nif(typeof module!=='undefined'&&module.exports)module.exports=API;else if(typeof window!=='undefined')window.PLAYERDEV=API;
