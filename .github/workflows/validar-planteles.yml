@@ -17,8 +17,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Validar sintaxis del motor de planteles
-        run: node --check public/data.js
+      - name: Validar sintaxis de los módulos
+        run: |
+          node --check public/data.js
+          node --check public/engine.js
+          node --check public/player-development.js
+          node --check import-squads.js
+      - name: Probar evolución e involución de jugadores
+        run: node test-player-development.js
       - name: Validar Primera completa sin modificar archivos
         run: node import-squads.js planteles/primera-2026.csv --dry-run --require-primera-complete
       - name: Generar archivos que consume el juego
