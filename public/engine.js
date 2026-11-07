@@ -76,11 +76,11 @@ function simMin(r,m,min){const A=r.pl[m.a],B=r.pl[m.b];if(!A||!B)return;const P=
  if(rnd()<lostP){rate(m,t,atc.xi[ch[ch.length-1]],-.12);const dl=dfc.xi.filter((i,k)=>k&&!m.off[1-t].has(i));rate(m,1-t,dl[Math.floor(rnd()*dl.length)],.08);m.evs.push(ev);if(sal0&&rnd()<.3+(dfc.pr==2?.2:dfc.pr==0?-.15:0)-clamp((bq-70)/150,-.18,.18))m.cnt={s:1-t,min,f:.6,b:1.2};else if(!dfc.mk&&rnd()<.5)m.cnt={s:1-t,min};return}
  m.st[t][1]++;let p=clamp(.072*Math.pow(at.a*mod*[.95,1,1.07][dfc.st]/df.d,2.2),.02,.35);if(lead>=2)p*=Math.pow(.55,lead-1);if(lead>=4)p=.01;
  const sh=atc.xi[ch[ch.length-1]],as=ch.length>1?atc.xi[ch[ch.length-2]]:-1,gk=dfc.xi[0],duel=(ea(t,shx,lk2,'rem')*.7+ea(t,shx,lk2,'des')*.3)-(ea(1-t,sqD[gk],0,'ref')*.55+dq*.45);p=clamp(p*clamp(1+duel/120,.75,1.3)*((pfD&&pfD.ev.guard)||1)*(dfc.mk?1:clamp(1+(aDes-66)/260,.97,1.06))*mkSp*((m.cnt&&m.cnt.min==min-1&&m.cnt.s==t&&m.cnt.b)||1)*((sal0&&dfc.pr==2)?clamp(1+(bq-70)/180,1,1.14):1)*(sal1?clamp(1+(mq-70)/400,.97,1.04):1)*(sal2?clamp(1+(sbq-70)/400,.97,1.05):1),.01,.4);   // definición y desmarque del que remata vs reflejos del arquero y defensa
- if(cx>=0){const tw=slA[ch[ch.length-1]]=='DEL';p=clamp(p*(tw?1.2:.95)*clamp(1+(ea(t,sqA[atc.xi[cx]],cx,'pas')-60)/250,.85,1.15),.01,.4);ev.cr=1;if(tw)ev.hd=1}m.xg[t]+=p;if(rnd()<p){ev.x='g';ev.n=nm(r,m,t,sh);ev.si=sh;ev.ai=as;scoreG(r,m,t,sh,min,'att',as)}
+ if(cx>=0){const tw=slA[ch[ch.length-1]]=='DEL';p=clamp(p*(tw?1.2:.95)*clamp(1+(ea(t,sqA[atc.xi[cx]],cx,'pas')-60)/250,.85,1.15),.01,.4);ev.cr=1;if(tw)ev.hd=1}m.xg[t]+=p;if(rnd()<p&&!m.evs.some(z=>z.x=='g')){ev.x='g';ev.n=nm(r,m,t,sh);ev.si=sh;ev.ai=as;scoreG(r,m,t,sh,min,'att',as)}
  else if(rnd()>=clamp(.65-(ea(t,shx,lk2,'rem')-50)/100-duel/600,.15,.56)){ev.x='s';m.st[t][2]++;rate(m,t,sh,.12);rate(m,1-t,gk,.45)}
  else{ev.x='o';rate(m,t,sh,-.12)}
  m.evs.push(ev);
- if(ev.x!='g'&&rnd()<(ev.x=='s'?.4:.15)*[.8,1,1.25][atc.st]){m.st[t][3]++;m.xg[t]+=.06;const cg=rnd()<.10,c={id:eid(r),k:'cor',m:min,t,x:cg?'g':'c'};
+ if(ev.x!='g'&&rnd()<(ev.x=='s'?.4:.15)*[.8,1,1.25][atc.st]){m.st[t][3]++;m.xg[t]+=.06;const cg=rnd()<.10&&!m.evs.some(z=>z.x=='g'),c={id:eid(r),k:'cor',m:min,t,x:cg?'g':'c'};
   if(cg){const sl=slots(atc.f),w=[];atc.xi.forEach((x,k)=>{if(k&&!m.off[t].has(x))for(let n=0;n<({DEF:2,MED:1,DEL:3}[sl[k]]||1);n++)w.push(x)});const hd=w[Math.floor(rnd()*w.length)];m.st[t][1]++;c.n=nm(r,m,t,hd);c.si=hd;scoreG(r,m,t,hd,min,'cor',-1)}
   m.evs.push(c)}}
 const zonesOk=c=>Array.isArray(c.zones)&&(c.zones.length==2||c.zones.length==4)&&c.zones.every(a=>Array.isArray(a)&&a.length>=4)&&c.zones.flat().length==c.teams.length&&new Set(c.zones.flat()).size==c.teams.length&&c.zones.flat().every(id=>c.teams.includes(id));
