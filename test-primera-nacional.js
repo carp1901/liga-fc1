@@ -35,4 +35,5 @@ for(const p of rows){
 }
 for(const id of [...blockA,...blockB])assert.ok((counts[id]||0)>=18,'Plantel inicial demasiado corto: '+id);
 assert.equal(Object.keys(counts).length,6,'El bloque debe incluir 6 clubes');
+assert.deepEqual(Object.keys(counts).sort(),[...blockA,...blockB].sort(),'El bloque debe respetar exactamente los tres clubes de cada zona');
 console.log(JSON.stringify({ok:true,block:1,clubs:Object.keys(counts).length,players:rows.length,counts,zoneA:blockA,zoneB:blockB,ratings:'estimaciones identificadas',numbers:'asignación interna explícita; pendiente contraste oficial'},null,2));
