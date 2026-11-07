@@ -40,7 +40,7 @@
         "gimnasiajujuy",
         "almagro"
       ],
-      "estado": "172 jugadores; 138 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
+      "estado": "172 jugadores; 143 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 172,
       "clubes": {
         "chaco": 32,
@@ -50,7 +50,7 @@
         "gimnasiajujuy": 31,
         "almagro": 23
       },
-      "roles_especificos": 138
+      "roles_especificos": 143
     },
     {
       "bloque": 3,
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 731/1006 (72.7%). Continúa la verificación de roles, dorsales y medias.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 736/1006 (73.2%). Continúa la verificación de roles, dorsales y medias.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -165,22 +165,22 @@
     "medias_60": 68,
     "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 731,
+    "roles_especificos_asignados": 736,
     "estado_ci": "passed",
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
-    "roles_especificos_pendientes": 275,
+    "roles_especificos_pendientes": 270,
     "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
       136,
-      138,
+      143,
       108,
       113,
       115,
       121
     ],
-    "porcentaje_roles_especificos": 72.7,
-    "ultima_revision": "2026-11-07: nueva revisión de Chaco For Ever con estadísticas individuales 2026; se confirmó a Lucas Fernández como MI y se retiraron subroles no respaldados para Melgarejo, Guerra y Zules Caicedo."
+    "porcentaje_roles_especificos": 73.2,
+    "ultima_revision": "2026-11-07: revisión de Chaco For Ever con estadísticas individuales 2026 (Lucas Fernández MI; se retiraron subroles no respaldados) y cinco roles confirmados de Estudiantes de Caseros: Benítez DFC, Caro Torres DFC, Enzo Acosta MI, Ian Vera MP y Jorge Correa MP."
   },
   "estado_por_club": [
     {
@@ -267,9 +267,9 @@
       "club_id": "estudiantesba",
       "nombre": "Estudiantes de Buenos Aires",
       "jugadores": 33,
-      "roles_especificos": 18,
-      "roles_pendientes": 15,
-      "porcentaje_roles": 54.5,
+      "roles_especificos": 23,
+      "roles_pendientes": 10,
+      "porcentaje_roles": 69.7,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
