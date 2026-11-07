@@ -15,9 +15,9 @@ function cycleMatches(age) {
   if(age <= 23) return 10;
   if(age <= 26) return 13;
   if(age <= 29) return 16;
-  if(age <= 31) return 18;
-  if(age <= 33) return 15;
-  return 12;
+  if(age <= 31) return 20;
+  if(age <= 33) return 22;
+  return 26;
 }
 
 function potentialFor(player, seed) {
@@ -61,7 +61,8 @@ function recordAppearance(profile, player, match) {
   let delta = 0;
   if(age <= 23 && p.ca < p.pot && p.goodForm >= Math.max(2,Math.round(threshold*.22))) delta = 1;
   else if(age <= 27 && p.ca < p.pot && p.goodForm >= Math.max(3,Math.round(threshold*.3))) delta = 1;
-  else if(age >= 34) delta = -1;
+  else if(age <= 29 && p.ca < p.pot && p.goodForm >= Math.max(5,Math.round(threshold*.4))) delta = 1;
+  else if(age >= 34 && p.goodForm < Math.round(threshold*.4)) delta = -1;
   else if(age >= 32 && p.poorForm >= Math.max(3,Math.round(threshold*.25))) delta = -1;
   else if(age >= 28 && p.poorForm >= Math.max(4,Math.round(threshold*.35))) delta = -1;
 
