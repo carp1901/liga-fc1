@@ -1,8 +1,8 @@
 {
   "temporada": 2026,
   "division": "Primera División",
-  "estado": "planteles cargados; medias contrastadas y estimadas; revisión final pendiente",
-  "criterio": "Medias oficiales EA FC27/FC26 cuando existen; estimaciones propias identificadas para juveniles sin OVR oficial. No se inventan jugadores.",
+  "estado": "Primera completa en datos esenciales; 30/30 clubes y 1.013/1.013 jugadores con media, edad, dorsal, nacionalidad y rol específico; pendiente opcional de pie dominante y revisión final de estimaciones.",
+  "criterio": "Medias oficiales EA FC27/FC26 cuando existen; 138 estimaciones propias identificadas para jugadores sin OVR oficial. No se inventan jugadores ni nacionalidades: cada nacionalidad completada conserva su fuente en nat_source.",
   "clubes": {
     "boca": {
       "estado": "recopilado",
@@ -368,21 +368,7 @@
     "fecha": "2026-11-06",
     "jugadores": [
       "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
       "Damián Fernández (Rosario Central)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Defensa y Justicia)",
       "Santiago Dalmasso",
       "Ignacio Peluffo",
       "Matías Hernández",
@@ -419,5 +405,18 @@
       "Marcos Rojo trasladado de Racing a Estudiantes: incorporación oficial del 09/10/2026; dorsal 5 y ficha técnica confirmados por Estudiantes."
     ]
   },
-  "medias_estimadas": 138
+  "medias_estimadas": 138,
+  "nacionalidades_asignadas": 1013,
+  "nacionalidades_faltantes": 0,
+  "edades_asignadas": 1013,
+  "edades_faltantes": 0,
+  "roles_especificos_asignados": 1013,
+  "roles_especificos_faltantes": 0,
+  "atributos_jugadores_completos": 1013,
+  "atributos_manual": 147,
+  "atributos_derivados": 866,
+  "atributos_por_jugador": 21,
+  "pies_asignados": 1,
+  "pies_faltantes": 1012,
+  "pie_dominante_opcional": true
 }
