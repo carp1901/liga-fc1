@@ -8,6 +8,7 @@ on:
       - 'planteles/primera-nacional-2026-bloque3.csv'
       - 'planteles/primera-nacional-2026-bloque4.csv'
       - 'planteles/primera-nacional-2026-bloque5.csv'
+      - 'planteles/primera-nacional-2026-bloque6.csv'
       - 'test-primera-nacional.js'
       - 'import-squads.js'
       - 'public/data.js'
@@ -45,3 +46,4 @@ jobs:
           node import-squads.js planteles/primera-nacional-2026-bloque3.csv --dry-run
           node import-squads.js planteles/primera-nacional-2026-bloque4.csv --dry-run
           node import-squads.js planteles/primera-nacional-2026-bloque5.csv --dry-run
+          node import-squads.js planteles/primera-nacional-2026-bloque6.csv --dry-run
