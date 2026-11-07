@@ -2,6 +2,7 @@
 let seed=20261107;
 Math.random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
 const DATA=require('./public/data');
+if(process.env.BALANCE_K)DATA.NORMAL.K=Number(process.env.BALANCE_K);
 const ENG=require('./public/engine');
 
 const clubs=DATA.DIVS.find(d=>d.id==='ar1').teams.map(t=>t.id);
@@ -51,11 +52,13 @@ function primFixtures(zA,zB,reverse){
 }
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const rates=Object.fromEntries(clubs.map(id=>[id,ENG.teamStrength(id,{mix:false})]));
+const tacCache={};
+function getTac(team,st=1,pr=1,formation){const key=team+'|'+st+'|'+pr+'|'+(formation==null?'best':formation);return tacCache[key]||(tacCache[key]=makeTac(team,st,pr,formation))}
 function preGoals(lambda){const lim=Math.exp(-lambda);let p=1,k=0;do{k++;p*=Math.random()}while(p>lim&&k<9);return k-1}
 function playStage(fx,zones){
  const T=Object.fromEntries(clubs.map(id=>[id,{id,pj:0,g:0,e:0,p:0,gf:0,ga:0,pts:0}]));
  for(const round of fx)for(const [home,away] of round){
-  const match=ENG.simGame(home,away,{mix:false}),h=match.ga,a=match.gb,A=T[home],B=T[away];
+  const match=ENG.simGame(home,away,{mix:false,tacA:getTac(home),tacB:getTac(away)}),h=match.ga,a=match.gb,A=T[home],B=T[away];
   A.pj++;B.pj++;A.gf+=h;A.ga+=a;B.gf+=a;B.ga+=h;
   if(h>a){A.pts+=3;A.g++;B.p++}else if(h<a){B.pts+=3;B.g++;A.p++}else{A.pts++;B.pts++;A.e++;B.e++}
  }
@@ -102,13 +105,18 @@ function makeTac(team,st=1,pr=1,formation){
  const pk=xi.reduce((best,i)=>sq[i].p==='DEL'&&(best<0||(sq[i].at?.rem||0)>(sq[best].at?.rem||0))?i:best,-1);
  return{f:b.f,st,pr,wing:0,sal:0,mk:0,auto:0,xi,cap,pk,k1:DATA.TM[team].c1,k2:DATA.TM[team].c2};
 }
-const tacticalMatchups=[['river','banfield'],['boca','riestra'],['lanus','sarmiento'],['rosario','estudiantesrc'],['racing','instituto']];
-function tacticalSample(label,st,pr,formation,n=300){
+const tacticalMatchups=[['rosario','estudiantesrc'],['river','riestra'],['boca','banfield'],['estudiantes','newells'],['belgrano','sarmiento'],['lanus','gimnasia'],['racing','gimnasiamza'],['independiente','huracan'],['velez','aldosivi'],['talleres','tigre'],['argentinos','barracas'],['centralcba','rivadavia'],['atletico','instituto'],['defensa','union'],['sanlorenzo','platense']];
+const tacticalClubs=tacticalMatchups.flat();
+if(tacticalClubs.length!==30||new Set(tacticalClubs).size!==30||clubs.some(id=>!tacticalClubs.includes(id)))throw new Error('La muestra táctica debe incluir exactamente los 30 clubes');
+function tacticalSample(label,st,pr,formation,n=450){
  const out={w:0,d:0,l:0,gf:0,ga:0},perPair=n/tacticalMatchups.length;
  for(let i=0;i<n;i++){
-  const [A,B]=tacticalMatchups[Math.floor(i/perPair)],ta=makeTac(A,st,pr,formation),tb=makeTac(B,1,1);
-  const swap=i%2===1,m=swap?ENG.simGame(B,A,{mix:false,tacA:tb,tacB:ta}):ENG.simGame(A,B,{mix:false,tacA:ta,tacB:tb});
-  const gf=swap?m.gb:m.ga,ga=swap?m.ga:m.gb;out.gf+=gf;out.ga+=ga;
+  const [A,B]=tacticalMatchups[Math.floor(i/perPair)],tacticalTeam=i%2===0?A:B,other=tacticalTeam===A?B:A;
+  const tacticHome=Math.floor(i/2)%2===0,home=tacticHome?tacticalTeam:other,away=tacticHome?other:tacticalTeam;
+  const tacA=home===tacticalTeam?getTac(home,st,pr,formation):getTac(home,1,1,null);
+  const tacB=away===tacticalTeam?getTac(away,st,pr,formation):getTac(away,1,1,null);
+  const match=ENG.simGame(home,away,{mix:false,tacA,tacB});
+  const gf=home===tacticalTeam?match.ga:match.gb,ga=home===tacticalTeam?match.gb:match.ga;out.gf+=gf;out.ga+=ga;
   if(gf>ga)out.w++;else if(gf===ga)out.d++;else out.l++;
  }
  return{configuration:label,matches:n,w:out.w,d:out.d,l:out.l,ppg:+((out.w*3+out.d)/n).toFixed(3),
@@ -133,7 +141,7 @@ const result={
  format:'Primera realista: Apertura y Clausura; fixture exacto del motor (16 fechas, 14 partidos intrazona y 2 interzonales por club), top 8 por zona y playoffs de 16. Liga, playoffs y muestra táctica simulados con simGame real; zonas sorteadas de nuevo en cada temporada.',
  seasons,tournaments,clubs:clubs.length,zoneAssignmentSamples:seasons,
  zoneDistribution:clubs.map(id=>({id,zoneA:zoneCounts[id].a,zoneB:zoneCounts[id].b})),
- uniqueChampions:[...new Set(champions)].length,
+ normalizationK:DATA.NORMAL.K,uniqueChampions:[...new Set(champions)].length,
  effectiveStrengthRange:+(strengthRanking[0].overall-strengthRanking[strengthRanking.length-1].overall).toFixed(2),
  strongestEffective:strengthRanking.slice(0,5),weakestEffective:strengthRanking.slice(-5).reverse(),
  avgPositionSpread:+(Math.max(...ranked.map(x=>x.avgPos))-Math.min(...ranked.map(x=>x.avgPos))).toFixed(2),
