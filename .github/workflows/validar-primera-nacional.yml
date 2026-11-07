@@ -5,7 +5,9 @@ on:
     paths:
       - 'planteles/primera-nacional-2026-bloque1.csv'
       - 'planteles/primera-nacional-2026-bloque2.csv'
+      - 'planteles/primera-nacional-2026-bloque3.csv'
       - 'planteles/primera-nacional-2026-bloque2.csv'
+      - 'planteles/primera-nacional-2026-bloque3.csv'
       - 'test-primera-nacional.js'
       - 'import-squads.js'
       - 'public/data.js'
@@ -14,6 +16,7 @@ on:
     paths:
       - 'planteles/primera-nacional-2026-bloque1.csv'
       - 'planteles/primera-nacional-2026-bloque2.csv'
+      - 'planteles/primera-nacional-2026-bloque3.csv'
       - 'test-primera-nacional.js'
       - 'import-squads.js'
       - 'public/data.js'
@@ -39,3 +42,4 @@ jobs:
         run: |
           node import-squads.js planteles/primera-nacional-2026-bloque1.csv --dry-run
           node import-squads.js planteles/primera-nacional-2026-bloque2.csv --dry-run
+          node import-squads.js planteles/primera-nacional-2026-bloque3.csv --dry-run
