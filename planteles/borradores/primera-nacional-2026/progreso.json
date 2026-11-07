@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "184 jugadores; 108 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
+      "estado": "184 jugadores; 134 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 184,
       "clubes": {
         "racingcba": 22,
@@ -74,7 +74,7 @@
         "temperley": 33,
         "guemes": 33
       },
-      "roles_especificos": 108
+      "roles_especificos": 134
     },
     {
       "bloque": 4,
@@ -88,7 +88,7 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "190 jugadores; 113 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
+      "estado": "190 jugadores; 132 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 190,
       "clubes": {
         "almirantebrown": 24,
@@ -98,7 +98,7 @@
         "agropecuario": 33,
         "patronato": 34
       },
-      "roles_especificos": 113
+      "roles_especificos": 132
     },
     {
       "bloque": 5,
@@ -112,7 +112,7 @@
         "maipu",
         "quilmes"
       ],
-      "estado": "153 jugadores; 115 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
+      "estado": "153 jugadores; 131 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 153,
       "clubes": {
         "centralnorte": 22,
@@ -122,7 +122,7 @@
         "maipu": 19,
         "quilmes": 33
       },
-      "roles_especificos": 115
+      "roles_especificos": 131
     },
     {
       "bloque": 6,
@@ -136,7 +136,7 @@
         "rafaela",
         "midland"
       ],
-      "estado": "156 jugadores; 121 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
+      "estado": "156 jugadores; 137 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 156,
       "clubes": {
         "sanmiguel": 28,
@@ -146,14 +146,14 @@
         "rafaela": 24,
         "midland": 33
       },
-      "roles_especificos": 121
+      "roles_especificos": 137
     }
   ],
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 736/1006 (73.2%). Continúa la verificación de roles, dorsales y medias.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 813/1006 (80.8%). Continúa la verificación de roles, dorsales y medias.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -165,22 +165,22 @@
     "medias_60": 68,
     "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 736,
+    "roles_especificos_asignados": 813,
     "estado_ci": "passed",
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
-    "roles_especificos_pendientes": 270,
+    "roles_especificos_pendientes": 193,
     "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
       136,
       143,
-      108,
-      113,
-      115,
-      121
+      134,
+      132,
+      131,
+      137
     ],
-    "porcentaje_roles_especificos": 73.2,
-    "ultima_revision": "2026-11-07: revisión de Chaco For Ever con estadísticas individuales 2026 (Lucas Fernández MI; se retiraron subroles no respaldados) y cinco roles confirmados de Estudiantes de Caseros: Benítez DFC, Caro Torres DFC, Enzo Acosta MI, Ian Vera MP y Jorge Correa MP."
+    "porcentaje_roles_especificos": 80.8,
+    "ultima_revision": "2026-11-07: completados 70 roles de arquero a partir de las posiciones POR ya documentadas en las nóminas y seis roles específicos confirmados con estadísticas individuales 2026 (Güemes, San Martín SJ, Patronato, Deportivo Maipú y San Miguel)."
   },
   "estado_por_club": [
     {
@@ -307,9 +307,9 @@
       "club_id": "racingcba",
       "nombre": "Racing de Córdoba",
       "jugadores": 22,
-      "roles_especificos": 20,
-      "roles_pendientes": 2,
-      "porcentaje_roles": 90.9,
+      "roles_especificos": 22,
+      "roles_pendientes": 0,
+      "porcentaje_roles": 100,
       "estado": "pendiente",
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
@@ -317,9 +317,9 @@
       "club_id": "losandes",
       "nombre": "Los Andes",
       "jugadores": 32,
-      "roles_especificos": 17,
-      "roles_pendientes": 15,
-      "porcentaje_roles": 53.1,
+      "roles_especificos": 20,
+      "roles_pendientes": 12,
+      "porcentaje_roles": 62.5,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -327,95 +327,15 @@
       "club_id": "mitre",
       "nombre": "Mitre de Santiago",
       "jugadores": 30,
-      "roles_especificos": 19,
-      "roles_pendientes": 11,
-      "porcentaje_roles": 63.3,
+      "roles_especificos": 22,
+      "roles_pendientes": 8,
+      "porcentaje_roles": 73.3,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
     {
       "club_id": "sanmartinsj",
       "nombre": "San Martín de San Juan",
-      "jugadores": 34,
-      "roles_especificos": 17,
-      "roles_pendientes": 17,
-      "porcentaje_roles": 50,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "temperley",
-      "nombre": "Temperley",
-      "jugadores": 33,
-      "roles_especificos": 16,
-      "roles_pendientes": 17,
-      "porcentaje_roles": 48.5,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "guemes",
-      "nombre": "Güemes",
-      "jugadores": 33,
-      "roles_especificos": 19,
-      "roles_pendientes": 14,
-      "porcentaje_roles": 57.6,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "almirantebrown",
-      "nombre": "Almirante Brown",
-      "jugadores": 24,
-      "roles_especificos": 21,
-      "roles_pendientes": 3,
-      "porcentaje_roles": 87.5,
-      "estado": "pendiente",
-      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
-    },
-    {
-      "club_id": "ciudadbolivar",
-      "nombre": "Ciudad de Bolívar",
-      "jugadores": 34,
-      "roles_especificos": 18,
-      "roles_pendientes": 16,
-      "porcentaje_roles": 52.9,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "colon",
-      "nombre": "Colón",
-      "jugadores": 32,
-      "roles_especificos": 17,
-      "roles_pendientes": 15,
-      "porcentaje_roles": 53.1,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "tristansuarez",
-      "nombre": "Tristán Suárez",
-      "jugadores": 33,
-      "roles_especificos": 17,
-      "roles_pendientes": 16,
-      "porcentaje_roles": 51.5,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "agropecuario",
-      "nombre": "Agropecuario",
-      "jugadores": 33,
-      "roles_especificos": 16,
-      "roles_pendientes": 17,
-      "porcentaje_roles": 48.5,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "patronato",
-      "nombre": "Patronato",
       "jugadores": 34,
       "roles_especificos": 24,
       "roles_pendientes": 10,
@@ -424,108 +344,98 @@
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
     {
+      "club_id": "temperley",
+      "nombre": "Temperley",
+      "jugadores": 33,
+      "roles_especificos": 20,
+      "roles_pendientes": 13,
+      "porcentaje_roles": 60.6,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "guemes",
+      "nombre": "Güemes",
+      "jugadores": 33,
+      "roles_especificos": 26,
+      "roles_pendientes": 7,
+      "porcentaje_roles": 78.8,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "almirantebrown",
+      "nombre": "Almirante Brown",
+      "jugadores": 24,
+      "roles_especificos": 23,
+      "roles_pendientes": 1,
+      "porcentaje_roles": 95.8,
+      "estado": "pendiente",
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
+    },
+    {
+      "club_id": "ciudadbolivar",
+      "nombre": "Ciudad de Bolívar",
+      "jugadores": 34,
+      "roles_especificos": 21,
+      "roles_pendientes": 13,
+      "porcentaje_roles": 61.8,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "colon",
+      "nombre": "Colón",
+      "jugadores": 32,
+      "roles_especificos": 20,
+      "roles_pendientes": 12,
+      "porcentaje_roles": 62.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "tristansuarez",
+      "nombre": "Tristán Suárez",
+      "jugadores": 33,
+      "roles_especificos": 21,
+      "roles_pendientes": 12,
+      "porcentaje_roles": 63.6,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "agropecuario",
+      "nombre": "Agropecuario",
+      "jugadores": 33,
+      "roles_especificos": 18,
+      "roles_pendientes": 15,
+      "porcentaje_roles": 54.5,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "patronato",
+      "nombre": "Patronato",
+      "jugadores": 34,
+      "roles_especificos": 29,
+      "roles_pendientes": 5,
+      "porcentaje_roles": 85.3,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
       "club_id": "centralnorte",
       "nombre": "Central Norte",
       "jugadores": 22,
-      "roles_especificos": 20,
-      "roles_pendientes": 2,
-      "porcentaje_roles": 90.9,
+      "roles_especificos": 22,
+      "roles_pendientes": 0,
+      "porcentaje_roles": 100,
       "estado": "pendiente",
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "godoycruz",
       "nombre": "Godoy Cruz",
-      "jugadores": 24,
-      "roles_especificos": 20,
-      "roles_pendientes": 4,
-      "porcentaje_roles": 83.3,
-      "estado": "pendiente",
-      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
-    },
-    {
-      "club_id": "santelmo",
-      "nombre": "San Telmo",
-      "jugadores": 25,
-      "roles_especificos": 23,
-      "roles_pendientes": 2,
-      "porcentaje_roles": 92,
-      "estado": "pendiente",
-      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
-    },
-    {
-      "club_id": "gimnasiatiro",
-      "nombre": "Gimnasia y Tiro",
-      "jugadores": 30,
-      "roles_especificos": 18,
-      "roles_pendientes": 12,
-      "porcentaje_roles": 60,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "maipu",
-      "nombre": "Deportivo Maipú",
-      "jugadores": 19,
-      "roles_especificos": 15,
-      "roles_pendientes": 4,
-      "porcentaje_roles": 78.9,
-      "estado": "pendiente",
-      "motivo": "plantel principal depurado a 19 jugadores según participación 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
-    },
-    {
-      "club_id": "quilmes",
-      "nombre": "Quilmes",
-      "jugadores": 33,
-      "roles_especificos": 19,
-      "roles_pendientes": 14,
-      "porcentaje_roles": 57.6,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "sanmiguel",
-      "nombre": "San Miguel",
-      "jugadores": 28,
-      "roles_especificos": 21,
-      "roles_pendientes": 7,
-      "porcentaje_roles": 75,
-      "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
-    },
-    {
-      "club_id": "defensoresbelgrano",
-      "nombre": "Defensores de Belgrano",
-      "jugadores": 26,
-      "roles_especificos": 23,
-      "roles_pendientes": 3,
-      "porcentaje_roles": 88.5,
-      "estado": "pendiente",
-      "motivo": "plantel principal depurado por participación 2026; faltan contraste oficial de dorsales y revisión individual de medias/atributos"
-    },
-    {
-      "club_id": "acassuso",
-      "nombre": "Acassuso",
-      "jugadores": 22,
-      "roles_especificos": 17,
-      "roles_pendientes": 5,
-      "porcentaje_roles": 77.3,
-      "estado": "pendiente",
-      "motivo": "plantel principal depurado a 22 jugadores según participación 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
-    },
-    {
-      "club_id": "colegiales",
-      "nombre": "Colegiales",
-      "jugadores": 23,
-      "roles_especificos": 20,
-      "roles_pendientes": 3,
-      "porcentaje_roles": 87,
-      "estado": "pendiente",
-      "motivo": "plantel principal depurado por participación 2026; faltan contraste oficial de dorsales y revisión individual de medias/atributos"
-    },
-    {
-      "club_id": "rafaela",
-      "nombre": "Atlético de Rafaela",
       "jugadores": 24,
       "roles_especificos": 22,
       "roles_pendientes": 2,
@@ -534,12 +444,102 @@
       "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
+      "club_id": "santelmo",
+      "nombre": "San Telmo",
+      "jugadores": 25,
+      "roles_especificos": 25,
+      "roles_pendientes": 0,
+      "porcentaje_roles": 100,
+      "estado": "pendiente",
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
+    },
+    {
+      "club_id": "gimnasiatiro",
+      "nombre": "Gimnasia y Tiro",
+      "jugadores": 30,
+      "roles_especificos": 21,
+      "roles_pendientes": 9,
+      "porcentaje_roles": 70,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "maipu",
+      "nombre": "Deportivo Maipú",
+      "jugadores": 19,
+      "roles_especificos": 18,
+      "roles_pendientes": 1,
+      "porcentaje_roles": 94.7,
+      "estado": "pendiente",
+      "motivo": "plantel principal depurado a 19 jugadores según participación 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
+    },
+    {
+      "club_id": "quilmes",
+      "nombre": "Quilmes",
+      "jugadores": 33,
+      "roles_especificos": 23,
+      "roles_pendientes": 10,
+      "porcentaje_roles": 69.7,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "sanmiguel",
+      "nombre": "San Miguel",
+      "jugadores": 28,
+      "roles_especificos": 26,
+      "roles_pendientes": 2,
+      "porcentaje_roles": 92.9,
+      "estado": "pendiente",
+      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+    },
+    {
+      "club_id": "defensoresbelgrano",
+      "nombre": "Defensores de Belgrano",
+      "jugadores": 26,
+      "roles_especificos": 25,
+      "roles_pendientes": 1,
+      "porcentaje_roles": 96.2,
+      "estado": "pendiente",
+      "motivo": "plantel principal depurado por participación 2026; faltan contraste oficial de dorsales y revisión individual de medias/atributos"
+    },
+    {
+      "club_id": "acassuso",
+      "nombre": "Acassuso",
+      "jugadores": 22,
+      "roles_especificos": 19,
+      "roles_pendientes": 3,
+      "porcentaje_roles": 86.4,
+      "estado": "pendiente",
+      "motivo": "plantel principal depurado a 22 jugadores según participación 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
+    },
+    {
+      "club_id": "colegiales",
+      "nombre": "Colegiales",
+      "jugadores": 23,
+      "roles_especificos": 22,
+      "roles_pendientes": 1,
+      "porcentaje_roles": 95.7,
+      "estado": "pendiente",
+      "motivo": "plantel principal depurado por participación 2026; faltan contraste oficial de dorsales y revisión individual de medias/atributos"
+    },
+    {
+      "club_id": "rafaela",
+      "nombre": "Atlético de Rafaela",
+      "jugadores": 24,
+      "roles_especificos": 24,
+      "roles_pendientes": 0,
+      "porcentaje_roles": 100,
+      "estado": "pendiente",
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
+    },
+    {
       "club_id": "midland",
       "nombre": "Midland",
       "jugadores": 33,
-      "roles_especificos": 18,
-      "roles_pendientes": 15,
-      "porcentaje_roles": 54.5,
+      "roles_especificos": 21,
+      "roles_pendientes": 12,
+      "porcentaje_roles": 63.6,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     }
