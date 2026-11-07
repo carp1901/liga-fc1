@@ -58,7 +58,7 @@ function preGoals(lambda){const lim=Math.exp(-lambda);let p=1,k=0;do{k++;p*=Math
 function playStage(fx,zones){
  const T=Object.fromEntries(clubs.map(id=>[id,{id,pj:0,g:0,e:0,p:0,gf:0,ga:0,pts:0}]));
  for(const round of fx)for(const [home,away] of round){
-  const match=ENG.simGame(home,away,{mix:false,tacA:getTac(home),tacB:getTac(away)}),h=match.ga,a=match.gb,A=T[home],B=T[away];
+  const match=ENG.simGame(home,away,{mix:false}),h=match.ga,a=match.gb,A=T[home],B=T[away];
   A.pj++;B.pj++;A.gf+=h;A.ga+=a;B.gf+=a;B.ga+=h;
   if(h>a){A.pts+=3;A.g++;B.p++}else if(h<a){B.pts+=3;B.g++;A.p++}else{A.pts++;B.pts++;A.e++;B.e++}
  }
@@ -113,9 +113,9 @@ function tacticalSample(label,st,pr,formation,n=450){
  for(let i=0;i<n;i++){
   const [A,B]=tacticalMatchups[Math.floor(i/perPair)],tacticalTeam=i%2===0?A:B,other=tacticalTeam===A?B:A;
   const tacticHome=Math.floor(i/2)%2===0,home=tacticHome?tacticalTeam:other,away=tacticHome?other:tacticalTeam;
-  const tacA=home===tacticalTeam?getTac(home,st,pr,formation):getTac(home,1,1,null);
-  const tacB=away===tacticalTeam?getTac(away,st,pr,formation):getTac(away,1,1,null);
-  const match=ENG.simGame(home,away,{mix:false,tacA,tacB});
+  const opts={mix:false},useCustom=!(st===1&&pr===1&&formation==null);
+  if(useCustom){if(home===tacticalTeam)opts.tacA=getTac(home,st,pr,formation);else opts.tacB=getTac(away,st,pr,formation)}
+  const match=ENG.simGame(home,away,opts);
   const gf=home===tacticalTeam?match.ga:match.gb,ga=home===tacticalTeam?match.gb:match.ga;out.gf+=gf;out.ga+=ga;
   if(gf>ga)out.w++;else if(gf===ga)out.d++;else out.l++;
  }
