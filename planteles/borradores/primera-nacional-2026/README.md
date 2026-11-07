@@ -7,7 +7,7 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
 - 1.006 registros de jugadores en la base de trabajo.
-- 736/1.006 roles específicos respaldados por fuente (73,2%).
+- 818/1.006 roles específicos respaldados por fuente (81,3%).
 - Dorsales asignados internamente: falta el contraste oficial individual.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
 - Ningún club se considera completo bajo el criterio integral.
