@@ -25,7 +25,7 @@ rows.forEach((r,i)=>{
  if(birth&&!/^\d{4}-\d{2}-\d{2}$/.test(birth)){errors.push('Fila '+(i+2)+': fecha_nacimiento inválida');return}
  if(number!=null&&(!Number.isInteger(number)||number<1||number>99)){errors.push('Fila '+(i+2)+': dorsal inválido');return}
  if(get('ref')&&!Number.isFinite(Number(get('ref')))){errors.push('Fila '+(i+2)+': valor no numérico en ref; revisar nacionalidad mal ubicada');return}
- const key=club+'|'+name.toLowerCase();if(seen[key]){errors.push('Fila '+(i+2)+': jugador duplicado en '+club+': '+name);return}seen[key]=1;
+ if(!get('rating_source')){errors.push('Fila '+(i+2)+': falta rating_source; usar OVR oficial o una estimación propia identificada, no dejar 60 por defecto');return}\n const key=club+'|'+name.toLowerCase();if(seen[key]){errors.push('Fila '+(i+2)+': jugador duplicado en '+club+': '+name);return}seen[key]=1;
  if(number!=null){const nk=club+'|'+number;if(seenNumbers[nk]){errors.push('Fila '+(i+2)+': dorsal duplicado en '+club+': '+number);return}seenNumbers[nk]=1}
  const player={n:name,p:pos,r:Math.round(rating),role:get('rol')||raw};
  if(get('abreviatura'))player.short=get('abreviatura');if(get('nat'))player.nat=get('nat');if(get('id'))player.id=get('id');
