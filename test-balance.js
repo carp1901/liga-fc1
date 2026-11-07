@@ -1,0 +1,55 @@
+// Auditoría reproducible del equilibrio de Primera. No modifica ratings ni reglas del juego.
+const DATA=require('./public/data');
+const ENG=require('./public/engine');
+
+let seed=20261107;
+Math.random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+
+const clubs=DATA.DIVS.find(d=>d.id==='ar1').teams.map(t=>t.id);
+if(clubs.length!==30)throw new Error('Primera debe tener 30 clubes; encontrados: '+clubs.length);
+
+const seasons=Number(process.env.BALANCE_SEASONS||100);
+const stats=Object.fromEntries(clubs.map(id=>[id,{champ:0,top4:0,top8:0,pos:0}]));
+for(let s=0;s<seasons;s++){
+  const table=ENG.simSeason(clubs,'liga1');
+  table.forEach((id,i)=>{const x=stats[id];x.pos+=i+1;if(i===0)x.champ++;if(i<4)x.top4++;if(i<8)x.top8++});
+}
+const ranked=clubs.map(id=>({id,...stats[id],avgPos:+(stats[id].pos/seasons).toFixed(2),
+  champPct:+(stats[id].champ/seasons*100).toFixed(1),top4Pct:+(stats[id].top4/seasons*100).toFixed(1),
+  top8Pct:+(stats[id].top8/seasons*100).toFixed(1)})).sort((a,b)=>a.avgPos-b.avgPos);
+
+function bestXI(team){
+  const sq=DATA.squad(team);let best=null;
+  for(let f=0;f<DATA.FM.length;f++){
+    const xi=DATA.autoXI(sq,f),sl=DATA.slots(f);
+    const score=xi.reduce((v,i,k)=>v+(i>=0?DATA.roleOvr(sq[i],sl[k])*(sq[i].p===sl[k]?1:.8):0),0);
+    if(!best||score>best.score)best={f,xi,score};
+  }
+  return best;
+}
+const quality=clubs.map(id=>{const b=bestXI(id);return{id,xi:+(b.score/11).toFixed(2),formation:DATA.FM[b.f].join('-')}})
+  .sort((a,b)=>b.xi-a.xi);
+
+function tac(team,st,pr){
+  const sq=DATA.squad(team),b=bestXI(team),xi=b.xi;
+  const cap=xi.reduce((best,i)=>((sq[i].at?.lea||50)*.65+sq[i].r*.35)>
+    ((sq[best].at?.lea||50)*.65+sq[best].r*.35)?i:best,xi[0]);
+  const pk=xi.reduce((best,i)=>sq[i].p==='DEL'&&(best<0||sq[i].at?.rem>sq[best].at?.rem)?i:best,-1);
+  return{f:b.f,st,pr,wing:0,sal:0,mk:0,auto:0,xi,cap,pk,k1:DATA.TM[team].c1,k2:DATA.TM[team].c2};
+}
+function tacticalSample(st,pr,n=300){
+  const A='river',B='banfield',ta=tac(A,st,pr),tb=tac(B,1,1),out={w:0,d:0,l:0,gf:0,ga:0};
+  for(let i=0;i<n;i++){
+    const swap=i%2===1,m=swap?ENG.simGame(B,A,{mix:false,tacA:tb,tacB:ta}):ENG.simGame(A,B,{mix:false,tacA:ta,tacB:tb});
+    const gf=swap?m.gb:m.ga,ga=swap?m.ga:m.gb;out.gf+=gf;out.ga+=ga;
+    if(gf>ga)out.w++;else if(gf===ga)out.d++;else out.l++;
+  }
+  return{style:st,pressure:pr,matches:n,w:out.w,d:out.d,l:out.l,ppg:+((out.w*3+out.d)/n).toFixed(3),
+    goalsFor:+(out.gf/n).toFixed(2),goalsAgainst:+(out.ga/n).toFixed(2)};
+}
+const tactics=[tacticalSample(0,0),tacticalSample(1,1),tacticalSample(2,2)];
+const result={seasons,clubs:clubs.length,champions:ranked.filter(x=>x.champ>0).length,
+  avgPositionSpread:+(Math.max(...ranked.map(x=>x.avgPos))-Math.min(...ranked.map(x=>x.avgPos))).toFixed(2),
+  titleDistribution:ranked.map(({id,champ,champPct,avgPos,top4Pct,top8Pct})=>({id,champ,champPct,avgPos,top4Pct,top8Pct})),
+  strongestXI:quality.slice(0,5),weakestXI:quality.slice(-5).reverse(),tacticalComparison:tactics};
+console.log(JSON.stringify(result,null,2));
