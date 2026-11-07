@@ -1,0 +1,31 @@
+const assert=require('assert');
+const ENG=require('./public/engine');
+const DATA=require('./public/data');
+ENG.CFG.offline=true;
+const teams=['boca','river','racing','independiente'];
+const create=(room,pid,dev,season)=>ENG.act({a:'create',room,pid,name:'Test',off:1,speed:100,cfg:{div:'custom',fmt:'liga1',n:4,teams,real:1,season,dev}});
+const pick=(room,pid)=>ENG.act({a:'pick',room,pid,team:'boca'});
+const stop=code=>{const r=ENG.rooms[code];if(r&&r.timer)clearInterval(r.timer);if(r)delete ENG.rooms[code]};
+try{
+  const err=create('devtest1','tester',{},2026);assert(!err,'crear carrera: '+err);
+  const pErr=pick('devtest1','tester');assert(!pErr,'elegir club: '+pErr);
+  let first;ENG.listen('devtest1','tester',v=>{first=v});
+  assert(first&&first.me&&first.me.devSq,'el motor no entregó el plantel de carrera');
+  const dev=ENG.development('devtest1');
+  assert(dev.boca&&Object.keys(dev.boca).length===DATA.squad('boca').length,'no se crearon perfiles de toda la plantilla');
+  const saved=ENG.snapshot('devtest1');assert(saved,'no se pudo guardar la carrera en pretemporada');
+  stop('devtest1');
+  const loaded=ENG.restore(saved,{pid:'tester2',speed:100});assert(loaded&&loaded.code&&!loaded.error,'no se pudo restaurar la carrera');
+  const devLoaded=ENG.development(loaded.code);
+  assert.strictEqual(Object.keys(devLoaded.boca).length,Object.keys(dev.boca).length,'el guardado perdió perfiles');
+  stop(loaded.code);
+  const err2=create('devtest2','tester3',devLoaded,2027);assert(!err2,'crear segunda temporada: '+err2);
+  const pErr2=pick('devtest2','tester3');assert(!pErr2,'elegir club segunda temporada: '+pErr2);
+  let second;ENG.listen('devtest2','tester3',v=>{second=v});
+  const age0=DATA.squad('boca')[0].age;
+  const evolved=second.me.devSq.find(x=>x.n===DATA.squad('boca')[0].n);
+  assert(evolved&&evolved.age===age0+1,'la edad no avanzó con la temporada');
+  assert.strictEqual(ENG.development('devtest2').boca[0].profile.pot,devLoaded.boca[0].profile.pot,'el potencial oculto cambió al cargar/avanzar temporada');
+  stop('devtest2');
+  console.log('OK: integración realista, perfiles de plantilla, guardado/carga, potencial persistente y edad de temporada.');
+}catch(e){for(const id of ['devtest1','devtest2',...Object.keys(ENG.rooms)])stop(id);throw e}
