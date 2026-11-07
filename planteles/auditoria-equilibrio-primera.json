@@ -1,5 +1,5 @@
 {
-  "format": "Primera realista: Apertura y Clausura; fixture exacto del motor (16 fechas, 14 partidos intrazona y 2 interzonales por club), top 8 por zona y playoffs de 16. Liga simulada con el modelo rápido preZ del propio motor; playoffs y muestra táctica con simGame real.",
+  "format": "Primera realista: Apertura y Clausura; fixture exacto del motor (16 fechas, 14 partidos intrazona y 2 interzonales por club), top 8 por zona y playoffs de 16. Liga, playoffs y muestra táctica simulados con simGame real; zonas sorteadas de nuevo en cada temporada.",
   "seasons": 60,
   "tournaments": 120,
   "clubs": 30,
@@ -7,156 +7,156 @@
   "zoneDistribution": [
     {
       "id": "aldosivi",
-      "zoneA": 29,
-      "zoneB": 31
-    },
-    {
-      "id": "argentinos",
-      "zoneA": 28,
-      "zoneB": 32
-    },
-    {
-      "id": "atletico",
-      "zoneA": 33,
-      "zoneB": 27
-    },
-    {
-      "id": "banfield",
-      "zoneA": 24,
-      "zoneB": 36
-    },
-    {
-      "id": "barracas",
-      "zoneA": 26,
-      "zoneB": 34
-    },
-    {
-      "id": "belgrano",
-      "zoneA": 31,
-      "zoneB": 29
-    },
-    {
-      "id": "boca",
-      "zoneA": 28,
-      "zoneB": 32
-    },
-    {
-      "id": "centralcba",
       "zoneA": 27,
       "zoneB": 33
     },
     {
-      "id": "defensa",
+      "id": "argentinos",
+      "zoneA": 27,
+      "zoneB": 33
+    },
+    {
+      "id": "atletico",
+      "zoneA": 27,
+      "zoneB": 33
+    },
+    {
+      "id": "banfield",
+      "zoneA": 30,
+      "zoneB": 30
+    },
+    {
+      "id": "barracas",
       "zoneA": 31,
       "zoneB": 29
     },
     {
+      "id": "belgrano",
+      "zoneA": 27,
+      "zoneB": 33
+    },
+    {
+      "id": "boca",
+      "zoneA": 27,
+      "zoneB": 33
+    },
+    {
+      "id": "centralcba",
+      "zoneA": 33,
+      "zoneB": 27
+    },
+    {
+      "id": "defensa",
+      "zoneA": 33,
+      "zoneB": 27
+    },
+    {
       "id": "riestra",
-      "zoneA": 34,
-      "zoneB": 26
-    },
-    {
-      "id": "estudiantes",
-      "zoneA": 37,
-      "zoneB": 23
-    },
-    {
-      "id": "estudiantesrc",
-      "zoneA": 36,
-      "zoneB": 24
-    },
-    {
-      "id": "gimnasia",
-      "zoneA": 23,
-      "zoneB": 37
-    },
-    {
-      "id": "gimnasiamza",
-      "zoneA": 26,
-      "zoneB": 34
-    },
-    {
-      "id": "huracan",
-      "zoneA": 34,
-      "zoneB": 26
-    },
-    {
-      "id": "rivadavia",
-      "zoneA": 34,
-      "zoneB": 26
-    },
-    {
-      "id": "independiente",
-      "zoneA": 24,
-      "zoneB": 36
-    },
-    {
-      "id": "instituto",
-      "zoneA": 24,
-      "zoneB": 36
-    },
-    {
-      "id": "lanus",
-      "zoneA": 36,
-      "zoneB": 24
-    },
-    {
-      "id": "newells",
-      "zoneA": 35,
-      "zoneB": 25
-    },
-    {
-      "id": "platense",
-      "zoneA": 32,
-      "zoneB": 28
-    },
-    {
-      "id": "racing",
-      "zoneA": 36,
-      "zoneB": 24
-    },
-    {
-      "id": "river",
-      "zoneA": 32,
-      "zoneB": 28
-    },
-    {
-      "id": "rosario",
-      "zoneA": 25,
-      "zoneB": 35
-    },
-    {
-      "id": "sanlorenzo",
-      "zoneA": 26,
-      "zoneB": 34
-    },
-    {
-      "id": "sarmiento",
-      "zoneA": 24,
-      "zoneB": 36
-    },
-    {
-      "id": "talleres",
       "zoneA": 29,
       "zoneB": 31
     },
     {
-      "id": "tigre",
-      "zoneA": 32,
-      "zoneB": 28
+      "id": "estudiantes",
+      "zoneA": 24,
+      "zoneB": 36
     },
     {
-      "id": "union",
+      "id": "estudiantesrc",
+      "zoneA": 33,
+      "zoneB": 27
+    },
+    {
+      "id": "gimnasia",
       "zoneA": 36,
       "zoneB": 24
     },
     {
+      "id": "gimnasiamza",
+      "zoneA": 34,
+      "zoneB": 26
+    },
+    {
+      "id": "huracan",
+      "zoneA": 35,
+      "zoneB": 25
+    },
+    {
+      "id": "rivadavia",
+      "zoneA": 26,
+      "zoneB": 34
+    },
+    {
+      "id": "independiente",
+      "zoneA": 37,
+      "zoneB": 23
+    },
+    {
+      "id": "instituto",
+      "zoneA": 27,
+      "zoneB": 33
+    },
+    {
+      "id": "lanus",
+      "zoneA": 30,
+      "zoneB": 30
+    },
+    {
+      "id": "newells",
+      "zoneA": 36,
+      "zoneB": 24
+    },
+    {
+      "id": "platense",
+      "zoneA": 33,
+      "zoneB": 27
+    },
+    {
+      "id": "racing",
+      "zoneA": 23,
+      "zoneB": 37
+    },
+    {
+      "id": "river",
+      "zoneA": 33,
+      "zoneB": 27
+    },
+    {
+      "id": "rosario",
+      "zoneA": 24,
+      "zoneB": 36
+    },
+    {
+      "id": "sanlorenzo",
+      "zoneA": 25,
+      "zoneB": 35
+    },
+    {
+      "id": "sarmiento",
+      "zoneA": 33,
+      "zoneB": 27
+    },
+    {
+      "id": "talleres",
+      "zoneA": 33,
+      "zoneB": 27
+    },
+    {
+      "id": "tigre",
+      "zoneA": 26,
+      "zoneB": 34
+    },
+    {
+      "id": "union",
+      "zoneA": 27,
+      "zoneB": 33
+    },
+    {
       "id": "velez",
-      "zoneA": 28,
-      "zoneB": 32
+      "zoneA": 34,
+      "zoneB": 26
     }
   ],
-  "uniqueChampions": 27,
+  "uniqueChampions": 30,
   "effectiveStrengthRange": 5.03,
   "strongestEffective": [
     {
@@ -232,247 +232,247 @@
       "overall": 65.96
     }
   ],
-  "avgPositionSpread": 2.27,
+  "avgPositionSpread": 5.55,
   "titleDistribution": [
     {
       "id": "rosario",
-      "champ": 15,
-      "champPct": 12.5,
-      "avgPos": 6.51,
-      "top4Pct": 40,
-      "top8Pct": 67.5
+      "champ": 20,
+      "champPct": 16.7,
+      "avgPos": 4.33,
+      "top4Pct": 65.8,
+      "top8Pct": 85
     },
     {
-      "id": "argentinos",
+      "id": "river",
+      "champ": 8,
+      "champPct": 6.7,
+      "avgPos": 5.69,
+      "top4Pct": 55,
+      "top8Pct": 70.8
+    },
+    {
+      "id": "boca",
+      "champ": 7,
+      "champPct": 5.8,
+      "avgPos": 6.16,
+      "top4Pct": 45.8,
+      "top8Pct": 69.2
+    },
+    {
+      "id": "sanlorenzo",
       "champ": 3,
       "champPct": 2.5,
-      "avgPos": 7.34,
-      "top4Pct": 28.3,
-      "top8Pct": 59.2
+      "avgPos": 6.46,
+      "top4Pct": 40.8,
+      "top8Pct": 69.2
+    },
+    {
+      "id": "lanus",
+      "champ": 2,
+      "champPct": 1.7,
+      "avgPos": 6.53,
+      "top4Pct": 38.3,
+      "top8Pct": 66.7
+    },
+    {
+      "id": "velez",
+      "champ": 10,
+      "champPct": 8.3,
+      "avgPos": 6.71,
+      "top4Pct": 35,
+      "top8Pct": 65.8
     },
     {
       "id": "belgrano",
+      "champ": 7,
+      "champPct": 5.8,
+      "avgPos": 6.79,
+      "top4Pct": 32.5,
+      "top8Pct": 66.7
+    },
+    {
+      "id": "estudiantes",
       "champ": 3,
       "champPct": 2.5,
-      "avgPos": 7.35,
+      "avgPos": 6.82,
       "top4Pct": 35,
-      "top8Pct": 59.2
+      "top8Pct": 64.2
+    },
+    {
+      "id": "racing",
+      "champ": 7,
+      "champPct": 5.8,
+      "avgPos": 7.03,
+      "top4Pct": 32.5,
+      "top8Pct": 65.8
+    },
+    {
+      "id": "defensa",
+      "champ": 3,
+      "champPct": 2.5,
+      "avgPos": 7.19,
+      "top4Pct": 36.7,
+      "top8Pct": 58.3
+    },
+    {
+      "id": "independiente",
+      "champ": 2,
+      "champPct": 1.7,
+      "avgPos": 7.45,
+      "top4Pct": 28.3,
+      "top8Pct": 64.2
     },
     {
       "id": "talleres",
       "champ": 3,
       "champPct": 2.5,
-      "avgPos": 7.39,
-      "top4Pct": 36.7,
-      "top8Pct": 55.8
+      "avgPos": 7.63,
+      "top4Pct": 25.8,
+      "top8Pct": 60.8
     },
     {
-      "id": "independiente",
-      "champ": 4,
-      "champPct": 3.3,
-      "avgPos": 7.46,
-      "top4Pct": 30,
-      "top8Pct": 61.7
+      "id": "rivadavia",
+      "champ": 1,
+      "champPct": 0.8,
+      "avgPos": 8.06,
+      "top4Pct": 24.2,
+      "top8Pct": 50.8
     },
     {
-      "id": "boca",
-      "champ": 6,
-      "champPct": 5,
-      "avgPos": 7.52,
-      "top4Pct": 33.3,
-      "top8Pct": 55.8
-    },
-    {
-      "id": "lanus",
-      "champ": 9,
-      "champPct": 7.5,
-      "avgPos": 7.52,
-      "top4Pct": 36.7,
-      "top8Pct": 54.2
-    },
-    {
-      "id": "river",
-      "champ": 2,
-      "champPct": 1.7,
-      "avgPos": 7.58,
-      "top4Pct": 26.7,
-      "top8Pct": 55.8
+      "id": "tigre",
+      "champ": 5,
+      "champPct": 4.2,
+      "avgPos": 8.38,
+      "top4Pct": 21.7,
+      "top8Pct": 50
     },
     {
       "id": "atletico",
-      "champ": 6,
-      "champPct": 5,
-      "avgPos": 7.61,
-      "top4Pct": 30,
-      "top8Pct": 59.2
-    },
-    {
-      "id": "huracan",
       "champ": 4,
       "champPct": 3.3,
-      "avgPos": 7.67,
-      "top4Pct": 28.3,
-      "top8Pct": 56.7
+      "avgPos": 8.41,
+      "top4Pct": 16.7,
+      "top8Pct": 57.5
+    },
+    {
+      "id": "platense",
+      "champ": 2,
+      "champPct": 1.7,
+      "avgPos": 8.52,
+      "top4Pct": 21.7,
+      "top8Pct": 45.8
     },
     {
       "id": "centralcba",
       "champ": 3,
       "champPct": 2.5,
-      "avgPos": 7.88,
-      "top4Pct": 31.7,
-      "top8Pct": 55
+      "avgPos": 8.57,
+      "top4Pct": 15.8,
+      "top8Pct": 49.2
     },
     {
-      "id": "aldosivi",
-      "champ": 5,
-      "champPct": 4.2,
-      "avgPos": 7.92,
-      "top4Pct": 23.3,
-      "top8Pct": 53.3
-    },
-    {
-      "id": "velez",
-      "champ": 5,
-      "champPct": 4.2,
-      "avgPos": 7.92,
-      "top4Pct": 25,
-      "top8Pct": 53.3
-    },
-    {
-      "id": "estudiantes",
-      "champ": 1,
-      "champPct": 0.8,
-      "avgPos": 7.97,
-      "top4Pct": 22.5,
-      "top8Pct": 58.3
-    },
-    {
-      "id": "rivadavia",
-      "champ": 8,
-      "champPct": 6.7,
-      "avgPos": 8,
-      "top4Pct": 25,
-      "top8Pct": 55
-    },
-    {
-      "id": "defensa",
-      "champ": 5,
-      "champPct": 4.2,
-      "avgPos": 8.02,
-      "top4Pct": 26.7,
-      "top8Pct": 54.2
-    },
-    {
-      "id": "instituto",
+      "id": "argentinos",
       "champ": 4,
       "champPct": 3.3,
-      "avgPos": 8.09,
-      "top4Pct": 23.3,
-      "top8Pct": 52.5
-    },
-    {
-      "id": "barracas",
-      "champ": 4,
-      "champPct": 3.3,
-      "avgPos": 8.14,
-      "top4Pct": 24.2,
-      "top8Pct": 55
-    },
-    {
-      "id": "union",
-      "champ": 1,
-      "champPct": 0.8,
-      "avgPos": 8.18,
-      "top4Pct": 28.3,
-      "top8Pct": 52.5
-    },
-    {
-      "id": "gimnasiamza",
-      "champ": 0,
-      "champPct": 0,
-      "avgPos": 8.26,
-      "top4Pct": 26.7,
-      "top8Pct": 48.3
-    },
-    {
-      "id": "sanlorenzo",
-      "champ": 2,
-      "champPct": 1.7,
-      "avgPos": 8.32,
-      "top4Pct": 25,
-      "top8Pct": 46.7
-    },
-    {
-      "id": "platense",
-      "champ": 6,
-      "champPct": 5,
-      "avgPos": 8.35,
-      "top4Pct": 23.3,
-      "top8Pct": 48.3
-    },
-    {
-      "id": "racing",
-      "champ": 4,
-      "champPct": 3.3,
-      "avgPos": 8.44,
-      "top4Pct": 23.3,
-      "top8Pct": 47.5
+      "avgPos": 8.61,
+      "top4Pct": 20.8,
+      "top8Pct": 43.3
     },
     {
       "id": "banfield",
-      "champ": 7,
-      "champPct": 5.8,
-      "avgPos": 8.57,
-      "top4Pct": 23.3,
-      "top8Pct": 47.5
+      "champ": 3,
+      "champPct": 2.5,
+      "avgPos": 8.77,
+      "top4Pct": 16.7,
+      "top8Pct": 46.7
     },
     {
-      "id": "estudiantesrc",
-      "champ": 4,
-      "champPct": 3.3,
-      "avgPos": 8.57,
-      "top4Pct": 21.7,
-      "top8Pct": 47.5
+      "id": "gimnasiamza",
+      "champ": 3,
+      "champPct": 2.5,
+      "avgPos": 8.82,
+      "top4Pct": 20,
+      "top8Pct": 45.8
     },
     {
       "id": "sarmiento",
       "champ": 2,
       "champPct": 1.7,
-      "avgPos": 8.59,
-      "top4Pct": 17.5,
-      "top8Pct": 51.7
+      "avgPos": 8.88,
+      "top4Pct": 15,
+      "top8Pct": 44.2
     },
     {
-      "id": "newells",
+      "id": "instituto",
       "champ": 2,
       "champPct": 1.7,
-      "avgPos": 8.63,
-      "top4Pct": 25,
-      "top8Pct": 45.8
+      "avgPos": 8.94,
+      "top4Pct": 19.2,
+      "top8Pct": 42.5
     },
     {
-      "id": "gimnasia",
-      "champ": 0,
-      "champPct": 0,
-      "avgPos": 8.68,
-      "top4Pct": 20,
-      "top8Pct": 46.7
+      "id": "barracas",
+      "champ": 2,
+      "champPct": 1.7,
+      "avgPos": 8.95,
+      "top4Pct": 18.3,
+      "top8Pct": 45
+    },
+    {
+      "id": "union",
+      "champ": 3,
+      "champPct": 2.5,
+      "avgPos": 9.13,
+      "top4Pct": 16.7,
+      "top8Pct": 40.8
     },
     {
       "id": "riestra",
-      "champ": 2,
-      "champPct": 1.7,
-      "avgPos": 8.73,
-      "top4Pct": 22.5,
-      "top8Pct": 48.3
+      "champ": 3,
+      "champPct": 2.5,
+      "avgPos": 9.21,
+      "top4Pct": 20.8,
+      "top8Pct": 43.3
     },
     {
-      "id": "tigre",
-      "champ": 0,
-      "champPct": 0,
-      "avgPos": 8.78,
+      "id": "aldosivi",
+      "champ": 3,
+      "champPct": 2.5,
+      "avgPos": 9.38,
       "top4Pct": 16.7,
-      "top8Pct": 47.5
+      "top8Pct": 37.5
+    },
+    {
+      "id": "huracan",
+      "champ": 1,
+      "champPct": 0.8,
+      "avgPos": 9.4,
+      "top4Pct": 17.5,
+      "top8Pct": 36.7
+    },
+    {
+      "id": "gimnasia",
+      "champ": 2,
+      "champPct": 1.7,
+      "avgPos": 9.49,
+      "top4Pct": 15,
+      "top8Pct": 41.7
+    },
+    {
+      "id": "estudiantesrc",
+      "champ": 1,
+      "champPct": 0.8,
+      "avgPos": 9.82,
+      "top4Pct": 17.5,
+      "top8Pct": 35
+    },
+    {
+      "id": "newells",
+      "champ": 1,
+      "champPct": 0.8,
+      "avgPos": 9.88,
+      "top4Pct": 14.2,
+      "top8Pct": 37.5
     }
   ],
   "strongestXI": [
@@ -555,133 +555,133 @@
     {
       "configuration": "equilibrada",
       "matches": 300,
-      "w": 136,
-      "d": 70,
-      "l": 94,
-      "ppg": 1.593,
-      "goalsFor": 1.48,
-      "goalsAgainst": 1.18,
+      "w": 131,
+      "d": 77,
+      "l": 92,
+      "ppg": 1.567,
+      "goalsFor": 1.31,
+      "goalsAgainst": 1.13,
       "formation": "mejor XI"
     },
     {
       "configuration": "defensiva",
       "matches": 300,
-      "w": 91,
-      "d": 96,
-      "l": 113,
-      "ppg": 1.23,
-      "goalsFor": 1,
-      "goalsAgainst": 1.08,
+      "w": 92,
+      "d": 109,
+      "l": 99,
+      "ppg": 1.283,
+      "goalsFor": 0.96,
+      "goalsAgainst": 1.01,
       "formation": "mejor XI"
     },
     {
       "configuration": "ofensiva",
       "matches": 300,
-      "w": 161,
-      "d": 62,
-      "l": 77,
-      "ppg": 1.817,
-      "goalsFor": 1.87,
-      "goalsAgainst": 1.24,
+      "w": 164,
+      "d": 65,
+      "l": 71,
+      "ppg": 1.857,
+      "goalsFor": 1.99,
+      "goalsAgainst": 1.33,
       "formation": "mejor XI"
     },
     {
       "configuration": "presion baja",
       "matches": 300,
-      "w": 124,
-      "d": 79,
-      "l": 97,
-      "ppg": 1.503,
-      "goalsFor": 1.33,
-      "goalsAgainst": 1.19,
+      "w": 107,
+      "d": 81,
+      "l": 112,
+      "ppg": 1.34,
+      "goalsFor": 1.29,
+      "goalsAgainst": 1.26,
       "formation": "mejor XI"
     },
     {
       "configuration": "presion alta",
       "matches": 300,
-      "w": 157,
-      "d": 72,
-      "l": 71,
-      "ppg": 1.81,
-      "goalsFor": 1.65,
-      "goalsAgainst": 1.11,
+      "w": 143,
+      "d": 76,
+      "l": 81,
+      "ppg": 1.683,
+      "goalsFor": 1.64,
+      "goalsAgainst": 1.19,
       "formation": "mejor XI"
     },
     {
       "configuration": "ofensiva + presion alta",
       "matches": 300,
-      "w": 186,
-      "d": 67,
-      "l": 47,
-      "ppg": 2.083,
-      "goalsFor": 2.2,
-      "goalsAgainst": 1.24,
+      "w": 180,
+      "d": 53,
+      "l": 67,
+      "ppg": 1.977,
+      "goalsFor": 2.12,
+      "goalsAgainst": 1.29,
       "formation": "mejor XI"
     },
     {
       "configuration": "defensiva + presion baja",
       "matches": 300,
-      "w": 102,
-      "d": 80,
-      "l": 118,
-      "ppg": 1.287,
-      "goalsFor": 0.94,
-      "goalsAgainst": 1.1,
+      "w": 93,
+      "d": 90,
+      "l": 117,
+      "ppg": 1.23,
+      "goalsFor": 0.95,
+      "goalsAgainst": 1.08,
       "formation": "mejor XI"
     },
     {
       "configuration": "4-3-3",
       "matches": 300,
-      "w": 139,
-      "d": 65,
+      "w": 126,
+      "d": 78,
       "l": 96,
-      "ppg": 1.607,
-      "goalsFor": 1.47,
-      "goalsAgainst": 1.14,
+      "ppg": 1.52,
+      "goalsFor": 1.35,
+      "goalsAgainst": 1.25,
       "formation": "4-3-3"
     },
     {
       "configuration": "4-4-2",
       "matches": 300,
-      "w": 129,
-      "d": 64,
-      "l": 107,
-      "ppg": 1.503,
-      "goalsFor": 1.43,
-      "goalsAgainst": 1.22,
+      "w": 137,
+      "d": 86,
+      "l": 77,
+      "ppg": 1.657,
+      "goalsFor": 1.5,
+      "goalsAgainst": 1.08,
       "formation": "4-4-2"
     },
     {
       "configuration": "4-5-1",
       "matches": 300,
-      "w": 148,
-      "d": 78,
-      "l": 74,
-      "ppg": 1.74,
-      "goalsFor": 1.55,
-      "goalsAgainst": 1.04,
+      "w": 137,
+      "d": 77,
+      "l": 86,
+      "ppg": 1.627,
+      "goalsFor": 1.45,
+      "goalsAgainst": 1.17,
       "formation": "4-5-1"
     },
     {
       "configuration": "3-5-2",
       "matches": 300,
-      "w": 137,
-      "d": 85,
-      "l": 78,
-      "ppg": 1.653,
-      "goalsFor": 1.47,
+      "w": 134,
+      "d": 83,
+      "l": 83,
+      "ppg": 1.617,
+      "goalsFor": 1.42,
       "goalsAgainst": 1.06,
       "formation": "3-5-2"
     },
     {
       "configuration": "4-2-3-1",
       "matches": 300,
-      "w": 155,
-      "d": 78,
-      "l": 67,
-      "ppg": 1.81,
-      "goalsFor": 1.6,
-      "goalsAgainst": 1.05,
+      "w": 149,
+      "d": 71,
+      "l": 80,
+      "ppg": 1.727,
+      "goalsFor": 1.51,
+      "goalsAgainst": 1.03,
       "formation": "4-2-3-1"
     }
   ]
