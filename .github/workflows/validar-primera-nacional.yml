@@ -10,7 +10,6 @@ on:
       - 'planteles/primera-nacional-2026-bloque5.csv'
       - 'planteles/primera-nacional-2026-bloque6.csv'
       - 'planteles/primera-nacional-2026.csv'
-      - 'planteles/primera-nacional-2026-bloque6.csv'
       - 'test-primera-nacional.js'
       - 'import-squads.js'
       - 'public/data.js'
