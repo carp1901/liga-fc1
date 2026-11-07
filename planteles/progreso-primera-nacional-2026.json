@@ -16,7 +16,16 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "recopilación inicial cargada; revisión pendiente"
+      "estado": "223 jugadores cargados en borrador para 6 clubes; edades con referencia 06/11/2026; dorsales internos; falta auditoría de plantel completo y contrastar numeración oficial.",
+      "jugadores": 223,
+      "clubes": {
+        "allboys": 36,
+        "ferro": 32,
+        "madryn": 38,
+        "nuevachicago": 44,
+        "chacarita": 38,
+        "atlanta": 35
+      }
     },
     {
       "bloque": 2,
