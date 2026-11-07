@@ -124,11 +124,14 @@ const tactics=[
  tacticalSample('4-3-3',1,1,1),
  tacticalSample('4-4-2',1,1,0)
 ];
+const strengthRanking=clubs.map(id=>({id,attack:+rates[id].a.toFixed(2),midfield:+rates[id].m.toFixed(2),defense:+rates[id].d.toFixed(2),overall:+((rates[id].a+rates[id].m+rates[id].d)/3).toFixed(2)})).sort((a,b)=>b.overall-a.overall);
 const result={
  format:'Primera realista: Apertura y Clausura; fixture exacto del motor (16 fechas, 14 partidos intrazona y 2 interzonales por club), top 8 por zona y playoffs de 16. Liga simulada con el modelo rápido preZ del propio motor; playoffs y muestra táctica con simGame real.',
  seasons,tournaments,clubs:clubs.length,zoneAssignmentSamples:seasons,
  zoneDistribution:clubs.map(id=>({id,zoneA:zoneCounts[id].a,zoneB:zoneCounts[id].b})),
  uniqueChampions:[...new Set(champions)].length,
+ effectiveStrengthRange:+(strengthRanking[0].overall-strengthRanking[strengthRanking.length-1].overall).toFixed(2),
+ strongestEffective:strengthRanking.slice(0,5),weakestEffective:strengthRanking.slice(-5).reverse(),
  avgPositionSpread:+(Math.max(...ranked.map(x=>x.avgPos))-Math.min(...ranked.map(x=>x.avgPos))).toFixed(2),
  titleDistribution:ranked.map(({id,champ,champPct,avgPos,top4Pct,top8Pct})=>({id,champ,champPct,avgPos,top4Pct,top8Pct})),
  strongestXI:clubs.map(id=>{const b=bestXI(id);return{id,xi:+(b.score/11).toFixed(2),formation:DATA.FN[b.f]}}).sort((a,b)=>b.xi-a.xi).slice(0,5),
