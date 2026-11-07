@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Los seis CSV están publicados en main como borradores. No integrados al juego. Refinamiento en curso: roles específicos, contraste de dorsales oficiales y revisión de medias/atributos.",
+  "estado": "Los seis CSV están publicados en main como borradores. No integrados al juego. Refinamiento en curso: roles específicos, corrección de posiciones y contraste de dorsales oficiales, medias y atributos.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "184 jugadores; 139 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
+      "estado": "184 jugadores; 139 roles específicos respaldados. Última revisión: correcciones de posición y subroles de Temperley contrastadas con estadísticas 2026.",
       "jugadores": 184,
       "clubes": {
         "racingcba": 22,
