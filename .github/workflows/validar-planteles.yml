@@ -30,6 +30,8 @@ jobs:
         run: node test-squads.js
       - name: Probar evolución e involución de jugadores
         run: node test-player-development.js
+      - name: Probar integración de carrera, guardado y cambio de temporada
+        run: node test-career-development.js
       - name: Validar Primera completa sin modificar archivos
         run: node import-squads.js planteles/primera-2026.csv --dry-run --require-primera-complete
       - name: Generar archivos que consume el juego
