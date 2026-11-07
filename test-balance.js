@@ -10,25 +10,46 @@ const career=ENG.realNew({me:{club:'river'}});
 const zones=career.zones.ar1;
 if(!zones||zones.length!==2||zones.some(z=>z.length!==15))throw new Error('La Primera realista no tiene dos zonas de 15 clubes');
 
-const seasons=Number(process.env.BALANCE_SEASONS||100);
+const seasons=Number(process.env.BALANCE_SEASONS||60);
 const tournamentCount=seasons*2;
 const stats=Object.fromEntries(clubs.map(id=>[id,{champ:0,top4:0,top8:0,pos:0}]));
-function standings(ids){
-  const order=ENG.simSeason(ids,'liga1');
-  const rows=order.map((id,i)=>({id,pts:100-i,g:50-i,gf:100-i,ga:0}));
-  const map=Object.fromEntries(rows.map(x=>[x.id,x]));
-  order.forEach((id,i)=>{const x=stats[id];x.pos+=i+1;if(i<4)x.top4++;if(i<8)x.top8++});
-  return{rows,map};
+const classics='boca-river,independiente-racing,sanlorenzo-huracan,estudiantes-gimnasia,rosario-newells,banfield-lanus,belgrano-talleres,argentinos-platense,tigre-velez,union-sarmiento,atletico-centralcba,aldosivi-defensa,barracas-riestra,estudiantesrc-instituto,gimnasiamza-rivadavia'.split(',').map(x=>x.split('-'));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const cmp=(a,b)=>b.pts-a.pts||b.g-a.g||b.gf-a.gf||(b.gf-b.ga)-(a.gf-a.ga);
+
+function fixtures(){
+  const out=[];
+  for(const z of zones)for(let i=0;i<z.length;i++)for(let j=i+1;j<z.length;j++)
+    out.push(Math.random()<.5?[z[i],z[j]]:[z[j],z[i]]);
+  const randomAway=shuffle(zones[1]);
+  zones[0].forEach((id,i)=>out.push(Math.random()<.5?[id,randomAway[i]]:[randomAway[i],id]));
+  classics.forEach(([a,b])=>{
+    if(zones[0].includes(a)&&zones[1].includes(b)||zones[1].includes(a)&&zones[0].includes(b))
+      out.push(Math.random()<.5?[a,b]:[b,a]);
+  });
+  return out;
+}
+function playTable(fx,reverse){
+  const T=Object.fromEntries(clubs.map(id=>[id,{id,pts:0,g:0,gf:0,ga:0}]));
+  for(const [home,away] of fx){
+    const m=reverse?ENG.simGame(away,home,{mix:false}):ENG.simGame(home,away,{mix:false});
+    const h=reverse?m.gb:m.ga,a=reverse?m.ga:m.gb,A=T[home],B=T[away];
+    A.gf+=h;A.ga+=a;B.gf+=a;B.ga+=h;
+    if(h>a){A.pts+=3;A.g++}else if(h<a){B.pts+=3;B.g++}else{A.pts++;B.pts++}
+  }
+  const rows=zones.flatMap(z=>z.map(id=>T[id]));
+  const zoneOrders=zones.map(z=>z.map(id=>T[id]).sort(cmp));
+  zoneOrders.forEach(order=>order.forEach((q,i)=>{const x=stats[q.id];x.pos+=i+1;if(i<4)x.top4++;if(i<8)x.top8++}));
+  return{rows,map:T};
 }
 const champions=[];
 for(let s=0;s<seasons;s++){
-  for(const name of ['Apertura','Clausura']){
-    const A=standings(zones[0]),B=standings(zones[1]),table=[...A.rows,...B.rows],seasonMap={...A.map,...B.map};
-    const seeds=ENG.poSeeds(zones,table,[seasonMap],0);
+  const fx=fixtures();
+  for(const [name,reverse] of [['Apertura',false],['Clausura',true]]){
+    const table=playTable(fx,reverse),seeds=ENG.poSeeds(zones,table.rows,[table.map],0);
     if(!seeds||seeds.length!==16)throw new Error('No se generaron los 16 clasificados de '+name);
     const champ=ENG.poSim(seeds,name).champ;
-    stats[champ].champ++;
-    champions.push(champ);
+    stats[champ].champ++;champions.push(champ);
   }
 }
 const ranked=clubs.map(id=>({id,...stats[id],avgPos:+(stats[id].pos/tournamentCount).toFixed(2),
@@ -65,7 +86,7 @@ function tacticalSample(st,pr,n=300){
     goalsFor:+(out.gf/n).toFixed(2),goalsAgainst:+(out.ga/n).toFixed(2)};
 }
 const tactics=[tacticalSample(0,0),tacticalSample(1,1),tacticalSample(2,2)];
-const result={format:'Primera realista: dos zonas de 15, top 8 por zona y playoffs de 16; Apertura y Clausura',
+const result={format:'Primera realista: dos zonas de 15; 14 partidos intrazona + 2 interzonales por torneo; top 8 por zona y playoffs de 16; Apertura y Clausura',
   seasons,tournaments:tournamentCount,clubs:clubs.length,zoneA:zones[0],zoneB:zones[1],
   champions:[...new Set(champions)].length,
   avgPositionSpread:+(Math.max(...ranked.map(x=>x.avgPos))-Math.min(...ranked.map(x=>x.avgPos))).toFixed(2),
