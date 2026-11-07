@@ -7,14 +7,14 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
 - 1.006 registros de jugadores en la base de trabajo.
-- 849/1.006 roles específicos respaldados por fuente (84,4%).
+- 850/1.006 roles específicos respaldados por fuente (84,5%).
 - Cuatro dorsales de Midland contrastados en varias planillas de partidos 2026; el resto sigue asignado internamente. No se presentan como numeración oficial de plantel.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
 - Ningún club se considera completo bajo el criterio integral.
-- Revisión adicional publicada: 32 correcciones y asignaciones de posición/subrol en varios clubes, contrastadas con estadísticas individuales 2026.
+- Revisión adicional publicada: 37 correcciones y asignaciones de posición/subrol en varios clubes, contrastadas con estadísticas individuales 2026.
 
 ## Próximas tareas
-1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión de bloque 3: siete ajustes de posición/subrol en Temperley, incluida la corrección de Nicolás Ávalos de POR a DEF.
+1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión: correcciones de subroles en Ferro (Ozuna, Cuzzani, Castellani y Gómez) y asignación de MI a Ignacio Lago en Colón, respaldadas por estadísticas individuales 2026.
 2. Verificar dorsales oficiales y resolver conflictos sin inventar numeración.
 3. Revisar medias y atributos individuales; separar OVR documentado de estimaciones.
 4. Depurar planteles y comprobar nóminas de Primera Nacional 2026.
