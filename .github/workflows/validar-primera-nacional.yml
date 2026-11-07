@@ -12,6 +12,7 @@ on:
       - 'planteles/primera-nacional-2026.csv'
       - 'test-primera-nacional.js'
       - 'test-primera-nacional-import.js'
+      - 'test-squads.js'
       - 'import-squads.js'
       - 'public/data.js'
       - '.github/workflows/validar-primera-nacional.yml'
@@ -44,6 +45,7 @@ jobs:
           node --check import-squads.js
           node --check test-primera-nacional.js
           node --check test-primera-nacional-import.js
+          node --check test-squads.js
       - name: Auditar bloque, edades, dorsales y fuentes
         run: node test-primera-nacional.js
       - name: Validar compatibilidad con el importador sin publicar
@@ -54,7 +56,9 @@ jobs:
         run: node import-squads.js planteles/primera-nacional-2026.csv
       - name: Validar atributos y datos cargados en el motor
         if: github.event_name == 'push'
-        run: node test-primera-nacional-import.js
+        run: |
+          node test-primera-nacional-import.js
+          node test-squads.js
       - name: Guardar importación en la rama de trabajo
         if: github.event_name == 'push'
         run: |
