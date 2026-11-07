@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1220,
-  "estado_general": "Carga revisada de 1220 jugadores en 36 clubes. Se aplicó criterio de plantel principal (participación comprobable y suplentes funcionales) a Defensores de Belgrano y Colegiales; no se agregan juveniles de reserva ni jugadores sin minutos. Roles específicos con fuente: 653/1220 (53.5%). Dorsales asignados internamente; sin verificación oficial individual. Medias identificadas como estimaciones cuando no hay OVR EA individual. Publicación en main pendiente.",
+  "estado_general": "Carga revisada de 1220 jugadores en 36 clubes. Se aplicó criterio de plantel principal (participación comprobable y suplentes funcionales) a Defensores de Belgrano y Colegiales; se conservaron los arqueros suplentes como cobertura de puesto. No se agregan juveniles de reserva ni jugadores sin minutos, salvo el segundo arquero necesario. Roles específicos con fuente: 653/1220 (53.5%). Dorsales asignados internamente; sin verificación oficial individual. Medias identificadas como estimaciones cuando no hay OVR EA individual. Publicación en main pendiente.",
   "auditoria_final": {
     "jugadores": 1220,
     "clubes": 36,
@@ -170,7 +170,7 @@
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
     "roles_especificos_pendientes": 567,
-    "estado_refinamiento": "En curso: se depuraron Defensores de Belgrano (26 jugadores, 24 con rol específico) y Colegiales (23 jugadores, 21 con rol específico) según apariciones 2026; juveniles sin participación y jugadores con uso mínimo quedaron fuera. Continúa la revisión individual de roles, dorsales oficiales y medias.",
+    "estado_refinamiento": "En curso: se depuraron Defensores de Belgrano (26 jugadores, 24 con rol específico) y Colegiales (23 jugadores, 20 con rol específico), según apariciones 2026. Se excluyeron juveniles sin participación y jugadores de uso mínimo; se conservaron los arqueros suplentes como cobertura de puesto. Continúa la revisión individual de roles, dorsales oficiales y medias.",
     "roles_especificos_por_bloque": [
       108,
       115,
