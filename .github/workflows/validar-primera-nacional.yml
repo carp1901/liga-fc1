@@ -1,0 +1,36 @@
+name: Validar bloque de Primera Nacional
+on:
+  push:
+    branches: [primera-nacional-2026-bloques]
+    paths:
+      - 'planteles/primera-nacional-2026-bloque1.csv'
+      - 'test-primera-nacional.js'
+      - 'import-squads.js'
+      - 'public/data.js'
+      - '.github/workflows/validar-primera-nacional.yml'
+  pull_request:
+    paths:
+      - 'planteles/primera-nacional-2026-bloque1.csv'
+      - 'test-primera-nacional.js'
+      - 'import-squads.js'
+      - 'public/data.js'
+      - '.github/workflows/validar-primera-nacional.yml'
+permissions:
+  contents: read
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar sintaxis
+        run: |
+          node --check public/data.js
+          node --check import-squads.js
+          node --check test-primera-nacional.js
+      - name: Auditar bloque, edades, dorsales y fuentes
+        run: node test-primera-nacional.js
+      - name: Validar compatibilidad con el importador sin publicar
+        run: node import-squads.js planteles/primera-nacional-2026-bloque1.csv --dry-run
