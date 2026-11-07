@@ -17,7 +17,7 @@ function validate(file,blockA,blockB){
  const counts={},seen=new Set(),numbers=new Set();
  for(const p of rows){
   assert.ok(valid.has(p.club_id),'Club fuera de ar2: '+p.club_id);
-  assert.ok(p.nombre&&p.posicion&&p.rating_source&&p.fuente,'Dato esencial incompleto: '+p.nombre);
+  assert.ok(p.nombre&&p.posicion&&p.rating_source&&p.fuente&&p.fuente_edad,'Dato esencial o fuente incompleta: '+p.nombre);\n  assert.ok(!/^[A-ZÁÉÍÓÚÑ]\\./i.test(p.nombre),'Nombre abreviado: '+p.nombre);
   assert.ok(['POR','DEF','MED','DEL'].includes(p.posicion),'Posición inválida: '+p.nombre);
   assert.ok(Number(p.rating)>=1&&Number(p.rating)<=99,'Media inválida: '+p.nombre);
   assert.ok(Number.isInteger(Number(p.edad))&&Number(p.edad)>=15&&Number(p.edad)<=50,'Edad inválida: '+p.nombre);
@@ -42,4 +42,19 @@ const reports=[
  validate('planteles/primera-nacional-2026-bloque5.csv',['centralnorte','godoycruz','santelmo'],['gimnasiatiro','maipu','quilmes']),
  validate('planteles/primera-nacional-2026-bloque6.csv',['sanmiguel','defensoresbelgrano','acassuso'],['colegiales','rafaela','midland'])
 ];
+const masterLines=fs.readFileSync('planteles/primera-nacional-2026.csv','utf8').trim().split(String.fromCharCode(10));
+const masterHeader=masterLines.shift().replace(/\r$/,'').split(',');
+const expectedPlayers=reports.reduce((n,r)=>n+r.players,0);
+assert.equal(masterLines.length,expectedPlayers,'El CSV maestro debe reunir exactamente los seis bloques');
+const masterRows=masterLines.map((line,n)=>{const a=line.replace(/\r$/,'').split(',');assert.equal(a.length,masterHeader.length,'Maestro: columnas incorrectas fila '+(n+2));return Object.fromEntries(masterHeader.map((h,i)=>[h,a[i]]))});
+assert.equal(new Set(masterRows.map(p=>p.club_id)).size,36,'El maestro debe contener los 36 clubes');
+assert.equal(masterRows.length,1249,'El maestro debe contener los 1.249 jugadores cargados');
+const masterSeen=new Set(),masterDorsals=new Set();
+for(const p of masterRows){
+ const k=p.club_id+'|'+p.nombre.toLowerCase();assert.ok(!masterSeen.has(k),'Duplicado en maestro: '+k);masterSeen.add(k);
+ const d=p.club_id+'|'+p.dorsal;assert.ok(!masterDorsals.has(d),'Dorsal duplicado en maestro: '+d);masterDorsals.add(d);
+ assert.ok(!/^[A-ZÁÉÍÓÚÑ]\\./i.test(p.nombre),'Nombre abreviado en maestro: '+p.nombre);
+}
+const sixties=masterRows.filter(p=>Number(p.rating)===60).length;
+assert.ok(sixties/masterRows.length<=.07,'Demasiados jugadores con media 60: '+sixties);
 console.log(JSON.stringify({ok:true,division:'Primera Nacional',clubsCovered:36,blocks:reports,zones:{A:18,B:18},ageReference:'2026-11-06',ratings:'estimaciones identificadas',dorsals:'asignación interna explícita'},null,2));
