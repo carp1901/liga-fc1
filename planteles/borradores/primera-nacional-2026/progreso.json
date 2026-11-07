@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Los 36 planteles fueron importados en la rama de trabajo y pasaron la validación automática. No están todavía en main. Pendientes de refinamiento: roles específicos por jugador y contraste de dorsales oficiales.",
+  "estado": "Los seis CSV están publicados en main como borradores. No integrados al juego. Refinamiento en curso: roles específicos, contraste de dorsales oficiales y revisión de medias/atributos.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -16,7 +16,7 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "222 jugadores cargados; 108 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
+      "estado": "151 jugadores; 136 roles específicos con fuente; roles de arqueros contrastados y posición de Rodrigo Ramírez corregida con fuente. Dorsales aún pendientes de verificación oficial.",
       "jugadores": 151,
       "clubes": {
         "allboys": 25,
@@ -26,7 +26,7 @@
         "chacarita": 25,
         "atlanta": 23
       },
-      "roles_especificos": 123
+      "roles_especificos": 136
     },
     {
       "bloque": 2,
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles depurados con criterio de primera plantilla: titulares, rotación y banco funcional con participación en la categoría. Juveniles de reserva y futbolistas sin minutos o con uso marginal quedan para futura cantera. Total 1006 jugadores; roles específicos con fuente 696/1006 (69.2%). Dorsales internos pendientes de verificación oficial; medias estimadas pendientes de contraste con datos de Football Manager/EA FC.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1.006 jugadores. Se completó una primera tanda de roles específicos del bloque 1. Dorsales oficiales y medias individuales continúan pendientes de contraste.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -165,11 +165,11 @@
     "medias_60": 68,
     "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 696,
+    "roles_especificos_asignados": 709,
     "estado_ci": "passed",
-    "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
-    "main": "pendiente de merge",
-    "roles_especificos_pendientes": 310,
+    "importacion": "No integrado al runtime; datos conservados como borradores CSV",
+    "main": "borradores publicados en main; integración al juego pendiente",
+    "roles_especificos_pendientes": 297,
     "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
       123,
