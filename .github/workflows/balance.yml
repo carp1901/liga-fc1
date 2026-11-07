@@ -41,7 +41,7 @@ jobs:
             echo '```' >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Guardar informe de auditoría
-        if: success()
+        if: success() && github.event_name == 'push'
         run: |
           mkdir -p planteles
           cp balance-report.json planteles/auditoria-equilibrio-primera.json
