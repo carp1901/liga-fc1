@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-07T18:47:47.970Z",
+  "updatedAt": "2026-11-07T19:01:07.626Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "875 medias con fuente individual + 1387 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -1108,7 +1108,7 @@
       "ageSource": "https://canchallena.lanacion.com.ar/equipo/all-boys-3xz3k7mpw3ttsnb0odu0kfepx/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
-      "roleSource": [],
+      "roleSource": "https://pelotita.com.ar/equipos/9786",
       "natSource": "https://canchallena.lanacion.com.ar/equipo/all-boys-3xz3k7mpw3ttsnb0odu0kfepx/"
     },
     "ferro": {
@@ -1117,7 +1117,7 @@
       "ageSource": "https://canchallena.lanacion.com.ar/equipo/ferro-f0mi7s4wpiax72ai8thd7bfws/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
-      "roleSource": [],
+      "roleSource": "https://pelotita.com.ar/equipos/9743",
       "natSource": "https://canchallena.lanacion.com.ar/equipo/ferro-f0mi7s4wpiax72ai8thd7bfws/"
     },
     "madryn": {
@@ -1126,7 +1126,7 @@
       "ageSource": "https://canchallena.lanacion.com.ar/equipo/deportivo-madryn-5kdoe8f2y9ad55m9n0ino48d0/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
-      "roleSource": [],
+      "roleSource": "https://pelotita.com.ar/equipos/19014029",
       "natSource": "https://canchallena.lanacion.com.ar/equipo/deportivo-madryn-5kdoe8f2y9ad55m9n0ino48d0/"
     },
     "nuevachicago": {
@@ -1135,7 +1135,7 @@
       "ageSource": "https://canchallena.lanacion.com.ar/equipo/nueva-chicago-573kg18eqooo89qnncgypawt2/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
-      "roleSource": [],
+      "roleSource": "https://pelotita.com.ar/equipos/236",
       "natSource": "https://canchallena.lanacion.com.ar/equipo/nueva-chicago-573kg18eqooo89qnncgypawt2/"
     },
     "chacarita": {
@@ -1144,7 +1144,7 @@
       "ageSource": "https://canchallena.lanacion.com.ar/equipo/chacarita-chgvt8f42t2hfrazb1sjxkutq/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
-      "roleSource": [],
+      "roleSource": "https://pelotita.com.ar/equipos/6",
       "natSource": "https://canchallena.lanacion.com.ar/equipo/chacarita-chgvt8f42t2hfrazb1sjxkutq/"
     },
     "atlanta": {
@@ -1153,7 +1153,7 @@
       "ageSource": "https://caatlanta.com.ar/elplantel/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
-      "roleSource": [],
+      "roleSource": "https://pelotita.com.ar/equipos/10146?comp=todas&from=primera-nacional",
       "natSource": "https://caatlanta.com.ar/elplantel/"
     },
     "chaco": {
@@ -2389,8 +2389,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 1013,
-    "missing": 1249,
+    "assigned": 1151,
+    "missing": 1111,
     "total": 2262,
     "byClub": {
       "sanlorenzo": {
@@ -2515,27 +2515,27 @@
       },
       "allboys": {
         "total": 36,
-        "specific": 0
+        "specific": 20
       },
       "ferro": {
         "total": 32,
-        "specific": 0
+        "specific": 25
       },
       "madryn": {
         "total": 38,
-        "specific": 0
+        "specific": 21
       },
       "nuevachicago": {
         "total": 44,
-        "specific": 0
+        "specific": 25
       },
       "chacarita": {
         "total": 37,
-        "specific": 0
+        "specific": 24
       },
       "atlanta": {
         "total": 35,
-        "specific": 0
+        "specific": 23
       },
       "chaco": {
         "total": 32,
@@ -3082,7 +3082,7 @@
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
     "playersMissingFoot": 2261,
-    "playersMissingSpecificRole": 1249,
+    "playersMissingSpecificRole": 1111,
     "playersWithoutManualAttributes": 2115
   }
 }
