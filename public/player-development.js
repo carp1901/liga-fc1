@@ -4,7 +4,7 @@
 'use strict';
 
 const ATTRS = ['pas','ctl','reg','rem','des','mar','ant','ref'];
-const PHYSICAL = ['des'];
+const PHYSICAL = ['vel','ace','res'];
 const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
 const hash = s => { let h=2166136261; for(const c of String(s||'')){h^=c.charCodeAt(0);h=Math.imul(h,16777619)} return h>>>0; };
 const noise = (seed,lo,hi) => lo + (hash(seed) % (hi-lo+1));
@@ -71,7 +71,7 @@ function recordAppearance(profile, player, match) {
   const next={...player,r:p.ca,at:{...(player.at||{})}};
   if(delta) {
     // El desarrollo técnico/mental es gradual; el desgaste tardío afecta primero la velocidad.
-    const keys=age>=32?PHYSICAL:(player.p==='DEL'?['rem','des','ctl']:player.p==='DEF'?['mar','ant','pas']:['pas','ctl','reg']);
+    const keys=age>=32?PHYSICAL:(player.p==='POR'?['ref','par','man']:player.p==='DEL'?['rem','vel','ace','des']:player.p==='DEF'?['mar','ant','pas']:['pas','ctl','reg','ant']);
     keys.forEach(k=>{if(typeof next.at[k]==='number')next.at[k]=clamp(next.at[k]+delta,15,99)});
   }
   return {profile:p,player:next,changed:!!delta,delta};
