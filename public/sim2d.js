@@ -35,6 +35,8 @@ class Sim{
  kickoff(side,soft){const S=this,B=S.B,old=soft?S.P.map(p=>[p.x,p.y]):null;S.rest();S.ko=null;const o=S.P.find(p=>p.s==side&&p.k==10&&!p.off)||S.P.find(p=>!p.off);if(!o)return;o.x=W/2+(o.s?14:-14);o.y=H/2;B.own=o;S.poss=o.s;o.hold=0;o.wait=24;S.koP=o;
   if(old){let md=0;S.P.forEach((p,i)=>{if(p.off)return;const hx=p.x,hy=p.y;p.x=old[i][0];p.y=old[i][1];md=Math.max(md,Math.hypot(hx-p.x,hy-p.y));S.tg(p,hx,hy);p.vmx=4.2});const w=clamp(Math.ceil(md/4.2)+18,30,170);S.P.forEach(p=>{p.cool=w+4});B.own=null;B.x=W/2;B.y=H/2;S.ko={t:S.n+w,o};S.gap=w+10}}   // después de un gol los jugadores vuelven caminando a sus posiciones (no aparecen de golpe) y recién ahí se saca del medio
  
+ // jugadores cuya expulsión todavía no se mostró (su falta está en cola o en juego): siguen en cancha hasta que se vea la jugada
+ pendRed(s){const o=new Set(),f=e=>{if(e&&(e.cd=='r'||e.cd=='r2')&&e.cs===s)o.add(e.ck)};this.q.forEach(it=>f(it.e));if(this.sc)f(this.sc.e);return o}
  setOff(s,list){this.P.forEach(p=>{if(p.s!==s)return;const off=!!(list&&list.includes(p.k));if(off&&this.B.own===p)this.B.own=null;if(off&&!p.off&&this.n>40&&!this.frozen){p.walk=1;p.vx=p.vy=0}if(!off)p.walk=0;p.off=off})}
  fq(p){const S=this,mp=(S.ctx?S.ctx.min:0)-(p.sm||0),f=clamp((mp-55)/35,0,1)*[.8,1,1.25][(S.T[p.s]||[0,1])[1]||0];const wk=S.wx?S.wx.k:0,tt=S.wx?S.wx.t:20;return(1-.1*f*(tt>28?1.3:tt<5?.9:1)*(p.k==0?.3:1))*[1,1,.975,.93][wk]}
  subAnim(s,k,num){const S=this,p=S.P.find(q=>q.s==s&&q.k==k);if(!p||p.off||S.frozen||S.n<40)return;(S.gh=S.gh||[]).push({x:p.x,y:p.y,s,num,n:S.n,top:p.y<H/2});if(S.B.own===p){S.B.own=null;S.B.free=true}const top=p.y<H/2;p.y=top?Y0+1:Y0+FH-1;p.vx=p.vy=0;p.sub=S.n;p.sm=S.ctx?S.ctx.min:0;p.cool=20;p.hold=0}
@@ -106,7 +108,8 @@ class Sim{
   S.kickAt(best,sp2,S.run&&S.run.p===best&&S.n<S.run.t?1.5:.7)}
  event(e,as){const S=this,n=S.q.length;if(e.k=='att'&&e.x=='g'&&!S.pso&&(!S.P.length||S.frozen||S.P.length<22)){(S.gq=S.gq||[]).push({e,as});return}if(!S.P.length||S.frozen||(as==1&&S.P.length<22))return;
   const dn=S.dropN||1;if(n>=dn&&n<4&&e.k=='att'&&e.x=='l'&&as!=null&&rnd()<.6&&S.n-(S.lastLat||-999)>600){S.lastLat=S.n;S.latQ=(S.latQ||0)+1;S.q.push({e:{k:'lat'},as:1-as});return}   // la pérdida que se iba a descartar se convierte en saque lateral para el rival
-  if((n>=dn&&e.k=='lat')||(n>=dn&&(e.k=='foul'||(e.k=='att'&&(e.x=='l'||e.x=='f'))))||(n>=dn+2&&e.k=='att'&&e.x=='o'))return;if(n>=7&&e.x!='g')return;S.q.push({e,as})}
+  if(!(e.cd=='r'||e.cd=='r2')&&((n>=dn&&e.k=='lat')||(n>=dn&&(e.k=='foul'||(e.k=='att'&&(e.x=='l'||e.x=='f'))))||(n>=dn+2&&e.k=='att'&&e.x=='o')))return;   // las faltas con expulsión nunca se descartan: se tiene que ver el motivo
+  if(n>=7&&e.x!='g')return;S.q.push({e,as})}
  begin(){const S=this,it=S.q.shift(),e=it.e,as=it.as;S.clr();S.B.free=false;S.poss=as;S.fs=1;
   if(e.k=='att')S.attSc(e,as);else if(e.k=='pso'){S.pso=true;S.psoN=(S.psoN||0)+1;S.penSc(e,as)}else if(e.k=='foul'||e.k=='fk'||e.k=='pen')S.incSc(e,as);else if(e.k=='cor'){if(!S.corPre(e,as))S.corSc(e,as)}else if(e.k=='lat'){if(!S.latPre(e,as))S.latSc(e,as)}}
  psoLine(ex){const S=this;[0,1].forEach(s=>{const L=S.P.filter(p=>p.s==s&&!p.off&&p.k!=0&&p!==ex),n=L.length,sp=Math.min(34,(FH-50)/Math.max(1,n-1));L.forEach((p,j)=>S.tg(p,W/2+(s?22:-22),H/2+(j-(n-1)/2)*sp))})}
