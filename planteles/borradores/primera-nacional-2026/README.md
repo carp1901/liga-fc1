@@ -13,7 +13,7 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 - Ningún club se considera completo bajo el criterio integral.
 
 ## Próximas tareas
-1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales).
+1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión de bloque 3: siete ajustes de posición/subrol en Temperley, incluida la corrección de Nicolás Ávalos de POR a DEF.
 2. Verificar dorsales oficiales y resolver conflictos sin inventar numeración.
 3. Revisar medias y atributos individuales; separar OVR documentado de estimaciones.
 4. Depurar planteles y comprobar nóminas de Primera Nacional 2026.
