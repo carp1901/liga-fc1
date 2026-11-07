@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-07T01:30:02.557Z",
+  "updatedAt": "2026-11-07T01:30:25.310Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "875 medias con fuente individual + 138 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -70,7 +70,7 @@
         "https://www.transfermarkt.com.ar/ca-independiente-rivadavia/kader/verein/1236"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.transfermarkt.com.ar/matias-reali/profil/spieler/984692"
     },
     "boca": {
       "source": "https://www.bocajuniors.com.ar/futbol-masculino",
@@ -924,7 +924,7 @@
         "https://www.fotmob.com/es/players/618779/brian-andrada"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://newikis.com/es/Club_Atl%C3%A9tico_Gimnasia_y_Esgrima_%28Mendoza%29"
     },
     "estudiantesrc": {
       "source": "https://www.aaestudiantesriocuarto.com/",
@@ -1276,13 +1276,13 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 945,
-    "missing": 68,
+    "assigned": 975,
+    "missing": 38,
     "total": 1013,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
-        "assigned": 39
+        "assigned": 40
       },
       "boca": {
         "total": 31,
@@ -1378,7 +1378,7 @@
       },
       "union": {
         "total": 33,
-        "assigned": 32
+        "assigned": 33
       },
       "tigre": {
         "total": 46,
@@ -1394,7 +1394,7 @@
       },
       "gimnasiamza": {
         "total": 31,
-        "assigned": 3
+        "assigned": 31
       },
       "estudiantesrc": {
         "total": 32,
@@ -1734,7 +1734,7 @@
     "verifiedRatings": 875,
     "estimatedRatings": 138,
     "provisionalRatings": 0,
-    "playersMissingNationality": 68,
+    "playersMissingNationality": 38,
     "playersMissingFoot": 1012,
     "playersMissingSpecificRole": 0,
     "playersWithoutManualAttributes": 866
