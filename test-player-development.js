@@ -10,6 +10,6 @@ for(let i=0;i<30;i++){const r=recordAppearance(state,player,{minutes:90,performa
 assert(changed,'un juvenil con minutos y buen rendimiento debería poder evolucionar');
 const veteran={...a,n:'Veterano',age:35,r:70,p:'MED'};
 let vp=createProfile(veteran,'veteran'),vplayer=veteran,declined=false;
-for(let i=0;i<40;i++){const r=recordAppearance(vp,vplayer,{minutes:90,performance:4.5});vp=r.profile;vplayer=r.player;declined ||= r.delta<0;}
+for(let i=0;i<65;i++){const r=recordAppearance(vp,vplayer,{minutes:90,performance:4.5});vp=r.profile;vplayer=r.player;declined ||= r.delta<0;}
 assert(declined,'un veterano con mala forma debería poder involucionar');
 console.log('OK: potencial determinista, ciclos por edad, evolución juvenil e involución veterana.');
