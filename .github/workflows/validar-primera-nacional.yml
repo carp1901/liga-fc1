@@ -5,6 +5,7 @@ on:
     paths:
       - 'planteles/primera-nacional-2026-bloque1.csv'
       - 'planteles/primera-nacional-2026-bloque2.csv'
+      - 'planteles/primera-nacional-2026-bloque2.csv'
       - 'test-primera-nacional.js'
       - 'import-squads.js'
       - 'public/data.js'
@@ -12,6 +13,7 @@ on:
   pull_request:
     paths:
       - 'planteles/primera-nacional-2026-bloque1.csv'
+      - 'planteles/primera-nacional-2026-bloque2.csv'
       - 'test-primera-nacional.js'
       - 'import-squads.js'
       - 'public/data.js'
@@ -34,4 +36,6 @@ jobs:
       - name: Auditar bloque, edades, dorsales y fuentes
         run: node test-primera-nacional.js
       - name: Validar compatibilidad con el importador sin publicar
-        run: node import-squads.js planteles/primera-nacional-2026-bloque1.csv --dry-run
+        run: |
+          node import-squads.js planteles/primera-nacional-2026-bloque1.csv --dry-run
+          node import-squads.js planteles/primera-nacional-2026-bloque2.csv --dry-run
