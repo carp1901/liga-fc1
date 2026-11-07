@@ -113,16 +113,16 @@
         "quilmes"
       ],
       "estado": "198 jugadores cargados; 96 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 198,
+      "jugadores": 187,
       "clubes": {
         "centralnorte": 36,
         "godoycruz": 37,
         "santelmo": 32,
         "gimnasiatiro": 30,
-        "maipu": 30,
+        "maipu": 19,
         "quilmes": 33
       },
-      "roles_especificos": 96
+      "roles_especificos": 100
     },
     {
       "bloque": 6,
@@ -152,34 +152,34 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1222,
-  "estado_general": "Carga revisada de 1222 jugadores en 36 clubes. Se aplicó criterio de plantel principal (participación comprobable y suplentes funcionales) a Defensores de Belgrano y Colegiales; se conservaron los arqueros suplentes como cobertura de puesto. No se agregan juveniles de reserva ni jugadores sin minutos, salvo el segundo arquero necesario. Roles específicos con fuente: 653/1222 (53.4%). Dorsales asignados internamente; sin verificación oficial individual. Medias identificadas como estimaciones cuando no hay OVR EA individual. Publicación en main pendiente.",
+  "jugadores_borrador": 1211,
+  "estado_general": "Carga revisada de 1211 jugadores en 36 clubes. Se priorizan titulares, rotación y suplentes funcionales con participación comprobable; juveniles de reserva y futbolistas sin minutos o con uso marginal se reservan para una futura cantera. Roles específicos con fuente: 657/1211 (54.3%). Dorsales asignados internamente; sin verificación oficial individual. Medias estimadas pendientes de contraste con Football Manager/EA FC. Publicación en main pendiente.",
   "auditoria_final": {
-    "jugadores": 1222,
+    "jugadores": 1211,
     "clubes": 36,
-    "edades_con_fecha_nacimiento": 1222,
-    "dorsales_asignados": 1222,
+    "edades_con_fecha_nacimiento": 1211,
+    "dorsales_asignados": 1211,
     "dorsales_oficiales_verificados": 0,
-    "nacionalidades_asignadas": 1222,
-    "medias_estimadas": 1222,
-    "medias_60": 72,
+    "nacionalidades_asignadas": 1211,
+    "medias_estimadas": 1211,
+    "medias_60": 71,
     "porcentaje_media_60": 5.9,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 653,
+    "roles_especificos_asignados": 657,
     "estado_ci": "passed",
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
-    "roles_especificos_pendientes": 569,
-    "estado_refinamiento": "En curso: se depuraron Defensores de Belgrano (26 jugadores, 23 con rol específico) y Colegiales (23 jugadores, 20 con rol específico), según apariciones 2026. Se excluyeron juveniles sin participación y jugadores de uso mínimo; se conservaron los arqueros suplentes como cobertura de puesto. Continúa la revisión individual de roles, dorsales oficiales y medias.",
+    "roles_especificos_pendientes": 554,
+    "estado_refinamiento": "En curso: se depuraron Defensores de Belgrano, Colegiales y Deportivo Maipú aplicando criterio de plantel principal, participación 2026 y cobertura funcional de arquero suplente. Continúan pendientes roles de otros clubes, verificación oficial de dorsales y revisión de medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
       108,
       115,
       103,
       108,
-      96,
+      100,
       123
     ],
-    "porcentaje_roles_especificos": 53.4
+    "porcentaje_roles_especificos": 54.3
   },
   "estado_por_club": [
     {
@@ -465,12 +465,12 @@
     {
       "club_id": "maipu",
       "nombre": "Deportivo Maipú",
-      "jugadores": 30,
-      "roles_especificos": 11,
-      "roles_pendientes": 19,
-      "porcentaje_roles": 36.7,
+      "jugadores": 19,
+      "roles_especificos": 15,
+      "roles_pendientes": 4,
+      "porcentaje_roles": 78.9,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel principal depurado a 19 jugadores según participación 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "quilmes",
