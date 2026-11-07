@@ -23,6 +23,8 @@ jobs:
           node --check public/engine.js
           node --check public/player-development.js
           node --check import-squads.js
+      - name: Auditar los 30 planteles y atributos que consume el juego
+        run: node test-squads.js
       - name: Probar evolución e involución de jugadores
         run: node test-player-development.js
       - name: Validar Primera completa sin modificar archivos
