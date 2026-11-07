@@ -170,7 +170,7 @@
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
     "roles_especificos_pendientes": 181,
-    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
+    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC. En Midland se contrastaron cuatro dorsales repetidos en planillas de partidos 2026 (Aguilar 15, Frattini 16, Olavarría 13 y Canalda 14); no se contabilizan como dorsales oficiales de plantel sin nómina oficial.",
     "roles_especificos_por_bloque": [
       137,
       144,
@@ -180,7 +180,8 @@
       139
     ],
     "porcentaje_roles_especificos": 82,
-    "ultima_revision": "2026-11-07: revisión cruzada de estadísticas individuales 2026; completados roles de arquero pendientes, subroles confirmados y correcciones de posiciones generales. Se corrigieron Rodrigo Ramírez (Nueva Chicago), Dylan Durán (Chacarita), Gonzalo Risso Patrón y Agustín Toledo Gamarra (Colón), y seis jugadores de Los Andes: Agustín González, Federico Rodríguez, Joaquín Vázquez, Matías González, Matías Gómez y Agustín Sandoval."
+    "ultima_revision": "2026-11-07: revisión cruzada de estadísticas individuales 2026; completados roles de arquero pendientes, subroles confirmados y correcciones de posiciones generales. Se corrigieron Rodrigo Ramírez (Nueva Chicago), Dylan Durán (Chacarita), Gonzalo Risso Patrón y Agustín Toledo Gamarra (Colón), y seis jugadores de Los Andes: Agustín González, Federico Rodríguez, Joaquín Vázquez, Matías González, Matías Gómez y Agustín Sandoval.",
+    "dorsales_contrastados_en_planillas": 4
   },
   "estado_por_club": [
     {
