@@ -17,7 +17,8 @@ function validate(file,blockA,blockB){
  const counts={},seen=new Set(),numbers=new Set();
  for(const p of rows){
   assert.ok(valid.has(p.club_id),'Club fuera de ar2: '+p.club_id);
-  assert.ok(p.nombre&&p.posicion&&p.rating_source&&p.fuente&&p.fuente_edad,'Dato esencial o fuente incompleta: '+p.nombre);\n  assert.ok(p.nombre[1]!=='.','Nombre abreviado: '+p.nombre);
+  assert.ok(p.nombre&&p.posicion&&p.rating_source&&p.fuente&&p.fuente_edad,'Dato esencial o fuente incompleta: '+p.nombre );
+  assert.ok(p.nombre[1]!=='.','Nombre abreviado: '+p.nombre);
   assert.ok(['POR','DEF','MED','DEL'].includes(p.posicion),'Posición inválida: '+p.nombre);
   assert.ok(Number(p.rating)>=1&&Number(p.rating)<=99,'Media inválida: '+p.nombre);
   assert.ok(Number.isInteger(Number(p.edad))&&Number(p.edad)>=15&&Number(p.edad)<=50,'Edad inválida: '+p.nombre);
