@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "184 jugadores; 135 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
+      "estado": "184 jugadores; 139 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
       "jugadores": 184,
       "clubes": {
         "racingcba": 22,
@@ -74,7 +74,7 @@
         "temperley": 33,
         "guemes": 33
       },
-      "roles_especificos": 135
+      "roles_especificos": 139
     },
     {
       "bloque": 4,
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 821/1006 (81.6%). Continúa la verificación de roles, dorsales y medias.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 825/1006 (82.0%). Continúa la verificación de roles, dorsales y medias.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -165,22 +165,22 @@
     "medias_60": 68,
     "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 821,
+    "roles_especificos_asignados": 825,
     "estado_ci": "passed",
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
-    "roles_especificos_pendientes": 185,
+    "roles_especificos_pendientes": 181,
     "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
       137,
       144,
-      135,
+      139,
       135,
       131,
       139
     ],
-    "porcentaje_roles_especificos": 81.6,
-    "ultima_revision": "2026-11-07: revisión cruzada de estadísticas individuales 2026; se completaron roles de arquero pendientes, se agregaron subroles confirmados y se corrigió la posición de Rodrigo Ramírez (Nueva Chicago) de MED a DEF. Se añadieron LIB a Dylan Durán (Chacarita), LI a Gonzalo Risso Patrón y MC a Agustín Toledo Gamarra (Colón)."
+    "porcentaje_roles_especificos": 82,
+    "ultima_revision": "2026-11-07: revisión cruzada de estadísticas individuales 2026; completados roles de arquero pendientes, subroles confirmados y correcciones de posiciones generales. Se corrigieron Rodrigo Ramírez (Nueva Chicago), Dylan Durán (Chacarita), Gonzalo Risso Patrón y Agustín Toledo Gamarra (Colón), y seis jugadores de Los Andes: Agustín González, Federico Rodríguez, Joaquín Vázquez, Matías González, Matías Gómez y Agustín Sandoval."
   },
   "estado_por_club": [
     {
@@ -317,9 +317,9 @@
       "club_id": "losandes",
       "nombre": "Los Andes",
       "jugadores": 32,
-      "roles_especificos": 20,
-      "roles_pendientes": 12,
-      "porcentaje_roles": 62.5,
+      "roles_especificos": 24,
+      "roles_pendientes": 8,
+      "porcentaje_roles": 75,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
