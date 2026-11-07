@@ -34,6 +34,10 @@ jobs:
         run: node test-career-development.js
       - name: Validar Primera completa sin modificar archivos
         run: node import-squads.js planteles/primera-2026.csv --dry-run --require-primera-complete
+      - name: Validar bloque inicial de Primera Nacional sin publicarlo
+        run: |
+          node test-primera-nacional.js
+          node import-squads.js planteles/primera-nacional-2026-bloque1.csv --dry-run
       - name: Generar archivos que consume el juego
         run: node import-squads.js planteles/primera-2026.csv --require-primera-complete
       - name: Guardar planteles publicados en GitHub
