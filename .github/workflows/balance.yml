@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'test-balance.js'
+      - 'test-promotion-balance.js'
       - 'public/engine.js'
       - 'public/data.js'
       - 'public/squads.js'
@@ -16,6 +17,7 @@ on:
       - 'public/data.js'
       - 'public/squads.js'
       - 'test-balance.js'
+      - 'test-promotion-balance.js'
       - '.github/workflows/balance.yml'
 permissions:
   contents: write
@@ -28,6 +30,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Validar ascensos y descensos
+        run: node test-promotion-balance.js | tee promotion-report.json
       - name: Simular temporadas y comparar tácticas
         run: node test-balance.js | tee balance-report.json
       - name: Publicar resumen
@@ -40,14 +44,21 @@ jobs:
             cat balance-report.json >> "$GITHUB_STEP_SUMMARY"
             echo '```' >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ -s promotion-report.json ]; then
+            echo '## Ajustes por ascensos y descensos' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat promotion-report.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Guardar informe de auditoría
         if: success() && github.event_name == 'push'
         run: |
           mkdir -p planteles
           cp balance-report.json planteles/auditoria-equilibrio-primera.json
+          cp promotion-report.json planteles/auditoria-ajustes-ascensos-descensos.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add planteles/auditoria-equilibrio-primera.json
+          git add planteles/auditoria-equilibrio-primera.json planteles/auditoria-ajustes-ascensos-descensos.json
           if ! git diff --cached --quiet; then
             git commit -m 'Record Primera balance audit results'
             git push
@@ -56,4 +67,6 @@ jobs:
         if: always() && hashFiles('balance-report.json') != ''
         with:
           name: auditoria-equilibrio-primera
-          path: balance-report.json
+          path: |
+            balance-report.json
+            promotion-report.json
