@@ -11,6 +11,7 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 - Cuatro dorsales de Midland contrastados en varias planillas de partidos 2026; el resto sigue asignado internamente. No se presentan como numeración oficial de plantel.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
 - Ningún club se considera completo bajo el criterio integral.
+- Revisión adicional publicada: 26 correcciones de posición/subrol en Temperley, San Martín SJ, Mitre, Gimnasia de Jujuy y Midland, contrastadas con estadísticas individuales 2026.
 
 ## Próximas tareas
 1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión de bloque 3: siete ajustes de posición/subrol en Temperley, incluida la corrección de Nicolás Ávalos de POR a DEF.
