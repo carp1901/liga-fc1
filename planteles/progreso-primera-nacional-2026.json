@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Carga inicial completa: los 36 clubes y seis bloques están en borrador. Pendiente auditoría integral y prueba seca de importación; no publicado en el juego.",
+  "estado": "Los 36 planteles fueron importados en la rama de trabajo y pasaron la validación automática. No están todavía en main. Pendientes de refinamiento: roles específicos por jugador y contraste de dorsales oficiales.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -147,5 +147,21 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1249,
-  "estado_general": "Los seis bloques están cargados en borrador para los 36 clubes (1.249 jugadores). Se consolidó el CSV maestro; se redujo la concentración de medias 60 a 65 casos (5,2%). Falta ejecutar validación automatizada e importación en seco, revisar las posiciones y contrastar dorsales oficiales antes de publicar."
+  "estado_general": "Carga inicial de 1.249 jugadores en 36 clubes, seis bloques equilibrados por zonas oficiales AFA. El CSV maestro se importó a public/squads.json y public/squads-meta.json en la rama; pasaron la auditoría de datos, el dry-run, la validación de atributos derivados y el test de Primera para comprobar que no se alteró. Edades 1.249/1.249; dorsales asignados 1.249/1.249 (internos, no todos contrastados con numeración oficial); nacionalidades 1.249/1.249; 21 atributos derivados por el motor; 65 medias exactas de 60 (5,2%). Los roles específicos individuales siguen pendientes y el juego muestra por ahora la posición general. No mergeado a main.",
+  "auditoria_final": {
+    "jugadores": 1249,
+    "clubes": 36,
+    "edades_con_fecha_nacimiento": 1249,
+    "dorsales_asignados": 1249,
+    "dorsales_oficiales_verificados": 0,
+    "nacionalidades_asignadas": 1249,
+    "medias_estimadas": 1249,
+    "medias_60": 65,
+    "porcentaje_media_60": 5.2,
+    "atributos_derivados_por_motor": 21,
+    "roles_especificos_asignados": 0,
+    "estado_ci": "passed",
+    "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
+    "main": "pendiente de merge"
+  }
 }
