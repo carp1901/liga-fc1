@@ -16,7 +16,7 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "222 jugadores cargados; 109 roles específicos contrastados con fuentes de plantel 2026; dorsales asignados internamente, aún pendientes de contraste oficial; revisión individual de medias y plantel continúa.",
+      "estado": "222 jugadores cargados; 108 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 222,
       "clubes": {
         "allboys": 36,
@@ -26,7 +26,7 @@
         "chacarita": 37,
         "atlanta": 35
       },
-      "roles_especificos": 109
+      "roles_especificos": 108
     },
     {
       "bloque": 2,
@@ -40,7 +40,7 @@
         "gimnasiajujuy",
         "almagro"
       ],
-      "estado": "203 jugadores cargados; 115 roles específicos contrastados con fuentes de plantel 2026; dorsales asignados internamente, aún pendientes de contraste oficial; revisión individual de medias y plantel continúa.",
+      "estado": "203 jugadores cargados; 115 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 203,
       "clubes": {
         "chaco": 32,
@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "200 jugadores cargados; 107 roles específicos contrastados con fuentes de plantel 2026; dorsales asignados internamente, aún pendientes de contraste oficial; revisión individual de medias y plantel continúa.",
+      "estado": "200 jugadores cargados; 103 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 200,
       "clubes": {
         "racingcba": 38,
@@ -74,7 +74,7 @@
         "temperley": 33,
         "guemes": 33
       },
-      "roles_especificos": 107
+      "roles_especificos": 103
     },
     {
       "bloque": 4,
@@ -88,7 +88,7 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "204 jugadores cargados; 111 roles específicos contrastados con fuentes de plantel 2026; dorsales asignados internamente, aún pendientes de contraste oficial; revisión individual de medias y plantel continúa.",
+      "estado": "204 jugadores cargados; 108 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 204,
       "clubes": {
         "almirantebrown": 38,
@@ -98,7 +98,7 @@
         "agropecuario": 33,
         "patronato": 34
       },
-      "roles_especificos": 111
+      "roles_especificos": 108
     },
     {
       "bloque": 5,
@@ -112,7 +112,7 @@
         "maipu",
         "quilmes"
       ],
-      "estado": "198 jugadores cargados; 99 roles específicos contrastados con fuentes de plantel 2026; dorsales asignados internamente, aún pendientes de contraste oficial; revisión individual de medias y plantel continúa.",
+      "estado": "198 jugadores cargados; 96 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 198,
       "clubes": {
         "centralnorte": 36,
@@ -122,7 +122,7 @@
         "maipu": 30,
         "quilmes": 33
       },
-      "roles_especificos": 99
+      "roles_especificos": 96
     },
     {
       "bloque": 6,
@@ -136,7 +136,7 @@
         "rafaela",
         "midland"
       ],
-      "estado": "222 jugadores cargados; 93 roles específicos contrastados con fuentes de plantel 2026; dorsales asignados internamente, aún pendientes de contraste oficial; revisión individual de medias y plantel continúa.",
+      "estado": "222 jugadores cargados; 92 roles específicos en primera pasada con fuente de plantel 2026; se desambiguaron coincidencias de apellidos con iniciales cuando la fuente lo permite. Dorsales aún internos, pendientes de contraste oficial.",
       "jugadores": 222,
       "clubes": {
         "sanmiguel": 28,
@@ -146,14 +146,14 @@
         "rafaela": 39,
         "midland": 33
       },
-      "roles_especificos": 93
+      "roles_especificos": 92
     }
   ],
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1249,
-  "estado_general": "Carga inicial de 1.249 jugadores en 36 clubes, seis bloques equilibrados por zonas oficiales AFA. Se contrastaron roles específicos para 634/1.249 jugadores (50.8%) usando fuentes de planteles 2026; 615 siguen pendientes. Edades y nacionalidades completas; dorsales asignados internamente, sin verificación oficial individual. Las medias son estimaciones identificadas y deben continuar revisándose. La importación a public/squads.json y public/squads-meta.json se ejecuta en la rama mediante GitHub Actions; la publicación en main sigue pendiente.",
+  "estado_general": "Carga inicial de 1.249 jugadores en 36 clubes, seis bloques equilibrados por zonas oficiales AFA. Primera pasada de roles específicos con fuentes de planteles 2026: 622/1.249 (49.8%); se corrigieron coincidencias de apellidos ambiguas usando iniciales y se retiraron asignaciones sin coincidencia suficiente. Quedan 627 roles pendientes. Edades y nacionalidades completas; dorsales asignados internamente, sin verificación oficial individual. Medias identificadas como estimaciones cuando no hay OVR EA individual; la revisión de nivel continúa. Publicación en main pendiente.",
   "auditoria_final": {
     "jugadores": 1249,
     "clubes": 36,
@@ -165,20 +165,20 @@
     "medias_60": 65,
     "porcentaje_media_60": 5.2,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 634,
+    "roles_especificos_asignados": 622,
     "estado_ci": "passed",
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
-    "roles_especificos_pendientes": 615,
-    "estado_refinamiento": "En curso: los seis bloques tienen una primera pasada de roles específicos con fuentes de plantel 2026; falta cubrir los roles restantes, revisar posibles homónimos y contrastar dorsales oficiales.",
+    "roles_especificos_pendientes": 627,
+    "estado_refinamiento": "En curso: seis bloques con primera pasada de roles específicos y fuentes; se corrigieron homónimos usando iniciales cuando estaban disponibles. Falta cubrir roles restantes, revisar individualmente las asignaciones y contrastar dorsales oficiales.",
     "roles_especificos_por_bloque": [
-      109,
+      108,
       115,
-      107,
-      111,
-      99,
-      93
+      103,
+      108,
+      96,
+      92
     ],
-    "porcentaje_roles_especificos": 50.8
+    "porcentaje_roles_especificos": 49.8
   }
 }
