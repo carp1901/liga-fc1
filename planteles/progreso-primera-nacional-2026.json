@@ -108,7 +108,16 @@
         "maipu",
         "quilmes"
       ],
-      "estado": "pendiente"
+      "estado": "198 jugadores cargados en borrador para 6 clubes; edades calculadas con referencia 06/11/2026 y fuentes individuales; dorsales internos; revisión de plantel y medias pendiente.",
+      "jugadores": 198,
+      "clubes": {
+        "centralnorte": 36,
+        "godoycruz": 37,
+        "santelmo": 32,
+        "gimnasiatiro": 30,
+        "maipu": 30,
+        "quilmes": 33
+      }
     },
     {
       "bloque": 6,
