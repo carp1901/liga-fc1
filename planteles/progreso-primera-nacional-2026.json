@@ -62,7 +62,16 @@
         "temperley",
         "guemes"
       ],
-      "estado": "pendiente"
+      "estado": "200 jugadores cargados en borrador para 6 clubes; fechas de nacimiento verificadas; dorsales internos; revisión de plantel y medias pendiente.",
+      "jugadores": 200,
+      "clubes": {
+        "racingcba": 38,
+        "losandes": 32,
+        "mitre": 30,
+        "sanmartinsj": 34,
+        "temperley": 33,
+        "guemes": 33
+      }
     },
     {
       "bloque": 4,
