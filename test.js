@@ -1,10 +1,13 @@
 // Prueba de carga: N jugadores simulados juegan una liga completa. Uso: TICK_MS=15 node server.js & node test.js [N] [formato]
-require('./test-player-development');\nconst N=+process.argv[2]||12,FMT=process.argv[3]||'liga1',B='http://localhost:'+(process.env.PORT||3000),code='t'+Date.now().toString(36).slice(-6);
+require('./test-player-development');
+const N=+process.argv[2]||12,FMT=process.argv[3]||'liga1',B='http://localhost:'+(process.env.PORT||3000),code='t'+Date.now().toString(36).slice(-6);
 const post=b=>fetch(B+'/act',{method:'POST',body:JSON.stringify(b)}).then(r=>r.json());
 const S=[];let msgs=0,maxG=0,goals=0,games=0,t0=Date.now();
 (async()=>{const dv=await (await fetch(B+'/teams.json')).json(),T=dv[0].teams.map(t=>t.id);
  for(let i=0;i<N;i++){const pid='p'+i,name='Jug'+i;let e=await post({a:i?'join':'create',room:code,pid,name,cfg:{div:'ar1',fmt:FMT,n:N}});if(e.error)throw e.error;
-  const st={pid,v:null};S.push(st);fetch(B+'/ev?room='+code+'&pid='+pid).then(async r=>{const rd=r.body.getReader(),dc=new TextDecoder();let buf='';for(;;){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value);let k;while((k=buf.indexOf('\n\n'))>=0){const m=buf.slice(0,k);buf=buf.slice(k+2);if(m.startsWith('data:')){st.v=JSON.parse(m.slice(5));msgs++}}}})}
+  const st={pid,v:null};S.push(st);fetch(B+'/ev?room='+code+'&pid='+pid).then(async r=>{const rd=r.body.getReader(),dc=new TextDecoder();let buf='';for(;;){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value);let k;while((k=buf.indexOf('
+
+'))>=0){const m=buf.slice(0,k);buf=buf.slice(k+2);if(m.startsWith('data:')){st.v=JSON.parse(m.slice(5));msgs++}}}})}
  for(let i=0;i<N;i++)await post({a:'pick',room:code,pid:'p'+i,team:T[i]});
  const lag=[];let last=Date.now();const iv=setInterval(()=>{const n=Date.now();lag.push(n-last-20);last=n},20);
  let round=-1;const seen=new Set();
