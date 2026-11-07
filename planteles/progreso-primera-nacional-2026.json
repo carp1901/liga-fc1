@@ -137,11 +137,11 @@
         "midland"
       ],
       "estado": "195 jugadores cargados; 123 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 174,
+      "jugadores": 171,
       "clubes": {
         "sanmiguel": 28,
         "defensoresbelgrano": 26,
-        "acassuso": 25,
+        "acassuso": 22,
         "colegiales": 23,
         "rafaela": 39,
         "midland": 33
@@ -152,16 +152,16 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1190,
-  "estado_general": "Carga revisada de 1190 jugadores en 36 clubes. Se priorizan titulares, rotación y suplentes funcionales con participación comprobable; juveniles de reserva y futbolistas sin minutos o con uso marginal se reservan para una futura cantera. Roles específicos con fuente: 655/1190 (55.0%). Dorsales asignados internamente; sin verificación oficial individual. Medias estimadas pendientes de contraste con Football Manager/EA FC. Publicación en main pendiente.",
+  "jugadores_borrador": 1187,
+  "estado_general": "Carga revisada de 1187 jugadores en 36 clubes. Se priorizan titulares, rotación y suplentes funcionales con participación comprobable; juveniles de reserva y futbolistas sin minutos o con uso marginal se reservan para una futura cantera. Roles específicos con fuente: 655/1187 (55.2%). Dorsales asignados internamente; sin verificación oficial individual. Medias estimadas pendientes de contraste con Football Manager/EA FC. Publicación en main pendiente.",
   "auditoria_final": {
-    "jugadores": 1190,
+    "jugadores": 1187,
     "clubes": 36,
-    "edades_con_fecha_nacimiento": 1190,
-    "dorsales_asignados": 1190,
+    "edades_con_fecha_nacimiento": 1187,
+    "dorsales_asignados": 1187,
     "dorsales_oficiales_verificados": 0,
-    "nacionalidades_asignadas": 1190,
-    "medias_estimadas": 1190,
+    "nacionalidades_asignadas": 1187,
+    "medias_estimadas": 1187,
     "medias_60": 71,
     "porcentaje_media_60": 6,
     "atributos_derivados_por_motor": 21,
@@ -169,7 +169,7 @@
     "estado_ci": "passed",
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
-    "roles_especificos_pendientes": 535,
+    "roles_especificos_pendientes": 532,
     "estado_refinamiento": "En curso: se depuraron Defensores de Belgrano, Colegiales, Deportivo Maipú y Acassuso aplicando criterio de plantel principal, participación 2026 y cobertura funcional de arquero suplente. Continúan pendientes roles de otros clubes, verificación oficial de dorsales y revisión de medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
       108,
@@ -179,7 +179,7 @@
       100,
       121
     ],
-    "porcentaje_roles_especificos": 55
+    "porcentaje_roles_especificos": 55.2
   },
   "estado_por_club": [
     {
@@ -505,12 +505,12 @@
     {
       "club_id": "acassuso",
       "nombre": "Acassuso",
-      "jugadores": 25,
+      "jugadores": 22,
       "roles_especificos": 17,
-      "roles_pendientes": 8,
-      "porcentaje_roles": 68,
+      "roles_pendientes": 5,
+      "porcentaje_roles": 77.3,
       "estado": "pendiente",
-      "motivo": "plantel principal depurado a 25 jugadores según participación 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
+      "motivo": "plantel principal depurado a 22 jugadores según participación 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "colegiales",
