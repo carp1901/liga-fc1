@@ -8,8 +8,7 @@ const fs=require('fs'),path=require('path');
 const file=process.argv[2],REQUIRE_PRIMERA=process.argv.includes('--require-primera-complete'),DRY_RUN=process.argv.includes('--dry-run');
 const AGE_REFERENCE_DATE='2026-11-06';
 if(!file){console.error('Uso: node import-squads.js archivo.csv [--dry-run] [--require-primera-complete]');process.exit(1)}
-function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c=='"'&&s[i+1]=='"'){v+='"';i++}else if(c=='"')q=false;else v+=c}else if(c=='"')q=true;else if(c==','){row.push(v);v=''}else if(c=='
-'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v=''}else v+=c}if(v.length||row.length){row.push(v.replace(/\r$/,''));rows.push(row)}return rows}
+function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c=='"'&&s[i+1]=='"'){v+='"';i++}else if(c=='"')q=false;else v+=c}else if(c=='"')q=true;else if(c==','){row.push(v);v=''}else if(c=='\n'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v=''}else v+=c}if(v.length||row.length){row.push(v.replace(/\r$/,''));rows.push(row)}return rows}
 const POS={POR:'POR',ARQ:'POR',GK:'POR',GOALKEEPER:'POR',DEF:'DEF',DF:'DEF',DEFENDER:'DEF',MED:'MED',MC:'MED',MCD:'MED',MO:'MED',MID:'MED',MF:'MED',MIDFIELDER:'MED',DEL:'DEL',FW:'DEL',ATA:'DEL',ATTACKER:'DEL'};
 const ATTR=['pas','ctl','reg','rem','des','mar','ant','ref'];
 const PRIMERA=['boca','river','racing','independiente','sanlorenzo','estudiantes','velez','talleres','lanus','rosario','huracan','belgrano','argentinos','defensa','newells','union','tigre','platense','banfield','gimnasia','centralcba','rivadavia','instituto','atletico','barracas','riestra','sarmiento','aldosivi','gimnasiamza','estudiantesrc'];
@@ -44,8 +43,7 @@ rows.forEach((r,i)=>{
  const src=sources[club]||(sources[club]={source:[],consulted:[],ageSource:[],numberSource:[],ratingSource:[],roleSource:[]});
  [['source','fuente'],['consulted','consultado'],['ageSource','fuente_edad'],['numberSource','dorsal_source'],['ratingSource','rating_source'],['roleSource','fuente_rol']].forEach(([a,b])=>{const v=get(b);if(v&&!src[a].includes(v))src[a].push(v)});
 });
-if(errors.length){console.error(errors.join('
-'));process.exit(1)}
+if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 if(!Object.keys(out).length)throw Error('No hay jugadores válidos para importar');
 if(REQUIRE_PRIMERA){const missing=PRIMERA.filter(id=>!out[id]||out[id].length<11),extras=Object.keys(out).filter(id=>!PRIMERA.includes(id));if(missing.length||extras.length)throw Error('Primera incompleta. Faltan: '+missing.join(', ')+'; IDs ajenos: '+extras.join(', ')+'. No se modificó ningún archivo.')}
 let previous={},previousMeta={};const pub=path.join(__dirname,'public');
