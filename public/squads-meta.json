@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-07T19:01:07.626Z",
+  "updatedAt": "2026-11-07T19:01:35.617Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "875 medias con fuente individual + 1387 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -2389,8 +2389,8 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 1151,
-    "missing": 1111,
+    "assigned": 1122,
+    "missing": 1140,
     "total": 2262,
     "byClub": {
       "sanlorenzo": {
@@ -2515,27 +2515,27 @@
       },
       "allboys": {
         "total": 36,
-        "specific": 20
+        "specific": 19
       },
       "ferro": {
         "total": 32,
-        "specific": 25
+        "specific": 21
       },
       "madryn": {
         "total": 38,
-        "specific": 21
+        "specific": 15
       },
       "nuevachicago": {
         "total": 44,
-        "specific": 25
+        "specific": 20
       },
       "chacarita": {
         "total": 37,
-        "specific": 24
+        "specific": 18
       },
       "atlanta": {
         "total": 35,
-        "specific": 23
+        "specific": 16
       },
       "chaco": {
         "total": 32,
@@ -3082,7 +3082,7 @@
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
     "playersMissingFoot": 2261,
-    "playersMissingSpecificRole": 1111,
+    "playersMissingSpecificRole": 1140,
     "playersWithoutManualAttributes": 2115
   }
 }
