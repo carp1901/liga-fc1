@@ -1,5 +1,5 @@
 // Prueba de carga: N jugadores simulados juegan una liga completa. Uso: TICK_MS=15 node server.js & node test.js [N] [formato]
-const N=+process.argv[2]||12,FMT=process.argv[3]||'liga1',B='http://localhost:'+(process.env.PORT||3000),code='t'+Date.now().toString(36).slice(-6);
+require('./test-player-development');\nconst N=+process.argv[2]||12,FMT=process.argv[3]||'liga1',B='http://localhost:'+(process.env.PORT||3000),code='t'+Date.now().toString(36).slice(-6);
 const post=b=>fetch(B+'/act',{method:'POST',body:JSON.stringify(b)}).then(r=>r.json());
 const S=[];let msgs=0,maxG=0,goals=0,games=0,t0=Date.now();
 (async()=>{const dv=await (await fetch(B+'/teams.json')).json(),T=dv[0].teams.map(t=>t.id);
