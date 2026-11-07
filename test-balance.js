@@ -6,9 +6,7 @@ const ENG=require('./public/engine');
 
 const clubs=DATA.DIVS.find(d=>d.id==='ar1').teams.map(t=>t.id);
 if(clubs.length!==30)throw new Error('Primera debe tener 30 clubes; encontrados: '+clubs.length);
-const career=ENG.realNew({me:{club:'river'}});
-const zones=career.zones.ar1;
-if(!zones||zones.length!==2||zones.some(z=>z.length!==15))throw new Error('La Primera realista no tiene dos zonas de 15 clubes');
+const zoneCounts=Object.fromEntries(clubs.map(id=>[id,{a:0,b:0}]));
 
 const seasons=Number(process.env.BALANCE_SEASONS||60);
 const tournaments=seasons*2;
@@ -51,7 +49,7 @@ function primFixtures(zA,zB,reverse){
  }
  throw new Error('No se pudo generar el fixture de Primera');
 }
-function playStage(fx){
+function playStage(fx,zones){
  const T=Object.fromEntries(clubs.map(id=>[id,{id,pj:0,g:0,e:0,p:0,gf:0,ga:0,pts:0}]));
  for(const round of fx)for(const [home,away] of round){
   const m=ENG.simGame(home,away,{mix:false}),h=m.ga,a=m.gb,A=T[home],B=T[away];
@@ -69,8 +67,11 @@ function addStages(A,B){
 }
 const champions=[];
 for(let s=0;s<seasons;s++){
+ const career=ENG.realNew({me:{club:'river'}}),zones=career.zones.ar1;
+ if(!zones||zones.length!==2||zones.some(z=>z.length!==15))throw new Error('La Primera realista no tiene dos zonas de 15 clubes');
+ zones[0].forEach(id=>zoneCounts[id].a++);zones[1].forEach(id=>zoneCounts[id].b++);
  const fxA=primFixtures(zones[0],zones[1],false),fxC=primFixtures(zones[0],zones[1],true);
- const A=playStage(fxA),B=playStage(fxC),annual=addStages(A,B);
+ const A=playStage(fxA,zones),B=playStage(fxC,zones),annual=addStages(A,B);
  for(const [name,stage,index] of [['Apertura',A,0],['Clausura',B,1]]){
   const seeds=ENG.poSeeds(zones,Object.values(annual),[A.map],index);
   if(!seeds||seeds.length!==16||new Set(seeds).size!==16)throw new Error('Clasificación inválida a playoffs de '+name);
@@ -119,7 +120,8 @@ const tactics=[
 ];
 const result={
  format:'Primera realista del motor: Apertura y Clausura; cada torneo con 16 fechas, 14 partidos intrazona y 2 interzonales por club; top 8 de cada zona y playoffs de 16',
- seasons,tournaments,clubs:clubs.length,zoneA:zones[0],zoneB:zones[1],
+ seasons,tournaments,clubs:clubs.length,zoneAssignmentSamples:seasons,
+ zoneDistribution:clubs.map(id=>({id,zoneA:zoneCounts[id].a,zoneB:zoneCounts[id].b})),
  uniqueChampions:[...new Set(champions)].length,
  avgPositionSpread:+(Math.max(...ranked.map(x=>x.avgPos))-Math.min(...ranked.map(x=>x.avgPos))).toFixed(2),
  titleDistribution:ranked.map(({id,champ,champPct,avgPos,top4Pct,top8Pct})=>({id,champ,champPct,avgPos,top4Pct,top8Pct})),
