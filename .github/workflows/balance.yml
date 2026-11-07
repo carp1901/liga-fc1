@@ -2,6 +2,7 @@ name: Balance audit - Primera
 on:
   workflow_dispatch:
   pull_request:
+    types: [opened, synchronize, reopened, edited]
     branches: [main]
     paths:
       - 'public/engine.js'
