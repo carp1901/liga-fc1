@@ -54,3 +54,7 @@ GitHub Actions valida y publica automáticamente `public/squads.json`, `public/s
 La columna `nat` está completa para los 1.013 jugadores de Primera 2026. Las nacionalidades completadas durante la auditoría registran su fuente individual en `nat_source`; no se asignan nacionalidades por inferencia. El pie dominante (`pie`) se considera un dato complementario: permanece vacío cuando no se encontró una fuente individual fiable y no se fuerza un valor por defecto.
 
 La auditoría final valida 30 clubes, 1.013 jugadores, 1.013 edades, 1.013 dorsales, 1.013 roles específicos, 1.013 nacionalidades y 21 atributos por jugador (147 con atributos manuales y 866 con atributos derivados por rol, posición y media).
+
+## Primera Nacional 2026
+
+La división se recopila en seis bloques, cada uno con tres clubes de Zona A y tres de Zona B. El CSV de trabajo no se importa a `public/squads.json` hasta completar los 36 clubes y pasar las validaciones. Se priorizan nóminas oficiales de clubes/AFA; Mundo Ascenso y Canchallena se usan para contraste de planteles, edades y dorsales. Las medias sin OVR individual EA FC 27/26 se registran como estimaciones propias, nunca como valor oficial. Los dorsales que no tengan confirmación oficial se identifican como `Asignado internamente`.
