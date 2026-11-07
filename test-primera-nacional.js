@@ -36,6 +36,7 @@ function validate(file,blockA,blockB){
 }
 const reports=[
  validate('planteles/primera-nacional-2026-bloque1.csv',['allboys','ferro','madryn'],['nuevachicago','chacarita','atlanta']),
- validate('planteles/primera-nacional-2026-bloque2.csv',['chaco','moron','estudiantesba'],['sanmartintuc','gimnasiajujuy','almagro'])
+ validate('planteles/primera-nacional-2026-bloque2.csv',['chaco','moron','estudiantesba'],['sanmartintuc','gimnasiajujuy','almagro']),
+ validate('planteles/primera-nacional-2026-bloque3.csv',['racingcba','losandes','mitre'],['sanmartinsj','temperley','guemes'])
 ];
-console.log(JSON.stringify({ok:true,division:'Primera Nacional',clubsCovered:12,blocks:reports,zones:{A:18,B:18},ageReference:'2026-11-06',ratings:'estimaciones identificadas',dorsals:'asignación interna explícita'},null,2));
+console.log(JSON.stringify({ok:true,division:'Primera Nacional',clubsCovered:18,blocks:reports,zones:{A:18,B:18},ageReference:'2026-11-06',ratings:'estimaciones identificadas',dorsals:'asignación interna explícita'},null,2));
