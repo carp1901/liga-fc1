@@ -63,8 +63,8 @@ annual.sort((a,b)=>b.pts-a.pts||b.g-b.g||b.gf-a.gf);
 const annualMap=Object.fromEntries(annual.map(q=>[q.id,{...q}]));
 const closed=ENG.careerClose(relegationCar,annual,[annualMap]);
 assert.ok(!closed.error,'careerClose debe completar la transición');
-assert.ok(closed.cats[1].teams.includes(river),'el último de Primera debe pasar a Nacional');
-assert.deepEqual(closed.adapt[river],{delta:-1,remaining:2},'careerClose debe activar el ajuste al descender');
-assert.equal(ENG.careerCfg(closed).teamAdj[river],.965);
+assert.ok(closed.car.cats[1].teams.includes(river),'el último de Primera debe pasar a Nacional');
+assert.deepEqual(closed.car.adapt[river],{delta:-1,remaining:2},'careerClose debe activar el ajuste al descender');
+assert.equal(ENG.careerCfg(closed.car).teamAdj[river],.965);
 
 console.log(JSON.stringify({ok:true,checks:15,examples:{promotion:1.035,relegation:.965,twoTierPromotion:1.07,twoTierRelegation:.93,secondSeason:1.0175,sameTierMetroFederalA:1},integration:'careerClose confirmó el descenso de Primera a Nacional'},null,2));
