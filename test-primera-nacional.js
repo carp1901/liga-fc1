@@ -34,7 +34,7 @@ function validate(file,blockA,blockB){
  assert.equal(Object.keys(counts).length,6,file+' debe tener seis clubes');
  assert.deepEqual(Object.keys(counts).sort(),[...blockA,...blockB].sort(),file+' debe respetar 3 clubes por zona');
  for(const id of [...blockA,...blockB])assert.ok((counts[id]||0)>=18,'Plantel inicial demasiado corto: '+id);
- return{file,players:rows.length,counts};
+ return{file,players:rows.length,counts,roles:rows.filter(p=>p.rol_especifico).length};
 }
 const reports=[
  validate('planteles/primera-nacional-2026-bloque1.csv',['allboys','ferro','madryn'],['nuevachicago','chacarita','atlanta']),
@@ -58,7 +58,7 @@ for(const p of masterRows){
  assert.ok(p.nombre[1]!=='.','Nombre abreviado en maestro: '+p.nombre);
 }
 const rolesSpecific=masterRows.filter(p=>p.rol_especifico).length;
-assert.ok(rolesSpecific>=100,'Los roles específicos contrastados del bloque 1 deben conservarse');
+assert.equal(rolesSpecific,reports.reduce((n,r)=>n+r.roles,0),'El CSV maestro debe conservar exactamente los roles específicos contrastados de los seis bloques');
 const sixties=masterRows.filter(p=>Number(p.rating)===60).length;
 assert.ok(sixties/masterRows.length<=.07,'Demasiados jugadores con media 60: '+sixties);
 console.log(JSON.stringify({ok:true,division:'Primera Nacional',clubsCovered:36,blocks:reports,zones:{A:18,B:18},ageReference:'2026-11-06',ratings:'estimaciones identificadas',dorsals:'asignación interna explícita'},null,2));
