@@ -12,8 +12,8 @@ La recopilación se hace por etapas y se guarda en el propio juego. No se consul
 - No inventar nombres, edades ni estadísticas.
 - Si no aparece un dorsal oficial y el proyecto autoriza asignarlo, usar un número libre y dejar `dorsal_source` como `Asignado internamente`; nunca presentarlo como oficial.
 - Si falta un dato verificable, dejarlo vacío. Si falta un jugador, el club queda pendiente.
-- Las edades se calculan desde fecha de nacimiento usando la referencia 05/11/2026 cuando esa fecha está documentada.
-- La media 60 es provisional cuando no hay OVR individual de EA FC 27/26 ni una muestra estadística verificable. Una media puede ser 60 y estar verificada si EA publica ese OVR; no subirla por criterio subjetivo. Toda media contrastada conserva una fuente específica del jugador o una página de club donde figure su fila.
+- Las edades se calculan desde fecha de nacimiento usando la referencia 06/11/2026 cuando esa fecha está documentada.
+- No se permite completar una media faltante con 60 por defecto. Una media puede ser 60 y estar verificada si EA publica ese OVR. Las estimaciones propias deben estar identificadas en `rating_source` y contarse separadas de las medias con fuente.
 - Para juveniles sin OVR oficial ni muestra suficiente, se permite una **estimación propia identificada**: edad, posición, dorsal de plantel, experiencia juvenil verificable cuando exista y comparación con jugadores de nivel/edad similar. Las estimaciones no se etiquetan como EA ni como dato oficial; se revisan cuando aparezca una fuente mejor.
 - Atributos estimados: se construyen desde el perfil posicional y la media provisional, con variación individual pequeña. POR conserva reflejos; los jugadores de campo no reciben atributos de arquero. Son valores de juego, no estadísticas reales.
 - Evolución: el potencial individual oculto limita la progresión; minutos, valoraciones y edad determinan cuándo puede subir o bajar la media. El sistema se aplica a carreras guardadas, no altera el plantel base.
