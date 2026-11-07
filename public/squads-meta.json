@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-06T23:53:51.523Z",
+  "updatedAt": "2026-11-07T00:01:14.437Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "875 medias respaldadas por OVR de EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM) o promedios de partido; las demás son provisionales (60). Los atributos no observados se derivan por puesto y media.",
   "counts": {
@@ -8,9 +8,9 @@
     "boca": 31,
     "river": 27,
     "independiente": 36,
-    "estudiantes": 37,
+    "estudiantes": 38,
     "velez": 30,
-    "racing": 23,
+    "racing": 22,
     "lanus": 34,
     "talleres": 32,
     "rosario": 38,
@@ -133,8 +133,14 @@
       "ageConsulted": "2026-11-05"
     },
     "estudiantes": {
-      "source": "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
-      "consulted": "2026-11-05",
+      "source": [
+        "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
+        "https://estudiantesdelaplata.com/jugador/marcos-rojo/"
+      ],
+      "consulted": [
+        "2026-11-05",
+        "2026-11-06"
+      ],
       "ageSource": [
         "https://www.transfermarkt.com.ar/fabricio-iacovich/profil/spieler/1050051",
         "https://www.mundodeportivo.com/us/resultados/futbol/liga-argentina-primera-division/equipo/estudiantes-de-la-plata/plantilla",
@@ -167,13 +173,15 @@
         "https://www.tycsports.com/liga-profesional-de-futbol/edwuin-cetre-es-el-quinto-refuerzo-de-estudiantes-id561583.html",
         "https://test-prf27k.estudiantesdelaplata.com/gaich-es-el-primer-refuerzo/",
         "https://www.transfermarkt.com.ar/fabricio-perez/profil/spieler/1298374",
-        "https://www.transfermarkt.com.ar/benjamin-sagues-barreiro/profil/spieler/1253295"
+        "https://www.transfermarkt.com.ar/benjamin-sagues-barreiro/profil/spieler/1253295",
+        "https://estudiantesdelaplata.com/jugador/marcos-rojo/"
       ],
-      "numberSource": [],
+      "numberSource": "https://estudiantesdelaplata.com/jugador/marcos-rojo/",
       "ratingSource": [
         "https://fcscoutdb.com/clubs/estudiantes-de-la-plata",
         "https://www.fifacm.com/players?nations=52&order=asc&position=CB&sort=likes&teams=101083&vid=435",
-        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/baltasar-rodriguez/275343"
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/baltasar-rodriguez/275343",
+        "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/marcos-rojo/201862"
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/estudiantes-de-la-plata/kader/verein/288",
@@ -181,7 +189,8 @@
         "https://www.sofascore.com/es/football/player/pereyra-joaquin/1818780",
         "https://test-prf27k.estudiantesdelaplata.com/cuatro-nuevos-profesionales/",
         "https://estudiantesdelaplata.com/jugador/joaquin-tobio-burgos/",
-        "https://www.transfermarkt.es/edwuin-cetre/profil/spieler/470390"
+        "https://www.transfermarkt.es/edwuin-cetre/profil/spieler/470390",
+        "https://estudiantesdelaplata.com/jugador/marcos-rojo/"
       ],
       "ageConsulted": "2026-11-05"
     },
@@ -208,7 +217,6 @@
       "consulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/racing-club/plantilla",
-        "https://estudiantesdelaplata.com/jugador/marcos-rojo/",
         "https://www.racingclub.com.ar/futbol/primer-equipo/plantel/jugador/2112_espino/",
         "https://www.transfermarkt.es/matias-kranevitter/profil/spieler/240900",
         "https://www.soloascenso.com.ar/perfil/matias-zaracho/20459",
@@ -836,8 +844,8 @@
         "missing": 0
       },
       "estudiantes": {
-        "total": 37,
-        "assigned": 37,
+        "total": 38,
+        "assigned": 38,
         "missing": 0
       },
       "velez": {
@@ -846,8 +854,8 @@
         "missing": 0
       },
       "racing": {
-        "total": 23,
-        "assigned": 23,
+        "total": 22,
+        "assigned": 22,
         "missing": 0
       },
       "lanus": {
@@ -995,8 +1003,8 @@
         "missing": 0
       },
       "estudiantes": {
-        "total": 37,
-        "assigned": 37,
+        "total": 38,
+        "assigned": 38,
         "missing": 0
       },
       "velez": {
@@ -1005,8 +1013,8 @@
         "missing": 0
       },
       "racing": {
-        "total": 23,
-        "assigned": 23,
+        "total": 22,
+        "assigned": 22,
         "missing": 0
       },
       "lanus": {
@@ -1148,16 +1156,16 @@
         "assigned": 36
       },
       "estudiantes": {
-        "total": 37,
-        "assigned": 37
+        "total": 38,
+        "assigned": 38
       },
       "velez": {
         "total": 30,
         "assigned": 30
       },
       "racing": {
-        "total": 23,
-        "assigned": 23
+        "total": 22,
+        "assigned": 22
       },
       "lanus": {
         "total": 34,
@@ -1275,16 +1283,16 @@
         "specific": 36
       },
       "estudiantes": {
-        "total": 37,
-        "specific": 37
+        "total": 38,
+        "specific": 38
       },
       "velez": {
         "total": 30,
         "specific": 30
       },
       "racing": {
-        "total": 23,
-        "specific": 23
+        "total": 22,
+        "specific": 22
       },
       "lanus": {
         "total": 34,
@@ -1406,8 +1414,8 @@
         "provisional": 6
       },
       "estudiantes": {
-        "total": 37,
-        "verified": 32,
+        "total": 38,
+        "verified": 33,
         "provisional": 5
       },
       "velez": {
@@ -1416,8 +1424,8 @@
         "provisional": 0
       },
       "racing": {
-        "total": 23,
-        "verified": 22,
+        "total": 22,
+        "verified": 21,
         "provisional": 1
       },
       "lanus": {
@@ -1540,8 +1548,8 @@
     "formula": "Se prioriza el OVR de EA FC 27; si no existe, se usa EA FC 26 como respaldo. Sin carta, se usa promedio de partido con al menos 10 apariciones. Sin fuente individual, la media 60 queda provisional."
   },
   "attributeCoverage": {
-    "manualPlayers": 8,
-    "derivedPlayers": 1005,
+    "manualPlayers": 9,
+    "derivedPlayers": 1004,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
@@ -1552,6 +1560,6 @@
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
     "provisionalRatings": 138,
-    "playersWithoutManualAttributes": 1005
+    "playersWithoutManualAttributes": 1004
   }
 }
