@@ -47,3 +47,10 @@ node import-squads.js planteles/primera-2026.csv --require-primera-complete
 ```
 
 GitHub Actions valida y publica automáticamente `public/squads.json`, `public/squads.js` y `public/squads-meta.json` cuando cambia el CSV o el importador.
+
+
+### Nacionalidades y pie dominante
+
+La columna `nat` está completa para los 1.013 jugadores de Primera 2026. Las nacionalidades completadas durante la auditoría registran su fuente individual en `nat_source`; no se asignan nacionalidades por inferencia. El pie dominante (`pie`) se considera un dato complementario: permanece vacío cuando no se encontró una fuente individual fiable y no se fuerza un valor por defecto.
+
+La auditoría final valida 30 clubes, 1.013 jugadores, 1.013 edades, 1.013 dorsales, 1.013 roles específicos, 1.013 nacionalidades y 21 atributos por jugador (147 con atributos manuales y 866 con atributos derivados por rol, posición y media).
