@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-07T01:31:46.968Z",
+  "updatedAt": "2026-11-07T01:32:12.819Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "875 medias con fuente individual + 138 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -633,7 +633,9 @@
       "ageConsulted": "2026-11-05",
       "natSource": [
         "https://radiofonica.com/html/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html",
-        "https://truehighlights.com/liga-profesional-2026/team/instituto-cordoba"
+        "https://truehighlights.com/liga-profesional-2026/team/instituto-cordoba",
+        "https://www.transfermarkt.com.ar/augusto-coronel/profil/spieler/1322302",
+        "https://www.transfermarkt.es/pedro-baster/profil/spieler/1327292"
       ]
     },
     "sarmiento": {
@@ -1301,8 +1303,8 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 1011,
-    "missing": 2,
+    "assigned": 1013,
+    "missing": 0,
     "total": 1013,
     "byClub": {
       "sanlorenzo": {
@@ -1383,7 +1385,7 @@
       },
       "instituto": {
         "total": 36,
-        "assigned": 34
+        "assigned": 36
       },
       "sarmiento": {
         "total": 30,
@@ -1759,7 +1761,7 @@
     "verifiedRatings": 875,
     "estimatedRatings": 138,
     "provisionalRatings": 0,
-    "playersMissingNationality": 2,
+    "playersMissingNationality": 0,
     "playersMissingFoot": 1012,
     "playersMissingSpecificRole": 0,
     "playersWithoutManualAttributes": 866
