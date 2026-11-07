@@ -1,0 +1,23 @@
+name: Balance audit - Primera
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, auditoria-equilibrio-primera]
+    paths:
+      - 'public/engine.js'
+      - 'public/data.js'
+      - 'public/squads.json'
+      - 'public/player-development.js'
+      - 'test-balance.js'
+      - '.github/workflows/balance.yml'
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Simular temporadas y comparar tácticas
+        run: node test-balance.js
