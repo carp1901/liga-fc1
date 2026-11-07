@@ -16,14 +16,14 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "223 jugadores cargados en borrador para 6 clubes; edades con referencia 06/11/2026; dorsales internos; falta auditoría de plantel completo y contrastar numeración oficial.",
-      "jugadores": 223,
+      "estado": "222 jugadores cargados en borrador para 6 clubes; fechas de nacimiento y edades calculadas al 06/11/2026; dorsales internos; revisión de plantilla y valoración pendiente.",
+      "jugadores": 222,
       "clubes": {
         "allboys": 36,
         "ferro": 32,
         "madryn": 38,
         "nuevachicago": 44,
-        "chacarita": 38,
+        "chacarita": 37,
         "atlanta": 35
       }
     },
@@ -39,7 +39,16 @@
         "gimnasiajujuy",
         "almagro"
       ],
-      "estado": "pendiente"
+      "estado": "203 jugadores cargados en borrador para 6 clubes; fechas de nacimiento y edades calculadas al 06/11/2026; dorsales internos; revisión de plantilla y valoración pendiente.",
+      "jugadores": 203,
+      "clubes": {
+        "chaco": 32,
+        "moron": 29,
+        "estudiantesba": 33,
+        "sanmartintuc": 39,
+        "gimnasiajujuy": 31,
+        "almagro": 39
+      }
     },
     {
       "bloque": 3,
