@@ -1,6 +1,14 @@
 name: Balance audit - Primera
 on:
   workflow_dispatch:
+  push:
+    branches: [auditoria-equilibrio-primera]
+    paths:
+      - 'public/engine.js'
+      - 'public/data.js'
+      - 'public/squads.js'
+      - 'test-balance.js'
+      - '.github/workflows/balance.yml'
   pull_request:
     branches: [main]
     paths:
