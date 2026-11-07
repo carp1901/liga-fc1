@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-07T18:41:12.353Z",
+  "updatedAt": "2026-11-07T18:44:28.594Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "875 medias con fuente individual + 138 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "875 medias con fuente individual + 1387 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -33,7 +33,43 @@
     "banfield": 35,
     "rivadavia": 28,
     "gimnasiamza": 31,
-    "estudiantesrc": 32
+    "estudiantesrc": 32,
+    "allboys": 36,
+    "ferro": 32,
+    "madryn": 38,
+    "nuevachicago": 44,
+    "chacarita": 37,
+    "atlanta": 35,
+    "chaco": 32,
+    "moron": 29,
+    "estudiantesba": 33,
+    "sanmartintuc": 39,
+    "gimnasiajujuy": 31,
+    "almagro": 39,
+    "racingcba": 38,
+    "losandes": 32,
+    "mitre": 30,
+    "sanmartinsj": 34,
+    "temperley": 33,
+    "guemes": 33,
+    "almirantebrown": 38,
+    "ciudadbolivar": 34,
+    "colon": 32,
+    "tristansuarez": 33,
+    "agropecuario": 33,
+    "patronato": 34,
+    "centralnorte": 36,
+    "godoycruz": 37,
+    "santelmo": 32,
+    "gimnasiatiro": 30,
+    "maipu": 30,
+    "quilmes": 33,
+    "sanmiguel": 28,
+    "acassuso": 46,
+    "colegiales": 31,
+    "rafaela": 39,
+    "midland": 33,
+    "defensoresbelgrano": 45
   },
   "sources": {
     "sanlorenzo": {
@@ -1065,15 +1101,350 @@
       "consulted": "2026-11-05",
       "minimumAppearances": 10
     },
-    "eaFc27OfficialCards": "https://www.ea.com/games/ea-sports-fc/ratings"
+    "eaFc27OfficialCards": "https://www.ea.com/games/ea-sports-fc/ratings",
+    "allboys": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/all-boys-3xz3k7mpw3ttsnb0odu0kfepx/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/all-boys-3xz3k7mpw3ttsnb0odu0kfepx/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/all-boys-3xz3k7mpw3ttsnb0odu0kfepx/"
+    },
+    "ferro": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ferro-f0mi7s4wpiax72ai8thd7bfws/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ferro-f0mi7s4wpiax72ai8thd7bfws/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ferro-f0mi7s4wpiax72ai8thd7bfws/"
+    },
+    "madryn": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/deportivo-madryn-5kdoe8f2y9ad55m9n0ino48d0/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/deportivo-madryn-5kdoe8f2y9ad55m9n0ino48d0/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/deportivo-madryn-5kdoe8f2y9ad55m9n0ino48d0/"
+    },
+    "nuevachicago": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/nueva-chicago-573kg18eqooo89qnncgypawt2/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/nueva-chicago-573kg18eqooo89qnncgypawt2/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/nueva-chicago-573kg18eqooo89qnncgypawt2/"
+    },
+    "chacarita": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/chacarita-chgvt8f42t2hfrazb1sjxkutq/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/chacarita-chgvt8f42t2hfrazb1sjxkutq/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/chacarita-chgvt8f42t2hfrazb1sjxkutq/"
+    },
+    "atlanta": {
+      "source": "https://caatlanta.com.ar/elplantel/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://caatlanta.com.ar/elplantel/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://caatlanta.com.ar/elplantel/"
+    },
+    "chaco": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/chaco-693gcfr20m03571ihcw6vy2i1/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/chaco-693gcfr20m03571ihcw6vy2i1/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/chaco-693gcfr20m03571ihcw6vy2i1/"
+    },
+    "moron": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/moron-4ueeedc7h89wsxxbzkx94rbuy/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/moron-4ueeedc7h89wsxxbzkx94rbuy/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/moron-4ueeedc7h89wsxxbzkx94rbuy/"
+    },
+    "estudiantesba": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/estudiantes-ba-2lhnnnznvg2eqxnsxjw5zk9m7/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/estudiantes-ba-2lhnnnznvg2eqxnsxjw5zk9m7/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/estudiantes-ba-2lhnnnznvg2eqxnsxjw5zk9m7/"
+    },
+    "sanmartintuc": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-tucuman-39yl9nw2nhhulyjssa497c758/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-tucuman-39yl9nw2nhhulyjssa497c758/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-tucuman-39yl9nw2nhhulyjssa497c758/"
+    },
+    "gimnasiajujuy": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/"
+    },
+    "almagro": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/almagro-bppyw6lsfd4nwshsk2oprxlmy/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/almagro-bppyw6lsfd4nwshsk2oprxlmy/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/almagro-bppyw6lsfd4nwshsk2oprxlmy/"
+    },
+    "racingcba": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/racing-cordoba-9xktf8lmetaxahzxgafy9yyqk/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/racing-cordoba-9xktf8lmetaxahzxgafy9yyqk/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/racing-cordoba-9xktf8lmetaxahzxgafy9yyqk/"
+    },
+    "losandes": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/los-andes-5efmp7x39v47kanemu8lcavd7/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/los-andes-5efmp7x39v47kanemu8lcavd7/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/los-andes-5efmp7x39v47kanemu8lcavd7/"
+    },
+    "mitre": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/mitre-se-8zh96lpf1b10kgg50oqv32tc7/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/mitre-se-8zh96lpf1b10kgg50oqv32tc7/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/mitre-se-8zh96lpf1b10kgg50oqv32tc7/"
+    },
+    "sanmartinsj": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/"
+    },
+    "temperley": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/temperley-85t8a6qvge3wyn2n19hsc37h4/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/temperley-85t8a6qvge3wyn2n19hsc37h4/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/temperley-85t8a6qvge3wyn2n19hsc37h4/"
+    },
+    "guemes": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ca-guemes-3g0c7q8qi0oi77u32d0sps2j9/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ca-guemes-3g0c7q8qi0oi77u32d0sps2j9/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ca-guemes-3g0c7q8qi0oi77u32d0sps2j9/"
+    },
+    "almirantebrown": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/almirante-brown-d5t5fote4vony6b4pnobpnber/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/almirante-brown-d5t5fote4vony6b4pnobpnber/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/almirante-brown-d5t5fote4vony6b4pnobpnber/"
+    },
+    "ciudadbolivar": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/"
+    },
+    "colon": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/colon-64a7qygl90q6k3319f29fwduo/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/colon-64a7qygl90q6k3319f29fwduo/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/colon-64a7qygl90q6k3319f29fwduo/"
+    },
+    "tristansuarez": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/"
+    },
+    "agropecuario": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/agropecuario-334oyhg79jbvoa6me5joiovs3/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/agropecuario-334oyhg79jbvoa6me5joiovs3/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/agropecuario-334oyhg79jbvoa6me5joiovs3/"
+    },
+    "patronato": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/patronato-6dxnbgs53o32c955668uki7cr/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/patronato-6dxnbgs53o32c955668uki7cr/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/patronato-6dxnbgs53o32c955668uki7cr/"
+    },
+    "centralnorte": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/central-norte-4zvm2bpiwb295gnpjuyswzayp/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/central-norte-4zvm2bpiwb295gnpjuyswzayp/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/central-norte-4zvm2bpiwb295gnpjuyswzayp/"
+    },
+    "godoycruz": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/godoy-cruz-1we2nqwg18sjn6cevduuapbkf/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/godoy-cruz-1we2nqwg18sjn6cevduuapbkf/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/godoy-cruz-1we2nqwg18sjn6cevduuapbkf/"
+    },
+    "santelmo": {
+      "source": "https://www.soloascenso.com.ar/club/san-telmo/305",
+      "consulted": "2026-11-07",
+      "ageSource": [
+        "https://www.canchallena.lanacion.com.ar/equipo/san-telmo-95crjs2jrtpq2rosrgkizqk3y/",
+        "https://www.soloascenso.com.ar/perfil/matias-ledesma/24319",
+        "https://www.fichajes.com/jugador/alexis-javier-nunez/",
+        "https://www.transfermarkt.com.ar/ca-san-telmo/kader/verein/13651/saison_id/2025/plus/1",
+        "https://www.transfermarkt.es/cristian-nunez/profil/spieler/830476",
+        "https://www.transfermarkt.com/jeronimo-porto/profil/spieler/1115520",
+        "https://www.mundodeportivo.com/us/resultados/futbol/copa-argentina/equipo/2025-2026/san-telmo/plantilla"
+      ],
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://www.soloascenso.com.ar/club/san-telmo/305"
+    },
+    "gimnasiatiro": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/gimnasia-y-tiro-1ms8tznb9y9j6li5migxmipp2/",
+      "consulted": "2026-11-07",
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/gimnasia-y-tiro-1ms8tznb9y9j6li5migxmipp2/",
+        "https://www.transfermarkt.com.ar/lucas-pedernera/rueckennummern/spieler/1255917"
+      ],
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/gimnasia-y-tiro-1ms8tznb9y9j6li5migxmipp2/"
+    },
+    "maipu": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/cd-maipu-42hssvuutbdoneg2gqmctq10y/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/cd-maipu-42hssvuutbdoneg2gqmctq10y/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/cd-maipu-42hssvuutbdoneg2gqmctq10y/"
+    },
+    "quilmes": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/"
+    },
+    "sanmiguel": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ca-san-miguel-y1ln9hxdbuwu2k8xo4gqw5h7/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-miguel-y1ln9hxdbuwu2k8xo4gqw5h7/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-miguel-y1ln9hxdbuwu2k8xo4gqw5h7/"
+    },
+    "acassuso": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/acassuso-7yzmvr4f69naag434ijhvxcmr/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/acassuso-7yzmvr4f69naag434ijhvxcmr/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/acassuso-7yzmvr4f69naag434ijhvxcmr/"
+    },
+    "colegiales": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/colegiales-983n3ng7mqncrjh0oo8kjccp8/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/colegiales-983n3ng7mqncrjh0oo8kjccp8/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/colegiales-983n3ng7mqncrjh0oo8kjccp8/"
+    },
+    "rafaela": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/rafaela-1q0ukadexm6xinnytfac9eglg/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/rafaela-1q0ukadexm6xinnytfac9eglg/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/rafaela-1q0ukadexm6xinnytfac9eglg/"
+    },
+    "midland": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/midland-b5i12he1fdqff4xwd8ugy3oq/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/midland-b5i12he1fdqff4xwd8ugy3oq/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/midland-b5i12he1fdqff4xwd8ugy3oq/"
+    },
+    "defensoresbelgrano": {
+      "source": "https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/defensores-de-belgrano/plantilla",
+      "consulted": "2026-11-07",
+      "ageSource": "https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/defensores-de-belgrano/plantilla",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [],
+      "natSource": "https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/defensores-de-belgrano/plantilla"
+    }
   },
   "completePrimera": true,
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 1013,
+    "assigned": 2262,
     "missing": 0,
-    "total": 1013,
+    "total": 2262,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1223,16 +1594,196 @@
       "estudiantesrc": {
         "total": 32,
         "assigned": 32,
+        "missing": 0
+      },
+      "allboys": {
+        "total": 36,
+        "assigned": 36,
+        "missing": 0
+      },
+      "ferro": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "madryn": {
+        "total": 38,
+        "assigned": 38,
+        "missing": 0
+      },
+      "nuevachicago": {
+        "total": 44,
+        "assigned": 44,
+        "missing": 0
+      },
+      "chacarita": {
+        "total": 37,
+        "assigned": 37,
+        "missing": 0
+      },
+      "atlanta": {
+        "total": 35,
+        "assigned": 35,
+        "missing": 0
+      },
+      "chaco": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "moron": {
+        "total": 29,
+        "assigned": 29,
+        "missing": 0
+      },
+      "estudiantesba": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "sanmartintuc": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "assigned": 31,
+        "missing": 0
+      },
+      "almagro": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "racingcba": {
+        "total": 38,
+        "assigned": 38,
+        "missing": 0
+      },
+      "losandes": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "mitre": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "temperley": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "guemes": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "almirantebrown": {
+        "total": 38,
+        "assigned": 38,
+        "missing": 0
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "colon": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "tristansuarez": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "agropecuario": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "patronato": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "centralnorte": {
+        "total": 36,
+        "assigned": 36,
+        "missing": 0
+      },
+      "godoycruz": {
+        "total": 37,
+        "assigned": 37,
+        "missing": 0
+      },
+      "santelmo": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "gimnasiatiro": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "maipu": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "quilmes": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "sanmiguel": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "acassuso": {
+        "total": 46,
+        "assigned": 46,
+        "missing": 0
+      },
+      "colegiales": {
+        "total": 31,
+        "assigned": 31,
+        "missing": 0
+      },
+      "rafaela": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "midland": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "defensoresbelgrano": {
+        "total": 45,
+        "assigned": 45,
         "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
-    "assigned": 1013,
+    "assigned": 2262,
     "missing": 0,
-    "birthDates": 1013,
-    "total": 1013,
+    "birthDates": 2262,
+    "total": 2262,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1383,13 +1934,193 @@
         "total": 32,
         "assigned": 32,
         "missing": 0
+      },
+      "allboys": {
+        "total": 36,
+        "assigned": 36,
+        "missing": 0
+      },
+      "ferro": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "madryn": {
+        "total": 38,
+        "assigned": 38,
+        "missing": 0
+      },
+      "nuevachicago": {
+        "total": 44,
+        "assigned": 44,
+        "missing": 0
+      },
+      "chacarita": {
+        "total": 37,
+        "assigned": 37,
+        "missing": 0
+      },
+      "atlanta": {
+        "total": 35,
+        "assigned": 35,
+        "missing": 0
+      },
+      "chaco": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "moron": {
+        "total": 29,
+        "assigned": 29,
+        "missing": 0
+      },
+      "estudiantesba": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "sanmartintuc": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "assigned": 31,
+        "missing": 0
+      },
+      "almagro": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "racingcba": {
+        "total": 38,
+        "assigned": 38,
+        "missing": 0
+      },
+      "losandes": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "mitre": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "temperley": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "guemes": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "almirantebrown": {
+        "total": 38,
+        "assigned": 38,
+        "missing": 0
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "colon": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "tristansuarez": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "agropecuario": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "patronato": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "centralnorte": {
+        "total": 36,
+        "assigned": 36,
+        "missing": 0
+      },
+      "godoycruz": {
+        "total": 37,
+        "assigned": 37,
+        "missing": 0
+      },
+      "santelmo": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "gimnasiatiro": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "maipu": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "quilmes": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "sanmiguel": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "acassuso": {
+        "total": 46,
+        "assigned": 46,
+        "missing": 0
+      },
+      "colegiales": {
+        "total": 31,
+        "assigned": 31,
+        "missing": 0
+      },
+      "rafaela": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "midland": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "defensoresbelgrano": {
+        "total": 45,
+        "assigned": 45,
+        "missing": 0
       }
     }
   },
   "nationalityCoverage": {
-    "assigned": 1013,
+    "assigned": 2262,
     "missing": 0,
-    "total": 1013,
+    "total": 2262,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1510,13 +2241,157 @@
       "estudiantesrc": {
         "total": 32,
         "assigned": 32
+      },
+      "allboys": {
+        "total": 36,
+        "assigned": 36
+      },
+      "ferro": {
+        "total": 32,
+        "assigned": 32
+      },
+      "madryn": {
+        "total": 38,
+        "assigned": 38
+      },
+      "nuevachicago": {
+        "total": 44,
+        "assigned": 44
+      },
+      "chacarita": {
+        "total": 37,
+        "assigned": 37
+      },
+      "atlanta": {
+        "total": 35,
+        "assigned": 35
+      },
+      "chaco": {
+        "total": 32,
+        "assigned": 32
+      },
+      "moron": {
+        "total": 29,
+        "assigned": 29
+      },
+      "estudiantesba": {
+        "total": 33,
+        "assigned": 33
+      },
+      "sanmartintuc": {
+        "total": 39,
+        "assigned": 39
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "assigned": 31
+      },
+      "almagro": {
+        "total": 39,
+        "assigned": 39
+      },
+      "racingcba": {
+        "total": 38,
+        "assigned": 38
+      },
+      "losandes": {
+        "total": 32,
+        "assigned": 32
+      },
+      "mitre": {
+        "total": 30,
+        "assigned": 30
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "assigned": 34
+      },
+      "temperley": {
+        "total": 33,
+        "assigned": 33
+      },
+      "guemes": {
+        "total": 33,
+        "assigned": 33
+      },
+      "almirantebrown": {
+        "total": 38,
+        "assigned": 38
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "assigned": 34
+      },
+      "colon": {
+        "total": 32,
+        "assigned": 32
+      },
+      "tristansuarez": {
+        "total": 33,
+        "assigned": 33
+      },
+      "agropecuario": {
+        "total": 33,
+        "assigned": 33
+      },
+      "patronato": {
+        "total": 34,
+        "assigned": 34
+      },
+      "centralnorte": {
+        "total": 36,
+        "assigned": 36
+      },
+      "godoycruz": {
+        "total": 37,
+        "assigned": 37
+      },
+      "santelmo": {
+        "total": 32,
+        "assigned": 32
+      },
+      "gimnasiatiro": {
+        "total": 30,
+        "assigned": 30
+      },
+      "maipu": {
+        "total": 30,
+        "assigned": 30
+      },
+      "quilmes": {
+        "total": 33,
+        "assigned": 33
+      },
+      "sanmiguel": {
+        "total": 28,
+        "assigned": 28
+      },
+      "acassuso": {
+        "total": 46,
+        "assigned": 46
+      },
+      "colegiales": {
+        "total": 31,
+        "assigned": 31
+      },
+      "rafaela": {
+        "total": 39,
+        "assigned": 39
+      },
+      "midland": {
+        "total": 33,
+        "assigned": 33
+      },
+      "defensoresbelgrano": {
+        "total": 45,
+        "assigned": 45
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 1013,
-    "missing": 0,
-    "total": 1013,
+    "missing": 1249,
+    "total": 2262,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1637,13 +2512,157 @@
       "estudiantesrc": {
         "total": 32,
         "specific": 32
+      },
+      "allboys": {
+        "total": 36,
+        "specific": 0
+      },
+      "ferro": {
+        "total": 32,
+        "specific": 0
+      },
+      "madryn": {
+        "total": 38,
+        "specific": 0
+      },
+      "nuevachicago": {
+        "total": 44,
+        "specific": 0
+      },
+      "chacarita": {
+        "total": 37,
+        "specific": 0
+      },
+      "atlanta": {
+        "total": 35,
+        "specific": 0
+      },
+      "chaco": {
+        "total": 32,
+        "specific": 0
+      },
+      "moron": {
+        "total": 29,
+        "specific": 0
+      },
+      "estudiantesba": {
+        "total": 33,
+        "specific": 0
+      },
+      "sanmartintuc": {
+        "total": 39,
+        "specific": 0
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "specific": 0
+      },
+      "almagro": {
+        "total": 39,
+        "specific": 0
+      },
+      "racingcba": {
+        "total": 38,
+        "specific": 0
+      },
+      "losandes": {
+        "total": 32,
+        "specific": 0
+      },
+      "mitre": {
+        "total": 30,
+        "specific": 0
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "specific": 0
+      },
+      "temperley": {
+        "total": 33,
+        "specific": 0
+      },
+      "guemes": {
+        "total": 33,
+        "specific": 0
+      },
+      "almirantebrown": {
+        "total": 38,
+        "specific": 0
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "specific": 0
+      },
+      "colon": {
+        "total": 32,
+        "specific": 0
+      },
+      "tristansuarez": {
+        "total": 33,
+        "specific": 0
+      },
+      "agropecuario": {
+        "total": 33,
+        "specific": 0
+      },
+      "patronato": {
+        "total": 34,
+        "specific": 0
+      },
+      "centralnorte": {
+        "total": 36,
+        "specific": 0
+      },
+      "godoycruz": {
+        "total": 37,
+        "specific": 0
+      },
+      "santelmo": {
+        "total": 32,
+        "specific": 0
+      },
+      "gimnasiatiro": {
+        "total": 30,
+        "specific": 0
+      },
+      "maipu": {
+        "total": 30,
+        "specific": 0
+      },
+      "quilmes": {
+        "total": 33,
+        "specific": 0
+      },
+      "sanmiguel": {
+        "total": 28,
+        "specific": 0
+      },
+      "acassuso": {
+        "total": 46,
+        "specific": 0
+      },
+      "colegiales": {
+        "total": 31,
+        "specific": 0
+      },
+      "rafaela": {
+        "total": 39,
+        "specific": 0
+      },
+      "midland": {
+        "total": 33,
+        "specific": 0
+      },
+      "defensoresbelgrano": {
+        "total": 45,
+        "specific": 0
       }
     }
   },
   "ratingCoverage": {
     "rated": 875,
-    "estimated": 138,
-    "total": 1013,
+    "estimated": 1387,
+    "total": 2262,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -1825,6 +2844,222 @@
         "verified": 28,
         "estimated": 4,
         "provisional": 0
+      },
+      "allboys": {
+        "total": 36,
+        "verified": 0,
+        "estimated": 36,
+        "provisional": 0
+      },
+      "ferro": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "madryn": {
+        "total": 38,
+        "verified": 0,
+        "estimated": 38,
+        "provisional": 0
+      },
+      "nuevachicago": {
+        "total": 44,
+        "verified": 0,
+        "estimated": 44,
+        "provisional": 0
+      },
+      "chacarita": {
+        "total": 37,
+        "verified": 0,
+        "estimated": 37,
+        "provisional": 0
+      },
+      "atlanta": {
+        "total": 35,
+        "verified": 0,
+        "estimated": 35,
+        "provisional": 0
+      },
+      "chaco": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "moron": {
+        "total": 29,
+        "verified": 0,
+        "estimated": 29,
+        "provisional": 0
+      },
+      "estudiantesba": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "sanmartintuc": {
+        "total": 39,
+        "verified": 0,
+        "estimated": 39,
+        "provisional": 0
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "verified": 0,
+        "estimated": 31,
+        "provisional": 0
+      },
+      "almagro": {
+        "total": 39,
+        "verified": 0,
+        "estimated": 39,
+        "provisional": 0
+      },
+      "racingcba": {
+        "total": 38,
+        "verified": 0,
+        "estimated": 38,
+        "provisional": 0
+      },
+      "losandes": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "mitre": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "verified": 0,
+        "estimated": 34,
+        "provisional": 0
+      },
+      "temperley": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "guemes": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "almirantebrown": {
+        "total": 38,
+        "verified": 0,
+        "estimated": 38,
+        "provisional": 0
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "verified": 0,
+        "estimated": 34,
+        "provisional": 0
+      },
+      "colon": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "tristansuarez": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "agropecuario": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "patronato": {
+        "total": 34,
+        "verified": 0,
+        "estimated": 34,
+        "provisional": 0
+      },
+      "centralnorte": {
+        "total": 36,
+        "verified": 0,
+        "estimated": 36,
+        "provisional": 0
+      },
+      "godoycruz": {
+        "total": 37,
+        "verified": 0,
+        "estimated": 37,
+        "provisional": 0
+      },
+      "santelmo": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "gimnasiatiro": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "maipu": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "quilmes": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "sanmiguel": {
+        "total": 28,
+        "verified": 0,
+        "estimated": 28,
+        "provisional": 0
+      },
+      "acassuso": {
+        "total": 46,
+        "verified": 0,
+        "estimated": 46,
+        "provisional": 0
+      },
+      "colegiales": {
+        "total": 31,
+        "verified": 0,
+        "estimated": 31,
+        "provisional": 0
+      },
+      "rafaela": {
+        "total": 39,
+        "verified": 0,
+        "estimated": 39,
+        "provisional": 0
+      },
+      "midland": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "defensoresbelgrano": {
+        "total": 45,
+        "verified": 0,
+        "estimated": 45,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -1832,22 +3067,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 147,
-    "derivedPlayers": 866,
+    "derivedPlayers": 2115,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 30,
-    "players": 1013,
+    "clubs": 66,
+    "players": 2262,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
     "verifiedRatings": 875,
-    "estimatedRatings": 138,
+    "estimatedRatings": 1387,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 1012,
-    "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 866
+    "playersMissingFoot": 2261,
+    "playersMissingSpecificRole": 1249,
+    "playersWithoutManualAttributes": 2115
   }
 }
