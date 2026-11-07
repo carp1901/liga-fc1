@@ -1,9 +1,8 @@
 // Auditoría reproducible del equilibrio de Primera. No modifica ratings ni reglas del juego.
-const DATA=require('./public/data');
-const ENG=require('./public/engine');
-
 let seed=20261107;
 Math.random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+const DATA=require('./public/data');
+const ENG=require('./public/engine');
 
 const clubs=DATA.DIVS.find(d=>d.id==='ar1').teams.map(t=>t.id);
 if(clubs.length!==30)throw new Error('Primera debe tener 30 clubes; encontrados: '+clubs.length);
