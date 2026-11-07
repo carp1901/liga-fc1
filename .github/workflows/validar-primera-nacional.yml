@@ -11,6 +11,7 @@ on:
       - 'planteles/primera-nacional-2026-bloque6.csv'
       - 'planteles/primera-nacional-2026.csv'
       - 'test-primera-nacional.js'
+      - 'test-primera-nacional-import.js'
       - 'import-squads.js'
       - 'public/data.js'
       - '.github/workflows/validar-primera-nacional.yml'
@@ -28,7 +29,7 @@ on:
       - 'public/data.js'
       - '.github/workflows/validar-primera-nacional.yml'
 permissions:
-  contents: read
+  contents: write
 jobs:
   validar:
     runs-on: ubuntu-latest
@@ -42,8 +43,27 @@ jobs:
           node --check public/data.js
           node --check import-squads.js
           node --check test-primera-nacional.js
+          node --check test-primera-nacional-import.js
       - name: Auditar bloque, edades, dorsales y fuentes
         run: node test-primera-nacional.js
       - name: Validar compatibilidad con el importador sin publicar
         run: |
           node import-squads.js planteles/primera-nacional-2026.csv --dry-run
+      - name: Importar planteles en la rama de trabajo
+        if: github.event_name == 'push'
+        run: node import-squads.js planteles/primera-nacional-2026.csv
+      - name: Validar atributos y datos cargados en el motor
+        if: github.event_name == 'push'
+        run: node test-primera-nacional-import.js
+      - name: Guardar importación en la rama de trabajo
+        if: github.event_name == 'push'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/squads.json public/squads-meta.json
+          if git diff --cached --quiet; then
+            echo 'No hay cambios de planteles para guardar.'
+          else
+            git commit -m 'Importar planteles de Primera Nacional 2026'
+            git push origin HEAD:$GITHUB_REF_NAME
+          fi
