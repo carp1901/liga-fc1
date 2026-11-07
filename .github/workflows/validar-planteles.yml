@@ -5,6 +5,9 @@ on:
       - 'planteles/**'
       - 'import-squads.js'
       - 'public/data.js'
+      - 'test-squads.js'
+      - 'test-player-development.js'
+      - 'test-career-development.js'
       - '.github/workflows/validar-planteles.yml'
   workflow_dispatch:
 permissions:
