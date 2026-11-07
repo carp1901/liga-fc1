@@ -27,6 +27,10 @@ function fixtures(){
     if(zones[0].includes(a)&&zones[1].includes(b)||zones[1].includes(a)&&zones[0].includes(b))
       out.push(Math.random()<.5?[a,b]:[b,a]);
   });
+  if(out.length!==240)throw new Error('Fixture inválido: se esperaban 240 partidos y hay '+out.length);
+  const appearances=Object.fromEntries(clubs.map(id=>[id,0]));
+  out.forEach(([a,b])=>{appearances[a]++;appearances[b]++});
+  if(clubs.some(id=>appearances[id]!==16))throw new Error('Fixture inválido: no todos juegan 16 partidos');
   return out;
 }
 function playTable(fx,reverse){
