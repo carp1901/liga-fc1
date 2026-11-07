@@ -30,10 +30,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Simular temporadas y comparar tácticas
-        run: node test-balance.js | tee balance-report.json
       - name: Validar ascensos y descensos
         run: node test-promotion-balance.js | tee promotion-report.json
+      - name: Simular temporadas y comparar tácticas
+        run: node test-balance.js | tee balance-report.json
       - name: Publicar resumen
         if: always()
         run: |
