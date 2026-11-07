@@ -1,0 +1,47 @@
+name: Balance audit - Primera
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'public/engine.js'
+      - 'public/data.js'
+      - 'public/squads.js'
+      - 'test-balance.js'
+      - '.github/workflows/balance.yml'
+  push:
+    branches: [main, auditoria-equilibrio-primera]
+    paths:
+      - 'public/engine.js'
+      - 'public/data.js'
+      - 'public/squads.js'
+      - 'test-balance.js'
+      - '.github/workflows/balance.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Simular temporadas y comparar tácticas
+        run: node test-balance.js | tee balance-report.json
+      - name: Publicar resumen
+        if: always()
+        run: |
+          echo '## Auditoría de equilibrio de Primera' >> "$GITHUB_STEP_SUMMARY"
+          if [ -s balance-report.json ]; then
+            echo 'Resultados de temporadas y comparación táctica:' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat balance-report.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always() && hashFiles('balance-report.json') != ''
+        with:
+          name: auditoria-equilibrio-primera
+          path: balance-report.json
