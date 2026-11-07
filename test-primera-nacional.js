@@ -50,7 +50,7 @@ const expectedPlayers=reports.reduce((n,r)=>n+r.players,0);
 assert.equal(masterLines.length,expectedPlayers,'El CSV maestro debe reunir exactamente los seis bloques');
 const masterRows=masterLines.map((line,n)=>{const a=line.replace(/\r$/,'').split(',');assert.equal(a.length,masterHeader.length,'Maestro: columnas incorrectas fila '+(n+2));return Object.fromEntries(masterHeader.map((h,i)=>[h,a[i]]))});
 assert.equal(new Set(masterRows.map(p=>p.club_id)).size,36,'El maestro debe contener los 36 clubes');
-assert.equal(masterRows.length,1249,'El maestro debe contener los 1.249 jugadores cargados');
+assert.equal(masterRows.length,expectedPlayers,'El maestro debe reunir la cantidad exacta de jugadores de los seis bloques');
 const masterSeen=new Set(),masterDorsals=new Set();
 for(const p of masterRows){
  const k=p.club_id+'|'+p.nombre.toLowerCase();assert.ok(!masterSeen.has(k),'Duplicado en maestro: '+k);masterSeen.add(k);
