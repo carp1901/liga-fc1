@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "184 jugadores; 141 roles específicos respaldados. Revisión de posiciones y subroles contrastados con estadísticas individuales 2026.",
+      "estado": "184 jugadores; 145 roles específicos respaldados. Se añadieron cuatro asignaciones verificadas para Mitre y San Martín SJ.",
       "jugadores": 184,
       "clubes": {
         "racingcba": 22,
@@ -74,7 +74,7 @@
         "temperley": 33,
         "guemes": 33
       },
-      "roles_especificos": 141
+      "roles_especificos": 145
     },
     {
       "bloque": 4,
@@ -88,7 +88,7 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "190 jugadores; 137 roles específicos respaldados. Revisión de posiciones y subroles contrastados con estadísticas individuales 2026.",
+      "estado": "190 jugadores; 140 roles específicos respaldados. Se añadieron tres asignaciones verificadas para Colón y Agropecuario.",
       "jugadores": 190,
       "clubes": {
         "almirantebrown": 24,
@@ -98,7 +98,7 @@
         "agropecuario": 33,
         "patronato": 34
       },
-      "roles_especificos": 137
+      "roles_especificos": 140
     },
     {
       "bloque": 5,
@@ -112,7 +112,7 @@
         "maipu",
         "quilmes"
       ],
-      "estado": "153 jugadores; 131 roles específicos respaldados. Continúa la verificación de dorsales oficiales y medias/atributos.",
+      "estado": "153 jugadores; 132 roles específicos respaldados. Se corrigió a POR la posición de Santiago Nogales y se completó su rol.",
       "jugadores": 153,
       "clubes": {
         "centralnorte": 22,
@@ -122,7 +122,7 @@
         "maipu": 19,
         "quilmes": 33
       },
-      "roles_especificos": 131
+      "roles_especificos": 132
     },
     {
       "bloque": 6,
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 834/1006 (82.9%). Continúa la verificación de roles, dorsales y medias.",
+  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos respaldados: 842/1006 (83.7%). Continúa la verificación de roles, dorsales y medias.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -165,22 +165,22 @@
     "medias_60": 68,
     "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 834,
+    "roles_especificos_asignados": 842,
     "estado_ci": "passed",
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
-    "roles_especificos_pendientes": 172,
-    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC. En Midland se contrastaron cuatro dorsales repetidos en planillas de partidos 2026 (Aguilar 15, Frattini 16, Olavarría 13 y Canalda 14); no se contabilizan como dorsales oficiales de plantel sin nómina oficial. En Midland se corrigieron además las posiciones generales de Lautaro Díaz Laharque (MED→DEF, LD) y Matías Flores (MED→DEL, DC), y el subrol de Facundo Marín (EI→MI), según la ficha estadística 2026 de Pelotita. En Estudiantes BA se confirmaron Juan Sánchez de León (MC) y Mateo Acosta (DC) con la ficha estadística 2026 de Pelotita. En esta tanda se añadieron seis roles respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI), Tomás Rodríguez (DEF) y Lucas Villegas (MED; corrección de posición general) en Ciudad de Bolívar, y Juan Valdez Chamorro (MP, Agropecuario), según estadísticas individuales 2026 de Pelotita. En esta tanda se añadieron cuatro roles específicos respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI, Ciudad de Bolívar) y Juan Valdez Chamorro (MP, Agropecuario). También se corrigieron las posiciones generales de Tomás Rodríguez (DEF) y Lucas Villegas (MED) en Ciudad de Bolívar sin inventar subroles, según estadísticas individuales 2026 de Pelotita. Nueva tanda: Facundo García (DC, Ferro) y Román Rodríguez (MC, Estudiantes BA) con subroles respaldados por estadísticas individuales 2026; Juan Pablo Córdoba (Gimnasia de Jujuy) corregido a posición general DEF, sin asignar subrol no documentado. Nicolás Borsotti (MC, Defensores de Belgrano) se completó con la ficha estadística individual 2026 de Pelotita.",
+    "roles_especificos_pendientes": 164,
+    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC. En Midland se contrastaron cuatro dorsales repetidos en planillas de partidos 2026 (Aguilar 15, Frattini 16, Olavarría 13 y Canalda 14); no se contabilizan como dorsales oficiales de plantel sin nómina oficial. En Midland se corrigieron además las posiciones generales de Lautaro Díaz Laharque (MED→DEF, LD) y Matías Flores (MED→DEL, DC), y el subrol de Facundo Marín (EI→MI), según la ficha estadística 2026 de Pelotita. En Estudiantes BA se confirmaron Juan Sánchez de León (MC) y Mateo Acosta (DC) con la ficha estadística 2026 de Pelotita. En esta tanda se añadieron seis roles respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI), Tomás Rodríguez (DEF) y Lucas Villegas (MED; corrección de posición general) en Ciudad de Bolívar, y Juan Valdez Chamorro (MP, Agropecuario), según estadísticas individuales 2026 de Pelotita. En esta tanda se añadieron cuatro roles específicos respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI, Ciudad de Bolívar) y Juan Valdez Chamorro (MP, Agropecuario). También se corrigieron las posiciones generales de Tomás Rodríguez (DEF) y Lucas Villegas (MED) en Ciudad de Bolívar sin inventar subroles, según estadísticas individuales 2026 de Pelotita. Nueva tanda: Facundo García (DC, Ferro) y Román Rodríguez (MC, Estudiantes BA) con subroles respaldados por estadísticas individuales 2026; Juan Pablo Córdoba (Gimnasia de Jujuy) corregido a posición general DEF, sin asignar subrol no documentado. Nicolás Borsotti (MC, Defensores de Belgrano) se completó con la ficha estadística individual 2026 de Pelotita. Nueva tanda de ocho roles respaldados: Gonzalo Valdivia (LI), Segundo Rodríguez (DFC) y Matías Ferrari (MC) en Mitre; Nicolás Paz (DFC) en San Martín SJ; Lucas Picech (DFC) y Bautista Maillier (MC) en Colón; Matías Molina (LD) en Agropecuario. Además, Santiago Nogales de Gimnasia y Tiro se corrigió de DEL a POR y se le asignó POR. Se usaron fichas individuales y plantilla de club actualizada.",
     "roles_especificos_por_bloque": [
       138,
       147,
-      141,
-      137,
-      131,
+      145,
+      140,
+      132,
       140
     ],
-    "porcentaje_roles_especificos": 82.9,
-    "ultima_revision": "2026-11-07: revisión cruzada de estadísticas individuales 2026; siete roles específicos nuevos y tres ajustes generales en ocho clubes. No se modificó Primera División.",
+    "porcentaje_roles_especificos": 83.7,
+    "ultima_revision": "2026-11-07: ocho roles específicos nuevos y una corrección de posición general, distribuidos en Mitre, San Martín SJ, Colón, Agropecuario y Gimnasia y Tiro. No se modificó Primera División.",
     "dorsales_contrastados_en_planillas": 4
   },
   "estado_por_club": [
@@ -328,9 +328,9 @@
       "club_id": "mitre",
       "nombre": "Mitre de Santiago",
       "jugadores": 30,
-      "roles_especificos": 22,
-      "roles_pendientes": 8,
-      "porcentaje_roles": 73.3,
+      "roles_especificos": 25,
+      "roles_pendientes": 5,
+      "porcentaje_roles": 83.3,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -338,9 +338,9 @@
       "club_id": "sanmartinsj",
       "nombre": "San Martín de San Juan",
       "jugadores": 34,
-      "roles_especificos": 24,
-      "roles_pendientes": 10,
-      "porcentaje_roles": 70.6,
+      "roles_especificos": 25,
+      "roles_pendientes": 9,
+      "porcentaje_roles": 73.5,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -388,9 +388,9 @@
       "club_id": "colon",
       "nombre": "Colón",
       "jugadores": 32,
-      "roles_especificos": 22,
-      "roles_pendientes": 10,
-      "porcentaje_roles": 68.8,
+      "roles_especificos": 24,
+      "roles_pendientes": 8,
+      "porcentaje_roles": 75,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -408,9 +408,9 @@
       "club_id": "agropecuario",
       "nombre": "Agropecuario",
       "jugadores": 33,
-      "roles_especificos": 20,
-      "roles_pendientes": 13,
-      "porcentaje_roles": 60.6,
+      "roles_especificos": 21,
+      "roles_pendientes": 12,
+      "porcentaje_roles": 63.6,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
@@ -458,9 +458,9 @@
       "club_id": "gimnasiatiro",
       "nombre": "Gimnasia y Tiro",
       "jugadores": 30,
-      "roles_especificos": 21,
-      "roles_pendientes": 9,
-      "porcentaje_roles": 70,
+      "roles_especificos": 22,
+      "roles_pendientes": 8,
+      "porcentaje_roles": 73.3,
       "estado": "pendiente",
       "motivo": "faltan roles específicos y contraste de dorsales oficiales"
     },
