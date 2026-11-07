@@ -88,7 +88,7 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "190 jugadores; 136 roles específicos respaldados. Revisión de posiciones y subroles contrastados con estadísticas individuales 2026.",
+      "estado": "190 jugadores; 137 roles específicos respaldados. Revisión de posiciones y subroles contrastados con estadísticas individuales 2026.",
       "jugadores": 190,
       "clubes": {
         "almirantebrown": 24,
@@ -98,7 +98,7 @@
         "agropecuario": 33,
         "patronato": 34
       },
-      "roles_especificos": 136
+      "roles_especificos": 137
     },
     {
       "bloque": 5,
@@ -175,7 +175,7 @@
       138,
       147,
       141,
-      136,
+      137,
       131,
       139
     ],
