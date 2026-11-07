@@ -501,11 +501,11 @@ const ZF={
   return{order:[kc.w,kr.w,...rest],rep:{pre:'',red:[...kc.rds.map(r=>({n:'Zona Campeonato · '+r.n,m:r.m})),...kr.rds.map(r=>({n:'Zona Reválida · '+r.n+(r==kr.rds[0]?' (por el 2.º ascenso)':''),m:r.m}))]}}},
  ar2(zA,zB,adj){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1,adj),L=f==zA[0]?zB[0]:zA[0],m1=[];
   for(let k=2;k<=8;k++){const x=zA[k-1],y=zB[9-k],[a,b]=key(x)<=key(y)?[x,y]:[y,x];m1.push({a,b,w:kt(a,b,undefined,adj)})}
-  const q=[L,...m1.map(x=>x.w).sort((x,y)=>key(x)-key(y))],ko=zKO(q,true);
+  const q=[L,...m1.map(x=>x.w).sort((x,y)=>key(x)-key(y))],ko=zKO(q,true,adj);
   return{order:zOrder(zA,zB,[f,ko.w],[zA[16],zA[17],zB[16],zB[17]]),rep:{final:{a:zA[0],b:zB[0],w:f},red:[{n:'1.ª fase (puestos 2.º a 8.º de cada zona, partido único)',m:m1},...ko.rds]}}},
- ar4(zA,zB,adj){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1,adj),q=[...zA.slice(1,7),...zB.slice(1,7)].sort((x,y)=>key(x)-key(y)),ko=zKO(q,true),dA=zA[13],dB=zB[13],def=kt(dA,dB,1,adj),drop=def==dA?dB:dA;
+ ar4(zA,zB,adj){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1,adj),q=[...zA.slice(1,7),...zB.slice(1,7)].sort((x,y)=>key(x)-key(y)),ko=zKO(q,true,adj),dA=zA[13],dB=zB[13],def=kt(dA,dB,1,adj),drop=def==dA?dB:dA;
   return{def,drop,order:zOrder(zA,zB,[f,ko.w],[]),rep:{final:{a:zA[0],b:zB[0],w:f},red:ko.rds,last:{a:dA,b:dB,w:def}}}},
- ar6(zA,zB,adj){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1),q=[...zA.slice(1,4),...zB.slice(1,4)].sort((x,y)=>key(x)-key(y)),ko=zKO(q,true);
+ ar6(zA,zB,adj){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1,adj),q=[...zA.slice(1,4),...zB.slice(1,4)].sort((x,y)=>key(x)-key(y)),ko=zKO(q,true,adj);
   return{red:ko.w,order:zOrder(zA,zB,[f],[]),rep:{final:{a:zA[0],b:zB[0],w:f},red:ko.rds}}}};
 const careerTeamAdj=car=>Object.fromEntries(Object.entries(car&&car.adapt||{}).filter(([id,a])=>a&&a.remaining>0&&Number(a.delta)).map(([id,a])=>[id,clamp(1+clamp(Number(a.delta)||0,-2,2)*.035*(a.remaining>=2?1:.5),.93,1.07)]));
 const careerCfg=car=>{if(car.lg=='uy'&&car.mode=='real'&&car.cats[car.me.cat].div=='uy1')return{div:'custom',real:1,uy:1,teams:car.cats[0].teams.slice(),n:16,fmt:'liga1',lbl:car.cats[0].name+' · Temporada '+car.season,teamAdj:careerTeamAdj(car)};if(car.lg=='uy'&&car.mode=='real'&&car.cats[car.me.cat].div=='uy2')return{div:'custom',real:1,uy2:1,teams:car.cats[1].teams.slice(),n:14,fmt:'liga2',lbl:car.cats[1].name+' · Temporada '+car.season};const c0=car.cats[car.me.cat],Z=car.zones&&car.zones[c0.div];if(Z){const pr=c0.div=='ar1';return{div:'custom',real:1,dev:car.dev||{},season:car.season,zone:pr?undefined:1,iz:c0.div=='ar2'?1:undefined,zones:Z.map(a=>a.slice()),seg:pr?[16,16]:undefined,zl:RZL[c0.div],teams:Z.flat(),n:Z.flat().length,fmt:pr?'liga1':'liga2',lbl:c0.name+' · Temporada '+car.season,teamAdj:careerTeamAdj(car)}}const cc=careerCfg0(car);if(car.mode=='real'&&RZL[c0.div])cc.zl=RZL[c0.div];return cc};
