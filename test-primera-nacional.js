@@ -25,7 +25,7 @@ for(const p of rows){
  assert.ok(p.nombre&&p.posicion&&p.rating_source&&p.fuente,'Dato esencial incompleto: '+p.nombre);
  assert.ok(['POR','DEF','MED','DEL'].includes(p.posicion),'Posición inválida: '+p.nombre);
  assert.ok(Number(p.rating)>=1&&Number(p.rating)<=99,'Media inválida: '+p.nombre);
- assert.ok(Number(p.edad)>=15&&Number(p.edad)<=50,'Edad faltante o inválida: '+p.nombre);
+ const age=p.edad!==''?Number(p.edad):(()=>{if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(p.fecha_nacimiento))return NaN;const [y,m,d]=p.fecha_nacimiento.split('-').map(Number);let a=2026-y;if(m>11||(m===11&&d>6))a--;return a})();\n assert.ok(Number.isInteger(age)&&age>=15&&age<=50,'Edad faltante o inválida: '+p.nombre);
  const k=p.club_id+'|'+p.nombre.toLowerCase();
  assert.ok(!seen.has(k),'Jugador duplicado: '+k);seen.add(k);
  const nk=p.club_id+'|'+p.dorsal;
