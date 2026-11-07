@@ -17,16 +17,16 @@
         "atlanta"
       ],
       "estado": "222 jugadores cargados; 108 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 174,
+      "jugadores": 151,
       "clubes": {
-        "allboys": 36,
+        "allboys": 25,
         "ferro": 32,
         "madryn": 23,
         "nuevachicago": 23,
         "chacarita": 25,
-        "atlanta": 35
+        "atlanta": 23
       },
-      "roles_especificos": 115
+      "roles_especificos": 123
     },
     {
       "bloque": 2,
@@ -113,16 +113,16 @@
         "quilmes"
       ],
       "estado": "198 jugadores cargados; 96 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 167,
+      "jugadores": 153,
       "clubes": {
-        "centralnorte": 36,
+        "centralnorte": 22,
         "godoycruz": 24,
         "santelmo": 25,
         "gimnasiatiro": 30,
         "maipu": 19,
         "quilmes": 33
       },
-      "roles_especificos": 111
+      "roles_especificos": 115
     },
     {
       "bloque": 6,
@@ -152,45 +152,45 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1043,
-  "estado_general": "Planteles depurados con criterio de primera plantilla: titulares, rotación y banco funcional con participación en la categoría. Juveniles de reserva y futbolistas sin minutos o con uso marginal quedan para futura cantera. Total 1043 jugadores; roles específicos con fuente 684/1043 (65.6%). Dorsales internos pendientes de verificación oficial; medias estimadas pendientes de contraste con datos de Football Manager/EA FC.",
+  "jugadores_borrador": 1006,
+  "estado_general": "Planteles depurados con criterio de primera plantilla: titulares, rotación y banco funcional con participación en la categoría. Juveniles de reserva y futbolistas sin minutos o con uso marginal quedan para futura cantera. Total 1006 jugadores; roles específicos con fuente 696/1006 (69.2%). Dorsales internos pendientes de verificación oficial; medias estimadas pendientes de contraste con datos de Football Manager/EA FC.",
   "auditoria_final": {
-    "jugadores": 1043,
+    "jugadores": 1006,
     "clubes": 36,
-    "edades_con_fecha_nacimiento": 1043,
-    "dorsales_asignados": 1043,
+    "edades_con_fecha_nacimiento": 1006,
+    "dorsales_asignados": 1006,
     "dorsales_oficiales_verificados": 0,
-    "nacionalidades_asignadas": 1043,
-    "medias_estimadas": 1043,
+    "nacionalidades_asignadas": 1006,
+    "medias_estimadas": 1006,
     "medias_60": 68,
-    "porcentaje_media_60": 6.5,
+    "porcentaje_media_60": 6.8,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 684,
+    "roles_especificos_asignados": 696,
     "estado_ci": "passed",
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
-    "roles_especificos_pendientes": 359,
-    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown y Chacarita. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
+    "roles_especificos_pendientes": 310,
+    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
-      115,
+      123,
       116,
       108,
       113,
-      111,
+      115,
       121
     ],
-    "porcentaje_roles_especificos": 65.6
+    "porcentaje_roles_especificos": 69.2
   },
   "estado_por_club": [
     {
       "club_id": "allboys",
       "nombre": "All Boys",
-      "jugadores": 36,
-      "roles_especificos": 18,
-      "roles_pendientes": 18,
-      "porcentaje_roles": 50,
+      "jugadores": 25,
+      "roles_especificos": 22,
+      "roles_pendientes": 3,
+      "porcentaje_roles": 88,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "ferro",
@@ -235,12 +235,12 @@
     {
       "club_id": "atlanta",
       "nombre": "Atlanta",
-      "jugadores": 35,
-      "roles_especificos": 16,
-      "roles_pendientes": 19,
-      "porcentaje_roles": 45.7,
+      "jugadores": 23,
+      "roles_especificos": 20,
+      "roles_pendientes": 3,
+      "porcentaje_roles": 87,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "chaco",
@@ -425,12 +425,12 @@
     {
       "club_id": "centralnorte",
       "nombre": "Central Norte",
-      "jugadores": 36,
-      "roles_especificos": 16,
-      "roles_pendientes": 20,
-      "porcentaje_roles": 44.4,
+      "jugadores": 22,
+      "roles_especificos": 20,
+      "roles_pendientes": 2,
+      "porcentaje_roles": 90.9,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "godoycruz",
