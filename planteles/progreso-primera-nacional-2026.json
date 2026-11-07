@@ -41,16 +41,16 @@
         "almagro"
       ],
       "estado": "203 jugadores cargados; 115 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 203,
+      "jugadores": 172,
       "clubes": {
         "chaco": 32,
         "moron": 29,
         "estudiantesba": 33,
-        "sanmartintuc": 39,
+        "sanmartintuc": 24,
         "gimnasiajujuy": 31,
-        "almagro": 39
+        "almagro": 23
       },
-      "roles_especificos": 115
+      "roles_especificos": 116
     },
     {
       "bloque": 3,
@@ -137,13 +137,13 @@
         "midland"
       ],
       "estado": "195 jugadores cargados; 123 roles específicos con fuente; nóminas depuradas según participación comprobable en los clubes revisados. Dorsales aún internos, pendientes de contraste oficial.",
-      "jugadores": 171,
+      "jugadores": 156,
       "clubes": {
         "sanmiguel": 28,
         "defensoresbelgrano": 26,
         "acassuso": 22,
         "colegiales": 23,
-        "rafaela": 39,
+        "rafaela": 24,
         "midland": 33
       },
       "roles_especificos": 121
@@ -152,34 +152,34 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1131,
-  "estado_general": "Planteles depurados con criterio de primera plantilla: titulares, rotación y banco funcional con participación en la categoría. Juveniles de reserva y futbolistas sin minutos o con uso marginal quedan para futura cantera. Total 1131 jugadores; roles específicos con fuente 670/1131 (59.2%). Dorsales internos pendientes de verificación oficial; medias estimadas pendientes de contraste con datos de Football Manager/EA FC.",
+  "jugadores_borrador": 1085,
+  "estado_general": "Planteles depurados con criterio de primera plantilla: titulares, rotación y banco funcional con participación en la categoría. Juveniles de reserva y futbolistas sin minutos o con uso marginal quedan para futura cantera. Total 1085 jugadores; roles específicos con fuente 671/1085 (61.8%). Dorsales internos pendientes de verificación oficial; medias estimadas pendientes de contraste con datos de Football Manager/EA FC.",
   "auditoria_final": {
-    "jugadores": 1131,
+    "jugadores": 1085,
     "clubes": 36,
-    "edades_con_fecha_nacimiento": 1131,
-    "dorsales_asignados": 1131,
+    "edades_con_fecha_nacimiento": 1085,
+    "dorsales_asignados": 1085,
     "dorsales_oficiales_verificados": 0,
-    "nacionalidades_asignadas": 1131,
-    "medias_estimadas": 1131,
+    "nacionalidades_asignadas": 1085,
+    "medias_estimadas": 1085,
     "medias_60": 68,
-    "porcentaje_media_60": 6,
+    "porcentaje_media_60": 6.3,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 670,
+    "roles_especificos_asignados": 671,
     "estado_ci": "passed",
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
-    "roles_especificos_pendientes": 461,
-    "estado_refinamiento": "En curso: se depuraron en tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz y San Telmo. Se priorizaron jugadores con apariciones 2026 y cobertura funcional de arquero suplente; juveniles y futbolistas sin uso quedan para futura cantera. Resta depurar otros clubes, verificar dorsales oficiales y revisar medias/atributos con Football Manager/EA FC.",
+    "roles_especificos_pendientes": 414,
+    "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro y Atlético Rafaela. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC.",
     "roles_especificos_por_bloque": [
       112,
-      115,
+      116,
       103,
       108,
       111,
       121
     ],
-    "porcentaje_roles_especificos": 59.2
+    "porcentaje_roles_especificos": 61.8
   },
   "estado_por_club": [
     {
@@ -275,12 +275,12 @@
     {
       "club_id": "sanmartintuc",
       "nombre": "San Martín de Tucumán",
-      "jugadores": 39,
-      "roles_especificos": 23,
-      "roles_pendientes": 16,
-      "porcentaje_roles": 59,
+      "jugadores": 24,
+      "roles_especificos": 22,
+      "roles_pendientes": 2,
+      "porcentaje_roles": 91.7,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "gimnasiajujuy",
@@ -295,12 +295,12 @@
     {
       "club_id": "almagro",
       "nombre": "Almagro",
-      "jugadores": 39,
-      "roles_especificos": 19,
-      "roles_pendientes": 20,
-      "porcentaje_roles": 48.7,
+      "jugadores": 23,
+      "roles_especificos": 21,
+      "roles_pendientes": 2,
+      "porcentaje_roles": 91.3,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "racingcba",
@@ -525,12 +525,12 @@
     {
       "club_id": "rafaela",
       "nombre": "Atlético de Rafaela",
-      "jugadores": 39,
+      "jugadores": 24,
       "roles_especificos": 22,
-      "roles_pendientes": 17,
-      "porcentaje_roles": 56.4,
+      "roles_pendientes": 2,
+      "porcentaje_roles": 91.7,
       "estado": "pendiente",
-      "motivo": "faltan roles específicos y contraste de dorsales oficiales"
+      "motivo": "plantel depurado según apariciones 2026; faltan revisión de medias/atributos y contraste oficial de dorsales"
     },
     {
       "club_id": "midland",
