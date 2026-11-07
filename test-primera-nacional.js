@@ -25,6 +25,7 @@ function validate(file,blockA,blockB){
   assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(p.fecha_nacimiento),'Fecha de nacimiento sin fuente: '+p.nombre);
   const [y,m,d]=p.fecha_nacimiento.split('-').map(Number);let age=2026-y;if(m>11||(m===11&&d>6))age--;
   assert.equal(Number(p.edad),age,'Edad no coincide con fecha al 06/11/2026: '+p.nombre);
+  if(p.rol_especifico){assert.ok(['DFC','LI','LD','MCD','MC','MO','EI','ED','DC','SD'].includes(p.rol_especifico),'Rol específico inválido: '+p.nombre);assert.ok(/^https?:\/\//.test(p.fuente_rol||''),'Rol específico sin fuente: '+p.nombre)}
   const k=p.club_id+'|'+p.nombre.toLowerCase();assert.ok(!seen.has(k),'Jugador duplicado: '+k);seen.add(k);
   const nk=p.club_id+'|'+p.dorsal;assert.ok(p.dorsal&&Number(p.dorsal)>=1&&Number(p.dorsal)<=99,'Dorsal inválido: '+p.nombre);assert.ok(!numbers.has(nk),'Dorsal repetido: '+nk);numbers.add(nk);
   assert.ok(p.dorsal_source.includes('Asignado internamente'),'Dorsal sin estado de verificación: '+p.nombre);
@@ -56,6 +57,8 @@ for(const p of masterRows){
  const d=p.club_id+'|'+p.dorsal;assert.ok(!masterDorsals.has(d),'Dorsal duplicado en maestro: '+d);masterDorsals.add(d);
  assert.ok(p.nombre[1]!=='.','Nombre abreviado en maestro: '+p.nombre);
 }
+const rolesSpecific=masterRows.filter(p=>p.rol_especifico).length;
+assert.ok(rolesSpecific>=100,'Los roles específicos contrastados del bloque 1 deben conservarse');
 const sixties=masterRows.filter(p=>Number(p.rating)===60).length;
 assert.ok(sixties/masterRows.length<=.07,'Demasiados jugadores con media 60: '+sixties);
 console.log(JSON.stringify({ok:true,division:'Primera Nacional',clubsCovered:36,blocks:reports,zones:{A:18,B:18},ageReference:'2026-11-06',ratings:'estimaciones identificadas',dorsals:'asignación interna explícita'},null,2));
