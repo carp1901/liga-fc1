@@ -13,7 +13,7 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 - Ningún club se considera completo bajo el criterio integral.
 
 ## Próximas tareas
-1. Continuar completando roles específicos pendientes por tandas de varios clubes (segunda revisión del bloque 2 con posiciones y subroles ajustados a estadísticas individuales 2026).
+1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloque 2 actualizado con posiciones y subroles contrastados con estadísticas individuales 2026).
 2. Verificar dorsales oficiales y resolver conflictos sin inventar numeración.
 3. Revisar medias y atributos individuales; separar OVR documentado de estimaciones.
 4. Depurar planteles y comprobar nóminas de Primera Nacional 2026.
