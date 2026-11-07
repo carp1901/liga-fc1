@@ -20,4 +20,19 @@ jobs:
         with:
           node-version: 20
       - name: Simular temporadas y comparar tácticas
-        run: node test-balance.js
+        run: node test-balance.js | tee balance-report.json
+      - name: Publicar resultados
+        if: always()
+        run: |
+          echo '## Auditoría de equilibrio de Primera' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f balance-report.json ]; then
+            echo 'Resultados de temporadas y comparación táctica:' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat balance-report.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always() && hashFiles('balance-report.json') != ''
+        with:
+          name: auditoria-equilibrio-primera
+          path: balance-report.json
