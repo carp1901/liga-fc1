@@ -16,7 +16,7 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "222 jugadores cargados en borrador para 6 clubes; fechas de nacimiento y edades calculadas al 06/11/2026; dorsales internos; revisión de plantilla y valoración pendiente.",
+      "estado": "222 jugadores cargados; 109 roles específicos contrastados individualmente con planteles de temporada; dorsales aún internos y pendientes de contraste oficial; revisión de medias y plantel continúa.",
       "jugadores": 222,
       "clubes": {
         "allboys": 36,
@@ -25,7 +25,8 @@
         "nuevachicago": 44,
         "chacarita": 37,
         "atlanta": 35
-      }
+      },
+      "roles_especificos": 109
     },
     {
       "bloque": 2,
@@ -147,7 +148,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1249,
-  "estado_general": "Carga inicial de 1.249 jugadores en 36 clubes, seis bloques equilibrados por zonas oficiales AFA. El CSV maestro se importó a public/squads.json y public/squads-meta.json en la rama; pasaron la auditoría de datos, el dry-run, la validación de atributos derivados y el test de Primera para comprobar que no se alteró. Edades 1.249/1.249; dorsales asignados 1.249/1.249 (internos, no todos contrastados con numeración oficial); nacionalidades 1.249/1.249; 21 atributos derivados por el motor; 65 medias exactas de 60 (5,2%). Los roles específicos individuales siguen pendientes y el juego muestra por ahora la posición general. No mergeado a main.",
+  "estado_general": "Carga inicial de 1.249 jugadores en 36 clubes, seis bloques equilibrados por zonas oficiales AFA. La validación automática y el dry-run pasaron. Se inició el refinamiento de roles específicos con fuentes de planteles 2026: 109 jugadores del bloque 1 ya tienen rol específico contrastado; los restantes siguen pendientes. Edades y nacionalidades completas; dorsales asignados internamente, sin verificación oficial individual. Las medias son estimaciones identificadas y deben continuar revisándose. La publicación en main sigue pendiente.",
   "auditoria_final": {
     "jugadores": 1249,
     "clubes": 36,
@@ -159,9 +160,11 @@
     "medias_60": 65,
     "porcentaje_media_60": 5.2,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 0,
+    "roles_especificos_asignados": 109,
     "estado_ci": "passed",
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
-    "main": "pendiente de merge"
+    "main": "pendiente de merge",
+    "roles_especificos_pendientes": 1140,
+    "estado_refinamiento": "En curso: bloque 1 auditado parcialmente con fuentes individuales de planteles 2026; bloques 2 a 6 pendientes."
   }
 }
