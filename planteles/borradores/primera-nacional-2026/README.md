@@ -7,11 +7,11 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
 - 1.006 registros de jugadores en la base de trabajo.
-- 940/1.006 roles específicos respaldados por fuente (93,4%).
+- 942/1.006 roles específicos respaldados por fuente (93,6%).
 - Cuatro dorsales de Midland contrastados en varias planillas de partidos 2026; el resto sigue asignado internamente. No se presentan como numeración oficial de plantel.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
 - Ningún club se considera completo bajo el criterio integral.
-- Revisión adicional publicada: 170 correcciones y asignaciones de posición/subrol en varios clubes, contrastadas con estadísticas individuales 2026.
+- Revisión adicional publicada: 173 correcciones y asignaciones de posición/subrol en varios clubes, contrastadas con estadísticas individuales 2026.
 
 ## Próximas tareas
 1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión: correcciones de subroles en Ferro y Colón; cinco roles nuevos en Chaco For Ever, Los Andes y Temperley; depuración de nombres contrastando fechas de nacimiento.
