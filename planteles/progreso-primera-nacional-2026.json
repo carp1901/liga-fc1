@@ -170,7 +170,7 @@
     "importacion": "public/squads.json y public/squads-meta.json actualizados en la rama de trabajo",
     "main": "pendiente de merge",
     "roles_especificos_pendientes": 569,
-    "estado_refinamiento": "En curso: se depuraron Defensores de Belgrano (26 jugadores, 24 con rol específico) y Colegiales (23 jugadores, 20 con rol específico), según apariciones 2026. Se excluyeron juveniles sin participación y jugadores de uso mínimo; se conservaron los arqueros suplentes como cobertura de puesto. Continúa la revisión individual de roles, dorsales oficiales y medias.",
+    "estado_refinamiento": "En curso: se depuraron Defensores de Belgrano (26 jugadores, 23 con rol específico) y Colegiales (23 jugadores, 20 con rol específico), según apariciones 2026. Se excluyeron juveniles sin participación y jugadores de uso mínimo; se conservaron los arqueros suplentes como cobertura de puesto. Continúa la revisión individual de roles, dorsales oficiales y medias.",
     "roles_especificos_por_bloque": [
       108,
       115,
