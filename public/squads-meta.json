@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-07T01:32:57.267Z",
+  "updatedAt": "2026-11-07T01:33:54.153Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "875 medias con fuente individual + 138 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -46,6 +46,7 @@
         "2026-11-06"
       ],
       "numberSource": [
+        "https://sanlorenzo.com.ar/futbol-profesional/plantel",
         "Asignado internamente: juvenil sin dorsal oficial publicado",
         "https://fcscoutdb.com/clubs/san-lorenzo-de-almagro",
         "Asignado internamente: sin dorsal oficial confirmado; evitar duplicar el 22"
@@ -70,7 +71,10 @@
         "https://www.transfermarkt.com.ar/ca-independiente-rivadavia/kader/verein/1236"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": "https://www.transfermarkt.com.ar/matias-reali/profil/spieler/984692"
+      "natSource": [
+        "https://sanlorenzo.com.ar/futbol-profesional/plantel",
+        "https://www.transfermarkt.com.ar/matias-reali/profil/spieler/984692"
+      ]
     },
     "boca": {
       "source": "https://www.bocajuniors.com.ar/futbol-masculino",
@@ -79,13 +83,16 @@
       "ageConsulted": "2026-11-05",
       "ageCoverage": "31/31",
       "roleCoverage": "27/31",
-      "numberSource": "https://fcscoutdb.com/clubs/boca-juniors",
+      "numberSource": [
+        "https://fcscoutdb.com/clubs/boca-juniors",
+        "https://www.bocajuniors.com.ar/futbol-masculino"
+      ],
       "ratingSource": "https://fcscoutdb.com/clubs/boca-juniors",
       "roleSource": [
         "https://www.transfermarkt.com.ar/club-atletico-boca-juniors/kader/verein/189",
         "posicion habitual"
       ],
-      "natSource": []
+      "natSource": "https://www.bocajuniors.com.ar/futbol-masculino"
     },
     "river": {
       "source": "https://www.riverplate.com/football/professional-football/men/squad",
@@ -99,7 +106,7 @@
       "ageConsulted": "2026-11-05",
       "ageCoverage": "24/27",
       "roleCoverage": "21/27",
-      "numberSource": [],
+      "numberSource": "https://www.riverplate.com/football/professional-football/men/squad",
       "ratingSource": "https://fcscoutdb.com/clubs/river-plate",
       "roleSource": [
         "https://www.transfermarkt.com.ar/club-atletico-river-plate/kader/verein/209",
@@ -107,7 +114,7 @@
         "https://es.besoccer.com/jugador/Tobias-Andrada-3668014",
         "https://www.tycsports.com/river-plate/lautaro-pereyra-primer-juvenil-debut-coudet-river-id722721.html"
       ],
-      "natSource": []
+      "natSource": "https://www.riverplate.com/football/professional-football/men/squad"
     },
     "independiente": {
       "source": "https://www.clubaindependiente.com.ar/futbol/plantel",
@@ -115,7 +122,10 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": "https://fcscoutdb.com/clubs/independiente",
+      "numberSource": [
+        "https://www.clubaindependiente.com.ar/futbol/plantel",
+        "https://fcscoutdb.com/clubs/independiente"
+      ],
       "numbersConsulted": "2026-11-05",
       "numberConflict": "LPF indica #3 y la ficha del club muestra #39; no se asigna hasta resolver la discrepancia.",
       "ageSource": [
@@ -142,7 +152,7 @@
       ],
       "roleSource": "https://www.transfermarkt.es/ca-independiente/kader/verein/1234",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.clubaindependiente.com.ar/futbol/plantel"
     },
     "estudiantes": {
       "source": [
@@ -188,7 +198,10 @@
         "https://www.transfermarkt.com.ar/benjamin-sagues-barreiro/profil/spieler/1253295",
         "https://estudiantesdelaplata.com/jugador/marcos-rojo/"
       ],
-      "numberSource": "https://estudiantesdelaplata.com/jugador/marcos-rojo/",
+      "numberSource": [
+        "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
+        "https://estudiantesdelaplata.com/jugador/marcos-rojo/"
+      ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/estudiantes-de-la-plata",
         "https://www.fifacm.com/players?nations=52&order=asc&position=CB&sort=likes&teams=101083&vid=435",
@@ -206,12 +219,18 @@
         "https://estudiantesdelaplata.com/jugador/marcos-rojo/"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": [
+        "https://estudiantesdelaplata.com/futbol/futbol-profesional/",
+        "https://estudiantesdelaplata.com/jugador/marcos-rojo/"
+      ]
     },
     "velez": {
       "source": "https://www.velezsarsfield.com.ar/futbol/plantel",
       "consulted": "2026-11-05",
-      "numberSource": "https://www.ligaprofesional.ar/clubes/velez",
+      "numberSource": [
+        "https://www.velezsarsfield.com.ar/futbol/plantel",
+        "https://www.ligaprofesional.ar/clubes/velez"
+      ],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/velez-sarsfield/plantilla",
@@ -225,7 +244,7 @@
       "ratingSource": "https://fcscoutdb.com/clubs/velez-sarsfield",
       "roleSource": "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.velezsarsfield.com.ar/futbol/plantel"
     },
     "racing": {
       "source": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
@@ -242,7 +261,7 @@
         "https://www.racingclub.com.ar/futbol/primer-equipo/plantel/jugador/2111_ortegoza/",
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/racing-club/plantilla"
       ],
-      "numberSource": [],
+      "numberSource": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel",
       "ratingSource": [
         "https://www.fifacm.com/players?nations=52&order=asc&page=1&sort=overallrating&teams=101085&vid=412",
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
@@ -253,7 +272,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/racing-club/kader/verein/1444",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.racingclub.com.ar/futbol/primer-equipo/plantel"
     },
     "lanus": {
       "source": [
@@ -264,7 +283,11 @@
         "2026-11-06",
         "2026-11-05"
       ],
-      "numberSource": "https://estadisticas.clublanus.com/jugadores/mariano-gerez",
+      "numberSource": [
+        "https://www.ligaprofesional.ar/clubes/lanus/",
+        "https://www.tycsports.com/lanus.html",
+        "https://estadisticas.clublanus.com/jugadores/mariano-gerez"
+      ],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/lanus/plantilla",
@@ -277,7 +300,10 @@
       ],
       "roleSource": "https://www.transfermarkt.es/ca-lanus/kader/verein/333",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": [
+        "https://www.ligaprofesional.ar/clubes/lanus/",
+        "https://www.tycsports.com/lanus.html"
+      ]
     },
     "talleres": {
       "source": "https://www.tycsports.com/talleres-de-cordoba.html",
@@ -286,6 +312,7 @@
         "2026-11-06"
       ],
       "numberSource": [
+        "https://www.tycsports.com/talleres-de-cordoba.html",
         "https://www.clubtalleres.com.ar/jugadores/lucio-ferrari/",
         "https://www.sofascore.com/es/football/player/jeremias-gallard/1837210"
       ],
@@ -306,7 +333,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-talleres-cordoba/kader/verein/393",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.tycsports.com/talleres-de-cordoba.html"
     },
     "rosario": {
       "source": "https://rosariocentral.com/plantel-masculino/",
@@ -329,7 +356,7 @@
         "https://rosariocentral.com/jugadores/pol-fernandez/",
         "https://www.transfermarkt.es/lisandro-duarte/profil/spieler/1511136"
       ],
-      "numberSource": [],
+      "numberSource": "https://rosariocentral.com/plantel-masculino/",
       "ratingSource": [
         "https://fcscoutdb.com/clubs/rosario-central",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/damian-fernandez/75793",
@@ -340,7 +367,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-rosario-central/kader/verein/1417",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://rosariocentral.com/plantel-masculino/"
     },
     "newells": {
       "source": [
@@ -352,6 +379,7 @@
         "2026-11-06"
       ],
       "numberSource": [
+        "https://www.newellsoldboys.com.ar/plantel",
         "https://www.ligaprofesional.ar/clubes/newells/",
         "https://fcscoutdb.com/clubs/newell-s-old-boys"
       ],
@@ -375,7 +403,10 @@
         "https://www.transfermarkt.com.ar/racing-club/kader/verein/1444"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": [
+        "https://www.newellsoldboys.com.ar/plantel",
+        "https://fcscoutdb.com/clubs/newell-s-old-boys"
+      ]
     },
     "gimnasia": {
       "source": "https://www.tycsports.com/gimnasia-de-la-plata.html",
@@ -385,6 +416,7 @@
         "2026-11-05"
       ],
       "numberSource": [
+        "https://www.tycsports.com/gimnasia-de-la-plata.html",
         "https://www.transfermarkt.co/alejo-gelsomino/rueckennummern/spieler/1305354",
         "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-estudiantes-vs-gimnasia-fecha-5-id754866.html"
       ],
@@ -409,7 +441,7 @@
         "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.tycsports.com/gimnasia-de-la-plata.html"
     },
     "huracan": {
       "source": "https://www.tycsports.com/huracan.html",
@@ -417,7 +449,10 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": "https://www.transfermarkt.com.ar/club-atletico-huracan/rueckennummern/verein/2063",
+      "numberSource": [
+        "https://www.tycsports.com/huracan.html",
+        "https://www.transfermarkt.com.ar/club-atletico-huracan/rueckennummern/verein/2063"
+      ],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/huracan/plantilla",
@@ -434,7 +469,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-huracan/kader/verein/2063",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.tycsports.com/huracan.html"
     },
     "argentinos": {
       "source": "https://www.tycsports.com/argentinos-juniors.html",
@@ -443,6 +478,7 @@
         "2026-11-06"
       ],
       "numberSource": [
+        "https://www.tycsports.com/argentinos-juniors.html",
         "https://www.lpf.org.ar/clubes/argentinos-juniors",
         "https://www.mundoascenso.com.ar/plantel/458-argentinos-juniors"
       ],
@@ -468,7 +504,7 @@
         "https://www.transfermarkt.com.ar/facundo-carrizo/profil/spieler/1401625"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.tycsports.com/argentinos-juniors.html"
     },
     "belgrano": {
       "source": "https://www.tycsports.com/belgrano-de-cordoba.html",
@@ -477,6 +513,7 @@
         "2026-11-06"
       ],
       "numberSource": [
+        "https://www.tycsports.com/belgrano-de-cordoba.html",
         "https://www.bdfutbol.com/es/t/t2026-278023.html",
         "https://fcscoutdb.com/clubs/belgrano-de-cordoba"
       ],
@@ -495,7 +532,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-belgrano-de-cordoba/kader/verein/1290",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.tycsports.com/belgrano-de-cordoba.html"
     },
     "centralcba": {
       "source": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
@@ -503,7 +540,10 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": "https://www.bdfutbol.com/es/t/t2026-278034.html",
+      "numberSource": [
+        "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html",
+        "https://www.bdfutbol.com/es/t/t2026-278034.html"
+      ],
       "numbersConsulted": "2026-11-06",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/central-cordoba-santiago-del-estero/plantilla",
@@ -518,7 +558,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-central-cordoba-sde/kader/verein/14761",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.tycsports.com/central-cordoba-de-santiago-del-estero.html"
     },
     "atletico": {
       "source": "https://www.tycsports.com/atletico-tucuman.html",
@@ -526,7 +566,7 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": [],
+      "numberSource": "https://www.tycsports.com/atletico-tucuman.html",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/36",
       "ageSource": [
@@ -549,7 +589,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-atletico-tucuman/kader/verein/1090",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.tycsports.com/atletico-tucuman.html"
     },
     "barracas": {
       "source": "https://www.barracascentral.com/plantel/",
@@ -557,7 +597,10 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": "https://fcscoutdb.com/clubs/barracas-central",
+      "numberSource": [
+        "https://www.barracascentral.com/plantel/",
+        "https://fcscoutdb.com/clubs/barracas-central"
+      ],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.barracascentral.com/plantel/",
@@ -573,7 +616,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-barracas-central/kader/verein/6212",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://www.barracascentral.com/plantel/"
     },
     "riestra": {
       "source": "https://deportivoriestra.com.ar/equipo",
@@ -581,7 +624,7 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": [],
+      "numberSource": "https://deportivoriestra.com.ar/equipo",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/deportivo-riestra/plantilla",
@@ -593,7 +636,7 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/deportivo-riestra/kader/verein/18591",
       "ageConsulted": "2026-11-05",
-      "natSource": []
+      "natSource": "https://deportivoriestra.com.ar/equipo"
     },
     "instituto": {
       "source": "https://www.tycsports.com/instituto.html",
@@ -601,7 +644,10 @@
         "2026-11-06",
         "2026-11-05"
       ],
-      "numberSource": "https://marcadores.diez.hn/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html",
+      "numberSource": [
+        "https://www.tycsports.com/instituto.html",
+        "https://marcadores.diez.hn/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html"
+      ],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "36/38",
       "numberConflict": "Lautaro Ludueña queda sin dorsal confirmado. Franco Jara no se asigna: el #29 de la fuente secundaria colisiona con Marcos Ledesma (#29 oficial). Medina #61 y Peralta #63 contrastados con plantel 2026.",
@@ -635,6 +681,7 @@
         "https://radiofonica.com/html/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html",
         "https://truehighlights.com/liga-profesional-2026/team/instituto-cordoba",
         "https://www.transfermarkt.com.ar/augusto-coronel/profil/spieler/1322302",
+        "https://www.tycsports.com/instituto.html",
         "https://www.transfermarkt.es/pedro-baster/profil/spieler/1327292"
       ]
     },
@@ -644,7 +691,10 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": "Asignado internamente: sin dorsal oficial confirmado",
+      "numberSource": [
+        "https://www.tycsports.com/sarmiento-junin.html",
+        "Asignado internamente: sin dorsal oficial confirmado"
+      ],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "29/31",
       "numberConflict": "Lautaro Monza y Roque Maisterra sin dorsal confirmado; Elián Giménez #23.",
@@ -660,6 +710,7 @@
       "roleSource": "https://www.transfermarkt.com.ar/ca-sarmiento-de-junin/kader/verein/1073",
       "ageConsulted": "2026-11-05",
       "natSource": [
+        "https://www.tycsports.com/sarmiento-junin.html",
         "https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_Sarmiento_(Jun%C3%ADn)",
         "https://radiofonica.com/html/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html"
       ]
@@ -674,6 +725,7 @@
         "2026-11-05"
       ],
       "numberSource": [
+        "https://www.tycsports.com/aldosivi.html",
         "https://fcscoutdb.com/clubs/aldosivi",
         "https://www.mundoascenso.com.ar/plantel/53-aldosivi"
       ],
@@ -705,6 +757,7 @@
       "ageConsulted": "2026-11-05",
       "natSource": [
         "https://www.ligaprofesional.ar/clubes/aldosivi",
+        "https://www.tycsports.com/aldosivi.html",
         "https://www.transfermarkt.es/joaquin-salinas/profil/spieler/1429467"
       ]
     },
@@ -717,7 +770,10 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": [],
+      "numberSource": [
+        "https://www.tycsports.com/platense.html",
+        "https://www.ligaprofesional.ar/clubes/platense/"
+      ],
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "38/38",
       "ageSource": [
@@ -767,6 +823,7 @@
         "2026-11-06"
       ],
       "numberSource": [
+        "https://www.tycsports.com/defensa-y-justicia.html",
         "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-defensa-y-justicia-vs-independiente-fecha-15-id769669.html",
         "https://fcscoutdb.com/clubs/defensa-y-justicia"
       ],
@@ -801,7 +858,10 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-defensa-y-justicia/kader/verein/1244",
       "ageConsulted": "2026-11-05",
-      "natSource": "https://goalsignal.com/es/teams/defensa-y-justicia?tab=squad"
+      "natSource": [
+        "https://goalsignal.com/es/teams/defensa-y-justicia?tab=squad",
+        "https://www.tycsports.com/defensa-y-justicia.html"
+      ]
     },
     "union": {
       "source": [
@@ -812,7 +872,10 @@
         "2026-11-06",
         "2026-11-05"
       ],
-      "numberSource": "https://fcscoutdb.com/clubs/union-de-santa-fe",
+      "numberSource": [
+        "https://www.tycsports.com/union.html",
+        "https://fcscoutdb.com/clubs/union-de-santa-fe"
+      ],
       "numbersConsulted": "2026-11-06",
       "ageSource": [
         "https://www.transfermarkt.com.ar/agustin-chavez/leistungsdaten/spieler/1285257",
@@ -832,7 +895,10 @@
         "https://www.transfermarkt.com.ar/racing-club/kader/verein/1444"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": "https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_Uni%C3%B3n_(Santa_Fe)"
+      "natSource": [
+        "https://es.wikipedia.org/wiki/Club_Atl%C3%A9tico_Uni%C3%B3n_(Santa_Fe)",
+        "https://fcscoutdb.com/clubs/union-de-santa-fe"
+      ]
     },
     "tigre": {
       "source": [
@@ -843,7 +909,11 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-huracan-vs-tigre-fecha-15-id769085.html",
+      "numberSource": [
+        "https://www.tycsports.com/tigre.html",
+        "https://gol.conmebol.com/sudamericana/es/news/tigre-en-la-conmebol-sudamericana-2026-resultados-plantel-y-calendario",
+        "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-huracan-vs-tigre-fecha-15-id769085.html"
+      ],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/2026-2027/tigre/plantilla",
@@ -870,6 +940,7 @@
       "natSource": [
         "https://www.golmates.com/es/argentina/equipo/tigre/plantilla",
         "https://www.365scores.com/es/football/team/tigre-883/squad",
+        "https://www.tycsports.com/tigre.html",
         "https://radiofonica.com/html/v3/htmlCenter/data/deportes/futbol/primeraa/pages/es/planteles.html"
       ]
     },
@@ -879,7 +950,7 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": [],
+      "numberSource": "https://www.tycsports.com/banfield.html",
       "numbersConsulted": "2026-11-05",
       "numberCoverage": "35/35",
       "ageSource": "https://clubabanfield.org/plantel-profesional-masculino/",
@@ -893,13 +964,17 @@
       "ageConsulted": "2026-11-05",
       "natSource": [
         "https://www.365scores.com/es/football/team/banfield-878/squad",
-        "https://www.ligaprofesional.ar/clubes/banfield"
+        "https://www.ligaprofesional.ar/clubes/banfield",
+        "https://www.tycsports.com/banfield.html"
       ]
     },
     "rivadavia": {
       "source": "https://www.tycsports.com/independiente-rivadavia.html",
       "consulted": "2026-11-05",
-      "numberSource": "https://csir.com.ar/futbol?tab=plantel",
+      "numberSource": [
+        "https://www.tycsports.com/independiente-rivadavia.html",
+        "https://csir.com.ar/futbol?tab=plantel"
+      ],
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.transfermarkt.com.ar/independiente-rivadavia/kader/verein/12179",
@@ -915,6 +990,7 @@
       "natSource": [
         "https://csir.com.ar/plantel/nicolas-bolcato",
         "https://champsheep.com/es/teams/independiente-rivadavia-252",
+        "https://www.tycsports.com/independiente-rivadavia.html",
         "https://csir.com.ar/plantel/matias-salvo",
         "https://csir.com.ar/plantel/luciano-sabato"
       ]
@@ -926,6 +1002,7 @@
         "2026-11-05"
       ],
       "numberSource": [
+        "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
         "https://www.sofascore.com/football/player/juan-franco/926812",
         "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-de-mendoza"
       ],
@@ -948,10 +1025,14 @@
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/gimnasia-y-esgrima-de-mendoza/kader/verein/1099",
+        "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza",
         "https://www.fotmob.com/es/players/618779/brian-andrada"
       ],
       "ageConsulted": "2026-11-05",
-      "natSource": "https://newikis.com/es/Club_Atl%C3%A9tico_Gimnasia_y_Esgrima_%28Mendoza%29"
+      "natSource": [
+        "https://newikis.com/es/Club_Atl%C3%A9tico_Gimnasia_y_Esgrima_%28Mendoza%29",
+        "https://www.mundoascenso.com.ar/plantel/1066-gimnasia-y-esgrima-mza"
+      ]
     },
     "estudiantesrc": {
       "source": "https://www.aaestudiantesriocuarto.com/",
@@ -959,7 +1040,7 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "numberSource": [],
+      "numberSource": "https://www.aaestudiantesriocuarto.com/",
       "numbersConsulted": "2026-11-05",
       "ageSource": [
         "https://www.mundodeportivo.com/resultados/futbol/liga-argentina-primera-division/equipo/estudiantes-rio-cuarto/plantilla",
@@ -974,7 +1055,10 @@
       ],
       "roleSource": "https://www.transfermarkt.com.ar/estudiantes-de-rio-cuarto/kader/verein/11015",
       "ageConsulted": "2026-11-05",
-      "natSource": "https://goalsignal.com/es/teams/estudiantes-de-rio-cuarto?tab=squad"
+      "natSource": [
+        "https://goalsignal.com/es/teams/estudiantes-de-rio-cuarto?tab=squad",
+        "https://www.aaestudiantesriocuarto.com/"
+      ]
     },
     "sportlumy": {
       "ratingSource": "https://sportlumy.com/leagues/argentina/liga-profesional-argentina/players?sort=rating",
