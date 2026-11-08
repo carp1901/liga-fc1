@@ -633,3 +633,11 @@ Se revisaron seis casos con participación y datos de temporada suficientemente 
 - Ajustes: seis medias recalibradas; un conteo de presencias corregido.
 - Todos conservan la fórmula +10 y atributos en rango. No se modificó el runtime.
 - Los siguientes candidatos se revisarán con la misma exigencia: evidencia de minutos/partidos, producción y rol; no se subirá una media sólo por cantidad de presencias.
+
+
+### Segunda tanda de calibración individual — 08/11/2026
+
+- **Renzo Uriburu (San Telmo): 66 → 67.** Se actualizó a 32 presencias y 31 titularidades; 2.634 minutos, 0 goles, 1 asistencia y valoración media 6,40. El incremento de un punto responde a continuidad como titular, no sólo a cantidad de apariciones. Fuentes: https://www.soloascenso.com.ar/perfil/renzo-uriburu/29119 ; https://nofluffpicks.com/es/jugador/944327-renzo-sebastian-uriburu
+- **Elías Ocampo (Colegiales): 66 → 67.** Se actualizó a 33 partidos, 23 titularidades, 1.963 minutos, 1 gol y 1 asistencia. Se conserva su subrol MD (interior derecho). Fuente: https://www.fotmob.com/es/players/1606614/elias-ocampo
+- En ambos jugadores se ajustaron `rating`, `rating_base` y los siete atributos de campo en +1, manteniendo `ajuste_rating = 10` y `ref = 15`.
+- Validación global posterior: 1.026 jugadores; promedio 68,4308 (68,43); rango 56–78; seis bloques con 33 columnas; fórmula de rating correcta en todos los registros; cero errores en reflejos de jugadores de campo. Los borradores siguen fuera del runtime.
