@@ -234,3 +234,13 @@ Se revisaron Acassuso, Agropecuario, Ciudad de Bolívar, Colón, Godoy Cruz, Los
 - Conflictos de identidad que no deben generar duplicados: **Juan Cruz Vega/Julián Vega; Mateo Gridel/Matías Gridel; Benjamín Schamine/Bruno Schamine; Diego Viera/Daniel Viera; Felipe Cairus/Facundo Cairus; Diego Armando Díaz/Diego Díaz; Sebastián Ramírez/Santiago Ramírez**.
 - **Milton Ríos** pertenece al plantel 2026, pero su salida para 2027 ya fue anunciada.
 - **No se modificaron CSV, dorsales, medias ni runtime.** Las altas y correcciones se aplicarán sólo después de completar la auditoría y validar las fichas individuales.
+
+
+### Ampliación de Nueva Chicago dentro de la sexta pasada
+
+La revisión de la nómina oficial del club y de fichas individuales permite confirmar también dos altas que faltaban en el CSV:
+
+- **Facundo Alfredo Castro:** Nueva Chicago anunció oficialmente su regreso el 02/07/2026 con contrato hasta diciembre de 2027. Su ficha individual confirma 26 presencias en Primera Nacional 2026. No aparece en el CSV de Nueva Chicago. Alta confirmada, pendiente de completar ficha. Fuentes: https://nuevachicago.com.ar/futbol/ ; https://www.soloascenso.com.ar/perfil/facundo-castro/16748 ; https://www.lt10.com.ar/noticia/501754--nueva-chicago-oficializo-el-regreso-de-facundo-castro-tras-su-salida-de-colon
+- **Iván Antúnez (también escrito Iván Antunes):** aparece en el plantel profesional publicado por el sitio oficial de Nueva Chicago y no aparece en el CSV. Se considera alta respaldada por nómina; falta validar fecha de nacimiento y ficha individual para cerrar la identidad. Fuente: https://nuevachicago.com.ar/futbol/
+
+Con estas comprobaciones, el balance de la sexta pasada queda en **10 altas respaldadas ausentes del CSV** (se suman Facundo Castro e Iván Antúnez a las ocho ya enumeradas). Fabricio Oviedo continúa como candidato no resuelto.
