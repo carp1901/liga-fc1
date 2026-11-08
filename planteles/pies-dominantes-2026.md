@@ -406,3 +406,14 @@ Fecha de revisión: 08/11/2026.
 | Matías Magdaleno | Derecho | https://www.sofascore.com/es/football/player/matias-magdaleno/1836763 |
 
 **Progreso de Estudiantes:** 36/38 jugadores con pie dominante registrado (incluye a Marcos Rojo). Quedan sin asignar Leandro Alcaraz y un caso del plantel que requiere fuente individual adicional; no se completa por inferencia.
+
+
+## Cierre de Estudiantes de La Plata — 2 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Leandro Alcaraz | Derecho | https://estudiantesdelaplata.com/jugador/leandro-alcaraz/ |
+| Benjamín Sagues Barreiro | Derecho | https://www.sofascore.com/es/football/player/sagues-barreiro-benjamin/1838978 |
+
+**Resultado de Estudiantes:** 38/38 jugadores del CSV con pie dominante registrado. Leandro Alcaraz se verificó en la ficha oficial del club; Benjamín Sagües Barreiro, en Sofascore.
