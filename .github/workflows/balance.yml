@@ -7,6 +7,7 @@ on:
       - 'test-balance.js'
       - 'test-promotion-balance.js'
       - 'test-national-career-balance.js'
+      - 'test-auto-xi.js'
       - '.github/workflows/balance.yml'
       - 'public/engine.js'
       - 'public/data.js'
@@ -36,6 +37,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Validar formaciones y roles específicos
+        run: node test-auto-xi.js
       - name: Validar ascensos y descensos
         run: node test-promotion-balance.js | tee promotion-report.json
       - name: Simular 60 temporadas de Primera
