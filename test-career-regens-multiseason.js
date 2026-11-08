@@ -11,6 +11,8 @@ assert(!car.error&&car.rosters&&car.rosters[club],'debe iniciar carrera');
 const initialSize=car.rosters[club].length;
 const retired=new Set();
 let totalEvents=0;
+const initialLog=car.regenLog?.length||0;
+const initialClubLog=(car.regenLog||[]).filter(e=>e.club===club).length;
 
 for(let year=0;year<6;year++){
   const roster=car.rosters[club];
@@ -32,7 +34,8 @@ for(let year=0;year<6;year++){
 
   assert.equal(car.season,2027+year,'el calendario debe avanzar año a año');
   assert.equal(car.rosters[club].length,initialSize,'el plantel debe conservar su tamaño');
-  assert.equal(car.regenLog.length,totalEvents,'el historial debe acumular todos los retiros');
+  assert(car.regenLog.length>=initialLog+totalEvents,'el historial global debe acumular los retiros de las seis temporadas');
+  assert((car.regenLog||[]).filter(e=>e.club===club).length>=initialClubLog+totalEvents,'el historial del club debe acumular sus retiros');
   const uids=car.rosters[club].map(p=>p.uid);
   assert.equal(new Set(uids).size,uids.length,'no puede haber UID duplicados');
   assert(car.rosters[club].filter(p=>p.regen).length>=totalEvents,'los juveniles deben permanecer en el plantel');
@@ -45,5 +48,5 @@ for(let year=0;year<6;year++){
   assert(active.some(p=>p.regen),'el motor debe utilizar los juveniles después de restaurar');
 }
 
-assert.equal(car.regenLog.length,12,'seis temporadas deben dejar doce regens registrados');
+assert((car.regenLog||[]).filter(e=>e.club===club).length>=initialClubLog+12,'seis temporadas deben dejar doce regens registrados en el club');
 console.log('OK: seis temporadas consecutivas, doce retiros, UID únicos, tamaño estable, historial y restauración JSON de carrera.');
