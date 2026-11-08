@@ -632,7 +632,7 @@
           "promedio": 60
         }
       ],
-      "observacion": "Auditoría cualitativa en curso: se revisaron titulares habituales y producción 2026, con catorce ajustes individuales acumulados y siete correcciones de roles/posiciones. Se evitó subir automáticamente a jugadores de rotación o con estadísticas contradictorias. El promedio exacto calculado sobre los 1006 registros es 58,4563 (58,46 redondeado). Se detectaron 391 jugadores con presencias 2026 cargadas. El ajuste general de +10 para Primera y Primera Nacional sigue reservado hasta cerrar la auditoría.",
+      "observacion": "Auditoría cualitativa en curso: se revisaron titulares habituales y producción 2026, con catorce ajustes individuales acumulados y seis correcciones de roles/posiciones. Se evitó subir automáticamente a jugadores de rotación o con estadísticas contradictorias. El promedio exacto calculado sobre los 1006 registros es 58,4563 (58,46 redondeado). Se detectaron 391 jugadores con presencias 2026 cargadas. El ajuste general de +10 para Primera y Primera Nacional sigue reservado hasta cerrar la auditoría.",
       "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
       "campos_atributos_individuales_vacios": {
         "pas": 1006,
