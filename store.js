@@ -66,6 +66,13 @@ CREATE TABLE IF NOT EXISTS amistades(
 CREATE UNIQUE INDEX IF NOT EXISTS amistades_par_idx ON amistades(LEAST(de_id,a_id), GREATEST(de_id,a_id));
 CREATE INDEX IF NOT EXISTS amistades_a_idx ON amistades(a_id, estado);
 CREATE INDEX IF NOT EXISTS amistades_de_idx ON amistades(de_id, estado);
+CREATE TABLE IF NOT EXISTS perfiles(
+ usuario_id INTEGER PRIMARY KEY REFERENCES usuarios(id) ON DELETE CASCADE,
+ club_favorito TEXT NOT NULL,
+ descripcion TEXT NOT NULL DEFAULT '',
+ creado TIMESTAMPTZ NOT NULL DEFAULT now(),
+ actualizado TIMESTAMPTZ NOT NULL DEFAULT now()
+);
 `;
 const INSERT=`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado,verificacion)
  VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) ON CONFLICT (torneo_id) DO NOTHING RETURNING id`;
@@ -212,9 +219,19 @@ async function addCareers(recs,att){att=att||0;if(!configured)return;const fail=
 async function perfil(uid){
   if(!configured)return{enabled:false};await ensure();
   const u=await pool.query(`SELECT usuario,creado FROM usuarios WHERE id=$1`,[uid]);if(!u.rowCount)return{error:'Usuario inexistente'};
-  const [h,a]=await Promise.all([pool.query(`SELECT torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,finalizado FROM carreras WHERE usuario_id=$1 ORDER BY finalizado DESC, id DESC LIMIT 100`,[uid]),
+  const [p,h,a]=await Promise.all([pool.query(`SELECT club_favorito,descripcion FROM perfiles WHERE usuario_id=$1`,[uid]),pool.query(`SELECT torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,finalizado FROM carreras WHERE usuario_id=$1 ORDER BY finalizado DESC, id DESC LIMIT 100`,[uid]),
     pool.query(`SELECT count(*)::int AS carreras, count(*) FILTER (WHERE campeon)::int AS campeonatos, count(*) FILTER (WHERE modalidad<>'offline')::int AS online, count(DISTINCT club)::int AS clubes FROM carreras WHERE usuario_id=$1`,[uid])]);
-  const x=a.rows[0]||{};return{enabled:true,usuario:u.rows[0].usuario,creado:u.rows[0].creado,resumen:{carreras:x.carreras||0,campeonatos:x.campeonatos||0,online:x.online||0,offline:(x.carreras||0)-(x.online||0),clubes:x.clubes||0},historial:h.rows}}
+  const x=a.rows[0]||{},pf=p.rows[0]||null;return{enabled:true,usuario:u.rows[0].usuario,creado:u.rows[0].creado,perfilCompleto:!!pf,clubFavorito:pf?pf.club_favorito:null,descripcion:pf?pf.descripcion:'',resumen:{carreras:x.carreras||0,campeonatos:x.campeonatos||0,online:x.online||0,offline:(x.carreras||0)-(x.online||0),clubes:x.clubes||0},historial:h.rows}}
+// El club favorito se fija una sola vez por cuenta. La PK evita cambios incluso ante peticiones simultáneas.
+async function definirFavorito(uid,club){
+ if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};
+ club=String(club||'').trim();if(!/^[a-z0-9_-]{1,40}$/.test(club))return{error:'Club inválido'};
+ await ensure();
+ const r=await pool.query(`INSERT INTO perfiles(usuario_id,club_favorito) VALUES($1,$2) ON CONFLICT(usuario_id) DO NOTHING RETURNING club_favorito`,[uid,club]);
+ if(r.rowCount)return{ok:1,clubFavorito:r.rows[0].club_favorito};
+ const ex=await pool.query(`SELECT club_favorito FROM perfiles WHERE usuario_id=$1`,[uid]);
+ return{error:'El club favorito ya fue elegido y no se puede cambiar',clubFavorito:ex.rows[0]?.club_favorito||null};
+}
 // ===================== AMIGOS =====================
 // Una fila por pareja (el índice único del par no distingue quién invitó a quién). estado: 'pendiente' (la envió de_id y la decide a_id) | 'aceptada'.
 // Rechazar o cancelar borra la fila. Solo para cuentas; los invitados no tienen amigos.
@@ -253,4 +270,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
