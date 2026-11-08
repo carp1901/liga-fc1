@@ -320,3 +320,9 @@ Fecha de revisión: 08/11/2026.
 ### Pendientes que requieren resolver fuentes
 - **Juan Centurión:** el perfil de FM Blog no identifica de forma clara el pie preferido (muestra una cadena ambigua de ambos pies); no se carga.
 - **Ezequiel Ávila (Chimy):** Opta y FotMob lo muestran zurdo, mientras que EA FC y TransferBOL lo muestran diestro. Se deja vacío hasta resolver el conflicto.
+
+
+## Sexta tanda de Independiente — cierre parcial
+- **Iván Morales:** Derecho. Fuente: https://www.sofascore.com/es/football/player/ivan-morales/848075
+
+**Resultado verificado:** 34/36 jugadores del CSV con pie dominante cargado. Permanecen sin asignar Juan Centurión (no hay fuente inequívoca del pie) y Ezequiel Ávila (fuentes contradictorias).
