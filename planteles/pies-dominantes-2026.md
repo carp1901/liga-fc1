@@ -326,3 +326,21 @@ Fecha de revisión: 08/11/2026.
 - **Iván Morales:** Derecho. Fuente: https://www.sofascore.com/es/football/player/ivan-morales/848075
 
 **Resultado verificado:** 34/36 jugadores del CSV con pie dominante cargado. Permanecen sin asignar Juan Centurión (no hay fuente inequívoca del pie) y Ezequiel Ávila (fuentes contradictorias).
+
+
+## Primera tanda de Estudiantes de La Plata — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Fabricio Iacovich | Izquierdo | https://www.sofascore.com/es/football/player/fabricio-iacovich/1185969 |
+| Fernando Muslera | Derecho | https://www.sofascore.com/es/football/player/fernando-muslera/28381 |
+| Rodrigo Borzone | Derecho | https://www.sofascore.com/es-la/football/player/borzone-rodrigo/1485396 |
+| Santiago Misael Núñez | Derecho | https://www.sofascore.com/es/football/player/santiago-nunez/1161819 |
+| Gastón Benedetti | Izquierdo | https://www.sofascore.com/es/football/player/gaston-benedetti/1018407 |
+| Leandro González Pirez | Derecho | https://www.sofascore.com/es/football/player/leandro-gonzalez-pirez/158259 |
+| Santiago Arzamendia | Izquierdo | https://www.sofascore.com/es/football/player/santiago-arzamendia/887429 |
+| Eric Meza | Derecho | https://www.sofascore.com/es/football/player/eric-meza/941092 |
+| Tomás Palacios | Izquierdo | https://www.sofascore.com/es/football/player/tiago-tomas-palacios/1173598 |
+
+**Progreso de Estudiantes:** 10/38 jugadores con pie registrado (incluye a Marcos Rojo, ya cargado previamente). Se continúa con los restantes; no se asignan pies por deducción posicional.
