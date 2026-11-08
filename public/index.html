@@ -737,8 +737,8 @@ setInterval(()=>{if(AUTH&&!document.hidden)amgLoad()},60000);amgSync();
 // ===== Chat general: historial público persistente + flujo en vivo. Los permisos nunca se muestran en los mensajes. =====
 let CHAT_STREAM=null,CHAT_IDS=new Set(),CHAT_PERMS={owner:false,moderador:false};
 function chatAppend(m){
- if(!m||m.id==null||CHAT_IDS.has(String(m.id)))return;CHAT_IDS.add(String(m.id));
- const o=$('#chatmsgs'),d=document.createElement('div');d.className='chmsg';d.dataset.cid=m.id;
+ if(!m||m.id==null||CHAT_IDS.has(String(m.id)))return;const o=$('#chatmsgs');if(!CHAT_IDS.size&&!o.querySelector('.chmsg'))o.innerHTML='';CHAT_IDS.add(String(m.id));
+ const d=document.createElement('div');d.className='chmsg';d.dataset.cid=m.id;
  const time=m.creado?new Date(m.creado).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'}):'';
  d.innerHTML='<div style="display:flex;align-items:center;gap:7px">'+(m.club_favorito&&TM[m.club_favorito]?cr(m.club_favorito,24):'')+'<b>'+esc(m.usuario||'Técnico')+'</b><small class=mu>'+time+'</small></div><div style="padding:3px 0 8px;white-space:pre-wrap;overflow-wrap:anywhere">'+esc(m.mensaje||'')+'</div><hr style="border:0;border-top:1px solid #ffffff20;margin:2px 0 7px">';
  o.appendChild(d);o.scrollTop=o.scrollHeight;
