@@ -137,3 +137,11 @@ Se incorporaron Valentín Yampa y Franco Lautaro Gordillo; se corrigieron diez i
 
 ### Sexta tanda de depuración — Almirante Brown — 08/11/2026
 Se agregaron Santiago Ariel Villalba, Gonzalo Nahuel Flores y Julián Ignacio López Pérez. Se corrigieron 15 identidades por coincidencia de fecha de nacimiento, sin duplicar jugadores. Se resolvieron candidatos de otros clubes: Dante Campisi salió de Estudiantes en julio; Iván Antunes ya está en Nueva Chicago tras su salida de Mitre; Gustavo Fernández ya está en San Miguel. Joaquín Ibáñez, Federico Batule y Joaquín Céliz siguen pendientes por conflictos o falta de ficha completa. Detalle y fuentes en la auditoría.
+
+
+### Séptima tanda de depuración — 08/11/2026
+- **All Boys:** se corrigió Gustavo Ramírez a Gabriel Omar Ramírez y se verificó dorsal 5 con la síntesis oficial del partido ante Ferro del 24/08/2026. La fecha de nacimiento mantiene una discrepancia entre fuentes (29/06 y 29/07/1995), documentada en auditoría.
+- **Temperley:** Agustín Melo se corrigió a Alejandro Melo; se actualizó su posición a DEL/ED.
+- **Almagro:** se incorporó Matías Alejandro Laba (11/12/1991), 24 presencias registradas en 2026; rating/atributos estimados y dorsal 99 provisional.
+- Total actualizado: 1.023 jugadores; 20 altas acumuladas; 29 identidades corregidas; tres bajas confirmadas retiradas.
+- Los cambios siguen en borradores y no se integraron al runtime.
