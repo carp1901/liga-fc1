@@ -529,8 +529,11 @@ function careerClose(car,table,segT,winner){
  if(car.mode=='real'&&k>=3){const t=st[2],ko=zKO(t.slice(1,9),false,adj);zr[2]={rep:{red:ko.rds}};st[2]=[t[0],ko.w,...t.slice(1).filter(x=>x!=ko.w)]}   // B Metro: el campeón sube directo; el reducido (puestos 2.º a 9.º, partido único) da el 2.º ascenso. Pendiente de confirmar con reglamento.
  st.forEach((s,i)=>{const t=s.slice();stay[i]=t});
  const take=(i,c,top)=>{const t=stay[i];return top?t.splice(0,c):t.splice(t.length-c,c)};
- if(k>1){down[0]=take(0,cp[0],0);up[1]=take(1,cp[0],1);down[1]=k>=4?take(1,cp[1],0):[];
-  if(k>=4){const dm=down[1].filter(isMetro),df=down[1].filter(id=>!isMetro(id));up[2]=take(2,dm.length,1);up[3]=take(3,df.length,1);
+ if(k>1){down[0]=take(0,cp[0],0);up[1]=take(1,cp[0],1);
+  // En las carreras argentinas con las dos vías habilitadas, B Metro y Federal A son paralelas:
+  // Nacional reparte sus descensos por región y cada vía devuelve a Nacional la misma cantidad de ascendidos.
+  // Solo B Metro conecta hacia abajo con Primera C y Promocional; Federal A no desciende a esa vía.
+  if(car.lg!='uy'&&k>=4){down[1]=take(1,cp[1],0);const dm=down[1].filter(isMetro),df=down[1].filter(id=>!isMetro(id));up[2]=take(2,dm.length,1);up[3]=take(3,df.length,1);
    if(k>=5){down[2]=take(2,cp[2],0);up[4]=take(4,cp[2],1);down[4]=k>=6?take(4,xP,0):[];if(k>=6)up[5]=take(5,xP,1)}
    inc[1]=[...down[0],...up[2],...up[3]];inc[0]=up[1];inc[2]=[...dm,...(k>=5?up[4]:[])];inc[3]=df;if(k>=5){inc[4]=[...down[2],...(k>=6?up[5]:[])];if(k>=6)inc[5]=down[4]}}
   else{inc[0]=up[1];inc[1]=down[0]}}
