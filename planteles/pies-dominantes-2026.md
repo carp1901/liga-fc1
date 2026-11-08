@@ -417,3 +417,20 @@ Fecha de revisión: 08/11/2026.
 | Benjamín Sagues Barreiro | Derecho | https://www.sofascore.com/es/football/player/sagues-barreiro-benjamin/1838978 |
 
 **Resultado de Estudiantes:** 38/38 jugadores del CSV con pie dominante registrado. Leandro Alcaraz se verificó en la ficha oficial del club; Benjamín Sagües Barreiro, en Sofascore.
+
+
+## Primera tanda de Vélez Sarsfield — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Tomás Marchiori | Derecho | https://www.sofascore.com/es/football/player/tomas-marchiori/898750 |
+| Facundo Sanguinetti | Derecho | https://www.sofascore.com/es/football/player/facundo-sanguinetti/1086977 |
+| Álvaro Busso | Izquierdo | https://www.sofascore.com/football/player/alvaro-busso/2110306 |
+| Lisandro Magallán | Derecho | https://www.sofascore.com/es/football/player/lisandro-magallan/248125 |
+| Emanuel Mammana | Derecho | https://www.sofascore.com/es/football/player/emanuel-mammana/358914 |
+| Joaquín García | Derecho | https://www.sofascore.com/es/football/player/joaquin-garcia/989860 |
+| Jano Gordon | Derecho | https://www.sofascore.com/es/football/player/jano-gordon/1894551 |
+| Thiago Silvero | Derecho | https://www.sofascore.com/es/football/player/thiago-silveor/1894554 |
+
+**Progreso de Vélez:** 8/30 jugadores con pie registrado. Se continúa con los restantes; los perfiles de juveniles de reserva se contrastan por nombre y club antes de cargar.
