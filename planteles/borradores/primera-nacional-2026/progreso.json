@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Los seis CSV están publicados en main como borradores. No integrados al juego. Refinamiento en curso: roles específicos, corrección de posiciones y contraste de dorsales oficiales, medias y atributos.",
+  "estado": "Seis CSV publicados en main como borradores. Los ocho atributos técnicos ya están derivados para 1.006 jugadores con el generador del motor; falta validación cualitativa, dorsales oficiales y vigencia. No integrados al juego.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Auditoría diagnóstica cerrada. Ajuste global +10 aplicado a los 1.006 ratings; promedio actual 68,46 (rango 58–76). Se conservan rating_base y ajuste_rating. Borradores no integrados al juego.",
+  "estado_general": "Ajuste global +10 aplicado a los 1.006 ratings y ocho atributos técnicos derivados en los seis bloques; promedio 68,46 (rango 58–76). Se conservan rating_base y ajuste_rating. Borradores no integrados al juego.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -184,7 +184,12 @@
     "dorsales_contrastados_en_planillas": 4,
     "promedio_rating_actual": 68.46,
     "minimo_rating_actual": 58,
-    "maximo_rating_actual": 76
+    "maximo_rating_actual": 76,
+    "atributos_tecnicos_csv": {
+      "jugadores_con_ocho_campos": 1006,
+      "valores_cargados": 8048,
+      "campos_vacios": 0
+    }
   },
   "estado_por_club": [
     {
@@ -864,5 +869,23 @@
       "LIB": 1
     },
     "nota": "Se añadieron offsets para MI, MD, MP y LIB en public/data.js. POR utiliza PROFILES.POR; el resto de subroles ya contaba con offsets. Los atributos individuales siguen siendo derivados por el motor, no datos observados."
+  },
+  "atributos_tecnicos_csv": {
+    "fecha": "2026-11-08",
+    "jugadores": 1006,
+    "valores": 8048,
+    "campos": [
+      "pas",
+      "ctl",
+      "reg",
+      "rem",
+      "des",
+      "mar",
+      "ant",
+      "ref"
+    ],
+    "metodo": "Mismo generador determinista de public/data.js: perfil por posición, ajuste por subrol y media individual, con recentrado ponderado y límites 15-99. Estimaciones reproducibles, no estadísticas observadas ni oficiales.",
+    "integracion": "Los seis CSV siguen como borradores; no se modificó el runtime.",
+    "validacion": "Pendiente de auditoría de distribuciones por posición/subrol y extremos."
   }
 }
