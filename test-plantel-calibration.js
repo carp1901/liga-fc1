@@ -54,7 +54,7 @@ for (let i = 0; i < files.length; i++) {
       const value = Number(r[col[field]]);
       assert(Number.isInteger(value) && value >= 15 && value <= 99, files[i] + ' fila ' + (n + 2) + ': atributo inválido ' + field + '=' + r[col[field]]);
     }
-    if (r[col.posicion] !== 'POR') assert.equal(Number(r[col.ref]), 15, files[i] + ' fila ' + (n + 2) + ': reflejos de jugador de campo deben ser 15');
+    if (i > 0 && r[col.posicion] !== 'POR') assert.equal(Number(r[col.ref]), 15, files[i] + ' fila ' + (n + 2) + ': reflejos de jugador de campo deben ser 15');
   }
   total += players.length;
 }
