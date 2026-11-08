@@ -272,12 +272,28 @@ async function chatHistorial(limit,uid){
  const n=Math.max(1,Math.min(150,Math.floor(+limit||80)));
  const r=await pool.query(`SELECT m.id,m.usuario,m.mensaje,m.creado,p.club_favorito,
   COALESCE(v.likes,0)::int AS likes,COALESCE(v.dislikes,0)::int AS dislikes,
-  COALESCE(mv.valor,0)::int AS mi_voto,(m.usuario_id=$2) AS mio
+  COALESCE(mv.valor,0)::int AS mi_voto,(m.usuario_id=$2) AS mio,
+  (lower(m.usuario)=lower($3)) AS es_owner
   FROM chat_mensajes m LEFT JOIN perfiles p ON p.usuario_id=m.usuario_id
   LEFT JOIN (SELECT mensaje_id,COUNT(*) FILTER(WHERE valor=1) AS likes,COUNT(*) FILTER(WHERE valor=-1) AS dislikes FROM chat_reacciones GROUP BY mensaje_id) v ON v.mensaje_id=m.id
   LEFT JOIN chat_reacciones mv ON mv.mensaje_id=m.id AND mv.usuario_id=$2
-  WHERE m.eliminado=false ORDER BY m.id DESC LIMIT $1`,[n,uid||null]);
+  WHERE m.eliminado=false ORDER BY m.id DESC LIMIT $1`,[n,uid||null,process.env.CHAT_OWNER_USERNAME||'Burzaco']);
  return{enabled:true,mensajes:r.rows.reverse()};
+}
+async function chatEliminar(uid,id,owner,moderador){
+ if(!configured)return{error:'El chat no está disponible en este servidor'};
+ id=Math.floor(+id);if(!(uid>0&&id>0))return{error:'Comentario inválido'};
+ await ensure();
+ const r=await pool.query(`SELECT usuario_id,lower(usuario)=lower($3) AS es_owner FROM chat_mensajes WHERE id=$1 AND eliminado=false`,[id,uid,process.env.CHAT_OWNER_USERNAME||'Burzaco']);
+ if(!r.rowCount)return{error:'El comentario ya no existe'};
+ const autor=Number(r.rows[0].usuario_id),esOwner=!!r.rows[0].es_owner;
+ if(esOwner&&!owner)return{error:'Solo el propietario puede eliminar sus propios comentarios'};
+ if(!owner&&!moderador&&autor!==Number(uid))return{error:'No tenés permiso para eliminar este comentario'};
+ if(!owner&&!moderador&&autor===Number(uid)){} 
+ if(moderador&&autor!==Number(uid)&&esOwner)return{error:'No podés eliminar comentarios del propietario'};
+ await pool.query(`UPDATE chat_mensajes SET eliminado=true WHERE id=$1`,[id]);
+ await pool.query(`DELETE FROM chat_reacciones WHERE mensaje_id=$1`,[id]);
+ return{ok:1,id};
 }
 async function chatVotar(uid,id,valor){
  if(!configured)return{error:'El chat no está disponible en este servidor'};
@@ -406,4 +422,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={perfilPublico,rankingTecnicos,rankingHinchas,puntosTecnico,chatHistorial,chatVotar,chatReaccionUsuarios,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={perfilPublico,rankingTecnicos,rankingHinchas,puntosTecnico,chatHistorial,chatEliminar,chatVotar,chatReaccionUsuarios,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
