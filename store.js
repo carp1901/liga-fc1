@@ -317,6 +317,15 @@ async function rankingTecnicos(periodo){
  let pos=0;rows.forEach((x,i)=>{if(i==0||x.puntos!=rows[i-1].puntos)pos=i+1;x.pos=pos});
  return{enabled:true,periodo:season?'temporada':'historico',temporada:year,rows};
 }
+async function perfilPublico(usuario){
+ if(!configured)return{enabled:false};usuario=String(usuario||'').trim();if(!USER_RE.test(usuario))return{error:'Usuario inválido'};await ensure();
+ const u=await pool.query(`SELECT u.usuario,u.creado,p.club_favorito,p.descripcion FROM usuarios u LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE u.usuario_lc=$1`,[usuario.toLowerCase()]);
+ if(!u.rowCount)return{error:'No existe ese técnico'};
+ const [rk,h]=await Promise.all([rankingTecnicos('historico'),pool.query(`SELECT club,club_nombre,competicion_nombre,formato,participantes,posicion,resultado,campeon,finalizado FROM carreras WHERE usuario_id=(SELECT id FROM usuarios WHERE usuario_lc=$1) AND competitivo=true AND modalidad IN ('clasico','barrial') AND origen<>'offline' ORDER BY finalizado DESC LIMIT 20`,[usuario.toLowerCase()])]);
+ const resumen=rk.rows.find(x=>x.usuario.toLowerCase()==u.rows[0].usuario.toLowerCase())||{puntos:0,torneos:0,campeonatos:0,podios:0,pos:null};
+ return{enabled:true,usuario:u.rows[0].usuario,creado:u.rows[0].creado,clubFavorito:u.rows[0].club_favorito,descripcion:u.rows[0].descripcion,resumen,historial:h.rows};
+}
+
 // ===================== AMIGOS =====================
 // Una fila por pareja (el índice único del par no distingue quién invitó a quién). estado: 'pendiente' (la envió de_id y la decide a_id) | 'aceptada'.
 // Rechazar o cancelar borra la fila. Solo para cuentas; los invitados no tienen amigos.
@@ -355,4 +364,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={rankingTecnicos,puntosTecnico,chatHistorial,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={perfilPublico,rankingTecnicos,puntosTecnico,chatHistorial,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
