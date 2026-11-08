@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría general en curso: primera y segunda tandas de calibración individual completadas (8 medias ajustadas); 1.026 jugadores validados. Borradores sin integración al runtime.",
+  "estado": "Auditoría general en curso: tres tandas de calibración individual completadas (9 medias ajustadas); 1.026 jugadores validados. Borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -1832,6 +1832,15 @@
       "presencias_corregidas": {
         "Renzo Uriburu": "33→32",
         "Elías Ocampo": "34→33"
+      },
+      "promedio_actual": 68.43,
+      "runtime_modificado": false
+    },
+    "calibracion_tercera_tanda": {
+      "fecha": "2026-11-08",
+      "ratings_ajustados": 1,
+      "ratings": {
+        "Luis Silba": "74→75"
       },
       "promedio_actual": 68.43,
       "runtime_modificado": false
