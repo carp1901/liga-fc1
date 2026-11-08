@@ -368,4 +368,4 @@ Se completó una revisión de identidad y vigencia con nóminas de Solo Ascenso,
 - Las medias y atributos de las dos altas son estimaciones internas; Yampa queda con perfil de juvenil y Gordillo con valoración acorde a sus 33 presencias y 13 goles. Dorsales 99 internos provisionales, no oficiales.
 
 ### Normalización de CSV
-Se repararon **16 filas del bloque 4, siete filas del bloque 5 y cinco filas del bloque 6** con comas sin escapar en notas de procedencia. También se consolidaron las tres URL de procedencia de Enzo Wattier en el único campo de fuente disponible, preservando las tres referencias y su rating_base/ajuste_rating. Los bloques 4, 5 y 6 quedan validados con exactamente 33 columnas por fila. No se modificó el runtime.
+Se repararon **15 filas del bloque 4, siete filas del bloque 5 y seis filas del bloque 6** con comas sin escapar en notas de procedencia. También se consolidaron las tres URL de procedencia de Enzo Wattier en el único campo de fuente disponible, preservando las tres referencias y su rating_base/ajuste_rating. Los bloques 4, 5 y 6 quedan validados con exactamente 33 columnas por fila. No se modificó el runtime.
