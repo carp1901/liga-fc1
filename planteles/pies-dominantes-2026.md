@@ -288,3 +288,19 @@ Fecha de revisión: 08/11/2026.
 | Josías Palais | Derecho | https://www.sofascore.com/es/football/player/josias-palais/2338435 |
 
 **Progreso de Independiente:** 24/36 jugadores con pie registrado. Facundo Cruz, Matheo Benítez Machuca y David Martínez siguen pendientes de confirmar con una ficha individual que coincida inequívocamente con el futbolista del plantel.
+
+
+## Cuarta tanda de Independiente — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Facundo Cruz | Derecho | https://www.sofascore.com/football/player/facundo-cruz/2671505 |
+| David Martínez | Derecho | https://www.sofascore.com/es/football/player/ruben-martinez/1484796 |
+| Nahuel Junco | Izquierdo | https://www.sofascore.com/football/player/nahuel-junco/2699602 |
+| Felipe Tempone | Derecho | https://www.sofascore.com/es/football/player/felipe-tempone/2511125 |
+| Santino Viollaz | Derecho | https://www.sofascore.com/es/football/player/santino-viollaz/2192266 |
+| Matías Abaldo | Derecho | https://www.sofascore.com/es/football/player/abaldo-matias/1177402 |
+| Josías Palais | Derecho | https://www.sofascore.com/es/football/player/josias-palais/2338435 |
+
+**Progreso de Independiente:** 31/36 jugadores con pie registrado. Quedan pendientes Juan Centurión, Juan Arrayago, Matheo Benítez Machuca, Maximiliano Gutiérrez y Ezequiel Ávila.
