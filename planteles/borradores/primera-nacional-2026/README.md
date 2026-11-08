@@ -6,8 +6,8 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
-- 1.006 registros de jugadores en la base de trabajo.
-- 1.006/1.006 roles específicos cargados (100%); 44 asignaciones orientativas fueron estimadas y quedan señaladas para revisión en la auditoría.
+- 1.026 registros de jugadores en la base de trabajo (actualizado al 08/11/2026).
+- 1.026/1.026 roles específicos cargados (100%); las asignaciones orientativas siguen identificadas para revisión en la auditoría.
 - Cuatro dorsales de Midland contrastados en varias planillas de partidos 2026; el resto sigue asignado internamente. No se presentan como numeración oficial de plantel.
 - Los 44 subroles que faltaban se completaron con estimaciones orientativas a pedido del usuario; están identificados en `fuente_rol` y deben revisarse en la auditoría.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
@@ -189,3 +189,16 @@ Se resolvieron dos identidades sin duplicar: Cristian Salto pasó a Claudio Gabr
 - **Atlanta:** incorporados Abel Francisco Romero (8 partidos, 463 minutos, dorsal 11) y Franco David Cáceres (5 partidos, 100 minutos, dorsal 16), ambos llegados en septiembre para el tramo final de 2026.
 - Total: 1.025 jugadores; 26 altas acumuladas; 38 identidades corregidas; cuatro duplicados interclub eliminados y tres bajas confirmadas retiradas.
 - Sin integración al runtime.
+
+
+## Estado actual — decimoquinta tanda — 08/11/2026
+
+La depuración de vigencia alcanza **1026 jugadores** en los 36 clubes. Se agregaron dos jugadores nuevos, se trasladó a Mateo Benegas de Almagro a Ferro, se retiró una ficha duplicada de Gonzalo Emanuel Rodríguez y se corrigieron doce identidades/datos.
+
+- Bloques: 1: 155; 2: 171; 3: 182; 4: 194; 5: 164; 6: 160.
+- Altas nuevas: Fabrizio Oviedo y Cristian Nicolás Ortíz.
+- Correcciones/traslado: Mateo Benegas, Leandro Fernández, Federico Moreno, Ricardo Garay Lima, Andrés Lioi, Gonzalo Emanuel Rodríguez, Ciro Leineker, Axel Pinto, Sebastián Ramírez, Felipe Cairus Arabeity, Benjamín Facundo Schamine, Diego Francisco Viera Ruiz Díaz y Mateo Gridel.
+- Seis CSV con 33 columnas por fila; sin nombres duplicados dentro de un club y fórmula rating_base + ajuste_rating verificada.
+- Las medias/atributos nuevos son estimaciones internas; los dorsales sin evidencia son provisionales.
+- Pendientes: Damián Arce, Patricio Vidal, Santino Bevilacqua, Federico Batule, Joaquín Céliz; confirmar salida de Miguel Mellado/Valentino Werro.
+- Borradores sin integración al runtime. La próxima etapa es la auditoría general de medias y atributos.
