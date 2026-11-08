@@ -899,3 +899,17 @@ Fecha de revisión: 08/11/2026.
 | Lisandro Duarte | Derecho | https://www.sofascore.com/es/football/player/lisandro-duarte/2543314 |
 
 **Progreso de Rosario Central:** 33/38 jugadores con pie registrado. Quedan cinco casos por verificar.
+
+
+## Cierre de Rosario Central — 5 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Leonardo Sosa | Izquierdo | https://www.fotmob.com/players/1937511/leonardo-sosa |
+| Álvaro Güich | Izquierdo | https://rosariocentral.com/jugadores/alvaro-guich/ |
+| Guillermo Fernández | Derecho | https://www.fifacm.com/player/211269?vid=462 |
+| Bautista Cantero | Izquierdo | https://www.fotmob.com/es/players/1946353/bautista-cantero |
+| Paolo Giaccone | Derecho | https://www.fotmob.com/players/1898998/paolo-giaccone |
+
+**Resultado de Rosario Central:** 38/38 jugadores del CSV con pie dominante registrado. Para Álvaro Güich se priorizó la ficha oficial del club ante una discrepancia con una base secundaria; para Bautista Cantero se usó FotMob, que especifica pie izquierdo.
