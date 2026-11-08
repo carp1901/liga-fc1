@@ -48,37 +48,40 @@ i.pk{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:ce
 .ua{color:#3ddc84;font-size:10px;margin-left:3px;font-weight:700}.da{color:#ff6b61;font-size:10px;margin-left:3px;font-weight:700}.aw{font-size:10px;color:var(--so)}.vi{font-size:13px;opacity:.55;padding:0 6px}
 .sbt em{font:300 10.5px Barlow,sans-serif;font-style:normal;opacity:.85;letter-spacing:.4px;line-height:1.1}
 .box.cl>h2:first-child{cursor:pointer;user-select:none}.box.cl>h2:first-child::before{content:'▾ ';color:var(--mu)}.box.cl.col>h2:first-child::before{content:'▸ '}.box.cl.col>:not(h2:first-child){display:none!important}
-/* Chat general: tablero amplio, contenido estable y scroll solo en mensajes */
+/* Chat general: historial prioritario y moderacion plegable */
 body:has(#m29:not([hidden])){overflow:hidden}
-body:has(#m29:not([hidden])) #menu{display:grid;place-items:center;overflow:hidden;padding:10px}
-body:has(#m29:not([hidden])) #menu .bd{width:min(1200px,calc(100vw - 20px));max-width:none;height:calc(100dvh - 20px);max-height:none;min-height:0;margin:0 auto;padding:16px 20px 12px;border:10px solid #6b4423;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start}
-body:has(#m29:not([hidden])) #m29{display:flex!important;flex:1 1 0;min-height:0;height:auto;width:100%;max-width:none;margin:0;align-items:stretch;justify-content:flex-start;gap:8px;overflow:hidden}
-#m29>h2{flex:none;margin:0;font-size:clamp(22px,3vw,30px)}
-#m29>p{flex:none;margin:0 0 2px}
+body:has(#m29:not([hidden])) #menu{display:grid;place-items:center;overflow:hidden;padding:8px}
+body:has(#m29:not([hidden])) #menu .bd{width:min(1200px,calc(100vw - 16px));max-width:none;height:calc(100dvh - 16px);max-height:none;min-height:0;margin:0 auto;padding:8px 14px 8px;border:9px solid #6b4423;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:4px}
+body:has(#m29:not([hidden])) #menu .tt{flex:none;margin:2px 0 4px;font-size:clamp(17px,4vw,25px)}
+body:has(#m29:not([hidden])) #m29{display:flex!important;flex:1 1 0;min-height:0;height:auto;width:100%;max-width:none;margin:0;align-items:stretch;justify-content:flex-start;gap:7px;overflow:hidden}
+#m29>h2{flex:none;margin:0;font-size:clamp(22px,3vw,29px)}
 #m29 #chatmsgs{display:block;width:100%;height:auto!important;max-height:none!important;min-height:0;flex:1 1 0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:12px;text-align:left}
-#m29 #chatwrite{display:flex;width:100%;flex:none;align-items:stretch;margin:0}
+#m29 #chatwrite,#m29 #chatguest{display:flex;width:100%;flex:none;align-items:stretch;margin:0;gap:8px}
+#m29 #chatguest{justify-content:center}
 #m29 #chatinput{flex:1 1 auto;min-width:0}
-#m29 #chatguest{flex:none}
 #m29 #chaterr{flex:none;margin:0}
-#m29 #chatadmin{width:100%;max-height:22vh;overflow:auto;flex:none}
-#m29>.bk{flex:none;margin:0 auto 2px}
+#m29 #chatadminToggle{flex:none;align-self:center;padding:5px 12px;font-size:14px}
+#m29 #chatadmin{width:100%;max-height:30vh;overflow:auto;flex:none;margin:0;padding:8px}
+#m29 #chatadmin h3{margin:0 0 6px;font-size:16px}
+#m29>.bk{flex:none;margin:0 auto 1px;padding:5px 14px;font-size:14px}
 @media(max-width:700px){
  body:has(#m29:not([hidden])) #menu{padding:0}
- body:has(#m29:not([hidden])) #menu .bd{width:100vw;height:100dvh;padding:12px 9px 9px;border-width:5px;border-radius:0}
- body:has(#m29:not([hidden])) #m29{gap:7px}
- #m29>h2{font-size:23px}
- #m29>p{font-size:12px;line-height:1.25}
- #m29 #chatmsgs{padding:9px;min-height:0}
- #m29 #chatwrite{gap:6px}
+ body:has(#m29:not([hidden])) #menu .bd{width:100vw;height:100dvh;padding:7px 8px 6px;border-width:5px;border-radius:0;gap:4px}
+ body:has(#m29:not([hidden])) #menu .tt{font-size:19px;margin:0 0 3px}
+ body:has(#m29:not([hidden])) #m29{gap:6px}
+ #m29>h2{font-size:22px}
+ #m29 #chatmsgs{padding:9px}
+ #m29 #chatwrite,#m29 #chatguest{gap:6px}
  #m29 #chatinput{font-size:16px}
- #m29 #chatwrite button{padding:8px 12px;white-space:nowrap}
- #m29 #chatadmin{max-height:18vh}
+ #m29 #chatwrite button,#m29 #chatguest button{padding:8px 12px;white-space:nowrap}
+ #m29 #chatadmin{max-height:32vh;padding:7px}
+ #m29>.bk{padding:4px 12px}
 }
 @media(max-height:620px){
- body:has(#m29:not([hidden])) #menu .bd{padding-top:8px;padding-bottom:7px}
- #m29>h2{font-size:21px}
- #m29>p{font-size:11px}
- #m29 #chatadmin{max-height:15vh}
+ body:has(#m29:not([hidden])) #menu .bd{padding-top:4px;padding-bottom:4px}
+ body:has(#m29:not([hidden])) #menu .tt{font-size:17px;margin:0}
+ #m29>h2{font-size:20px}
+ #m29 #chatadmin{max-height:25vh}
 }
 #menu{font-synthesis:none;position:fixed;inset:0;z-index:9;display:grid;place-items:center;background:#07120c;padding:8px}
 #menu .bd{position:relative;width:100%;max-width:460px;height:100%;max-height:920px;overflow:auto;display:flex;flex-direction:column;align-items:center;text-align:center;padding:22px 16px 16px;border:12px solid #6b4423;border-radius:6px;background:radial-gradient(#ffffff0b 1px,transparent 1.5px) 0 0/7px 7px,linear-gradient(115deg,transparent 38%,#ffffff09 50%,transparent 62%),radial-gradient(ellipse at 30% 15%,#1f4f2f,#143823 55%,#0d2819);box-shadow:inset 0 0 0 2px #0006,inset 0 0 80px #000c,0 12px 40px #000}
@@ -176,7 +179,7 @@ select{pointer-events:none}
 <section id="m19" class="sc" hidden><h2 class="mt">Cuenta</h2><p class="lb">Con una cuenta se guarda el historial de tus carreras. Si no querés, podés jugar siempre como invitado, sin cuenta.</p><div class="rw"><input id="au" class="in" placeholder="Usuario (3 a 16: letras, números, _ . -)" maxlength="16" autocapitalize="off" autocomplete="username" spellcheck="false"></div><div class="rw"><input id="ap" class="in" type="password" placeholder="Contraseña (mínimo 6)" maxlength="72" autocomplete="current-password"></div><div class="rw"><button class="bt ok" id="alg">ingresar</button><button class="bt ok" id="arg">crear cuenta</button></div><p class="lb" id="aer" style="color:#ffb4a8"></p><button class="bk" data-back="0">‹ volver</button></section>
 <section id="m20" class="sc" hidden><h2 class="mt" id="pfn">Mi perfil</h2><div id="pffav"></div><div class="rkb" id="pfb"></div><div class="rw"><button class="bt ok" id="pfx" style="font-size:18px">cerrar sesión</button></div><button class="bk" id="pfback" data-back="0">‹ volver</button></section>
 <section id="m21" class="sc" hidden><h2 class="mt">Amigos</h2><div class="rw"><input id="amu" class="in" placeholder="Usuario de tu amigo" maxlength="16" autocapitalize="off" autocomplete="off" spellcheck="false"><button class="bt ok" id="amx">agregar</button></div><p class="lb" id="ame"></p><div class="rkb" id="amb"></div><button class="bk" data-back="0">‹ volver</button></section>
-<section id="m29" class="sc" hidden><h2 class="mt">Chat general</h2><p class="lb">Todos pueden leer. Para escribir necesitás una cuenta y un club favorito.</p><div id="chatmsgs" class="box" style="height:340px;max-height:55vh;overflow:auto;text-align:left"><span class="mu">Cargando mensajes…</span></div><div id="chatguest" class="nt" hidden>Iniciá sesión para participar del chat. <button class="bt ok" id="chatlogin">Ingresar / crear cuenta</button></div><div id="chatwrite" class="rw" hidden><input id="chatinput" class="in" placeholder="Escribí un mensaje…" maxlength="300" style="flex:1"><button class="bt ok" id="chatsend">Enviar</button></div><p class="lb" id="chaterr"></p><div id="chatadmin" class="box" hidden><h3>Herramientas privadas de moderación</h3><input id="chattarget" class="in" placeholder="Usuario a moderar" maxlength="16"><div class="rw"><input id="chatminutes" class="in" type="number" min="1" max="10080" value="10" placeholder="Minutos"><input id="chatreason" class="in" maxlength="160" placeholder="Motivo (opcional)"></div><div class="rw"><button class="bt ok" id="chatmute">Silenciar</button><button class="bt ok" id="chatunmute">Reactivar</button></div><div id="chatowner" class="rw" hidden><button class="bt ok" id="chatsuspend">Suspender</button><button class="bt ok" id="chatmod">Dar moderador</button><button class="bt ok" id="chatunmod">Quitar moderador</button></div><p class="lb" id="chatmodmsg"></p></div><button class="bk" data-back="0">‹ volver</button></section>
+<section id="m29" class="sc" hidden><h2 class="mt">Chat general</h2><div id="chatmsgs" class="box" style="height:340px;max-height:55vh;overflow:auto;text-align:left"><span class="mu">Cargando mensajes…</span></div><div id="chatguest" class="nt" hidden><span>Para comentar necesitás una cuenta y un club favorito.</span><button class="bt ok" id="chatlogin">Registrarme / ingresar</button></div><div id="chatwrite" class="rw" hidden><input id="chatinput" class="in" placeholder="Escribí un mensaje…" maxlength="300" style="flex:1"><button class="bt ok" id="chatsend">Enviar</button></div><p class="lb" id="chaterr"></p><button class="bt ok" id="chatadminToggle" hidden>Herramientas de moderación</button><div id="chatadmin" class="box" hidden><h3>Herramientas privadas de moderación</h3><input id="chattarget" class="in" placeholder="Usuario a moderar" maxlength="16"><div class="rw"><input id="chatminutes" class="in" type="number" min="1" max="10080" value="10" placeholder="Minutos"><input id="chatreason" class="in" maxlength="160" placeholder="Motivo (opcional)"></div><div class="rw"><button class="bt ok" id="chatmute">Silenciar</button><button class="bt ok" id="chatunmute">Reactivar</button></div><div id="chatowner" class="rw" hidden><button class="bt ok" id="chatsuspend">Suspender</button><button class="bt ok" id="chatmod">Dar moderador</button><button class="bt ok" id="chatunmod">Quitar moderador</button></div><p class="lb" id="chatmodmsg"></p></div><button class="bk" data-back="0">‹ volver</button></section>
 <section id="m30" class="sc" hidden><h2 class="mt">Rankings</h2><div class="rkt"><button id="ranktech" class="on">Técnicos</button><button id="rankfans">Hinchas</button></div><div id="ranktechpanel"><div class="rkt"><button id="trseason" class="on">Temporada actual</button><button id="trhistory">Histórico</button></div><p class="lb" id="trinfo">Solo suman resultados online competitivos vinculados a una cuenta. No se acreditan carreras offline ni títulos antiguos sin atribución comprobable.</p><div class="rkb" id="trlist"><span class="mu">Cargando…</span></div></div><div id="rankfanspanel" hidden><p class="lb" id="faninfo">Cada cuenta con un club favorito suma 1 punto para ese club. El club elegido queda fijo.</p><div class="rkb" id="fanlist"><span class="mu">Cargando ranking…</span></div></div><button class="bk" data-back="0">‹ volver</button></section>
 <section id="m31" class="sc" hidden><h2 class="mt" id="pubtitle">Perfil del técnico</h2><div class="rkb" id="pubprofile"><span class="mu">Cargando perfil…</span></div><button class="bk" data-back="30">‹ volver al ranking</button></section>
 <p id="er"></p><footer class="nmb"><input id="nm" placeholder="nombre jugador" maxlength="16"></footer></div></div>
@@ -795,14 +798,18 @@ async function chatLoad(){
  try{const r=await fetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();if(!r.ok||d.enabled===false){$('#chatmsgs').textContent='El chat no está disponible en este momento.';return}
   $('#chatmsgs').innerHTML='';CHAT_IDS.clear();CHAT_DATA.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>';
  }catch(e){$('#chatmsgs').textContent='No se pudo conectar con el chat.'}
- $('#chatwrite').hidden=!AUTH;$('#chatguest').hidden=!!AUTH;
- if(AUTH){try{const r=await fetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadmin').hidden=!CHAT_PERMS.moderador;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadmin').hidden=true}}
- else{$('#chatadmin').hidden=true;CHAT_PERMS={owner:false,moderador:false}}
+ $('#chatwrite').hidden=!AUTH;$('#chatguest').hidden=!!AUTH;$('#chatguest').dataset.open='0';
+ if(AUTH){try{const r=await fetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadminToggle').hidden=!CHAT_PERMS.moderador;$('#chatadmin').hidden=true;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true}}
+ else{$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true;CHAT_PERMS={owner:false,moderador:false}}
  if(CHAT_PERMS.moderador)Array.from(CHAT_DATA.values()).forEach(chatAppend);
  if(!CHAT_STREAM){CHAT_STREAM=new EventSource('/api/chat/stream');CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.addEventListener('reaccion',e=>{try{const q=JSON.parse(e.data);chatReactionUpdate(q.id,q)}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
 }
 $('#bchat').onclick=()=>{goM('m29');chatLoad()};
+$('#chatmsgs').addEventListener('click',e=>{if(!AUTH){$('#chatguest').hidden=false;$('#chaterr').textContent='';}});
 $('#chatlogin').onclick=()=>{goM('m19');$('#aer').textContent='Iniciá sesión o creá una cuenta para escribir en el chat.'};
+$('#chatguest').hidden=true;$('#chatguest').dataset.open='0';
+$('#chatguest').addEventListener('click',e=>{if(e.target.id==='chatlogin')return});
+$('#chatadminToggle').onclick=()=>{$('#chatadmin').hidden=!$('#chatadmin').hidden;$('#chatadminToggle').textContent=$('#chatadmin').hidden?'Herramientas de moderación':'Ocultar moderación'};
 async function chatSend(){
  const input=$('#chatinput'),msg=input.value.trim();if(!msg)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para escribir.';return}
  $('#chatsend').disabled=true;$('#chaterr').textContent='';
