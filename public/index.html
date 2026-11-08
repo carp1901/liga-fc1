@@ -926,6 +926,8 @@ function seedSpectatorLive(m){
  if(!owner)return;
  owner.x=x;owner.y=y;owner.vx=owner.vy=0;owner.hold=0;owner.wait=0;owner.cool=0;
  SIM.B.x=x;SIM.B.y=y;SIM.B.vx=SIM.B.vy=0;SIM.B.own=owner;SIM.B.recv=null;SIM.B.free=false;SIM.poss=side;SIM.n=Math.max(SIM.n,40);
+ // Avanzar unos instantes de simulación para que la vista no quede en la foto táctica inicial.
+ for(let i=0;i<42;i++)SIM.step();
 }
 let GOL=false,GOLC=false,GOLT='g',SKE=false,SKP=0;try{GOL=localStorage.gol=='1';GOLC=localStorage.golc=='1';SKE=localStorage.skipEnd=='1'}catch(e){}
 const gsave=()=>{try{localStorage.gol=GOL?1:0;localStorage.golc=GOLC?1:0;localStorage.skipEnd=SKE?1:0}catch(e){}},
