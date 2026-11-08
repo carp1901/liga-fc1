@@ -765,3 +765,20 @@ Fecha de revisión: 08/11/2026.
 | Allan Wlk | Derecho | https://www.sofascore.com/football/player/wlk-allan/1067464 |
 
 **Progreso de Lanús:** 32/34 jugadores con pie dominante registrado. Quedan pendientes Martín Díaz y Mateo Ramírez: las fichas consultadas no publican el pie preferido.
+
+
+## Primera tanda de Talleres — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Santino Barbi | Derecho | https://www.sofascore.com/es/football/player/santino-barbi/1837212 |
+| Jeremías Florentín | Derecho | https://www.sofascore.com/es-la/football/player/jeremias-florentin/1597273 |
+| Ezequiel Unsain | Derecho | https://www.sofascore.com/es/football/player/ezequiel-unsain/790756 |
+| Gabriel Báez | Izquierdo | https://www.sofascore.com/es/football/player/gabriel-baez/797030 |
+| Matías Catalán | Derecho | https://www.sofascore.com/es/football/player/matias-catalan/249643 |
+| Timoteo Chamorro | Derecho | https://www.sofascore.com/es/football/player/timoteo-chamorro/2076942 |
+| Valentín Fascendini | Izquierdo | https://www.sofascore.com/es/football/player/valentin-fascendini/1537838 |
+| Santiago Fernández | Derecho | https://www.sofascore.com/es/football/player/fernandez-santiago/1462241 |
+
+**Progreso de Talleres:** 8/32 jugadores con pie registrado. Franco Yennerich y Thiago Baroni quedan pendientes de una ficha individual inequívoca.
