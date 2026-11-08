@@ -95,3 +95,16 @@ Fecha de revisión: 08/11/2026.
 ### Pendientes de San Lorenzo
 - **Facundo Gulli:** discrepancia entre FotMob (izquierdo) y Sofascore (derecho); no se carga hasta resolverla.
 - **Alan Salas:** todavía sin una fuente individual fiable localizada.
+
+
+## Cierre de San Lorenzo
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Facundo Gulli | Izquierdo | https://www.fifacm.com/player/80114/facundo-gulli |
+| Alan Salas | Derecho | https://database.footballmanagerblog.org/fm26/players/2000375081-alan-salas |
+
+La discrepancia de **Facundo Gulli** se resolvió a favor del pie izquierdo: además de FotMob, coinciden FIFA CM, FCScoutDB y la ficha de la APF; Sofascore es la única fuente consultada que lo informa diestro.
+
+**Resultado:** 39/40 jugadores de San Lorenzo completados. Queda **Agustín Perez**? Revisar si hay fila sin pie antes de cerrar el club.
