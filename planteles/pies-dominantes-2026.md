@@ -598,3 +598,17 @@ Fecha de revisión: 08/11/2026.
 | Santino Vera | Derecho | https://www.sofascore.com/es/football/player/vera-santino/1485505 |
 
 **Progreso de Unión:** 27/33 jugadores con pie dominante registrado. Mateo Peresutti, Ricardo Solbes y Santino Vera tienen fichas de reserva, con identidad y pertenencia al club confirmadas.
+
+
+## Quinta tanda de Unión de Santa Fe — 5 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Juan de Dios Pintado | Derecho | https://fifaindex.com/players/266171-juan-de-dios-pintado/fc27 |
+| Víctor Ignacio Malcorra | Izquierdo | https://www.sofascore.com/football/player/ignacio-malcorra/789427 |
+| Mateo Aimar | Ambos | https://www.365scores.com/football/player/mateo-aimar-160944 |
+| Mauro Luna Diale | Derecho | https://www.fotmob.com/players/1034344/mauro-luna-diale |
+| Lucas Cacciabue | Ambos | https://database.footballmanagerblog.org/fm26/players/2000441696-lucas-cacciabue |
+
+**Progreso de Unión:** 32/33 jugadores con pie dominante registrado. Mateo Aimar figura como ambidiestro; Lucas Cacciabue aparece con ambos pies en su ficha de Football Manager, con predominio izquierdo. Valentín Cerrudo sigue pendiente de una fuente individual que confirme su pie.
