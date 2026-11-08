@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia 36/36; decimoquinta tanda documentada. Depuración de altas e identidades cerrada para pasar a auditoría general; borradores sin integración al runtime.",
+  "estado": "Auditoría general en curso: 654 valores ref de jugadores de campo normalizados. Pendiente calibración individual de medias; borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -1783,6 +1783,27 @@
     "promedio_rating": 68.42,
     "minimo_rating": 56,
     "maximo_rating": 78,
-    "runtime_modificado": false
+    "runtime_modificado": false,
+    "ref_no_arqueros_distintos_de15": 0,
+    "atributos_tecnicos_completos": 1026
+  },
+  "auditoria_general": {
+    "fecha": "2026-11-08",
+    "jugadores": 1026,
+    "promedio_rating": 68.42,
+    "mediana_rating": 69,
+    "minimo_rating": 56,
+    "maximo_rating": 78,
+    "percentil10": 64,
+    "percentil90": 72,
+    "porcentaje_entre64y72": 88.9,
+    "ref_no_arqueros_corregidos": 654,
+    "arqueros_sin_cambios": 103,
+    "atributos_completos": 1026,
+    "otros_atributos_modificados": false,
+    "ratings_modificados": false,
+    "primera_division_modificada": false,
+    "runtime_modificado": false,
+    "proximo_paso": "Calibrar ratings individuales con minutos, presencias, producción y nivel competitivo; revisar extremos y roles híbridos."
   }
 }
