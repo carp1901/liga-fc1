@@ -24,6 +24,9 @@ on:
       - '.github/workflows/balance.yml'
 permissions:
   contents: write
+concurrency:
+  group: balance-audit-main
+  cancel-in-progress: false
 jobs:
   audit:
     runs-on: ubuntu-latest
@@ -54,6 +57,8 @@ jobs:
       - name: Guardar informes de auditoría
         if: success() && github.event_name == 'push'
         run: |
+          # Reconciliar cambios que hayan entrado a main mientras corría la simulación.
+          git pull --rebase origin main
           mkdir -p planteles
           cp balance-report.json planteles/auditoria-equilibrio-primera.json
           cp promotion-report.json planteles/auditoria-ajustes-ascensos-descensos.json
@@ -63,7 +68,13 @@ jobs:
           git add planteles/auditoria-equilibrio-primera.json planteles/auditoria-ajustes-ascensos-descensos.json planteles/auditoria-trayectoria-primera-nacional.json
           if ! git diff --cached --quiet; then
             git commit -m 'Record multi-season Primera Nacional career audit'
-            git push
+            for attempt in 1 2 3; do
+              if git push origin HEAD:main; then exit 0; fi
+              git fetch origin main
+              git rebase origin/main
+            done
+            echo 'No se pudo publicar la auditoría tras tres intentos' >&2
+            exit 1
           fi
       - uses: actions/upload-artifact@v4
         if: always() && hashFiles('balance-report.json') != ''
