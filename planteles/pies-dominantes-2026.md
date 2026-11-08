@@ -25,3 +25,20 @@ Fecha de revisión: 08/11/2026.
 | Alejo Córdoba | Derecho | https://www.fotmob.com/es/players/1737755/alejo-cordoba |
 
 **Resultado:** 10 pies dominantes verificados y cargados en `planteles/primera-2026.csv`. La importación automática del repositorio debe reflejar estos valores en los planteles publicados; la actualización de la base generada se verifica por separado.
+
+
+## Segunda tanda — San Lorenzo
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Ignacio Perruzzi | Derecho | https://www.sofascore.com/es-la/football/player/ignacio-perruzzi/2035649 |
+| Manuel Insaurralde | Derecho | https://www.fotmob.com/es/players/972814/manuel-insaurralde |
+| Nicolás Tripichio | Derecho | https://www.sofascore.com/es-la/football/player/nicolas-tripichio/358924 |
+| Martín Río | Derecho | https://www.sofascore.com/es-la/football/player/martin-rio/1083012 |
+| Nahuel Barrios | Derecho | https://www.fotmob.com/es-419/players/838234/nahuel-barrios |
+
+**Resultado acumulado:** 15 jugadores con pie dominante verificado y cargado en el CSV.
+
+### Pendientes por discrepancia
+- **Facundo Gulli:** FotMob lo identifica como zurdo (https://www.fotmob.com/es/players/1781586/facundo-gulli), mientras Sofascore lo identifica como diestro (https://www.sofascore.com/es/football/player/facundo-gulli/2188350). Se deja vacío hasta resolver la discrepancia; no se elige arbitrariamente una fuente.
