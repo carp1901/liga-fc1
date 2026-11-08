@@ -848,3 +848,21 @@ Fecha de revisión: 08/11/2026.
 | Juan Giménez | Derecho | https://www.sofascore.com/es/football/player/gimenez-juan/1482411 |
 
 **Progreso de Rosario Central:** 9/38 jugadores con pie registrado. Leonardo Sosa queda pendiente de identificar con certeza; Juan Giménez se verificó en su ficha de reserva.
+
+
+## Segunda tanda de Rosario Central — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Emanuel Coronel | Derecho | https://www.sofascore.com/es/football/player/emanuel-coronel/895593 |
+| Alexis Soto | Izquierdo | https://www.sofascore.com/es/football/player/alexis-soto/824513 |
+| Leonardo Ríos | Izquierdo | https://www.sofascore.com/es/football/player/rios-leonardo/2543390 |
+| Elías Verón | Derecho | https://www.sofascore.com/es-la/football/player/elias-veron/2353018 |
+| Ignacio Ovando | Derecho | https://www.sofascore.com/es/football/player/ignacio-ovando/2048634 |
+| Luca Raffin | Derecho | https://www.sofascore.com/es/football/player/luca-raffin/1546204 |
+| Franco Ibarra | Derecho | https://www.sofascore.com/es/football/player/franco-ibarra/989796 |
+| Marcelo Cabrera | Derecho | https://www.sofascore.com/football/player/marcelo-cabrera/2549160 |
+| Jaminton Campaz | Izquierdo | https://www.sofascore.com/es/football/player/jaminton-campaz/877299 |
+
+**Progreso de Rosario Central:** 18/38 jugadores con pie registrado. Álvaro Güich queda pendiente de una ficha individual inequívoca.
