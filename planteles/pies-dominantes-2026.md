@@ -584,3 +584,17 @@ Fecha de revisión: 08/11/2026.
 | Augusto Solari | Derecho | https://www.sofascore.com/football/player/augusto-solari/291279 |
 
 **Progreso de Unión:** 22/33 jugadores con pie dominante registrado.
+
+
+## Cuarta tanda de Unión de Santa Fe — 5 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Lucas Ayala | Derecho | https://www.sofascore.com/es-la/football/player/lucas-ayala/2445396 |
+| Mateo Peresutti | Derecho | https://www.sofascore.com/es/football/player/mateo-peresutti/2445397 |
+| Ricardo Solbes | Derecho | https://www.sofascore.com/es/football/player/ricardo-solbes/1384961 |
+| Cristian Tarragona | Derecho | https://www.sofascore.com/es/football/player/cristian-tarragona/830717 |
+| Santino Vera | Derecho | https://www.sofascore.com/es/football/player/vera-santino/1485505 |
+
+**Progreso de Unión:** 27/33 jugadores con pie dominante registrado. Mateo Peresutti, Ricardo Solbes y Santino Vera tienen fichas de reserva, con identidad y pertenencia al club confirmadas.
