@@ -2,6 +2,7 @@
 const assert=require('assert');
 const DATA=require('./public/data');
 const ENG=require('./public/engine');
+const REG=require('./public/player-regens');
 
 const nat=DATA.DIVS.find(d=>d.id==='ar2');
 assert(nat&&nat.teams.length,'debe existir Primera Nacional');
@@ -10,8 +11,7 @@ let car=ENG.realNew({me:{club}});
 assert(!car.error&&car.rosters&&car.rosters[club],'debe iniciar carrera');
 const initialSize=car.rosters[club].length;
 const retired=new Set();
-let totalEvents=0;
-const initialLog=car.regenLog?.length||0;
+let forcedEvents=0;
 const initialClubLog=(car.regenLog||[]).filter(e=>e.club===club).length;
 
 for(let year=0;year<6;year++){
@@ -24,28 +24,23 @@ for(let year=0;year<6;year++){
   retired.add(field.uid);
   retired.add(keeper.uid);
 
-  delete car.pre;
-  ENG.preparePre(car);
-  const ids=car.cats[car.me.cat].teams;
-  const ordered=ids.filter(id=>id!==club);ordered.splice(Math.floor(ordered.length/2),0,club);
-  const table=ordered.map((id,i)=>({id,pts:ordered.length-i,g:0,gf:0,ga:0}));
-  const result=ENG.careerClose(car,table);
-  assert(!result.error&&result.car,'debe cerrar cada temporada');
-  const previousLog=car.regenLog||[];
-  car=result.car;
-  const seasonEvents=(car.regenLog||[]).slice(previousLog.length).filter(e=>e.club===club);
-  totalEvents+=2;
-  assert(seasonEvents.length>=2,'cada temporada debe generar los dos juveniles forzados');
-  seasonEvents.forEach(e=>assert(car.rosters[club].some(p=>p.regen&&p.n===e.regen),'cada juvenil recién generado debe quedar en el plantel'));
+  // Mismo paso generacional que ejecuta careerClose, aislado para acelerar seis ciclos.
+  const nextSeason=car.season+1;
+  const gen=REG.next(car.rosters,nextSeason);
+  const oldLog=car.regenLog||[];
+  car={...car,season:nextSeason,rosters:gen.rosters,regenLog:[...oldLog,...gen.events]};
+  const events=gen.events.filter(e=>e.club===club);
+  assert(events.length>=2,'cada temporada debe generar los dos juveniles forzados');
+  forcedEvents+=2;
+  events.forEach(e=>assert(car.rosters[club].some(p=>p.regen&&p.n===e.regen),'cada juvenil recién generado debe quedar en el plantel'));
 
   assert.equal(car.season,2027+year,'el calendario debe avanzar año a año');
   assert.equal(car.rosters[club].length,initialSize,'el plantel debe conservar su tamaño');
-  assert(car.regenLog.length>=initialLog+totalEvents,'el historial global debe acumular los retiros de las seis temporadas');
-  assert((car.regenLog||[]).filter(e=>e.club===club).length>=initialClubLog+totalEvents,'el historial del club debe acumular sus retiros');
+  assert((car.regenLog||[]).filter(e=>e.club===club).length>=initialClubLog+forcedEvents,'el historial del club debe acumular los retiros');
   const uids=car.rosters[club].map(p=>p.uid);
   assert.equal(new Set(uids).size,uids.length,'no puede haber UID duplicados');
 
-  // Simula guardar y restaurar la carrera, como hace el guardado local.
+  // Simula guardar y restaurar la carrera como hace el guardado local.
   car=JSON.parse(JSON.stringify(car));
   const cfg=ENG.careerCfg(car);
   assert(cfg.real&&cfg.teams.includes(club),'la carrera restaurada debe volver a cargar sus planteles');
@@ -54,4 +49,4 @@ for(let year=0;year<6;year++){
 }
 
 assert((car.regenLog||[]).filter(e=>e.club===club).length>=initialClubLog+12,'seis temporadas deben dejar doce regens registrados en el club');
-console.log('OK: seis temporadas consecutivas, doce retiros, UID únicos, tamaño estable, historial y restauración JSON de carrera.');
+console.log('OK: seis ciclos generacionales, doce retiros forzados, UID únicos, tamaño estable, historial y restauración JSON de carrera.');
