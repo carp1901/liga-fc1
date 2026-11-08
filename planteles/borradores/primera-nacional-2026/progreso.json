@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1006,
-  "estado_general": "Ajuste global +10 aplicado a los 1.006 ratings y ocho atributos técnicos derivados en los seis bloques; promedio 68,46 (rango 58–76). Se conservan rating_base y ajuste_rating. Borradores no integrados al juego.",
+  "jugadores_borrador": 1003,
+  "estado_general": "Auditoría de vigencia completada para 36/36 clubes; primera depuración retiró tres bajas confirmadas. 1.003 jugadores en borradores; medias y atributos preservados. No integrados al juego.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -945,7 +945,7 @@
     },
     "coincidencias_bajas_en_csv": 22,
     "altas_publicadas_ausentes_en_club_destino": 62,
-    "estado": "EN CURSO — quinta pasada ampliada completada sobre doce clubes adicionales. Tres bajas confirmadas para limpieza posterior; cuatro altas respaldadas pendientes de ficha; varios conflictos de identidad pendientes. No se modificaron CSV.",
+    "estado": "COBERTURA COMPLETA — 36/36 clubes revisados. Primera depuración aplicada: tres bajas confirmadas retiradas. Altas y conflictos de identidad pendientes de ficha/cotejo. CSV sin integración al runtime.",
     "dorsales": {
       "asignaciones_internas_provisionales": 1001,
       "respaldados_por_planillas_de_partidos": 5,
@@ -953,7 +953,7 @@
       "nota": "Cuatro respaldos de Midland y uno de Atlético de Rafaela son planillas de partidos, no nóminas oficiales completas."
     },
     "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md",
-    "siguiente_paso": "Aplicar limpieza de las tres bajas confirmadas y completar fichas de las cuatro altas respaldadas; luego continuar con los clubes restantes y revisar dorsales oficiales.",
+    "siguiente_paso": "Completar fichas de altas respaldadas, resolver identidades y continuar depuración de bajas confirmadas; revisar dorsales oficiales.",
     "segunda_pasada": {
       "fecha": "2026-11-08",
       "clubes_revisados": [
@@ -1127,50 +1127,68 @@
       },
       "cambios_csv": 0,
       "reporte": "auditoria-vigencia-2026-11-08.md"
+    },
+    "cobertura_final": {
+      "fecha": "2026-11-08",
+      "clubes_revisados": 36,
+      "clubes_totales": 36,
+      "clubes_ultima_pasada": [
+        "Estudiantes de Buenos Aires",
+        "Mitre de Santiago del Estero",
+        "Gimnasia y Tiro",
+        "Deportivo Maipú",
+        "Quilmes"
+      ],
+      "hallazgos": {
+        "estudiantesba": "Dante Nicolás Campisi es alta candidata ausente; Joel Lucero descartado como alta por rescisión documentada; Iván Bonus y J. Lucero requieren identidad.",
+        "mitre": "Iván Antúnez y Gustavo Fernández son candidatos ausentes; Joaquín Céliz, Federico Batule y Tiago Gallo requieren ficha; Mauro Barraza queda pendiente sin baja confirmada.",
+        "gimnasiatiro": "Valentín Yampa, Jonás Aguirre, Ignacio Batista, Agustín Rodríguez, Joel Gordillo y Lautaro Gordillo son candidatos; Santiago Nogales tiene conflicto de posición; Cristian Pantoja pendiente.",
+        "maipu": "Brian Orosco y Agustín Gaitán respaldados por partido/alta; Agustín Leiva, Mateo Ortale, Juan Cruz Arno, Luca Landriel y Agustín Pavón ausentes de CSV; Víctor Barrera prestado y Marcelo Eggel baja.",
+        "quilmes": "Pío Bonacci se conserva; Matías/Mateo Rodríguez, Agustín/Axel Batista, Matías/Mauro Fernández y Joaquín/Juan Yangali requieren cotejo; nuevas altas pendientes de ficha."
+      },
+      "csv_modificados": false,
+      "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md"
     }
   },
   "auditoria_vigencia": {
     "ultima_pasada": "2026-11-08",
-    "clubes_revisados": [
-      "Acassuso",
-      "Agropecuario",
-      "Ciudad de Bolívar",
-      "Colón",
-      "Godoy Cruz",
-      "Los Andes",
-      "Nueva Chicago",
-      "Patronato",
-      "San Martín de Tucumán",
-      "San Telmo",
-      "Tristán Suárez"
+    "clubes_revisados": 36,
+    "cobertura": "36/36",
+    "clubes_ultima_pasada": [
+      "Estudiantes de Buenos Aires",
+      "Mitre",
+      "Gimnasia y Tiro",
+      "Deportivo Maipú",
+      "Quilmes"
     ],
-    "altas_respaldo_pendientes": [
-      "Valentín Serrano (Acassuso)",
-      "Juan Ignacio Quattrocchi (Acassuso)",
-      "Manuel Mónaco (Acassuso)",
-      "Franco García (Colón)",
-      "Alexis González (Los Andes)",
-      "Enzo Roldán (Nueva Chicago)",
-      "Nicolás Ortiz (San Telmo)",
-      "Valentín Burgoa (Godoy Cruz)",
-      "Facundo Alfredo Castro (Nueva Chicago)",
-      "Iván Antúnez/Antunes (Nueva Chicago)"
+    "altas_respaldo_pendientes": "Ver reporte de auditoría; completar ficha individual antes de incorporar.",
+    "csv_modificados": true,
+    "bajas_confirmadas_retiradas": 3,
+    "jugadores_actuales": 1003
+  },
+  "depuracion_primera_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1006,
+    "jugadores_despues": 1003,
+    "bajas_retiradas": [
+      {
+        "club": "Defensores de Belgrano",
+        "jugador": "Alan Pérez",
+        "bloque": 6
+      },
+      {
+        "club": "Defensores de Belgrano",
+        "jugador": "Jonathan Dellarossa",
+        "bloque": 6
+      },
+      {
+        "club": "Güemes",
+        "jugador": "Gastón Espósito",
+        "bloque": 3
+      }
     ],
-    "altas_pendientes_de_identidad": [
-      "Fabricio Oviedo (Godoy Cruz)"
-    ],
-    "conflictos_identidad": [
-      "Juan Cruz Vega/Julián Vega (Agropecuario)",
-      "Mateo Gridel/Matías Gridel (Ciudad de Bolívar)",
-      "Benjamín Schamine/Bruno Schamine (Godoy Cruz)",
-      "Diego Viera/Daniel Viera (Godoy Cruz)",
-      "Felipe Cairus/Facundo Cairus (Godoy Cruz)",
-      "Diego Armando Díaz/Diego Díaz (Patronato)",
-      "Sebastián Ramírez/Santiago Ramírez (Tristán Suárez)"
-    ],
-    "salida_futura": [
-      "Milton Ríos (San Martín de Tucumán; salida anunciada para 2027)"
-    ],
-    "csv_modificados": false
+    "altas_agregadas": 0,
+    "medias_atributos_dorsales_modificados": 0,
+    "runtime_modificado": false
   }
 }
