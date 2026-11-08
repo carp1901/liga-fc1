@@ -452,3 +452,22 @@ Fecha de revisión: 08/11/2026.
 | Alexis Pereyra | Derecho | https://www.sofascore.com/es/football/player/alexis-pereyra/2502213 |
 
 **Progreso de Vélez:** 17/30 jugadores con pie dominante registrado. Agustín Cortez queda pendiente de una ficha inequívoca.
+
+
+## Tercera tanda de Vélez Sarsfield — 10 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Claudio Baeza | Derecho | https://www.sofascore.com/es/football/player/claudio-baeza/333427 |
+| Luca Feler | Derecho | https://www.sofascore.com/football/player/luca-feler/2476559 |
+| Ulises Piedrabuena | Derecho | https://www.sofascore.com/es/football/player/ulises-piedrabuena/ |
+| Thiago Villalba | Derecho | https://www.sofascore.com/es/football/player/thiago-villalba/2681078 |
+| Ronaldo Martínez | Ambos | https://www.sofascore.com/es/football/player/ronaldo-martinez/874452 |
+| Dilan Godoy | Izquierdo | https://www.sofascore.com/es/football/player/dilan-godoy/2110310 |
+| Matías Arias | Izquierdo | https://www.sofascore.com/es/football/player/matias-arias/2190172 |
+| Alex Verón | Izquierdo | https://www.sofascore.com/es/football/player/alex-veron/2082122 |
+| Thiago Aguirre | Derecho | https://www.sofascore.com/football/player/thiago-aguirre/2415997 |
+| Juan Cruz Policella | Derecho | https://www.sofascore.com/es-la/football/player/juan-cruz-policella/2411295 |
+
+**Progreso de Vélez:** 27/30 jugadores con pie registrado. Quedan pendientes Agustín Cortez, Ulises Piedrabuena y Simón Prima; el perfil de Ulises aún requiere confirmar identidad antes de usarlo.
