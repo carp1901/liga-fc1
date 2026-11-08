@@ -212,3 +212,12 @@ Primera pasada completada sobre 1.026 jugadores de Primera Nacional. Se corrigie
 ## Calibración individual — primera tanda — 08/11/2026
 
 Se recalibraron seis medias con estadísticas 2026 verificables (Saccone, Thiago Ocampo, Patricio Moyano, Arón Agüero, Juan Pablo De La Reta y Enzo Cardozo) y se corrigieron los partidos de liga de Mayco Bergia. Promedio general resultante: 68.43. Se conservaron +10 trazables, los atributos dentro de rango y el runtime sin cambios. Ver detalles y fuentes en la sección de auditoría general del informe.
+
+
+## Calibración individual — segunda tanda — 08/11/2026
+
+Se recalibraron dos medias con evidencia estadística de temporada y se normalizaron sus presencias de Primera Nacional:
+- **Renzo Uriburu (San Telmo): 66 → 67.** Se consolidan 32 presencias, 31 titularidades, 2.634 minutos, 0 goles, 1 asistencia y valoración media 6,40. El ajuste es moderado (+1) por continuidad como titular; no se premia sólo el volumen de partidos. Fuentes: https://www.soloascenso.com.ar/perfil/renzo-uriburu/29119 ; https://nofluffpicks.com/es/jugador/944327-renzo-sebastian-uriburu
+- **Elías Ocampo (Colegiales): 66 → 67.** 33 partidos, 23 titularidades, 1.963 minutos, 1 gol y 1 asistencia; se conserva el rol MD (interior derecho). Fuentes: https://www.fotmob.com/es/players/1606614/elias-ocampo
+
+En ambos casos se actualizaron `rating`, `rating_base` y los siete atributos de campo en +1; `ajuste_rating` sigue en +10 y `ref = 15`. Se corrigió también el conteo de presencias a 32 para Uriburu y 33 para Ocampo. Promedio recalculado: **68,43**. Validación posterior: 1.026 jugadores, bloques 155/171/182/194/164/160, 33 columnas, fórmula de escala correcta y ningún error en los ocho atributos. Sin cambios en runtime.
