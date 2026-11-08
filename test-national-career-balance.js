@@ -80,7 +80,7 @@ for(let y=0;y<seasons;y++){
  car=next;
 }
 const promoted=[...promotedFromNational].map(id=>{const h=history[id];return{id,name:h.name,firstNationalPromotion:h.firstNationalPromotion,
- firstDivisionTitles:h.firstDivisionTitles,firstDivisionSeasons:h.firstDivisionSeasons,
+ firstDivisionTitles:h.firstDivisionTitles,firstDivisionTitlesByTournament:h.firstDivisionTitlesByTournament,firstDivisionSeasons:h.firstDivisionSeasons,
  metroSeasons:h.metroSeasons,firstCSeasons:h.firstCSeasons,lowestTier:h.lowestTier,seasonMoves:h.seasonMoves}});
 const descendedToC=promoted.filter(x=>x.firstCSeasons>0).sort((a,b)=>b.firstCSeasons-a.firstCSeasons);
 const report={
