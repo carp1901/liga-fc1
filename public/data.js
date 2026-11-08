@@ -232,10 +232,12 @@ const roleFit=(x,want)=>{
  const main=String(x.specificRole||x.pos||'').trim().toUpperCase();
  const alt=Array.isArray(x.alt)?x.alt.map(v=>String(v||'').trim().toUpperCase()):[];
  if(!want||!main)return 0;
- if(main==want)return 4.5;
- if(alt.includes(want))return 2.5;
- if(roleGroup(main)==roleGroup(want))return -3.5;
- return -8;
+ if(main==want)return 2.5;
+ if(alt.includes(want))return 1.5;
+ // DC y SD son intercambiables en un doble nueve: la media decide.
+ if((main=='DC'||main=='SD')&&(want=='DC'||want=='SD'))return -.25;
+ if(roleGroup(main)==roleGroup(want))return -5;
+ return -18;
 };
 // Asignación óptima de jugadores a casilleros (algoritmo húngaro, no elección voraz).
 function maxAssignment(score){
@@ -255,8 +257,8 @@ function autoXI(sq,f,ban,st){
  const sl=slots(f),want=exactSlots(f,st),pool=sq.map((_,i)=>i).filter(i=>!(ban&&ban.has(i)));
  if(pool.length<sl.length)return sl.map(()=>-1);
  const weights=sl.map((pos,k)=>pool.map(i=>{
-  const x=sq[i],base=roleOvr(x,pos)*(x.p==pos?1:(pos=='POR'||x.p=='POR')?.3:.8);
-  return base+roleFit(x,want[k]);
+  const x=sq[i],specific=roleOvr(x,pos)*(x.p==pos?1:(pos=='POR'||x.p=='POR')?.3:.8),overall=Number.isFinite(Number(x.r))?Number(x.r):specific;
+  return overall*.7+specific*.3+roleFit(x,want[k]);
  }));
  const assigned=maxAssignment(weights);return assigned?assigned.map(j=>pool[j]):sl.map(()=>-1);
 }
