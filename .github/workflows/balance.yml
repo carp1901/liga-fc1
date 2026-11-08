@@ -22,6 +22,7 @@ on:
       - 'test-balance.js'
       - 'test-promotion-balance.js'
       - 'test-national-career-balance.js'
+      - 'test-auto-xi.js'
       - '.github/workflows/balance.yml'
 permissions:
   contents: write
