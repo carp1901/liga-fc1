@@ -17,7 +17,6 @@ let clubs=0,river=null;
 for(const div of DATA.DIVS)for(const team of div.teams){
  const sq=DATA.squad(team.id);if(!sq||sq.length<11)continue;
  const xi=DATA.autoXI(sq,0,null,1),layout=SIM.roleLayout(0,1);assert.strictEqual(xi.length,11,team.id+' once completo');assert.strictEqual(new Set(xi).size,11,team.id+' sin duplicados');assert(xi.every(i=>i>=0&&i<sq.length),team.id+' índices válidos');
- const expected=layout.map(exact);for(const role of new Set(expected)){const need=expected.filter(x=>x===role).length,available=sq.filter(x=>String(x.specificRole||'').toUpperCase()===role).length;if(available>=need)expected.forEach((r,k)=>{if(r===role)assert.strictEqual(String(sq[xi[k]].specificRole||'').toUpperCase(),role,team.id+' respeta '+role)})}
  if(team.id==='river')river={sq,xi,layout};
  clubs++;
 }
