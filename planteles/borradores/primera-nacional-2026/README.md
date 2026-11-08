@@ -41,3 +41,14 @@ La Primera División no forma parte de este trabajo ni debe modificarse durante 
 - Revisión adicional: Francisco Monticelli (Racing de Córdoba) pasa de EI a MI (interior izquierdo) según FotMob; con 25 partidos, 10 titularidades, 1.079 minutos y 4 asistencias, su media pasa de 56 a 58. Se actualizaron también los conteos de presencias de Alan Cisnero (24) y Luca Arfaras (21) según las fuentes citadas.
 
 - Recuento integral actualizado tras recalcular los seis CSV: promedio exacto 58,4563 (58,46 redondeado); 391 jugadores tienen presencias 2026 cargadas. La auditoría continúa: faltan contrastes de roles estimados, vigencia de planteles, dorsales oficiales y atributos.
+
+
+## Cierre de auditoría diagnóstica — 07/11/2026
+
+La revisión estructural y de consistencia de los seis bloques queda cerrada. Resultado: 36 clubes, 1.006 jugadores, cero campos obligatorios vacíos, 1.006 roles específicos cargados, 51 roles marcados explícitamente como estimados, 1.006 medias cargadas (promedio 58,46; rango 48–66) y 14 ajustes individuales respaldados por estadísticas de temporada. No hay dorsales duplicados.
+
+**Dorsales:** 1.001 siguen siendo asignaciones internas provisionales; cinco tienen respaldo de planilla (cuatro de Midland y uno de Atlético Rafaela). Se corrigió Enzo Wattier al dorsal 3, confirmado en la planilla del 02/11/2026, y se reparó la mezcla de fuente en Ignacio Rodríguez.
+
+**Pendientes que no se completaron artificialmente:** los ocho atributos técnicos (`pas`, `ctl`, `reg`, `rem`, `des`, `mar`, `ant`, `ref`) continúan vacíos para los 1.006 jugadores; verificar los 1.001 dorsales provisionales; revalidar la pertenencia actual de los planteles; profundizar la calibración de las 992 medias sin ajuste individual documentado. No se aplicó el +10 general de medias acordado para Primera y Primera Nacional.
+
+Esta auditoría cierra el control de calidad del material disponible, no significa que los CSV estén integrados al juego ni que todos los datos estimados estén confirmados oficialmente.
