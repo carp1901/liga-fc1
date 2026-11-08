@@ -24,7 +24,7 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 - Revisión individual de medias: ajustes moderados para Thiago Ocampo (58), Joel Orlando (58), Ezequiel Cardozo (57), Juan Pablo De La Reta (57), Enzo Wattier (57), Ignacio Rodríguez (58), Mirko Bonfigli (61) y Mario Sanabria (59), respaldados por participación y estadísticas 2026. También se corrigieron los nombres Joaquín Orlando → Joel Orlando y Enzo Wuattier → Enzo Wattier. El promedio general actualizado es 58,46.
 - Nueva ronda: Mirko Bonfigli subió de 56 a 61 (36 partidos, 24 titularidades, 2.830 minutos, 7 goles y 2 asistencias); Mario Sanabria de 56 a 59 (35 partidos, 22 titularidades, 2.057 minutos, 1 gol y 5 asistencias). Se corrigieron también roles mal clasificados: Elías Ocampo a MD, Facundo Montiel a MO, Luciano Viano a LI/DEF, Iñaki Larthirigoyen a EI y Mario Sanabria a EI. Los casos con apariciones altas pero pocos minutos siguen sin recibir aumentos automáticos.
 - Hay 391 jugadores con presencias 2026 cargadas y ningún rating de partido individual en los CSV; no se deben confundir las medias propias con valoraciones oficiales de EA FC.
-- No se buscan OVR EA FC individuales para Primera Nacional porque el juego no cubre esta categoría. Los ocho campos técnicos de atributos (`pas`, `ctl`, `reg`, `rem`, `des`, `mar`, `ant`, `ref`) están vacíos en los 1.006 registros y se auditarán en la etapa siguiente.
+- No se buscan OVR EA FC individuales para Primera Nacional porque el juego no cubre esta categoría. Los ocho campos técnicos de atributos (`pas`, `ctl`, `reg`, `rem`, `des`, `mar`, `ant`, `ref`) estaban vacíos en los 1.006 registros; se completaron el 08/11/2026 mediante perfiles por posición, subrol y media.
 
 ## Próximas tareas
 1. Roles específicos cargados para los 1.006 jugadores; 44 estimaciones orientativas quedan señaladas para validar o corregir en auditoría.
@@ -49,7 +49,7 @@ La revisión estructural y de consistencia de los seis bloques queda cerrada. Re
 
 **Dorsales:** 1.001 siguen siendo asignaciones internas provisionales; cinco tienen respaldo de planilla (cuatro de Midland y uno de Atlético Rafaela). Se corrigió Enzo Wattier al dorsal 3, confirmado en la planilla del 02/11/2026, y se reparó la mezcla de fuente en Ignacio Rodríguez.
 
-**Pendientes que no se completaron artificialmente:** los ocho atributos técnicos (`pas`, `ctl`, `reg`, `rem`, `des`, `mar`, `ant`, `ref`) continúan vacíos para los 1.006 jugadores; verificar los 1.001 dorsales provisionales; revalidar la pertenencia actual de los planteles; profundizar la calibración de las 992 medias sin ajuste individual documentado. No se aplicó el +10 general de medias acordado para Primera y Primera Nacional.
+**Pendientes:** verificar los 1.001 dorsales provisionales; revalidar la pertenencia actual de los planteles; profundizar la calibración de las medias sin ajuste individual documentado y validar cualitativamente los atributos derivados. No se aplicó el +10 general de medias acordado para Primera y Primera Nacional.
 
 Esta auditoría cierra el control de calidad del material disponible, no significa que los CSV estén integrados al juego ni que todos los datos estimados estén confirmados oficialmente.
 
@@ -64,3 +64,12 @@ Los seis CSV siguen siendo borradores de investigación: **no están integrados 
 Se revisó la cobertura de perfiles del motor contra los 1.006 jugadores de Primera Nacional. Se encontraron 60 jugadores cuyos subroles no tenían un ajuste específico: MI, MD, MP y LIB. Se añadieron perfiles diferenciados para esos cuatro códigos en `public/data.js`; los 1.006 subroles ya tienen un perfil aplicable (POR usa su perfil base de arquero).
 
 Los ocho atributos técnicos siguen sin cargarse manualmente en estos CSV. El motor los deriva por posición, subrol y media; por eso este cambio mejora la diferenciación de los valores generados, pero **no equivale a estadísticas individuales verificadas**. Se incorporó `test-plantel-calibration.js` al flujo de validación para comprobar que los siete CSV mantengan el +10 trazable y que todos los subroles tengan perfil.
+
+
+## Atributos técnicos cargados — 08/11/2026
+
+Se completaron los ocho atributos técnicos en los seis CSV: **1.006/1.006 jugadores** con pas, ctl, reg, rem, des, mar, ant y ref cargados (8.048 valores). Los valores se derivaron con el mismo generador determinista del motor (public/data.js): perfil de posición general, ajuste por subrol y media individual como referencia; se mantuvo el centrado ponderado de la valoración y los límites del motor. Los atributos son estimaciones coherentes y reproducibles, no estadísticas observadas ni datos oficiales.
+
+La semilla usa club, orden del registro, nombre y posición, por lo que cada perfil es estable mientras esos datos no cambien. Los arqueros reciben un perfil específico y los jugadores de campo conservan valores de arquero mínimos según la regla del motor. No se modificaron ratings, edades, dorsales, roles ni fuentes. Los CSV siguen como borradores y no se importaron al runtime.
+
+**Próximo control:** validar distribuciones por posición/subrol, detectar valores extremos o perfiles incoherentes y después seguir con dorsales oficiales y vigencia de los 36 planteles.
