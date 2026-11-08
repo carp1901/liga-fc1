@@ -117,3 +117,43 @@ El sitio oficial de All Boys publicó dos evidencias relevantes:
 - **Gabriel Ramírez — alta respaldada por el club.** El mismo comunicado oficial del 27/06 informa que firmó contrato con All Boys hasta el 31/12/2027. No aparece en el CSV de All Boys, por lo que pasa de candidato de mercado a alta documentalmente confirmada para la plantilla de la temporada. Antes de editar el CSV resta completar su ficha individual (posición, edad, media, atributos y dorsal) con fuentes consistentes; no se inventan esos campos.
 
 **Resultado de esta pasada:** una alerta de baja descartada para efectos de depuración inmediata (Nouet sigue participando) y una alta confirmada (Gabriel Ramírez) pendiente de completar ficha. Todavía no se modificó el CSV para evitar incorporar un registro incompleto.
+
+## Cuarta pasada de contraste — Almagro, Almirante Brown, Atlanta y Atlético de Rafaela — 08/11/2026
+
+Se contrastaron candidatos de cuatro clubes con planteles 2026 publicados por clubes/agregadores especializados y registros de temporada. Los resultados muestran varias discrepancias de identidad: no se deben crear duplicados ni corregir nombres sólo por coincidencia parcial.
+
+### Almagro
+
+- **Matías Laba — alta respaldada por nómina actual.** No aparece en el CSV. La plantilla 2026 de Mundo Ascenso y Solo Ascenso lo incluyen como mediocampista; 365Scores registra su llegada desde San Telmo el 23/06/2026. Queda pendiente completar ficha y verificar datos individuales antes de incorporarlo. Fuentes: https://www.mundoascenso.com.ar/plantel/482-almagro ; https://www.soloascenso.com.ar/club/almagro/238 ; https://www.365scores.com/es/football/team/almagro-7106/transfers
+- **Claudio Salto — alta respaldada, pero hay conflicto de identidad en el CSV.** Las nóminas actuales lo incluyen (Solo Ascenso lo identifica como Claudio; Mundo Ascenso muestra C. Salto) y 365Scores registra su llegada desde Mitre el 27/06. El CSV ya contiene un registro llamado **Cristian Salto**, con datos individuales que no se deben reasignar sin comprobar identidad. No se agrega un segundo Salto ni se renombra todavía.
+- **Facundo De La Vega — alta respaldada, con posible error de nombre/posición en el CSV.** Las nóminas actuales y el registro de goleadores de la temporada lo identifican como Facundo De La Vega. El CSV ya contiene **Franco de la Vega**, registrado como delantero; Solo Ascenso lo ubica como mediocampista. No se duplica ni se modifica hasta comprobar si es el mismo jugador y revisar posición, fecha de nacimiento y atributos. Fuentes: https://www.soloascenso.com.ar/club/almagro/238 ; https://www.mundoascenso.com.ar/plantel/482-almagro ; https://www.elsitiodealmagro.com.ar/torneo/42473/
+- La página oficial de Almagro publicó su plantel profesional 2026 el 11/03; se conserva como fuente institucional de temporada, aunque la publicación es anterior al mercado de invierno: https://www.clubalmagro.com.ar/futbol-profesional/noticias/articulo/16/plantel-2026
+
+### Almirante Brown
+
+La nómina 2026 de Mundo Ascenso y las estadísticas de Pelotita respaldan la presencia en el plantel de **Joaquín Ibáñez, Santiago Villalba, Julián López y Gonzalo Flores**, ausentes del CSV. Son altas candidatas respaldadas por nómina y participación; faltan completar sus fichas antes de incorporarlos. Fuentes: https://www.mundoascenso.com.ar/plantel/72-almirante-brown ; https://pelotita.com.ar/equipos/9740
+
+- **Luciano Pascual / Lucas Pascual — identidad pendiente.** La alerta de alta de mercado dice Luciano; la nómina actual abrevia L. Pascual y el CSV contiene Lucas Pascual. No se agrega otro registro ni se cambia el nombre sin cotejar fecha de nacimiento/ficha individual.
+- **Mariano Santiago / Matías Santiago — identidad pendiente.** La alerta de mercado dice Mariano; la nómina actual muestra M. Santiago y el CSV contiene Matías Santiago. No se crea duplicado ni se cambia el nombre por inicial coincidente.
+- **Gonzalo Flores — candidato confirmado en nómina actual**, aunque BeSoccer registra un movimiento de salida en febrero. La nómina actual de Mundo Ascenso y Pelotita lo incluye y Pelotita registra cinco partidos; para la foto deportiva de noviembre se mantiene como integrante del plantel.
+
+### Atlanta
+
+- **Alejo Dramisino — no incorporar a Atlanta.** La página oficial del club lo identifica expresamente entre los jugadores cedidos a Deportivo Riestra. La alerta de mercado no refleja pertenencia al plantel de Atlanta en la fecha de corte. Fuente oficial: https://caatlanta.com.ar/elplantel/
+- **Francisco Romero y Franco Cáceres — pendientes.** No aparecen en la nómina oficial publicada de Atlanta consultada y no se encontró evidencia suficiente en esta pasada para incorporarlos. Se mantienen como alertas sin resolver; no se agregan al CSV.
+- El plantel oficial de Atlanta incluye a los jugadores que ya están en su CSV, por lo que no se detectó una baja adicional confirmada en esta pasada. Fuente: https://caatlanta.com.ar/elplantel/
+
+### Atlético de Rafaela
+
+La nómina de plantel 2026 actualizada el 30/10/2026 incluye a **Gabriel Esparza, Juan Ignacio Cavallaro y Matías Morello**. La fuente consigna contratos hasta 2027 para los tres. Fuentes: https://newikis.com/es/Asociaci%C3%B3n_Mutual_Social_y_Deportiva_Atl%C3%A9tico_de_Rafaela ; nómina y fecha de actualización en https://newikis.com/es/Asociaci%C3%B3n_Mutual_Social_y_Deportiva_Atl%C3%A9tico_de_Rafaela
+- **Juan Ignacio Cavallaro ya está en el CSV** bajo el nombre abreviado Juan Cavallaro; no se crea duplicado.
+- **Gabriel Esparza y Matías Morello** no aparecen en el CSV y quedan como altas respaldadas por nómina, pendientes de completar ficha individual.
+- La nómina consultada es una fuente secundaria, no el sitio oficial del club; antes de integrar esos dos registros conviene obtener una confirmación institucional o planilla reciente.
+
+### Resultado de esta pasada
+
+- Almagro: 3 altas respaldadas; 2 posibles errores de identidad en registros existentes requieren resolución antes de tocar el CSV.
+- Almirante Brown: 4 altas respaldadas por nómina/participación; 2 identidades con nombre de pila en conflicto.
+- Atlanta: Alejo Dramisino descartado como alta para Atlanta por préstamo a Riestra; Francisco Romero y Franco Cáceres siguen pendientes.
+- Atlético de Rafaela: 2 altas respaldadas por nómina secundaria pendientes de ficha; Juan Ignacio Cavallaro ya está cargado con nombre abreviado.
+- **Cambios en CSV: ninguno.** No se agregaron jugadores ni se cambiaron identidades, posiciones, ratings, atributos o dorsales sin fichas individuales cotejadas.
