@@ -42,3 +42,20 @@ Fecha de revisión: 08/11/2026.
 
 ### Pendientes por discrepancia
 - **Facundo Gulli:** FotMob lo identifica como zurdo (https://www.fotmob.com/es/players/1781586/facundo-gulli), mientras Sofascore lo identifica como diestro (https://www.sofascore.com/es/football/player/facundo-gulli/2188350). Se deja vacío hasta resolver la discrepancia; no se elige arbitrariamente una fuente.
+
+
+## Tercera tanda — San Lorenzo
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Ezequiel Cerutti | Derecho | https://www.fotmob.com/es/players/469593/ezequiel-cerutti |
+| Alexis Cuello | Derecho | https://www.sofascore.com/es/football/player/alexis-cuello/965768 |
+| Agustín Ladstatter | Izquierdo | https://www.sofascore.com/es/football/player/agustin-ladstatter/1990118 |
+| Diego Herazo | Derecho | https://www.sofascore.com/es/football/player/diego-herazo/819165 |
+| Branco Salinardi | Derecho | https://www.sofascore.com/es-la/football/player/branco-salinardi/2031268 |
+| Rodrigo Auzmendi | Derecho | https://www.fotmob.com/es/players/1477849/rodrigo-auzmendi |
+| Gonzalo Ábrego | Derecho | https://www.sofascore.com/es/football/player/gonzalo-abrego/1084967 |
+| Facundo Farías | Derecho | https://www.sofascore.com/es/football/player/facundo-farias/1003907 |
+
+**Resultado acumulado:** 23 jugadores con pie dominante verificado y cargado en el CSV.
