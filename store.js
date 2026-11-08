@@ -291,6 +291,13 @@ async function chatVotar(uid,id,valor){
  const r=await pool.query(`SELECT COUNT(*) FILTER(WHERE valor=1)::int AS likes,COUNT(*) FILTER(WHERE valor=-1)::int AS dislikes,COALESCE(MAX(valor) FILTER(WHERE usuario_id=$2),0)::int AS mi_voto FROM chat_reacciones WHERE mensaje_id=$1`,[id,uid]);
  return{ok:1,reaccion:{id,likes:r.rows[0].likes,dislikes:r.rows[0].dislikes,mi_voto:r.rows[0].mi_voto}};
 }
+async function chatReaccionUsuarios(id,valor){
+ if(!configured)return{error:'El chat no está disponible en este servidor'};
+ id=Math.floor(+id);valor=Math.floor(+valor);if(!(id>0)||![1,-1].includes(valor))return{error:'Reacción inválida'};
+ await ensure();
+ const r=await pool.query(`SELECT u.usuario FROM chat_reacciones cr JOIN usuarios u ON u.id=cr.usuario_id WHERE cr.mensaje_id=$1 AND cr.valor=$2 ORDER BY cr.creada DESC,u.usuario ASC`,[id,valor]);
+ return{ok:1,usuarios:r.rows.map(x=>x.usuario)};
+}
 async function chatEnviar(uid,mensaje){
  if(!configured)return{error:'El chat no está disponible en este servidor'};
  mensaje=String(mensaje||'').trim();if(!mensaje||mensaje.length>300)return{error:'El mensaje debe tener entre 1 y 300 caracteres'};
@@ -390,4 +397,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={perfilPublico,rankingTecnicos,puntosTecnico,chatHistorial,chatVotar,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={perfilPublico,rankingTecnicos,puntosTecnico,chatHistorial,chatVotar,chatReaccionUsuarios,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
