@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia preliminar publicada; 22 posibles bajas y 62 posibles altas detectadas para validación oficial. Los CSV siguen como borradores, no integrados al juego.",
+  "estado": "Auditoría de vigencia en curso: segunda pasada de contraste en Chacarita, Temperley y Ferro documentada. Sin cambios automáticos en CSV; 22 posibles bajas y 62 posibles altas siguen bajo validación.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -945,7 +945,7 @@
     },
     "coincidencias_bajas_en_csv": 22,
     "altas_publicadas_ausentes_en_club_destino": 62,
-    "estado": "PRELIMINAR — candidatos pendientes de validación con comunicados oficiales, AFA o fichas actuales. No se aplicaron bajas ni altas automáticamente.",
+    "estado": "EN CURSO — segunda pasada documentada para Chacarita, Temperley y Ferro; candidatos restantes pendientes de validación con fuentes oficiales o evidencia de participación actual.",
     "dorsales": {
       "asignaciones_internas_provisionales": 1001,
       "respaldados_por_planillas_de_partidos": 5,
@@ -953,6 +953,25 @@
       "nota": "Cuatro respaldos de Midland y uno de Atlético de Rafaela son planillas de partidos, no nóminas oficiales completas."
     },
     "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md",
-    "siguiente_paso": "Validar individualmente los 22 candidatos a baja y 62 candidatos a alta con fuentes oficiales; luego actualizar dorsales sólo con evidencia documental."
+    "siguiente_paso": "Continuar en bloques con los clubes restantes: contrastar candidatos de altas y bajas contra nóminas actuales y convocatorias/planillas recientes; no modificar CSV sin evidencia suficiente.",
+    "segunda_pasada": {
+      "fecha": "2026-11-08",
+      "clubes_revisados": [
+        "Chacarita",
+        "Temperley",
+        "Ferro"
+      ],
+      "hallazgos": {
+        "juan_cuevas": "Conservar por ahora: incluido en nómina oficial actual de Chacarita y con 13 partidos 2026.",
+        "miguel_mellado": "Posible baja; no figura en nómina oficial actual consultada, pero sin confirmación formal.",
+        "valentino_werro": "En conflicto: figura como baja en mercado y en nómina 2026 de Temperley.",
+        "nicolas_molina": "En conflicto: figura como baja en mercado y en nómina 2026 de Temperley.",
+        "alejandro_melo": "Alta candidata de Temperley: figura en nómina 2026 y fue suplente utilizado el 25/10/2026; falta completar ficha y confirmar continuidad.",
+        "mateo_acosta": "Posible baja de Ferro; ausente de dos nóminas actuales consultadas, pero sin comunicado oficial concluyente."
+      },
+      "cambios_csv": 0,
+      "criterio": "No aplicar altas ni bajas por agregadores de mercado ni por ausencia aislada en una nómina. Exigir evidencia de pertenencia/salida y completar ficha antes de editar.",
+      "reporte": "auditoria-vigencia-2026-11-08.md"
+    }
   }
 }
