@@ -116,3 +116,22 @@ La discrepancia de **Facundo Gulli** se resolvió a favor del pie izquierdo: ade
   - https://www.fotmob.com/es/players/1271801/matias-reali
 
 **Resultado final de San Lorenzo:** 40/40 jugadores con pie registrado. Se admiten tres valores: `Derecho`, `Izquierdo` y `Ambos`; no se fuerza una lateralidad cuando la ficha confirma uso indistinto de ambos pies.
+
+
+## Primera tanda de Boca Juniors — 10 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Agustín Marchesín | Derecho | https://www.sofascore.com/es/football/player/agustin-marchesin/47339 |
+| Álvaro Montero | Derecho | https://www.sofascore.com/es/football/player/alvaro-montero/926238 |
+| Leandro Brey | Derecho | https://www.sofascore.com/es/football/player/leandro-brey/1182102 |
+| Javier García | Derecho | https://www.sofascore.com/es/football/player/javier-garcia/31967 |
+| Lautaro Di Lollo | Derecho | https://theanalyst.com/players/11598/lautaro-di-lollo |
+| Lautaro Blanco | Izquierdo | https://www.sofascore.com/es/football/player/lautaro-blanco/989865 |
+| Nicolás Figal | Derecho | https://www.sofascore.com/es/football/player/nicolas-figal/579350 |
+| Leandro Lozano | Derecho | https://www.sofascore.com/es/football/player/leandro-lozano/981018 |
+| Dylan Gorosito | Derecho | https://www.sofascore.com/es/football/player/dylan-gorosito/1482422 |
+| Marco Pellegrino | Izquierdo | https://www.sofascore.com/es/football/player/pellegrino-marco/1095023 |
+
+**Progreso de la tanda de 10 clubes:** Boca 10/31 jugadores cargados. El resto del plantel queda pendiente de verificación individual.
