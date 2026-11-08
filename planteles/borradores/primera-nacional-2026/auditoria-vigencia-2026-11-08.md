@@ -355,3 +355,17 @@ Se incorporaron siete futbolistas ausentes del CSV, con identidad y fecha de nac
 - **Agustín Pavón:** arquero, nacido el 06/07/2004. Fuente: https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/2026-2027/deportivo-maipu/plantilla ; https://deportivomaipu.com/plantel/
 
 Los siete registros incorporan los ocho atributos y ratings estimados internamente, no OVR oficiales. Todos llevan dorsal interno provisional 99 porque la numeración oficial individual no quedó validada; no se atribuyen números oficiales. Se normalizaron además siete filas preexistentes del bloque 5 que tenían comas sin escapar en el campo de fuente de rol; el contenido se preservó y el archivo quedó con 33 columnas consistentes. Base: **1.017 jugadores** (1.010 + 7). No se modificó el runtime.
+
+
+## Quinta tanda de depuración — Gimnasia y Tiro — 08/11/2026
+
+Se completó una revisión de identidad y vigencia con nóminas de Solo Ascenso, registros de temporada y fuentes de fichas personales:
+
+- Se incorporaron **Valentín Yampa**, arquero categoría 2009 (nacido el 16/07/2009), promovido al plantel profesional en la pretemporada 2026; su ficha y edad aparecen en la nómina oficial de Copa Argentina/club. No se le atribuyen partidos de Primera ni estadísticas que no estén documentadas. Fuentes: https://www.clubabanfield.org/datafactory/html/copaargentina/planteles.html ; https://www.soloascenso.com.ar/notas/gimnasia-y-tiro-salta/el-millonario-retorno-al-trabajo-con-una-baja-en-el-ataque/223524
+- Se incorporó **Franco Lautaro Gordillo**, delantero nacido el 06/04/1999. Su ficha 2026 registra 33 presencias y 13 goles en Gimnasia y Tiro. Aunque una nota de enero informó el fin de su préstamo y regreso a Colegiales, la ficha estadística de la temporada y la nómina posterior lo sitúan nuevamente en Gimnasia y Tiro durante 2026; se priorizó la evidencia de competición posterior. Fuentes: https://www.soloascenso.com.ar/perfil/lautaro-gordillo/21774 ; https://www.soloascenso.com.ar/notas/gimnasia-y-tiro-salta/el-millonario-retorno-al-trabajo-con-una-baja-en-el-ataque/223524
+- Se corrigieron diez identidades ya cargadas cotejando fechas de nacimiento: Juan Papaleo → Joaquín Papaleo; Matías Guanini → Manuel Guanini; Lucas Montoya → Lautaro Montoya; Joaquín Galetto → Juan Galetto; Gustavo Soto → Gonzalo Soto; Gonzalo Díaz → Gabriel Díaz; Juan Gordillo → Joel Gordillo; Juan Carlos Oviedo → Juan Cruz Oviedo; Ramiro Villarreal → Rubén Villarreal; Pablo Rodríguez → Agustín Rodríguez. No se generaron duplicados.
+- Se corrigió la posición de Felipe Karabulut de mediocampista a delantero, coherente con la nómina 2026.
+- Las medias y atributos de las dos altas son estimaciones internas; Yampa queda con perfil de juvenil y Gordillo con valoración acorde a sus 33 presencias y 13 goles. Dorsales 99 internos provisionales, no oficiales.
+
+### Normalización de CSV
+Se repararon **16 filas del bloque 4, siete filas del bloque 5 y cinco filas del bloque 6** con comas sin escapar en notas de procedencia. También se consolidaron las tres URL de procedencia de Enzo Wattier en el único campo de fuente disponible, preservando las tres referencias y su rating_base/ajuste_rating. Los bloques 4, 5 y 6 quedan validados con exactamente 33 columnas por fila. No se modificó el runtime.
