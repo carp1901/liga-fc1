@@ -640,3 +640,22 @@ Fecha de revisión: 08/11/2026.
 | Nicolás Goitea | Derecho | https://www.sofascore.com/football/player/goitea-nicolas/1092353 |
 
 **Progreso de Newell's:** 9/31 jugadores con pie registrado. Francisco Sciarini queda pendiente de una ficha individual verificable.
+
+
+## Segunda tanda de Newell's Old Boys — 10 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Franco Escobar | Derecho | https://www.sofascore.com/es/football/player/franco-escobar/595300 |
+| Bruno Cabrera | Derecho | https://www.sofascore.com/es/football/player/bruno-cabrera/1092313 |
+| Jerónimo Russo | Izquierdo | https://www.sofascore.com/football/player/russo-jeronimo/1485095 |
+| Luca Regiardo | Derecho | https://www.sofascore.com/es/football/player/luca-regiardo/2017667 |
+| David Sotelo | Derecho | https://www.sofascore.com/football/player/david-sotelo/1406702 |
+| Valentino Acuña | Izquierdo | https://www.sofascore.com/es/football/player/valentino-acuna/1482387 |
+| Alan Soñora | Izquierdo | https://www.sofascore.com/es/football/player/alan-sonora/985002 |
+| Mateo García | Izquierdo | https://www.sofascore.com/es/football/player/mateo-garcia/846773 |
+| Facundo Guch | Izquierdo | https://www.sofascore.com/football/player/facundo-gauch/2054539 |
+| Jerónimo Gómez Mattar | Derecho | https://www.sofascore.com/es/football/player/jeronimo-gomez-mattar/2082133 |
+
+**Progreso de Newell's:** 19/31 jugadores con pie registrado.
