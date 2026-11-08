@@ -560,10 +560,10 @@
     156
   ],
   "porcentaje_roles_especificos": 100,
-  "ultima_revision": "2026-11-07: 1006/1006 roles específicos cargados; 44 asignaciones orientativas marcadas para auditoría.",
+  "ultima_revision": "2026-11-07: revisión cualitativa de medias con cinco nuevas correcciones respaldadas por estadísticas 2026; promedio actualizado 58.45.",
   "auditoria_en_curso": {
     "fecha": "2026-11-07",
-    "etapa": "Bloque 1: estructura y dorsales revisados; análisis general de medias realizado, revisión cualitativa pendiente",
+    "etapa": "Auditoría cualitativa de medias en curso; correcciones contrastadas por estadísticas 2026",
     "validacion_estructural": {
       "clubes": 36,
       "jugadores": 1006,
@@ -603,7 +603,7 @@
       "porcentaje_media_60": 6.8,
       "fuentes_ovr_ea_fc_individual_verificadas": 0,
       "criterio_actual": "Las 1006 medias son estimaciones propias; no se buscan OVR EA FC individuales para esta división porque no hay cobertura de EA FC. Se revisarán por coherencia competitiva y se mantendrá pendiente el ajuste general de +10 para Primera y Primera Nacional hasta cerrar la auditoría.",
-      "promedio_actual": 58.44
+      "promedio_actual": 58.45
     },
     "proximos_pasos": [
       "Continuar auditoría de medias con foco en titulares habituales y producción estadística, evitando subir automáticamente a suplentes con muchas presencias",
@@ -613,7 +613,7 @@
     ],
     "revision_medias": {
       "jugadores_analizados": 1006,
-      "promedio_general": 58.44,
+      "promedio_general": 58.45,
       "rango": [
         48,
         66
@@ -632,7 +632,7 @@
           "promedio": 60
         }
       ],
-      "observacion": "La revisión de jugadores con 25 o más presencias y media inicial hasta 56 detectó casos justificadamente bajos por minutos reducidos, pero también desvíos. Se corrigieron Mirko Bonfigli y Mario Sanabria con estadísticas 2026 verificadas. Se ajustaron cinco roles/posiciones mal clasificados. Se mantienen pendientes de contraste individual otros casos con estadísticas contradictorias o sin fuente suficientemente sólida. El promedio general es 58,44. No se aplica aún el ajuste general de +10.",
+      "observacion": "Nueva ronda de revisión de medias: se corrigieron Dylan Argüello, Román Zalazar, Alan Cisnero, Luca Arfaras y Leonel Pollacchi con estadísticas de temporada. Se priorizaron minutos y titularidades, no el número bruto de presencias. Casos de rotación o datos contradictorios permanecen sin aumento. El promedio general actualizado es 58.45. No se aplica aún el ajuste general de +10.",
       "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
       "campos_atributos_individuales_vacios": {
         "pas": 1006,
@@ -702,6 +702,41 @@
           "media_anterior": 56,
           "media_nueva": 59,
           "base": "35 partidos; 22 titularidades; 2057 minutos; 1 gol y 5 asistencias"
+        },
+        {
+          "jugador": "Dylan Argüello",
+          "club_id": "atlanta",
+          "media_anterior": 54,
+          "media_nueva": 56,
+          "base": "27 partidos y 1742 minutos; estadísticas oficiales del club"
+        },
+        {
+          "jugador": "Román Zalazar",
+          "club_id": "nuevachicago",
+          "media_anterior": 54,
+          "media_nueva": 56,
+          "base": "23 partidos; 20 titularidades; 1360 minutos"
+        },
+        {
+          "jugador": "Alan Cisnero",
+          "club_id": "sanmartintuc",
+          "media_anterior": 55,
+          "media_nueva": 56,
+          "base": "24 presencias; 18 titularidades; 2 goles"
+        },
+        {
+          "jugador": "Luca Arfaras",
+          "club_id": "sanmartintuc",
+          "media_anterior": 52,
+          "media_nueva": 56,
+          "base": "21 partidos; 16 titularidades; 1171 minutos; 3 goles y 1 asistencia"
+        },
+        {
+          "jugador": "Leonel Pollacchi",
+          "club_id": "santelmo",
+          "media_anterior": 56,
+          "media_nueva": 59,
+          "base": "33 partidos; 31 titularidades; 2688 minutos"
         }
       ],
       "correcciones_de_roles": [
@@ -740,6 +775,11 @@
           "nuevo": "EI",
           "base": "Extremo izquierdo según ficha 2026"
         }
+      ],
+      "proximos_pasos": [
+        "Continuar contraste de medias bajas con titularidades, minutos y producción; no subir automáticamente a suplentes de alta presencia",
+        "Verificar dorsales oficiales y pertenencia/vigencia de planteles",
+        "Auditar atributos técnicos individuales y coherencia entre rol, media y atributos"
       ]
     }
   }
