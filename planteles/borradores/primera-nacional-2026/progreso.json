@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia en curso: sexta pasada ampliada documentada (11 clubes). Sin cambios automáticos en CSV; altas, bajas y conflictos de identidad siguen sujetos a validación individual.",
+  "estado": "Auditoría de vigencia 36/36; séptima tanda documentada (All Boys, Almagro y Temperley). Depuración en curso; borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -40,15 +40,15 @@
         "gimnasiajujuy",
         "almagro"
       ],
-      "estado": "172 jugadores; 172 roles cargados.",
-      "jugadores": 172,
+      "estado": "173 jugadores; 173 roles cargados.",
+      "jugadores": 173,
       "clubes": {
         "chaco": 32,
         "moron": 29,
         "estudiantesba": 33,
         "gimnasiajujuy": 31,
         "sanmartintuc": 24,
-        "almagro": 23
+        "almagro": 24
       },
       "roles_especificos": 172
     },
@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1022,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, diecinueve altas agregadas y veintisiete identidades corregidas; bloques CSV validados. 1.022 jugadores en borradores; sin integración al runtime.",
+  "jugadores_borrador": 1023,
+  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinte altas agregadas y veintinueve identidades corregidas; seis bloques CSV validados. 1.023 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1175,9 +1175,9 @@
     "altas_respaldo_pendientes": "Ver reporte de auditoría; completar ficha individual antes de incorporar.",
     "csv_modificados": true,
     "bajas_confirmadas_retiradas": 3,
-    "altas_agregadas": 19,
-    "identidades_corregidas": 27,
-    "jugadores_actuales": 1022
+    "altas_agregadas": 20,
+    "identidades_corregidas": 29,
+    "jugadores_actuales": 1023
   },
   "depuracion_primera_tanda": {
     "fecha": "2026-11-08",
@@ -1464,6 +1464,43 @@
     ],
     "rating_atributos": "Estimaciones internas; ajuste +10 preservado.",
     "dorsales": "99 interno provisional para altas; sin confirmar oficialmente.",
+    "runtime_modificado": false
+  },
+  "depuracion_septima_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1022,
+    "jugadores_despues": 1023,
+    "altas_agregadas": [
+      {
+        "club": "Almagro",
+        "jugador": "Matías Alejandro Laba",
+        "bloque": 2
+      }
+    ],
+    "identidades_corregidas": [
+      {
+        "club": "All Boys",
+        "antes": "Gustavo Ramírez",
+        "despues": "Gabriel Omar Ramírez",
+        "nota": "Fecha de nacimiento 29/06 vs 29/07/1995 en conflicto; se conserva 29/07 y se documenta."
+      },
+      {
+        "club": "Temperley",
+        "antes": "Agustín Melo",
+        "despues": "Alejandro Melo",
+        "nota": "DOB 1996-01-11; posición DEL/ED."
+      }
+    ],
+    "dorsal_verificado": [
+      {
+        "club": "All Boys",
+        "jugador": "Gabriel Omar Ramírez",
+        "dorsal": 5,
+        "fuente": "Síntesis oficial All Boys vs Ferro, 24/08/2026"
+      }
+    ],
+    "validacion": "Bloques 1, 2 y 3: exactamente 33 columnas por fila; total 1.023 jugadores.",
+    "rating_atributos": "Estimaciones internas; ajuste +10 preservado.",
     "runtime_modificado": false
   }
 }
