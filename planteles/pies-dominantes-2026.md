@@ -1021,3 +1021,18 @@ Fecha de revisión: 08/11/2026.
 | Jorge de Asís | Ambos | https://www.sofascore.com/es/football/player/jorge-de-asis/2138839 |
 
 **Progreso de Gimnasia:** 19/36 jugadores con pie registrado. Jorge de Asís figura como ambidiestro.
+
+
+## Cuarta tanda de Gimnasia y Esgrima La Plata — 6 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Lucas Janson | Derecho | https://www.sofascore.com/es/football/player/lucas-janson/249843 |
+| Jeremías Merlo | Derecho | https://www.sofascore.com/football/player/jeremias-merlo/1893228 |
+| Manuel Panaro | Derecho | https://www.sofascore.com/football/player/manuel-panaro/1084972 |
+| Franco Torres | Derecho | https://www.sofascore.com/es/football/player/franco-torres/1384820 |
+| Marcelo Torres | Derecho | https://www.sofascore.com/football/player/marcelo-torres/881165 |
+| Maximiliano Zalazar | Derecho | https://www.sofascore.com/es/football/player/maximiliano-zalazar/1067653 |
+
+**Progreso de Gimnasia:** 25/36 jugadores con pie registrado. Los casos restantes siguen en revisión.
