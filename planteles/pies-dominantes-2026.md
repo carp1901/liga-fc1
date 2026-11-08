@@ -753,3 +753,15 @@ Fecha de revisión: 08/11/2026.
 | Yoshan Valois | Derecho | https://www.sofascore.com/football/player/yoshan-valois/1847518 |
 
 **Progreso de Lanús:** 29/34 jugadores con pie dominante registrado. Se identificaron además perfiles de reserva para Jeremías Chavero y Thiago Balbuena; no se asignó nada a partir de la posición.
+
+
+## Quinta tanda de Lanús — 3 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Evaristo Dieguiz | Derecho | https://clublanus.com/jugadores/evaristo-dieguiz/ |
+| Ronaldo Dejesús | Derecho | https://www.sofascore.com/es/football/player/ronaldo-de-jesus/1095279 |
+| Allan Wlk | Derecho | https://www.sofascore.com/football/player/wlk-allan/1067464 |
+
+**Progreso de Lanús:** 32/34 jugadores con pie dominante registrado. Quedan pendientes Martín Díaz y Mateo Ramírez: las fichas consultadas no publican el pie preferido.
