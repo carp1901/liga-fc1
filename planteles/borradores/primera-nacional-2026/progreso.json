@@ -560,10 +560,10 @@
     156
   ],
   "porcentaje_roles_especificos": 100,
-  "ultima_revision": "2026-11-07: revisión cualitativa de medias con cinco nuevas correcciones respaldadas por estadísticas 2026; promedio actualizado 58.45.",
+  "ultima_revision": "2026-11-07: nueva corrección de rol y media para Francisco Monticelli; promedio actualizado 58.45.",
   "auditoria_en_curso": {
     "fecha": "2026-11-07",
-    "etapa": "Auditoría cualitativa de medias en curso; correcciones contrastadas por estadísticas 2026",
+    "etapa": "Auditoría cualitativa de medias y roles en curso; estadísticas 2026 contrastadas",
     "validacion_estructural": {
       "clubes": 36,
       "jugadores": 1006,
@@ -632,7 +632,7 @@
           "promedio": 60
         }
       ],
-      "observacion": "Nueva ronda de revisión de medias: se corrigieron Dylan Argüello, Román Zalazar, Alan Cisnero, Luca Arfaras y Leonel Pollacchi con estadísticas de temporada. Se priorizaron minutos y titularidades, no el número bruto de presencias. Casos de rotación o datos contradictorios permanecen sin aumento. El promedio general actualizado es 58.45. No se aplica aún el ajuste general de +10.",
+      "observacion": "Se añadieron seis correcciones de medias respaldadas por estadísticas 2026 en esta ronda ampliada (incluido Francisco Monticelli); además se corrigió su rol de EI a MI. Se priorizaron minutos, titularidades y producción. Se mantienen sin aumento casos de rotación o estadísticas contradictorias (por ejemplo, Juan Fernandes Pinto, Santiago Gauna, Tomás Kummer y Francisco Tcherkaski). El promedio general actualizado es 58.45. No se aplica aún el ajuste general de +10.",
       "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
       "campos_atributos_individuales_vacios": {
         "pas": 1006,
@@ -737,6 +737,13 @@
           "media_anterior": 56,
           "media_nueva": 59,
           "base": "33 partidos; 31 titularidades; 2688 minutos"
+        },
+        {
+          "jugador": "Francisco Monticelli",
+          "club_id": "racingcba",
+          "media_anterior": 56,
+          "media_nueva": 58,
+          "base": "25 partidos; 10 titularidades; 1079 minutos; 4 asistencias"
         }
       ],
       "correcciones_de_roles": [
@@ -774,12 +781,19 @@
           "anterior": "MO",
           "nuevo": "EI",
           "base": "Extremo izquierdo según ficha 2026"
+        },
+        {
+          "jugador": "Francisco Monticelli",
+          "club_id": "racingcba",
+          "anterior": "EI",
+          "nuevo": "MI",
+          "base": "Interior izquierdo según ficha FotMob 2026"
         }
       ],
       "proximos_pasos": [
-        "Continuar contraste de medias bajas con titularidades, minutos y producción; no subir automáticamente a suplentes de alta presencia",
-        "Verificar dorsales oficiales y pertenencia/vigencia de planteles",
-        "Auditar atributos técnicos individuales y coherencia entre rol, media y atributos"
+        "Continuar validación cualitativa de jugadores con medias bajas, revisando titularidades, minutos y producción",
+        "Revisar vigencia de planteles y movimientos de mercado de 2026; resolver posibles bajas/altas",
+        "Contrastar dorsales oficiales y completar auditoría de atributos técnicos individuales"
       ]
     }
   }
