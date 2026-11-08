@@ -656,3 +656,10 @@ Se revisaron seis casos con participación y datos de temporada suficientemente 
 - **Ezequiel Aguirre (Defensores de Belgrano): 73 → 74.** 33 partidos, 33 titularidades, 2.611 minutos, 3 goles y 6 asistencias. Se aplica +1 moderado. Fuente: https://www.fotmob.com/es-419/players/816733/ezequiel-aguirre
 - En ambas fichas se actualizaron `rating`, `rating_base` y los siete atributos de campo en +1; `ajuste_rating = 10` y `ref = 15` permanecen.
 - Validación global: 1.026 jugadores; promedio 68,4337 (68,43); sin duplicados intraclub ni errores estructurales, de escala o de atributos. Borradores fuera del runtime.
+
+
+### Quinta tanda de calibración individual — 08/11/2026
+
+- **Martín Pino (Godoy Cruz): 75 → 77.** 32 partidos, 32 titularidades, 2.742 minutos, 19 goles y 7 asistencias en Primera Nacional 2026. Se aplica +2 por rendimiento de figura, sin extender el ajuste al resto del plantel. Fuente: https://www.fotmob.com/es/players/1085220/martin-pino
+- Se actualizaron `rating`, `rating_base` y los siete atributos de campo en +2; `ajuste_rating = 10` y `ref = 15` permanecen.
+- Validación global: 1.026 jugadores; promedio 68,4357 (68,44); bloques 155/171/182/194/164/160; cero errores estructurales, de escala o atributos. Los CSV continúan fuera del runtime.
