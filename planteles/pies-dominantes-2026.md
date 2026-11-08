@@ -135,3 +135,21 @@ Fecha de revisión: 08/11/2026.
 | Marco Pellegrino | Izquierdo | https://www.sofascore.com/es/football/player/pellegrino-marco/1095023 |
 
 **Progreso de la tanda de 10 clubes:** Boca 10/31 jugadores cargados. El resto del plantel queda pendiente de verificación individual.
+
+
+## Segunda tanda de Boca Juniors — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Facundo Herrera | Derecho | https://www.sofascore.com/es/football/player/facundo-herrera/2050768 |
+| Ayrton Costa | Izquierdo | https://www.sofascore.com/es/football/player/ayrton-costa/976485 |
+| Rodrigo Battaglia | Derecho | https://www.sofascore.com/es/football/player/rodrigo-battaglia/158257 |
+| Leandro Paredes | Derecho | https://www.sofascore.com/es/football/player/leandro-paredes/255389 |
+| Carlos Palacios | Derecho | https://www.sofascore.com/es/football/player/carlos-palacios/905487 |
+| Tomás Belmonte | Derecho | https://www.sofascore.com/es/football/player/tomas-belmonte/881169 |
+| Tomás Aranda | Derecho | https://www.sofascore.com/es/football/player/tomas-aranda/2050771 |
+| Williams Alarcón | Derecho | https://www.sofascore.com/es/football/player/williams-alarcon/936534 |
+| Milton Delgado | Derecho | https://www.sofascore.com/es/football/player/delgado-milton/1819597 |
+
+**Progreso de Boca:** 19/31 jugadores con pie registrado. Matías Satas y los demás nombres pendientes quedan sin asignación hasta hallar ficha individual fiable.
