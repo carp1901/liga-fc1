@@ -177,3 +177,9 @@ Se resolvieron dos identidades sin duplicar: Cristian Salto pasó a Claudio Gabr
 - **Mitre:** Batule y Céliz continúan pendientes; juveniles 2008 sin participación confirmada en Primera Nacional.
 - Total: 1.026 jugadores; 24 altas acumuladas; 38 identidades corregidas; cuatro bajas/duplicados retirados (tres bajas confirmadas y un duplicado interclub).
 - Sin integración al runtime.
+
+
+### Decimotercera tanda — 08/11/2026
+- Se eliminaron tres duplicados interclub: Mateo Acosta (queda en Estudiantes BA, sale de Ferro), Pío Bonacci (queda en Quilmes, sale de Madryn) y Abel Bustos (queda en Racing Córdoba, sale de Madryn).
+- Total: 1.023 jugadores; 24 altas acumuladas; 38 identidades corregidas; siete bajas/duplicados retirados (tres bajas confirmadas y cuatro duplicados interclub).
+- Sin integración al runtime.
