@@ -739,21 +739,30 @@ setInterval(()=>{if(AUTH&&!document.hidden)amgLoad()},60000);amgSync();
 // ===== Chat general: historial público persistente + flujo en vivo. Los permisos nunca se muestran en los mensajes. =====
 let CHAT_STREAM=null,CHAT_IDS=new Set(),CHAT_PERMS={owner:false,moderador:false};
 function chatAppend(m){
- if(!m||m.id==null||CHAT_IDS.has(String(m.id)))return;const o=$('#chatmsgs');if(!CHAT_IDS.size&&!o.querySelector('.chmsg'))o.innerHTML='';CHAT_IDS.add(String(m.id));
- const d=document.createElement('div');d.className='chmsg';d.dataset.cid=m.id;
+ if(!m||m.id==null)return;const o=$('#chatmsgs'),key=String(m.id);let d=o.querySelector('.chmsg[data-cid="'+key+'"]');
+ if(!d){if(!CHAT_IDS.size&&!o.querySelector('.chmsg'))o.innerHTML='';CHAT_IDS.add(key);d=document.createElement('div');d.className='chmsg';d.dataset.cid=m.id;o.appendChild(d)}
  const time=m.creado?new Date(m.creado).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'}):'';
- d.innerHTML='<div style="display:flex;align-items:center;gap:7px">'+(m.club_favorito&&TM[m.club_favorito]?cr(m.club_favorito,24):'')+'<b>'+esc(m.usuario||'Técnico')+'</b><small class=mu>'+time+'</small></div><div style="padding:3px 0 8px;white-space:pre-wrap;overflow-wrap:anywhere">'+esc(m.mensaje||'')+'</div><hr style="border:0;border-top:1px solid #ffffff20;margin:2px 0 7px">';
- o.appendChild(d);o.scrollTop=o.scrollHeight;
+ const likes=Number(m.likes)||0,dislikes=Number(m.dislikes)||0,my=Number(m.mi_voto)||0,mine=!!m.mio;
+ const up=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="1" style="border:0;background:transparent;color:#35c76b;font-size:17px;padding:2px 5px;cursor:pointer" class="'+(my===1?'on':'')+'">👍</button>':'<span style="color:#35c76b">👍</span>';
+ const dn=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="-1" style="border:0;background:transparent;color:#ef5555;font-size:17px;padding:2px 5px;cursor:pointer" class="'+(my===-1?'on':'')+'">👎</button>':'<span style="color:#ef5555">👎</span>';
+ d.innerHTML='<div style="display:flex;align-items:center;gap:7px">'+(m.club_favorito&&TM[m.club_favorito]?cr(m.club_favorito,24):'')+'<b>'+esc(m.usuario||'Técnico')+'</b><small class=mu>'+time+'</small></div><div style="padding:3px 0 5px;white-space:pre-wrap;overflow-wrap:anywhere">'+esc(m.mensaje||'')+'</div><div style="display:flex;gap:16px;align-items:center;margin:0 0 7px"><span>'+up+' <small data-chat-likes>'+likes+'</small></span><span>'+dn+' <small data-chat-dislikes>'+dislikes+'</small></span></div><hr style="border:0;border-top:1px solid #ffffff20;margin:2px 0 7px">';
+ o.scrollTop=o.scrollHeight;
+}
+function chatReactionUpdate(id,r){
+ const d=$('#chatmsgs').querySelector('.chmsg[data-cid="'+id+'"]');if(!d)return;
+ const a=d.querySelector('[data-chat-likes]'),b=d.querySelector('[data-chat-dislikes]');
+ if(a)a.textContent=Number(r.likes)||0;if(b)b.textContent=Number(r.dislikes)||0;
+ if(r.mi_voto!=null)d.querySelectorAll('[data-chat-vote]').forEach(x=>x.classList.toggle('on',Number(x.dataset.v)===Number(r.mi_voto)));
 }
 async function chatLoad(){
  $('#chaterr').textContent='';$('#chatmsgs').innerHTML='<span class=mu>Cargando mensajes…</span>';
- try{const r=await fetch('/api/chat?limit=100'),d=await r.json();if(!r.ok||d.enabled===false){$('#chatmsgs').textContent='El chat no está disponible en este momento.';return}
+ try{const r=await fetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();if(!r.ok||d.enabled===false){$('#chatmsgs').textContent='El chat no está disponible en este momento.';return}
   $('#chatmsgs').innerHTML='';CHAT_IDS.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>';
  }catch(e){$('#chatmsgs').textContent='No se pudo conectar con el chat.'}
  $('#chatwrite').hidden=!AUTH;$('#chatguest').hidden=!!AUTH;
  if(AUTH){try{const r=await fetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadmin').hidden=!CHAT_PERMS.moderador;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadmin').hidden=true}}
  else{$('#chatadmin').hidden=true;CHAT_PERMS={owner:false,moderador:false}}
- if(!CHAT_STREAM){CHAT_STREAM=new EventSource('/api/chat/stream');CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
+ if(!CHAT_STREAM){CHAT_STREAM=new EventSource('/api/chat/stream');CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.addEventListener('reaccion',e=>{try{const q=JSON.parse(e.data);chatReactionUpdate(q.id,q)}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
 }
 $('#bchat').onclick=()=>{goM('m29');chatLoad()};
 $('#chatlogin').onclick=()=>{goM('m19');$('#aer').textContent='Iniciá sesión o creá una cuenta para escribir en el chat.'};
@@ -765,6 +774,11 @@ async function chatSend(){
  finally{$('#chatsend').disabled=false}
 }
 $('#chatsend').onclick=chatSend;$('#chatinput').onkeydown=e=>{if(e.key=='Enter')chatSend()};
+$('#chatmsgs').addEventListener('click',async e=>{const b=e.target.closest&&e.target.closest('[data-chat-vote]');if(!b)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para reaccionar.';return}
+ const id=+b.dataset.chatVote,valor=+b.dataset.v;b.disabled=true;
+ try{const r=await fetch('/api/chat/reaccion',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id,valor})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo registrar la reacción';return}chatReactionUpdate(id,d.reaccion)}
+ catch(x){$('#chaterr').textContent='No hay conexión con el servidor.'}finally{b.disabled=false}
+});
 async function chatModAction(accion){
  const usuario=$('#chattarget').value.trim();if(!usuario){$('#chatmodmsg').textContent='Escribí el usuario que querés moderar.';return}
  $('#chatmodmsg').textContent='Procesando…';
