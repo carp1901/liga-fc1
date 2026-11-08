@@ -251,7 +251,7 @@ Se recalculó la distribución de medias sobre los 1.026 jugadores y se contrast
 
 ## Integración completada — 08/11/2026
 
-<badge>CI: success</badge>
+**CI: success**
 
 La publicación automática terminó correctamente. Resultado final: **66 clubes y 2.039 jugadores** (1.013 de Primera + 1.026 de Primera Nacional). `public/squads-meta.json` confirma cero nombres duplicados, cero dorsales duplicados y cobertura completa de edad, dorsal, nacionalidad y rol específico. Las 920 medias con fuente individual y las 1.119 estimaciones propias permanecen diferenciadas; no se presentan las estimaciones como OVR oficial. Los ocho atributos técnicos se conservan en los CSV; cuando no son manuales, el motor los deriva por perfil, puesto y media.
 
