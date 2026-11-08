@@ -738,30 +738,35 @@ document.addEventListener('click',async e=>{const b=e.target.closest&&e.target.c
 setInterval(()=>{if(AUTH&&!document.hidden)amgLoad()},60000);amgSync();
 // ===== Chat general: historial público persistente + flujo en vivo. Los permisos nunca se muestran en los mensajes. =====
 let CHAT_STREAM=null,CHAT_IDS=new Set(),CHAT_PERMS={owner:false,moderador:false};
+const CHAT_DATA=new Map();
 function chatAppend(m){
- if(!m||m.id==null)return;const o=$('#chatmsgs'),key=String(m.id);let d=o.querySelector('.chmsg[data-cid="'+key+'"]');
+ if(!m||m.id==null)return;CHAT_DATA.set(String(m.id),m);const o=$('#chatmsgs'),key=String(m.id);let d=o.querySelector('.chmsg[data-cid="'+key+'"]');
  if(!d){if(!CHAT_IDS.size&&!o.querySelector('.chmsg'))o.innerHTML='';CHAT_IDS.add(key);d=document.createElement('div');d.className='chmsg';d.dataset.cid=m.id;o.appendChild(d)}
  const time=m.creado?new Date(m.creado).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'}):'';
  const likes=Number(m.likes)||0,dislikes=Number(m.dislikes)||0,my=Number(m.mi_voto)||0,mine=!!m.mio||!!(AUTH&&m.usuario&&AUTH.usuario.toLowerCase()===String(m.usuario).toLowerCase());
- const up=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="1" style="border:0;background:'+(my===1?'#174b2c':'transparent')+';border-radius:6px;color:#35c76b;font-size:17px;padding:2px 5px;cursor:pointer" class="'+(my===1?'on':'')+'">👍</button>':'<span style="color:#35c76b">👍</span>';
- const dn=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="-1" style="border:0;background:'+(my===-1?'#5b2525':'transparent')+';border-radius:6px;color:#ef5555;font-size:17px;padding:2px 5px;cursor:pointer" class="'+(my===-1?'on':'')+'">👎</button>':'<span style="color:#ef5555">👎</span>';
- d.innerHTML='<div style="display:flex;align-items:center;gap:7px">'+(m.club_favorito&&TM[m.club_favorito]?cr(m.club_favorito,24):'')+'<b>'+esc(m.usuario||'Técnico')+'</b><small class=mu>'+time+'</small></div><div style="padding:3px 0 5px;white-space:pre-wrap;overflow-wrap:anywhere">'+esc(m.mensaje||'')+'</div><div style="display:flex;gap:16px;align-items:center;margin:0 0 7px"><span>'+up+' <small data-chat-likes>'+likes+'</small></span><span>'+dn+' <small data-chat-dislikes>'+dislikes+'</small></span></div><hr style="border:0;border-top:1px solid #ffffff20;margin:2px 0 7px">';
+ const svg=(v)=>v===1?'<svg width="19" height="19" viewBox="0 0 24 24" aria-label="Me gusta" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8a3 3 0 0 1 2 3v5h5a2 2 0 0 1 2 2l-2 8a2 2 0 0 1-2 1H7"/></svg>':'<svg width="19" height="19" viewBox="0 0 24 24" aria-label="No me gusta" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14V3H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3Zm0 0 5 8a3 3 0 0 0 2-3v-5h5a2 2 0 0 0 2-2l-2-8a2 2 0 0 0-2-1H7"/></svg>';
+ const up=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="1" title="Me gusta" style="border:0;background:'+(my===1?'#174b2c':'transparent')+';border-radius:6px;padding:3px 5px;cursor:pointer;display:inline-flex;align-items:center">'+svg(1)+'</button>':'<span style="display:inline-flex;padding:3px 5px">'+svg(1)+'</span>';
+ const dn=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="-1" title="No me gusta" style="border:0;background:'+(my===-1?'#5b2525':'transparent')+';border-radius:6px;padding:3px 5px;cursor:pointer;display:inline-flex;align-items:center">'+svg(-1)+'</button>':'<span style="display:inline-flex;padding:3px 5px">'+svg(-1)+'</span>';
+ const count=(v,n)=>CHAT_PERMS.moderador?'<button data-chat-who="'+v+'" data-id="'+m.id+'" style="border:0;background:transparent;color:inherit;padding:3px 4px;cursor:pointer;text-decoration:underline;text-decoration-style:dotted">'+n+'</button>':'<small>'+n+'</small>';
+ d.innerHTML='<div style="display:flex;align-items:center;gap:7px">'+(m.club_favorito&&TM[m.club_favorito]?cr(m.club_favorito,24):'')+'<b>'+esc(m.usuario||'Técnico')+'</b><small class=mu>'+time+'</small></div><div style="padding:3px 0 5px;white-space:pre-wrap;overflow-wrap:anywhere">'+esc(m.mensaje||'')+'</div><div style="display:flex;gap:12px;align-items:center;margin:0 0 7px"><span style="display:flex;align-items:center;gap:2px">'+up+count(1,likes)+'</span><span style="display:flex;align-items:center;gap:2px">'+dn+count(-1,dislikes)+'</span></div><div data-chat-who-list style="font-size:12px;margin:0 0 7px"></div><hr style="border:0;border-top:1px solid #ffffff20;margin:2px 0 7px">';
  o.scrollTop=o.scrollHeight;
 }
 function chatReactionUpdate(id,r){
  const d=$('#chatmsgs').querySelector('.chmsg[data-cid="'+id+'"]');if(!d)return;
  const a=d.querySelector('[data-chat-likes]'),b=d.querySelector('[data-chat-dislikes]');
  if(a)a.textContent=Number(r.likes)||0;if(b)b.textContent=Number(r.dislikes)||0;
- if(r.mi_voto!=null)d.querySelectorAll('[data-chat-vote]').forEach(x=>x.classList.toggle('on',Number(x.dataset.v)===Number(r.mi_voto)));
+ if(r.mi_voto!=null)d.querySelectorAll('[data-chat-vote]').forEach(x=>x.style.background=Number(x.dataset.v)===Number(r.mi_voto)?(Number(r.mi_voto)===1?'#174b2c':'#5b2525'):'transparent');
+ const data=CHAT_DATA.get(String(id));if(data){data.likes=r.likes;data.dislikes=r.dislikes;data.mi_voto=r.mi_voto}
 }
 async function chatLoad(){
  $('#chaterr').textContent='';$('#chatmsgs').innerHTML='<span class=mu>Cargando mensajes…</span>';
  try{const r=await fetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();if(!r.ok||d.enabled===false){$('#chatmsgs').textContent='El chat no está disponible en este momento.';return}
-  $('#chatmsgs').innerHTML='';CHAT_IDS.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>';
+  $('#chatmsgs').innerHTML='';CHAT_IDS.clear();CHAT_DATA.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>';
  }catch(e){$('#chatmsgs').textContent='No se pudo conectar con el chat.'}
  $('#chatwrite').hidden=!AUTH;$('#chatguest').hidden=!!AUTH;
  if(AUTH){try{const r=await fetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadmin').hidden=!CHAT_PERMS.moderador;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadmin').hidden=true}}
  else{$('#chatadmin').hidden=true;CHAT_PERMS={owner:false,moderador:false}}
+ if(CHAT_PERMS.moderador)Array.from(CHAT_DATA.values()).forEach(chatAppend);
  if(!CHAT_STREAM){CHAT_STREAM=new EventSource('/api/chat/stream');CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.addEventListener('reaccion',e=>{try{const q=JSON.parse(e.data);chatReactionUpdate(q.id,q)}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
 }
 $('#bchat').onclick=()=>{goM('m29');chatLoad()};
@@ -774,7 +779,8 @@ async function chatSend(){
  finally{$('#chatsend').disabled=false}
 }
 $('#chatsend').onclick=chatSend;$('#chatinput').onkeydown=e=>{if(e.key=='Enter')chatSend()};
-$('#chatmsgs').addEventListener('click',async e=>{const b=e.target.closest&&e.target.closest('[data-chat-vote]');if(!b)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para reaccionar.';return}
+$('#chatmsgs').addEventListener('click',async e=>{const who=e.target.closest&&e.target.closest('[data-chat-who]');if(who){if(!CHAT_PERMS.moderador)return;const holder=who.closest('.chmsg').querySelector('[data-chat-who-list]'),id=who.dataset.id,valor=who.dataset.chatWho;holder.textContent='Cargando…';try{const r=await fetch('/api/chat/reaccionarios?id='+encodeURIComponent(id)+'&valor='+encodeURIComponent(valor),{headers:authH()}),d=await r.json();holder.textContent=r.ok?(d.usuarios.length?((valor==='1'?'👍 ':'👎 ')+d.usuarios.join(' · ')):'Todavía nadie reaccionó.'):(d.error||'No se pudo consultar')}catch(x){holder.textContent='No hay conexión con el servidor.'}return}
+ const b=e.target.closest&&e.target.closest('[data-chat-vote]');if(!b)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para reaccionar.';return}
  const id=+b.dataset.chatVote,valor=+b.dataset.v;b.disabled=true;
  try{const r=await fetch('/api/chat/reaccion',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id,valor})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo registrar la reacción';return}chatReactionUpdate(id,d.reaccion)}
  catch(x){$('#chaterr').textContent='No hay conexión con el servidor.'}finally{b.disabled=false}
