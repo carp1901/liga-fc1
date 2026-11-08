@@ -622,3 +622,21 @@ Fecha de revisión: 08/11/2026.
 | Valentín Jesús Cerrudo | Derecho | https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/valentin-jesus-cerrudo/87957 |
 
 **Resultado de Unión:** 33/33 jugadores del CSV con pie dominante registrado.
+
+
+## Primera tanda de Newell's Old Boys — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Gabriel Arias | Derecho | https://www.sofascore.com/es/football/player/gabriel-arias/581782 |
+| Josué Reinatti | Derecho | https://www.sofascore.com/es/football/player/josue-reinatti/1485097 |
+| Ian Glavinovich | Derecho | https://www.sofascore.com/football/player/ian-glavinovich/1384966 |
+| Martín Luciano | Izquierdo | https://www.sofascore.com/football/player/martin-luciano/1114869 |
+| Alejo Montero | Derecho | https://www.sofascore.com/es/football/player/alejo-montero/922442 |
+| Martín Ortega | Derecho | https://www.sofascore.com/es/football/player/martin-ortega/1020498 |
+| Lautaro Giannetti | Derecho | https://www.sofascore.com/football/player/lautaro-giannetti/233856 |
+| Óscar Salomón | Derecho | https://www.sofascore.com/es/football/player/oscar-salomon/992226 |
+| Nicolás Goitea | Derecho | https://www.sofascore.com/football/player/goitea-nicolas/1092353 |
+
+**Progreso de Newell's:** 9/31 jugadores con pie registrado. Francisco Sciarini queda pendiente de una ficha individual verificable.
