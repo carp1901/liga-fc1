@@ -7,6 +7,7 @@ on:
       - 'test-balance.js'
       - 'test-promotion-balance.js'
       - 'test-national-career-balance.js'
+      - '.github/workflows/balance.yml'
       - 'public/engine.js'
       - 'public/data.js'
       - 'public/squads.js'
