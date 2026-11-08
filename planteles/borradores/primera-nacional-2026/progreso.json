@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría general en curso: cuatro tandas de calibración individual completadas (11 medias ajustadas); 1.026 jugadores validados. Borradores sin integración al runtime.",
+  "estado": "Auditoría general en curso: cinco tandas de calibración individual completadas (12 medias ajustadas); 1.026 jugadores validados. Borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -1780,7 +1780,7 @@
     "columnas_por_fila": 33,
     "nombres_duplicados_intraclub": 0,
     "errores_rating": 0,
-    "promedio_rating": 68.43,
+    "promedio_rating": 68.44,
     "minimo_rating": 56,
     "maximo_rating": 78,
     "runtime_modificado": false,
@@ -1790,7 +1790,7 @@
   "auditoria_general": {
     "fecha": "2026-11-08",
     "jugadores": 1026,
-    "promedio_rating": 68.43,
+    "promedio_rating": 68.44,
     "mediana_rating": 69,
     "minimo_rating": 56,
     "maximo_rating": 78,
@@ -1853,6 +1853,15 @@
         "Ezequiel Aguirre": "73→74"
       },
       "promedio_actual": 68.43,
+      "runtime_modificado": false
+    },
+    "calibracion_quinta_tanda": {
+      "fecha": "2026-11-08",
+      "ratings_ajustados": 1,
+      "ratings": {
+        "Martín Pino": "75→77"
+      },
+      "promedio_actual": 68.44,
       "runtime_modificado": false
     }
   }
