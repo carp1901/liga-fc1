@@ -666,7 +666,7 @@ async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Ca
    const rest=d.rows.slice(3);
    const table=rest.length?`<div class="rkfullhead">Clasificación completa <small>Del 4.º puesto en adelante · tocá un club para abrir su palmarés</small></div><div class="rkfullwrap"><table><thead><tr><th>#</th><th>Club</th><th>Títulos</th><th>Último</th></tr></thead><tbody>${rest.map(x=>`<tr data-club="${x.club}" style="cursor:pointer"><td>${x.pos}${x.empate?'<span class=tie>=</span>':''}</td><td>${TM[x.club]?cr(x.club,22)+' ':''}${esc(x.nombre)}</td><td class=pt>${x.titulos}</td><td class=mu>${fdate(x.ultimo)}</td></tr>`).join('')}</tbody></table></div>`:'<div class="rkfullhead">Todavía no hay más clubes en esta clasificación.</div>';
    o.innerHTML=`<div class="rkcount"><strong>${d.total}</strong><span>títulos registrados en este filtro</span></div>${podium}${table}<div class=nt>Tocá un club del podio o de la tabla para ver su ficha completa.</div>${d.rows.some(x=>x.empate)?'<div class=nt>= indica clubes empatados: comparten posición y se ordenan alfabéticamente.</div>':''}${note}`;
-  }else{o.innerHTML=`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}
+  }else{o.innerHTML=`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}}
  catch(e){if(n==RKN)o.innerHTML='<span class=mu>No se pudo cargar el ranking (sin conexión con el servidor).</span>'}}
 $('#brk').onclick=()=>{goM('m10');rkSetup('gen')};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;
 /* ===== Ficha de club y comparador (Bloque 6): todo sale de /api/club, que usa el mismo registro que los rankings. ===== */
@@ -700,7 +700,7 @@ ${row('Títulos online',A.totales.online,B.totales.online)}${row('· clásico',A
 ${row('Posición online',posTxt(A.posiciones.online),posTxt(B.posiciones.online),0)}${row('Posición offline',posTxt(A.posiciones.offline),posTxt(B.posiciones.offline),0)}</table>
 <h3>Por competición</h3>${cr2.length?`<table class=cmp>${cr2.map(r=>row(r.l,r.x,r.y)).join('')}</table>`:'<span class=mu>Ninguno de los dos ganó títulos todavía.</span>'}${A.totales.offline||B.totales.offline?'<div class=nt>⚠️ Los títulos offline los informa cada dispositivo y no se pueden verificar.</div>':''}`}
  catch(e){if(n==CPN)rkErr(o,e)}}
-$('#rkb').onclick=e=>{const r=e.target.closest('[data-club]');if(r)openClub(r.dataset.club)};$('#rkcmp').onclick=()=>openCmp();$('#fcg').onclick=()=>openCmp(CLUB,$('#fcc').value);$('#cpa').onchange=cmpLoad;$('#cpb').onchange=cmpLoad;
+$('#rkb').onclick=e=>{const r=e.target.closest('[data-club]');if(r)openClub(r.dataset.club)};$('#rkb').onkeydown=e=>{const r=e.target.closest('.rkpodcard[data-club]');if(r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openClub(r.dataset.club)}};$('#rkcmp').onclick=()=>openCmp();$('#fcg').onclick=()=>openCmp(CLUB,$('#fcc').value);$('#cpa').onchange=cmpLoad;$('#cpb').onchange=cmpLoad;
 /* ===== Tarjeta para compartir (Bloque 7): se arma SOLO con lo que devuelve /api/titulo (registro validado del servidor). Si algo falla, el juego sigue igual. ===== */
 var CARD_F='"Lilita One","Arial Black",Impact,sans-serif';
 var CARD_MOD={clasico:'Online · Clásico',barrial:'Online · Barrial',offline:'Offline'};
