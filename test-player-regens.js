@@ -15,4 +15,14 @@ assert(regen.r>=42&&regen.r<=54,'media juvenil inicial');
 const second=next(first.rosters,2028);
 assert.equal(second.events.length,0,'no debe duplicar los retiros ya procesados');
 assert(first.rosters.club1.some(p=>p.regen),'el regen debe persistir en la temporada siguiente');
+
+const homonyms=init(cats,()=>[
+ {p:'DEF',n:'A. González',r:65,age:37,uid:'same-a',at:{mar:68}},
+ {p:'MED',n:'A. González',r:66,age:37,uid:'same-b',at:{pas:69}}
+]);
+const homonymNext=next(homonyms,2027);
+assert.equal(homonymNext.events.length,2,'los homónimos deben retirarse por separado');
+assert.notEqual(homonymNext.events[0].regen,homonymNext.events[1].regen,'cada homónimo debe recibir un regen distinto');
+assert.deepEqual(homonymNext.rosters.club1.filter(p=>p.regen).map(p=>p.p).sort(),['DEF','MED'],'cada regen debe conservar el puesto de su padre');
+
 console.log('OK: retiro, regen juvenil, posición, apellido, persistencia y sin duplicados.');
