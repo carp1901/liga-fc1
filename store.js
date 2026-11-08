@@ -288,7 +288,7 @@ async function chatModeracionNombre(actor,usuario,accion,minutos,razon){
 async function chatModeracion(actor,target,accion,minutos,razon){
  if(!configured)return{error:'El chat no está disponible en este servidor'};
  actor=Math.floor(+actor);target=Math.floor(+target);if(!(actor>0&&target>0)||actor==target)return{error:'Participante inválido'};
- await ensure();razon=String(razon||'').replace(/[<>\\u0000-\\u001f]/g,'').slice(0,160);
+ await ensure();razon=String(razon||'').replace(/[<>\u0000-\u001f]/g,'').slice(0,160);
  if(accion=='silenciar'){
   const mins=Math.max(1,Math.min(10080,Math.floor(+minutos||10))),hasta=new Date(Date.now()+mins*60000).toISOString();
   await pool.query(`INSERT INTO chat_sanciones(usuario_id,tipo,hasta,razon,por_id) VALUES($1,'mute',$2,$3,$4) ON CONFLICT(usuario_id) DO UPDATE SET tipo='mute',hasta=EXCLUDED.hasta,razon=EXCLUDED.razon,por_id=EXCLUDED.por_id,creada=now()`,[target,hasta,razon,actor]);return{ok:1,hasta};
