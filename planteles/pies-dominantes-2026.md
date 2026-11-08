@@ -200,3 +200,22 @@ Fecha de revisión: 08/11/2026.
 | Gonzalo Montiel | Derecho | https://www.sofascore.com/es/football/player/gonzalo-montiel/822933 |
 
 **Progreso de River:** 8/27 jugadores con pie registrado. Jeremías Martinet queda pendiente de fuente individual; no se le asigna por deducción.
+
+
+## Segunda tanda de River Plate — 10 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Nicolás Otamendi | Derecho | https://www.sofascore.com/es/football/player/nicolas-otamendi/74915 |
+| Facundo González | Izquierdo | https://www.sofascore.com/es/football/player/facundo-gonzalez/2276330 |
+| Juan Portillo | Derecho | https://www.sofascore.com/es/football/player/juan-portillo/1087037 |
+| Aníbal Moreno | Derecho | https://www.sofascore.com/es/football/player/anibal-moreno/977677 |
+| Mauro Arambarri | Derecho | https://www.sofascore.com/es/football/player/mauro-arambarri/385888 |
+| Fausto Vera | Derecho | https://www.sofascore.com/es/football/player/fausto-vera/930690 |
+| Thiago Almada | Derecho | https://www.sofascore.com/es/football/player/thiago-almada/944660 |
+| Juan Cruz Meza | Derecho | https://www.sofascore.com/es/football/player/juan-cruz-meza/2082116 |
+| Tomás Galván | Derecho | https://www.sofascore.com/es/football/player/tomas-galvan/1065613 |
+| Lucas Silva | Derecho | https://www.sofascore.com/es/football/player/lucas-silva/2551065 |
+
+**Progreso de River:** 18/27 jugadores con pie registrado.
