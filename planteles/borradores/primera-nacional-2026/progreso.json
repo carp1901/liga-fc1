@@ -563,7 +563,7 @@
   "ultima_revision": "2026-11-07: 1006/1006 roles específicos cargados; 44 asignaciones orientativas marcadas para auditoría.",
   "auditoria_en_curso": {
     "fecha": "2026-11-07",
-    "etapa": "Bloque 1: consistencia estructural, dorsales y medias",
+    "etapa": "Bloque 1: estructura y dorsales revisados; análisis general de medias realizado, revisión cualitativa pendiente",
     "validacion_estructural": {
       "clubes": 36,
       "jugadores": 1006,
@@ -606,10 +606,44 @@
       "promedio_actual": 58.41
     },
     "proximos_pasos": [
-      "Contrastar dorsales oficiales por club cuando haya nóminas completas; los números restantes siguen siendo provisionales",
-      "Revisar medias por bloques con criterio de nivel competitivo, rendimiento, minutos, edad y trayectoria; sin buscar OVR EA FC inexistentes",
-      "Auditar atributos individuales y coherencia entre rol, media y atributos",
+      "Completar revisión cualitativa de medias por club y detectar desvíos individuales evidentes",
+      "Contrastar dorsales oficiales cuando existan nóminas completas; los números restantes siguen siendo provisionales",
+      "Auditar atributos individuales (los ocho campos técnicos están vacíos en los 1006 registros) y coherencia entre rol, media y atributos",
       "Revisar vigencia y pertenencia de jugadores a cada plantel"
-    ]
+    ],
+    "revision_medias": {
+      "jugadores_analizados": 1006,
+      "promedio_general": 58.41,
+      "rango": [
+        48,
+        66
+      ],
+      "promedio_por_club_rango": [
+        57,
+        62.08
+      ],
+      "clubes_con_promedio_mayor_o_igual_a_60": [
+        {
+          "club_id": "godoycruz",
+          "promedio": 62.08
+        },
+        {
+          "club_id": "defensoresbelgrano",
+          "promedio": 60
+        }
+      ],
+      "observacion": "La distribución es muy comprimida para una escala que todavía debe incorporar varias categorías inferiores. Godoy Cruz queda por encima del resto, coherente como hipótesis con su plantel recientemente descendido; no se modifican medias individuales todavía. El ajuste transversal de +10 para Primera y Primera Nacional queda reservado hasta cerrar la auditoría.",
+      "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
+      "campos_atributos_individuales_vacios": {
+        "pas": 1006,
+        "ctl": 1006,
+        "reg": 1006,
+        "rem": 1006,
+        "des": 1006,
+        "mar": 1006,
+        "ant": 1006,
+        "ref": 1006
+      }
+    }
   }
 }
