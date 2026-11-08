@@ -304,3 +304,19 @@ Fecha de revisión: 08/11/2026.
 | Josías Palais | Derecho | https://www.sofascore.com/es/football/player/josias-palais/2338435 |
 
 **Progreso de Independiente:** 31/36 jugadores con pie registrado. Quedan pendientes Juan Centurión, Juan Arrayago, Matheo Benítez Machuca, Maximiliano Gutiérrez y Ezequiel Ávila.
+
+
+## Quinta tanda de Independiente — 3 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Matheo Benítez Machuca | Derecho | https://www.sofascore.com/football/player/matheo-machuca/2547533 |
+| Juan Arrayago | Izquierdo | https://fafifa.com/es/jugador/juan-miguel-arrayago |
+| Maximiliano Gutiérrez | Derecho | https://es.besoccer.com/jugador/maximiliano-gutierrez-904961 |
+
+**Progreso de Independiente:** 34/36 jugadores con pie registrado.
+
+### Pendientes que requieren resolver fuentes
+- **Juan Centurión:** el perfil de FM Blog no identifica de forma clara el pie preferido (muestra una cadena ambigua de ambos pies); no se carga.
+- **Ezequiel Ávila (Chimy):** Opta y FotMob lo muestran zurdo, mientras que EA FC y TransferBOL lo muestran diestro. Se deja vacío hasta resolver el conflicto.
