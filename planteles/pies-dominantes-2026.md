@@ -394,3 +394,15 @@ Fecha de revisión: 08/11/2026.
 | Joaquín Correa | Derecho | https://www.sofascore.com/es/football/player/joaquin-correa/249929 |
 
 **Progreso de Estudiantes:** 33/38 jugadores con pie dominante registrado (incluye a Marcos Rojo).
+
+
+## Quinta tanda de Estudiantes de La Plata — 3 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Máximo Desábato | Derecho | https://www.ceroacero.es/jugador/maximo-desabato/2446489 |
+| José Ramiro Funes Mori | Izquierdo | https://www.sofascore.com/es/football/player/ramiro-funes-mori/252313 |
+| Matías Magdaleno | Derecho | https://www.sofascore.com/es/football/player/matias-magdaleno/1836763 |
+
+**Progreso de Estudiantes:** 36/38 jugadores con pie dominante registrado (incluye a Marcos Rojo). Quedan sin asignar Leandro Alcaraz y un caso del plantel que requiere fuente individual adicional; no se completa por inferencia.
