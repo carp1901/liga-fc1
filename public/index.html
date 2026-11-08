@@ -742,9 +742,9 @@ function chatAppend(m){
  if(!m||m.id==null)return;const o=$('#chatmsgs'),key=String(m.id);let d=o.querySelector('.chmsg[data-cid="'+key+'"]');
  if(!d){if(!CHAT_IDS.size&&!o.querySelector('.chmsg'))o.innerHTML='';CHAT_IDS.add(key);d=document.createElement('div');d.className='chmsg';d.dataset.cid=m.id;o.appendChild(d)}
  const time=m.creado?new Date(m.creado).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'}):'';
- const likes=Number(m.likes)||0,dislikes=Number(m.dislikes)||0,my=Number(m.mi_voto)||0,mine=!!m.mio;
- const up=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="1" style="border:0;background:transparent;color:#35c76b;font-size:17px;padding:2px 5px;cursor:pointer" class="'+(my===1?'on':'')+'">👍</button>':'<span style="color:#35c76b">👍</span>';
- const dn=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="-1" style="border:0;background:transparent;color:#ef5555;font-size:17px;padding:2px 5px;cursor:pointer" class="'+(my===-1?'on':'')+'">👎</button>':'<span style="color:#ef5555">👎</span>';
+ const likes=Number(m.likes)||0,dislikes=Number(m.dislikes)||0,my=Number(m.mi_voto)||0,mine=!!m.mio||!!(AUTH&&m.usuario&&AUTH.usuario.toLowerCase()===String(m.usuario).toLowerCase());
+ const up=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="1" style="border:0;background:'+(my===1?'#174b2c':'transparent')+';border-radius:6px;color:#35c76b;font-size:17px;padding:2px 5px;cursor:pointer" class="'+(my===1?'on':'')+'">👍</button>':'<span style="color:#35c76b">👍</span>';
+ const dn=AUTH&&!mine?'<button data-chat-vote="'+m.id+'" data-v="-1" style="border:0;background:'+(my===-1?'#5b2525':'transparent')+';border-radius:6px;color:#ef5555;font-size:17px;padding:2px 5px;cursor:pointer" class="'+(my===-1?'on':'')+'">👎</button>':'<span style="color:#ef5555">👎</span>';
  d.innerHTML='<div style="display:flex;align-items:center;gap:7px">'+(m.club_favorito&&TM[m.club_favorito]?cr(m.club_favorito,24):'')+'<b>'+esc(m.usuario||'Técnico')+'</b><small class=mu>'+time+'</small></div><div style="padding:3px 0 5px;white-space:pre-wrap;overflow-wrap:anywhere">'+esc(m.mensaje||'')+'</div><div style="display:flex;gap:16px;align-items:center;margin:0 0 7px"><span>'+up+' <small data-chat-likes>'+likes+'</small></span><span>'+dn+' <small data-chat-dislikes>'+dislikes+'</small></span></div><hr style="border:0;border-top:1px solid #ffffff20;margin:2px 0 7px">';
  o.scrollTop=o.scrollHeight;
 }
