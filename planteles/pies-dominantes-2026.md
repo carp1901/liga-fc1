@@ -688,3 +688,19 @@ Fecha de revisión: 08/11/2026.
 | Juan Ignacio Ramírez | Derecho | https://www.sofascore.com/es/football/player/juan-ignacio-ramirez/877630 |
 
 **Progreso de Newell's:** 29/31 jugadores con pie dominante registrado. Francisco Sciarini y Blas Benedetto quedan pendientes: sus perfiles consultados no publican el pie preferido.
+
+
+## Primera tanda de Lanús — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Nahuel Losada | Derecho | https://www.sofascore.com/football/player/nahuel-losada/384552 |
+| Franco Petroli | Izquierdo | https://www.sofascore.com/es/football/player/franco-petroli/822590 |
+| José Canale | Izquierdo | https://www.sofascore.com/football/player/jose-canale/877452 |
+| Tomás Guidara | Derecho | https://www.sofascore.com/es/football/player/tomas-guidara/871519 |
+| Carlos Izquierdoz | Derecho | https://www.sofascore.com/es/football/player/carlos-izquierdoz/174943 |
+| Tomás López | Izquierdo | https://www.sofascore.com/es/football/player/tomas-lopez/2451699 |
+| Sasha Marcich | Izquierdo | https://www.sofascore.com/es/football/player/sasha-marcich/992126 |
+
+**Progreso de Lanús:** 7/34 jugadores con pie registrado. Se dejan pendientes los casos sin ficha individual clara.
