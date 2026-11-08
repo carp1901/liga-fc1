@@ -30,7 +30,7 @@ const withUser=(req,b,cb)=>{if(!b||typeof b!='object')return cb();delete b.uid;c
 const CHAT_CLIENTS=new Set(),CHAT_BAD=['poronga','pija','verga','concha','cogida','cogido','coger','putita','putito','puta','puto','mierda'];
 function chatFilter(raw){
  let msg=String(raw||'').replace(/[\u0000-\u001f]/g,' ').trim().slice(0,300);
- const re=new RegExp('(^|[^\\\\p{L}\\\\p{N}])('+CHAT_BAD.join('|')+')(?=$|[^\\\\p{L}\\\\p{N}])','giu');
+ const re=new RegExp('(^|[^\\p{L}\\p{N}])('+CHAT_BAD.join('|')+')(?=$|[^\\p{L}\\p{N}])','giu');
  return msg.replace(re,(all,left,word)=>left+'•'.repeat(word.length));
 }
 function chatBroadcast(m){
