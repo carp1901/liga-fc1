@@ -244,3 +244,56 @@ La revisión de la nómina oficial del club y de fichas individuales permite con
 - **Iván Antúnez (también escrito Iván Antunes):** aparece en el plantel profesional publicado por el sitio oficial de Nueva Chicago y no aparece en el CSV. Se considera alta respaldada por nómina; falta validar fecha de nacimiento y ficha individual para cerrar la identidad. Fuente: https://nuevachicago.com.ar/futbol/
 
 Con estas comprobaciones, el balance de la sexta pasada queda en **10 altas respaldadas ausentes del CSV** (se suman Facundo Castro e Iván Antúnez a las ocho ya enumeradas). Fabricio Oviedo continúa como candidato no resuelto.
+
+
+## Cierre de cobertura de los 36 clubes y primera depuración — 08/11/2026
+
+Se completó la revisión de cobertura pendiente de **Estudiantes de Buenos Aires, Mitre, Gimnasia y Tiro, Deportivo Maipú y Quilmes**. Con esta pasada quedan contrastados los 36 clubes. El cierre de cobertura no significa que todos los casos de identidad, vigencia y dorsal estén resueltos: se documentan las diferencias y se inicia la limpieza sólo con salidas respaldadas.
+
+### Estudiantes de Buenos Aires
+
+- El CSV contiene 32 jugadores. La nómina 2026 de Mundo Ascenso incorpora a **Dante Nicolás Campisi**, ausente del CSV; queda como alta candidata a completar con ficha individual y confirmar con fuente institucional. También aparecen **Iván Bonus** y **J. Lucero**, pero la inicial/nombre abreviado no permite crear registros sin cotejo.
+- **Joel Lucero no debe incorporarse**: una nota del 11/06/2026 informa que rescindió contrato y dejó el club. Su aparición en una nómina agregada no prevalece sobre la rescisión documentada.
+- La nómina actual mezcla registros repetidos/abreviados (Lungarzo, Lucero, Vera y otros) y no sirve para copiar dorsales sin validación. Fuentes: https://www.mundoascenso.com.ar/plantel/1936-estudiantes-bsas ; https://www.soloascenso.com.ar/notas/all-boys/estudiantes-rescindio-el-contrato-de-otros-dos-futbolistas/229095 ; https://pelotita.com.ar/equipos/17352
+
+### Mitre de Santiago del Estero
+
+- El CSV no incluye a **Iván Antúnez/Antunes** ni a **Gustavo Fernández**, que aparecen en registros de temporada 2026; ambos quedan como altas candidatas para completar ficha. También se encuentran **Joaquín Céliz, Federico Batule y Tiago Gallo** en nóminas de primera/pretemporada, pero falta determinar su participación y completar datos antes de incorporarlos.
+- **Claudio Salto no se incorpora a Mitre**: su llegada a Mitre al inicio de 2026 está documentada, pero la auditoría previa lo identificó luego en Almagro. No duplicar ni devolverlo al club anterior.
+- El CSV contiene a **Mauro Barraza**, que no aparece en las nóminas actuales consultadas; queda pendiente, no se elimina por ausencia aislada. Las fuentes discrepan en nombres abreviados y posiciones, por lo que no se sustituyen filas automáticamente. Fuentes: https://www.soloascenso.com.ar/club/mitre-santiago-del-estero/391 ; https://pelotita.com.ar/equipos/11990 ; https://www.soloascenso.com.ar/notas/mitre-santiago/el-aurinegro-de-carlos-mayor-comenzo-la-pretemporada/223424 ; https://radio19.com.ar/mitre-esta-listo-para-la-primera-nacional-conoce-el-plantel-completo/
+
+### Gimnasia y Tiro
+
+- Se detectaron candidatos ausentes del CSV en las nóminas 2026: **Valentín Yampa, Jonás Aguirre, Ignacio Batista, Agustín Rodríguez, Joel Gordillo y Lautaro Gordillo**. Lautaro Gordillo registra 13 goles según Solo Ascenso, por lo que su ficha merece prioridad. Faltan completar datos individuales y cotejar cada alta.
+- **Santiago Nogales** presenta conflicto de posición: una nómina lo ubica como arquero y otra como delantero. No cambiar su rol hasta verificar identidad/ficha.
+- **Cristian Pantoja**, incluido en el CSV, no aparece en las dos nóminas actuales consultadas; permanece como posible salida sin confirmación formal. No se elimina. Fuentes: https://www.soloascenso.com.ar/club/gimnasia-y-tiro-salta/201 ; https://www.mundoascenso.com.ar/plantel/1928-gimnasia-y-tiro-s ; https://www.soloascenso.com.ar/notas/gimnasia-y-tiro-salta/con-novedades-gimnasia-recibe-a-atlanta-y-quiere-ganar/233648
+
+### Deportivo Maipú
+
+- Se confirman como altas ausentes del CSV **Brian Orosco** y **Agustín Gaitán**: Orosco fue presentado oficialmente en agosto y participó como titular ante Tristán Suárez el 31/10; Gaitán aparece en el registro de ese partido como Diego/Agustín Yavante Gaitán. No duplicar nombres: cotejar fecha de nacimiento y completar la ficha bajo la identidad correcta.
+- También faltan en el CSV jugadores de la nómina profesional oficial: **Agustín Leiva, Mateo Ortale, Juan Cruz Arno, Luca Landriel y Agustín Pavón**. Se completarán sus fichas antes de cargar.
+- **Víctor Barrera no debe incorporarse como disponible**: se informó su préstamo a Huracán de San Rafael durante el segundo semestre. **Marcelo Eggel** figura entre las salidas al cierre del mercado y no debe agregarse al plantel vigente.
+- El CSV actual contiene 19 jugadores; las fuentes consultadas muestran una nómina más amplia y algunas diferencias de nombres/posiciones. Fuentes: https://deportivomaipu.com/plantel/ ; https://www.365scores.com/es/football/team/deportivo-maipu-9283/squad ; https://tn.com.ar/deportes/futbol/2026/10/31/tristan-suarez-vs-deportivo-maipu-en-vivo-por-la-fecha-36-de-la-primera-nacional-hora-donde-ver-y-formaciones/ ; https://www.elsol.com.ar/deportes/llega-desde-el-tomba-deportivo-maipu-presento-a-brian-orosco-como-nuevo-refuerzo/ ; https://www.soloascenso.com.ar/club/deportivo-maipu/196
+
+### Quilmes
+
+- La nómina de Solo Ascenso de la temporada 2026 coincide con varios registros del CSV, incluido **Pío Bonacci**, que se conserva en Quilmes y no se mueve a Madryn por la mera coincidencia de nombre en otras fuentes.
+- Quedan diferencias de nombre/identidad para cotejar: **Matías Rodríguez/Mateo Rodríguez**, **Agustín Batista/Axel Batista**, **Matías Fernández/Mauro Fernández**, y **Joaquín Yangali/Juan Yangali**. No duplicar ni renombrar sin fecha de nacimiento o ficha individual.
+- Hay nombres de la nómina 2026 que no están en el CSV (por ejemplo **Juan Guillermo Aimale, Brandon Rocha, Julián Méndez, Thiago Mejías, José Barreto y Alexis Domínguez**) y otros presentes en el CSV que no aparecen en todas las listas actuales. Se revisarán con actas/partidos y comunicados antes de incorporarlos o retirarlos. Fuentes: https://www.soloascenso.com.ar/club/quilmes/298 ; https://www.mundoascenso.com.ar/plantel/160-quilmes-ac ; https://www.quilmesaclub.org.ar/plantel ; https://www.infoquilmes.com.ar/noticias/55477--el-cervecero-presenta-la-camiseta-y-el-plantel-de-futbol-profesional-2026/
+
+### Primera depuración aplicada
+
+Con respaldo documental ya asentado en la quinta pasada, se retiraron del CSV únicamente estas tres bajas confirmadas:
+
+- **Defensores de Belgrano:** Alan Pérez y Jonathan Dellarossa.
+- **Güemes:** Gastón Espósito.
+
+Se actualizaron bloque6.csv y bloque3.csv. La base pasa de **1.006 a 1.003 jugadores**. No se modificaron medias, rating_base, ajuste_rating, atributos técnicos, posiciones, dorsales ni runtime. No se incorporaron altas todavía: las candidatas requieren completar ficha individual y resolver identidades antes de agregarlas.
+
+### Estado y siguiente paso
+
+- Cobertura de auditoría: **36/36 clubes**.
+- Bajas confirmadas retiradas: **3**.
+- Altas candidatas respaldadas que requieren ficha: pendientes de completar y cotejar; no se agregan filas incompletas.
+- Identidades y dorsales: siguen abiertos los casos listados en este informe.
+- Próxima etapa: completar fichas de altas prioritarias, resolver conflictos de identidad y continuar depuración en bloques grandes. Los seis CSV siguen siendo borradores y no se integran al juego.
