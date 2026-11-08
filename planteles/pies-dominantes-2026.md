@@ -75,3 +75,23 @@ Fecha de revisión: 08/11/2026.
 | Uriel Ojeda | Derecho | https://www.sofascore.com/es/football/player/uriel-ojeda/2082105 |
 
 **Resultado acumulado:** 30 jugadores con pie dominante verificado y cargado en el CSV.
+
+
+## Quinta tanda — San Lorenzo
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Agustín Perez | Izquierdo | https://www.sanlorenzodeamerica.com.ar/futbol/san-lorenzo-apuesta-al-futuro/ |
+| Juan Cruz Rattalino | Derecho | https://es.besoccer.com/jugador/juan-rattalino-3419255 |
+| Gonzalo Alassia | Derecho | https://www.sofascore.com/es/football/player/gonzalo-alassia/1096231 |
+| Mauricio Cardillo | Derecho | https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/mauricio-cardillo/75214 |
+| Ramiro Pedroza | Izquierdo | https://www.sofascore.com/es/football/player/ramiro-pedroza/1956756 |
+| Ignacio Zaballa | Izquierdo | https://theanalyst.com/players/11010/ignacio-zaballa |
+| Gustavo Del Prete | Izquierdo | https://www.fotmob.com/es/players/848182 |
+
+**Resultado acumulado:** 37 de los 40 jugadores del CSV de San Lorenzo ya tienen el pie dominante verificado y cargado.
+
+### Pendientes de San Lorenzo
+- **Facundo Gulli:** discrepancia entre FotMob (izquierdo) y Sofascore (derecho); no se carga hasta resolverla.
+- **Alan Salas:** todavía sin una fuente individual fiable localizada.
