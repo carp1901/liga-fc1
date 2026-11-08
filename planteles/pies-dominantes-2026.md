@@ -59,3 +59,19 @@ Fecha de revisión: 08/11/2026.
 | Facundo Farías | Derecho | https://www.sofascore.com/es/football/player/facundo-farias/1003907 |
 
 **Resultado acumulado:** 23 jugadores con pie dominante verificado y cargado en el CSV.
+
+
+## Cuarta tanda — San Lorenzo
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Danilo Arboleda | Derecho | https://www.fotmob.com/es/players/857776/danilo-arboleda |
+| Nahuel Arias | Derecho | https://www.sofascore.com/es-la/football/player/nahuel-arias/1485102 |
+| Daniel Herrera | Derecho | https://www.sofascore.com/es/football/player/daniel-herrera/1835531 |
+| Franco Lorenzon | Derecho | https://www.sofascore.com/es/football/player/franco-lorenzon/1185563 |
+| Nicolás Blanco | Derecho | https://www.fotmob.com/es/players/1897208/nicolas-blanco |
+| Juan Pablo Álvarez | Derecho | https://www.fotmob.com/es-419/players/848153/juan-pablo-alvarez |
+| Uriel Ojeda | Derecho | https://www.sofascore.com/es/football/player/uriel-ojeda/2082105 |
+
+**Resultado acumulado:** 30 jugadores con pie dominante verificado y cargado en el CSV.
