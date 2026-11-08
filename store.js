@@ -262,7 +262,7 @@ async function definirFavorito(uid,club){
 async function chatHistorial(limit){
  if(!configured)return{enabled:false,mensajes:[]};await ensure();
  const n=Math.max(1,Math.min(150,Math.floor(+limit||80)));
- const r=await pool.query(`SELECT id,usuario,mensaje,creado FROM chat_mensajes WHERE eliminado=false ORDER BY id DESC LIMIT $1`,[n]);
+ const r=await pool.query(`SELECT m.id,m.usuario,m.mensaje,m.creado,p.club_favorito FROM chat_mensajes m LEFT JOIN perfiles p ON p.usuario_id=m.usuario_id WHERE m.eliminado=false ORDER BY m.id DESC LIMIT $1`,[n]);
  return{enabled:true,mensajes:r.rows.reverse()};
 }
 async function chatEnviar(uid,mensaje){
@@ -271,9 +271,9 @@ async function chatEnviar(uid,mensaje){
  await ensure();
  const sancion=await pool.query(`SELECT tipo,hasta FROM chat_sanciones WHERE usuario_id=$1 AND (tipo='suspension' OR (tipo='mute' AND (hasta IS NULL OR hasta>now())))`,[uid]);
  if(sancion.rowCount)return{error:sancion.rows[0].tipo=='suspension'?'Tu cuenta está suspendida del chat.':'Tenés silenciado el chat hasta '+new Date(sancion.rows[0].hasta).toLocaleString('es-AR')};
- const u=await pool.query(`SELECT usuario FROM usuarios WHERE id=$1`,[uid]);if(!u.rowCount)return{error:'Cuenta inexistente'};
+ const u=await pool.query(`SELECT u.usuario,p.club_favorito FROM usuarios u LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE u.id=$1`,[uid]);if(!u.rowCount)return{error:'Cuenta inexistente'};if(!u.rows[0].club_favorito)return{error:'Primero elegí tu club favorito para completar el perfil'};
  const r=await pool.query(`INSERT INTO chat_mensajes(usuario_id,usuario,mensaje) VALUES($1,$2,$3) RETURNING id,usuario,mensaje,creado`,[uid,u.rows[0].usuario,mensaje]);
- return{ok:1,mensaje:r.rows[0]};
+ return{ok:1,mensaje:{...r.rows[0],club_favorito:u.rows[0].club_favorito}};
 }
 async function chatEsModerador(uid){
  if(!configured)return false;await ensure();const r=await pool.query(`SELECT 1 FROM chat_moderadores WHERE usuario_id=$1`,[uid]);return!!r.rowCount;
