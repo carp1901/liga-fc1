@@ -72,6 +72,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
      if(pos!=null&&!(pos>=1&&pos<=rec.n))return jn(400,{error:'Posición inválida'});
      return store.addCareers([{...rec,uid:us.id,origen:'offline',pos,resultado:String(b.resultado||'').replace(/[<>&"]/g,'').slice(0,40)||null,campeon:!!b.campeon,pj:num(b.pj),g:num(b.g),e:num(b.e),p:num(b.p),gf:num(b.gf),gc:num(b.gc),pts:num(b.pts)}]).then(()=>jn(200,{ok:1}))}).catch(dbErr)});
    return jn(404,{error:'No existe'})}
+ if(u.pathname=='/api/ranking-tecnicos'&&req.method=='GET'){const periodo=u.searchParams.get('periodo')=='temporada'?'temporada':'historico';return store.rankingTecnicos(periodo).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d))},()=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Ranking no disponible'}))})}
  if(u.pathname=='/api/chat'&&req.method=='GET')return store.chatHistorial(+u.searchParams.get('limit')||80).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d))},()=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Chat no disponible'}))});
  if(u.pathname=='/api/chat/stream'&&req.method=='GET'){
   res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});res.write('retry:3000\nevent: conectado\ndata:{}\n\n');CHAT_CLIENTS.add(res);req.on('close',()=>CHAT_CLIENTS.delete(res));return;
