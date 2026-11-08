@@ -103,3 +103,12 @@ Se amplió la revisión a Chaco For Ever, Colegiales, Defensores de Belgrano, De
 
 ### Sexta pasada ampliada — 11 clubes
 Se revisaron Acassuso, Agropecuario, Ciudad de Bolívar, Colón, Godoy Cruz, Los Andes, Nueva Chicago, Patronato, San Martín de Tucumán, San Telmo y Tristán Suárez. Se respaldaron diez altas ausentes del CSV y un candidato adicional (Fabricio Oviedo) sigue pendiente de identidad; se detectaron siete conflictos de identidad/nombre que no deben producir duplicados. Milton Ríos pertenece al plantel 2026, aunque su salida para 2027 fue anunciada. No se modificaron CSV ni dorsales. Detalle y fuentes: [auditoría de vigencia](auditoria-vigencia-2026-11-08.md).
+
+
+## Actualización — cobertura completa y primera depuración (08/11/2026)
+
+- Auditoría de vigencia: **36/36 clubes revisados**. Los hallazgos y fuentes están documentados en auditoria-vigencia-2026-11-08.md.
+- Primera depuración aplicada sólo sobre salidas confirmadas: Alan Pérez y Jonathan Dellarossa (Defensores de Belgrano), Gastón Espósito (Güemes).
+- Base actual: **1.003 jugadores** en seis CSV. Se preservaron ratings, trazabilidad rating_base / ajuste_rating, atributos técnicos y dorsales.
+- Las altas respaldadas siguen pendientes de ficha individual; los conflictos de nombres y dorsales no se resuelven por coincidencia de iniciales ni se crean duplicados.
+- Los borradores continúan sin integración al runtime.
