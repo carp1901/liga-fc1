@@ -278,6 +278,13 @@ async function chatEnviar(uid,mensaje){
 async function chatEsModerador(uid){
  if(!configured)return false;await ensure();const r=await pool.query(`SELECT 1 FROM chat_moderadores WHERE usuario_id=$1`,[uid]);return!!r.rowCount;
 }
+async function chatModeracionNombre(actor,usuario,accion,minutos,razon){
+ if(!configured)return{error:'El chat no está disponible en este servidor'};
+ usuario=String(usuario||'').trim();if(!USER_RE.test(usuario))return{error:'Usuario inválido'};
+ await ensure();const u=await pool.query(`SELECT id FROM usuarios WHERE usuario_lc=$1`,[usuario.toLowerCase()]);
+ if(!u.rowCount)return{error:'No existe ese usuario'};
+ return chatModeracion(actor,u.rows[0].id,accion,minutos,razon);
+}
 async function chatModeracion(actor,target,accion,minutos,razon){
  if(!configured)return{error:'El chat no está disponible en este servidor'};
  actor=Math.floor(+actor);target=Math.floor(+target);if(!(actor>0&&target>0)||actor==target)return{error:'Participante inválido'};
@@ -332,4 +339,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={chatHistorial,chatEnviar,chatEsModerador,chatModeracion,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={chatHistorial,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
