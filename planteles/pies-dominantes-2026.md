@@ -991,3 +991,18 @@ Fecha de revisión: 08/11/2026.
 | Renzo Giampaoli | Derecho | https://www.sofascore.com/es/football/player/renzo-giampaoli/1066559 |
 
 **Progreso de Gimnasia:** 7/36 jugadores con pie registrado. Máximo Cabrera, Patricio Schroeder y Alejo Gelsomino quedan pendientes de ficha individual.
+
+
+## Segunda tanda de Gimnasia y Esgrima La Plata — 6 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Enzo Martínez | Izquierdo | https://www.sofascore.com/es/football/player/enzo-martinez/932234 |
+| Matías Melluso | Izquierdo | https://www.sofascore.com/football/player/matias-melluso/895931 |
+| Alexis Steimbach | Derecho | https://www.sofascore.com/football/player/alexis-steimbach/1394058 |
+| Pablo Aguiar | Derecho | https://www.sofascore.com/es/football/player/pablo-aguiar/2308497 |
+| Nicolás Barros Schelotto | Izquierdo | https://www.sofascore.com/es/football/player/nicolas-schelotto/1807994 |
+| Facundo Di Biasi | Derecho | https://www.sofascore.com/es/football/player/facundo-di-biasi/2017621 |
+
+**Progreso de Gimnasia:** 13/36 jugadores con pie registrado. Lucas Lamella, Jeremías Langa, Mariano Ojeda y Pedro Silva Torrejón quedan pendientes de fuente individual.
