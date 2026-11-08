@@ -676,3 +676,15 @@ Fecha de revisión: 08/11/2026.
 | Francisco Scarpeccio | Derecho | https://www.sofascore.com/es/football/player/francisco-scarpeccio/2073009 |
 
 **Progreso de Newell's:** 26/31 jugadores con pie dominante registrado. Se corrigió además el nombre exacto de Óscar Salomón en el CSV, que había quedado sin actualizar por una diferencia de acentuación.
+
+
+## Cuarta tanda de Newell's Old Boys — 3 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Marcelo Esponda | Derecho | https://www.sofascore.com/es/football/player/marcelo-esponda/1117077 |
+| Thomas Ríos | Izquierdo | https://www.fotmob.com/es-419/players/1832556/assist-thomas-rios |
+| Juan Ignacio Ramírez | Derecho | https://www.sofascore.com/es/football/player/juan-ignacio-ramirez/877630 |
+
+**Progreso de Newell's:** 29/31 jugadores con pie dominante registrado. Francisco Sciarini y Blas Benedetto quedan pendientes: sus perfiles consultados no publican el pie preferido.
