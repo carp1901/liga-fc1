@@ -350,6 +350,15 @@ async function rankingTecnicos(periodo){
  let pos=0;rows.forEach((x,i)=>{if(i==0||x.puntos!=rows[i-1].puntos)pos=i+1;x.pos=pos});
  return{enabled:true,periodo:season?'temporada':'historico',temporada:year,rows};
 }
+async function rankingHinchas(){
+ if(!configured)return{enabled:false,rows:[]};await ensure();
+ const r=await pool.query(`SELECT p.club_favorito AS club,COUNT(*)::int AS puntos
+  FROM perfiles p JOIN usuarios u ON u.id=p.usuario_id
+  WHERE p.club_favorito IS NOT NULL AND p.club_favorito<>''
+  GROUP BY p.club_favorito ORDER BY puntos DESC,p.club_favorito ASC`);
+ const rows=r.rows.map((x,i)=>({...x,pos:i+1,hinchas:x.puntos}));
+ return{enabled:true,totalCuentas:rows.reduce((n,x)=>n+x.hinchas,0),rows};
+}
 async function perfilPublico(usuario){
  if(!configured)return{enabled:false};usuario=String(usuario||'').trim();if(!USER_RE.test(usuario))return{error:'Usuario inválido'};await ensure();
  const u=await pool.query(`SELECT u.usuario,u.creado,p.club_favorito,p.descripcion FROM usuarios u LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE u.usuario_lc=$1`,[usuario.toLowerCase()]);
@@ -397,4 +406,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={perfilPublico,rankingTecnicos,puntosTecnico,chatHistorial,chatVotar,chatReaccionUsuarios,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={perfilPublico,rankingTecnicos,rankingHinchas,puntosTecnico,chatHistorial,chatVotar,chatReaccionUsuarios,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
