@@ -133,3 +133,7 @@ Se agregaron siete fichas: Brian Orosco, Diego Agustín Yavante Gaitán, Matías
 
 ### Quinta tanda de depuración — Gimnasia y Tiro — 08/11/2026
 Se incorporaron Valentín Yampa y Franco Lautaro Gordillo; se corrigieron diez identidades a partir de fechas de nacimiento y se actualizó la posición de Felipe Karabulut. Se normalizaron además filas CSV defectuosas de los bloques 4, 5 y 6; todas las filas de esos tres archivos quedaron con 33 columnas. Las medias y atributos de las nuevas fichas son estimaciones internas y sus dorsales 99 son provisionales. Detalle y fuentes en la auditoría de vigencia.
+
+
+### Sexta tanda de depuración — Almirante Brown — 08/11/2026
+Se agregaron Santiago Ariel Villalba, Gonzalo Nahuel Flores y Julián Ignacio López Pérez. Se corrigieron 15 identidades por coincidencia de fecha de nacimiento, sin duplicar jugadores. Se resolvieron candidatos de otros clubes: Dante Campisi salió de Estudiantes en julio; Iván Antunes ya está en Nueva Chicago tras su salida de Mitre; Gustavo Fernández ya está en San Miguel. Joaquín Ibáñez, Federico Batule y Joaquín Céliz siguen pendientes por conflictos o falta de ficha completa. Detalle y fuentes en la auditoría.
