@@ -77,6 +77,28 @@ CREATE TABLE IF NOT EXISTS perfiles(
  creado TIMESTAMPTZ NOT NULL DEFAULT now(),
  actualizado TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+CREATE TABLE IF NOT EXISTS chat_mensajes(
+ id BIGSERIAL PRIMARY KEY,
+ usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
+ usuario TEXT NOT NULL,
+ mensaje TEXT NOT NULL,
+ creado TIMESTAMPTZ NOT NULL DEFAULT now(),
+ eliminado BOOLEAN NOT NULL DEFAULT false
+);
+CREATE INDEX IF NOT EXISTS chat_mensajes_id_idx ON chat_mensajes(id DESC);
+CREATE TABLE IF NOT EXISTS chat_sanciones(
+ usuario_id INTEGER PRIMARY KEY REFERENCES usuarios(id) ON DELETE CASCADE,
+ tipo TEXT NOT NULL CHECK(tipo IN ('mute','suspension')),
+ hasta TIMESTAMPTZ,
+ razon TEXT NOT NULL DEFAULT '',
+ por_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
+ creada TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS chat_moderadores(
+ usuario_id INTEGER PRIMARY KEY REFERENCES usuarios(id) ON DELETE CASCADE,
+ por_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
+ creada TIMESTAMPTZ NOT NULL DEFAULT now()
+);
 `;
 const INSERT=`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado,verificacion)
  VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) ON CONFLICT (torneo_id) DO NOTHING RETURNING id`;
@@ -236,6 +258,42 @@ async function definirFavorito(uid,club){
  const ex=await pool.query(`SELECT club_favorito FROM perfiles WHERE usuario_id=$1`,[uid]);
  return{error:'El club favorito ya fue elegido y no se puede cambiar',clubFavorito:ex.rows[0]?.club_favorito||null};
 }
+// ===================== CHAT GENERAL =====================
+async function chatHistorial(limit){
+ if(!configured)return{enabled:false,mensajes:[]};await ensure();
+ const n=Math.max(1,Math.min(150,Math.floor(+limit||80)));
+ const r=await pool.query(`SELECT id,usuario,mensaje,creado FROM chat_mensajes WHERE eliminado=false ORDER BY id DESC LIMIT $1`,[n]);
+ return{enabled:true,mensajes:r.rows.reverse()};
+}
+async function chatEnviar(uid,mensaje){
+ if(!configured)return{error:'El chat no está disponible en este servidor'};
+ mensaje=String(mensaje||'').trim();if(!mensaje||mensaje.length>300)return{error:'El mensaje debe tener entre 1 y 300 caracteres'};
+ await ensure();
+ const sancion=await pool.query(`SELECT tipo,hasta FROM chat_sanciones WHERE usuario_id=$1 AND (tipo='suspension' OR (tipo='mute' AND (hasta IS NULL OR hasta>now())))`,[uid]);
+ if(sancion.rowCount)return{error:sancion.rows[0].tipo=='suspension'?'Tu cuenta está suspendida del chat.':'Tenés silenciado el chat hasta '+new Date(sancion.rows[0].hasta).toLocaleString('es-AR')};
+ const u=await pool.query(`SELECT usuario FROM usuarios WHERE id=$1`,[uid]);if(!u.rowCount)return{error:'Cuenta inexistente'};
+ const r=await pool.query(`INSERT INTO chat_mensajes(usuario_id,usuario,mensaje) VALUES($1,$2,$3) RETURNING id,usuario,mensaje,creado`,[uid,u.rows[0].usuario,mensaje]);
+ return{ok:1,mensaje:r.rows[0]};
+}
+async function chatEsModerador(uid){
+ if(!configured)return false;await ensure();const r=await pool.query(`SELECT 1 FROM chat_moderadores WHERE usuario_id=$1`,[uid]);return!!r.rowCount;
+}
+async function chatModeracion(actor,target,accion,minutos,razon){
+ if(!configured)return{error:'El chat no está disponible en este servidor'};
+ actor=Math.floor(+actor);target=Math.floor(+target);if(!(actor>0&&target>0)||actor==target)return{error:'Participante inválido'};
+ await ensure();razon=String(razon||'').replace(/[<>\\u0000-\\u001f]/g,'').slice(0,160);
+ if(accion=='silenciar'){
+  const mins=Math.max(1,Math.min(10080,Math.floor(+minutos||10))),hasta=new Date(Date.now()+mins*60000).toISOString();
+  await pool.query(`INSERT INTO chat_sanciones(usuario_id,tipo,hasta,razon,por_id) VALUES($1,'mute',$2,$3,$4) ON CONFLICT(usuario_id) DO UPDATE SET tipo='mute',hasta=EXCLUDED.hasta,razon=EXCLUDED.razon,por_id=EXCLUDED.por_id,creada=now()`,[target,hasta,razon,actor]);return{ok:1,hasta};
+ }
+ if(accion=='suspender'){
+  await pool.query(`INSERT INTO chat_sanciones(usuario_id,tipo,hasta,razon,por_id) VALUES($1,'suspension',NULL,$2,$3) ON CONFLICT(usuario_id) DO UPDATE SET tipo='suspension',hasta=NULL,razon=EXCLUDED.razon,por_id=EXCLUDED.por_id,creada=now()`,[target,razon,actor]);return{ok:1};
+ }
+ if(accion=='reactivar'){const q=await pool.query(`DELETE FROM chat_sanciones WHERE usuario_id=$1`,[target]);return q.rowCount?{ok:1}:{error:'El participante no tenía una sanción activa'}}
+ if(accion=='moderar'){await pool.query(`INSERT INTO chat_moderadores(usuario_id,por_id) VALUES($1,$2) ON CONFLICT(usuario_id) DO NOTHING`,[target,actor]);return{ok:1}}
+ if(accion=='desmoderar'){const q=await pool.query(`DELETE FROM chat_moderadores WHERE usuario_id=$1`,[target]);return q.rowCount?{ok:1}:{error:'Ese usuario no era moderador'}}
+ return{error:'Acción de moderación inválida'};
+}
 // ===================== AMIGOS =====================
 // Una fila por pareja (el índice único del par no distingue quién invitó a quién). estado: 'pendiente' (la envió de_id y la decide a_id) | 'aceptada'.
 // Rechazar o cancelar borra la fila. Solo para cuentas; los invitados no tienen amigos.
@@ -274,4 +332,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={chatHistorial,chatEnviar,chatEsModerador,chatModeracion,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
