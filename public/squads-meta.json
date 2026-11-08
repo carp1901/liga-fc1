@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-08T04:47:40.626Z",
+  "updatedAt": "2026-11-08T04:49:31.636Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "875 medias con fuente individual + 138 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "920 medias con fuente individual + 1119 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -33,7 +33,43 @@
     "banfield": 35,
     "rivadavia": 28,
     "gimnasiamza": 31,
-    "estudiantesrc": 32
+    "estudiantesrc": 32,
+    "ferro": 32,
+    "nuevachicago": 26,
+    "madryn": 22,
+    "chacarita": 25,
+    "allboys": 25,
+    "atlanta": 25,
+    "chaco": 32,
+    "moron": 29,
+    "estudiantesba": 33,
+    "gimnasiajujuy": 31,
+    "sanmartintuc": 23,
+    "almagro": 23,
+    "losandes": 32,
+    "mitre": 30,
+    "sanmartinsj": 34,
+    "temperley": 32,
+    "guemes": 32,
+    "racingcba": 22,
+    "ciudadbolivar": 34,
+    "colon": 32,
+    "tristansuarez": 33,
+    "agropecuario": 33,
+    "patronato": 34,
+    "almirantebrown": 28,
+    "gimnasiatiro": 32,
+    "quilmes": 33,
+    "maipu": 26,
+    "godoycruz": 25,
+    "santelmo": 26,
+    "centralnorte": 22,
+    "sanmiguel": 28,
+    "midland": 33,
+    "defensoresbelgrano": 25,
+    "colegiales": 23,
+    "acassuso": 25,
+    "rafaela": 26
   },
   "sources": {
     "sanlorenzo": {
@@ -1065,15 +1101,1341 @@
       "consulted": "2026-11-05",
       "minimumAppearances": 10
     },
-    "eaFc27OfficialCards": "https://www.ea.com/games/ea-sports-fc/ratings"
+    "eaFc27OfficialCards": "https://www.ea.com/games/ea-sports-fc/ratings",
+    "ferro": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/ferro-f0mi7s4wpiax72ai8thd7bfws/",
+        "https://laferropedia.com/persona/mateo-benegas/"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ferro-f0mi7s4wpiax72ai8thd7bfws/",
+        "https://www.transfermarkt.com.ar/mateo-benegas/profil/spieler/1307216"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Dorsal 12 y campaña de Ferro: https://laferropedia.com/persona/mateo-benegas/"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+        "Estimación propia; 8 partidos con Ferro en Primera Nacional, 0 goles; sus 16 partidos previos con Almagro no se trasladan"
+      ],
+      "roleSource": [
+        "https://www.soloascenso.com.ar/club.php?eq=275",
+        "https://pelotita.com.ar/equipos/9743?comp=todas&from=liga-profesional",
+        "https://pelotita.com.ar/equipos/9743",
+        "https://www.fotmob.com/es/players/1666808/matias-zubowicz",
+        "https://www.365scores.com/es/football/team/ferro-carril-oeste-7218/squad",
+        "https://www.transfermarkt.com.ar/tiago-esidin/profil/spieler/1277812",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "Estimación orientativa: delantero centro (DC), inferido desde posición general DEL; pendiente de ficha individual.",
+        "Delantero centro: https://www.transfermarkt.com.ar/mateo-benegas/profil/spieler/1307216"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ferro-f0mi7s4wpiax72ai8thd7bfws/",
+        "https://laferropedia.com/persona/mateo-benegas/"
+      ]
+    },
+    "nuevachicago": {
+      "source": [
+        "https://nuevachicago.com.ar/futbol/",
+        "https://www.promiedos.com.ar/team/nueva-chicago/bcai",
+        "https://www.soloascenso.com.ar/perfil/facundo-castro/16748",
+        "https://www.goal.com/es-ar/jugador/i-antunez/D9MsYaNMoNvYsw4LtnAod"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://www.soloascenso.com.ar/perfil/facundo-masuero/24888",
+        "https://www.soloascenso.com.ar/perfil/luciano-jachfe/22099",
+        "https://www.soloascenso.com.ar/perfil/bruno-palazzo/24487",
+        "https://canchallena.lanacion.com.ar/equipo/nueva-chicago-573kg18eqooo89qnncgypawt2/",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-paz/8201",
+        "https://www.soloascenso.com.ar/perfil/emiliano-mendez/511",
+        "https://www.soloascenso.com.ar/perfil/evelio-cardozo/25767",
+        "https://www.soloascenso.com.ar/perfil/maximiliano-rogoski/16179",
+        "https://www.transfermarkt.com.ar/mauro-perez/profil/spieler/1273932",
+        "https://www.soloascenso.com.ar/perfil/lucas-ambrogio/24385",
+        "https://www.soloascenso.com.ar/perfil/sebastian-cocimano/24252",
+        "https://www.soloascenso.com.ar/perfil/thiago-ocampo/32223",
+        "https://www.promiedos.com.ar/team/nueva-chicago/bcai",
+        "https://www.soloascenso.com.ar/perfil/facundo-castro/16748",
+        "https://www.goal.com/es-ar/jugador/i-antunez/D9MsYaNMoNvYsw4LtnAod"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Dorsal 7 confirmado por FotMob: https://www.fotmob.com/players/1801874"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+        "Revisión 2026: 23 partidos, 20 titularidades, 1360 minutos; defensor central de participación regular. Media ajustada de 54 a 56. Fuente: https://126goals.com/jugador/396963",
+        "Recalibración 2026: 33 partidos, 27 titularidades, 4 goles, 4 asistencias y 2.374 minutos; extremo de 18 años con incidencia ofensiva sostenida. Rating estimado sube +3 por producción y volumen; sin OVR EA FC individual. Fuente: https://www.fotmob.com/players/1801874 ; https://www.soloascenso.com.ar/perfil/thiago-ocampo/32223",
+        "Estimación propia 2026: nivel competitivo; trayectoria y participación 2026; sin OVR individual oficial verificado"
+      ],
+      "roleSource": [
+        "https://nuevachicago.com.ar/futbol/",
+        "https://pelotita.com.ar/equipos/236",
+        "https://www.transfermarkt.com.ar/rodrigo-ramirez/profil/spieler/838388",
+        "https://www.365scores.com/es/football/player/alejo-gonzalez-223452",
+        "https://www.transfermarkt.com.ar/thiago-ocampo/profil/spieler/1447123",
+        "https://www.promiedos.com.ar/team/nueva-chicago/bcai",
+        "https://www.transfermarkt.com.ar/facundo-castro/profil/spieler/332252",
+        "https://www.goal.com/es-ar/jugador/i-antunez/D9MsYaNMoNvYsw4LtnAod"
+      ],
+      "natSource": [
+        "https://www.soloascenso.com.ar/perfil/facundo-masuero/24888",
+        "https://www.soloascenso.com.ar/perfil/luciano-jachfe/22099",
+        "https://www.soloascenso.com.ar/perfil/bruno-palazzo/24487",
+        "https://canchallena.lanacion.com.ar/equipo/nueva-chicago-573kg18eqooo89qnncgypawt2/",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-paz/8201",
+        "https://www.soloascenso.com.ar/perfil/emiliano-mendez/511",
+        "https://www.soloascenso.com.ar/perfil/evelio-cardozo/25767",
+        "https://www.soloascenso.com.ar/perfil/maximiliano-rogoski/16179",
+        "https://www.transfermarkt.com.ar/mauro-perez/profil/spieler/1273932",
+        "https://www.soloascenso.com.ar/perfil/lucas-ambrogio/24385",
+        "https://www.soloascenso.com.ar/perfil/sebastian-cocimano/24252",
+        "https://www.soloascenso.com.ar/perfil/thiago-ocampo/32223",
+        "https://www.promiedos.com.ar/team/nueva-chicago/bcai",
+        "https://www.soloascenso.com.ar/perfil/facundo-castro/16748",
+        "https://www.goal.com/es-ar/jugador/i-antunez/D9MsYaNMoNvYsw4LtnAod"
+      ]
+    },
+    "madryn": {
+      "source": [
+        "https://pelotita.com.ar/equipos/19014029",
+        "https://www.transfermarkt.com.ar/claudio-corvalan/profil/spieler/125108",
+        "https://www.transfermarkt.com.ar/fernando-bersano/profil/spieler/533569",
+        "https://es.besoccer.com/jugador/l-marinucci-234364"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/deportivo-madryn-5kdoe8f2y9ad55m9n0ino48d0/",
+        "https://www.transfermarkt.com.ar/claudio-corvalan/profil/spieler/125108",
+        "https://www.transfermarkt.com.ar/fernando-bersano/profil/spieler/533569",
+        "https://es.besoccer.com/jugador/l-marinucci-234364"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Sofascore: dorsal 3 en Deportivo Madryn",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Asignado internamente; dorsal oficial pendiente"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+        "Estimación propia 2026: 16 apariciones y un gol con Deportivo Madryn; sin OVR EA individual verificado",
+        "Estimación propia 2026: siete presencias con Deportivo Madryn y una previa con Estudiantes de Río Cuarto; sin OVR EA individual verificado",
+        "Recalibración 2026: 32 partidos, 28 titularidades, 2.440 minutos, 16 goles y 2 asistencias en Primera Nacional. Ajuste moderado +1 por producción goleadora de élite en la categoría, manteniendo el contexto de edad y minutos. Fuente: https://www.fotmob.com/es/players/807031/luis-silba",
+        "Estimación interna: nivel y trayectoria 2026; 32 partidos y 2.196 minutos según BeSoccer; sin OVR individual EA verificado."
+      ],
+      "roleSource": [
+        "https://www.mundoascenso.com.ar/plantel/147-deportivo-madryn",
+        "https://pelotita.com.ar/equipos/19014029",
+        "https://www.transfermarkt.com.ar/claudio-corvalan/profil/spieler/125108",
+        "https://www.transfermarkt.com.ar/fernando-bersano/profil/spieler/533569",
+        "https://es.besoccer.com/jugador/l-marinucci-234364"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/deportivo-madryn-5kdoe8f2y9ad55m9n0ino48d0/",
+        "https://www.transfermarkt.com.ar/claudio-corvalan/profil/spieler/125108",
+        "https://www.transfermarkt.com.ar/fernando-bersano/profil/spieler/533569",
+        "https://es.besoccer.com/jugador/l-marinucci-234364"
+      ]
+    },
+    "chacarita": {
+      "source": "https://pelotita.com.ar/equipos/6",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/chacarita-chgvt8f42t2hfrazb1sjxkutq/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": [
+        "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+        "Estimación revisada: 35 partidos; 22 titularidades; 2057 minutos; 1 gol y 5 asistencias en Primera Nacional 2026. Rol corregido a EI según posición primaria de extremo izquierdo. Sin OVR EA FC. Fuente: https://www.fotmob.com/es-419/players/1435010/mario-sanabria"
+      ],
+      "roleSource": [
+        "https://www.chacaritajuniors.com.ar/futbol/futbol-profesional",
+        "https://pelotita.com.ar/equipos/6",
+        "https://pelotita.com.ar/equipos/6?comp=todas&from=primera-nacional",
+        "Posición primaria contrastada como extremo izquierdo; normalizada a EI. Fuente: https://www.fotmob.com/es-419/players/1435010/mario-sanabria",
+        "https://www.transfermarkt.es/miguel-mellado/profil/spieler/440163"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/chacarita-chgvt8f42t2hfrazb1sjxkutq/"
+    },
+    "allboys": {
+      "source": [
+        "https://pelotita.com.ar/equipos/9786",
+        "https://caallboys.com.ar/2026/08/24/cayo-por-la-minima-ante-el-lider/"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/all-boys-3xz3k7mpw3ttsnb0odu0kfepx/",
+        "https://www.soloascenso.com.ar/perfil/gabriel-ramirez/14706 ; https://www.sofascore.com/es/football/player/ramirez-gabriel/849139"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Planilla oficial All Boys–Ferro 24/08/2026; camiseta 5"
+      ],
+      "ratingSource": "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://caallboys.com/plantel",
+        "https://pelotita.com.ar/equipos/9786",
+        "https://www.fotmob.com/es/players/1343196/yago-de-vito",
+        "https://www.transfermarkt.es/gabriel-ramirez/profil/spieler/459243"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/all-boys-3xz3k7mpw3ttsnb0odu0kfepx/",
+        "https://www.transfermarkt.es/gabriel-ramirez/profil/spieler/459243"
+      ]
+    },
+    "atlanta": {
+      "source": [
+        "https://caatlanta.com.ar/list/plantel-2026/",
+        "https://www.soloascenso.com.ar/notas/gimnasia-mendoza/atlanta-sumo-dos-refuerzos-para-la-recta-final-del-torneo/232407"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://caatlanta.com.ar/elplantel/",
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "https://datacancha.com/player/75896",
+        "https://www.besoccer.com/player/f-caceres-924068"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Mundo Ascenso: dorsal 11 en Atlanta",
+        "BeSoccer: dorsal 16 en Atlanta"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: rendimiento; minutos; nivel competitivo y trayectoria; sin OVR EA individual verificado",
+        "Revisión 2026: 27 partidos y 1742 minutos según estadísticas oficiales de Atlanta; lateral izquierdo con participación sostenida. Media ajustada de 54 a 56. Fuente: https://caatlanta.com.ar/estadisticas/",
+        "Estimación revisada: 35 presencias; 4 goles y 3 asistencias; valoración media 6,13. Fuente estadística: https://www.fotmob.com/es-419/players/1646017/ignacio-rodriguez",
+        "Recalibración 2026: 33 presencias, 31 titularidades y 7 goles según Solo Ascenso; 6 goles y 5 asistencias según ZeroZero. Ajuste moderado +1 por participación sostenida y aporte ofensivo. Fuentes: https://www.soloascenso.com.ar/perfil/alejandro-quintana/6368 ; https://www.ceroacero.es/jugador/alejandro-quintana/122712",
+        "Club Atlético Atlanta 2026: 8 partidos y 463 minutos; atributos y media estimados internamente, sin OVR EA individual verificado",
+        "Club Atlético Atlanta 2026: 5 partidos y 100 minutos; atributos y media estimados internamente, sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://caatlanta.com.ar/list/plantel-2026/",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://caatlanta.com.ar/elplantel/",
+        "https://www.footystats.org/players/argentina/francisco-romero",
+        "https://www.besoccer.com/player/f-caceres-924068"
+      ],
+      "natSource": [
+        "https://caatlanta.com.ar/elplantel/",
+        "https://caatlanta.com.ar/list/plantel-2026/; https://caatlanta.com.ar/elplantel/",
+        "https://www.soloascenso.com.ar/notas/gimnasia-mendoza/atlanta-sumo-dos-refuerzos-para-la-recta-final-del-torneo/232407"
+      ]
+    },
+    "chaco": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/chaco-693gcfr20m03571ihcw6vy2i1/",
+        "https://www.soloascenso.com.ar/perfil/federico-moreno/27959",
+        "https://www.soloascenso.com.ar/perfil/ricardo-garay/26745",
+        "https://www.soloascenso.com.ar/perfil/andres-lioi/22385",
+        "https://www.fotmob.com/players/2069178/lisandro-alfonso",
+        "https://www.soloascenso.com.ar/perfil/leandro-fernandez/18963"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/chaco-693gcfr20m03571ihcw6vy2i1/",
+        "https://www.transfermarkt.co/federico-moreno/profil/spieler/1139701",
+        "https://www.transfermarkt.com.ar/ricardo-garay/profil/spieler/480419",
+        "https://www.transfermarkt.com.ar/andres-lioi/profil/spieler/563336",
+        "https://www.fotmob.com/players/2069178/lisandro-alfonso",
+        "https://www.transfermarkt.com.ar/leandro-fernandez/profil/spieler/355904"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Dorsal 14: https://www.goal.com/es-ar/jugador/f-moreno/0B6vwNpyL0-U5i456l-sX",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Dorsal 13 provisional; sin planilla completa verificada",
+        "Dorsal 8 confirmado: https://www.sofascore.com/es/football/player/andres-lioi/922452",
+        "Dorsal 10: https://www.zerozero.com.mx/jugador/leandro-fernandez/523851"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia; 8 partidos PN con Chaco según ZeroZero; sin OVR EA individual verificado",
+        "Estimación propia; 29 presencias 2026 en Chaco For Ever; sin OVR EA individual verificado",
+        "Estimación propia; 23 partidos PN, 1 asistencia y 1.071 minutos según FotMob",
+        "Estimación propia; 13 partidos PN con Chaco, 1 gol y 2 asistencias; sus 10 partidos previos en Federal A con Villa Mitre no se trasladan"
+      ],
+      "roleSource": [
+        "https://www.mundoascenso.com.ar/plantel/1946-chaco-for-ever",
+        "https://pelotita.com.ar/equipos/11963",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "Defensor central: https://www.transfermarkt.co/federico-moreno/profil/spieler/1139701",
+        "https://www.fotmob.com/es/players/1483070/gonzalo-melgarejo",
+        "https://www.transfermarkt.es/jorge-zules-caicedo/profil/spieler/610261",
+        "Defensor central zurdo: https://www.transfermarkt.com.ar/ricardo-garay/profil/spieler/480419",
+        "Mediocampista/interior derecho: https://www.transfermarkt.com.ar/andres-lioi/profil/spieler/563336",
+        "https://www.transfermarkt.es/brian-guerra/profil/spieler/538619",
+        "https://www.365scores.com/es/football/team/chaco-for-ever-13870/squad",
+        "https://www.transfermarkt.com/santiago-villalba/profil/spieler/1186937",
+        "https://www.transfermarkt.com.ar/tiago-chamorro/profil/spieler/1272688",
+        "https://www.transfermarkt.com.ar/agustin-zabaleta/profil/spieler/1307570",
+        "Extremo izquierdo: https://www.transfermarkt.com.ar/leandro-fernandez/profil/spieler/355904",
+        "https://www.aiscore.com/player-mauricio-tevez/ezk96iynpysekn5"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/chaco-693gcfr20m03571ihcw6vy2i1/",
+        "https://www.soloascenso.com.ar/perfil/federico-moreno/27959",
+        "https://www.soloascenso.com.ar/perfil/ricardo-garay/26745",
+        "https://www.soloascenso.com.ar/perfil/andres-lioi/22385",
+        "https://www.soloascenso.com.ar/perfil/leandro-fernandez/18963"
+      ]
+    },
+    "moron": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/moron-4ueeedc7h89wsxxbzkx94rbuy/",
+        "https://www.soloascenso.com.ar/perfil/emanuel-iniguez/20360",
+        "https://www.soloascenso.com.ar/perfil/emiliano-franco/21062",
+        "https://www.soloascenso.com.ar/perfil/mateo-levato/15094"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/moron-4ueeedc7h89wsxxbzkx94rbuy/",
+        "https://www.sofascore.com/es/football/player/emanuel-iniguez/900191",
+        "https://www.transfermarkt.com.ar/emiliano-franco/profil/spieler/422402",
+        "https://www.transfermarkt.com.ar/mateo-levato/profil/spieler/538373"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Sofascore: dorsal 21 en Deportivo Morón",
+        "Sofascore: dorsal 29 en Deportivo Morón",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Sofascore: dorsal 70 en Deportivo Morón"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia 2026: 16 presencias y dos goles en Deportivo Morón según ficha de temporada; sin OVR EA individual verificado",
+        "Estimación propia 2026: cuatro presencias con Deportivo Morón y 13 previas con Atlético Grau; sin OVR EA individual verificado",
+        "Estimación propia 2026: 14 presencias y cinco goles en la ficha de temporada de Deportivo Morón; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://www.mundoascenso.com.ar/plantel/469-deportivo-moron",
+        "https://pelotita.com.ar/equipos/10154",
+        "https://www.sofascore.com/es/football/player/emanuel-iniguez/900191",
+        "https://www.transfermarkt.com.ar/emiliano-franco/profil/spieler/422402",
+        "https://www.transfermarkt.com.ar/tomas-ramirez/profil/spieler/1240512",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.transfermarkt.co/joaquin-zappacosta/profil/spieler/1216125",
+        "https://www.transfermarkt.com.ar/mateo-levato/profil/spieler/538373"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/moron-4ueeedc7h89wsxxbzkx94rbuy/",
+        "https://www.sofascore.com/es/football/player/emanuel-iniguez/900191",
+        "https://www.transfermarkt.com.ar/emiliano-franco/profil/spieler/422402",
+        "https://www.transfermarkt.com.ar/mateo-levato/profil/spieler/538373"
+      ]
+    },
+    "estudiantesba": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/estudiantes-ba-2lhnnnznvg2eqxnsxjw5zk9m7/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/estudiantes-ba-2lhnnnznvg2eqxnsxjw5zk9m7/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://www.mundoascenso.com.ar/plantel/1936-estudiantes-bsas",
+        "https://pelotita.com.ar/equipos/17352",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.soloascenso.com.ar/notas/estudiantes/el-pincha-de-caseros-sumo-un-joven-marcado-de-punta/224793",
+        "Estimación orientativa: mediocampista central (MC), inferido desde posición general MED; pendiente de ficha individual.",
+        "https://www.transfermarkt.com.ar/teo-cohen/profil/spieler/1407838"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/estudiantes-ba-2lhnnnznvg2eqxnsxjw5zk9m7/"
+    },
+    "gimnasiajujuy": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
+      "consulted": "2026-11-07",
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
+        "https://www.soloascenso.com.ar/perfil/agustin-alonso/28138"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Sofascore: dorsal 16 en Gimnasia de Jujuy",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación."
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia 2026: 21 presencias, 13 ingresos desde el banco; perfil de extremo izquierdo; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://www.mundoascenso.com.ar/plantel/479-gimnasia-jujuy",
+        "https://pelotita.com.ar/equipos/5263",
+        "https://www.transfermarkt.es/gonzalo-villarreal/profil/spieler/1166508",
+        "https://www.transfermarkt.com.ar/sebastian-sanchez/profil/spieler/359012",
+        "https://www.somosjujuy.com.ar/deportes/gimnasia-jujuy-incorporo-agustin-alonso-como-refuerzo-n120569",
+        "https://pelotita.com.ar/partidos/401843741",
+        "https://www.transfermarkt.com.ar/nahuel-zapatiel/profil/spieler/1421611",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.transfermarkt.com.ar/gonzalo-puntano/profil/spieler/1276386"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
+        "https://www.transfermarkt.com.ar/club-atletico-gimnasia-y-esgrima-de-jujuy/startseite/verein/10500"
+      ]
+    },
+    "sanmartintuc": {
+      "source": [
+        "https://pelotita.com.ar/equipos/17814",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-rodriguez/8789"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-tucuman-39yl9nw2nhhulyjssa497c758/",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-rodriguez/8789"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Dorsal 19 confirmado por Sofascore: https://www.sofascore.com/es/football/player/gonzalo-rodriguez/932899"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Revisión 2026: 24 presencias, 18 titularidades y 2 goles según Solo Ascenso; volante joven con participación regular. Media ajustada de 55 a 56. Fuente: https://www.soloascenso.com.ar/perfil/alan-cisnero/30592",
+        "Revisión 2026: 21 partidos, 16 titularidades, 1171 minutos, 3 goles y 1 asistencia según Goal.com; delantero joven con producción comprobable. Media ajustada de 52 a 56. Fuente: https://www.goal.com/es-ar/jugador/l-arfaras/9PRG5M26EaDb5XSBE-8Vr",
+        "Estimación propia; 20 presencias en Primera Nacional 2026, una titularidad"
+      ],
+      "roleSource": [
+        "https://www.mundoascenso.com.ar/plantel/211-san-martin-tuc",
+        "https://pelotita.com.ar/equipos/17814",
+        "Delantero/extremo derecho: https://www.transfermarkt.com.ar/gonzalo-rodriguez/profil/spieler/140687"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-tucuman-39yl9nw2nhhulyjssa497c758/",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-rodriguez/8789"
+      ]
+    },
+    "almagro": {
+      "source": [
+        "https://pelotita.com.ar/equipos/2",
+        "https://www.soloascenso.com.ar/perfil/facundo-de-la-vega/887",
+        "https://www.soloascenso.com.ar/club/almagro/2",
+        "https://www.soloascenso.com.ar/perfil/matias-laba/6340"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/almagro-bppyw6lsfd4nwshsk2oprxlmy/",
+        "https://www.soloascenso.com.ar/perfil/facundo-de-la-vega/887 ; https://www.soccerbase.com/players/player.sd?player_id=158093",
+        "https://www.transfermarkt.com.ar/claudio-salto/profil/spieler/402732",
+        "https://www.fotmob.com/es-419/players/209306/matias-laba"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Sofascore: camiseta 10 en Almagro",
+        "FotMob: dorsal 16 en Almagro"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación revisada: 29 partidos; 5 goles; 1575 minutos en Primera Nacional 2026. Nombre corregido a Joel Orlando según plantilla y ficha estadística. Sin OVR EA FC. Fuente: https://www.fotmob.com/es/players/1489139/joel-orlando",
+        "Estimación propia 2026: 16 presencias y 5 goles registrados en la ficha de temporada; sin OVR EA individual verificado",
+        "Estimación propia 2026: 24 apariciones registradas en 2026 entre Mitre y Almagro; delantero/extremo derecho; sin OVR EA individual verificado",
+        "FotMob 2026: 14 partidos, 598 minutos y una amarilla; seis titularidades. Estimación propia de atributos y media; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://www.mundoascenso.com.ar/plantel/482-almagro",
+        "https://pelotita.com.ar/equipos/2",
+        "https://www.soccerbase.com/players/player.sd?player_id=158093",
+        "https://www.transfermarkt.com.ar/claudio-salto/profil/spieler/402732",
+        "https://www.fotmob.com/es-419/players/209306/matias-laba"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/almagro-bppyw6lsfd4nwshsk2oprxlmy/",
+        "https://www.soloascenso.com.ar/perfil/facundo-de-la-vega/887",
+        "https://www.transfermarkt.com.ar/claudio-salto/profil/spieler/402732",
+        "https://www.fotmob.com/es-419/players/209306/matias-laba"
+      ]
+    },
+    "losandes": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/los-andes-5efmp7x39v47kanemu8lcavd7/",
+        "https://www.365scores.com/es/football/player/alexis-gonzalez-182999"
+      ],
+      "consulted": "2026-11-07",
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/los-andes-5efmp7x39v47kanemu8lcavd7/",
+        "https://www.365scores.com/es/football/player/alexis-gonzalez-182999"
+      ],
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/los-andes-5efmp7x39v47kanemu8lcavd7/",
+        "https://launion.com.ar/deportes/de-lanus-los-andes-alexis-gonzalez-se-transformo-el-segundo-refuerzo-del-milrayitas-n5444017",
+        "https://www.transfermarkt.com.ar/aaron-sandoval/profil/spieler/1341943",
+        "https://pelotita.com.ar/equipos/807786",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.transfermarkt.es/gonzalo-cozzoni/profil/spieler/125128",
+        "Estimación orientativa: defensor central (DFC), inferido desde posición general DEF; pendiente de ficha individual.",
+        "https://www.transfermarkt.es/matias-gomez/profil/spieler/908104",
+        "https://www.transfermarkt.com.ar/franco-tisera/profil/spieler/864739"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/los-andes-5efmp7x39v47kanemu8lcavd7/",
+        "https://www.365scores.com/es/football/player/alexis-gonzalez-182999"
+      ]
+    },
+    "mitre": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/mitre-se-8zh96lpf1b10kgg50oqv32tc7/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/mitre-se-8zh96lpf1b10kgg50oqv32tc7/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/mitre-se-8zh96lpf1b10kgg50oqv32tc7/",
+        "https://pelotita.com.ar/equipos/11990",
+        "https://www.transfermarkt.com.ar/gianfranco-lillo-herdt/profil/spieler/1218101",
+        "https://www.transfermarkt.com.ar/gonzalo-valdivia/profil/spieler/987171",
+        "https://pelotita.com.ar/equipos/7845",
+        "https://www.transfermarkt.es/segundo-rodriguez/profil/spieler/1391276",
+        "https://www.elliberal.com.ar/nota/66142/2025/12/el-enganche-alan-lopez-acordo-su-arribo-a-mitre-",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.transfermarkt.com/matias-ferrari/profil/spieler/999432",
+        "https://www.transfermarkt.com.ar/mateo-montenegro/profil/spieler/728287"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/mitre-se-8zh96lpf1b10kgg50oqv32tc7/"
+    },
+    "sanmartinsj": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/",
+        "https://pelotita.com.ar/equipos/7845",
+        "https://www.fotmob.com/es/teams/89395/squad/san-martin-san-juan",
+        "https://www.0264noticias.com.ar/noticias/2026/01/26/86773-san-martin-sumo-nuevos-jugadores-a-la-defensa-firmaron-contrato-lucas-veron-y-sebastian-diaz-robles",
+        "https://www.soloascenso.com.ar/perfil/nicolas-paz/28648",
+        "https://www.besoccer.com/player/rodrigo-nieva-3667959"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/"
+    },
+    "temperley": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/temperley-85t8a6qvge3wyn2n19hsc37h4/",
+        "https://www.soloascenso.com.ar/perfil/alejandro-melo/997"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/temperley-85t8a6qvge3wyn2n19hsc37h4/",
+        "https://www.transfermarkt.es/alejandro-melo/profil/spieler/373623"
+      ],
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia 2026: perfil de extremo derecho; 28 presencias de temporada registradas; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/temperley-85t8a6qvge3wyn2n19hsc37h4/",
+        "https://pelotita.com.ar/equipos/10162",
+        "https://launion.com.ar/nota/52843/2025/11/primer-contrato-para-cuatro-promesas-de-las-inferiores-de-temperley",
+        "https://diarioconurbano.com.ar/deportes/nuevo-refuerzo-para-temperley-iago-iriarte-firmo-hasta-el-2027/",
+        "https://www.transfermarkt.es/rodrigo-mazur/profil/spieler/414669",
+        "https://temperley.org.ar/noticias/futbol/mercado-de-pases-para-la-temporada-2026",
+        "https://launion.com.ar/deportes/temperley-les-hizo-primer-contrato-dos-juveniles-debutantes-esta-temporada-n5446725",
+        "https://www.transfermarkt.es/alejandro-melo/profil/spieler/373623",
+        "https://www.transfermarkt.co/club-atletico-temperley-ii/kader/verein/77897",
+        "https://www.transfermarkt.com.ar/fernando-brandan/profil/spieler/358014",
+        "https://www.transfermarkt.com.ar/julian-carrasco/profil/spieler/1111086",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual."
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/temperley-85t8a6qvge3wyn2n19hsc37h4/",
+        "https://www.transfermarkt.es/alejandro-melo/profil/spieler/373623"
+      ]
+    },
+    "guemes": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-guemes-3g0c7q8qi0oi77u32d0sps2j9/",
+        "https://www.soloascenso.com.ar/perfil/axel-pinto/14261",
+        "https://es.besoccer.com/jugador/trayectoria/c-leineker-3397368"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-guemes-3g0c7q8qi0oi77u32d0sps2j9/",
+        "https://www.transfermarkt.es/axel-pinto/profil/spieler/661672",
+        "https://www.transfermarkt.com.ar/ciro-leineker/profil/spieler/1117236"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Dorsal 14: https://es.besoccer.com/jugador/a-pinto-847830",
+        "Dorsal 9: https://es.besoccer.com/jugador/c-leineker-3397368",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación."
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia; 13 partidos PN y 364 minutos con Güemes según ZeroZero",
+        "Estimación propia; 13 partidos, 1 gol y 627 minutos con Güemes según BeSoccer"
+      ],
+      "roleSource": [
+        "https://pelotita.com.ar/equipos/21020347",
+        "https://canchallena.lanacion.com.ar/equipo/ca-guemes-3g0c7q8qi0oi77u32d0sps2j9/",
+        "Estimación orientativa: defensor central (DFC), inferido desde posición general DEF; pendiente de ficha individual.",
+        "Mediocampista/extremo derecho: https://www.transfermarkt.es/axel-pinto/profil/spieler/661672",
+        "Delantero centro: https://www.transfermarkt.com.ar/ciro-leineker/profil/spieler/1117236",
+        "https://www.transfermarkt.com.ar/franco-berges/profil/spieler/1230639",
+        "https://www.fotmob.com/es/players/37709/juan-sanchez",
+        "https://abcfutbol.com.ar/2026/01/08/uno-x-uno-los-15-refuerzos-de-guemes/",
+        "https://www.fotmob.com/es/players/1212165/oscar-vanegas",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual."
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-guemes-3g0c7q8qi0oi77u32d0sps2j9/",
+        "https://www.soloascenso.com.ar/perfil/axel-pinto/14261",
+        "https://es.besoccer.com/jugador/trayectoria/c-leineker-3397368"
+      ]
+    },
+    "racingcba": {
+      "source": "https://pelotita.com.ar/equipos/19145",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/racing-cordoba-9xktf8lmetaxahzxgafy9yyqk/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Revisión 2026: 25 partidos, 10 titularidades, 1079 minutos y 4 asistencias según FotMob; interior izquierdo, no extremo izquierdo. Media ajustada de 56 a 58. Fuente: https://www.fotmob.com/es/players/1710475/francisco-monticelli"
+      ],
+      "roleSource": [
+        "https://pelotita.com.ar/equipos/19145",
+        "https://www.fotmob.com/es/players/1710475/francisco-monticelli",
+        "Posición primaria contrastada como lateral izquierdo; normalizada a LI. Fuente: https://www.fotmob.com/es/players/1658889/luciano-viano"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/racing-cordoba-9xktf8lmetaxahzxgafy9yyqk/"
+    },
+    "ciudadbolivar": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia; 3 presencias con Ciudad de Bolívar; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/",
+        "https://pelotita.com.ar/equipos/21799",
+        "https://www.transfermarkt.com.ar/gonzalo-valderrama/profil/spieler/1292328",
+        "https://www.transfermarkt.com.ar/joel-ledesma/profil/spieler/1319982",
+        "Estimación orientativa: interior izquierdo (MI), inferido desde posición general MED; pendiente de ficha individual.",
+        "https://www.transfermarkt.com.ar/elias-romero/profil/spieler/1468526",
+        "Mediocampista: https://www.soloascenso.com.ar/perfil/mateo-gridel/22381",
+        "https://fm10bolivar.com.ar/nota/43247/marcos-sotelo-ciudad-es-club-muy-ordenado-y-bolivar-es-una-ciudad-muy-linda-algunas-de-las-cosas-que-pesaron-sobre-mi-decision",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.fotmob.com/es/players/1134033/brian-duarte",
+        "https://www.transfermarkt.es/camilo-garcia/profil/spieler/1425338",
+        "https://www.365scores.com/es-mx/football/player/facundo-beretta-240231",
+        "https://www.soloascenso.com.ar/notas/ciudad-de-bolivar/ciudad-de-bolivar-confirmo-dos-incorporaciones-y-una-baja/229875",
+        "https://www.transfermarkt.com.ar/lautaro-villegas/profil/spieler/857226"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/"
+    },
+    "colon": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/colon-64a7qygl90q6k3319f29fwduo/",
+        "https://www.lt9.com.ar/franco-garcia-es-jugador-de-colon/"
+      ],
+      "consulted": "2026-11-07",
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/colon-64a7qygl90q6k3319f29fwduo/",
+        "https://br.soccerway.com/jogador/garcia-franco/nD9lWctU/"
+      ],
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/colon-64a7qygl90q6k3319f29fwduo/",
+        "https://pelotita.com.ar/equipos/7?comp=todas&from=liga-profesional",
+        "https://www.transfermarkt.es/lucas-picech/profil/spieler/1230643",
+        "https://www.transfermarkt.es/agustin-gimenez/profil/spieler/1372631",
+        "https://www.transfermarkt.com.ar/bautista-maillier/profil/spieler/1399730",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.transfermarkt.com.ar/matias-cordoba/profil/spieler/1394668",
+        "https://www.lt9.com.ar/franco-garcia-es-jugador-de-colon/",
+        "https://www.transfermarkt.com.ar/ivan-ojeda/profil/spieler/1413462",
+        "https://www.transfermarkt.com.ar/jeronimo-buosi/profil/spieler/1455772"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/colon-64a7qygl90q6k3319f29fwduo/",
+        "https://br.soccerway.com/jogador/garcia-franco/nD9lWctU/"
+      ]
+    },
+    "tristansuarez": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/",
+        "https://www.transfermarkt.com.ar/sebastian-ramirez/profil/spieler/728245"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/",
+        "https://www.transfermarkt.com.ar/sebastian-ramirez/profil/spieler/728245"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Dorsal 99 provisional; pendiente de planilla fiable"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia; 8 partidos y 2 goles con Tristán Suárez según ZeroZero"
+      ],
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/",
+        "https://pelotita.com.ar/equipos/10163",
+        "https://www.transfermarkt.co/ayrton-sanchez/profil/spieler/878590",
+        "https://www.fotmob.com/es/players/1253516/brian-aguilar",
+        "https://www.fotmob.com/teams/213528/squad/tristan-suarez%2Cplayers",
+        "https://www.transfermarkt.com.ar/csd-tristan-suarez/kader/verein/1771",
+        "https://www.promiedos.com.ar/team/tristan-suarez/hbbd",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "Extremo derecho: https://www.transfermarkt.com.ar/sebastian-ramirez/profil/spieler/728245"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/",
+        "https://www.transfermarkt.com.ar/sebastian-ramirez/profil/spieler/728245"
+      ]
+    },
+    "agropecuario": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/agropecuario-334oyhg79jbvoa6me5joiovs3/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/agropecuario-334oyhg79jbvoa6me5joiovs3/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/agropecuario-334oyhg79jbvoa6me5joiovs3/",
+        "https://pelotita.com.ar/equipos/13913",
+        "https://www.transfermarkt.com.ar/fernando-gonzalez/profil/spieler/124947",
+        "https://www.fotmob.com/es/players/1732520/assist-jorge-cabello",
+        "https://www.transfermarkt.es/matias-molina/profil/spieler/457542",
+        "https://www.transfermarkt.com.ar/antonio-napolitano/profil/spieler/748064",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.transfermarkt.com.ar/damian-lemos/profil/spieler/68557",
+        "Estimación orientativa: mediapunta (MP), inferido desde posición general MED; pendiente de ficha individual.",
+        "https://www.transfermarkt.es/martin-corda/profil/spieler/1379208",
+        "https://es.besoccer.com/jugador/marcos-millanes-3505745",
+        "https://www.transfermarkt.com.ar/brian-blando/profil/spieler/530444",
+        "https://www.transfermarkt.com.ar/diego-vasquez/profil/spieler/952150",
+        "https://www.transfermarkt.com.ar/lorenzo-barrera/profil/spieler/1327410",
+        "https://www.transfermarkt.es/oscar-belinetz/profil/spieler/389604"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/agropecuario-334oyhg79jbvoa6me5joiovs3/"
+    },
+    "patronato": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/patronato-6dxnbgs53o32c955668uki7cr/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/patronato-6dxnbgs53o32c955668uki7cr/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/patronato-6dxnbgs53o32c955668uki7cr/",
+        "https://pelotita.com.ar/equipos/10374",
+        "https://www.transfermarkt.com.ar/bartolome-velasquez/profil/spieler/1192635",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://sortitoutsi.net/football-manager-data-update/team/3101457",
+        "https://www.unoentrerios.com.ar/ovacion/patronato-aseguro-una-sus-promesas-n10238838.html"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/patronato-6dxnbgs53o32c955668uki7cr/"
+    },
+    "almirantebrown": {
+      "source": [
+        "https://pelotita.com.ar/equipos/9740",
+        "https://www.soloascenso.com.ar/perfil/santiago-villalba/30519",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-flores/22978",
+        "https://www.ceroacero.es/jugador/julian-lopez/2507769",
+        "https://www.soloascenso.com.ar/notas/temperley/almirante-brown-oficializo-la-llegada-de-su-primer-refuerzo/229698"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/almirante-brown-d5t5fote4vony6b4pnobpnber/",
+        "https://www.soloascenso.com.ar/perfil/santiago-villalba/30519",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-flores/22978",
+        "https://www.ceroacero.es/jugador/julian-lopez/2507769",
+        "https://www.transfermarkt.com.ar/club-almirante-brown/startseite/verein/12672"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Dorsal 4 conservado; sin nueva evidencia que justifique cambio",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Planilla TyC Sports Almirante Brown–Racing (Cba) 02/08/2026: dorsal 16"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Recalibración 2026: 30 partidos, 27 titularidades, 1 gol y 2 asistencias; defensor de 21 años con continuidad. Rating estimado sube +1; se mantiene estimación sin OVR EA FC. Fuente: https://www.soloascenso.com.ar/perfil/enzo-cardozo/27437 ; https://126goals.com/jugador/358544",
+        "Ficha 2026: 5 presencias totales en el año; 1 con Almirante tras su llegada de mitad de temporada. Rating interno estimado.",
+        "Ficha 2026: 9 presencias con Almirante en su regreso del préstamo; rating interno estimado.",
+        "Ficha 2026: 8 presencias con Almirante tras llegar de Central Norte; rating interno estimado.",
+        "Estimación propia 2026: juvenil de 22 años; una aparición con el primer equipo y 16 partidos en Reserva; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://pelotita.com.ar/equipos/9740",
+        "https://www.transfermarkt.com.ar/facundo-quignon/profil/spieler/131218",
+        "https://www.transfermarkt.es/santiago-villalba/profil/spieler/1186937",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-flores/22978",
+        "https://www.ceroacero.es/jugador/julian-lopez/2507769",
+        "https://www.soloascenso.com.ar/notas/temperley/almirante-brown-oficializo-la-llegada-de-su-primer-refuerzo/229698"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/almirante-brown-d5t5fote4vony6b4pnobpnber/",
+        "https://www.soloascenso.com.ar/perfil/santiago-villalba/30519",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-flores/22978",
+        "https://www.ceroacero.es/jugador/julian-lopez/2507769",
+        "https://www.transfermarkt.com.ar/club-almirante-brown/startseite/verein/12672"
+      ]
+    },
+    "gimnasiatiro": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/gimnasia-y-tiro-1ms8tznb9y9j6li5migxmipp2/",
+        "https://www.clubabanfield.org/datafactory/html/copaargentina/planteles.html",
+        "https://www.soloascenso.com.ar/perfil/lautaro-gordillo/21774"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/gimnasia-y-tiro-1ms8tznb9y9j6li5migxmipp2/",
+        "https://www.transfermarkt.com.ar/lucas-pedernera/rueckennummern/spieler/1255917",
+        "https://www.clubabanfield.org/datafactory/html/copaargentina/planteles.html",
+        "https://www.soloascenso.com.ar/perfil/lautaro-gordillo/21774"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación."
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Rating interno estimado por edad, promoción al plantel profesional y rol de arquero juvenil; sin OVR oficial ni partidos de Primera verificados.",
+        "33 presencias y 13 goles en Primera Nacional 2026 según Solo Ascenso; valoración interna estimada por rendimiento y rol goleador."
+      ],
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/gimnasia-y-tiro-1ms8tznb9y9j6li5migxmipp2/",
+        "https://pelotita.com.ar/equipos/10743",
+        "https://contragolpe.com.ar/nota/gimnasia-y-tiro-salta-vs-quilmes-en-vivo-el-minuto-a-minuto-los-goles-y-el-resultado",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.soloascenso.com.ar/club/gimnasia-y-tiro-salta/201",
+        "https://www.transfermarkt.com.ar/juan-turletti/profil/spieler/1293758",
+        "https://www.soloascenso.com.ar/notas/gimnasia-y-tiro-salta/el-millonario-retorno-al-trabajo-con-una-baja-en-el-ataque/223524",
+        "https://www.soloascenso.com.ar/perfil/lautaro-gordillo/21774"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/gimnasia-y-tiro-1ms8tznb9y9j6li5migxmipp2/",
+        "https://www.clubabanfield.org/datafactory/html/copaargentina/planteles.html",
+        "https://www.soloascenso.com.ar/perfil/lautaro-gordillo/21774"
+      ]
+    },
+    "quilmes": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/",
+        "https://pelotita.com.ar/equipos/2741",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.365scores.com/es/football/player/tiago-marghetich-198540",
+        "https://www.transfermarkt.com.ar/facundo-yozwiak/profil/spieler/1413766",
+        "https://www.transfermarkt.com.ar/maximo-paredes/profil/spieler/1273492",
+        "https://www.transfermarkt.es/santino-rodriguez/profil/spieler/1469965",
+        "https://www.transfermarkt.com.ar/gabriel-vazquez/profil/spieler/1412006",
+        "https://www.transfermarkt.co/pio-bonacci/profil/spieler/849613"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/"
+    },
+    "maipu": {
+      "source": [
+        "https://pelotita.com.ar/equipos/11978",
+        "https://www.soloascenso.com.ar/perfil/brian-orosco/16205",
+        "https://www.transfermarkt.com.ar/agustin-gaitan/profil/spieler/1257584",
+        "https://www.soloascenso.com.ar/perfil/agustin-leiva/31994",
+        "https://deportivomaipu.com/plantel/"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://www.soloascenso.com.ar/perfil/nahuel-galardi/27588",
+        "https://www.soloascenso.com.ar/perfil/luciano-peraggini/28726",
+        "https://www.soloascenso.com.ar/perfil/lucas-faggioli/21681",
+        "https://www.transfermarkt.es/juan-de-la-reta/profil/spieler/961885",
+        "https://www.soloascenso.com.ar/perfil/nicolas-fernandez/28386",
+        "https://www.transfermarkt.com.ar/luciano-arnijas/profil/spieler/1034446",
+        "https://www.soloascenso.com.ar/perfil/tiago-ferreyra/25880",
+        "https://www.transfermarkt.com.ar/aron-aguero/profil/spieler/889417",
+        "https://www.soloascenso.com.ar/perfil/santiago-paulini/27715",
+        "https://www.soloascenso.com.ar/perfil/franco-saccone/30127",
+        "https://www.soloascenso.com.ar/perfil/mirko-bonfigli/28255",
+        "https://www.soloascenso.com.ar/perfil/juan-gobetto/21881",
+        "https://www.soloascenso.com.ar/perfil/gaston-mansilla/22169",
+        "https://www.soloascenso.com.ar/perfil/julian-vera/29851",
+        "https://www.transfermarkt.com.ar/enzo-perez/profil/spieler/56066",
+        "https://www.transfermarkt.com.ar/matias-viguet/profil/spieler/696972",
+        "https://www.soloascenso.com.ar/perfil/tomas-silva/26558",
+        "https://www.soloascenso.com.ar/perfil/juan-cruz-giacone/27097",
+        "https://www.transfermarkt.com.ar/lisandro-cabrera/profil/spieler/617776",
+        "https://www.soloascenso.com.ar/perfil/brian-orosco/16205",
+        "https://www.transfermarkt.com.ar/agustin-gaitan/profil/spieler/1257584",
+        "https://www.soloascenso.com.ar/perfil/agustin-leiva/31994",
+        "https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/2026-2027/deportivo-maipu/plantilla"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Dorsal 3 según ZeroZero: https://www.zerozero.com.mx/jugador/juan-de-la-reta/922510",
+        "Dorsal 6 según ZeroZero: https://www.zerozero.com.mx/jugador/aron-aguero/856836",
+        "Dorsal 7 confirmado por FootyStats/Goal: https://footystats.org/players/croatia/franco-saccone ; https://www.goal.com/es-ar/jugador/f-saccone/517oGmnXTaZJ3tHZn_EeU",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación."
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Recalibración 2026: 30 partidos de liga, 2.384 minutos, 0 goles y 1 asistencia; 21 años, 27 titularidades según FotMob. Rating estimado sube +1 por continuidad y minutos. Fuente: https://www.zerozero.com.mx/jugador/juan-de-la-reta/922510 ; https://www.fotmob.com/es-419/players/1772429/juan-de-la-reta",
+        "Recalibración 2026: 30 partidos de Primera Nacional, 2.700 minutos; 293 recuperaciones y 57 intercepciones (78.º percentil). Rating estimado sube +2 por volumen y métricas defensivas. Fuente: https://www.zerozero.com.mx/jugador/aron-aguero/856836 ; https://fbplot.com/es/players/aron-rodrigo-aguero-gimenez-1346185154809677035",
+        "Recalibración 2026: 36 partidos, 35 titularidades, 3 goles, 8 asistencias y 3.104 minutos; asistencias en percentil 94 de la categoría. Rating estimado sube +4 por producción y continuidad; sin OVR EA FC individual. Fuente: https://footystats.org/players/croatia/franco-saccone ; https://www.soloascenso.com.ar/perfil/franco-saccone/30127",
+        "Estimación revisada: 36 partidos; 24 titularidades; 2830 minutos; 7 goles y 2 asistencias en Primera Nacional 2026. Producción ofensiva y continuidad muy superiores a la media 56 inicial. Sin OVR EA FC. Fuente: https://footystats.org/players/argentina/mirko-bonfigli",
+        "Estimación interna 2026: 30 presencias y 2 goles registrados; rol ofensivo y continuidad; sin OVR EA individual verificado.",
+        "Estimación interna 2026: mediapunta de 21 años con contrato vigente y regreso de cesión; sin OVR EA individual ni estadísticas completas verificadas.",
+        "Estimación interna 2026: defensor joven con 14 presencias registradas; sin OVR EA individual verificado.",
+        "Estimación interna 2026: lateral derecho de la nómina profesional; sin OVR EA individual ni minutos completos verificados.",
+        "Estimación interna 2026: mediocampista central joven de la nómina profesional; sin OVR EA individual ni minutos completos verificados.",
+        "Estimación interna 2026: mediocampista ofensivo de la nómina profesional; sin OVR EA individual ni minutos completos verificados.",
+        "Estimación interna 2026: arquero joven incluido en nómina profesional; sin OVR EA individual ni estadísticas completas verificadas."
+      ],
+      "roleSource": [
+        "https://pelotita.com.ar/equipos/11978",
+        "https://www.transfermarkt.com.ar/franco-saccone/profil/spieler/1059378",
+        "https://www.soloascenso.com.ar/perfil/brian-orosco/16205",
+        "https://www.sofascore.com/es/football/player/diego-agustin-yavante-gaitan/1846927",
+        "https://www.soloascenso.com.ar/perfil/agustin-leiva/31994",
+        "https://www.365scores.com/es/football/team/deportivo-maipu-9283/squad"
+      ],
+      "natSource": [
+        "https://www.soloascenso.com.ar/perfil/nahuel-galardi/27588",
+        "https://www.soloascenso.com.ar/perfil/luciano-peraggini/28726",
+        "https://www.soloascenso.com.ar/perfil/lucas-faggioli/21681",
+        "https://www.transfermarkt.es/juan-de-la-reta/profil/spieler/961885",
+        "https://www.soloascenso.com.ar/perfil/nicolas-fernandez/28386",
+        "https://www.transfermarkt.com.ar/luciano-arnijas/profil/spieler/1034446",
+        "https://www.soloascenso.com.ar/perfil/tiago-ferreyra/25880",
+        "https://www.transfermarkt.com.ar/aron-aguero/profil/spieler/889417",
+        "https://www.soloascenso.com.ar/perfil/santiago-paulini/27715",
+        "https://www.soloascenso.com.ar/perfil/franco-saccone/30127",
+        "https://www.soloascenso.com.ar/perfil/mirko-bonfigli/28255",
+        "https://www.soloascenso.com.ar/perfil/juan-gobetto/21881",
+        "https://www.soloascenso.com.ar/perfil/gaston-mansilla/22169",
+        "https://www.soloascenso.com.ar/perfil/julian-vera/29851",
+        "https://www.transfermarkt.com.ar/enzo-perez/profil/spieler/56066",
+        "https://www.transfermarkt.com.ar/matias-viguet/profil/spieler/696972",
+        "https://www.soloascenso.com.ar/perfil/tomas-silva/26558",
+        "https://www.soloascenso.com.ar/perfil/juan-cruz-giacone/27097",
+        "https://www.transfermarkt.com.ar/lisandro-cabrera/profil/spieler/617776",
+        "https://www.soloascenso.com.ar/perfil/brian-orosco/16205",
+        "https://www.sofascore.com/es/football/player/diego-agustin-yavante-gaitan/1846927",
+        "https://www.soloascenso.com.ar/perfil/agustin-leiva/31994",
+        "https://deportivomaipu.com/plantel/"
+      ]
+    },
+    "godoycruz": {
+      "source": [
+        "https://pelotita.com.ar/equipos/6756",
+        "https://www.soloascenso.com.ar/perfil/fabricio-oviedo/20135"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/godoy-cruz-1we2nqwg18sjn6cevduuapbkf/",
+        "https://www.transfermarkt.com.ar/diego-viera/profil/spieler/178660",
+        "https://www.transfermarkt.es/felipe-cairus/profil/spieler/657421",
+        "https://www.transfermarkt.com.ar/benjamin-schamine/profil/spieler/1141726",
+        "https://www.transfermarkt.com.ar/fabricio-oviedo/profil/spieler/1022385"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Dorsal 3 confirmado en la formación de Godoy Cruz–Almirante Brown (31/10/2026): https://tn.com.ar/deportes/futbol/2026/10/31/godoy-cruz-vs-almirante-brown-en-vivo-por-la-fecha-36-de-la-primera-nacional-hora-donde-ver-y-formaciones/",
+        "Dorsal 8 confirmado en la formación de Godoy Cruz–Almirante Brown (31/10/2026): https://tn.com.ar/deportes/futbol/2026/10/31/godoy-cruz-vs-almirante-brown-en-vivo-por-la-fecha-36-de-la-primera-nacional-hora-donde-ver-y-formaciones/",
+        "Dorsal 5 confirmado en la formación de Godoy Cruz–Almirante Brown (31/10/2026): https://tn.com.ar/deportes/futbol/2026/10/31/godoy-cruz-vs-almirante-brown-en-vivo-por-la-fecha-36-de-la-primera-nacional-hora-donde-ver-y-formaciones/",
+        "Dorsal 99 provisional; sin confirmación de plantel"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia; defensor central paraguayo",
+        "Estimación propia; 17 presencias con Godoy Cruz; sin OVR EA individual verificado",
+        "Estimación propia; 15 partidos PN y 1.046 minutos según FotMob",
+        "Recalibración 2026: 32 partidos, 32 titularidades, 2.742 minutos, 19 goles y 7 asistencias en Primera Nacional; uno de los máximos aportes ofensivos de la categoría. Ajuste +2 para reflejar rendimiento de figura. Fuente: https://www.fotmob.com/es/players/1085220/martin-pino",
+        "Estimación propia; 5 presencias con Godoy Cruz según ficha de temporada; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://pelotita.com.ar/equipos/6756",
+        "Defensa central: https://www.transfermarkt.com.ar/diego-viera/profil/spieler/178660",
+        "Mediocentro: https://www.transfermarkt.es/felipe-cairus/profil/spieler/657421",
+        "Mediocampista defensivo: https://www.fotmob.com/es-419/players/1481125/benjamin-schamine",
+        "https://www.transfermarkt.com.ar/agustin-valverde/profil/spieler/1131421",
+        "https://www.transfermarkt.com.ar/juan-andrada/profil/spieler/457212",
+        "Delantero centro: https://www.transfermarkt.com.ar/fabricio-oviedo/profil/spieler/1022385"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/godoy-cruz-1we2nqwg18sjn6cevduuapbkf/",
+        "https://www.soloascenso.com.ar/perfil/fabricio-oviedo/20135"
+      ]
+    },
+    "santelmo": {
+      "source": [
+        "https://www.goal.com/es-ar/equipo/san-telmo/equipo/95crjs2jrtpq2rosrgkizqk3y",
+        "https://www.fotmob.com/es-419/players/1607387/nicolas-ortiz"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://www.canchallena.lanacion.com.ar/equipo/san-telmo-95crjs2jrtpq2rosrgkizqk3y/",
+        "https://www.transfermarkt.com.ar/ca-san-telmo/kader/verein/13651/saison_id/2025/plus/1",
+        "https://www.soloascenso.com.ar/perfil/matias-ledesma/24319",
+        "https://www.transfermarkt.es/cristian-nunez/profil/spieler/830476",
+        "https://www.transfermarkt.com/jeronimo-porto/profil/spieler/1115520",
+        "https://www.365scores.com/es/football/player/nicolas-molina-133885",
+        "https://www.mundodeportivo.com/us/resultados/futbol/copa-argentina/equipo/2025-2026/san-telmo/plantilla",
+        "https://www.fotmob.com/es-419/players/1607387/nicolas-ortiz"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Mundo Ascenso: dorsal 9 en San Telmo",
+        "Dorsal 15: https://www.fotmob.com/es-419/players/1607387/nicolas-ortiz"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Revisión 2026: 33 partidos, 31 titularidades y 2688 minutos según FotMob; defensor central titular habitual. Media ajustada de 56 a 59. Fuente: https://www.fotmob.com/es/players/1470047/leonel-pollacchi",
+        "Recalibración 2026: 32 presencias, 31 titularidades y 2.634 minutos; 0 goles, 1 asistencia y valoración media 6,40. Ajuste moderado +1 por continuidad como titular. Fuentes: https://www.soloascenso.com.ar/perfil/renzo-uriburu/29119 ; https://nofluffpicks.com/es/jugador/944327-renzo-sebastian-uriburu",
+        "FootyStats 2026: 30 partidos, 2 goles, 5 asistencias y 1.810 minutos en Primera Nacional; estimación propia de media y atributos",
+        "Estimación propia; 2 partidos y 58 minutos con San Telmo; distinto de Nicolás Darío Ortíz de Madryn, DOB 1995-03-04"
+      ],
+      "roleSource": [
+        "https://www.goal.com/es-ar/equipo/san-telmo/equipo/95crjs2jrtpq2rosrgkizqk3y",
+        "Posición primaria contrastada como extremo izquierdo; normalizada a EI. Fuente: https://www.fotmob.com/es/players/1437341/inaki-larthirigoyen",
+        "https://www.soloascenso.com.ar/notas/atletico-rafaela/un-delantero-se-convirtio-en-nuevo-refuerzo-de-san-telmo/229726",
+        "Mediocampista: https://www.zerozero.pe/jugador/nicolas-ortiz/1393659"
+      ],
+      "natSource": [
+        "https://www.soloascenso.com.ar/club/san-telmo/305",
+        "https://www.mundoascenso.com.ar/plantel/86-san-telmo",
+        "https://www.fotmob.com/es-419/players/1607387/nicolas-ortiz"
+      ]
+    },
+    "centralnorte": {
+      "source": [
+        "https://pelotita.com.ar/equipos/11993",
+        "https://www.soloascenso.com.ar/notas/gimnasia-y-tiro-salta/central-norte-y-otro-refuerzo-para-la-segunda-rueda/229818",
+        "https://www.soloascenso.com.ar/club.php?eq=225"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/central-norte-4zvm2bpiwb295gnpjuyswzayp/",
+        "https://www.sofascore.com/es/football/player/sergio-quiroga/885010",
+        "https://www.transfermarkt.com.ar/erik-bodencer/profil/spieler/911997"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Sofascore: dorsal 32 en Central Norte",
+        "Sofascore: dorsal 24 en Central Norte"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia 2026: mediocampista ofensivo; 11 partidos de Primera Nacional y una asistencia; seis partidos previos de Sudamericana con Alianza Atlético",
+        "Estimación propia 2026: diez presencias registradas por ZeroZero en Central Norte; 508 minutos según BeSoccer; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://pelotita.com.ar/equipos/11993",
+        "https://www.transfermarkt.mx/sergio-quiroga/profil/spieler/434715",
+        "https://www.transfermarkt.com.ar/erik-bodencer/profil/spieler/911997"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/central-norte-4zvm2bpiwb295gnpjuyswzayp/",
+        "https://www.transfermarkt.mx/sergio-quiroga/profil/spieler/434715",
+        "https://www.transfermarkt.com.ar/erik-bodencer/profil/spieler/911997"
+      ]
+    },
+    "sanmiguel": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/ca-san-miguel-y1ln9hxdbuwu2k8xo4gqw5h7/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-miguel-y1ln9hxdbuwu2k8xo4gqw5h7/",
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-san-miguel-y1ln9hxdbuwu2k8xo4gqw5h7/",
+        "https://pelotita.com.ar/equipos/10058",
+        "https://www.transfermarkt.es/david-muller/profil/spieler/668151",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual."
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-miguel-y1ln9hxdbuwu2k8xo4gqw5h7/"
+    },
+    "midland": {
+      "source": "https://canchallena.lanacion.com.ar/equipo/midland-b5i12he1fdqff4xwd8ugy3oq/",
+      "consulted": "2026-11-07",
+      "ageSource": "https://canchallena.lanacion.com.ar/equipo/midland-b5i12he1fdqff4xwd8ugy3oq/",
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Planillas de partidos Primera Nacional 2026: Pelotita (Midland vs. Agropecuario; Midland vs. Nueva Chicago; Acassuso vs. Midland).",
+        "Planillas de partidos Primera Nacional 2026: Pelotita (Midland vs. Agropecuario; Midland vs. Gimnasia y Tiro; Acassuso vs. Midland).",
+        "Planillas de partidos Primera Nacional 2026: Pelotita (Midland vs. Agropecuario; Midland vs. Gimnasia de Jujuy; Atlanta vs. Midland; Midland vs. Nueva Chicago).",
+        "Planillas de partidos Primera Nacional 2026: Pelotita (Midland vs. Agropecuario; Midland vs. Gimnasia de Jujuy; Atlanta vs. Midland; Midland vs. Nueva Chicago; Güemes vs. Midland)."
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Asignado internamente para resolver duplicado; pendiente de contraste con numeración oficial"
+      ],
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/midland-b5i12he1fdqff4xwd8ugy3oq/",
+        "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://www.transfermarkt.com.ar/emilio-porro/profil/spieler/540460",
+        "https://pelotita.com.ar/equipos/10109",
+        "https://www.transfermarkt.com.ar/joel-canalda/profil/spieler/1295864",
+        "https://www.transfermarkt.es/dylan-aguilar/profil/spieler/1301392",
+        "https://www.transfermarkt.com/gonzalo-gomez/profil/spieler/1400372",
+        "https://www.transfermarkt.es/mauro-frattini/profil/spieler/119654",
+        "https://www.transfermarkt.com.ar/matteo-cucinotta/profil/spieler/1118328",
+        "https://www.transfermarkt.es/santino-primante/profil/spieler/1292332",
+        "https://www.transfermarkt.es/uriel-guzman/profil/spieler/1295867"
+      ],
+      "natSource": "https://canchallena.lanacion.com.ar/equipo/midland-b5i12he1fdqff4xwd8ugy3oq/"
+    },
+    "defensoresbelgrano": {
+      "source": [
+        "https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/defensores-de-belgrano/plantilla",
+        "https://www.soloascenso.com.ar/club.php?eq=264",
+        "https://www.soloascenso.com.ar/perfil/nicolas-morro/21722"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/defensores-de-belgrano/plantilla",
+        "https://www.soloascenso.com.ar/perfil/leandro-ciccolini/16697",
+        "https://canchallena.lanacion.com.ar/equipo/defensores-de-belgrano-6jrn904p94yfyn6s5b6ij0jw8/",
+        "https://www.soloascenso.com.ar/perfil/ian-perez/23651",
+        "https://www.soloascenso.com.ar/perfil/diego-magallanes/20440",
+        "https://www.soloascenso.com.ar/perfil/diego-garcia/6758",
+        "https://www.transfermarkt.com.ar/joaquin-ardaiz/profil/spieler/415550",
+        "https://www.transfermarkt.es/leonardo-landriel/profil/spieler/349747",
+        "https://www.transfermarkt.com.ar/nicolas-vaquer/profil/spieler/900477",
+        "https://www.soloascenso.com.ar/perfil/martin-rodriguez/22357",
+        "https://www.soloascenso.com.ar/perfil/leonel-gigli/2219",
+        "https://www.sofascore.com/es-la/football/player/nicolas-morro/2044372"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Dorsal 18 según Offside Scores: https://offsidescores.com/es/futbol/equipo/ca-defensores-de-belgrano/2bb9a72f-f03c-4217-9132-fd1654eeed13",
+        "Sofascore: dorsal 14 en Defensores de Belgrano"
+      ],
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Recalibración 2026: 36 partidos, 26 titularidades, 3 goles y 2 asistencias según plantilla estadística de Defensores. Rating estimado sube +2 por participación y aporte ofensivo. Fuente: https://offsidescores.com/es/futbol/equipo/ca-defensores-de-belgrano/2bb9a72f-f03c-4217-9132-fd1654eeed13 ; perfil: https://www.soloascenso.com.ar/perfil/patricio-moyano/26059",
+        "Recalibración 2026: 33 partidos, 33 titularidades, 2.611 minutos, 3 goles y 6 asistencias en Primera Nacional. Ajuste moderado +1 por continuidad y creación ofensiva. Fuente: https://www.fotmob.com/es-419/players/816733/ezequiel-aguirre",
+        "Estimación propia 2026: nivel; trayectoria y participación en Primera Nacional; sin OVR individual EA FC 27/26 verificado; pendiente de contraste con datos de Football Manager.",
+        "Estimación propia 2026: central zurdo; una aparición de 90 minutos con Defensores en 2026; antecedente de 35 partidos en San Telmo 2025; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/defensores-de-belgrano/plantilla",
+        "https://tribuna.com/es/clubs/defensores-de-belgrano/squad/stat/2026/",
+        "Estimación orientativa: mediocampista central (MC), inferido desde posición general MED; pendiente de ficha individual.",
+        "https://www.fotmob.com/es/players/1340805/nicolas-morro"
+      ],
+      "natSource": [
+        "https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/defensores-de-belgrano/plantilla",
+        "https://www.soloascenso.com.ar/perfil/leandro-ciccolini/16697",
+        "https://canchallena.lanacion.com.ar/equipo/defensores-de-belgrano-6jrn904p94yfyn6s5b6ij0jw8/",
+        "https://www.soloascenso.com.ar/perfil/ian-perez/23651",
+        "https://www.soloascenso.com.ar/perfil/diego-magallanes/20440",
+        "https://www.soloascenso.com.ar/perfil/diego-garcia/6758",
+        "https://www.transfermarkt.com.ar/joaquin-ardaiz/profil/spieler/415550",
+        "https://www.transfermarkt.es/leonardo-landriel/profil/spieler/349747",
+        "https://www.transfermarkt.com.ar/nicolas-vaquer/profil/spieler/900477",
+        "https://www.soloascenso.com.ar/perfil/martin-rodriguez/22357",
+        "https://www.soloascenso.com.ar/perfil/leonel-gigli/2219",
+        "https://www.sofascore.com/es-la/football/player/nicolas-morro/2044372"
+      ]
+    },
+    "colegiales": {
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/colegiales-983n3ng7mqncrjh0oo8kjccp8/",
+        "https://www.soloascenso.com.ar/club/colegiales/259"
+      ],
+      "consulted": "2026-11-07",
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/colegiales-983n3ng7mqncrjh0oo8kjccp8/",
+        "https://www.transfermarkt.com.ar/gonzalo-baglivo/profil/spieler/480200"
+      ],
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Recalibración 2026: 33 partidos, 23 titularidades, 1.963 minutos, 1 gol y 1 asistencia; interior derecho de Colegiales. Ajuste moderado +1 por participación y aporte ofensivo. Fuente: https://www.fotmob.com/es/players/1606614/elias-ocampo",
+        "Rol específico corregido a MO (mediocentro ofensivo); 29 partidos; 13 titularidades; 1285 minutos; 1 gol en Primera Nacional 2026. Fuente: https://www.fotmob.com/es/players/1714529/facundo-montiel",
+        "Estimación propia 2026: nivel; trayectoria y participación en Primera Nacional; sin OVR individual EA FC 27/26 verificado; pendiente de contraste con datos de Football Manager."
+      ],
+      "roleSource": [
+        "https://canchallena.lanacion.com.ar/equipo/colegiales-983n3ng7mqncrjh0oo8kjccp8/",
+        "Rol específico contrastado con FotMob: interior derecho; normalizado a MD dentro de las posiciones disponibles del juego.",
+        "https://tribuna.com/es/clubs/colegiales/squad/stat/2026/primera-b-nacional/",
+        "Rol específico contrastado con FotMob: mediocentro ofensivo; normalizado a MO.",
+        "https://www.transfermarkt.mx/tomas-perri/profil/spieler/1453130"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/colegiales-983n3ng7mqncrjh0oo8kjccp8/",
+        "https://www.transfermarkt.com.ar/gonzalo-baglivo/profil/spieler/480200"
+      ]
+    },
+    "acassuso": {
+      "source": [
+        "https://pelotita.com.ar/equipos/10145",
+        "https://www.365scores.com/es/football/player/valentin-serrano-147454",
+        "https://www.soccerway.com/player/monaco-manuel/EeKccIVR/",
+        "https://www.sofascore.com/es-la/football/player/juan-ignacio-quattrocchi/1836759"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/acassuso-7yzmvr4f69naag434ijhvxcmr/",
+        "https://www.soloascenso.com.ar/perfil/mariano-monllor/1780",
+        "https://www.soloascenso.com.ar/perfil/alex-ruiz/23590",
+        "https://www.soloascenso.com.ar/perfil/joel-ghirardello/16657",
+        "https://www.soloascenso.com.ar/perfil/roman-etcheverri/28571",
+        "https://www.soloascenso.com.ar/perfil/santiago-bellatti/28335",
+        "https://www.soloascenso.com.ar/perfil/joaquin-postigo/27187",
+        "https://www.soloascenso.com.ar/perfil/lazaro-romero/7311",
+        "https://www.soloascenso.com.ar/perfil/ramiro-reynoso/24473",
+        "https://www.soloascenso.com.ar/perfil/agustin-hermoso/25789",
+        "https://www.soloascenso.com.ar/perfil/kevin-dubini/8760",
+        "https://www.soloascenso.com.ar/perfil/lucas-rey/23875",
+        "https://www.365scores.com/es/football/player/valentin-serrano-147454",
+        "https://www.soccerway.com/player/monaco-manuel/EeKccIVR/",
+        "https://www.sofascore.com/es-la/football/player/juan-ignacio-quattrocchi/1836759"
+      ],
+      "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
+      "ratingSource": [
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación propia 2026: nivel competitivo; trayectoria y participación 2026; sin OVR individual oficial verificado"
+      ],
+      "roleSource": [
+        "https://pelotita.com.ar/equipos/10145",
+        "https://www.transfermarkt.com.ar/juan-ponce-de-leon/profil/spieler/1087673",
+        "https://www.fotmob.com/es/players/1586264/valentin-serrano",
+        "https://www.soccerway.com/player/monaco-manuel/EeKccIVR/",
+        "https://www.sofascore.com/es-la/football/player/juan-ignacio-quattrocchi/1836759"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/acassuso-7yzmvr4f69naag434ijhvxcmr/",
+        "https://www.soloascenso.com.ar/perfil/mariano-monllor/1780",
+        "https://www.soloascenso.com.ar/perfil/alex-ruiz/23590",
+        "https://www.soloascenso.com.ar/perfil/joel-ghirardello/16657",
+        "https://www.soloascenso.com.ar/perfil/roman-etcheverri/28571",
+        "https://www.soloascenso.com.ar/perfil/santiago-bellatti/28335",
+        "https://www.soloascenso.com.ar/perfil/joaquin-postigo/27187",
+        "https://www.soloascenso.com.ar/perfil/lazaro-romero/7311",
+        "https://www.soloascenso.com.ar/perfil/ramiro-reynoso/24473",
+        "https://www.soloascenso.com.ar/perfil/agustin-hermoso/25789",
+        "https://www.soloascenso.com.ar/perfil/kevin-dubini/8760",
+        "https://www.soloascenso.com.ar/perfil/lucas-rey/23875",
+        "https://www.365scores.com/es/football/player/valentin-serrano-147454",
+        "https://www.soccerway.com/player/monaco-manuel/EeKccIVR/",
+        "https://www.sofascore.com/es-la/football/player/juan-ignacio-quattrocchi/1836759"
+      ]
+    },
+    "rafaela": {
+      "source": [
+        "https://pelotita.com.ar/equipos/9747",
+        "https://www.soloascenso.com.ar/perfil/matias-morello/27028",
+        "https://www.soloascenso.com.ar/notas/atletico-rafaela/nuevo-refuerzo-de-experiencia-para-atletico-de-rafaela/229630"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      "ageSource": [
+        "https://canchallena.lanacion.com.ar/equipo/rafaela-1q0ukadexm6xinnytfac9eglg/",
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "https://www.soloascenso.com.ar/perfil/matias-morello/27028",
+        "https://www.transfermarkt.es/gabriel-esparza/profil/spieler/322115"
+      ],
+      "numberSource": [
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "Dorsal 3 confirmado en planilla de Atlético Rafaela vs. Patronato (02-11-2026). Fuente: https://promediosinfo.com/atletico-rafaela_patronato_2026-11-02_1498923_401844258.html",
+        "Asignado internamente; pendiente de contraste con numeración oficial (se reasigna a 40 para evitar conflicto con dorsal 3 de Enzo Wattier confirmado en planilla).",
+        "Asignado internamente: dorsal único para simulación; número oficial pendiente de confirmación.",
+        "Sofascore: dorsal 11 en Atlético Rafaela"
+      ],
+      "ratingSource": [
+        "Estadística corregida: 22 partidos de Primera Nacional, 1.980 minutos, 10 vallas invictas y 61% de atajadas; promedio 6,18. Rating 68 se conserva. Fuente: https://footystats.org/es/players/argentina/mayco-bergia",
+        "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
+        "Estimación revisada: 29 partidos; valoración media 6,12. Fuente estadística: https://www.golmates.com/es/argentina/equipo/atletico-rafaela",
+        "Estimación propia 2026: diez presencias con Atlético Rafaela; cuatro titularidades y seis ingresos/suplencias según ficha de temporada; sin OVR EA individual verificado",
+        "Estimación propia 2026: diez presencias con Temperley en el primer semestre y una titularidad con Atlético Rafaela antes de lesión en julio; sin OVR EA individual verificado"
+      ],
+      "roleSource": [
+        "https://pelotita.com.ar/equipos/9747",
+        "Asignado internamente; pendiente de contraste con numeración oficial",
+        "https://www.radiorafaela.com.ar/deportes/primera-nacional-atletico-de-rafaela-sumo-a-matias-morello",
+        "https://www.transfermarkt.es/gabriel-esparza/profil/spieler/322115"
+      ],
+      "natSource": [
+        "https://canchallena.lanacion.com.ar/equipo/rafaela-1q0ukadexm6xinnytfac9eglg/",
+        "https://canchallena.lanacion.com.ar/equipo/rafaela-1q0ukadexm6xinnytfac9eglg/; https://pelotita.com.ar/equipos/9747; https://canchallena.lanacion.com.ar/equipo/rafaela-1q0ukadexm6xinnytfac9eglg/",
+        "https://www.soloascenso.com.ar/perfil/matias-morello/27028",
+        "https://www.transfermarkt.es/gabriel-esparza/profil/spieler/322115"
+      ]
+    }
   },
   "completePrimera": true,
+  "completePrimeraNacional": true,
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 1013,
+    "assigned": 2039,
     "missing": 0,
-    "total": 1013,
+    "total": 2039,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1223,16 +2585,196 @@
       "estudiantesrc": {
         "total": 32,
         "assigned": 32,
+        "missing": 0
+      },
+      "ferro": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "nuevachicago": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "madryn": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "chacarita": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "allboys": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "atlanta": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "chaco": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "moron": {
+        "total": 29,
+        "assigned": 29,
+        "missing": 0
+      },
+      "estudiantesba": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "assigned": 31,
+        "missing": 0
+      },
+      "sanmartintuc": {
+        "total": 23,
+        "assigned": 23,
+        "missing": 0
+      },
+      "almagro": {
+        "total": 23,
+        "assigned": 23,
+        "missing": 0
+      },
+      "losandes": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "mitre": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "temperley": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "guemes": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "racingcba": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "colon": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "tristansuarez": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "agropecuario": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "patronato": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "almirantebrown": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "gimnasiatiro": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "quilmes": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "maipu": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "godoycruz": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "santelmo": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "centralnorte": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "sanmiguel": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "midland": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "defensoresbelgrano": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "colegiales": {
+        "total": 23,
+        "assigned": 23,
+        "missing": 0
+      },
+      "acassuso": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "rafaela": {
+        "total": 26,
+        "assigned": 26,
         "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
-    "assigned": 1013,
+    "assigned": 2039,
     "missing": 0,
-    "birthDates": 1013,
-    "total": 1013,
+    "birthDates": 2039,
+    "total": 2039,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1383,13 +2925,193 @@
         "total": 32,
         "assigned": 32,
         "missing": 0
+      },
+      "ferro": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "nuevachicago": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "madryn": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "chacarita": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "allboys": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "atlanta": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "chaco": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "moron": {
+        "total": 29,
+        "assigned": 29,
+        "missing": 0
+      },
+      "estudiantesba": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "assigned": 31,
+        "missing": 0
+      },
+      "sanmartintuc": {
+        "total": 23,
+        "assigned": 23,
+        "missing": 0
+      },
+      "almagro": {
+        "total": 23,
+        "assigned": 23,
+        "missing": 0
+      },
+      "losandes": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "mitre": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "temperley": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "guemes": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "racingcba": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "colon": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "tristansuarez": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "agropecuario": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "patronato": {
+        "total": 34,
+        "assigned": 34,
+        "missing": 0
+      },
+      "almirantebrown": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "gimnasiatiro": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "quilmes": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "maipu": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "godoycruz": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "santelmo": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "centralnorte": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "sanmiguel": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "midland": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "defensoresbelgrano": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "colegiales": {
+        "total": 23,
+        "assigned": 23,
+        "missing": 0
+      },
+      "acassuso": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "rafaela": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
       }
     }
   },
   "nationalityCoverage": {
-    "assigned": 1013,
+    "assigned": 2039,
     "missing": 0,
-    "total": 1013,
+    "total": 2039,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1510,13 +3232,157 @@
       "estudiantesrc": {
         "total": 32,
         "assigned": 32
+      },
+      "ferro": {
+        "total": 32,
+        "assigned": 32
+      },
+      "nuevachicago": {
+        "total": 26,
+        "assigned": 26
+      },
+      "madryn": {
+        "total": 22,
+        "assigned": 22
+      },
+      "chacarita": {
+        "total": 25,
+        "assigned": 25
+      },
+      "allboys": {
+        "total": 25,
+        "assigned": 25
+      },
+      "atlanta": {
+        "total": 25,
+        "assigned": 25
+      },
+      "chaco": {
+        "total": 32,
+        "assigned": 32
+      },
+      "moron": {
+        "total": 29,
+        "assigned": 29
+      },
+      "estudiantesba": {
+        "total": 33,
+        "assigned": 33
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "assigned": 31
+      },
+      "sanmartintuc": {
+        "total": 23,
+        "assigned": 23
+      },
+      "almagro": {
+        "total": 23,
+        "assigned": 23
+      },
+      "losandes": {
+        "total": 32,
+        "assigned": 32
+      },
+      "mitre": {
+        "total": 30,
+        "assigned": 30
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "assigned": 34
+      },
+      "temperley": {
+        "total": 32,
+        "assigned": 32
+      },
+      "guemes": {
+        "total": 32,
+        "assigned": 32
+      },
+      "racingcba": {
+        "total": 22,
+        "assigned": 22
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "assigned": 34
+      },
+      "colon": {
+        "total": 32,
+        "assigned": 32
+      },
+      "tristansuarez": {
+        "total": 33,
+        "assigned": 33
+      },
+      "agropecuario": {
+        "total": 33,
+        "assigned": 33
+      },
+      "patronato": {
+        "total": 34,
+        "assigned": 34
+      },
+      "almirantebrown": {
+        "total": 28,
+        "assigned": 28
+      },
+      "gimnasiatiro": {
+        "total": 32,
+        "assigned": 32
+      },
+      "quilmes": {
+        "total": 33,
+        "assigned": 33
+      },
+      "maipu": {
+        "total": 26,
+        "assigned": 26
+      },
+      "godoycruz": {
+        "total": 25,
+        "assigned": 25
+      },
+      "santelmo": {
+        "total": 26,
+        "assigned": 26
+      },
+      "centralnorte": {
+        "total": 22,
+        "assigned": 22
+      },
+      "sanmiguel": {
+        "total": 28,
+        "assigned": 28
+      },
+      "midland": {
+        "total": 33,
+        "assigned": 33
+      },
+      "defensoresbelgrano": {
+        "total": 25,
+        "assigned": 25
+      },
+      "colegiales": {
+        "total": 23,
+        "assigned": 23
+      },
+      "acassuso": {
+        "total": 25,
+        "assigned": 25
+      },
+      "rafaela": {
+        "total": 26,
+        "assigned": 26
       }
     }
   },
   "specificRoleCoverage": {
-    "assigned": 1013,
+    "assigned": 2039,
     "missing": 0,
-    "total": 1013,
+    "total": 2039,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -1637,13 +3503,157 @@
       "estudiantesrc": {
         "total": 32,
         "specific": 32
+      },
+      "ferro": {
+        "total": 32,
+        "specific": 32
+      },
+      "nuevachicago": {
+        "total": 26,
+        "specific": 26
+      },
+      "madryn": {
+        "total": 22,
+        "specific": 22
+      },
+      "chacarita": {
+        "total": 25,
+        "specific": 25
+      },
+      "allboys": {
+        "total": 25,
+        "specific": 25
+      },
+      "atlanta": {
+        "total": 25,
+        "specific": 25
+      },
+      "chaco": {
+        "total": 32,
+        "specific": 32
+      },
+      "moron": {
+        "total": 29,
+        "specific": 29
+      },
+      "estudiantesba": {
+        "total": 33,
+        "specific": 33
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "specific": 31
+      },
+      "sanmartintuc": {
+        "total": 23,
+        "specific": 23
+      },
+      "almagro": {
+        "total": 23,
+        "specific": 23
+      },
+      "losandes": {
+        "total": 32,
+        "specific": 32
+      },
+      "mitre": {
+        "total": 30,
+        "specific": 30
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "specific": 34
+      },
+      "temperley": {
+        "total": 32,
+        "specific": 32
+      },
+      "guemes": {
+        "total": 32,
+        "specific": 32
+      },
+      "racingcba": {
+        "total": 22,
+        "specific": 22
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "specific": 34
+      },
+      "colon": {
+        "total": 32,
+        "specific": 32
+      },
+      "tristansuarez": {
+        "total": 33,
+        "specific": 33
+      },
+      "agropecuario": {
+        "total": 33,
+        "specific": 33
+      },
+      "patronato": {
+        "total": 34,
+        "specific": 34
+      },
+      "almirantebrown": {
+        "total": 28,
+        "specific": 28
+      },
+      "gimnasiatiro": {
+        "total": 32,
+        "specific": 32
+      },
+      "quilmes": {
+        "total": 33,
+        "specific": 33
+      },
+      "maipu": {
+        "total": 26,
+        "specific": 26
+      },
+      "godoycruz": {
+        "total": 25,
+        "specific": 25
+      },
+      "santelmo": {
+        "total": 26,
+        "specific": 26
+      },
+      "centralnorte": {
+        "total": 22,
+        "specific": 22
+      },
+      "sanmiguel": {
+        "total": 28,
+        "specific": 28
+      },
+      "midland": {
+        "total": 33,
+        "specific": 33
+      },
+      "defensoresbelgrano": {
+        "total": 25,
+        "specific": 25
+      },
+      "colegiales": {
+        "total": 23,
+        "specific": 23
+      },
+      "acassuso": {
+        "total": 25,
+        "specific": 25
+      },
+      "rafaela": {
+        "total": 26,
+        "specific": 26
       }
     }
   },
   "ratingCoverage": {
-    "rated": 875,
-    "estimated": 138,
-    "total": 1013,
+    "rated": 920,
+    "estimated": 1119,
+    "total": 2039,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -1825,28 +3835,244 @@
         "verified": 28,
         "estimated": 4,
         "provisional": 0
+      },
+      "ferro": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "nuevachicago": {
+        "total": 26,
+        "verified": 2,
+        "estimated": 24,
+        "provisional": 0
+      },
+      "madryn": {
+        "total": 22,
+        "verified": 2,
+        "estimated": 20,
+        "provisional": 0
+      },
+      "chacarita": {
+        "total": 25,
+        "verified": 1,
+        "estimated": 24,
+        "provisional": 0
+      },
+      "allboys": {
+        "total": 25,
+        "verified": 0,
+        "estimated": 25,
+        "provisional": 0
+      },
+      "atlanta": {
+        "total": 25,
+        "verified": 5,
+        "estimated": 20,
+        "provisional": 0
+      },
+      "chaco": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "moron": {
+        "total": 29,
+        "verified": 0,
+        "estimated": 29,
+        "provisional": 0
+      },
+      "estudiantesba": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "gimnasiajujuy": {
+        "total": 31,
+        "verified": 0,
+        "estimated": 31,
+        "provisional": 0
+      },
+      "sanmartintuc": {
+        "total": 23,
+        "verified": 2,
+        "estimated": 21,
+        "provisional": 0
+      },
+      "almagro": {
+        "total": 23,
+        "verified": 2,
+        "estimated": 21,
+        "provisional": 0
+      },
+      "losandes": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "mitre": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "sanmartinsj": {
+        "total": 34,
+        "verified": 0,
+        "estimated": 34,
+        "provisional": 0
+      },
+      "temperley": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "guemes": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "racingcba": {
+        "total": 22,
+        "verified": 1,
+        "estimated": 21,
+        "provisional": 0
+      },
+      "ciudadbolivar": {
+        "total": 34,
+        "verified": 0,
+        "estimated": 34,
+        "provisional": 0
+      },
+      "colon": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "tristansuarez": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "agropecuario": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "patronato": {
+        "total": 34,
+        "verified": 0,
+        "estimated": 34,
+        "provisional": 0
+      },
+      "almirantebrown": {
+        "total": 28,
+        "verified": 4,
+        "estimated": 24,
+        "provisional": 0
+      },
+      "gimnasiatiro": {
+        "total": 32,
+        "verified": 2,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "quilmes": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "maipu": {
+        "total": 26,
+        "verified": 11,
+        "estimated": 15,
+        "provisional": 0
+      },
+      "godoycruz": {
+        "total": 25,
+        "verified": 1,
+        "estimated": 24,
+        "provisional": 0
+      },
+      "santelmo": {
+        "total": 26,
+        "verified": 3,
+        "estimated": 23,
+        "provisional": 0
+      },
+      "centralnorte": {
+        "total": 22,
+        "verified": 0,
+        "estimated": 22,
+        "provisional": 0
+      },
+      "sanmiguel": {
+        "total": 28,
+        "verified": 0,
+        "estimated": 28,
+        "provisional": 0
+      },
+      "midland": {
+        "total": 33,
+        "verified": 3,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "defensoresbelgrano": {
+        "total": 25,
+        "verified": 2,
+        "estimated": 23,
+        "provisional": 0
+      },
+      "colegiales": {
+        "total": 23,
+        "verified": 2,
+        "estimated": 21,
+        "provisional": 0
+      },
+      "acassuso": {
+        "total": 25,
+        "verified": 0,
+        "estimated": 25,
+        "provisional": 0
+      },
+      "rafaela": {
+        "total": 26,
+        "verified": 2,
+        "estimated": 24,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
     "formula": "Se prioriza OVR individual EA FC 27 y EA FC 26 como respaldo; después promedios de partido con al menos 10 apariciones. Sin evidencia individual, no se acepta una media por defecto."
   },
   "attributeCoverage": {
-    "manualPlayers": 147,
+    "manualPlayers": 1173,
     "derivedPlayers": 866,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 30,
-    "players": 1013,
+    "clubs": 66,
+    "players": 2039,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "verifiedRatings": 875,
-    "estimatedRatings": 138,
+    "verifiedRatings": 920,
+    "estimatedRatings": 1119,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 1012,
+    "playersMissingFoot": 2008,
     "playersMissingSpecificRole": 0,
     "playersWithoutManualAttributes": 866
   }
