@@ -145,3 +145,7 @@ Se agregaron Santiago Ariel Villalba, Gonzalo Nahuel Flores y Julián Ignacio L�
 - **Almagro:** se incorporó Matías Alejandro Laba (11/12/1991), 24 presencias registradas en 2026; rating/atributos estimados y dorsal 99 provisional.
 - Total actualizado: 1.023 jugadores; 20 altas acumuladas; 29 identidades corregidas; tres bajas confirmadas retiradas.
 - Los cambios siguen en borradores y no se integraron al runtime.
+
+
+### Octava tanda — Almagro — 08/11/2026
+Se resolvieron dos identidades sin duplicar: Cristian Salto pasó a Claudio Gabriel Salto (dorsal 10 respaldado por Sofascore) y Franco de la Vega pasó a Facundo Sebastián De La Vega (16 presencias y cinco goles en 2026). Total: 1.023 jugadores; 20 altas y 31 identidades corregidas. Los cambios permanecen en borradores.
