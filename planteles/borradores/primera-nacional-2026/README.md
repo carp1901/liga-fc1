@@ -1,8 +1,8 @@
-# Primera Nacional 2026 — borradores de trabajo
+# Primera Nacional 2026 — fuente de planteles integrada
 
-Estos seis CSV y `progreso.json` se publican en `main` como material de investigación y continuidad del trabajo.
+Los seis CSV y `progreso.json` se conservan como fuente editable y registro de auditoría. **Los 36 clubes y 1.026 jugadores ya están integrados en el runtime** mediante `public/squads.json`, `public/squads.js` y `public/squads-meta.json`, junto con los 30 clubes y 1.013 jugadores de Primera División.
 
-**No están integrados en el juego ni reemplazan `public/squads.json` o `public/squads-meta.json`.** No importar estos archivos al motor todavía.
+La importación es automática y conjunta: GitHub Actions une los siete CSV de origen, valida las dos divisiones y publica los archivos que carga `index.html`. No importar los seis bloques por separado ni sobrescribir `public/squads.json` manualmente.
 
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
@@ -247,3 +247,14 @@ En ambos casos se actualizaron `rating`, `rating_base` y los siete atributos de 
 ## Revisión de distribución tras cinco tandas — 08/11/2026
 
 Se recalculó la distribución de medias sobre los 1.026 jugadores y se contrastaron los 36 promedios de club, las cuatro líneas y todos los subroles contra `ROLE_OFFSETS` de `public/data.js`. Resultado: promedio 68,44; mediana 69; P10 64; P25 67; P75 71; P90 72; rango 56–78. Hay 882 jugadores (86,0%) entre 64 y 72. Promedios por posición: POR 68,47; DEF 68,72; MED 68,13; DEL 68,50. No hay subroles sin perfil ni errores estructurales. La distribución sigue concentrada, por lo que la calibración debe continuar con evidencia individual y sin subas generales.
+
+
+## Integración completada — 08/11/2026
+
+<badge>CI: success</badge>
+
+La publicación automática terminó correctamente. Resultado final: **66 clubes y 2.039 jugadores** (1.013 de Primera + 1.026 de Primera Nacional). `public/squads-meta.json` confirma cero nombres duplicados, cero dorsales duplicados y cobertura completa de edad, dorsal, nacionalidad y rol específico. Las 920 medias con fuente individual y las 1.119 estimaciones propias permanecen diferenciadas; no se presentan las estimaciones como OVR oficial. Los ocho atributos técnicos se conservan en los CSV; cuando no son manuales, el motor los deriva por perfil, puesto y media.
+
+Se corrigieron los conflictos de dorsales detectados en la revisión final. Los dorsales reasignados internamente siguen identificados como tales y no se anuncian como oficiales. Godoy Cruz se contrastó con la formación de la fecha 36 del 31/10/2026: https://tn.com.ar/deportes/futbol/2026/10/31/godoy-cruz-vs-almirante-brown-en-vivo-por-la-fecha-36-de-la-primera-nacional-hora-donde-ver-y-formaciones/.
+
+Ejecución CI: https://github.com/carp1901/liga-fc1/actions/runs/42448336693

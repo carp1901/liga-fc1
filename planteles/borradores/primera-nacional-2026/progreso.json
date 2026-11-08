@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría y calibración individual en curso: cinco tandas completadas (12 medias ajustadas); distribución recalculada y 1.026 jugadores validados. Borradores sin integración al runtime.",
+  "estado": "Primera Nacional integrada y publicada en el runtime junto con Primera División. 36 clubes y 1.026 jugadores de Nacional; 66 clubes y 2.039 jugadores en total. Auditoría CI completada correctamente.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1026,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración: 3 bajas confirmadas retiradas, 28 altas nuevas agregadas, 50 identidades/datos corregidos, 4 duplicados interclub y 1 duplicado intraclub eliminados. Seis bloques CSV en borradores; 1026 jugadores; sin integración al runtime.",
+  "estado_general": "Integración completada: 36 clubes y 1.026 jugadores de Primera Nacional publicados junto a los 30 clubes y 1.013 jugadores de Primera División. Total runtime: 66 clubes y 2.039 jugadores.",
   "auditoria_final": {
     "jugadores": 1026,
     "clubes": 36,
@@ -167,8 +167,8 @@
     "atributos_derivados_por_motor": 21,
     "roles_especificos_asignados": 1026,
     "estado_ci": "passed",
-    "importacion": "No integrado al runtime; datos conservados como borradores CSV",
-    "main": "borradores publicados en main; integración al juego pendiente",
+    "importacion": "Integrado y publicado en public/squads.json, public/squads.js y public/squads-meta.json junto con Primera División.",
+    "main": "runtime publicado: 66 clubes y 2.039 jugadores (30 Primera + 36 Primera Nacional).",
     "roles_especificos_pendientes": 0,
     "estado_refinamiento": "En curso: depurados por tandas Deportivo Maipú, Defensores de Belgrano, Colegiales, Deportivo Madryn, Godoy Cruz, San Telmo, San Martín Tucumán, Almagro, Atlético Rafaela, Racing de Córdoba, Almirante Brown, Chacarita, All Boys, Atlanta y Central Norte. Criterio: titulares, rotación y suplentes funcionales con participación; juveniles y futbolistas sin uso se reservan para futura cantera. Pendientes: otros clubes, revisión individual de roles, dorsales oficiales y medias/atributos con Football Manager/EA FC. En Midland se contrastaron cuatro dorsales repetidos en planillas de partidos 2026 (Aguilar 15, Frattini 16, Olavarría 13 y Canalda 14); no se contabilizan como dorsales oficiales de plantel sin nómina oficial. En Midland se corrigieron además las posiciones generales de Lautaro Díaz Laharque (MED→DEF, LD) y Matías Flores (MED→DEL, DC), y el subrol de Facundo Marín (EI→MI), según la ficha estadística 2026 de Pelotita. En Estudiantes BA se confirmaron Juan Sánchez de León (MC) y Mateo Acosta (DC) con la ficha estadística 2026 de Pelotita. En esta tanda se añadieron seis roles respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI), Tomás Rodríguez (DEF) y Lucas Villegas (MED; corrección de posición general) en Ciudad de Bolívar, y Juan Valdez Chamorro (MP, Agropecuario), según estadísticas individuales 2026 de Pelotita. En esta tanda se añadieron cuatro roles específicos respaldados: Juan Rodríguez Vuotto (DFC, Los Andes), Agustín González (DFC, Güemes), Alex Díaz (MI, Ciudad de Bolívar) y Juan Valdez Chamorro (MP, Agropecuario). También se corrigieron las posiciones generales de Tomás Rodríguez (DEF) y Lucas Villegas (MED) en Ciudad de Bolívar sin inventar subroles, según estadísticas individuales 2026 de Pelotita. Nueva tanda: Facundo García (DC, Ferro) y Román Rodríguez (MC, Estudiantes BA) con subroles respaldados por estadísticas individuales 2026; Juan Pablo Córdoba (Gimnasia de Jujuy) corregido a posición general DEF, sin asignar subrol no documentado. Nicolás Borsotti (MC, Defensores de Belgrano) se completó con la ficha estadística individual 2026 de Pelotita. Nueva tanda de ocho roles respaldados: Gonzalo Valdivia (LI), Segundo Rodríguez (DFC) y Matías Ferrari (MC) en Mitre; Nicolás Paz (DFC) en San Martín SJ; Lucas Picech (DFC) y Bautista Maillier (MC) en Colón; Matías Molina (LD) en Agropecuario. Además, Santiago Nogales de Gimnasia y Tiro se corrigió de DEL a POR y se le asignó POR. Se usaron fichas individuales y plantilla de club actualizada. Nueva tanda: Gonzalo Melgarejo (MI) y Brian Guerra (MD) en Chaco For Ever, y Matías Gómez (MC) en Los Andes. Melgarejo se corrigió además de posición general DEF a MED, respaldado por su perfil de temporada y la descripción de su función por banda izquierda. En Gimnasia de Jujuy se completaron Gonzalo Villarreal (DFC), Sebastián Sánchez (DFC) y Juan Pablo Córdoba (DFC), este último respaldado por su participación como central en la planilla del partido ante Patronato. Agustín Zabaleta (DC, Chaco For Ever) se completó como delantero centro con ficha individual de Transfermarkt. Nueva revisión con estadísticas de plantel 2026: Ezequiel Ozuna corregido a DEF/LI; Federico Cuzzani, Gonzalo Castellani y Nicolás Gómez corregidos a MED/MI en Ferro. Ignacio Lago corregido a MED/MI en Colón. Se prioriza el subrol publicado en la ficha de temporada y no se fuerza un subrol cuando la fuente sólo indica DEF/MED/DEL. Nueva tanda: se verificaron por fecha de nacimiento y se corrigieron nombres de Franco Molina, Jorge Zules Caicedo, Tiago Chamorro y Mauricio Tevez en Chaco For Ever; Jorge Zules Caicedo y Tiago Chamorro reciben DFC. En Los Andes se corrigieron Aaron Sandoval, Thiago Cicerone, Franco Tisera y Leandro Alegre; Gonzalo Cozzoni pasa a MED/MCD y Franco Tisera a DEL/DC. En Temperley se corrigieron Iago Iriarte y León Trebotic, y Rodrigo Mazur recibe DEF/LI. Los subroles se asignaron sólo donde hay fuente explícita. Nueva tanda: Ferro, Matías Zubowicz DFC; se corrigieron Ezequiel Ozuna a Emiliano Ozuna, Federico Cuzzani a Francisco Cuzzani y Matías Campos a Martín Campos. Roles: Ozuna MI, Castellani MC, Nicolás Gómez MC, Martín Campos MO, Santiago García MD y Jonathan Menéndez EI. Morón: Tomás Ramírez MP (salió del club en julio 2026). Temperley: Nicolás Molina corregido a DEL/DC, Valentino Werro a LD, Fernando Brandán a ED y Julián Carrasco a ED. Nueva tanda de diez roles respaldados: Yago De Vito (DFC), Rodrigo Ramírez (MC, corregido de DEF a MED) y Thiago Ocampo (ED) en Nueva Chicago/All Boys; Facundo Quignón (MCD) en Almirante Brown; Emilio Porro (LD), Joel Canalda (DFC), Dylan Aguilar (MC), Mauro Frattini (MO) y Matteo Cucinotta (DC) en Midland; David Müller (MC) en San Miguel. Nueva tanda: Miguel Mellado (MCD, Chacarita), Joaquín Zappacosta (DC, Morón) y Tomás Núñez (LI, Estudiantes BA). En Gimnasia y Tiro se corrigieron Agustín Tallura→Adolfo Tallura (DFC), Ignacio Chaves→Ivo Cháves (MC), Tomás Bórquez→Tiago Borquez (MD), Pablo A. Rodríguez→Pablo Rodríguez (MC) y Joaquín Turletti→Juan Turletti. Nueva tanda: Franco Saccone (ED) y Juan Andrada (MCD) en Deportivo Maipú/Godoy Cruz; Agustín Valverde corregido de MED a DEF según ficha de temporada. Acassuso: Juan Ponce de León (LD). Nueva tanda San Martín SJ: Julián Marchio (DFC), Gonzalo Lucero (LI), Carlo Lattanzio (EI), Lucas Acosta (EI), Luciano Riveros (ED), Ramiro Rúmbolo (MC) y Bruno Juncos (ED). Se corrigieron los nombres y las posiciones generales de Lattanzio, Acosta y Riveros con la plantilla 2026 de FotMob. Nueva tanda Colón: Agustín Giménez (MC), Iván Ojeda (DC) y Jerónimo Buosi (DC). Se corrigieron los nombres de Ignacio Ojeda y Joaquín Buosi, y Matías Ingravidi a Máximo Ingravidi, contrastando fichas de jugador y registros de 2026. Nueva tanda Tristán Suárez: Augusto Berrondo (ED), Máximo Ferulano (MC), Maximiliano Luayza (MO), Nicolás Del Priore (MC), Santiago Magnotta (MD), Diego Becker (MO), Gianluca Banuera (MO), Manuel Guillén (LD) y Matías Olguín (LD). Se corrigieron nombres de César Romero, Luis Álvarez, Tiziano Noriega, Maximiliano Villalba y Marcos Enrique, además de la posición general de Agustín Baldi. Nueva tanda: Mauricio Tevez (DEL/DC, Chaco For Ever), Gonzalo Puntano (DC, Gimnasia Jujuy) e Iago Iriarte (DFC, Temperley). Se corrigieron además Rodrigo Nieva (antes Ramiro Nieva; posición DEL) en San Martín SJ y Bautista Fernández (antes Bruno Fernández) en Temperley. Nueva tanda: Tiago Esidín González (MO) y Mateo Acosta (DC) en Ferro; Juan Sánchez Sotelo (DC) y Óscar Vanegas (DFC) en Güemes. Se corrigieron los nombres de Tiago Esidín González y Juan Sánchez Sotelo. Nueva tanda Midland: Gonzalo Gómez (MCD; cedido a Leones de Rosario en junio), Santino Primante (DC) y Uriel Guzmán (MO), con perfiles de jugador. Nueva tanda Quilmes: Pío Bonacci (DC), Gabriel Vázquez (DC) y Tiago Marghetich (MCD). Se corrigieron nombres de Lautaro Closter, Facundo Yozwiak, Máximo Paredes, Santino Rodríguez y Juan Aimale. Nueva tanda: Santiago Villalba (SD, Chaco For Ever) y Tomás Perri (DC, Colegiales), según perfiles de jugador. Nueva tanda Mitre: Gianfranco Lillo Herdt (DFC) y Mateo Montenegro (MD), respaldados por fichas individuales de temporada. Nueva tanda Agropecuario: Fernando González (DFC), Jorge Cabello (LI), Antonio Napolitano (MC), Damián Lemos (MCD), Brian Blando (DC) y Diego Vásquez (EI). Se corrigieron cuatro nombres contrastando fechas de nacimiento y altas 2026. Nueva tanda: Agropecuario, Martín Corda (MCD) y Óscar Belinetz (DC), con corrección de nombres de Marcos Millanes, Lorenzo Barrera, Brian Rojas y Marcos Benítez. Ciudad de Bolívar: Marcos Sotelo (ED), Brian Duarte (MD), Camilo García (ED) y Francisco Ilarregui (ED); se corrigieron además Joel Ledesma, Elías Romero, Thiago Rodríguez, Facundo Beretta, José Abentín y Lautaro Villegas. Nueva tanda: Santiago Villalba (SD, Chaco For Ever), Teo Cohen (DC, Estudiantes BA), Aaron Sandoval (LD, Los Andes) y Nahuel Zapatiel (DFC, Gimnasia Jujuy), con corrección de posición general de Zapatiel. Nueva tanda: Nahuel Zapatiel (DFC, Gimnasia Jujuy); Santino Rodríguez (DFC), Facundo Yozwiak (MCD) y Máximo Paredes (MC) en Quilmes. Se corrigió la posición general de Santino Rodríguez de MED a DEF. Nueva tanda: Lorenzo Barrera (DC, Agropecuario), Lautaro Villegas (DC, Ciudad de Bolívar; corregido de MED a DEL) y Elías Romero (MC, Ciudad de Bolívar). Nueva tanda: Lucas Verón (DFC) y Rodrigo Nieva (ED) en San Martín SJ; Juan Turletti (DC) en Gimnasia y Tiro. Nueva tanda Temperley: Franco Tirotta (DFC) y Francisco Silva (DC), respaldados por información del club y de prensa sobre su primer contrato; se corrigió Facundo Silva a Francisco Silva y Ramiro Quiroga a Román Quiroga. Nueva tanda: Tristán Suárez, Ayrton Sánchez (LI) y Brian Aguilar (LD), con corrección de nombres. Patronato: Bartolomé Velásquez (MI), Agustín Cardoso (ED), Ignacio Giacinti (DC); se corrigieron Luciano Strey y Valentín Villarreal. Gimnasia y Tiro: Franco Karabulut corregido a Felipe Karabulut y posición general a DEL. Nueva tanda: Alan López (MO, Mitre), Gastón Espósito (ED, Güemes) y Maico Quiroz (MO, Güemes); se corrigieron los nombres de Franco Bergés, Gastón Espósito y Maico Quiroz. Tobías Salas pasa a DEL por fuente de temporada, sin subrol específico. Nueva tanda Temperley: León Trebotic (MC, volante central) y Román Quiroga (MO, mediocampista ofensivo), respaldados por la prensa local. Agustín Valverde se corrigió de DEF a MED/MD (interior derecho) según su ficha detallada de 2026. Nueva tanda verificada: Franco Bergés (MCD, Güemes), Bautista Fernández (DC, Temperley), Gonzalo Valderrama (LI), Joel Ledesma (DFC) y Facundo Beretta (DC) en Ciudad de Bolívar. Se corrigieron posiciones generales de Santiago Lugones (DEL, Mitre), Thiago Rodríguez (MED, Ciudad de Bolívar) y Felipe Karabulut (DEL, Gimnasia y Tiro). Nueva tanda: Matías Córdoba (DC, Colón) y Marcos Millanes (EI, Agropecuario), contrastados con perfiles de jugador 2026. Cierre preliminar de los 44 subroles restantes con estimaciones orientativas solicitadas por el usuario; quedan identificados en fuente_rol para revisión durante la auditoría.",
     "roles_especificos_por_bloque": [
@@ -189,7 +189,9 @@
       "jugadores_con_ocho_campos": 1026,
       "valores_cargados": 8208,
       "campos_vacios": 0
-    }
+    },
+    "dorsales_duplicados_finales": 0,
+    "nombres_duplicados_finales": 0
   },
   "estado_por_club": [
     {
@@ -568,7 +570,7 @@
     156
   ],
   "porcentaje_roles_especificos": 100,
-  "ultima_revision": "2026-11-07: cierre de auditoría diagnóstica de Primera Nacional; 36 clubes, 1006 jugadores, promedio 58,46, 14 medias corregidas, 51 roles estimados documentados y pendientes de atributos/dorsales/vigencia explicitados.",
+  "ultima_revision": "2026-11-08: integración al runtime completada; 36 clubes y 1.026 jugadores de Primera Nacional publicados junto con Primera División. CI success; 66 clubes y 2.039 jugadores en total.",
   "auditoria_en_curso": {
     "fecha": "2026-11-07",
     "etapa": "Auditoría diagnóstica cerrada; pendientes de trabajo posterior: atributos, verificación integral de dorsales y vigencia de planteles",
@@ -1783,9 +1785,12 @@
     "promedio_rating": 68.44,
     "minimo_rating": 56,
     "maximo_rating": 78,
-    "runtime_modificado": false,
+    "runtime_modificado": true,
     "ref_no_arqueros_distintos_de15": 0,
-    "atributos_tecnicos_completos": 1026
+    "atributos_tecnicos_completos": 1026,
+    "total_jugadores_runtime": 2039,
+    "clubes_runtime": 66,
+    "dorsales_duplicados_intraclub": 0
   },
   "auditoria_general": {
     "fecha": "2026-11-08",
@@ -1803,8 +1808,8 @@
     "otros_atributos_modificados": false,
     "ratings_modificados": false,
     "primera_division_modificada": false,
-    "runtime_modificado": false,
-    "proximo_paso": "Continuar calibración individual de titulares y figuras con evidencia de minutos, rendimiento y producción; luego revisar posiciones/subroles dudosos caso por caso.",
+    "runtime_modificado": true,
+    "proximo_paso": "Comenzar la recopilación y carga de planteles de Primera B Metropolitana; mantener Primera y Primera Nacional como bases integradas y corregirlas sólo ante evidencia nueva.",
     "calibracion_primera_tanda": {
       "fecha": "2026-11-08",
       "ratings_ajustados": 6,
@@ -1872,6 +1877,32 @@
       "MED": 68.13,
       "DEL": 68.5
     },
-    "perfiles_subrol_sin_soporte": 0
+    "perfiles_subrol_sin_soporte": 0,
+    "dorsales_duplicados_finales": 0,
+    "nombres_duplicados_finales": 0
+  },
+  "jugadores_publicados": 1026,
+  "promedio_rating_actual": 68.44,
+  "integracion_runtime": {
+    "fecha": "2026-11-08",
+    "commit_publicacion": "51c878ff2457102385b30d2f97b020af8168f919",
+    "workflow_run": "https://github.com/carp1901/liga-fc1/actions/runs/42448336693",
+    "estado_ci": "success",
+    "clubes": 66,
+    "jugadores": 2039,
+    "primera": {
+      "clubes": 30,
+      "jugadores": 1013
+    },
+    "primera_nacional": {
+      "clubes": 36,
+      "jugadores": 1026
+    },
+    "nombres_duplicados": 0,
+    "dorsales_duplicados": 0,
+    "edades_completas": true,
+    "dorsales_completos": true,
+    "nacionalidades_completas": true,
+    "roles_especificos_completos": true
   }
 }

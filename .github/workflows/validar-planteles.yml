@@ -2,7 +2,8 @@ name: Validar y publicar planteles
 on:
   push:
     paths:
-      - 'planteles/**'
+      - 'planteles/*.csv'
+      - 'planteles/**/*.csv'
       - 'import-squads.js'
       - 'public/data.js'
       - 'test-squads.js'

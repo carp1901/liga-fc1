@@ -677,3 +677,21 @@ Se recalculó la base completa tras las doce recalibraciones individuales acumul
 - **Integridad:** seis bloques con cantidades 155/171/182/194/164/160; 33 columnas por fila; fórmula `rating = rating_base + ajuste_rating` correcta; cero errores de rango o reflejos de campo.
 
 No se aplicó un aumento global adicional. Próxima prioridad: ampliar la calibración individual de titulares y figuras con evidencia, y después revisar casos de posición/subrol dudosos sin eliminar perfiles híbridos válidos. Los ocho atributos continúan siendo estimaciones reproducibles, no estadísticas observadas.
+
+
+## Cierre de integración al runtime — 08/11/2026
+
+La auditoría estructural y la importación conjunta de Primera y Primera Nacional finalizaron correctamente en GitHub Actions.
+
+- **Base publicada:** 66 clubes, 2.039 jugadores (30 clubes/1.013 jugadores de Primera y 36 clubes/1.026 jugadores de Primera Nacional).
+- **Integridad:** 0 nombres duplicados, 0 dorsales duplicados, 0 jugadores sin edad, dorsal, nacionalidad o rol específico.
+- **Medias:** 920 registros con fuente individual, 1.119 estimaciones propias identificadas y 0 provisionales sin fuente. Las estimaciones no son OVR oficiales.
+- **Atributos:** ocho atributos técnicos completos en los CSV; el motor completa los atributos derivados para los jugadores sin atributos manuales.
+- **Dorsales:** se resolvieron las colisiones antes de importar. Los números asignados internamente permanecen señalados como internos; no se presentan como oficiales.
+- **Primera División:** se conservaron sus 1.013 jugadores y sus datos existentes; la importación sólo reemplaza los clubes incluidos en el conjunto fuente.
+- **Runtime:** `index.html` carga `squads.js` antes de `data.js`; se generaron y publicaron `public/squads.json`, `public/squads.js` y `public/squads-meta.json`.
+- **CI:** todas las etapas de sintaxis, evolución, carrera, calibración, dry-run de 66 clubes, generación, auditoría de runtime y guardado en GitHub finalizaron en `success`.
+
+Ejecución: https://github.com/carp1901/liga-fc1/actions/runs/42448336693
+
+**Próxima etapa:** comenzar los planteles de Primera B Metropolitana. La Primera Nacional deja de ser una tarea pendiente de integración; queda abierta sólo para futuras correcciones de vigencia, dorsales oficiales o evidencia individual mejor.
