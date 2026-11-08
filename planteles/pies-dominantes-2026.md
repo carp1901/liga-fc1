@@ -612,3 +612,13 @@ Fecha de revisión: 08/11/2026.
 | Lucas Cacciabue | Ambos | https://database.footballmanagerblog.org/fm26/players/2000441696-lucas-cacciabue |
 
 **Progreso de Unión:** 32/33 jugadores con pie dominante registrado. Mateo Aimar figura como ambidiestro; Lucas Cacciabue aparece con ambos pies en su ficha de Football Manager, con predominio izquierdo. Valentín Cerrudo sigue pendiente de una fuente individual que confirme su pie.
+
+
+## Cierre de Unión de Santa Fe — 1 jugador
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Valentín Jesús Cerrudo | Derecho | https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/valentin-jesus-cerrudo/87957 |
+
+**Resultado de Unión:** 33/33 jugadores del CSV con pie dominante registrado.
