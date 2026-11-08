@@ -121,3 +121,7 @@ Se revisaron Acassuso, Agropecuario, Ciudad de Bolívar, Colón, Godoy Cruz, Los
 - Base actual: **1.009 jugadores**. Se mantienen ratings/atributos estimados y documentados; no se modificó runtime.
 - Valentín Burgoa descartado como alta de Godoy Cruz por salida a Orense; Nicolás Ortiz de San Telmo sigue pendiente por conflicto de identidad.
 - Ver detalle y fuentes en auditoria-vigencia-2026-11-08.md.
+
+
+### Tercera tanda de depuración — 08/11/2026
+Se incorporó a Leonardo Fabián Marinucci en Deportivo Madryn tras completar ficha individual y cotejar su pertenencia al club y participación 2026. Rating y atributos técnicos son estimaciones internas explícitas; dorsal provisional interno. Se dejó pendiente Nicolás Morro por conflicto de pertenencia/participaciones y se descartaron como altas de Racing de Córdoba a Nahuel Sandrone (Racing II) y Cristian Vega (Ciudad de Bolívar). Base: **1.010 jugadores**. Fuentes y criterio en la auditoría de vigencia.
