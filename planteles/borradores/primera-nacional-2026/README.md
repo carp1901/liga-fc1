@@ -221,3 +221,10 @@ Se recalibraron dos medias con evidencia estadística de temporada y se normaliz
 - **Elías Ocampo (Colegiales): 66 → 67.** 33 partidos, 23 titularidades, 1.963 minutos, 1 gol y 1 asistencia; se conserva el rol MD (interior derecho). Fuentes: https://www.fotmob.com/es/players/1606614/elias-ocampo
 
 En ambos casos se actualizaron `rating`, `rating_base` y los siete atributos de campo en +1; `ajuste_rating` sigue en +10 y `ref = 15`. Se corrigió también el conteo de presencias a 32 para Uriburu y 33 para Ocampo. Promedio recalculado: **68,43**. Validación posterior: 1.026 jugadores, bloques 155/171/182/194/164/160, 33 columnas, fórmula de escala correcta y ningún error en los ocho atributos. Sin cambios en runtime.
+
+
+### Tercera tanda de calibración individual — 08/11/2026
+
+- **Luis Silba (Deportivo Madryn): 74 → 75.** Se registran 32 partidos, 28 titularidades, 2.440 minutos, 16 goles y 2 asistencias en Primera Nacional 2026. Ajuste moderado de +1 por producción goleadora de élite en la categoría, sin ignorar edad ni volumen de minutos. Fuente: https://www.fotmob.com/es/players/807031/luis-silba
+- Se actualizaron `rating`, `rating_base` y los siete atributos de campo en +1; se conserva `ajuste_rating = 10` y `ref = 15`.
+- Promedio global recalculado: **68,43**. La validación estructural sigue en 1.026 jugadores y cero errores. Sin integración al runtime.
