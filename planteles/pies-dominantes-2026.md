@@ -525,3 +525,13 @@ Fecha de revisión: 08/11/2026.
 | Elías Torres | Derecho | https://www.sofascore.com/football/player/elias-torres/1213809 |
 
 **Progreso de Racing:** 21/22 jugadores con pie dominante registrado. Luis Espino queda pendiente: no encontré una ficha individual fiable que confirme su lateralidad.
+
+
+## Cierre de Racing Club — 1 jugador
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Luis Espino (Pacha) | Izquierdo | https://es.besoccer.com/jugador/a-espino-219866 |
+
+**Resultado de Racing:** 22/22 jugadores del CSV con pie dominante registrado.
