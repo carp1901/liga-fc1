@@ -17,12 +17,12 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 ## Auditoría en curso — primera pasada
 - Validación estructural: 36 clubes, 1.006 jugadores y ningún campo obligatorio vacío.
 - Dorsales: 1.002 números son asignaciones internas; sólo cuatro están contrastados en planillas de partidos. No equivalen a dorsales oficiales de plantel.
-- Se detectaron duplicados provisionales en Midland: 13, 15 y 16. Se mantienen señalados hasta contrastar la numeración oficial; no se presentan como confirmados.
-- Medias: 1.006 valores cargados, rango 48–66; 68 jugadores tienen media 60 (6,8%). Ninguna media cuenta todavía con OVR individual EA FC verificado: todas son estimaciones y deben revisarse.
+- Auditoría de duplicados: se corrigieron los tres conflictos internos de Midland. Tomás Muia pasó al 34, Facundo Marín al 35 y Gonzalo Gómez al 36; los cuatro dorsales respaldados por planillas se preservaron. No hay duplicados en la base tras la corrección, pero la numeración de plantel sigue sin estar oficialmente verificada para la mayoría.
+- Medias: 1.006 valores cargados, rango 48–66 y promedio 58,41; 68 jugadores tienen media 60 (6,8%). No se buscan OVR individuales EA FC para esta división porque EA FC no cubre estos planteles. Las medias son estimaciones y se revisarán por coherencia competitiva; el ajuste general de +10 para Primera y Primera Nacional queda reservado para después de la auditoría.
 
 ## Próximas tareas
 1. Roles específicos cargados para los 1.006 jugadores; 44 estimaciones orientativas quedan señaladas para validar o corregir en auditoría.
-2. Verificar dorsales oficiales y resolver conflictos sin inventar numeración.
+2. Contrastar dorsales oficiales cuando existan nóminas completas; los números restantes siguen siendo provisionales.
 3. Revisar medias y atributos individuales; separar OVR documentado de estimaciones.
 4. Depurar planteles y comprobar nóminas de Primera Nacional 2026.
 5. Ejecutar validaciones estructurales e integradas contra la división `ar2`.
