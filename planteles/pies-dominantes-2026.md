@@ -272,3 +272,19 @@ Fecha de revisión: 08/11/2026.
 | Tomás Parmo | Derecho | https://www.sofascore.com/es/football/player/parmo-tomas/1650086 |
 
 **Progreso de Independiente:** 17/36 jugadores con pie registrado. Juan Arrayago sigue pendiente; la página oficial confirma que integra el plantel, pero no publica su pie dominante.
+
+
+## Tercera tanda de Independiente — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Lautaro Millán | Derecho | https://www.sofascore.com/es/football/player/lautaro-millan/1865987 |
+| Luciano Cabral | Derecho | https://www.sofascore.com/es/football/player/luciano-cabral/544168 |
+| Mateo Pérez Curci | Derecho | https://www.sofascore.com/es/football/player/mateo-perez/2192262 |
+| Maximiliano Meza | Derecho | https://www.sofascore.com/es/football/player/maxi-meza/340897 |
+| Joel Medina | Derecho | https://es.besoccer.com/jugador/joel-medina-3541770 |
+| Santiago Montiel | Izquierdo | https://www.sofascore.com/es/football/player/montiel-santiago/1065611 |
+| Josías Palais | Derecho | https://www.sofascore.com/es/football/player/josias-palais/2338435 |
+
+**Progreso de Independiente:** 24/36 jugadores con pie registrado. Facundo Cruz, Matheo Benítez Machuca y David Martínez siguen pendientes de confirmar con una ficha individual que coincida inequívocamente con el futbolista del plantel.
