@@ -1,6 +1,7 @@
 name: Validar y publicar planteles
 on:
   push:
+    branches: [main]
     paths:
       - 'planteles/*.csv'
       - 'planteles/**/*.csv'
