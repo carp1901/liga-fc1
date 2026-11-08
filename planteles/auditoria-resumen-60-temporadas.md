@@ -32,7 +32,7 @@
 
 ## Límites de esta auditoría
 
-La simulación incluye envejecimiento, retiros, regeneración, ascensos, descensos y resultados de los torneos. **Todavía no simula el desarrollo individual de cada futbolista según minutos, rendimiento y entrenamiento durante toda la temporada.** Tampoco incluye mercado de pases ni cantera. Por eso, estos resultados sirven para validar la estructura de categorías y la renovación de planteles, pero no constituyen todavía una simulación completa de evolución futbolística individual.
+La simulación incluye envejecimiento, retiros, regeneración, ascensos, descensos y resultados de los torneos. El motor ya cuenta con un sistema de desarrollo individual basado en minutos y rendimiento en partidos offline reales. Sin embargo, **el test de 60 temporadas usa `simGame` directamente y no pasa por `developRound`**, por lo que ese desarrollo individual no queda incluido ni validado en esta auditoría. Tampoco se simulan mercado de pases ni cantera. Por eso, estos resultados sirven para validar la estructura de categorías y la renovación de planteles, pero no constituyen todavía una simulación completa de evolución futbolística individual.
 
 ## Próxima revisión
 
