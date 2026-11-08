@@ -883,3 +883,19 @@ Fecha de revisión: 08/11/2026.
 | Kevin Gutiérrez | Derecho | https://www.sofascore.com/football/player/kevin-gutierrez/1482405 |
 
 **Progreso de Rosario Central:** 26/38 jugadores con pie registrado. Lucas Ramos López figura expresamente como ambidiestro.
+
+
+## Cuarta tanda de Rosario Central — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Marco Ruben | Derecho | https://www.sofascore.com/es/football/player/marco-ruben/32934 |
+| Ángel Di María | Izquierdo | https://www.sofascore.com/es/football/player/angel-di-maria/30027 |
+| Tomás Badaloni | Derecho | https://www.sofascore.com/es/football/player/tomas-badaloni/927212 |
+| Enzo Copetti | Derecho | https://www.sofascore.com/es/football/player/enzo-copetti/860045 |
+| Gaspar Duarte | Derecho | https://www.sofascore.com/es/football/player/gaspar-duarte/1836623 |
+| Alan Rodríguez | Derecho | https://www.sofascore.com/es/football/player/alan-rodriguez/874576 |
+| Lisandro Duarte | Derecho | https://www.sofascore.com/es/football/player/lisandro-duarte/2543314 |
+
+**Progreso de Rosario Central:** 33/38 jugadores con pie registrado. Quedan cinco casos por verificar.
