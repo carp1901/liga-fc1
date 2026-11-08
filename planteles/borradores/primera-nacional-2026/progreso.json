@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Planteles en borrador para 36 clubes; 1006 jugadores. Roles específicos cargados: 1006/1006 (100%); 44 asignaciones son estimaciones orientativas pendientes de auditoría.",
+  "estado_general": "Roles específicos cargados para los 1006 jugadores. Auditoría iniciada: consistencia estructural aprobada; se detectaron duplicados de dorsales provisionales en Midland. Medias y dorsales oficiales pendientes de revisión.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -560,5 +560,47 @@
     156
   ],
   "porcentaje_roles_especificos": 100,
-  "ultima_revision": "2026-11-07: 1006/1006 roles específicos cargados; 44 asignaciones orientativas marcadas para auditoría."
+  "ultima_revision": "2026-11-07: 1006/1006 roles específicos cargados; 44 asignaciones orientativas marcadas para auditoría.",
+  "auditoria_en_curso": {
+    "fecha": "2026-11-07",
+    "etapa": "Bloque 1: consistencia estructural, dorsales y medias",
+    "validacion_estructural": {
+      "clubes": 36,
+      "jugadores": 1006,
+      "campos_obligatorios_vacios": 0,
+      "roles_especificos_cargados": 1006,
+      "roles_estimados_para_revision": 44
+    },
+    "dorsales": {
+      "jugadores_con_numero": 1006,
+      "asignados_internamente_pendientes_de_verificacion_oficial": 1002,
+      "respaldados_por_planillas_de_partidos": 4,
+      "clubes_con_duplicados_detectados": [
+        "midland"
+      ],
+      "numeros_duplicados_midland": [
+        13,
+        15,
+        16
+      ],
+      "observacion": "Los dorsales de planilla son números utilizados en partidos concretos, no necesariamente numeración oficial permanente. Los duplicados se mantienen señalados hasta contrastar la nómina oficial completa."
+    },
+    "medias": {
+      "jugadores_con_media": 1006,
+      "rango_actual": [
+        48,
+        66
+      ],
+      "media_60": 68,
+      "porcentaje_media_60": 6.8,
+      "fuentes_ovr_ea_fc_individual_verificadas": 0,
+      "criterio_actual": "Las 1006 medias son estimaciones propias; no hay OVR individual EA FC verificado en los CSV. Se deben revisar después con minutos, rendimiento, nivel y trayectoria."
+    },
+    "proximos_pasos": [
+      "Resolver duplicados de dorsales de Midland y contrastar números oficiales por club",
+      "Revisar medias por bloques y corregir desvíos evidentes",
+      "Auditar atributos individuales y coherencia entre rol, media y atributos",
+      "Revisar vigencia y pertenencia de jugadores a cada plantel"
+    ]
+  }
 }
