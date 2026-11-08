@@ -560,3 +560,57 @@ Damián Arce (Chaco For Ever), Patricio Vidal (Central Norte), Santino Bevilacqu
 - Total: 1026 jugadores; bloques 155, 171, 182, 194, 164, 160.
 - Seis CSV con 33 columnas por fila; sin nombres duplicados dentro del mismo club; rating = rating_base + ajuste_rating en todas las filas.
 - Sin integración al runtime.
+
+
+## Auditoría general de medias y atributos — Primera Nacional 2026 — 08/11/2026
+
+**Alcance:** seis bloques, 36 clubes y 1.026 jugadores. La Primera División no se modificó.
+
+### Validación estructural
+- 1.026 registros: bloques de 155, 171, 182, 194, 164 y 160 jugadores.
+- 33 columnas por fila; sin nombres duplicados dentro de un mismo club.
+- Fórmula `rating = rating_base + ajuste_rating` verificada en todos los registros, con ajuste +10.
+- Ocho atributos técnicos completos y dentro del rango 15–99.
+
+### Distribución de medias
+- Promedio general: **68,42**; mediana: **69**.
+- Percentiles: P10 64; P25 66; P75 71; P90 72.
+- Rango: **56–78**.
+- 912/1.026 (88,9%) están entre 64 y 72; sólo tres jugadores tienen 76 o más.
+
+La media anterior cercana a 58 ya quedó corregida con el +10 acordado, pero la distribución continúa comprimida alrededor de 68–70. No se aplicó otra suba general. La siguiente calibración debe diferenciar titulares, rotación, juveniles y figuras con minutos, rendimiento, producción y nivel competitivo.
+
+### Media por posición principal
+| Posición | Jugadores | Promedio |
+|---|---:|---:|
+| Arquero | 103 | 68,47 |
+| Defensor | 315 | 68,70 |
+| Mediocampista | 351 | 68,12 |
+| Delantero | 257 | 68,44 |
+
+Los promedios por línea están equilibrados; la diferencia máxima es de 0,58 puntos.
+
+### Extremos por club
+Promedios más altos: Godoy Cruz 71,92; San Martín de Tucumán 70,04; Defensores de Belgrano 69,96; Deportivo Madryn 69,91; Atlético de Rafaela 69,54. Más bajos: Quilmes 67,06; Estudiantes BA 67,18; Midland 67,33; Temperley 67,41; Almagro 67,57. La brecha máxima es 4,86 puntos. No se ajustaron clubes completos automáticamente.
+
+### Perfiles de atributos por línea
+- Arqueros: anticipación 64,7 y reflejos 72,1 de promedio.
+- Defensores: marca 74,4 y anticipación 73,5.
+- Mediocampistas: pase 72,4, control 72,1 y regate 68,8.
+- Delanteros: remate 74,6, desmarque 72,9 y regate 68,0.
+
+Los perfiles generales diferencian adecuadamente las líneas: arqueros en reflejos; defensores en marca/anticipación; mediocampistas en pase/control; delanteros en remate/desmarque.
+
+### Corrección de reflejos de campo
+El motor reserva `ref` para arqueros y fija el valor de jugadores de campo en 15. Se detectaron **654 de 923 jugadores de campo** con `ref` por encima de 15. Se normalizaron esos 654 valores en los seis CSV de Primera Nacional. Los 103 arqueros conservaron sus valores; no se tocaron medias ni los otros siete atributos. La Primera División no fue modificada.
+
+### Próximas revisiones
+- Ampliar la diferenciación de ratings en la zona alta con evidencia individual, no con incrementos uniformes.
+- Revisar los valores bajos de juveniles con poca o ninguna participación sin elevarlos automáticamente.
+- Auditar combinaciones de posición principal y subrol caso por caso; no cambiarlas en bloque porque el juego admite perfiles híbridos.
+- Los ocho atributos siguen siendo estimaciones técnicas reproducibles, no estadísticas oficiales observadas.
+
+### Test y estado del juego
+Se actualizó `test-plantel-calibration.js` con los conteos actuales, validación de los ocho atributos (enteros 15–99) y la regla `ref = 15` para jugadores de campo únicamente en los seis bloques de Primera Nacional. Se mantiene la comprobación de escala +10 y perfiles de subrol. El test quedó actualizado; no se afirma ejecución de CI en esta pasada.
+
+**Resultado estructural:** 1.026/1.026 fichas, ocho atributos completos, cero nombres duplicados intraclub y cero errores de escala. Sin cambios en runtime; los seis CSV siguen como borradores.
