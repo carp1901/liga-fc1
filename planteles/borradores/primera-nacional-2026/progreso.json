@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia en curso: segunda pasada de contraste en Chacarita, Temperley y Ferro documentada. Sin cambios automáticos en CSV; 22 posibles bajas y 62 posibles altas siguen bajo validación.",
+  "estado": "Auditoría de vigencia en curso: sexta pasada ampliada documentada (11 clubes). Sin cambios automáticos en CSV; altas, bajas y conflictos de identidad siguen sujetos a validación individual.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -1128,5 +1128,48 @@
       "cambios_csv": 0,
       "reporte": "auditoria-vigencia-2026-11-08.md"
     }
+  },
+  "auditoria_vigencia": {
+    "ultima_pasada": "2026-11-08",
+    "clubes_revisados": [
+      "Acassuso",
+      "Agropecuario",
+      "Ciudad de Bolívar",
+      "Colón",
+      "Godoy Cruz",
+      "Los Andes",
+      "Nueva Chicago",
+      "Patronato",
+      "San Martín de Tucumán",
+      "San Telmo",
+      "Tristán Suárez"
+    ],
+    "altas_respaldo_pendientes": [
+      "Valentín Serrano (Acassuso)",
+      "Juan Ignacio Quattrocchi (Acassuso)",
+      "Manuel Mónaco (Acassuso)",
+      "Franco García (Colón)",
+      "Alexis González (Los Andes)",
+      "Enzo Roldán (Nueva Chicago)",
+      "Nicolás Ortiz (San Telmo)",
+      "Valentín Burgoa (Godoy Cruz)"
+    ],
+    "altas_pendientes_de_identidad": [
+      "Iván Antúnez (Nueva Chicago)",
+      "Fabricio Oviedo (Godoy Cruz)"
+    ],
+    "conflictos_identidad": [
+      "Juan Cruz Vega/Julián Vega (Agropecuario)",
+      "Mateo Gridel/Matías Gridel (Ciudad de Bolívar)",
+      "Benjamín Schamine/Bruno Schamine (Godoy Cruz)",
+      "Diego Viera/Daniel Viera (Godoy Cruz)",
+      "Felipe Cairus/Facundo Cairus (Godoy Cruz)",
+      "Diego Armando Díaz/Diego Díaz (Patronato)",
+      "Sebastián Ramírez/Santiago Ramírez (Tristán Suárez)"
+    ],
+    "salida_futura": [
+      "Milton Ríos (San Martín de Tucumán; salida anunciada para 2027)"
+    ],
+    "csv_modificados": false
   }
 }
