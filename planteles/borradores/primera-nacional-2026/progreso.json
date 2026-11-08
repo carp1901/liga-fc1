@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1006,
-  "estado_general": "Roles específicos cargados para los 1006 jugadores. Auditoría iniciada: consistencia estructural aprobada; se detectaron duplicados de dorsales provisionales en Midland. Medias y dorsales oficiales pendientes de revisión.",
+  "estado_general": "Roles específicos cargados para los 1006 jugadores. Primera pasada estructural aprobada; duplicados internos de dorsales de Midland resueltos con numeración provisional. Medias pendientes de revisión cualitativa; todas son estimaciones, sin OVR EA FC individual para esta categoría.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -575,15 +575,23 @@
       "jugadores_con_numero": 1006,
       "asignados_internamente_pendientes_de_verificacion_oficial": 1002,
       "respaldados_por_planillas_de_partidos": 4,
-      "clubes_con_duplicados_detectados": [
-        "midland"
-      ],
-      "numeros_duplicados_midland": [
-        13,
-        15,
-        16
-      ],
-      "observacion": "Los dorsales de planilla son números utilizados en partidos concretos, no necesariamente numeración oficial permanente. Los duplicados se mantienen señalados hasta contrastar la nómina oficial completa."
+      "clubes_con_duplicados_detectados": [],
+      "numeros_duplicados_midland": [],
+      "observacion": "Se resolvieron los tres conflictos internos de Midland reasignando números provisionales 34, 35 y 36 a jugadores cuyos números previos no estaban respaldados por planillas. Se preservaron los cuatro dorsales contrastados en partidos. No equivale a verificar la numeración oficial de los 36 planteles.",
+      "correcciones_internas_midland": [
+        {
+          "jugador": "Tomás Muia",
+          "dorsal_nuevo": 34
+        },
+        {
+          "jugador": "Facundo Marín",
+          "dorsal_nuevo": 35
+        },
+        {
+          "jugador": "Gonzalo Gómez",
+          "dorsal_nuevo": 36
+        }
+      ]
     },
     "medias": {
       "jugadores_con_media": 1006,
@@ -594,11 +602,12 @@
       "media_60": 68,
       "porcentaje_media_60": 6.8,
       "fuentes_ovr_ea_fc_individual_verificadas": 0,
-      "criterio_actual": "Las 1006 medias son estimaciones propias; no hay OVR individual EA FC verificado en los CSV. Se deben revisar después con minutos, rendimiento, nivel y trayectoria."
+      "criterio_actual": "Las 1006 medias son estimaciones propias; no se buscan OVR EA FC individuales para esta división porque no hay cobertura de EA FC. Se revisarán por coherencia competitiva y se mantendrá pendiente el ajuste general de +10 para Primera y Primera Nacional hasta cerrar la auditoría.",
+      "promedio_actual": 58.41
     },
     "proximos_pasos": [
-      "Resolver duplicados de dorsales de Midland y contrastar números oficiales por club",
-      "Revisar medias por bloques y corregir desvíos evidentes",
+      "Contrastar dorsales oficiales por club cuando haya nóminas completas; los números restantes siguen siendo provisionales",
+      "Revisar medias por bloques con criterio de nivel competitivo, rendimiento, minutos, edad y trayectoria; sin buscar OVR EA FC inexistentes",
       "Auditar atributos individuales y coherencia entre rol, media y atributos",
       "Revisar vigencia y pertenencia de jugadores a cada plantel"
     ]
