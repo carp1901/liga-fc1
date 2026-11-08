@@ -14,6 +14,12 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 - Ningún club se considera completo bajo el criterio integral.
 - Revisión adicional publicada: correcciones de nombres y posiciones, además de asignaciones de subroles respaldadas por perfiles y estadísticas de la temporada 2026.
 
+## Auditoría en curso — primera pasada
+- Validación estructural: 36 clubes, 1.006 jugadores y ningún campo obligatorio vacío.
+- Dorsales: 1.002 números son asignaciones internas; sólo cuatro están contrastados en planillas de partidos. No equivalen a dorsales oficiales de plantel.
+- Se detectaron duplicados provisionales en Midland: 13, 15 y 16. Se mantienen señalados hasta contrastar la numeración oficial; no se presentan como confirmados.
+- Medias: 1.006 valores cargados, rango 48–66; 68 jugadores tienen media 60 (6,8%). Ninguna media cuenta todavía con OVR individual EA FC verificado: todas son estimaciones y deben revisarse.
+
 ## Próximas tareas
 1. Roles específicos cargados para los 1.006 jugadores; 44 estimaciones orientativas quedan señaladas para validar o corregir en auditoría.
 2. Verificar dorsales oficiales y resolver conflictos sin inventar numeración.
