@@ -183,3 +183,20 @@ Fecha de revisión: 08/11/2026.
 | Adam Bareiro | Derecho | https://www.sofascore.com/es/football/player/adam-bareiro/871580 |
 
 **Resultado de Boca:** 31/31 jugadores del CSV con pie dominante registrado.
+
+
+## Primera tanda de River Plate — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Ezequiel Centurión | Derecho | https://www.sofascore.com/es/football/player/ezequiel-centurion/876134 |
+| Santiago Beltrán | Derecho | https://www.sofascore.com/es/football/player/santiago-beltran/1485255 |
+| Francisco Ortega | Izquierdo | https://www.sofascore.com/es/football/player/francisco-ortega/913647 |
+| Lautaro Rivero | Izquierdo | https://www.sofascore.com/es/football/player/lautaruo-rivero/1835781 |
+| Giovanni González | Derecho | https://www.sofascore.com/es/football/player/giovanni-gonzalez/590404 |
+| Marcos Acuña | Izquierdo | https://www.sofascore.com/es/football/player/marcos-acuna/578560 |
+| Lucas Martínez Quarta | Derecho | https://www.sofascore.com/es/football/player/lucas-martinez-quarta/795297 |
+| Gonzalo Montiel | Derecho | https://www.sofascore.com/es/football/player/gonzalo-montiel/822933 |
+
+**Progreso de River:** 8/27 jugadores con pie registrado. Jeremías Martinet queda pendiente de fuente individual; no se le asigna por deducción.
