@@ -1051,3 +1051,21 @@ Fecha de revisión: 08/11/2026.
 | Jeremías Langa | Derecho | https://database.footballmanagerblog.org/fm26/players/2000335697-jeremias-langa |
 
 **Progreso de Gimnasia:** 31/36 jugadores con pie registrado. Máximo Cabrera presenta discrepancias entre bases (una lo marca zurdo y otras diestro), por lo que queda sin asignar; también quedan Patricio Schroeder, Lucas Lamella, Mariano Ojeda y Juan José Pérez sin dato publicado.
+
+
+## Primera tanda de Argentinos Juniors — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Brayan Cortés | Derecho | https://www.sofascore.com/es/football/player/brayan-cortes/247959 |
+| Agustín Mangiaut | Derecho | https://www.sofascore.com/es/football/player/agustin-mangiaut/1485187 |
+| Gonzalo Siri Payer | Derecho | https://www.sofascore.com/football/player/gonzalo-siri-payer/1179169 |
+| Francisco Álvarez | Derecho | https://www.sofascore.com/es/football/player/francisco-alvarez/871788 |
+| Claudio Bravo | Izquierdo | https://www.sofascore.com/football/player/claudio-bravo/830603 |
+| Kevin Coronel | Derecho | https://www.sofascore.com/football/player/coronel-kevin/1485234 |
+| Erik Godoy | Derecho | https://www.sofascore.com/es/football/player/erik-godoy/249427 |
+| Mateo Mendoza | Derecho | https://www.sofascore.com/football/player/mateo-mendoza/1467092 |
+| Alan Núñez | Derecho | https://www.sofascore.com/es/football/player/alan-nunez/1116982 |
+
+**Progreso de Argentinos Juniors:** 9/33 jugadores con pie registrado. Santino Gianini no se asigna porque la ficha encontrada lo vincula a otro club y no permite confirmar identidad/plantel con certeza.
