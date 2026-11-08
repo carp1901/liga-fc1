@@ -7,15 +7,15 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
 - 1.006 registros de jugadores en la base de trabajo.
-- 953/1.006 roles específicos respaldados por fuente (94,7%).
+- 960/1.006 roles específicos respaldados por fuente (95,4%).
 - Cuatro dorsales de Midland contrastados en varias planillas de partidos 2026; el resto sigue asignado internamente. No se presentan como numeración oficial de plantel.
-- 53 jugadores conservan su posición general, pero no tienen un subrol específico verificable en las fuentes consultadas; no se inventan subroles.
+- 46 jugadores conservan su posición general, pero no tienen un subrol específico verificable en las fuentes consultadas; no se inventan subroles.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
 - Ningún club se considera completo bajo el criterio integral.
 - Revisión adicional publicada: correcciones de nombres y posiciones, además de asignaciones de subroles respaldadas por perfiles y estadísticas de la temporada 2026.
 
 ## Próximas tareas
-1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión: 953/1.006 subroles respaldados (94,7%); se corrigieron posiciones y nombres en varios clubes y se añadieron roles específicos en Midland, Mitre, Güemes, Temperley, Patronato y Godoy Cruz.
+1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión: 960/1.006 subroles respaldados (95,4%); se completaron cinco roles y se corrigieron tres posiciones generales en esta tanda.
 2. Verificar dorsales oficiales y resolver conflictos sin inventar numeración.
 3. Revisar medias y atributos individuales; separar OVR documentado de estimaciones.
 4. Depurar planteles y comprobar nóminas de Primera Nacional 2026.
