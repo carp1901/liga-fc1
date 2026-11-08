@@ -1,4 +1,4 @@
-name: Balance audit - Primera
+name: Balance audit - Primera Nacional y Primera
 on:
   workflow_dispatch:
   push:
@@ -6,6 +6,7 @@ on:
     paths:
       - 'test-balance.js'
       - 'test-promotion-balance.js'
+      - 'test-national-career-balance.js'
       - 'public/engine.js'
       - 'public/data.js'
       - 'public/squads.js'
@@ -18,13 +19,14 @@ on:
       - 'public/squads.js'
       - 'test-balance.js'
       - 'test-promotion-balance.js'
+      - 'test-national-career-balance.js'
       - '.github/workflows/balance.yml'
 permissions:
   contents: write
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -32,41 +34,41 @@ jobs:
           node-version: 20
       - name: Validar ascensos y descensos
         run: node test-promotion-balance.js | tee promotion-report.json
-      - name: Simular temporadas y comparar tácticas
+      - name: Simular 60 temporadas de Primera
         run: node test-balance.js | tee balance-report.json
+      - name: Simular 60 temporadas de carrera desde Primera Nacional
+        run: node test-national-career-balance.js | tee national-career-report.json
       - name: Publicar resumen
         if: always()
         run: |
-          echo '## Auditoría de equilibrio de Primera' >> "$GITHUB_STEP_SUMMARY"
-          if [ -s balance-report.json ]; then
-            echo 'Resultados de temporadas y comparación táctica:' >> "$GITHUB_STEP_SUMMARY"
-            echo '```json' >> "$GITHUB_STEP_SUMMARY"
-            cat balance-report.json >> "$GITHUB_STEP_SUMMARY"
-            echo '```' >> "$GITHUB_STEP_SUMMARY"
-          fi
-          if [ -s promotion-report.json ]; then
-            echo '## Ajustes por ascensos y descensos' >> "$GITHUB_STEP_SUMMARY"
-            echo '```json' >> "$GITHUB_STEP_SUMMARY"
-            cat promotion-report.json >> "$GITHUB_STEP_SUMMARY"
-            echo '```' >> "$GITHUB_STEP_SUMMARY"
-          fi
-      - name: Guardar informe de auditoría
+          echo '## Auditoría de equilibrio de Primera y Primera Nacional' >> "$GITHUB_STEP_SUMMARY"
+          for f in balance-report.json promotion-report.json national-career-report.json; do
+            if [ -s "$f" ]; then
+              echo "### $f" >> "$GITHUB_STEP_SUMMARY"
+              echo '```json' >> "$GITHUB_STEP_SUMMARY"
+              cat "$f" >> "$GITHUB_STEP_SUMMARY"
+              echo '```' >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+      - name: Guardar informes de auditoría
         if: success() && github.event_name == 'push'
         run: |
           mkdir -p planteles
           cp balance-report.json planteles/auditoria-equilibrio-primera.json
           cp promotion-report.json planteles/auditoria-ajustes-ascensos-descensos.json
+          cp national-career-report.json planteles/auditoria-trayectoria-primera-nacional.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add planteles/auditoria-equilibrio-primera.json planteles/auditoria-ajustes-ascensos-descensos.json
+          git add planteles/auditoria-equilibrio-primera.json planteles/auditoria-ajustes-ascensos-descensos.json planteles/auditoria-trayectoria-primera-nacional.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Record Primera balance audit results'
+            git commit -m 'Record multi-season Primera Nacional career audit'
             git push
           fi
       - uses: actions/upload-artifact@v4
         if: always() && hashFiles('balance-report.json') != ''
         with:
-          name: auditoria-equilibrio-primera
+          name: auditoria-equilibrio-primera-nacional
           path: |
             balance-report.json
             promotion-report.json
+            national-career-report.json
