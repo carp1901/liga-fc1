@@ -51,6 +51,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
     (ruta=='registro'?store.registrar:store.login)(b.usuario,b.clave).then(r=>r.error?jn(ruta=='login'?401:400,r):jn(200,r),dbErr)});
    if(req.method=='POST'&&ruta=='logout')return body(req,b=>store.logout(tokOf(req,b)).then(()=>jn(200,{ok:1}),()=>jn(200,{ok:1})));
    if(req.method=='GET'&&(ruta=='yo'||ruta=='perfil'))return store.userByToken(tokOf(req)).then(us=>{if(!us)return jn(401,{error:'Sesión inválida o vencida'});return ruta=='yo'?jn(200,{usuario:us.usuario}):store.perfil(us.id).then(d=>jn(200,d))}).catch(dbErr);
+   if(req.method=='POST'&&ruta=='favorito')return body(req,b=>{if(!b)return jn(400,{error:'Pedido inválido'});store.userByToken(tokOf(req,b)).then(us=>{if(!us)return jn(401,{error:'Iniciá sesión para elegir tu club favorito'});const club=String(b.club||'');if(!TM[club])return jn(400,{error:'Elegí un club válido'});return store.definirFavorito(us.id,club).then(d=>jn(d.error?409:200,d))}).catch(dbErr)});
    // carrera offline: se juega en el celular y el servidor no puede comprobar los partidos; valida lo que sí puede (club dentro de la competición, formato, tamaño, límites) y la guarda como offline.
    if(req.method=='POST'&&ruta=='carrera')return body(req,b=>{if(!b)return jn(400,{error:'Pedido inválido'});
     store.userByToken(tokOf(req,b)).then(us=>{if(!us)return jn(401,{error:'Sesión inválida o vencida'});
