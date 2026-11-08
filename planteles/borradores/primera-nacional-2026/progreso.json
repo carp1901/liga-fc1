@@ -632,7 +632,7 @@
           "promedio": 60
         }
       ],
-      "observacion": "Se revisaron cinco casos con participación alta y media inicial baja, corrigiendo sus valores de forma moderada. 397 jugadores tienen presencias 2026 cargadas; no hay valoraciones individuales de partido cargadas en el CSV. El promedio general pasó de 58,41 a 58,43. No se aplica aún el ajuste general de +10.",
+      "observacion": "Se revisaron seis casos con participación alta y media inicial baja, corrigiendo sus valores de forma moderada. 397 jugadores tienen presencias 2026 cargadas; no hay valoraciones individuales de partido cargadas en el CSV. El promedio general se mantiene en 58,43. No se aplica aún el ajuste general de +10.",
       "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
       "campos_atributos_individuales_vacios": {
         "pas": 1006,
@@ -681,6 +681,13 @@
           "media_anterior": 54,
           "media_nueva": 57,
           "base": "29 partidos; valoración media 6,12 de equipo; nombre corregido desde Enzo Wuattier"
+        },
+        {
+          "jugador": "Ignacio Rodríguez",
+          "club_id": "atlanta",
+          "media_anterior": 55,
+          "media_nueva": 58,
+          "base": "35 presencias; 4 goles; 3 asistencias; valoración media 6,13"
         }
       ]
     }
