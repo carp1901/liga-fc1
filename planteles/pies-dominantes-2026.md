@@ -801,3 +801,18 @@ Fecha de revisión: 08/11/2026.
 | Federico Fattori | Derecho | https://www.sofascore.com/es/football/player/federico-fattori/789640 |
 
 **Progreso de Talleres:** 18/32 jugadores con pie registrado.
+
+
+## Tercera tanda de Talleres — 6 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Matías Galarza | Derecho | https://www.sofascore.com/es/football/player/matias-galarza/1086924 |
+| Jeremías Gallard | Ambos | https://www.sofascore.com/es/football/player/jeremias-gallard/1837210 |
+| Matías Gómez | Derecho | https://www.sofascore.com/es/football/player/matias-gomez/1507306 |
+| Lautaro Ortiz | Izquierdo | https://www.sofascore.com/es/football/player/lautaro-ortiz/2450916 |
+| Juan Sforza | Izquierdo | https://www.sofascore.com/es/football/player/juan-sforza/1003013 |
+| Valentín Dávila | Derecho | https://www.sofascore.com/es/football/player/valentin-davila/1885940 |
+
+**Progreso de Talleres:** 24/32 jugadores con pie registrado. Jeremías Gallard figura expresamente como ambidiestro.
