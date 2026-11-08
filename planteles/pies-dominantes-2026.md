@@ -219,3 +219,21 @@ Fecha de revisión: 08/11/2026.
 | Lucas Silva | Derecho | https://www.sofascore.com/es/football/player/lucas-silva/2551065 |
 
 **Progreso de River:** 18/27 jugadores con pie registrado.
+
+
+## Tercera tanda de River Plate — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Tobías Ramírez | Derecho | https://www.sofascore.com/es/football/player/tobias-palacio/1482389 |
+| Jeremías Martinet | Derecho | https://www.sofascore.com/es/football/player/jeremias-martinet/1961812 |
+| Tobías Andrada | Derecho | https://www.sofascore.com/es/football/player/tobias-andrada/2110330 |
+| Sebastián Driussi | Ambos | https://www.sofascore.com/es/football/player/sebastian-driussi/358938 |
+| Ángel Correa | Derecho | https://www.sofascore.com/es/football/player/angel-correa/316152 |
+| Lucas Beltrán | Derecho | https://www.sofascore.com/es/football/player/lucas-beltran/962029 |
+| Rafael Borré | Derecho | https://www.sofascore.com/es/football/player/rafael-borre/560116 |
+| Lautaro Pereyra | Derecho | https://theanalyst.com/players/10982/lautaro-pereyra |
+| Agustín Ruberto | Derecho | https://www.sofascore.com/es/football/player/agustin-ruberto/1482434 |
+
+**Resultado de River:** 27/27 jugadores del CSV con pie dominante registrado. Sebastián Driussi queda como `Ambos`, tal como indica Sofascore.
