@@ -1,0 +1,35 @@
+'use strict';
+const assert=require('assert');
+const DATA=require('./public/data');
+const ENG=require('./public/engine');
+
+const nat=DATA.DIVS.find(d=>d.id==='ar2');
+assert(nat&&nat.teams.length>0,'debe existir Primera Nacional');
+const club=nat.teams[0].id;
+const car=ENG.realNew({me:{club}});
+assert(!car.error&&car.rosters&&car.rosters[club],'la carrera real debe crear planteles propios');
+const before=car.rosters[club].length;
+assert(before>0,'el club debe tener jugadores');
+assert(car.rosters[club].every(p=>Number.isFinite(p.age)&&p.uid),'cada jugador debe tener edad e identificador estable');
+const cfg=ENG.careerCfg(car);
+assert(cfg.real&&cfg.teams.includes(club),'el motor debe cargar la plantilla de carrera');
+
+const roster=car.rosters[club];
+const field=roster.find(p=>p.p!=='POR');
+const keeper=roster.find(p=>p.p==='POR');
+assert(field&&keeper,'el plantel debe tener jugadores de campo y arquero');
+field.age=37;
+keeper.age=39;
+car.pre=ENG.preparePre(car);
+const table=car.cats[car.me.cat].teams.map((id,i)=>({id,pts:car.cats[car.me.cat].teams.length-i,g:0,gf:0,ga:0}));
+const closed=ENG.careerClose(car,table);
+assert(!closed.error&&closed.car,'debe cerrar la temporada');
+const next=closed.car;
+assert.equal(next.season,2027,'debe avanzar una temporada');
+assert.equal(next.rosters[club].length,before,'debe conservar el tamaño del plantel');
+assert(next.regenLog.some(e=>e.club===club&&e.retired===field.n&&e.regen),'debe registrar el regen del jugador retirado');
+assert(next.regenLog.some(e=>e.club===club&&e.retired===keeper.n&&e.regen),'debe registrar el regen del arquero retirado');
+ENG.careerCfg(next);
+const loaded=DATA.squadMode(club,false);
+assert(loaded.some(p=>p.regen),'el regen debe estar en el plantel que usa el motor');
+console.log('OK: carrera real, carga de planteles, cierre de temporada, retiro, regens y carga efectiva en el motor.');
