@@ -153,3 +153,22 @@ Fecha de revisión: 08/11/2026.
 | Milton Delgado | Derecho | https://www.sofascore.com/es/football/player/delgado-milton/1819597 |
 
 **Progreso de Boca:** 19/31 jugadores con pie registrado. Matías Satas y los demás nombres pendientes quedan sin asignación hasta hallar ficha individual fiable.
+
+
+## Tercera tanda de Boca Juniors — 10 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Alan Velasco | Derecho | https://www.sofascore.com/es/football/player/alan-velasco/976496 |
+| Camilo Rey Domenech | Derecho | https://www.sofascore.com/es/football/player/camilo-rey-domenech/1482426 |
+| Santiago Ascacíbar | Derecho | https://www.sofascore.com/es/football/player/santiago-ascacibar/830667 |
+| Malcom Braida | Derecho | https://www.sofascore.com/es/football/player/malcom-braida/994453 |
+| Milton Giménez | Derecho | https://www.sofascore.com/es/football/player/milton-gimenez/1092308 |
+| Ángel Romero | Derecho | https://www.sofascore.com/es/football/player/angel-romero/1197041 |
+| Enner Valencia | Derecho | https://www.sofascore.com/es/football/player/enner-valencia/106456 |
+| Miguel Merentiel | Derecho | https://www.sofascore.com/es/football/player/miguel-merentiel/892275 |
+| Leonel Flores | Derecho | https://www.sofascore.com/es/football/player/leonel-flores/2050769 |
+| Sebastián Villa | Derecho | https://www.sofascore.com/es/football/player/sebastian-villa/839983 |
+
+**Progreso de Boca:** 29/31 jugadores con pie registrado.
