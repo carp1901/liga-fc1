@@ -842,7 +842,7 @@ Fecha de revisión: 08/11/2026.
 | Damián Fernández | Derecho | https://www.sofascore.com/es/football/player/damian-fernandez/1836619 |
 | Sebastián Zaracho | Izquierdo | https://www.sofascore.com/es/football/player/sebastian-zaracho/926882 |
 | Agustín Sández | Izquierdo | https://www.sofascore.com/es/football/player/agustin-sandez/1066556 |
-| Juan Cruz Komar | Derecho | https://www.sofascore.com/es/football/player/juan-cruz-komar/789663 |
+| Juan Cruz Komar | Derecho | https://careers.ea.com/games/ea-sports-fc/ratings/player-ratings/juan-cruz-komar/222428 |
 | Gastón Ávila | Izquierdo | https://www.sofascore.com/es/football/player/gaston-avila/975526 |
 | Facundo Mallo Blanco | Derecho | https://www.sofascore.com/football/player/facundo-mallo/877400 |
 | Juan Giménez | Derecho | https://www.sofascore.com/es/football/player/gimenez-juan/1482411 |
