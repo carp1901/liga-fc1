@@ -16,9 +16,9 @@ const initialClubLog=(car.regenLog||[]).filter(e=>e.club===club).length;
 
 for(let year=0;year<6;year++){
   const roster=car.rosters[club];
-  const field=roster.find(p=>p.p!=='POR'&&!p.regen&&!retired.has(p.uid));
-  const keeper=roster.find(p=>p.p==='POR'&&!p.regen&&!retired.has(p.uid));
-  assert(field&&keeper,'debe haber jugadores originales disponibles para probar retiros sucesivos');
+  const field=roster.find(p=>p.p!=='POR'&&!retired.has(p.uid));
+  const keeper=roster.find(p=>p.p==='POR'&&!retired.has(p.uid));
+  assert(field&&keeper,'debe haber jugadores disponibles para probar retiros sucesivos');
   field.age=37;
   keeper.age=39;
   retired.add(field.uid);
