@@ -830,3 +830,21 @@ Fecha de revisión: 08/11/2026.
 | Diego Valoyes | Derecho | https://www.clubtalleres.com.ar/jugadores/diego-valoyes/ |
 
 **Progreso de Talleres:** 29/32 jugadores con pie dominante registrado. Quedan pendientes Thiago Baroni, Ignacio Alastra y Rick Lima Morais: no se encontró una ficha individual fiable que confirme su pie.
+
+
+## Primera tanda de Rosario Central — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Axel Werner | Derecho | https://www.sofascore.com/es/football/player/axel-werner/250219 |
+| Jeremías Ledesma | Derecho | https://www.sofascore.com/es/football/player/jeremias-ledesma/341097 |
+| Damián Fernández | Derecho | https://www.sofascore.com/es/football/player/damian-fernandez/1836619 |
+| Sebastián Zaracho | Izquierdo | https://www.sofascore.com/es/football/player/sebastian-zaracho/926882 |
+| Agustín Sández | Izquierdo | https://www.sofascore.com/es/football/player/agustin-sandez/1066556 |
+| Juan Cruz Komar | Derecho | https://www.sofascore.com/es/football/player/juan-cruz-komar/789663 |
+| Gastón Ávila | Izquierdo | https://www.sofascore.com/es/football/player/gaston-avila/975526 |
+| Facundo Mallo Blanco | Derecho | https://www.sofascore.com/football/player/facundo-mallo/877400 |
+| Juan Giménez | Derecho | https://www.sofascore.com/es/football/player/gimenez-juan/1482411 |
+
+**Progreso de Rosario Central:** 9/38 jugadores con pie registrado. Leonardo Sosa queda pendiente de identificar con certeza; Juan Giménez se verificó en su ficha de reserva.
