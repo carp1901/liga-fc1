@@ -48,15 +48,38 @@ i.pk{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:ce
 .ua{color:#3ddc84;font-size:10px;margin-left:3px;font-weight:700}.da{color:#ff6b61;font-size:10px;margin-left:3px;font-weight:700}.aw{font-size:10px;color:var(--so)}.vi{font-size:13px;opacity:.55;padding:0 6px}
 .sbt em{font:300 10.5px Barlow,sans-serif;font-style:normal;opacity:.85;letter-spacing:.4px;line-height:1.1}
 .box.cl>h2:first-child{cursor:pointer;user-select:none}.box.cl>h2:first-child::before{content:'▾ ';color:var(--mu)}.box.cl.col>h2:first-child::before{content:'▸ '}.box.cl.col>:not(h2:first-child){display:none!important}
-/* Chat general a pantalla amplia */
-body:has(#m29:not([hidden])) #menu .bd{width:100vw;max-width:none;height:100dvh;max-height:none;border:0;border-radius:0;padding:52px 12px 12px;}
-#m29{width:100%;max-width:1100px;margin:0 auto;min-height:calc(100dvh - 64px);height:100%;align-items:stretch;gap:8px;}
-#m29>h2,#m29>p,#m29>.bk{flex:none;}
-#m29 #chatmsgs{width:100%;height:auto!important;min-height:220px;max-height:none!important;flex:1 1 auto;overflow-y:auto;overflow-x:hidden;padding:12px;}
-#m29 #chatwrite{width:100%;flex:none;}
-#m29 #chatinput{min-width:0;}
-#m29 #chatadmin{width:100%;flex:none;}
-@media(max-height:560px){#m29{min-height:calc(100dvh - 58px)}#m29 #chatmsgs{min-height:140px}}
+/* Chat general: tablero amplio, contenido estable y scroll solo en mensajes */
+body:has(#m29:not([hidden])){overflow:hidden}
+body:has(#m29:not([hidden])) #menu{display:grid;place-items:center;overflow:hidden;padding:10px}
+body:has(#m29:not([hidden])) #menu .bd{width:min(1200px,calc(100vw - 20px));max-width:none;height:calc(100dvh - 20px);max-height:none;min-height:0;margin:0 auto;padding:16px 20px 12px;border:10px solid #6b4423;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start}
+body:has(#m29:not([hidden])) #m29{display:flex!important;flex:1 1 0;min-height:0;height:auto;width:100%;max-width:none;margin:0;align-items:stretch;justify-content:flex-start;gap:8px;overflow:hidden}
+#m29>h2{flex:none;margin:0;font-size:clamp(22px,3vw,30px)}
+#m29>p{flex:none;margin:0 0 2px}
+#m29 #chatmsgs{display:block;width:100%;height:auto!important;max-height:none!important;min-height:0;flex:1 1 0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:12px;text-align:left}
+#m29 #chatwrite{display:flex;width:100%;flex:none;align-items:stretch;margin:0}
+#m29 #chatinput{flex:1 1 auto;min-width:0}
+#m29 #chatguest{flex:none}
+#m29 #chaterr{flex:none;margin:0}
+#m29 #chatadmin{width:100%;max-height:22vh;overflow:auto;flex:none}
+#m29>.bk{flex:none;margin:0 auto 2px}
+@media(max-width:700px){
+ body:has(#m29:not([hidden])) #menu{padding:0}
+ body:has(#m29:not([hidden])) #menu .bd{width:100vw;height:100dvh;padding:12px 9px 9px;border-width:5px;border-radius:0}
+ body:has(#m29:not([hidden])) #m29{gap:7px}
+ #m29>h2{font-size:23px}
+ #m29>p{font-size:12px;line-height:1.25}
+ #m29 #chatmsgs{padding:9px;min-height:0}
+ #m29 #chatwrite{gap:6px}
+ #m29 #chatinput{font-size:16px}
+ #m29 #chatwrite button{padding:8px 12px;white-space:nowrap}
+ #m29 #chatadmin{max-height:18vh}
+}
+@media(max-height:620px){
+ body:has(#m29:not([hidden])) #menu .bd{padding-top:8px;padding-bottom:7px}
+ #m29>h2{font-size:21px}
+ #m29>p{font-size:11px}
+ #m29 #chatadmin{max-height:15vh}
+}
 #menu{font-synthesis:none;position:fixed;inset:0;z-index:9;display:grid;place-items:center;background:#07120c;padding:8px}
 #menu .bd{position:relative;width:100%;max-width:460px;height:100%;max-height:920px;overflow:auto;display:flex;flex-direction:column;align-items:center;text-align:center;padding:22px 16px 16px;border:12px solid #6b4423;border-radius:6px;background:radial-gradient(#ffffff0b 1px,transparent 1.5px) 0 0/7px 7px,linear-gradient(115deg,transparent 38%,#ffffff09 50%,transparent 62%),radial-gradient(ellipse at 30% 15%,#1f4f2f,#143823 55%,#0d2819);box-shadow:inset 0 0 0 2px #0006,inset 0 0 80px #000c,0 12px 40px #000}
 #menu .bt.big,#menu #bacc,#menu #bamg{width:min(100%,320px);height:70px;margin:6px 0;padding:6px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:clamp(18px,5vw,23px);line-height:1.1;white-space:normal;text-align:center;flex:none}#menu .bt.big small{font-size:12px;line-height:1.1;margin-top:2px}@media(max-height:700px){#menu .bt.big,#menu #bacc,#menu #bamg{height:62px;margin:4px 0}}
