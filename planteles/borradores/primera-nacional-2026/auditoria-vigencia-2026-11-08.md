@@ -297,3 +297,38 @@ Se actualizaron bloque6.csv y bloque3.csv. La base pasa de **1.006 a 1.003 jugad
 - Altas candidatas respaldadas que requieren ficha: pendientes de completar y cotejar; no se agregan filas incompletas.
 - Identidades y dorsales: siguen abiertos los casos listados en este informe.
 - Próxima etapa: completar fichas de altas prioritarias, resolver conflictos de identidad y continuar depuración en bloques grandes. Los seis CSV siguen siendo borradores y no se integran al juego.
+
+
+## Segunda tanda de depuración y fichas — 08/11/2026
+
+Se incorporaron seis altas con ficha individual suficiente y se corrigieron dos identidades ya presentes en la base. La base pasa de **1.003 a 1.009 jugadores**. Las medias y atributos técnicos de las seis altas son estimaciones propias coherentes con rol y nivel competitivo; quedan identificadas como tales y no se presentan como valoraciones oficiales.
+
+### Altas incorporadas
+
+- **Acassuso — Valentín Serrano:** mediocampista por izquierda, nacido el 23/02/2004. Registra 14 apariciones de Primera Nacional en 2026 y 359 minutos según 365Scores/FotMob. Fuentes: https://www.365scores.com/es/football/player/valentin-serrano-147454 ; https://www.fotmob.com/es/players/1586264/valentin-serrano
+- **Acassuso — Manuel Mónaco:** mediocampista, nacido el 11/05/2002. Soccerway lo identifica en Acassuso y documenta sus participaciones en 2026; ficha con 217 minutos y dos amarillas según FotMob. Fuentes: https://www.soccerway.com/player/monaco-manuel/EeKccIVR/ ; https://www.fotmob.com/es/players/1372337/manuel-monaco
+- **Acassuso — Juan Ignacio Quattrocchi:** atacante/mediapunta zurdo, nacido el 03/02/2004. Sofascore lo identifica en Acassuso y aporta edad, pie y posición; se mantiene dorsal interno provisional, sin copiar el número de otra competencia. Fuente: https://www.sofascore.com/es-la/football/player/juan-ignacio-quattrocchi/1836759
+- **Nueva Chicago — Enzo Roldán:** mediocampista central, nacido el 08/12/2000. La nómina 2026 de Promiedos lo incluye en el plantel del club. Fuente: https://www.promiedos.com.ar/team/nueva-chicago/bcai
+- **Nueva Chicago — Facundo Alfredo Castro:** delantero centro, nacido el 28/02/1996. Ficha de Solo Ascenso registra 26 presencias en la temporada 2026; Transfermarkt confirma su incorporación el 02/07/2026 y contrato hasta 31/12/2027. Fuentes: https://www.soloascenso.com.ar/perfil/facundo-castro/16748 ; https://www.transfermarkt.com.ar/facundo-castro/profil/spieler/332252
+- **Nueva Chicago — Iván Antúnez:** defensor, nacido el 23/04/1998. Goal registra 26 apariciones, 1.776 minutos y tres goles en 2026. Fuente: https://www.goal.com/es-ar/jugador/i-antunez/D9MsYaNMoNvYsw4LtnAod
+
+Los seis registros incluyen fecha de nacimiento, posición/rol, nacionalidad, rating y ocho atributos. Los ratings y atributos individuales son estimaciones internas, no OVR oficiales ni estadísticas técnicas de proveedores.
+
+### Identidades corregidas sin duplicar
+
+- **Los Andes:** el registro antes llamado Agustín González (DOB 04/01/2005) pasa a **Alexis González**. La coincidencia exacta de fecha de nacimiento y las fichas de 365Scores/Sofascore respaldan la identidad; se corrigió su posición a defensor lateral izquierdo y se conserva EI como posición secundaria. Fuentes: https://www.365scores.com/es/football/player/alexis-gonzalez-182999 ; https://www.sofascore.com/football/player/alexis-gonzalez/1942425 ; https://launion.com.ar/deportes/de-lanus-los-andes-alexis-gonzalez-se-transformo-el-segundo-refuerzo-del-milrayitas-n5444017
+- **Colón:** el registro antes llamado Facundo García (DOB 04/06/1997) pasa a **Franco García**. La fecha coincide con la ficha de Franco Manuel García y su llegada oficial a Colón; se conserva la fila existente y sus atributos, sin crear duplicado. Fuentes: https://www.lt9.com.ar/franco-garcia-es-jugador-de-colon/ ; https://br.soccerway.com/jogador/garcia-franco/nD9lWctU/
+
+### Candidatos descartados o pendientes
+
+- **Valentín Burgoa no se incorpora a Godoy Cruz:** volvió de su préstamo, pero volvió a salir y figura transferido a Orense el 01/08/2026. No debe aparecer como jugador del plantel de Godoy Cruz al cierre de temporada. Fuente: https://www.deportesonline.com/ver_equipos_online/futbol/godoycruz/
+- **Nicolás Ortiz (San Telmo) queda pendiente:** las fuentes consultadas presentan una contradicción importante entre un mediocampista de 21 años proveniente de la reserva de Platense y un defensor central de 31 años con estadísticas en San Telmo. No se crea una fila hasta resolver si son dos jugadores distintos o una atribución incorrecta. Fuentes: https://www.soloascenso.com.ar/notas/racing-de-cordoba/san-telmo-presento-oficialmente-a-su-cuarto-refuerzo/230157 ; https://footystats.org/es/players/argentina/nicolas-dario-ortiz
+
+### Validación de esta tanda
+
+- Altas agregadas: **6** (tres Acassuso y tres Nueva Chicago).
+- Identidades corregidas: **2** (Alexis González y Franco García), sin alterar el total.
+- Base: **1.009 jugadores**.
+- Se preservó la escala de ratings (+10), con trazabilidad rating_base/ajuste_rating; las nuevas fichas usan base estimada + ajuste 10.
+- No se modificó el runtime ni se integraron los borradores al juego.
+- Los dorsales de las seis altas son asignaciones internas provisionales; no se presentan como dorsales oficiales.
