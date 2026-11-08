@@ -14,7 +14,7 @@ setInterval(()=>{const n=Date.now();for(const[k,a]of RL){const b=a.filter(t=>n-t
 const ipOf=req=>String((req.headers['x-forwarded-for']||'').split(',')[0]||req.socket.remoteAddress||'').trim();
 function offlineRec(b){
  const tid=String(b.tid||''),comp=String(b.comp||''),club=String(b.club||''),fmt=String(b.fmt||''),n=Math.floor(+b.n);
- if(!/^[a-z0-9]{8,60}$/.test(tid))return'ID de torneo inválido';if(!['liga1','liga2','copa'].includes(fmt))return'Formato inválido';
+ if(!/^[a-z0-9]{8,60}$/.test(tid))return'ID de torneo inválido';if(!['liga1','liga2','copa','mixto'].includes(fmt))return'Formato inválido';
  const cup=CUPS.find(c=>c.id==comp),dv=cup?null:DIVS.find(d=>d.id==comp&&d.ok),all=comp=='all',pers=comp=='pers'||comp=='real',real=comp=='real',arg=comp=='copaarg';
  const clubs=cup?cup.clubs:dv?dv.teams.map(t=>t.id):all?DIVS.flatMap(d=>d.teams.map(t=>t.id)):pers||arg?Object.keys(TM):null;
  if(!clubs)return'Competición inválida';if(!clubs.includes(club)||!TM[club])return'El club no pertenece a esa competición';
@@ -67,7 +67,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
  if(u.pathname=='/ev'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),c=r&&((r.pl[pid]&&!r.pl[pid].ai)?r.pl[pid]:(r.spec&&r.spec[pid]));if(!c){res.writeHead(404);return res.end()}
   res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});c.res=res;res.write('retry:2000\n\n');E.listen(r.code,pid,v=>res.write('data:'+JSON.stringify(v)+'\n\n'));req.on('close',()=>{if(c.res===res){c.res=null;E.listen(r.code,pid,null)}});return}
  if(u.pathname=='/teams.json'){res.writeHead(200,{'Content-Type':'application/json'});return res.end(JSON.stringify(DIVS))}
- if(u.pathname=='/api/ranking'){const g=k=>u.searchParams.get(k)||'',f={mod:['online','clasico','barrial','offline'].includes(g('mod'))?g('mod'):'online',comp:/^[a-z0-9]{1,30}$/.test(g('comp'))?g('comp'):'',fmt:['liga','copa'].includes(g('fmt'))?g('fmt'):''};
+ if(u.pathname=='/api/ranking'){const g=k=>u.searchParams.get(k)||'',f={mod:['online','clasico','barrial','offline'].includes(g('mod'))?g('mod'):'online',comp:/^[a-z0-9]{1,30}$/.test(g('comp'))?g('comp'):'',fmt:['liga','copa','mixto'].includes(g('fmt'))?g('fmt'):''};
   return store.ranking(f).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({...d,filtros:f}))},e=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Base de datos no disponible'}))})}
  if(u.pathname=='/api/titulo'){const id=u.searchParams.get('id')||'',jn=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(o))};if(!/^[a-z0-9]{8,60}$/.test(id))return jn(400,{error:'ID inválido'});
   return store.titulo(id).then(d=>d.error?jn(404,d):jn(200,d),e=>jn(503,{error:'Base de datos no disponible'}))}
