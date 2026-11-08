@@ -816,3 +816,17 @@ Fecha de revisión: 08/11/2026.
 | Valentín Dávila | Derecho | https://www.sofascore.com/es/football/player/valentin-davila/1885940 |
 
 **Progreso de Talleres:** 24/32 jugadores con pie registrado. Jeremías Gallard figura expresamente como ambidiestro.
+
+
+## Cuarta tanda de Talleres — 5 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Franco Yennerich | Derecho | https://fcscoutdb.com/players/franco-yennerich |
+| Agustín Alvarez Martínez | Derecho | https://theanalyst.com/players/6189/agustin-alvarez |
+| Valentín Depietri | Derecho | https://www.sofascore.com/es/football/player/valentin-depietri/1092322 |
+| Bruno Trey | Derecho | https://www.sofascore.com/es/football/player/bruno-trey/2670359 |
+| Diego Valoyes | Derecho | https://www.clubtalleres.com.ar/jugadores/diego-valoyes/ |
+
+**Progreso de Talleres:** 29/32 jugadores con pie dominante registrado. Quedan pendientes Thiago Baroni, Ignacio Alastra y Rick Lima Morais: no se encontró una ficha individual fiable que confirme su pie.
