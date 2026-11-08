@@ -30,13 +30,13 @@ const files = [
   'planteles/primera-2026.csv',
   ...Array.from({ length: 6 }, (_, i) => `planteles/borradores/primera-nacional-2026/bloque${i + 1}.csv`)
 ];
-const expected = [1013, 151, 172, 184, 190, 153, 156];
+const expected = [1013, 155, 171, 182, 194, 164, 160];
 let total = 0;
 for (let i = 0; i < files.length; i++) {
   const rows = parseCSV(fs.readFileSync(files[i], 'utf8'));
   const headers = rows.shift().map(x => x.trim().toLowerCase());
   const col = Object.fromEntries(headers.map((h, n) => [h, n]));
-  for (const field of ['rating', 'rating_base', 'ajuste_rating', 'rol_especifico']) {
+  for (const field of ['rating', 'rating_base', 'ajuste_rating', 'rol_especifico', 'posicion', ...["pas","ctl","reg","rem","des","mar","ant","ref"]]) {
     assert.notEqual(col[field], undefined, files[i] + ': falta columna ' + field);
   }
   const players = rows.filter(r => r.some(x => x.trim()));
@@ -50,6 +50,11 @@ for (let i = 0; i < files.length; i++) {
     assert.equal(rating, base + adjustment, files[i] + ' fila ' + (n + 2) + ': rating no coincide con su base');
     const role = r[col.rol_especifico];
     assert(supported.has(role), files[i] + ' fila ' + (n + 2) + ': rol sin perfil de atributos: ' + role);
+    for (const field of ["pas","ctl","reg","rem","des","mar","ant","ref"]) {
+      const value = Number(r[col[field]]);
+      assert(Number.isInteger(value) && value >= 15 && value <= 99, files[i] + ' fila ' + (n + 2) + ': atributo inválido ' + field + '=' + r[col[field]]);
+    }
+    if (r[col.posicion] !== 'POR') assert.equal(Number(r[col.ref]), 15, files[i] + ' fila ' + (n + 2) + ': reflejos de jugador de campo deben ser 15');
   }
   total += players.length;
 }
