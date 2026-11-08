@@ -721,3 +721,20 @@ Fecha de revisión: 08/11/2026.
 | Raúl Loaiza | Derecho | https://www.sofascore.com/es/football/player/raul-loaiza/991270 |
 
 **Progreso de Lanús:** 15/34 jugadores con pie registrado. Mariano Gerez aparece cedido fuera del país y Thiago Laplace en reserva; se conserva el dato individual de pie sin inferirlo por su puesto.
+
+
+## Tercera tanda de Lanús — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Gonzalo Lobos | Derecho | https://www.sofascore.com/football/player/gonzalo-lobos/2470986 |
+| Agustín Medina | Derecho | https://www.sofascore.com/es/football/player/agustin-medina/1836915 |
+| Felipe Peña Biafore | Derecho | https://www.sofascore.com/football/player/felipe-pena-biafore/1065594 |
+| Facundo Sánchez | Derecho | https://www.sofascore.com/football/player/facunda-sanchez/1836919 |
+| Matías Sepúlveda | Izquierdo | https://www.sofascore.com/football/player/matias-sepulveda/846503 |
+| Franco Watson | Derecho | https://www.sofascore.com/football/player/watson-franco/1018412 |
+| Benjamín Acosta | Derecho | https://www.sofascore.com/football/player/benjamin-acosta/1482428 |
+| Lucas Besozzi | Derecho | https://www.sofascore.com/es/football/player/lucas-besozzi/1086339 |
+
+**Progreso de Lanús:** 23/34 jugadores con pie registrado. Quedan pendientes jugadores juveniles sin ficha de pie y otros casos por verificar.
