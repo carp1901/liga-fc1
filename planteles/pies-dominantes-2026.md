@@ -551,3 +551,20 @@ Fecha de revisión: 08/11/2026.
 | Ignacio Isla | Ambos | https://www.sofascore.com/football/player/ignacio-isla/2445395 |
 
 **Progreso de Unión:** 7/33 jugadores con pie registrado. Ignacio Isla queda como `Ambos`, tal como indica Sofascore; varios juveniles aparecen en fichas de reserva, pero coinciden en identidad y club.
+
+
+## Segunda tanda de Unión de Santa Fe — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Juan Pablo Ludueña | Derecho | https://www.sofascore.com/es/football/player/luduena-juan-pablo/1392241 |
+| Bruno Pittón | Izquierdo | https://www.sofascore.com/es/football/player/bruno-pitton/800246 |
+| Matías Rocha | Derecho | https://www.sofascore.com/es/football/player/matias-rocha/1083250 |
+| Lautaro Vargas | Derecho | https://www.sofascore.com/es/football/player/vargas-lautaro/1485084 |
+| Brahian Cuello | Derecho | https://www.sofascore.com/es/football/player/braian-cuello/896722 |
+| Franco Fragapane | Derecho | https://www.sofascore.com/football/player/franco-fragapane/368926 |
+| Emilio Giaccone | Derecho | https://www.sofascore.com/football/player/emilio-giaccone/2017601 |
+| Santiago Grella | Derecho | https://www.sofascore.com/football/player/santiago-grella/2285317 |
+
+**Progreso de Unión:** 15/33 jugadores con pie dominante registrado.
