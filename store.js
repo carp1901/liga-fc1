@@ -50,10 +50,14 @@ CREATE TABLE IF NOT EXISTS carreras(
  resultado TEXT,
  campeon BOOLEAN NOT NULL DEFAULT false,
  pj INTEGER, g INTEGER, e INTEGER, p INTEGER, gf INTEGER, gc INTEGER, pts INTEGER,
+ competitivo BOOLEAN NOT NULL DEFAULT false,
+ participantes_reales INTEGER NOT NULL DEFAULT 0,
  finalizado TIMESTAMPTZ NOT NULL DEFAULT now(),
  UNIQUE(usuario_id, torneo_id)
 );
 CREATE INDEX IF NOT EXISTS carreras_usuario_idx ON carreras(usuario_id, finalizado DESC);
+ALTER TABLE carreras ADD COLUMN IF NOT EXISTS competitivo BOOLEAN NOT NULL DEFAULT false;
+ALTER TABLE carreras ADD COLUMN IF NOT EXISTS participantes_reales INTEGER NOT NULL DEFAULT 0;
 CREATE TABLE IF NOT EXISTS amistades(
  id SERIAL PRIMARY KEY,
  de_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
@@ -211,9 +215,9 @@ async function logout(tok){if(!configured||!tok||typeof tok!='string')return;con
 async function addCareers(recs,att){att=att||0;if(!configured)return;const fail=[];
   try{await ensure()}catch(e){if(att<6)setTimeout(()=>addCareers(recs,att+1),5000).unref();return}
   for(const c of recs){if(!c.uid)continue;
-    try{await pool.query(`INSERT INTO carreras(usuario_id,torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,finalizado)
-      VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21) ON CONFLICT (usuario_id,torneo_id) DO NOTHING`,
-      [c.uid,c.tid,c.club,c.clubNombre??null,c.mod,c.origen??null,c.comp??null,c.compNombre??null,c.fmt??null,c.n??null,c.pos??null,c.resultado??null,!!c.campeon,c.pj??null,c.g??null,c.e??null,c.p??null,c.gf??null,c.gc??null,c.pts??null,new Date(c.at||Date.now()).toISOString()])}
+    try{await pool.query(`INSERT INTO carreras(usuario_id,torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,competitivo,participantes_reales,finalizado)
+      VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23) ON CONFLICT (usuario_id,torneo_id) DO NOTHING`,
+      [c.uid,c.tid,c.club,c.clubNombre??null,c.mod,c.origen??null,c.comp??null,c.compNombre??null,c.fmt??null,c.n??null,c.pos??null,c.resultado??null,!!c.campeon,c.pj??null,c.g??null,c.e??null,c.p??null,c.gf??null,c.gc??null,c.pts??null,!!c.competitivo,Math.max(0,Math.floor(+c.humanos||0)),new Date(c.at||Date.now()).toISOString()])}
     catch(e){console.error('carrera no guardada:',e.message);fail.push(c)}}
   if(fail.length&&att<6)setTimeout(()=>addCareers(fail,att+1),5000).unref()}
 async function perfil(uid){
