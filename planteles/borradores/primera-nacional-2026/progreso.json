@@ -560,10 +560,10 @@
     156
   ],
   "porcentaje_roles_especificos": 100,
-  "ultima_revision": "2026-11-07: nueva corrección de rol y media para Francisco Monticelli; promedio actualizado 58.45.",
+  "ultima_revision": "2026-11-07: recálculo integral de 1006 registros; promedio 58,46 y 391 jugadores con presencias 2026 cargadas.",
   "auditoria_en_curso": {
     "fecha": "2026-11-07",
-    "etapa": "Auditoría cualitativa de medias y roles en curso; estadísticas 2026 contrastadas",
+    "etapa": "Auditoría cualitativa de medias, roles y consistencia de estadísticas en curso",
     "validacion_estructural": {
       "clubes": 36,
       "jugadores": 1006,
@@ -603,7 +603,7 @@
       "porcentaje_media_60": 6.8,
       "fuentes_ovr_ea_fc_individual_verificadas": 0,
       "criterio_actual": "Las 1006 medias son estimaciones propias; no se buscan OVR EA FC individuales para esta división porque no hay cobertura de EA FC. Se revisarán por coherencia competitiva y se mantendrá pendiente el ajuste general de +10 para Primera y Primera Nacional hasta cerrar la auditoría.",
-      "promedio_actual": 58.45
+      "promedio_actual": 58.46
     },
     "proximos_pasos": [
       "Continuar auditoría de medias con foco en titulares habituales y producción estadística, evitando subir automáticamente a suplentes con muchas presencias",
@@ -613,7 +613,7 @@
     ],
     "revision_medias": {
       "jugadores_analizados": 1006,
-      "promedio_general": 58.45,
+      "promedio_general": 58.46,
       "rango": [
         48,
         66
@@ -632,7 +632,7 @@
           "promedio": 60
         }
       ],
-      "observacion": "Se añadieron seis correcciones de medias respaldadas por estadísticas 2026 en esta ronda ampliada (incluido Francisco Monticelli); además se corrigió su rol de EI a MI. Se priorizaron minutos, titularidades y producción. Se mantienen sin aumento casos de rotación o estadísticas contradictorias (por ejemplo, Juan Fernandes Pinto, Santiago Gauna, Tomás Kummer y Francisco Tcherkaski). El promedio general actualizado es 58.45. No se aplica aún el ajuste general de +10.",
+      "observacion": "Auditoría cualitativa en curso: se revisaron titulares habituales y producción 2026, con catorce ajustes individuales acumulados y siete correcciones de roles/posiciones. Se evitó subir automáticamente a jugadores de rotación o con estadísticas contradictorias. El promedio exacto calculado sobre los 1006 registros es 58,4563 (58,46 redondeado). Se detectaron 391 jugadores con presencias 2026 cargadas. El ajuste general de +10 para Primera y Primera Nacional sigue reservado hasta cerrar la auditoría.",
       "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
       "campos_atributos_individuales_vacios": {
         "pas": 1006,
@@ -644,7 +644,7 @@
         "ant": 1006,
         "ref": 1006
       },
-      "jugadores_con_presencias_2026_cargadas": 397,
+      "jugadores_con_presencias_2026_cargadas": 391,
       "jugadores_con_rating_de_partido_cargado": 0,
       "correcciones_individuales": [
         {
