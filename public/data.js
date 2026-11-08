@@ -348,6 +348,6 @@ function catalog(){const out=[];
  DIVS.filter(d=>d.ok).forEach(d=>out.push({key:d.id,id:d.id,cat:'clasico',name:d.name,region:d.country,clubs:d.teams.length,fmts:['liga1','liga2','copa']}));
  CUPS.forEach(c=>{const m=CUP_META[c.id]||{};out.push({key:'cup:'+c.id,id:c.id,cat:'barrial',name:c.name,title:c.title,region:m.region||'',clubs:c.clubs.length,fmts:(m.fmts||['liga1','liga2']).slice()})});
  return out.map(e=>({...e,sizes:Object.fromEntries(e.fmts.map(f=>[f,f=='copa'?KO_SIZES.filter(n=>n<=e.clubs):[...new Set([...LIGA_SIZES.filter(n=>n<=e.clubs),...(e.cat=='barrial'?[e.clubs]:[])])]])),random:e.clubs>=RANDOM_N,randomFmts:e.clubs>=RANDOM_N?e.fmts.filter(f=>f!='copa'):[]}))}
-const API={LEAGUES,KO_SIZES,LIGA_SIZES,CUSTOM_KO_SIZES,CUSTOM_LIGA_SIZES,RANDOM_N,catalog,CUP_META,NORMAL,PLAYER_SCALE,TEAM_TIERS,teamTier,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
+const API={exactSlots,roleFit,LEAGUES,KO_SIZES,LIGA_SIZES,CUSTOM_KO_SIZES,CUSTOM_LIGA_SIZES,RANDOM_N,catalog,CUP_META,NORMAL,PLAYER_SCALE,TEAM_TIERS,teamTier,PHIL,PHIL_OPTS,validPhil,phOff,phDelta,phApply,squadMode,BAL_T,xiQuality,ATTRS,PROFILES,roleOvr,loadSquads,mkPlayer,COLOR_OVERRIDES,CUPS,DIVS,TM,FM,FN,slots,autoXI,squad,setMix};if(typeof module!=='undefined')module.exports=API;else window.DATA=API;
 
 })();
