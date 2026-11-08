@@ -1,3 +1,4 @@
+(function(){
 'use strict';
 // Recambio generacional determinista para carreras realistas.
 // Los planteles base nunca se modifican: cada carrera conserva su propia copia.
@@ -40,3 +41,5 @@ function next(rosters,season){
  return{rosters:out,events};
 }
 const API={init,next};if(typeof module!=='undefined'&&module.exports)module.exports=API;else if(typeof window!=='undefined')window.PLAYERREG=API;
+
+})();
