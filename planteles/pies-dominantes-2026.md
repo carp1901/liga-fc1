@@ -254,3 +254,21 @@ Fecha de revisión: 08/11/2026.
 | Nahuel Banegas | Izquierdo | https://www.sofascore.com/es/football/player/nahuel-banegas/992112 |
 
 **Progreso de Independiente:** 8/36 jugadores con pie registrado. Juan Centurión y Juan Arrayago siguen pendientes de ficha individual inequívoca.
+
+
+## Segunda tanda de Independiente — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Santiago Arias | Derecho | https://www.sofascore.com/es/football/player/santiago-arias/158583 |
+| Leonardo Godoy | Derecho | https://www.sofascore.com/es/football/player/leonardo-godoy/794006 |
+| Facundo Zabala | Izquierdo | https://www.sofascore.com/es/football/player/facundo-zabala/1015657 |
+| Gonzalo Bordón | Derecho | https://www.sofascore.com/es/football/player/gonzalo-bordon/2055296 |
+| Sebastián Valdéz | Derecho | https://www.sofascore.com/es/football/player/sebastian-valdez/896783 |
+| Juan Fedorco | Derecho | https://www.sofascore.com/es/football/player/juan-fedorco/993479 |
+| Jonathan De Irastorza | Izquierdo | https://www.sofascore.com/es/football/player/jonathan-de-irastorza/1893248 |
+| Iván Marcone | Derecho | https://www.sofascore.com/es/football/player/ivan-marcone/122634 |
+| Tomás Parmo | Derecho | https://www.sofascore.com/es/football/player/parmo-tomas/1650086 |
+
+**Progreso de Independiente:** 17/36 jugadores con pie registrado. Juan Arrayago sigue pendiente; la página oficial confirma que integra el plantel, pero no publica su pie dominante.
