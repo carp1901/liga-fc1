@@ -930,3 +930,20 @@ Fecha de revisión: 08/11/2026.
 | Máximo Palazzo | Izquierdo | https://www.sofascore.com/es/football/player/maximo-palazzo/1997478 |
 
 **Progreso de Huracán:** 8/31 jugadores con pie registrado. Fabrizio Martínez y Martín Nervo quedan pendientes de ficha individual.
+
+
+## Segunda tanda de Huracán — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Fabio Pereyra | Derecho | https://www.sofascore.com/football/player/fabio-pereyra/943995 |
+| Thiago Pérez | Derecho | https://www.sofascore.com/es/football/player/thiago-perez/2110741 |
+| Federico Vera | Derecho | https://www.sofascore.com/es/football/player/federico-vera/981338 |
+| Daniel Zabala | Derecho | https://www.sofascore.com/es/football/player/daniel-zabala/1482286 |
+| Leonardo Gil | Izquierdo | https://www.sofascore.com/es/football/player/leonardo-gil/340775 |
+| Facundo Kalinger | Izquierdo | https://www.sofascore.com/es/football/player/facundo-kalinger/2110706 |
+| Lautaro Mora | Derecho | https://www.sofascore.com/es/football/player/lautaro-mora/2110718 |
+| Emmanuel Ojeda | Derecho | https://www.sofascore.com/es/football/player/emmanuel-ojeda/857488 |
+
+**Progreso de Huracán:** 16/31 jugadores con pie registrado. Rodrigo Fernández Cedrés y Luca Babino quedan pendientes de una ficha individual fiable.
