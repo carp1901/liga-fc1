@@ -54,3 +54,9 @@ GitHub Actions valida y publica automáticamente `public/squads.json`, `public/s
 La columna `nat` está completa para los 1.013 jugadores de Primera 2026. Las nacionalidades completadas durante la auditoría registran su fuente individual en `nat_source`; no se asignan nacionalidades por inferencia. El pie dominante (`pie`) se considera un dato complementario: permanece vacío cuando no se encontró una fuente individual fiable y no se fuerza un valor por defecto.
 
 La auditoría final valida 30 clubes, 1.013 jugadores, 1.013 edades, 1.013 dorsales, 1.013 roles específicos, 1.013 nacionalidades y 21 atributos por jugador (147 con atributos manuales y 866 con atributos derivados por rol, posición y media).
+
+## Ajuste general de escala — 08/11/2026
+
+Se aplicó el aumento acordado de **+10 puntos** a las 1.013 medias de Primera División. Se conserva la valoración anterior en `rating_base` y el ajuste explícito en `ajuste_rating`; no se reemplazan ni se alteran las fuentes individuales. Resultado: promedio 75,71; rango 60–92. La importación automática de GitHub Actions publicó esta versión de Primera en los archivos que consume el juego y la validación terminó correctamente.
+
+El mismo ajuste se aplicó a los 1.006 registros de Primera Nacional, que continúan como borradores sin integración al juego: promedio 68,46; rango 58–76. En ambas divisiones se mantiene la diferencia original entre jugadores; el +10 es una calibración global de escala, no una nueva valoración individual.
