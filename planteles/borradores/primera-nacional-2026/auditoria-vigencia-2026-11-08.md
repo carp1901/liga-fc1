@@ -369,3 +369,24 @@ Se completó una revisión de identidad y vigencia con nóminas de Solo Ascenso,
 
 ### Normalización de CSV
 Se repararon **15 filas del bloque 4, siete filas del bloque 5 y seis filas del bloque 6** con comas sin escapar en notas de procedencia. También se consolidaron las tres URL de procedencia de Enzo Wattier en el único campo de fuente disponible, preservando las tres referencias y su rating_base/ajuste_rating. Los bloques 4, 5 y 6 quedan validados con exactamente 33 columnas por fila. No se modificó el runtime.
+
+
+## Sexta tanda de depuración — Almirante Brown y resolución de candidatos — 08/11/2026
+
+### Almirante Brown
+Se completaron tres altas que estaban ausentes del bloque 4:
+
+- **Santiago Ariel Villalba**, nacido el 18/02/2004, delantero/mediapunta. Llegó para el segundo semestre; su ficha de temporada registra cinco presencias combinadas entre Chaco For Ever y Almirante, con una aparición para el Mirasol tras el pase. Fuentes: https://www.soloascenso.com.ar/perfil/santiago-villalba/30519 ; https://www.transfermarkt.es/santiago-villalba/profil/spieler/1186937
+- **Gonzalo Nahuel Flores**, nacido el 22/02/2002, delantero. Regresó de Deportivo Riestra en agosto y la ficha 2026 registra nueve presencias con Almirante tras su vuelta. Fuentes: https://www.soloascenso.com.ar/perfil/gonzalo-flores/22978 ; https://www.soloascenso.com.ar/notas/almirante-brown/una-alta-y-una-baja-confirmada-en-almirante-brown/231448
+- **Julián Ignacio López Pérez**, nacido el 11/06/1997, delantero. Llegó desde Central Norte a mitad de año y registra ocho presencias con Almirante en 2026. Fuente: https://www.ceroacero.es/jugador/julian-lopez/2507769 ; https://footlab.ai/es/player/462820
+
+Se corrigieron **15 identidades** existentes cotejando las fechas de nacimiento con fichas de temporada y la nómina 2026: Brian Galván → Bruno Galván; Gonzalo Cabral → Gustavo Cabral; Ezequiel Cardozo → Enzo Cardozo; Gonzalo Alegre → Gerardo Alegre Rojas; Lucas Jara → Leonardo Jara; Gonzalo Altamirano → Gabriel Altamirano; Juan Borja → Joaquín Borja Velázquez; Matías Santiago → Mariano Santiago; Lucas Iglesias → Leandro Iglesias; Julián Martínez → Javier Martínez; Matías Zanotti → Milton Zanotti; Tomás Zárate → Tobías Zárate; Pablo Velurtas → Pedro Velurtas; Lucas Pascual → Luciano Pascual; Rodrigo González → Ramón González Herrero. No se crearon duplicados. Las fichas individuales y estadísticas respaldan las identidades y el club. Fuentes representativas: https://www.soloascenso.com.ar/club/almirante-brown/239 ; https://www.soloascenso.com.ar/perfil/bruno-galvan/22360 ; https://www.soloascenso.com.ar/perfil/gabriel-altamirano/27376 ; https://www.soloascenso.com.ar/perfil/gerardo-alegre/23914 ; https://www.soloascenso.com.ar/perfil/enzo-cardozo/27437 ; https://www.soloascenso.com.ar/perfil/javier-martinez/21732 ; https://www.soloascenso.com.ar/perfil/tobias-zarate/25316 ; https://www.soloascenso.com.ar/perfil/ramon-gonzalez-herrero/27025
+
+### Candidatos revisados y no duplicados
+- **Dante Nicolás Campisi no se incorpora a Estudiantes de Caseros**: jugó 15 partidos en la primera parte de 2026, pero dejó el club el 01/07/2026 y pasó a Sportivo Luqueño. Fuentes: https://www.abc.com.py/deportes/futbol/sportivo-luqueno/2026/06/08/sportivo-luqueno-gestiona-incorporaciones-rioplatenses/ ; https://es.besoccer.com/equipo/fichajes/sportivo-luqueno
+- **Iván Antunes no se duplica en Mitre**: jugó allí en la primera mitad de 2026 y pasó a Nueva Chicago el 21/07/2026; ya está cargado en Nueva Chicago. Fuentes: https://www.soloascenso.com.ar/notas/nueva-chicago/el-conjunto-verdinegro-cerro-su-cuarta-incorporacion/230579 ; https://www.365scores.com/es/football/player/ivan-antunez-97157
+- **Gustavo Fernández no se duplica en Mitre**: el registro actual corresponde a San Miguel y ya está cargado allí; la ficha de Mitre refiere al primer tramo de 2026. Fuentes: https://www.transfermarkt.com.ar/gustavo-fernandez/profil/spieler/30957 ; https://www.soloascenso.com.ar/perfil/gustavo-fernandez/668
+- **Joaquín Ibáñez queda pendiente** por conflicto de identidad: las fuentes muestran perfiles con nombres completos/fechas de nacimiento distintos y no se fuerza una correspondencia.
+- **Federico Batule y Joaquín Céliz** quedan pendientes de ficha individual completa; su presencia en pretemporada o nómina no basta para inventar fecha de nacimiento o atributos.
+
+Las tres altas llevan rating/atributos estimados internamente y dorsal 99 provisional, no oficial. No se modificó el runtime.
