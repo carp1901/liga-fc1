@@ -497,3 +497,17 @@ Siguen como pendientes, no como altas de Primera Nacional. Mitre los incluye en 
 - Gabriel Ramírez verificado como ya cargado; no se agrega.
 - Batule y Céliz permanecen pendientes por falta de participación documentada en Primera Nacional.
 - Total: 1.026 jugadores. Sin integración al runtime.
+
+
+## Decimotercera tanda de depuración — Ferro, Deportivo Madryn, Estudiantes (BA), Quilmes y Racing de Córdoba — 08/11/2026
+
+### Tres duplicados interclub eliminados
+- **Mateo Acosta:** se retiró la ficha de Ferro Carril Oeste y se conserva en Estudiantes de Buenos Aires. Sofascore registra su paso de Ferro a Estudiantes el 01/07/2026; 365Scores también confirma el traspaso el 21/06. La fecha de nacimiento común es 22/09/1992. Fuentes: https://www.sofascore.com/football/player/mateo-acosta/844534 ; https://www.365scores.com/es/football/player/mateo-acosta-44012
+- **Pío Bonacci:** se retiró la ficha de Deportivo Madryn y se conserva en Quilmes. Quilmes oficializó su llegada el 02/07/2026 desde Madryn; FotMob registra Madryn hasta julio y Quilmes desde julio de 2026. Fuentes: https://www.soloascenso.com.ar/notas/quilmes/quilmes-incorporo-un-delantero-y-registro-cinco-bajas/229904 ; https://www.fotmob.com/players/1130778/pio-bonacci
+- **Abel Bustos:** se retiró la ficha de Deportivo Madryn y se conserva en Racing de Córdoba. Racing oficializó su regreso el 06/01/2026 tras su temporada 2025 en Madryn; Flashscore, Transfermarkt y BeSoccer lo ubican en Racing durante 2026, con DOB 18/05/1999. Fuentes: https://www.soloascenso.com.ar/notas/racing-de-cordoba/la-academia-cordobesa-confirmo-la-vuelta-de-un-mediocampista/223579 ; https://www.flashscore.com.ar/jugador/bustos-abel/GEqm0apO/ ; https://www.transfermarkt.com.ar/abel-bustos/profil/spieler/832212 ; https://es.besoccer.com/jugador/fichajes/a-bustos-924089
+
+### Resultado de la tanda
+- Tres duplicados interclub eliminados, conservando cada jugador en el club correspondiente al corte de temporada 2026.
+- Bloque 1 baja de 155 a 152 jugadores; no se modifican las fichas retenidas.
+- Total general: 1.023 jugadores.
+- Sin integración al runtime.
