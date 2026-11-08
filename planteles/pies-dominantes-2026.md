@@ -461,7 +461,7 @@ Fecha de revisión: 08/11/2026.
 |---|---|---|
 | Claudio Baeza | Derecho | https://www.sofascore.com/es/football/player/claudio-baeza/333427 |
 | Luca Feler | Derecho | https://www.sofascore.com/football/player/luca-feler/2476559 |
-| Ulises Piedrabuena | Derecho | https://www.sofascore.com/es/football/player/ulises-piedrabuena/ |
+| Ulises Piedrabuena | Pendiente | Sin ficha individual inequívoca localizada |
 | Thiago Villalba | Derecho | https://www.sofascore.com/es/football/player/thiago-villalba/2681078 |
 | Ronaldo Martínez | Ambos | https://www.sofascore.com/es/football/player/ronaldo-martinez/874452 |
 | Dilan Godoy | Izquierdo | https://www.sofascore.com/es/football/player/dilan-godoy/2110310 |
