@@ -235,3 +235,10 @@ En ambos casos se actualizaron `rating`, `rating_base` y los siete atributos de 
 - **Alejandro Quintana (Atlanta): 72 → 73.** 33 presencias y 31 titularidades según Solo Ascenso; 7 goles. ZeroZero registra 6 goles y 5 asistencias en su corte. Ajuste +1 por continuidad y aporte ofensivo. Fuentes: https://www.soloascenso.com.ar/perfil/alejandro-quintana/6368 ; https://www.ceroacero.es/jugador/alejandro-quintana/122712
 - **Ezequiel Aguirre (Defensores de Belgrano): 73 → 74.** 33 partidos, 33 titularidades, 2.611 minutos, 3 goles y 6 asistencias. Ajuste +1 por continuidad y creación ofensiva. Fuente: https://www.fotmob.com/es-419/players/816733/ezequiel-aguirre
 - Se actualizaron `rating`, `rating_base` y los siete atributos de campo en +1 en ambas fichas. Promedio global: **68,43**. Validación: 1.026 jugadores, 33 columnas por fila, fórmula +10 correcta y cero errores de atributos/reflejos. Sin integración al runtime.
+
+
+### Quinta tanda de calibración individual — 08/11/2026
+
+- **Martín Pino (Godoy Cruz): 75 → 77.** 32 partidos, 32 titularidades, 2.742 minutos, 19 goles y 7 asistencias en Primera Nacional 2026. Se aplica +2 para reflejar una temporada de figura y una producción ofensiva muy superior al promedio de la categoría. Fuente: https://www.fotmob.com/es/players/1085220/martin-pino
+- Se actualizaron `rating`, `rating_base` y los siete atributos de campo en +2; se mantiene `ajuste_rating = 10` y `ref = 15`.
+- Promedio recalculado: **68,44**. Validación estructural completa: 1.026 jugadores, seis bloques correctos, 33 columnas y cero errores. Sin integración al runtime.
