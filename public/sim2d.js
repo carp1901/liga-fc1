@@ -75,7 +75,7 @@ class Sim{
  koPass(o){const S=this,dir=o.s?-1:1,opp=S.P.filter(z=>z.s!==o.s&&!z.off);let b=null,bs=-1e9;for(const q of S.P){if(q.s!==o.s||q.off||q===o||q.k==0)continue;const d=dist(o,q);if(d<45||d>190||Math.abs(q.y-H/2)>FH*.3||dir*(q.x-o.x)>25)continue;const sc=Math.min(120,...opp.map(z=>dist(z,q)))*.6+Math.min(120,...opp.map(z=>segD(o,q,z)))-d*.3+rnd()*20;if(sc>bs){bs=sc;b=q}}
   if(!b){const mt=S.P.filter(q=>q.s===o.s&&!q.off&&q!==o&&q.k>0).sort((x,y)=>(dir*(x.x-o.x)>40?400:0)+dist(o,x)-((dir*(y.x-o.x)>40?400:0)+dist(o,y)));b=mt[0]||null}if(!b)return false;S.lp={from:o,to:b,n:S.n};S.koSafe=1;S.kickAt(b,clamp(dist(o,b)/30,3.2,4.6),.3);S.koSafe=0;return true}   // el primer toque del partido o de después de un gol es corto, hacia atrás o al costado
  pass0(o){const k0=(a,b)=>(a.fb&&b.l>=2&&!b.fb)||(b.fb&&a.l>=2&&!a.fb)||(a.l==2&&b.l==3&&b.wide)||(a.l==3&&a.wide&&b.l==2);const S=this,opp=S.P.filter(q=>q.s!==o.s&&!q.off),dir=o.s?-1:1,tt=S.T[o.s],fw0=[.5,.6,.85][tt[0]],press=opp.some(z=>dist(z,o)<32);const uo=o.s?1-(o.x-X0)/FW:(o.x-X0)/FW;
-  if(!S.sc&&Math.abs(o.y-H/2)>FH*.25&&rnd()<.4){const up=o.y<H/2;S.kick(clamp(o.x+(o.s?-1:1)*(70+rnd()*70),X0+40,X0+FW-40),up?Y0-30:Y0+FH+30,7.5,null);return}   // pase que se va por la línea: saque de banda
+  if(!S.sc&&Math.abs(o.y-H/2)>FH*.25&&rnd()<(press?.1:.03)){const up=o.y<H/2;S.kick(clamp(o.x+(o.s?-1:1)*(70+rnd()*70),X0+40,X0+FW-40),up?Y0-30:Y0+FH+30,7.5,null);return}   // pase que se va por la línea: saque de banda
   if(!S.sc&&S.clearOK(o,uo,press,tt)){S.clearBall(o);return}
    const sal=tt[3]||0,upf=q=>q.fb&&(tt[0]==2||(tt[0]==1&&((q.hy0<.5)==(S.fbSide[o.s]==0))));
   if(((o.fb&&upf(o))||(o.wide&&tt[0]>0))&&uo>.62&&Math.abs(o.y-H/2)>FH*.24&&rnd()<.9){const bx=S.P.filter(q=>q.s===o.s&&!q.off&&q!==o&&q.k>0&&(q.s?1-(q.x-X0)/FW:(q.x-X0)/FW)>.66&&Math.abs(q.y-H/2)<95);if(bx.length){S.cross(o,bx[Math.floor(rnd()*bx.length)]);return}}   // lateral llegador: centro al área
@@ -320,7 +320,7 @@ class Sim{
  // zonas protegidas: el arquero con la pelota y el saque del medio (hasta que se juega el primer pase) no se pueden presionar ni atropellar
  keepClear(){const S=this,B=S.B,o=B.own;if(S.koP&&B.own!==S.koP&&!S.ko){S.koP=null;S.koUntil=S.n+50}let c=null,rr=0,side=-1;if(o&&o.k==0&&!o.off&&!S.pso&&!S.sc){c=o;rr=R*4.6;side=o.s}else if(!S.sc&&((S.koP&&S.koP===o)||S.n<(S.koUntil||0))){c={x:B.x,y:B.y};rr=R*6;side=S.koS}if(!c)return;S.P.forEach(z=>{if(z.s===side||z.off)return;const dx=z.x-c.x,dy=z.y-c.y,d=Math.hypot(dx,dy)||1;if(d<rr){z.x=clamp(c.x+dx/d*rr,X0+R,X0+FW-R);z.y=clamp(c.y+dy/d*rr,Y0+R,Y0+FH-R);z.vx=z.vy=0}})}
  // saque de arco: ningún rival se acerca a la pelota hasta que sale del pie del arquero (antes podían quedar encima o cortarla)
- gkClear(sc){const S=this;if(sc.ph=='go'&&S.n-(sc.tk||0)>=30)return;const RR=118;S.P.forEach(z=>{if(z.s===sc.side||z.off)return;const dx=z.x-sc.sp.x,dy=z.y-sc.sp.y,d=Math.hypot(dx,dy)||1;if(d<RR){z.x=clamp(sc.sp.x+dx/d*RR,X0+R,X0+FW-R);z.y=clamp(sc.sp.y+dy/d*RR,Y0+R,Y0+FH-R);z.vx=z.vy=0}})}
+ gkClear(sc){const S=this;if(sc.ph=='go'&&S.n-(sc.tk||0)>=45)return;const RR=118;S.P.forEach(z=>{if(z.s===sc.side||z.off)return;const dx=z.x-sc.sp.x,dy=z.y-sc.sp.y,d=Math.hypot(dx,dy)||1;if(d<RR){z.x=clamp(sc.sp.x+dx/d*RR,X0+R,X0+FW-R);z.y=clamp(sc.sp.y+dy/d*RR,Y0+R,Y0+FH-R);z.vx=z.vy=0}})}
  gkKick(){const S=this,sc=S.sc,ds=sc.side,sal=sc.sal,mates=S.P.filter(p=>p.s==ds&&!p.off&&p.k>0);let tgt,sp=3.6;
   if(sal==0){const cbs=mates.filter(p=>p.l==1&&!p.fb),rv=S.P.filter(z=>z.s!==ds&&!z.off),od=c=>Math.min(...rv.map(z=>dist(z,c)));tgt=cbs.length?cbs.slice().sort((a,b)=>od(b)-od(a))[0]:mates[0]}
   else if(sal==1){const ms=mates.filter(p=>p.l==2),pl=ms.filter(p=>!p.wide),rv=S.P.filter(z=>z.s!==ds&&!z.off),od=c=>Math.min(...rv.map(z=>dist(z,c)));tgt=(pl.length?pl:(ms.length?ms:mates)).slice().sort((a,b)=>od(b)-od(a))[0];sp=4.8}
@@ -349,7 +349,7 @@ class Sim{
   sc.fr=B.own?0:(sc.fr||0)+1;if(sc.wait&&!B.own&&(Math.hypot(B.vx,B.vy)<.5||sc.fr>90)){if((sc.stk=(sc.stk||0)+1)>20||sc.fr>90){S.tg(sc.wait,B.x,B.y);sc.wait.vmx=3.4};if(sc.fr>90&&dist(sc.wait,B)<42){B.own=sc.wait;sc.wait.hold=0;B.recv=null;B.vx=B.vy=0;sc.fr=0}}else sc.stk=0;
   if(sc.k=='inc'){S.incStep();return}
   if(sc.k=='oob'){S.oobStep();return}
-  if(sc.k=='gk'){S.gkClear(sc);if(ph=='set'){if(sc.t>=Math.round(42*S.rt(sc.side))&&S.reach(sc.gk,sc.tpos,14,42,60,sc)){sc.ph='wait';sc.tw=sc.t}}else if(ph=='wait'){if(sc.t-sc.tw>=Math.round(20*S.rt(sc.side)))S.gkKick()}else if(ph=='go'){if(B.own===sc.wait){S.endSc();S.build={s:sc.side,t:S.n+320}}else if(!B.own&&sc.t-sc.tk>80){B.own=sc.wait;sc.wait.hold=0;S.endSc()}}return}
+  if(sc.k=='gk'){S.gkClear(sc);if(ph=='set'){if(sc.t>=Math.round(42*S.rt(sc.side))&&S.reach(sc.gk,sc.tpos,14,42,60,sc)){sc.ph='wait';sc.tw=sc.t}}else if(ph=='wait'){if(sc.t-sc.tw>=Math.round(20*S.rt(sc.side)))S.gkKick()}else if(ph=='go'){if(B.own===sc.wait){S.endSc();S.build={s:sc.side,t:S.n+320};S.koS=sc.side;S.koUntil=S.n+110}else if(!B.own&&sc.t-sc.tk>80){B.own=sc.wait;sc.wait.hold=0;S.endSc()}}return}
   if(ph=='rec'){S.recStep();return}
   if(ph=='fc'){S.fcel(sc,S.n-sc.t2);if(sc.cdone){sc.e.fin=0;S.endSc()}return}
   if(ph=='g'){if(!sc.in&&(B.x<X0-4||B.x>X0+FW+4)){sc.in=true;sc.t2=S.n;S.goalN++;if(S.onGoal)S.onGoal(sc.side,sc.e.n,sc.e)}if(sc.in&&!sc.rpd&&(sc.cdone||S.n-sc.t2>=370)&&!S.pso&&S.rbn&&S.P.length>=22&&S.rpOn!==false){sc.rpd=1;S.startReplay(sc);return}if(sc.in&&(sc.cdone||S.n-sc.t2>370)){if(S.pso){if(sc.e)sc.e.fin=0;S.endSc()}else S.kickoff(1-sc.side,true)}return}
@@ -470,7 +470,7 @@ class Sim{
    const oy=Math.max(Y0-BR-2-B.y,B.y-(Y0+FH+BR+2)),ox=Math.max(X0-BR-2-B.x,B.x-(X0+FW+BR+2));
    if(live&&oy>0&&!(ox>0&&!mouth&&ox>oy)){S.outBall(B.y<H/2?'t':'b');return}
    if(live&&!mouth&&ox>0){S.outBall(B.x<W/2?'l':'r');return}
-   if(!live&&!oobs&&!(S.sc&&S.sc.k=='lat')){if(!B.free){if(B.y<Y0+BR){B.y=Y0+BR+.5;B.vy=Math.abs(B.vy)*.2+.3;B.vx*=.5}if(B.y>Y0+FH-BR){B.y=Y0+FH-BR-.5;B.vy=-(Math.abs(B.vy)*.2+.3);B.vx*=.5}}}
+   if(!live&&!oobs&&!(S.sc&&S.sc.k=='lat')){if(!B.free){if(B.y<Y0+BR){B.y=Y0+BR+.5;B.vy=Math.max(B.vy,0)*.2;B.vx*=.96}if(B.y>Y0+FH-BR){B.y=Y0+FH-BR-.5;B.vy=Math.min(B.vy,0)*.2;B.vx*=.96}}}
    if(!oobs){if(B.x<X0+BR&&!B.free&&(!live||mouth)){B.x=X0+BR;B.vx=Math.abs(B.vx)*.5}if(B.x>X0+FW-BR&&!B.free&&(!live||mouth)){B.x=X0+FW-BR;B.vx=-Math.abs(B.vx)*.5}}
    if(B.free){if(B.x<X0-24){B.x=X0-24;B.vx=0}if(B.x>X0+FW+24){B.x=X0+FW+24;B.vx=0}}
    for(const p of P){if(p.off||p.cool>0)continue;const rr=R+BR+1+((B.recv&&B.recv!==p&&S.prev&&p.s!==S.prev.s&&!S.sc&&S.sk)?clamp((S.sv(p,'ant')-62)/9,-3,4):0);if(dist(p,B)>=rr)continue;   // anticipación: el que lee mejor el pase llega a cortarlo desde más lejos
