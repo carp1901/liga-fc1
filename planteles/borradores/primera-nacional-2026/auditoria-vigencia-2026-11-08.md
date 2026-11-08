@@ -435,3 +435,21 @@ Se incorporó **Nicolás Morro**, nacido el 29/08/1997, defensor central zurdo. 
 - Dorsales 16 de Ibáñez y 14 de Morro respaldados por fuentes de partido/ficha.
 - Bloques 4 y 6 validados con 33 columnas por fila. Total actualizado: 1.025 jugadores.
 - No se modificó el runtime.
+
+
+## Décima tanda de depuración — Central Norte y Atlético de Rafaela — 08/11/2026
+
+### Central Norte — dos identidades corregidas
+- **Emanuel Bodencer → Érik Maximiliano Bodencer.** La fecha 08/03/2000 coincide con Transfermarkt y las fichas de temporada; el plantel actualizado de Solo Ascenso lo incluye como Érik Bodencer. Se actualizó el dorsal a **24**, confirmado por Sofascore, y se mantuvo el rol de delantero centro. Fuentes: https://www.transfermarkt.com.ar/erik-bodencer/profil/spieler/911997 ; https://www.sofascore.com/es-la/football/player/erik-bodencer/1131024 ; https://www.soloascenso.com.ar/club.php?eq=225 ; https://www.zerozero.com.mx/jugador/erik-bodencer/881777
+- **Santiago Quiroga → Sergio Alejandro Quiroga Gabutti.** La fecha 07/06/1994 coincide con Sofascore y Transfermarkt; su llegada desde Alianza Atlético fue oficializada por Central Norte en junio. Se corrigió la posición de DEL/ED a MED/MP, coherente con sus fichas de mediocampista ofensivo, y el dorsal a **32**, confirmado por Sofascore. Su registro 2026 comprende 11 partidos de Primera Nacional y seis de Copa Sudamericana con Alianza Atlético antes del pase. Fuentes: https://www.soloascenso.com.ar/notas/gimnasia-y-tiro-salta/central-norte-y-otro-refuerzo-para-la-segunda-rueda/229818 ; https://www.transfermarkt.mx/sergio-quiroga/profil/spieler/434715 ; https://www.sofascore.com/es/football/player/sergio-quiroga/885010 ; https://www.ceroacero.com.co/jugador/sergio-quiroga/490420
+
+### Atlético de Rafaela — dos altas
+- **Matías Morello**, nacido el 12/02/2001, mediocampista central diestro. Su ficha 2026 registra diez presencias con Rafaela, cuatro como titular. La llegada fue confirmada por Radio Rafaela y su perfil de temporada por Solo Ascenso. Dorsal 99 provisional. Fuentes: https://www.soloascenso.com.ar/perfil/matias-morello/27028 ; https://www.radiorafaela.com.ar/deportes/primera-nacional-atletico-de-rafaela-sumo-a-matias-morello ; https://www.sofascore.com/es/football/player/matias-morello/1087031
+- **Cristian Gabriel Esparza**, nacido el 30/01/1993, extremo izquierdo zurdo. Atlético oficializó su llegada desde Temperley el 25/06; disputó diez partidos con Temperley en el primer semestre y fue titular en su debut con Rafaela ante Almagro el 04/07. Se lesionó el tendón rotuliano el 10/07 y se perdió el resto del torneo. Se incorpora al club del corte de temporada, no se duplica en Temperley. Dorsal 11 respaldado por Sofascore. Fuentes: https://www.soloascenso.com.ar/notas/atletico-rafaela/nuevo-refuerzo-de-experiencia-para-atletico-de-rafaela/229630 ; https://www.rafaelanoticias.com/deportes/atletico-de-rafaela-se-lesiono-esparza-y-se-pierde-lo-que-resta-del-torneo.htm ; https://www.sofascore.com/es/football/player/gabriel-esparza/1085228 ; https://www.transfermarkt.es/gabriel-esparza/profil/spieler/322115
+
+### Resultado de la tanda
+- 2 altas incorporadas: Matías Morello y Cristian Gabriel Esparza.
+- 2 identidades corregidas sin duplicar: Emanuel Bodencer → Érik Maximiliano Bodencer; Santiago Quiroga → Sergio Alejandro Quiroga Gabutti.
+- Dorsales 24, 32 y 11 respaldados por fichas de jugador; Morello conserva 99 provisional.
+- Bloques 5 y 6 validados con 33 columnas por fila. Total actualizado: 1.027 jugadores.
+- No se modificó el runtime.
