@@ -24,7 +24,8 @@ for(let year=0;year<6;year++){
   retired.add(field.uid);
   retired.add(keeper.uid);
 
-  car.pre=ENG.preparePre(car);
+  delete car.pre;
+  ENG.preparePre(car);
   const ids=car.cats[car.me.cat].teams;
   const table=ids.map((id,i)=>({id,pts:ids.length-i,g:0,gf:0,ga:0}));
   const result=ENG.careerClose(car,table);
