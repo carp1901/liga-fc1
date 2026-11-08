@@ -374,7 +374,7 @@ $('#cxmb').onclick=()=>cxPick('me');$('#cxmc').onchange=()=>{PC.me.cat=+$('#cxmc
 $('#cxcats').onclick=e=>{const p=e.target.closest('[data-cxp]'),c=e.target.closest('[data-cxc]'),r=e.target.closest('[data-cxrm]');
  if(p)cxPick('cat',+p.dataset.cxp);else if(c){PC.picks[+c.dataset.cxc]=[];cxDraw()}else if(r){const[i,id]=r.dataset.cxrm.split('|'),a=PC.picks[+i],j=a.indexOf(id);if(j>=0)a.splice(j,1);cxDraw()}};
 $('#cxrnd').onclick=()=>{PC.picks=PC.picks.map(()=>[]);cxDraw()};$('#cxnext').onclick=()=>{cxUd();cxTeamsOpen()};
-$('#bpers').onclick=()=>{PC.real=0;cxCfgInit();goM('m23')};$('#breal').onclick=()=>{PC.real=1;cxPick('me')};$('#bsuelto').onclick=()=>{$('#odv').value=LG=='uy'?'uy1':'ar1';goM('m2')};
+$('#breal').onclick=()=>{PC.real=1;cxPick('me')};
 $('#bcopa').onclick=()=>{PC.cup=1;cxPick('me')};
 async function cupGo(id){const cd=LG=='uy'?ENG.copaLiga('uy',id):ENG.copaSuelta(id);PC.cupT=cd.teams;OFF=true;SPD=1;CAR=null;room='cup'+Math.random().toString(36).slice(2,7);if(!$('#nm').value.trim())$('#nm').value='DT';
  let e=await post({a:'create',off:1,speed:SPD,cfg:{div:'custom',fmt:'copa',n:PC.cupT.length,teams:PC.cupT,fixed:1,legs:1,lbl:LGC().cup,uyc:LG=='uy'?1:undefined}});if(!e)e=await post({a:'pick',team:id});
