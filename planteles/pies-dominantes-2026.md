@@ -512,3 +512,16 @@ Fecha de revisión: 08/11/2026.
 | Tomás Conechny | Izquierdo | https://www.sofascore.com/es-la/football/player/tomas-conechny/822607 |
 
 **Progreso de Racing:** 17/22 jugadores con pie dominante registrado. Santiago Sosa conserva su dato de pie derecho en el perfil histórico de Sofascore, aunque actualmente figura en Vasco da Gama.
+
+
+## Tercera tanda de Racing Club — 4 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Ignacio Rodríguez | Izquierdo | https://www.sofascore.com/es/football/player/ignacio-rodriguez/1113236 |
+| Adrián Fernández | Derecho | https://www.sofascore.com/football/player/adrian-fernandez/1121463 |
+| Valentín Carboni | Izquierdo | https://www.sofascore.com/football/player/valentin-carboni/1153083 |
+| Elías Torres | Derecho | https://www.sofascore.com/football/player/elias-torres/1213809 |
+
+**Progreso de Racing:** 21/22 jugadores con pie dominante registrado. Luis Espino queda pendiente: no encontré una ficha individual fiable que confirme su lateralidad.
