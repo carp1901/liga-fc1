@@ -525,3 +525,38 @@ Se incorporaron dos refuerzos que llegaron para el tramo final de la Primera Nac
 - Dorsales 11 y 16 respaldados por fuentes de plantel/ficha.
 - Bloque 1 pasa de 152 a 154 jugadores; total general: 1.025.
 - Sin integración al runtime.
+
+
+## Decimoquinta tanda de depuración — cierre de candidatos pendientes — 08/11/2026
+
+Se incorporaron **dos jugadores nuevos**, se trasladó una ficha al club correcto tras su regreso de préstamo, se corrigió una ficha duplicada dentro de un club y se actualizaron doce identidades/datos. Ratings y atributos son estimaciones internas; dorsales sin respaldo suficiente siguen provisionales.
+
+- **Ferro — Mateo Daniel Benegas:** ficha trasladada de Almagro a Ferro, su club de retorno del préstamo. Se registran 8 partidos con Ferro en Primera Nacional (0 goles), no los 16 partidos previos con Almagro. Fue cedido a Al-Khaleej en septiembre. Dorsal 12. Fuentes: https://laferropedia.com/persona/mateo-benegas/ ; https://www.soloascenso.com.ar/notas/atletico-gemes/un-delantero-de-ferro-fue-dado-a-prestamo-a-otro-club/232335
+- **Chaco For Ever — Leandro David Fernández:** identidad corregida desde Lucas Fernández (DOB 23/01/1995); 13 partidos PN con Chaco, 1 gol y 2 asistencias. Dorsal 10. Fuentes: https://www.zerozero.com.mx/jugador/leandro-fernandez/523851 ; https://www.transfermarkt.com.ar/leandro-fernandez/profil/spieler/355904
+- **Chaco For Ever — Federico Esequiel Moreno:** identidad corregida desde Facundo Moreno (DOB 23/02/2001); 8 partidos PN con Chaco; dorsal 14. Fuentes: https://www.zerozero.com.ar/jugador/federico-moreno/3510299?epoca_id=155 ; https://www.goal.com/es-ar/jugador/f-moreno/0B6vwNpyL0-U5i456l-sX
+- **Chaco For Ever — Ricardo Garay Lima:** identidad corregida desde Rodrigo Garay; central zurdo paraguayo, DOB 07/03/1997; 29 presencias en 2026. Fuente: https://www.soloascenso.com.ar/perfil/ricardo-garay/26745 ; https://www.transfermarkt.com.ar/ricardo-garay/profil/spieler/480419
+- **Chaco For Ever — Andrés Lioi:** identidad corregida desde Agustín Lioi; mediocampista/interior derecho, DOB 07/03/1997; 23 partidos y 1.071 minutos según FotMob; dorsal 8. Fuentes: https://www.soloascenso.com.ar/perfil/andres-lioi/22385 ; https://www.fotmob.com/es/players/917570/andres-lioi ; https://www.sofascore.com/es/football/player/andres-lioi/922452
+- **San Martín de Tucumán — Gonzalo Emanuel Rodríguez:** se eliminó una segunda ficha duplicada que lo clasificaba como defensor; se conserva una sola ficha como delantero/extremo derecho. DOB 18/09/1990; 20 presencias y dorsal 19. Fuentes: https://www.soloascenso.com.ar/perfil/gonzalo-rodriguez/8789 ; https://www.transfermarkt.com.ar/gonzalo-rodriguez/profil/spieler/140687 ; https://www.sofascore.com/es/football/player/gonzalo-rodriguez/932899
+- **Güemes — Ciro Andrés Leineker:** identidad corregida desde Cristian Leineker; 13 partidos, 1 gol y 627 minutos con Güemes; dorsal 9. Fuente: https://es.besoccer.com/jugador/trayectoria/c-leineker-3397368
+- **Güemes — Axel Alfredo Pinto:** identidad corregida desde Agustín Pinto; 13 partidos PN y 364 minutos; dorsal 14. Fuentes: https://www.zerozero.com.mx/jugador/axel-pinto/703696?epoca_id=155 ; https://es.besoccer.com/jugador/a-pinto-847830
+- **Tristán Suárez — Sebastián Francisco Ramírez:** identidad corregida desde Santiago Ramírez (DOB 04/09/2000); 8 partidos y 2 goles; dorsal 99 provisional. Fuente: https://www.zerozero.pe/jugador/sebastian-ramirez/781815
+- **Godoy Cruz — Fabrizio Oviedo:** alta nueva; 5 presencias con Godoy Cruz según ficha de temporada; delantero centro, DOB 19/02/2004; dorsal 99 provisional. Fuentes: https://www.soloascenso.com.ar/perfil/fabricio-oviedo/20135 ; https://www.transfermarkt.com.ar/fabricio-oviedo/profil/spieler/1022385
+- **San Telmo — Cristian Nicolás Ortíz:** alta nueva; 2 partidos y 58 minutos según FotMob; DOB 05/01/2005, dorsal 15. Es distinto de Nicolás Darío Ortíz de Deportivo Madryn (DOB 04/03/1995). Fuentes: https://www.fotmob.com/es-419/players/1607387/nicolas-ortiz ; https://www.zerozero.pe/jugador/nicolas-ortiz/1393659
+
+### Correcciones adicionales — Godoy Cruz y Ciudad de Bolívar
+- **Facundo Cairus → Felipe Cairus Arabeity:** DOB 28/04/2000, mediocampista uruguayo; dorsal 8 y subrol MC. Fuentes: https://www.transfermarkt.es/felipe-cairus/profil/spieler/657421 ; https://www.sofascore.com/es-la/football/player/felipe-cairus/1065961
+- **Bruno Schamine → Benjamín Facundo Schamine:** DOB 24/10/2003, mediocampista defensivo; dorsal 8. Fuente: https://www.transfermarkt.com.ar/benjamin-schamine/profil/spieler/1141726
+- **Daniel Viera → Diego Francisco Viera Ruiz Díaz:** DOB 30/04/1991, central paraguayo; dorsal 5. Fuente: https://www.transfermarkt.com.ar/diego-viera/profil/spieler/178660
+- **Matías Gridel → Mateo Gridel:** DOB 17/08/2000; subrol corregido a MC y 3 partidos atribuidos a Ciudad de Bolívar, sin sumar los 23 previos de Liniers. Fuente: https://www.soloascenso.com.ar/perfil/mateo-gridel/22381
+
+### Coincidencias de fecha de nacimiento conservadas
+No se usan fechas de nacimiento como clave única automática. Se preservan tres pares con igual DOB pero identidad distinta, respaldados por fichas individuales: Ricardo Garay Lima / Andrés Lioi (07/03/1997, Chaco); Luciano Acosta / Federico Héctor Pérez (05/03/2004, Agropecuario); Luciano Pascual / Joaquín Noé Ibáñez Aro (23/06/2004, Almirante Brown). La identidad de cada uno se contrasta por nombre completo, posición, nacionalidad, trayectoria y/o planillas de partido.
+
+### Pendientes sin incorporación automática
+Damián Arce (Chaco For Ever), Patricio Vidal (Central Norte), Santino Bevilacqua (San Miguel), Federico Batule y Joaquín Céliz (Mitre) quedan pendientes por falta de participación/ficha suficiente en Primera Nacional. Miguel Mellado y Valentino Werro se conservan mientras no haya confirmación documental de salida.
+
+### Resultado
+- 2 altas nuevas, 1 traslado de club y 12 correcciones de identidad/datos; 1 ficha duplicada intraclub retirada.
+- Total: 1026 jugadores; bloques 155, 171, 182, 194, 164, 160.
+- Seis CSV con 33 columnas por fila; sin nombres duplicados dentro del mismo club; rating = rating_base + ajuste_rating en todas las filas.
+- Sin integración al runtime.
