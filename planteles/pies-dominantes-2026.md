@@ -913,3 +913,20 @@ Fecha de revisión: 08/11/2026.
 | Paolo Giaccone | Derecho | https://www.fotmob.com/players/1898998/paolo-giaccone |
 
 **Resultado de Rosario Central:** 38/38 jugadores del CSV con pie dominante registrado. Para Álvaro Güich se priorizó la ficha oficial del club ante una discrepancia con una base secundaria; para Bautista Cantero se usó FotMob, que especifica pie izquierdo.
+
+
+## Primera tanda de Huracán — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Nazareno Durán | Derecho | https://www.sofascore.com/es/football/player/nazareno-duran/1510814 |
+| Hernán Galíndez | Derecho | https://www.sofascore.com/es/football/player/hernan-galindez/588618 |
+| Sebastián Meza | Derecho | https://www.sofascore.com/es/football/player/sebastian-meza/1017440 |
+| Lucas Blondel | Derecho | https://www.sofascore.com/es/football/player/lucas-blondel/860003 |
+| Ignacio Campo | Derecho | https://www.sofascore.com/es/football/player/ignacio-campo/1948431 |
+| César Ibáñez | Izquierdo | https://www.sofascore.com/es/football/player/cesar-ibanez/988327 |
+| Leandro Lescano | Izquierdo | https://www.sofascore.com/es/football/player/leandro-lescano/1525988 |
+| Máximo Palazzo | Izquierdo | https://www.sofascore.com/es/football/player/maximo-palazzo/1997478 |
+
+**Progreso de Huracán:** 8/31 jugadores con pie registrado. Fabrizio Martínez y Martín Nervo quedan pendientes de ficha individual.
