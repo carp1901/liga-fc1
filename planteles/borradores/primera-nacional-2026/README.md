@@ -112,3 +112,12 @@ Se revisaron Acassuso, Agropecuario, Ciudad de Bolívar, Colón, Godoy Cruz, Los
 - Base actual: **1.003 jugadores** en seis CSV. Se preservaron ratings, trazabilidad rating_base / ajuste_rating, atributos técnicos y dorsales.
 - Las altas respaldadas siguen pendientes de ficha individual; los conflictos de nombres y dorsales no se resuelven por coincidencia de iniciales ni se crean duplicados.
 - Los borradores continúan sin integración al runtime.
+
+
+## Segunda tanda de depuración — 08/11/2026
+
+- Seis altas con ficha individual incorporadas: Valentín Serrano, Manuel Mónaco y Juan Ignacio Quattrocchi (Acassuso); Enzo Roldán, Facundo Castro e Iván Antúnez (Nueva Chicago).
+- Dos identidades corregidas sin duplicar: Agustín González → Alexis González (Los Andes; DOB coincidente) y Facundo García → Franco García (Colón; DOB coincidente).
+- Base actual: **1.009 jugadores**. Se mantienen ratings/atributos estimados y documentados; no se modificó runtime.
+- Valentín Burgoa descartado como alta de Godoy Cruz por salida a Orense; Nicolás Ortiz de San Telmo sigue pendiente por conflicto de identidad.
+- Ver detalle y fuentes en auditoria-vigencia-2026-11-08.md.
