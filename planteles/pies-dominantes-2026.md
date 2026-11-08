@@ -659,3 +659,20 @@ Fecha de revisión: 08/11/2026.
 | Jerónimo Gómez Mattar | Derecho | https://www.sofascore.com/es/football/player/jeronimo-gomez-mattar/2082133 |
 
 **Progreso de Newell's:** 19/31 jugadores con pie registrado.
+
+
+## Tercera tanda de Newell's Old Boys — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Oscar Salomón | Derecho | https://www.sofascore.com/es/football/player/oscar-salomon/992226 |
+| Rodrigo Herrera | Derecho | https://www.sofascore.com/es-la/football/player/rodrigo-herrera/1067815 |
+| Lucas Gómez | Derecho | https://www.sofascore.com/es/football/player/lucas-gomez/1485237 |
+| Santiago Solari | Derecho | https://www.sofascore.com/es/football/player/solari-santiago/1104323 |
+| Walter Mazzantti | Derecho | https://www.sofascore.com/es/football/player/walter-mazzantti/861339 |
+| Matías Cóccaro | Derecho | https://www.sofascore.com/es/football/player/matias-coccaro/903286 |
+| Walter Núñez | Derecho | https://www.sofascore.com/es/football/player/walter-nunez/1218016 |
+| Francisco Scarpeccio | Derecho | https://www.sofascore.com/es/football/player/francisco-scarpeccio/2073009 |
+
+**Progreso de Newell's:** 26/31 jugadores con pie dominante registrado. Se corrigió además el nombre exacto de Óscar Salomón en el CSV, que había quedado sin actualizar por una diferencia de acentuación.
