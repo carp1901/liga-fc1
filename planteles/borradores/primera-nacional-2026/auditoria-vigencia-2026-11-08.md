@@ -409,3 +409,13 @@ Se incorporó **Matías Alejandro Laba**, nacido el 11/12/1991, mediocampista de
 - 1 dorsal respaldado por planilla oficial: Gabriel Ramírez, número 5.
 - Los CSV modificados mantienen exactamente 33 columnas por fila.
 - No se modificó el runtime; los cambios permanecen en borradores.
+
+
+## Octava tanda de depuración — Almagro: identidades de Salto y De La Vega — 08/11/2026
+
+Se resolvieron dos conflictos de identidad que habían quedado abiertos en el CSV:
+
+- **Cristian Salto → Claudio Gabriel Salto.** La fecha de nacimiento 04/01/1995 coincide con las fichas de Claudio Salto; su trayectoria 2026 registra primero Mitre y luego Almagro. Se actualizó el nombre completo, rol específico ED y dorsal **10**, respaldado por Sofascore. No se creó un segundo registro. Fuentes: https://www.transfermarkt.com.ar/claudio-salto/profil/spieler/402732 ; https://www.zerozero.com.mx/jugador/claudio-salto/485259 ; https://www.sofascore.com/es/football/player/salto-claudio/824589 ; https://www.365scores.com/es/football/player/claudio-salto-39593
+- **Franco de la Vega → Facundo Sebastián De La Vega.** La fecha de nacimiento 15/04/2003 coincide con la ficha de Solo Ascenso, que registra 16 presencias y cinco goles en Almagro durante 2026. Soccerbase confirma que llegó a Almagro a préstamo desde Aldosivi. Se corrigió la identidad sin duplicar y se mantuvo su perfil de delantero centro. Fuentes: https://www.soloascenso.com.ar/perfil/facundo-de-la-vega/887 ; https://www.soccerbase.com/players/player.sd?player_id=158093 ; https://www.zerozero.com.mx/jugador/facundo-de-la-vega/988104
+
+La fila de Claudio Salto actualiza además el dorsal al 10 y el registro de apariciones 2026. El CSV conserva 33 columnas por fila; el total de jugadores no cambia (1.023). No se modificó el runtime.
