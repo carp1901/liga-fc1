@@ -33,7 +33,6 @@ jobs:
         run: |
           node --check public/data.js
           node --check public/engine.js
-          node --check public/index.html
           node --check server.js
           node --check store.js
       - name: Test custom playoff sizes and byes
