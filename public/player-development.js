@@ -1,3 +1,4 @@
+(function(){
 // Sistema determinista de evolución e involución de futbolistas.
 // El perfil se guarda dentro de cada carrera; nunca modifica el plantel base.
 // Integración prevista: crear perfiles al iniciar carrera y registrar minutos al cerrar cada fecha.
@@ -80,3 +81,5 @@ function recordAppearance(profile, player, match) {
 
 const API={cycleMatches,potentialFor,createProfile,recordAppearance};
 if(typeof module!=='undefined'&&module.exports)module.exports=API;else if(typeof window!=='undefined')window.PLAYERDEV=API;
+
+})();
