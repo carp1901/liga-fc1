@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría general en curso: tres tandas de calibración individual completadas (9 medias ajustadas); 1.026 jugadores validados. Borradores sin integración al runtime.",
+  "estado": "Auditoría general en curso: cuatro tandas de calibración individual completadas (11 medias ajustadas); 1.026 jugadores validados. Borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -1841,6 +1841,16 @@
       "ratings_ajustados": 1,
       "ratings": {
         "Luis Silba": "74→75"
+      },
+      "promedio_actual": 68.43,
+      "runtime_modificado": false
+    },
+    "calibracion_cuarta_tanda": {
+      "fecha": "2026-11-08",
+      "ratings_ajustados": 2,
+      "ratings": {
+        "Alejandro Quintana": "72→73",
+        "Ezequiel Aguirre": "73→74"
       },
       "promedio_actual": 68.43,
       "runtime_modificado": false
