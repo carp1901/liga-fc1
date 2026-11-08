@@ -22,18 +22,18 @@ function next(rosters,season){
   const old=rosters[id]||[],kept=[];
   old.forEach((p,i)=>{
    const age=(Number(p.age)||24)+1,limit=isKeeper(p.p)?40:38;
-   if(age>=limit){events.push({club:id,retired:p.n,age,position:p.p,regen:null});return}
+   if(age>=limit){events.push({club:id,retired:p.n,age,position:p.p,regen:null,parentIndex:i});return}
    kept.push({...p,age});
   });
   // Un regen por cada retiro, mismo puesto y apellido, juvenil con media inicial modesta.
   events.filter(e=>e.club===id&&e.regen==null).forEach((e,j)=>{
-   const parent=old.find(p=>p.n===e.retired),last=surname(e.retired),seed=id+'|'+season+'|'+e.retired;
+   const parent=old[e.parentIndex],last=surname(e.retired),seed=id+'|'+season+'|'+e.retired+'|'+(parent.uid||e.parentIndex);
    const fn=pick(FIRST,seed).trim(),name=fn+' '+last;
    const base=42+(hash(seed+'|ovr')%13),at={...(parent&&parent.at||{})};
    Object.keys(at).forEach(k=>{if(typeof at[k]==='number')at[k]=clamp(Math.round(base+(at[k]-(Number(parent.r)||base))*.25),15,75)});
    if(!isKeeper(e.position))['ref','par','man','sal'].forEach(k=>{if(k in at)at[k]=15});
    const regen={p:e.position,n:name,r:base,age:16+(hash(seed+'|age')%3),at,uid:id+'-regen-'+hash(seed),regen:true,regenOf:e.retired};
-   kept.push(regen);e.regen=name;
+   kept.push(regen);e.regen=name;delete e.parentIndex;
   });
   out[id]=kept;
  });
