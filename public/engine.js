@@ -6,7 +6,7 @@ const sqOf=(r,team)=>{const c=r.sqc||(r.sqc={});if(c[team])return c[team];const 
 const poolOf=r=>r.cfg.teams?r.cfg.teams.map(i=>TM[i]):r.cfg.div=='all'?DIVS.flatMap(d=>d.teams):r.cfg.cup?(CUPS.find(x=>'cup:'+x.id==r.cfg.div)||{clubs:[]}).clubs.map(i=>TM[i]):(DIVS.find(d=>d.id==r.cfg.div)||{teams:[]}).teams;
 const cl=o=>JSON.parse(JSON.stringify(o)),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),txt=(s,n)=>String(s||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,n);
 const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-function bestInitialXI(sq){let best={f:0,xi:autoXI(sq,0),score:-Infinity};for(let f=0;f<FM.length;f++){const sl=slots(f),xi=autoXI(sq,f),score=xi.reduce((s,i,k)=>s+(i>=0?roleOvr(sq[i],sl[k])*(sq[i].p==sl[k]?1:.8):0),0);if(score>best.score+1e-7)best={f,xi,score}}return best}
+function bestInitialXI(sq){let best={f:0,xi:autoXI(sq,0),score:-Infinity};for(let f=0;f<FM.length;f++){const sl=slots(f),xi=autoXI(sq,f,null,1),score=xi.reduce((s,i,k)=>s+(i>=0?roleOvr(sq[i],sl[k])*(sq[i].p==sl[k]?1:.8):0),0);if(score>best.score+1e-7)best={f,xi,score}}return best}
 function newTac(team){const sq=squad(team),pick=bestInitialXI(sq),xi=pick.xi,best=p=>xi.reduce((b,i)=>sq[i].p==p&&(b<0||AV(sq[i],'rem')>AV(sq[b],'rem'))?i:b,-1);
  return{f:pick.f,st:1,pr:1,wing:0,sal:0,mk:0,auto:0,xi,cap:xi.reduce((b,i)=>(sq[i].at?.lea||50)*.65+sq[i].r*.35>(sq[b].at?.lea||50)*.65+sq[b].r*.35?i:b,xi[0]),pk:best('DEL'),k1:TM[team].c1,k2:TM[team].c2}}
 const COPA_C=64,COPA_K=.5;
@@ -25,9 +25,7 @@ function scoreG(r,m,s,i,min,k,as){s?m.gb++:m.ga++;m.st[s][2]++;m.pg[s][i]=(m.pg[
 const penP=(rem,ref)=>clamp(.76+(rem-ref)/300,.6,.88),penX=(rem,ref)=>rnd()<penP(rem,ref)?'g':rnd()<.6?'s':'o';   // definición de un penal (g=gol, s=atajado, o=afuera): la usan el penal de los 90' y la tanda
 // Suspensiones: P.sus = índices del plantel expulsados en su último partido. Se pierden el siguiente y entra solo el mejor reemplazante (misma lógica de eficacia por puesto que autoXI).
 const susOf=P=>new Set([...((P&&P.sus)||[]),...Object.keys((P&&P.inj)||{}).map(Number)]);
-function fixSus(P){if(!P||!P.tac||!P.team||!susOf(P).size)return;const sq=squad(P.team),t=P.tac,ban=susOf(P),sl=slots(t.f);
- t.xi.forEach((i,k)=>{if(!ban.has(i))return;const pos=sl[k];let b=-1,bv=-1;sq.forEach((x,j)=>{if(t.xi.includes(j)||ban.has(j))return;const v=roleOvr(x,pos)*(x.p==pos?1:(pos=='POR'||x.p=='POR')?.3:.8);if(v>bv){bv=v;b=j}});if(b>=0)t.xi[k]=b});
- if(ban.has(t.cap))t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);if(ban.has(t.pk))t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}
+function fixSus(P){if(!P||!P.tac||!P.team||!susOf(P).size)return;const sq=squad(P.team),t=P.tac,ban=susOf(P);t.xi=autoXI(sq,t.f,ban,t.st);if(t.xi.every(i=>i>=0)){if(ban.has(t.cap)||!t.xi.includes(t.cap))t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);if(ban.has(t.pk)||!t.xi.includes(t.pk))t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}}
 function pickTaker(r,m,s){const P=r.pl[s?m.b:m.a],tc=P.tac,sq=sqOf(r,P.team);let i=tc.pk;if(!tc.xi.includes(i)||m.off[s].has(i))i=tc.xi.filter((x,k)=>k&&!m.off[s].has(x)).reduce((b,x)=>b<0||AV(sq[x],'rem')>AV(sq[b],'rem')?x:b,-1);return i}
 // faltas: la presión alta genera más; tarjetas; el expulsado deja al equipo con uno menos. Cada falta puede ser penal, tiro libre peligroso o falta simple.
 function foul(r,m,s,min){const P=r.pl[s?m.b:m.a],tc=P.tac,sq=sqOf(r,P.team),sl=slots(tc.f),c=[],avA=avg(tc.xi.filter((i,k)=>k).map(i=>sq[i]),x=>AV(x,'ant'));tc.xi.forEach((i,k)=>{if(k&&!m.off[s].has(i))for(let w=0;w<Math.max(1,Math.round(({DEF:9,MED:10,DEL:6}[sl[k]]||5)*(m.yc[s][i]>0?.35:1)/(1+((m.fc&&m.fc[s][i])||0)*.6)*clamp(1+(avA-AV(sq[i],'ant'))/120,.7,1.4)));w++)c.push(i)});if(!c.length)return;
@@ -183,7 +181,7 @@ function addBots(r,div,ids){const free=ids?[...ids].reverse():shuf(div.teams.map
 // IA: elige formación, estilo, presión y ataque según el rival; en el entretiempo reacciona al marcador.
 function botTune(r,half){r.ms.forEach(m=>[[m.a,m.b,m.ga-m.gb],[m.b,m.a,m.gb-m.ga]].forEach(([p,o,d])=>{const P=r.pl[p],O=r.pl[o];if(!P.bot)return;const t=P.tac,sq=squad(P.team);
  if(!half){const ot=O.tac,os=strength(r,O.team,ot,undefined,O.phil);let best=null;
-  for(let f=0;f<FM.length;f++){const c={...t,f,xi:autoXI(sq,f,susOf(P))},s=strength(r,P.team,c,undefined,P.phil),sc=s.a+s.m+s.d+(FM[f][1]>=5&&os.m>s.m?3:0)+rnd()*2;if(!best||sc>best.sc)best={sc,f,xi:c.xi}}
+  for(let f=0;f<FM.length;f++){const c={...t,f,xi:autoXI(sq,f,susOf(P),t.st)},s=strength(r,P.team,c,undefined,P.phil),sc=s.a+s.m+s.d+(FM[f][1]>=5&&os.m>s.m?3:0)+rnd()*2;if(!best||sc>best.sc)best={sc,f,xi:c.xi}}
   if(best.f!=t.f){t.f=best.f;t.xi=best.xi;t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}
   const me=strength(r,P.team,t,undefined,P.phil),df=me.a+me.m+me.d-(os.a+os.m+os.d);t.st=df>4?2:df<-4?0:1;t.pr=me.m>os.m?2:1;t.wing=FM[ot.f][0]>=5?0:FM[ot.f][1]>=5?1:rnd()<.5?1:0;t.sal=ot.pr==2?(rnd()<.5?2:1):0;t.mk=rnd()<.5?1:0}
  else if(d<0){t.st=2;t.pr=2}else if(d>=2){t.st=0;t.pr=0}else if(d==1)t.st=1}))}
@@ -220,11 +218,11 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
  else if(a=='chat'){const s=txt(b.text,140);if(s&&Date.now()-(me.lc||0)>400){me.lc=Date.now();r.chat.push({id:(r.cid=(r.cid||0)+1),n:me.name,pid,t:s,tm:Date.now(),u:[],d:[]});if(r.chat.length>200)r.chat.shift()}}
  else if(a=='vote'){const c=r.chat.find(x=>x.id==b.id),v=+b.v;if(c&&c.pid!==pid&&(v==1||v==-1)){const had=c.u.includes(pid)?1:c.d.includes(pid)?-1:0;c.u=c.u.filter(x=>x!=pid);c.d=c.d.filter(x=>x!=pid);if(had!=v)(v==1?c.u:c.d).push(pid)}}
  else if(a=='tac'&&me.tac){const t=me.tac,x=b.p||{},sq=squad(me.team),mm=['m1','ht','m2'].includes(r.phase)?(r.ms||[]).find(q=>q.a==pid||q.b==pid):null,ms=mm?(mm.a==pid?0:1):0;
-  if(Number.isInteger(x.f)&&x.f>=0&&x.f<FM.length&&x.f!=t.f){t.f=x.f;t.xi=mm?reslot(sq,x.f,t.xi):autoXI(sq,x.f,susOf(me));t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}
+  if(Number.isInteger(x.f)&&x.f>=0&&x.f<FM.length&&x.f!=t.f){t.f=x.f;t.xi=mm?reslot(sq,x.f,t.xi):autoXI(sq,x.f,susOf(me),t.st);t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}
   if([0,1,2].includes(x.st))t.st=x.st;if([0,1,2].includes(x.pr))t.pr=x.pr;if([0,1].includes(x.wing))t.wing=x.wing;if([0,1,2].includes(x.sal))t.sal=x.sal;if([0,1].includes(x.mk))t.mk=x.mk;
   if(Number.isInteger(x.cap)&&x.cap>=0&&x.cap<sq.length)t.cap=x.cap;if(Number.isInteger(x.pk)&&x.pk>=0&&x.pk<sq.length)t.pk=x.pk;
   if([0,1].includes(x.auto))t.auto=x.auto;
-  if(x.fill){if(mm)err='Formar automático solo se usa antes del partido';else{t.xi=autoXI(sq,t.f,susOf(me));t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}}
+  if(x.fill){if(mm)err='Formar automático solo se usa antes del partido';else{t.xi=autoXI(sq,t.f,susOf(me),t.st);t.cap=t.xi.reduce((q,i)=>sq[i].r>sq[q].r?i:q,t.xi[0]);t.pk=t.xi.reduce((q,i)=>sq[i].p=='DEL'&&(q<0||sq[i].r>sq[q].r)?i:q,-1)}}
   for(const k of['k1','k2'])if(/^#[0-9a-f]{6}$/i.test(x[k]))t[k]=x[k];
   if(Array.isArray(x.sw)&&x.sw.length==2&&x.sw.every(i=>Number.isInteger(i)&&i>=0&&i<sq.length)){const[i,j]=x.sw,a1=t.xi.indexOf(i),b1=t.xi.indexOf(j);if(a1>=0&&b1>=0)[t.xi[a1],t.xi[b1]]=[j,i];else if(a1>=0||b1>=0){const st=a1>=0?a1:b1,out=a1>=0?i:j,inn=a1>=0?j:i;
    if(susOf(me).has(inn))err=(me.inj&&me.inj[inn])?'Está lesionado':'Está suspendido: lo expulsaron en el partido anterior';else if(!mm)t.xi[st]=inn;else if(mm.sb[ms]>=5)err='Ya hiciste los 5 cambios del partido';else if(mm.used[ms].has(inn))err='Ese jugador ya salió y no puede volver';else if(mm.off[ms].has(out))err='Un expulsado no se puede reemplazar';else{t.xi[st]=inn;mm.used[ms].add(out);(m.subIn=m.subIn||[new Set(),new Set()])[ms].add(inn);mm.sb[ms]++;mm.pr[ms][inn]=6}}}}
