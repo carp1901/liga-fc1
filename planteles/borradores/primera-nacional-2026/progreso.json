@@ -945,7 +945,7 @@
     },
     "coincidencias_bajas_en_csv": 22,
     "altas_publicadas_ausentes_en_club_destino": 62,
-    "estado": "EN CURSO — cuatro pasadas documentadas: Chacarita, Temperley, Ferro, All Boys, Almagro, Almirante Brown, Atlanta y Atlético de Rafaela. No se modificaron CSV; varios casos requieren cotejo de identidad y ficha completa.",
+    "estado": "EN CURSO — quinta pasada ampliada completada sobre doce clubes adicionales. Tres bajas confirmadas para limpieza posterior; cuatro altas respaldadas pendientes de ficha; varios conflictos de identidad pendientes. No se modificaron CSV.",
     "dorsales": {
       "asignaciones_internas_provisionales": 1001,
       "respaldados_por_planillas_de_partidos": 5,
@@ -953,7 +953,7 @@
       "nota": "Cuatro respaldos de Midland y uno de Atlético de Rafaela son planillas de partidos, no nóminas oficiales completas."
     },
     "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md",
-    "siguiente_paso": "Continuar con los clubes restantes en bloques grandes; priorizar los 22 candidatos de bajas, verificar planteles actuales y convocatorias de noviembre, y completar fichas de altas respaldadas sin duplicar nombres.",
+    "siguiente_paso": "Aplicar limpieza de las tres bajas confirmadas y completar fichas de las cuatro altas respaldadas; luego continuar con los clubes restantes y revisar dorsales oficiales.",
     "segunda_pasada": {
       "fecha": "2026-11-08",
       "clubes_revisados": [
@@ -1044,6 +1044,88 @@
       },
       "cambios_csv": 0,
       "criterio": "No agregar ni modificar identidades sin cotejar ficha individual, posición, fecha de nacimiento y atributos.",
+      "reporte": "auditoria-vigencia-2026-11-08.md"
+    },
+    "quinta_pasada_ampliada": {
+      "fecha": "2026-11-08",
+      "clubes_revisados": [
+        "Chaco For Ever",
+        "Colegiales",
+        "Defensores de Belgrano",
+        "Deportivo Madryn",
+        "Deportivo Morón",
+        "Midland",
+        "Gimnasia de Jujuy",
+        "Güemes",
+        "Racing de Córdoba",
+        "San Martín de San Juan",
+        "San Miguel",
+        "Central Norte"
+      ],
+      "bajas_confirmadas_para_limpieza": [
+        {
+          "club": "Defensores de Belgrano",
+          "jugador": "Alan Pérez"
+        },
+        {
+          "club": "Defensores de Belgrano",
+          "jugador": "Jonathan Dellarossa"
+        },
+        {
+          "club": "Güemes",
+          "jugador": "Gastón Espósito"
+        }
+      ],
+      "bajas_a_conservar": [
+        "Santiago Villalba",
+        "Jorge Zules Caicedo",
+        "Gonzalo Baglivo",
+        "Pío Bonacci",
+        "Facundo Ospitaleche",
+        "Tomás Ramírez",
+        "Matteo Cucinotta",
+        "Gonzalo Gómez",
+        "Ricardo Centurión",
+        "Leandro Córdoba"
+      ],
+      "altas_respaldadas_pendientes_ficha": [
+        {
+          "club": "Defensores de Belgrano",
+          "jugador": "Nicolás Morro"
+        },
+        {
+          "club": "Deportivo Madryn",
+          "jugador": "Leonardo Marinucci"
+        },
+        {
+          "club": "Racing de Córdoba",
+          "jugador": "Nahuel Sandrone"
+        },
+        {
+          "club": "Racing de Córdoba",
+          "jugador": "Cristian Vega"
+        }
+      ],
+      "identidad_pendiente": [
+        "Agustín Alonso",
+        "Claudio/Carlos Corvalán",
+        "Fernando/Facundo Bersano",
+        "Emanuel/Ezequiel Iñiguez",
+        "Emiliano/Ezequiel Franco",
+        "Mateo/Matías Levato",
+        "Cristian/Ciro Leineker",
+        "Emanuel/Érik Bodencer",
+        "Santiago/Sergio Quiroga",
+        "Franco/Facundo Coronel",
+        "Luciano/Lucas Ferreyra",
+        "David/D. Müller"
+      ],
+      "descartado_alta": {
+        "club": "San Miguel",
+        "jugador": "Santino Bevilacqua",
+        "motivo": "Ficha de temporada 2026 lo identifica como jugador de Juventud Unida."
+      },
+      "cambios_csv": 0,
       "reporte": "auditoria-vigencia-2026-11-08.md"
     }
   }
