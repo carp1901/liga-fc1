@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría general en curso: 654 valores ref de jugadores de campo normalizados. Pendiente calibración individual de medias; borradores sin integración al runtime.",
+  "estado": "Auditoría general en curso: primera y segunda tandas de calibración individual completadas (8 medias ajustadas); 1.026 jugadores validados. Borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -1790,7 +1790,7 @@
   "auditoria_general": {
     "fecha": "2026-11-08",
     "jugadores": 1026,
-    "promedio_rating": 68.42,
+    "promedio_rating": 68.43,
     "mediana_rating": 69,
     "minimo_rating": 56,
     "maximo_rating": 78,
@@ -1804,7 +1804,7 @@
     "ratings_modificados": false,
     "primera_division_modificada": false,
     "runtime_modificado": false,
-    "proximo_paso": "Calibrar ratings individuales con minutos, presencias, producción y nivel competitivo; revisar extremos y roles híbridos.",
+    "proximo_paso": "Continuar calibración individual por evidencia de minutos, titularidades, producción y rendimiento; revisar especialmente titulares de medias bajas y extremos de la distribución.",
     "calibracion_primera_tanda": {
       "fecha": "2026-11-08",
       "ratings_ajustados": 6,
@@ -1818,6 +1818,20 @@
       },
       "presencias_corregidas": {
         "Mayco Bergia": "36→22"
+      },
+      "promedio_actual": 68.43,
+      "runtime_modificado": false
+    },
+    "calibracion_segunda_tanda": {
+      "fecha": "2026-11-08",
+      "ratings_ajustados": 2,
+      "ratings": {
+        "Renzo Uriburu": "66→67",
+        "Elías Ocampo": "66→67"
+      },
+      "presencias_corregidas": {
+        "Renzo Uriburu": "33→32",
+        "Elías Ocampo": "34→33"
       },
       "promedio_actual": 68.43,
       "runtime_modificado": false
