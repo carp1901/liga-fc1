@@ -362,3 +362,19 @@ Fecha de revisión: 08/11/2026.
 | Bautista Kociubinski | Derecho | https://www.sofascore.com/es/football/player/bautista-kociubinski/1086935 |
 
 **Progreso de Estudiantes:** 19/38 jugadores con pie dominante registrado (incluye a Marcos Rojo).
+
+
+## Tercera tanda de Estudiantes de La Plata — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Valente Pierani | Derecho | https://www.sofascore.com/football/player/valente-pierani/1597276 |
+| Joaquín Pereyra | Izquierdo | https://www.sofascore.com/es/football/player/pereyra-joaquin/1818780 |
+| Eros Mancuso | Derecho | https://www.sofascore.com/es-la/football/player/eros-mancuso/1116624 |
+| Franco Basualdo | Derecho | https://www.sofascore.com/es/football/player/franco-basualdo/1836756 |
+| Guido Carrillo | Derecho | https://www.sofascore.com/es/football/player/guido-carrillo/174519 |
+| Joaquín Tobio Burgos | Izquierdo | https://www.sofascore.com/es/football/player/joaquin-tobio-burgos/1836758 |
+| Edwuin Cetré | Derecho | https://www.sofascore.com/es/football/player/edwuin-cetre/927790 |
+
+**Progreso de Estudiantes:** 26/38 jugadores con pie dominante registrado (incluye a Marcos Rojo).
