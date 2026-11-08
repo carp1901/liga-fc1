@@ -37,3 +37,5 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 La Primera División no forma parte de este trabajo ni debe modificarse durante esta etapa.
 
 - Nueva revisión cualitativa: Dylan Argüello (Atlanta) 54→56 (27 partidos, 1.742 minutos); Román Zalazar (Nueva Chicago) 54→56 (23 partidos, 20 titularidades, 1.360 minutos); Alan Cisnero (San Martín Tucumán) 55→56 (24 presencias, 18 titularidades, 2 goles); Luca Arfaras (San Martín Tucumán) 52→56 (21 partidos, 16 titularidades, 1.171 minutos, 3 goles y 1 asistencia); Leonel Pollacchi (San Telmo) 56→59 (33 partidos, 31 titularidades, 2.688 minutos). Las fuentes individuales quedaron registradas en `rating_source` de cada CSV.
+
+- Revisión adicional: Francisco Monticelli (Racing de Córdoba) pasa de EI a MI (interior izquierdo) según FotMob; con 25 partidos, 10 titularidades, 1.079 minutos y 4 asistencias, su media pasa de 56 a 58. Se actualizaron también los conteos de presencias de Alan Cisnero (24) y Luca Arfaras (21) según las fuentes citadas.
