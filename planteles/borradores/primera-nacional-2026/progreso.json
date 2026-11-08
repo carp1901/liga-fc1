@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia 36/36; undécima tanda documentada. Depuración en curso; borradores sin integración al runtime.",
+  "estado": "Auditoría de vigencia 36/36; duodécima tanda documentada. Depuración en curso; borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -64,13 +64,13 @@
         "temperley",
         "guemes"
       ],
-      "estado": "183 jugadores; 183 roles cargados.",
-      "jugadores": 183,
+      "estado": "182 jugadores; 182 roles cargados.",
+      "jugadores": 182,
       "clubes": {
         "losandes": 32,
         "mitre": 30,
         "sanmartinsj": 34,
-        "temperley": 33,
+        "temperley": 32,
         "guemes": 32,
         "racingcba": 22
       },
@@ -119,7 +119,7 @@
         "quilmes": 33,
         "maipu": 26,
         "godoycruz": 24,
-        "santelmo": 25,
+        "santelmo": 24,
         "centralnorte": 22
       },
       "roles_especificos": 162
@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1027,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinticuatro altas agregadas y treinta y ocho identidades corregidas; seis bloques CSV validados. 1.027 jugadores en borradores; sin integración al runtime.",
+  "jugadores_borrador": 1026,
+  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinticuatro altas agregadas, treinta y ocho identidades corregidas y un duplicado interclub eliminado. Seis bloques CSV validados; 1.026 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1177,7 +1177,7 @@
     "bajas_confirmadas_retiradas": 3,
     "altas_agregadas": 24,
     "identidades_corregidas": 38,
-    "jugadores_actuales": 1027
+    "jugadores_actuales": 1026
   },
   "depuracion_primera_tanda": {
     "fecha": "2026-11-08",
@@ -1649,6 +1649,58 @@
       }
     ],
     "validacion": "Bloques 1 y 2: exactamente 33 columnas por fila; total 1.027 jugadores.",
+    "runtime_modificado": false
+  },
+  "depuracion_duodecima_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1027,
+    "jugadores_despues": 1026,
+    "altas_agregadas": 0,
+    "correcciones": [
+      {
+        "club": "Almagro",
+        "jugador": "Matías Alejandro Laba",
+        "dorsal": "16 verificado",
+        "presencias_2026": 14,
+        "minutos": 598
+      },
+      {
+        "club": "San Telmo",
+        "jugador": "Nicolás Molina",
+        "dob": "1999-01-28",
+        "dorsal": "9 verificado",
+        "partidos_2026": 30,
+        "goles": 2,
+        "asistencias": 5,
+        "minutos": 1810
+      }
+    ],
+    "duplicados_eliminados": [
+      {
+        "jugador": "Nicolás Molina",
+        "club_retirado": "Temperley",
+        "club_correcto": "San Telmo",
+        "motivo": "Transferencia confirmada 26/27 de junio de 2026"
+      }
+    ],
+    "verificados_sin_alta": [
+      {
+        "jugador": "Gabriel Omar Ramírez",
+        "club": "All Boys",
+        "estado": "Ya estaba cargado; DOB 29/07/1995 y dorsal 5 verificados"
+      },
+      {
+        "jugador": "Federico Batule",
+        "club": "Mitre",
+        "estado": "Juvenil; sin minutos PN confirmados"
+      },
+      {
+        "jugador": "Joaquín Céliz",
+        "club": "Mitre",
+        "estado": "Categoría 2008; sin minutos PN confirmados"
+      }
+    ],
+    "validacion": "Bloques 2, 3 y 5: exactamente 33 columnas por fila; total 1.026 jugadores.",
     "runtime_modificado": false
   }
 }
