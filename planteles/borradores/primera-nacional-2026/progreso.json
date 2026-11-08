@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia 36/36; novena tanda documentada. Depuración en curso; borradores sin integración al runtime.",
+  "estado": "Auditoría de vigencia 36/36; décima tanda documentada. Depuración en curso; borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -136,15 +136,15 @@
         "rafaela",
         "midland"
       ],
-      "estado": "158 jugadores; 158 roles cargados.",
-      "jugadores": 158,
+      "estado": "160 jugadores; 160 roles cargados.",
+      "jugadores": 160,
       "clubes": {
         "sanmiguel": 28,
         "midland": 33,
         "defensoresbelgrano": 25,
         "colegiales": 23,
         "acassuso": 25,
-        "rafaela": 24
+        "rafaela": 26
       },
       "roles_especificos": 157
     }
@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1025,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veintidós altas agregadas y treinta y una identidades corregidas; seis bloques CSV validados. 1.025 jugadores en borradores; sin integración al runtime.",
+  "jugadores_borrador": 1027,
+  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinticuatro altas agregadas y treinta y tres identidades corregidas; seis bloques CSV validados. 1.027 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1175,9 +1175,9 @@
     "altas_respaldo_pendientes": "Ver reporte de auditoría; completar ficha individual antes de incorporar.",
     "csv_modificados": true,
     "bajas_confirmadas_retiradas": 3,
-    "altas_agregadas": 22,
-    "identidades_corregidas": 31,
-    "jugadores_actuales": 1025
+    "altas_agregadas": 24,
+    "identidades_corregidas": 33,
+    "jugadores_actuales": 1027
   },
   "depuracion_primera_tanda": {
     "fecha": "2026-11-08",
@@ -1555,6 +1555,49 @@
       "Joaquín Ibáñez: comunicado oficial, Transfermarkt, ZeroZero y planilla TyC confirman al jugador nacido en 2004; la planilla muestra a Ibáñez y Luciano Pascual en el mismo partido pese a compartir fecha de nacimiento."
     ],
     "validacion": "Bloques 4 y 6: exactamente 33 columnas por fila; total 1.025 jugadores.",
+    "rating_atributos": "Estimaciones internas; ajuste +10 preservado.",
+    "runtime_modificado": false
+  },
+  "depuracion_decima_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1025,
+    "jugadores_despues": 1027,
+    "altas_agregadas": [
+      {
+        "club": "Atlético de Rafaela",
+        "jugador": "Matías Morello",
+        "bloque": 6,
+        "dob": "2001-02-12",
+        "presencias_2026": 10,
+        "dorsal": "99 provisional"
+      },
+      {
+        "club": "Atlético de Rafaela",
+        "jugador": "Cristian Gabriel Esparza",
+        "bloque": 6,
+        "dob": "1993-01-30",
+        "presencias_2026": 1,
+        "dorsal": "11 verificado"
+      }
+    ],
+    "identidades_corregidas": [
+      {
+        "club": "Central Norte",
+        "antes": "Emanuel Bodencer",
+        "despues": "Érik Maximiliano Bodencer",
+        "dob": "2000-03-08",
+        "dorsal": "24 verificado"
+      },
+      {
+        "club": "Central Norte",
+        "antes": "Santiago Quiroga",
+        "despues": "Sergio Alejandro Quiroga Gabutti",
+        "dob": "1994-06-07",
+        "posicion": "MED/MP",
+        "dorsal": "32 verificado"
+      }
+    ],
+    "validacion": "Bloques 5 y 6: exactamente 33 columnas por fila; total 1.027 jugadores.",
     "rating_atributos": "Estimaciones internas; ajuste +10 preservado.",
     "runtime_modificado": false
   }
