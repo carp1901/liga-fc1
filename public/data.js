@@ -248,10 +248,14 @@ const ROLE_OFFSETS={
  MCD:{mar:5,ant:4,pas:3,res:3,ctl:1,reg:-1,rem:-2,des:1},
  MC:{pas:3,ctl:3,reg:1,ant:1,res:2,vis:3,mar:0},
  MO:{ctl:5,reg:5,pas:4,vis:5,rem:3,des:2,mar:-4,ant:-2},
+ MP:{ctl:5,reg:4,pas:5,rem:2,des:2,vel:1,mar:-4,ant:-2},
  EI:{vel:5,ace:5,reg:5,ctl:3,rem:3,cen:3,mar:-5,ant:-3},
  ED:{vel:5,ace:5,reg:5,ctl:3,rem:3,cen:3,mar:-5,ant:-3},
+ MI:{vel:3,ace:3,res:4,cen:3,reg:2,mar:2,ant:1,pas:1},
+ MD:{vel:3,ace:3,res:4,cen:3,reg:2,mar:2,ant:1,pas:1},
  DC:{rem:5,des:4,pot:4,cab:3,fue:2,vel:1,pas:-2,mar:-6},
- SD:{rem:4,des:4,ctl:4,reg:3,vis:3,pas:2,mar:-5}
+ SD:{rem:4,des:4,ctl:4,reg:3,vis:3,pas:2,mar:-5},
+ LIB:{mar:4,ant:5,cab:3,pas:2,ctl:1,fue:2,vel:-1,reg:-2}
 };
 const clampA=v=>Math.max(15,Math.min(99,Math.round(v)));
 // media de un jugador en un puesto: promedio ponderado de sus atributos relevantes para ese puesto
