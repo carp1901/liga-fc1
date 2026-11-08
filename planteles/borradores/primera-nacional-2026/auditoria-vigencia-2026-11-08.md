@@ -69,3 +69,13 @@
 4. Reemplazar asignaciones internas de dorsal únicamente cuando haya nómina oficial o planilla fiable y registrar el tipo de evidencia.
 
 **Alcance:** esta pasada detecta discrepancias potenciales; no declara automáticamente que todos los nombres de la sección de bajas ya estén fuera ni que todas las altas sigan actualmente en el plantel.
+
+
+## Contraste de candidatos con páginas oficiales
+
+La lista de mercado no debe interpretarse como un registro definitivo de planteles actuales. En la consulta del 08/11 se contrastaron dos casos con páginas oficiales:
+
+- **Chacarita:** su página oficial de Fútbol Profesional, rastreada el 05/11/2026, todavía incluye a Juan Cuevas y a Sebastián Anchoverri, además de Cristian Guanca, Mauricio Cuero y Sergio Vittor. Por eso, las coincidencias de Cuevas y cualquier supuesto movimiento de Anchoverri no se pueden dar por bajas confirmadas sólo por la página de mercado. Miguel Mellado no figura en esa nómina publicada y queda como candidato a revisar, no como baja aplicada. Fuente: https://www.chacaritajuniors.com.ar/futbol/futbol-profesional
+- **Temperley:** la noticia oficial del club del 26/01/2026 confirma la llegada de Nicolás Molina, Gian Nardelli, Valentino Werro y Santiago Flores para la temporada. Esto prueba su incorporación al inicio de 2026, pero no determina por sí solo si siguen o salieron en noviembre. No se debe usar esa nota como prueba de permanencia actual. Fuente: https://temperley.org.ar/noticias/futbol/mercado-de-pases-para-la-temporada-2026
+
+**Criterio ajustado:** los 22 nombres de la sección de bajas son alertas de discrepancia con la base, no 22 bajas confirmadas. Los 62 nombres de altas ausentes son alertas de cobertura, no incorporaciones que deban cargarse sin más. Se priorizan páginas oficiales actuales de cada club y comunicados fechados; las fichas de mercado sirven como índice de búsqueda.
