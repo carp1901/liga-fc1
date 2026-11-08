@@ -351,7 +351,7 @@ Fecha de revisión: 08/11/2026.
 
 | Jugador | Pie | Fuente |
 |---|---|---|
-| José Ernesto Sosa | Derecho | https://www.sofascore.com/es/football/player/jose-sosa/110511 |
+| José Ernesto Sosa | Derecho | https://www.sofascore.com/es/football/player/jose-sosa/22981 |
 | Gabriel Neves | Derecho | https://www.sofascore.com/es/football/player/gabriel-neves/875294 |
 | Tiago Palacios | Izquierdo | https://www.sofascore.com/es/football/player/tiago-palacios/1018468 |
 | Ezequiel Piovi | Derecho | https://www.sofascore.com/es/football/player/ezequiel-piovi/359098 |
