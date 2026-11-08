@@ -7,7 +7,7 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 ## Estado de esta versión
 - 36 clubes distribuidos en seis bloques.
 - 1.006 registros de jugadores en la base de trabajo.
-- 960/1.006 roles específicos respaldados por fuente (95,4%).
+- 962/1.006 roles específicos respaldados por fuente (95,6%).
 - Cuatro dorsales de Midland contrastados en varias planillas de partidos 2026; el resto sigue asignado internamente. No se presentan como numeración oficial de plantel.
 - 46 jugadores conservan su posición general, pero no tienen un subrol específico verificable en las fuentes consultadas; no se inventan subroles.
 - Medias: hay estimaciones identificadas; deben continuar contrastándose con referencias individuales.
@@ -15,7 +15,7 @@ Estos seis CSV y `progreso.json` se publican en `main` como material de investig
 - Revisión adicional publicada: correcciones de nombres y posiciones, además de asignaciones de subroles respaldadas por perfiles y estadísticas de la temporada 2026.
 
 ## Próximas tareas
-1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión: 960/1.006 subroles respaldados (95,4%); se completaron cinco roles y se corrigieron tres posiciones generales en esta tanda.
+1. Continuar completando roles específicos pendientes por tandas de varios clubes (bloques 1–6: roles de arquero y subroles contrastados con estadísticas individuales 2026; correcciones de posiciones generales). Última revisión: 962/1.006 subroles respaldados (95,6%). Se añadieron Matías Córdoba (DC) y Marcos Millanes (EI).
 2. Verificar dorsales oficiales y resolver conflictos sin inventar numeración.
 3. Revisar medias y atributos individuales; separar OVR documentado de estimaciones.
 4. Depurar planteles y comprobar nóminas de Primera Nacional 2026.
