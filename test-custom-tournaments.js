@@ -18,7 +18,7 @@ for (const n of [2, 3, 4, 5, 6, 7, 8, 12, 16, 24, 32, 64]) {
   assert.deepEqual(out.bracket[0].filter(x => x.bye).map(x => x.a), seeds.slice(0, expectedByes), 'los mejores ubicados reciben los pases libres');
 }
 const html = fs.readFileSync('public/index.html', 'utf8');
-const scripts = [...html.matchAll(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/gi)].map(x => x[1]).filter(x => x.trim());
+const scripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)].map(x => x[1]).filter(x => x.trim());
 assert.ok(scripts.length, 'el HTML debe contener scripts inline');
 scripts.forEach((source, i) => new vm.Script(source, { filename: 'public/index.html:inline-' + i }));
 console.log('OK: tamaños personalizados, byes y sintaxis de los scripts del menú.');
