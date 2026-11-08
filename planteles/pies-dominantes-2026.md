@@ -962,3 +962,16 @@ Fecha de revisión: 08/11/2026.
 | Luca Babino | Izquierdo | https://www.sofascore.com/es/football/player/luca-babino/2036967 |
 
 **Progreso de Huracán:** 22/31 jugadores con pie registrado. Luca Babino aparece cedido a Fénix, pero su ficha mantiene el dato de pie izquierdo.
+
+
+## Cuarta tanda de Huracán — 4 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Ignacio Pussetto | Derecho | https://www.sofascore.com/es/football/player/ignacio-pussetto/340509 |
+| Thaiel Peralta | Izquierdo | https://www.sofascore.com/es/football/player/thaiel-peralta/2110739 |
+| Martín Soto | Izquierdo | https://www.sofascore.com/es/football/player/martin-soto/2110728 |
+| Óscar Cortés | Derecho | https://www.sofascore.com/es/football/player/oscar-cortes/1173564 |
+
+**Progreso de Huracán:** 26/31 jugadores con pie registrado. Fabrizio Martínez, Martín Nervo, Rodrigo Fernández Cedrés, Santino Raynelli y Tomás Uribe quedan pendientes por falta de una fuente fiable que publique el pie.
