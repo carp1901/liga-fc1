@@ -1,0 +1,40 @@
+name: Validate custom tournaments
+on:
+  push:
+    branches: [feature/custom-tournaments-fan-ranking]
+    paths:
+      - 'public/data.js'
+      - 'public/engine.js'
+      - 'public/index.html'
+      - 'server.js'
+      - 'store.js'
+      - 'test-custom-tournaments.js'
+      - '.github/workflows/test-custom-tournaments.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'public/data.js'
+      - 'public/engine.js'
+      - 'public/index.html'
+      - 'server.js'
+      - 'store.js'
+      - 'test-custom-tournaments.js'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JavaScript syntax
+        run: |
+          node --check public/data.js
+          node --check public/engine.js
+          node --check public/index.html
+          node --check server.js
+          node --check store.js
+      - name: Test custom playoff sizes and byes
+        run: node test-custom-tournaments.js
