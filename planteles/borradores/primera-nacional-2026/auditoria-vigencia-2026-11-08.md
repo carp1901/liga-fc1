@@ -475,3 +475,25 @@ Se corrigió de MED/MI a DEL/EI. La contratación y el perfil de temporada lo id
 - Dorsales 3, 21, 29, 70 y 16 respaldados por fichas; Fernando Bersano conserva dorsal provisional.
 - Bloques 1 y 2 validados con 33 columnas por fila. Total: 1.027 jugadores.
 - No se modificó el runtime.
+
+
+## Duodécima tanda de depuración — Almagro, Temperley y San Telmo — 08/11/2026
+
+### Matías Alejandro Laba — Almagro
+Se auditó su ficha ya existente: no se agrega un duplicado. FotMob confirma fecha de nacimiento 11/12/1991, posición de mediocampista central, dorsal **16**, 14 partidos de Primera Nacional 2026, 598 minutos, seis titularidades y una amarilla. Se corrigieron el dorsal y el registro de presencias (la cifra anterior de 24 era incorrecta). Los atributos y la media global continúan siendo estimaciones internas. Fuente: https://www.fotmob.com/es-419/players/209306/matias-laba
+
+### Nicolás Molina — Temperley → San Telmo
+Se detectó que el mismo jugador estaba duplicado en los dos clubes. San Telmo lo contrató procedente de Temperley el 27/06/2026, y la ficha de 365Scores registra el traspaso del 26/06, fecha de nacimiento 28/01/1999 y club actual San Telmo. La nota de Solo Ascenso confirma que tenía 27 años, había jugado cinco partidos en el último semestre con Temperley y firmó hasta diciembre de 2027. Se retiró la fila duplicada de Temperley y se conservó una sola ficha en San Telmo, con DOB 28/01/1999. Se corrigió el dorsal a **9** según Mundo Ascenso y se actualizaron estadísticas a 30 partidos, 2 goles, 5 asistencias y 1.810 minutos según FootyStats. Fuentes: https://www.soloascenso.com.ar/notas/atletico-rafaela/un-delantero-se-convirtio-en-nuevo-refuerzo-de-san-telmo/229726 ; https://www.365scores.com/es/football/player/nicolas-molina-133885 ; https://www.mundoascenso.com.ar/plantel/86-san-telmo ; https://footystats.org/es/players/argentina/nicolas-molina
+
+### Gabriel Omar Ramírez — All Boys
+Se comprobó que ya estaba correctamente incorporado en bloque 1: DOB 29/07/1995, club All Boys, dorsal 5 respaldado por planilla del partido ante Ferro y 15 apariciones registradas en la ficha actual. No se creó un duplicado. Soccerbase confirma la fecha 29/07/1995 y el pase desde Chaco For Ever el 04/07/2026. Fuente: https://www.soccerbase.com/players/player.sd?player_id=174480
+
+### Federico Batule y Joaquín Céliz — Mitre
+Siguen como pendientes, no como altas de Primera Nacional. Mitre los incluye en el plantel ampliado/juvenil; Céliz es categoría 2008 y aparece en la Liga Santiagueña, y Batule también tiene minutos en esa competencia local. No se encontró una ficha completa ni participación acreditada en Primera Nacional 2026 que justifique crearles estadísticas de la categoría. Fuentes: https://www.soloascenso.com.ar/club/mitre-santiago-del-estero/391 ; https://camitre.com/carlos-mayor-comenzo-su-ciclo-con-promocion-de-juveniles-del-semillero/ ; https://futboldesantiagodelestero.blogspot.com/2026/06/ligasantiaguena-mitre-0-union-santiago.html ; https://futboldesantiagodelestero.blogspot.com/2026/06/liga-santiaguena-comercio-c-unidos-3.html
+
+### Resultado de la tanda
+- 1 duplicado eliminado: Nicolás Molina deja de figurar en Temperley y queda en San Telmo, club de su transferencia de mitad de 2026.
+- 1 ficha corregida: Matías Laba, dorsal 16 y 14 partidos/598 minutos.
+- Gabriel Ramírez verificado como ya cargado; no se agrega.
+- Batule y Céliz permanecen pendientes por falta de participación documentada en Primera Nacional.
+- Total: 1.026 jugadores. Sin integración al runtime.
