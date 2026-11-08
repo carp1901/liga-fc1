@@ -237,3 +237,20 @@ Fecha de revisión: 08/11/2026.
 | Agustín Ruberto | Derecho | https://www.sofascore.com/es/football/player/agustin-ruberto/1482434 |
 
 **Resultado de River:** 27/27 jugadores del CSV con pie dominante registrado. Sebastián Driussi queda como `Ambos`, tal como indica Sofascore.
+
+
+## Primera tanda de Independiente — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Rodrigo Rey | Derecho | https://www.sofascore.com/es/football/player/rodrigo-rey/158249 |
+| Santiago Mele | Derecho | https://www.sofascore.com/es/football/player/santiago-mele/846421 |
+| Joaquín Blázquez | Derecho | https://www.sofascore.com/es/football/player/joaquin-blazquez/940690 |
+| Fernando Closter | Derecho | https://www.sofascore.com/es/football/player/fernando-closter/2163585 |
+| Franco Calderón | Derecho | https://www.sofascore.com/es/football/player/franco-calderon/981341 |
+| Joshua Velardez | Derecho | https://www.fotmob.com/players/1944520/joshua-velardez |
+| Ramiro Martino | Derecho | https://www.sofascore.com/es/football/player/ramiro-martino/2691667 |
+| Nahuel Banegas | Izquierdo | https://www.sofascore.com/es/football/player/nahuel-banegas/992112 |
+
+**Progreso de Independiente:** 8/36 jugadores con pie registrado. Juan Centurión y Juan Arrayago siguen pendientes de ficha individual inequívoca.
