@@ -390,3 +390,22 @@ Se corrigieron **15 identidades** existentes cotejando las fechas de nacimiento 
 - **Federico Batule y Joaquín Céliz** quedan pendientes de ficha individual completa; su presencia en pretemporada o nómina no basta para inventar fecha de nacimiento o atributos.
 
 Las tres altas llevan rating/atributos estimados internamente y dorsal 99 provisional, no oficial. No se modificó el runtime.
+
+
+## Séptima tanda de depuración — All Boys, Almagro y Temperley — 08/11/2026
+
+### All Boys — identidad de Gabriel Ramírez y dorsal respaldado
+El registro que figuraba como **Gustavo Ramírez** se corrigió a **Gabriel Omar Ramírez**. La síntesis oficial de All Boys ante Ferro del 24/08/2026 identifica a Gabriel Omar Ramírez como titular con la camiseta **5**; su ficha de temporada también lo ubica en All Boys. Se conserva la fecha 29/07/1995 que aportan Solo Ascenso y Sofascore, pero se deja asentada una discrepancia: Transfermarkt, Goal y otras bases indican 29/06/1995. No se inventa una resolución de esa diferencia. Fuentes: https://caallboys.com.ar/2026/08/24/cayo-por-la-minima-ante-el-lider/ ; https://www.soloascenso.com.ar/perfil/gabriel-ramirez/14706 ; https://www.sofascore.com/es/football/player/ramirez-gabriel/849139 ; https://www.transfermarkt.es/gabriel-ramirez/profil/spieler/459243 ; https://www.goal.com/es-ar/jugador/g-ramirez/3cpjvfgtqkcx2itxtilllseeh
+
+### Temperley — corrección de Alejandro Melo
+El registro **Agustín Melo** se corrigió a **Alejandro Melo (Eduardo Alejandro Melo)**. La fecha de nacimiento 11/01/1996 coincide con su ficha de Transfermarkt y Solo Ascenso lo registra en Temperley durante 2026. Se corrigieron la posición general a DEL y el rol específico a ED (extremo derecho), coherente con sus fichas. Se conserva su media base y se ajusta el perfil de atributos a extremo; el dorsal sigue provisional. Fuentes: https://www.soloascenso.com.ar/perfil/alejandro-melo/997 ; https://www.transfermarkt.es/alejandro-melo/profil/spieler/373623 ; https://www.zerozero.com.mx/jugador/alejandro-melo/460881
+
+### Almagro — alta de Matías Laba
+Se incorporó **Matías Alejandro Laba**, nacido el 11/12/1991, mediocampista de contención/pivote. Su ficha de Solo Ascenso lo registra en Almagro en 2026 con 24 presencias; Transfermarkt confirma fecha de nacimiento, posición de pivote y club. Rating y atributos son estimaciones internas; dorsal 99 provisional, no oficial. Fuentes: https://www.soloascenso.com.ar/perfil/matias-laba/6340 ; https://www.transfermarkt.es/matias-laba/profil/spieler/147496
+
+### Resultado de la tanda
+- 1 alta nueva: Matías Laba.
+- 2 identidades corregidas sin duplicar: Gustavo Ramírez → Gabriel Omar Ramírez; Agustín Melo → Alejandro Melo.
+- 1 dorsal respaldado por planilla oficial: Gabriel Ramírez, número 5.
+- Los CSV modificados mantienen exactamente 33 columnas por fila.
+- No se modificó el runtime; los cambios permanecen en borradores.
