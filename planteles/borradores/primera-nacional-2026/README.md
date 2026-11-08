@@ -125,3 +125,7 @@ Se revisaron Acassuso, Agropecuario, Ciudad de Bolívar, Colón, Godoy Cruz, Los
 
 ### Tercera tanda de depuración — 08/11/2026
 Se incorporó a Leonardo Fabián Marinucci en Deportivo Madryn tras completar ficha individual y cotejar su pertenencia al club y participación 2026. Rating y atributos técnicos son estimaciones internas explícitas; dorsal provisional interno. Se dejó pendiente Nicolás Morro por conflicto de pertenencia/participaciones y se descartaron como altas de Racing de Córdoba a Nahuel Sandrone (Racing II) y Cristian Vega (Ciudad de Bolívar). Base: **1.010 jugadores**. Fuentes y criterio en la auditoría de vigencia.
+
+
+### Cuarta tanda de depuración — Deportivo Maipú — 08/11/2026
+Se agregaron siete fichas: Brian Orosco, Diego Agustín Yavante Gaitán, Matías Agustín Leiva, Mateo Ortale, Juan Cruz Arno, Luca Landriel y Agustín Pavón. Se completaron identidad, fecha de nacimiento, posición, rating y ocho atributos; ratings/atributos son estimaciones internas. Dorsales 99 internos provisionales, sin afirmar numeración oficial. Se corrigió el escapado CSV de siete filas anteriores del bloque 5 y se validó que todas las filas de ese bloque tengan 33 columnas. Base general: **1.017 jugadores**. Detalle y fuentes: auditoria-vigencia-2026-11-08.md.
