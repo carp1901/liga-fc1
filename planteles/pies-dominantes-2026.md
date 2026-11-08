@@ -494,3 +494,21 @@ Fecha de revisión: 08/11/2026.
 | Gastón Martirena | Derecho | https://www.sofascore.com/es-la/football/player/gaston-martirena/1017433 |
 
 **Progreso de Racing:** 8/22 jugadores con pie registrado. Gastón Martirena se mantiene como derecho según Sofascore, aunque su perfil actual ya figura en Nacional.
+
+
+## Segunda tanda de Racing Club — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Matías Kranevitter | Derecho | https://www.sofascore.com/es/football/player/matias-kranevitter/295159 |
+| Alan Forneris | Derecho | https://www.sofascore.com/es/football/player/alan-forneris/1868531 |
+| Matko Miljevic | Derecho | https://www.sofascore.com/es/football/player/matko-miljevic/1146881 |
+| Matías Zaracho | Derecho | https://www.sofascore.com/football/player/matias-zaracho/859970 |
+| Santiago Sosa | Derecho | https://www.sofascore.com/es/football/player/santiago-sosa/928237 |
+| Ulises Ortegoza | Derecho | https://www.sofascore.com/es/football/player/ulises-ortegoza/1169586 |
+| Duván Vergara | Derecho | https://www.sofascore.com/es-la/football/player/duvan-vergara/819149 |
+| Adrián Martínez | Izquierdo | https://www.sofascore.com/es-la/football/player/martinez-adrian/906811 |
+| Tomás Conechny | Izquierdo | https://www.sofascore.com/es-la/football/player/tomas-conechny/822607 |
+
+**Progreso de Racing:** 17/22 jugadores con pie dominante registrado. Santiago Sosa conserva su dato de pie derecho en el perfil histórico de Sofascore, aunque actualmente figura en Vasco da Gama.
