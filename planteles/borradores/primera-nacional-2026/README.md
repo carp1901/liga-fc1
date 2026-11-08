@@ -89,3 +89,5 @@ Dorsales: 1.001 asignaciones internas provisionales; cinco con respaldo de plani
 
 ### Segunda pasada de vigencia — 08/11/2026
 Se contrastaron candidatos de Chacarita, Temperley y Ferro con nóminas actuales y registros de partidos. Juan Cuevas se conserva: aparece en la nómina oficial actual de Chacarita y registra participación 2026. Miguel Mellado y Mateo Acosta siguen como posibles bajas sin confirmación formal. Valentino Werro y Nicolás Molina permanecen en conflicto entre mercado y nómina actual de Temperley. Alejandro Melo es un alta candidata de Temperley con participación documentada el 25/10, pendiente de completar ficha y confirmar continuidad. No se modificaron CSV ni dorsales. Detalle y fuentes: [auditoría de vigencia](auditoria-vigencia-2026-11-08.md).
+
+- **All Boys:** nueva evidencia oficial del 08/11: Matías Nouet, pese a haber sido apartado en junio, integró el banco y entró ante Estudiantes el 02/11; se conserva. Gabriel Ramírez firmó contrato con el club hasta 31/12/2027 según comunicado oficial del 27/06; alta confirmada, pendiente de completar ficha antes de editar el CSV. Detalle en la auditoría de vigencia.
