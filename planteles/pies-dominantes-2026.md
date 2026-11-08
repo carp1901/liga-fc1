@@ -471,3 +471,9 @@ Fecha de revisión: 08/11/2026.
 | Juan Cruz Policella | Derecho | https://www.sofascore.com/es-la/football/player/juan-cruz-policella/2411295 |
 
 **Progreso de Vélez:** 27/30 jugadores con pie registrado. Quedan pendientes Agustín Cortez, Ulises Piedrabuena y Simón Prima; el perfil de Ulises aún requiere confirmar identidad antes de usarlo.
+
+
+## Cuarta tanda de Vélez Sarsfield — cierre parcial
+- **Simón Prima:** Derecho. Fuente oficial del club: https://velez.com.ar/futbol/notas/2025/07/29/120303_prima-firma (el artículo lo describe explícitamente como delantero diestro).
+
+**Progreso de Vélez verificado:** 27/30 jugadores con pie dominante registrado. Quedan pendientes Agustín Cortez, Ulises Piedrabuena y Lautaro Piola: sus fichas oficiales consultadas no especifican el pie y no se asigna por deducción.
