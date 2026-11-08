@@ -58,3 +58,9 @@ Esta auditoría cierra el control de calidad del material disponible, no signifi
 Tras cerrar la auditoría diagnóstica se aplicó el aumento acordado de **+10 puntos** a los 1.006 ratings de los seis bloques. Se agregaron `rating_base` (valor anterior) y `ajuste_rating` (+10) para conservar trazabilidad. Resultado conjunto: promedio 68,46; rango 58–76. Los valores siguen siendo estimaciones propias; el ajuste no las convierte en OVR oficiales ni modifica sus fuentes.
 
 Los seis CSV siguen siendo borradores de investigación: **no están integrados en el juego**. La automatización del repositorio publica únicamente el CSV de Primera División en los archivos de runtime.
+
+## Perfiles de atributos por subrol — 08/11/2026
+
+Se revisó la cobertura de perfiles del motor contra los 1.006 jugadores de Primera Nacional. Se encontraron 60 jugadores cuyos subroles no tenían un ajuste específico: MI, MD, MP y LIB. Se añadieron perfiles diferenciados para esos cuatro códigos en `public/data.js`; los 1.006 subroles ya tienen un perfil aplicable (POR usa su perfil base de arquero).
+
+Los ocho atributos técnicos siguen sin cargarse manualmente en estos CSV. El motor los deriva por posición, subrol y media; por eso este cambio mejora la diferenciación de los valores generados, pero **no equivale a estadísticas individuales verificadas**. Se incorporó `test-plantel-calibration.js` al flujo de validación para comprobar que los siete CSV mantengan el +10 trazable y que todos los subroles tengan perfil.
