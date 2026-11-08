@@ -284,7 +284,7 @@ async function chatEliminar(uid,id,owner,moderador){
  if(!configured)return{error:'El chat no está disponible en este servidor'};
  id=Math.floor(+id);if(!(uid>0&&id>0))return{error:'Comentario inválido'};
  await ensure();
- const r=await pool.query(`SELECT usuario_id,lower(usuario)=lower($3) AS es_owner FROM chat_mensajes WHERE id=$1 AND eliminado=false`,[id,uid,process.env.CHAT_OWNER_USERNAME||'Burzaco']);
+ const r=await pool.query(`SELECT usuario_id,lower(usuario)=lower($2) AS es_owner FROM chat_mensajes WHERE id=$1 AND eliminado=false`,[id,process.env.CHAT_OWNER_USERNAME||'Burzaco']);
  if(!r.rowCount)return{error:'El comentario ya no existe'};
  const autor=Number(r.rows[0].usuario_id),esOwner=!!r.rows[0].es_owner;
  if(esOwner&&!owner)return{error:'Solo el propietario puede eliminar sus propios comentarios'};
