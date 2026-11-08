@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia 36/36; séptima tanda documentada (All Boys, Almagro y Temperley). Depuración en curso; borradores sin integración al runtime.",
+  "estado": "Auditoría de vigencia 36/36; octava tanda documentada. Depuración en curso; borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1023,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinte altas agregadas y veintinueve identidades corregidas; seis bloques CSV validados. 1.023 jugadores en borradores; sin integración al runtime.",
+  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinte altas agregadas y treinta y una identidades corregidas; seis bloques CSV validados. 1.023 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1176,7 +1176,7 @@
     "csv_modificados": true,
     "bajas_confirmadas_retiradas": 3,
     "altas_agregadas": 20,
-    "identidades_corregidas": 29,
+    "identidades_corregidas": 31,
     "jugadores_actuales": 1023
   },
   "depuracion_primera_tanda": {
@@ -1501,6 +1501,31 @@
     ],
     "validacion": "Bloques 1, 2 y 3: exactamente 33 columnas por fila; total 1.023 jugadores.",
     "rating_atributos": "Estimaciones internas; ajuste +10 preservado.",
+    "runtime_modificado": false
+  },
+  "depuracion_octava_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1023,
+    "jugadores_despues": 1023,
+    "altas_agregadas": 0,
+    "identidades_corregidas": [
+      {
+        "club": "Almagro",
+        "antes": "Cristian Salto",
+        "despues": "Claudio Gabriel Salto",
+        "dob": "1995-01-04",
+        "dorsal_verificado": 10
+      },
+      {
+        "club": "Almagro",
+        "antes": "Franco de la Vega",
+        "despues": "Facundo Sebastián De La Vega",
+        "dob": "2003-04-15",
+        "presencias_2026": 16,
+        "goles_2026": 5
+      }
+    ],
+    "validacion": "Bloque 2: 33 columnas en todas las filas; total 1.023 jugadores.",
     "runtime_modificado": false
   }
 }
