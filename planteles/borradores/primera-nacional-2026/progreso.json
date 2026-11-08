@@ -1780,7 +1780,7 @@
     "columnas_por_fila": 33,
     "nombres_duplicados_intraclub": 0,
     "errores_rating": 0,
-    "promedio_rating": 68.42,
+    "promedio_rating": 68.43,
     "minimo_rating": 56,
     "maximo_rating": 78,
     "runtime_modificado": false,
@@ -1804,6 +1804,23 @@
     "ratings_modificados": false,
     "primera_division_modificada": false,
     "runtime_modificado": false,
-    "proximo_paso": "Calibrar ratings individuales con minutos, presencias, producción y nivel competitivo; revisar extremos y roles híbridos."
+    "proximo_paso": "Calibrar ratings individuales con minutos, presencias, producción y nivel competitivo; revisar extremos y roles híbridos.",
+    "calibracion_primera_tanda": {
+      "fecha": "2026-11-08",
+      "ratings_ajustados": 6,
+      "ratings": {
+        "Franco Saccone": "67→71",
+        "Thiago Ocampo": "68→71",
+        "Patricio Moyano": "68→70",
+        "Arón Agüero": "67→69",
+        "Juan Pablo De La Reta": "67→68",
+        "Enzo Cardozo": "67→68"
+      },
+      "presencias_corregidas": {
+        "Mayco Bergia": "36→22"
+      },
+      "promedio_actual": 68.43,
+      "runtime_modificado": false
+    }
   }
 }
