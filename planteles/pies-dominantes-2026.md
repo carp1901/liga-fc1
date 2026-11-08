@@ -568,3 +568,19 @@ Fecha de revisión: 08/11/2026.
 | Santiago Grella | Derecho | https://www.sofascore.com/football/player/santiago-grella/2285317 |
 
 **Progreso de Unión:** 15/33 jugadores con pie dominante registrado.
+
+
+## Tercera tanda de Unión de Santa Fe — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Lucas Menossi | Derecho | https://www.sofascore.com/es/football/player/lucas-menossi/249429 |
+| Joaquín Mosqueira | Derecho | https://www.sofascore.com/football/player/mosqueira-joaquin/1464852 |
+| Julián Palacios | Derecho | https://www.sofascore.com/es/football/player/julian-palacios/1005177 |
+| Misael Aguirre | Derecho | https://www.sofascore.com/football/player/misael-aguirre/2294279 |
+| Marcelo Estigarribia | Derecho | https://www.sofascore.com/football/player/marcelo-estigarribia/943166 |
+| Eric Ramírez | Derecho | https://www.sofascore.com/es/football/player/erik-ramirez/792334 |
+| Augusto Solari | Derecho | https://www.sofascore.com/football/player/augusto-solari/291279 |
+
+**Progreso de Unión:** 22/33 jugadores con pie dominante registrado.
