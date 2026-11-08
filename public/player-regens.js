@@ -39,4 +39,4 @@ function next(rosters,season){
  });
  return{rosters:out,events};
 }
-module.exports={init,next};
+const API={init,next};if(typeof module!=='undefined'&&module.exports)module.exports=API;else if(typeof window!=='undefined')window.PLAYERREG=API;
