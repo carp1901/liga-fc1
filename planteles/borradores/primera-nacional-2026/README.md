@@ -168,3 +168,12 @@ Se resolvieron dos identidades sin duplicar: Cristian Salto pasó a Claudio Gabr
 - **Deportivo Morón:** Ezequiel Iñiguez corregido a Emanuel Iñíguez (dorsal 21); Ezequiel Franco a Emiliano Gabriel Franco Pola (dorsal 29); Matías Levato a Mateo Levato (dorsal 70). Se documentan discrepancias de fechas de nacimiento en Levato.
 - **Gimnasia de Jujuy:** Agustín Alonso corregido a DEL/EI y dorsal 16.
 - Total: 1.027 jugadores; 24 altas acumuladas; 38 identidades corregidas; tres bajas retiradas. Sin integración al runtime.
+
+
+### Duodécima tanda — 08/11/2026
+- **Almagro:** Matías Laba ya estaba cargado; se corrigieron dorsal 16 y estadísticas de 2026 (14 partidos, 598 minutos).
+- **Nicolás Molina:** se eliminó la ficha duplicada de Temperley; queda una sola en San Telmo (DOB 28/01/1999, dorsal 9, 30 partidos, 2 goles, 5 asistencias según FootyStats).
+- **All Boys:** Gabriel Ramírez ya estaba cargado correctamente; se verificó DOB 29/07/1995 y dorsal 5.
+- **Mitre:** Batule y Céliz continúan pendientes; juveniles 2008 sin participación confirmada en Primera Nacional.
+- Total: 1.026 jugadores; 24 altas acumuladas; 38 identidades corregidas; cuatro bajas/duplicados retirados (tres bajas confirmadas y un duplicado interclub).
+- Sin integración al runtime.
