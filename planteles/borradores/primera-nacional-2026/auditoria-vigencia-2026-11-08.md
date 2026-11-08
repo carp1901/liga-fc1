@@ -340,3 +340,18 @@ Los seis registros incluyen fecha de nacimiento, posición/rol, nacionalidad, ra
 - **Nicolás Morro (Defensores de Belgrano) no se incorpora todavía**: aunque Sofascore lo muestra en el club y con ficha personal, las fuentes consultadas discrepan en la cantidad/atribución de sus presencias y su trayectoria 2026 incluye también Estudiantes de Río Cuarto. Requiere confirmar pertenencia efectiva al plantel al corte antes de agregarlo.
 - **Nahuel Sandrone y Cristian Vega se descartan como altas de Racing de Córdoba**: Sandrone aparece en Racing II (reserva), mientras que la ficha de Cristian Vega lo ubica en Ciudad de Bolívar durante 2026; la atribución anterior a Racing no alcanza para incorporarlos.
 - Base tras esta tanda: **1.010 jugadores**. No se alteraron otros clubes, ratings existentes, atributos existentes ni runtime.
+
+
+## Cuarta tanda de depuración — Deportivo Maipú — 08/11/2026
+
+Se incorporaron siete futbolistas ausentes del CSV, con identidad y fecha de nacimiento cotejadas en fichas individuales o registros de temporada y pertenencia al plantel respaldada por nómina profesional del club y/o registros 2026:
+
+- **Brian Ezequiel Orosco:** mediocampista ofensivo, nacido el 28/02/1998; 30 presencias y 2 goles en 2026 según Solo Ascenso. Fuente: https://www.soloascenso.com.ar/perfil/brian-orosco/16205 ; https://www.goal.com/es-ar/jugador/b-orosco/3ygcn5afxwhryqzvljjf3o8o9
+- **Diego Agustín Yavante Gaitán:** mediapunta/delantero, nacido el 12/05/2005; Sofascore y Transfermarkt lo ubican en Deportivo Maipú con contrato hasta 2027. Fuente: https://www.transfermarkt.com.ar/agustin-gaitan/profil/spieler/1257584 ; https://www.sofascore.com/es/football/player/diego-agustin-yavante-gaitan/1846927
+- **Matías Agustín Leiva:** defensor central, nacido el 20/05/2005; 14 presencias 2026 en Solo Ascenso. Fuente: https://www.soloascenso.com.ar/perfil/agustin-leiva/31994
+- **Mateo Ortale:** lateral derecho, nacido el 19/03/2002. Fuente: https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/2026-2027/deportivo-maipu/plantilla ; https://deportivomaipu.com/plantel/
+- **Juan Cruz Arno:** mediocampista central, nacido el 03/07/2004. Fuente: https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/2026-2027/deportivo-maipu/plantilla ; https://deportivomaipu.com/plantel/
+- **Luca Landriel:** mediocampista ofensivo, nacido el 18/05/2005. Fuente: https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/2026-2027/deportivo-maipu/plantilla ; https://deportivomaipu.com/plantel/
+- **Agustín Pavón:** arquero, nacido el 06/07/2004. Fuente: https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/2026-2027/deportivo-maipu/plantilla ; https://deportivomaipu.com/plantel/
+
+Los siete registros incorporan los ocho atributos y ratings estimados internamente, no OVR oficiales. Todos llevan dorsal interno provisional 99 porque la numeración oficial individual no quedó validada; no se atribuyen números oficiales. Se normalizaron además siete filas preexistentes del bloque 5 que tenían comas sin escapar en el campo de fuente de rol; el contenido se preservó y el archivo quedó con 33 columnas consistentes. Base: **1.017 jugadores** (1.010 + 7). No se modificó el runtime.
