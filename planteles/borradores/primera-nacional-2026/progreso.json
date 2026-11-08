@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1009,
-  "estado_general": "Auditoría de vigencia completa 36/36. Primera depuración retiró tres bajas confirmadas; segunda tanda agregó seis altas fichadas y corrigió dos identidades sin duplicar. 1.009 jugadores en borradores; sin integración al runtime.",
+  "jugadores_borrador": 1010,
+  "estado_general": "Auditoría 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, seis altas agregadas y dos identidades corregidas en segunda tanda; Leonardo Marinucci agregado en tercera tanda. 1.010 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1175,9 +1175,9 @@
     "altas_respaldo_pendientes": "Ver reporte de auditoría; completar ficha individual antes de incorporar.",
     "csv_modificados": true,
     "bajas_confirmadas_retiradas": 3,
-    "altas_agregadas": 6,
+    "altas_agregadas": 7,
     "identidades_corregidas": 2,
-    "jugadores_actuales": 1009
+    "jugadores_actuales": 1010
   },
   "depuracion_primera_tanda": {
     "fecha": "2026-11-08",
@@ -1255,6 +1255,27 @@
         "dob": "1997-06-04",
         "bloque": 4
       }
+    ],
+    "rating_atributos": "Estimaciones internas identificadas; ajuste de escala +10 preservado.",
+    "runtime_modificado": false
+  },
+  "depuracion_tercera_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1009,
+    "jugadores_despues": 1010,
+    "altas_agregadas": [
+      {
+        "club": "Deportivo Madryn",
+        "jugador": "Leonardo Fabián Marinucci",
+        "bloque": 1
+      }
+    ],
+    "pendientes": [
+      "Nicolás Morro (Defensores de Belgrano): pertenencia y presencias 2026 requieren cotejo adicional"
+    ],
+    "descartados": [
+      "Nahuel Sandrone: corresponde a Racing II, no primera de Racing de Córdoba",
+      "Cristian Vega: ficha de temporada 2026 lo ubica en Ciudad de Bolívar, no Racing de Córdoba"
     ],
     "rating_atributos": "Estimaciones internas identificadas; ajuste de escala +10 preservado.",
     "runtime_modificado": false
