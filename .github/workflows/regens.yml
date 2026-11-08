@@ -1,0 +1,37 @@
+name: Regens - pruebas de carrera
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/player-regens.js'
+      - 'public/player-development.js'
+      - 'public/engine.js'
+      - 'public/data.js'
+      - 'public/squads.json'
+      - 'test-player-regens.js'
+      - 'test-career-regens.js'
+      - '.github/workflows/regens.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'public/player-regens.js'
+      - 'public/player-development.js'
+      - 'public/engine.js'
+      - 'public/data.js'
+      - 'public/squads.json'
+      - 'test-player-regens.js'
+      - 'test-career-regens.js'
+      - '.github/workflows/regens.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Probar retiro y generación de juveniles
+        run: node test-player-regens.js
+      - name: Probar integración en carrera real
+        run: node test-career-regens.js
