@@ -1036,3 +1036,18 @@ Fecha de revisión: 08/11/2026.
 | Maximiliano Zalazar | Derecho | https://www.sofascore.com/es/football/player/maximiliano-zalazar/1067653 |
 
 **Progreso de Gimnasia:** 25/36 jugadores con pie registrado. Los casos restantes siguen en revisión.
+
+
+## Quinta tanda de Gimnasia y Esgrima La Plata — 6 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Ignacio Fernández | Izquierdo | https://www.sofascore.com/es/football/player/nacho-fernandez/340861 |
+| Pedro Silva Torrejón | Izquierdo | https://www.fotmob.com/es/players/723677/pedro-silva-torrejon |
+| Santiago Villarreal | Derecho | https://transferbol.com/teams/gimnasia-lp-434/s-villarreal-508413 |
+| Leonel Troncoso | Derecho | https://www.fifacm.com/player/280623/leonel-troncoso |
+| Alejo Gelsomino | Izquierdo | https://www.fmscout.com/player/2000277086-alejo-gelsomino.html |
+| Jeremías Langa | Derecho | https://database.footballmanagerblog.org/fm26/players/2000335697-jeremias-langa |
+
+**Progreso de Gimnasia:** 31/36 jugadores con pie registrado. Máximo Cabrera presenta discrepancias entre bases (una lo marca zurdo y otras diestro), por lo que queda sin asignar; también quedan Patricio Schroeder, Lucas Lamella, Mariano Ojeda y Juan José Pérez sin dato publicado.
