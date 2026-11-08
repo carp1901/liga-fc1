@@ -183,3 +183,9 @@ Se resolvieron dos identidades sin duplicar: Cristian Salto pasó a Claudio Gabr
 - Se eliminaron tres duplicados interclub: Mateo Acosta (queda en Estudiantes BA, sale de Ferro), Pío Bonacci (queda en Quilmes, sale de Madryn) y Abel Bustos (queda en Racing Córdoba, sale de Madryn).
 - Total: 1.023 jugadores; 24 altas acumuladas; 38 identidades corregidas; siete bajas/duplicados retirados (tres bajas confirmadas y cuatro duplicados interclub).
 - Sin integración al runtime.
+
+
+### Decimocuarta tanda — 08/11/2026
+- **Atlanta:** incorporados Abel Francisco Romero (8 partidos, 463 minutos, dorsal 11) y Franco David Cáceres (5 partidos, 100 minutos, dorsal 16), ambos llegados en septiembre para el tramo final de 2026.
+- Total: 1.025 jugadores; 26 altas acumuladas; 38 identidades corregidas; cuatro duplicados interclub eliminados y tres bajas confirmadas retiradas.
+- Sin integración al runtime.
