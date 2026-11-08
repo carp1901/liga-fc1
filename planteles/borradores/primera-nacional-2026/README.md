@@ -161,3 +161,10 @@ Se resolvieron dos identidades sin duplicar: Cristian Salto pasó a Claudio Gabr
 - **Central Norte:** Emanuel Bodencer corregido a Érik Maximiliano Bodencer (dorsal 24); Santiago Quiroga corregido a Sergio Alejandro Quiroga Gabutti (MED/MP, dorsal 32).
 - **Atlético de Rafaela:** incorporados Matías Morello (10 presencias) y Cristian Gabriel Esparza (debut y lesión en julio; dorsal 11). Morello queda con dorsal 99 provisional.
 - Total: 1.027 jugadores; 24 altas acumuladas; 33 identidades corregidas; tres bajas retiradas. Sin integración al runtime.
+
+
+### Undécima tanda — 08/11/2026
+- **Deportivo Madryn:** Carlos Corvalán corregido a Gastón Claudio Corvalán (dorsal 3); Facundo Bersano corregido a Fernando Luis Bersano.
+- **Deportivo Morón:** Ezequiel Iñiguez corregido a Emanuel Iñíguez (dorsal 21); Ezequiel Franco a Emiliano Gabriel Franco Pola (dorsal 29); Matías Levato a Mateo Levato (dorsal 70). Se documentan discrepancias de fechas de nacimiento en Levato.
+- **Gimnasia de Jujuy:** Agustín Alonso corregido a DEL/EI y dorsal 16.
+- Total: 1.027 jugadores; 24 altas acumuladas; 38 identidades corregidas; tres bajas retiradas. Sin integración al runtime.
