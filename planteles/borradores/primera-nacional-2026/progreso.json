@@ -603,17 +603,17 @@
       "porcentaje_media_60": 6.8,
       "fuentes_ovr_ea_fc_individual_verificadas": 0,
       "criterio_actual": "Las 1006 medias son estimaciones propias; no se buscan OVR EA FC individuales para esta división porque no hay cobertura de EA FC. Se revisarán por coherencia competitiva y se mantendrá pendiente el ajuste general de +10 para Primera y Primera Nacional hasta cerrar la auditoría.",
-      "promedio_actual": 58.41
+      "promedio_actual": 58.43
     },
     "proximos_pasos": [
-      "Completar revisión cualitativa de medias por club y detectar desvíos individuales evidentes",
+      "Continuar revisión cualitativa de medias y comparar jugadores con volumen de minutos/rendimiento alto",
       "Contrastar dorsales oficiales cuando existan nóminas completas; los números restantes siguen siendo provisionales",
       "Auditar atributos individuales (los ocho campos técnicos están vacíos en los 1006 registros) y coherencia entre rol, media y atributos",
       "Revisar vigencia y pertenencia de jugadores a cada plantel"
     ],
     "revision_medias": {
       "jugadores_analizados": 1006,
-      "promedio_general": 58.41,
+      "promedio_general": 58.43,
       "rango": [
         48,
         66
@@ -632,7 +632,7 @@
           "promedio": 60
         }
       ],
-      "observacion": "La distribución es muy comprimida para una escala que todavía debe incorporar varias categorías inferiores. Godoy Cruz queda por encima del resto, coherente como hipótesis con su plantel recientemente descendido; no se modifican medias individuales todavía. El ajuste transversal de +10 para Primera y Primera Nacional queda reservado hasta cerrar la auditoría.",
+      "observacion": "Se revisaron cinco casos con participación alta y media inicial baja, corrigiendo sus valores de forma moderada. 397 jugadores tienen presencias 2026 cargadas; no hay valoraciones individuales de partido cargadas en el CSV. El promedio general pasó de 58,41 a 58,43. No se aplica aún el ajuste general de +10.",
       "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
       "campos_atributos_individuales_vacios": {
         "pas": 1006,
@@ -643,7 +643,46 @@
         "mar": 1006,
         "ant": 1006,
         "ref": 1006
-      }
+      },
+      "jugadores_con_presencias_2026_cargadas": 397,
+      "jugadores_con_rating_de_partido_cargado": 0,
+      "correcciones_individuales": [
+        {
+          "jugador": "Thiago Ocampo",
+          "club_id": "nuevachicago",
+          "media_anterior": 53,
+          "media_nueva": 58,
+          "base": "33 presencias; 27 titularidades; 4 goles y 5 asistencias"
+        },
+        {
+          "jugador": "Joel Orlando",
+          "club_id": "almagro",
+          "media_anterior": 52,
+          "media_nueva": 58,
+          "base": "29 partidos; 5 goles; 1575 minutos; nombre corregido desde Joaquín Orlando"
+        },
+        {
+          "jugador": "Ezequiel Cardozo",
+          "club_id": "almirantebrown",
+          "media_anterior": 54,
+          "media_nueva": 57,
+          "base": "29 partidos; 27 titularidades; 2349 minutos; 1 gol y 2 asistencias"
+        },
+        {
+          "jugador": "Juan Pablo De La Reta",
+          "club_id": "maipu",
+          "media_anterior": 54,
+          "media_nueva": 57,
+          "base": "32 partidos; 27 titularidades; 2447 minutos"
+        },
+        {
+          "jugador": "Enzo Wattier",
+          "club_id": "rafaela",
+          "media_anterior": 54,
+          "media_nueva": 57,
+          "base": "29 partidos; valoración media 6,12 de equipo; nombre corregido desde Enzo Wuattier"
+        }
+      ]
     }
   }
 }
