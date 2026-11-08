@@ -378,3 +378,19 @@ Fecha de revisión: 08/11/2026.
 | Edwuin Cetré | Derecho | https://www.sofascore.com/es/football/player/edwuin-cetre/927790 |
 
 **Progreso de Estudiantes:** 26/38 jugadores con pie dominante registrado (incluye a Marcos Rojo).
+
+
+## Cuarta tanda de Estudiantes de La Plata — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Faustino Messina | Izquierdo | https://www.sofascore.com/football/player/faustino-messina/1836755 |
+| Adolfo Gaich | Derecho | https://www.sofascore.com/es/football/player/adolfo-gaich/940692 |
+| Franco Domínguez Ávila | Izquierdo | https://www.sofascore.com/es/football/player/franco-dominguez/2214969 |
+| Lucas Alario | Derecho | https://www.sofascore.com/es/football/player/lucas-alario/249893 |
+| Brian Aguirre | Ambos | https://www.sofascore.com/es/football/player/brian-aguirre/1084962 |
+| Fabricio Pérez | Derecho | https://www.sofascore.com/es/football/player/fabricio-perez/1836754 |
+| Joaquín Correa | Derecho | https://www.sofascore.com/es/football/player/joaquin-correa/249929 |
+
+**Progreso de Estudiantes:** 33/38 jugadores con pie dominante registrado (incluye a Marcos Rojo).
