@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1010,
-  "estado_general": "Auditoría 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, seis altas agregadas y dos identidades corregidas en segunda tanda; Leonardo Marinucci agregado en tercera tanda. 1.010 jugadores en borradores; sin integración al runtime.",
+  "jugadores_borrador": 1017,
+  "estado_general": "Auditoría 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, catorce altas agregadas y dos identidades corregidas; bloque 5 normalizado y validado. 1.017 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1175,9 +1175,9 @@
     "altas_respaldo_pendientes": "Ver reporte de auditoría; completar ficha individual antes de incorporar.",
     "csv_modificados": true,
     "bajas_confirmadas_retiradas": 3,
-    "altas_agregadas": 7,
+    "altas_agregadas": 14,
     "identidades_corregidas": 2,
-    "jugadores_actuales": 1010
+    "jugadores_actuales": 1017
   },
   "depuracion_primera_tanda": {
     "fecha": "2026-11-08",
@@ -1278,6 +1278,47 @@
       "Cristian Vega: ficha de temporada 2026 lo ubica en Ciudad de Bolívar, no Racing de Córdoba"
     ],
     "rating_atributos": "Estimaciones internas identificadas; ajuste de escala +10 preservado.",
+    "runtime_modificado": false
+  },
+  "depuracion_cuarta_tanda": {
+    "fecha": "2026-11-08",
+    "club": "Deportivo Maipú",
+    "jugadores_antes": 1010,
+    "jugadores_despues": 1017,
+    "altas_agregadas": [
+      {
+        "jugador": "Brian Orosco",
+        "bloque": 5
+      },
+      {
+        "jugador": "Diego Agustín Yavante Gaitán",
+        "bloque": 5
+      },
+      {
+        "jugador": "Matías Agustín Leiva",
+        "bloque": 5
+      },
+      {
+        "jugador": "Mateo Ortale",
+        "bloque": 5
+      },
+      {
+        "jugador": "Juan Cruz Arno",
+        "bloque": 5
+      },
+      {
+        "jugador": "Luca Landriel",
+        "bloque": 5
+      },
+      {
+        "jugador": "Agustín Pavón",
+        "bloque": 5
+      }
+    ],
+    "filas_csv_normalizadas": 7,
+    "validacion": "Bloque 5: 33 columnas en todas las filas; sin nombres duplicados entre las siete altas.",
+    "rating_atributos": "Estimaciones internas identificadas; ajuste +10 preservado.",
+    "dorsales": "99 provisional interno para las siete altas; no confirmado oficialmente.",
     "runtime_modificado": false
   }
 }
