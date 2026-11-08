@@ -866,3 +866,20 @@ Fecha de revisión: 08/11/2026.
 | Jaminton Campaz | Izquierdo | https://www.sofascore.com/es/football/player/jaminton-campaz/877299 |
 
 **Progreso de Rosario Central:** 18/38 jugadores con pie registrado. Álvaro Güich queda pendiente de una ficha individual inequívoca.
+
+
+## Tercera tanda de Rosario Central — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Franco Cervi | Izquierdo | https://www.sofascore.com/es/football/player/franco-cervi/557008 |
+| Julián Fernández | Izquierdo | https://www.sofascore.com/es/football/player/julian-fernandez/1177433 |
+| Santiago Segovia | Derecho | https://www.sofascore.com/es/football/player/santiago-segovia/1819633 |
+| Vicente Pizarro | Izquierdo | https://www.sofascore.com/es/football/player/vicente-pizarro/986754 |
+| Giovanni Cantizano | Derecho | https://www.sofascore.com/es/football/player/giovanni-cantizano/1836624 |
+| Federico Navarro | Derecho | https://www.sofascore.com/es/football/player/federico-navarro/963280 |
+| Lucas Ramos López | Ambos | https://www.sofascore.com/es/football/player/lucas-ramos/2502931 |
+| Kevin Gutiérrez | Derecho | https://www.sofascore.com/football/player/kevin-gutierrez/1482405 |
+
+**Progreso de Rosario Central:** 26/38 jugadores con pie registrado. Lucas Ramos López figura expresamente como ambidiestro.
