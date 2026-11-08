@@ -704,3 +704,20 @@ Fecha de revisión: 08/11/2026.
 | Sasha Marcich | Izquierdo | https://www.sofascore.com/es/football/player/sasha-marcich/992126 |
 
 **Progreso de Lanús:** 7/34 jugadores con pie registrado. Se dejan pendientes los casos sin ficha individual clara.
+
+
+## Segunda tanda de Lanús — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Nicolás Morgantini | Derecho | https://www.sofascore.com/football/player/nicolas-morgantini/941545 |
+| Gonzalo Pérez | Derecho | https://www.sofascore.com/football/player/gonzalo-perez/1048185 |
+| Luciano Romero | Izquierdo | https://www.sofascore.com/football/player/luciano-romero/1836922 |
+| Agustín Cardozo | Derecho | https://www.sofascore.com/es-la/football/player/agustin-cardozo/851824 |
+| Ramiro Carrera | Derecho | https://www.sofascore.com/es/football/player/ramiro-carrera/340441 |
+| Mariano Gerez | Derecho | https://www.sofascore.com/football/player/mariano-gerez/1482400 |
+| Thiago Laplace | Izquierdo | https://www.sofascore.com/football/player/thiago-laplace/1597275 |
+| Raúl Loaiza | Derecho | https://www.sofascore.com/es/football/player/raul-loaiza/991270 |
+
+**Progreso de Lanús:** 15/34 jugadores con pie registrado. Mariano Gerez aparece cedido fuera del país y Thiago Laplace en reserva; se conserva el dato individual de pie sin inferirlo por su puesto.
