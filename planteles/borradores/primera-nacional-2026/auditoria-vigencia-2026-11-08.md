@@ -332,3 +332,11 @@ Los seis registros incluyen fecha de nacimiento, posición/rol, nacionalidad, ra
 - Se preservó la escala de ratings (+10), con trazabilidad rating_base/ajuste_rating; las nuevas fichas usan base estimada + ajuste 10.
 - No se modificó el runtime ni se integraron los borradores al juego.
 - Los dorsales de las seis altas son asignaciones internas provisionales; no se presentan como dorsales oficiales.
+
+
+## Tercera tanda de depuración — 08/11/2026
+
+- **Deportivo Madryn: Leonardo Fabián Marinucci incorporado** al bloque 1. La ficha de BeSoccer lo identifica como delantero/extremo derecho, argentino, nacido el 28/02/1993; registra 32 partidos y 2.196 minutos en la temporada 2025/26, y su trayectoria 2026 lo ubica en Deportivo Madryn tras llegar desde Chaco For Ever. Se asignó rating 70 y atributos técnicos estimados, no oficiales; dorsal 99 interno provisional, no se presenta como número oficial. Fuentes: https://es.besoccer.com/jugador/l-marinucci-234364 ; https://www.soloascenso.com.ar/notas/deportivo-maipu/deportivo-madryn-cerro-la-llegada-de-su-primer-refuerzo/229106 ; https://www.mundoascenso.com.ar/plantel/147-deportivo-madryn
+- **Nicolás Morro (Defensores de Belgrano) no se incorpora todavía**: aunque Sofascore lo muestra en el club y con ficha personal, las fuentes consultadas discrepan en la cantidad/atribución de sus presencias y su trayectoria 2026 incluye también Estudiantes de Río Cuarto. Requiere confirmar pertenencia efectiva al plantel al corte antes de agregarlo.
+- **Nahuel Sandrone y Cristian Vega se descartan como altas de Racing de Córdoba**: Sandrone aparece en Racing II (reserva), mientras que la ficha de Cristian Vega lo ubica en Ciudad de Bolívar durante 2026; la atribución anterior a Racing no alcanza para incorporarlos.
+- Base tras esta tanda: **1.010 jugadores**. No se alteraron otros clubes, ratings existentes, atributos existentes ni runtime.
