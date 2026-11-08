@@ -215,10 +215,51 @@ const TM={};teams.forEach(t=>TM[t.id]=t);
 const FM=[[4,4,2],[4,3,3],[3,5,2],[4,5,1],[5,3,2],[4,5,1],[4,4,2],[3,4,3],[5,4,1],[4,4,2],[4,5,1],[4,5,1],[3,6,1],[5,2,3]];
 const FN=['4-4-2','4-3-3','3-5-2','4-5-1','5-3-2','4-2-3-1','4-2-2-2','3-4-3','5-4-1','4-3-1-2','4-1-4-1','4-4-1-1','3-4-2-1','5-2-3'];
 const slots=f=>{const[d,m,a]=FM[f];return['POR',...Array(d).fill('DEF'),...Array(m).fill('MED'),...Array(a).fill('DEL')]};
-function autoXI(sq,f,ban){const sl=slots(f),pool=sq.map((_,i)=>i).filter(i=>!(ban&&ban.has(i))),eff=(i,p)=>roleOvr(sq[i],p)*(sq[i].p==p?1:(p=='POR'||sq[i].p=='POR')?.3:.8),xi=[],u=new Set();   // eficacia = media (menos si juega fuera de puesto)
- sl.forEach(p=>{let b=-1,bv=-1;pool.forEach(i=>{if(u.has(i))return;const v=eff(i,p);if(v>bv){bv=v;b=i}});u.add(b);xi.push(b)});
- let imp=true,g=0;while(imp&&g++<60){imp=false;for(let a=0;a<sl.length;a++)for(const i of pool){const b=xi.indexOf(i);if(b<0){if(eff(i,sl[a])>eff(xi[a],sl[a])+1e-9){xi[a]=i;imp=true}}else if(b>a&&eff(xi[a],sl[a])+eff(xi[b],sl[b])<eff(xi[b],sl[a])+eff(xi[a],sl[b])-1e-9){[xi[a],xi[b]]=[xi[b],xi[a]];imp=true}}}   // mejora hasta que no se pueda sumar más
- return xi}
+// Puesto exacto de cada casillero: se comparte la misma geometría que usa el campo 2D.
+function exactSlots(f,st){
+ try{
+  const sim=typeof window!=='undefined'&&window.SIM2D?window.SIM2D:require('./sim2d');
+  return sim.roleLayout(f,Number.isInteger(st)?st:1).map(q=>{
+   if(q.rl=='ARQ')return'POR';if(q.rl=='DEF')return'DFC';
+   if(q.rl=='L')return q.rs<0?'LI':'LD';if(q.rl=='M')return q.rs<0?'MI':'MD';
+   if(q.rl=='EX')return q.rs<0?'EI':'ED';
+   return q.rl;
+  });
+ }catch(e){return slots(f).map(p=>p=='POR'?'POR':p=='DEF'?'DFC':p=='MED'?'MC':'DC')}
+}
+const roleGroup=r=>r=='POR'?'POR':['DFC','LI','LD','LIB'].includes(r)?'DEF':['MCD','MC','MO','MP','MI','MD'].includes(r)?'MED':['DC','SD','EI','ED'].includes(r)?'DEL':null;
+const roleFit=(x,want)=>{
+ const main=String(x.specificRole||x.pos||'').trim().toUpperCase();
+ const alt=Array.isArray(x.alt)?x.alt.map(v=>String(v||'').trim().toUpperCase()):[];
+ if(!want||!main)return 0;
+ if(main==want)return 4.5;
+ if(alt.includes(want))return 2.5;
+ if(roleGroup(main)==roleGroup(want))return -3.5;
+ return -8;
+};
+// Asignación óptima de jugadores a casilleros (algoritmo húngaro, no elección voraz).
+function maxAssignment(score){
+ const n=score.length,m=score[0]?.length||0;if(!n||m<n)return null;
+ const u=Array(n+1).fill(0),v=Array(m+1).fill(0),p=Array(m+1).fill(0),way=Array(m+1).fill(0);
+ for(let i=1;i<=n;i++){
+  p[0]=i;let j0=0,minv=Array(m+1).fill(Infinity),used=Array(m+1).fill(false);
+  do{used[j0]=true;const i0=p[j0];let delta=Infinity,j1=0;
+   for(let j=1;j<=m;j++)if(!used[j]){const cur=-score[i0-1][j-1]-u[i0]-v[j];if(cur<minv[j]){minv[j]=cur;way[j]=j0}if(minv[j]<delta){delta=minv[j];j1=j}}
+   for(let j=0;j<=m;j++){if(used[j]){u[p[j]]+=delta;v[j]-=delta}else minv[j]-=delta}j0=j1;
+  }while(p[j0]!==0);
+  do{const j1=way[j0];p[j0]=p[j1];j0=j1}while(j0);
+ }
+ const out=Array(n).fill(-1);for(let j=1;j<=m;j++)if(p[j])out[p[j]-1]=j-1;return out;
+}
+function autoXI(sq,f,ban,st){
+ const sl=slots(f),want=exactSlots(f,st),pool=sq.map((_,i)=>i).filter(i=>!(ban&&ban.has(i)));
+ if(pool.length<sl.length)return sl.map(()=>-1);
+ const weights=sl.map((pos,k)=>pool.map(i=>{
+  const x=sq[i],base=roleOvr(x,pos)*(x.p==pos?1:(pos=='POR'||x.p=='POR')?.3:.8);
+  return base+roleFit(x,want[k]);
+ }));
+ const assigned=maxAssignment(weights);return assigned?assigned.map(j=>pool[j]):sl.map(()=>-1);
+}
 const rng=s=>{s>>>=0;return()=>{s=s+0x6D2B79F5>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}};
 const hs=x=>{let h=2166136261;for(const c of x)h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0};
 const AP=['Acosta','Aguirre','Álvarez','Barrios','Benítez','Blanco','Bustos','Cabrera','Castro','Chávez','Correa','Cuello','Díaz','Domínguez','Escobar','Fernández','Figueroa','Flores','Giménez','Godoy','Gómez','González','Herrera','Ibarra','Juárez','Ledesma','López','Luna','Maldonado','Martínez','Medina','Molina','Montenegro','Moreno','Navarro','Núñez','Ojeda','Ortiz','Páez','Peralta','Pereyra','Pérez','Quiroga','Ramírez','Rey','Ríos','Rivero','Rodríguez','Rojas','Romero','Ruiz','Salas','Sánchez','Silva','Sosa','Suárez','Torres','Vega','Villalba','Vera'];
