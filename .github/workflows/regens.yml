@@ -10,6 +10,7 @@ on:
       - 'public/squads.json'
       - 'test-player-regens.js'
       - 'test-career-regens.js'
+      - 'test-career-regens-multiseason.js'
       - '.github/workflows/regens.yml'
   pull_request:
     branches: [main]
@@ -35,3 +36,5 @@ jobs:
         run: node test-player-regens.js
       - name: Probar integración en carrera real
         run: node test-career-regens.js
+      - name: Probar seis temporadas y restauración de carrera
+        run: node test-career-regens-multiseason.js
