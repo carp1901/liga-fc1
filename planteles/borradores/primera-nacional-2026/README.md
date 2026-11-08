@@ -242,3 +242,8 @@ En ambos casos se actualizaron `rating`, `rating_base` y los siete atributos de 
 - **Martín Pino (Godoy Cruz): 75 → 77.** 32 partidos, 32 titularidades, 2.742 minutos, 19 goles y 7 asistencias en Primera Nacional 2026. Se aplica +2 para reflejar una temporada de figura y una producción ofensiva muy superior al promedio de la categoría. Fuente: https://www.fotmob.com/es/players/1085220/martin-pino
 - Se actualizaron `rating`, `rating_base` y los siete atributos de campo en +2; se mantiene `ajuste_rating = 10` y `ref = 15`.
 - Promedio recalculado: **68,44**. Validación estructural completa: 1.026 jugadores, seis bloques correctos, 33 columnas y cero errores. Sin integración al runtime.
+
+
+## Revisión de distribución tras cinco tandas — 08/11/2026
+
+Se recalculó la distribución de medias sobre los 1.026 jugadores y se contrastaron los 36 promedios de club, las cuatro líneas y todos los subroles contra `ROLE_OFFSETS` de `public/data.js`. Resultado: promedio 68,44; mediana 69; P10 64; P25 67; P75 71; P90 72; rango 56–78. Hay 882 jugadores (86,0%) entre 64 y 72. Promedios por posición: POR 68,47; DEF 68,72; MED 68,13; DEL 68,50. No hay subroles sin perfil ni errores estructurales. La distribución sigue concentrada, por lo que la calibración debe continuar con evidencia individual y sin subas generales.
