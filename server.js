@@ -33,8 +33,8 @@ function chatFilter(raw){
  const re=new RegExp('(^|[^\\p{L}\\p{N}])('+CHAT_BAD.join('|')+')(?=$|[^\\p{L}\\p{N}])','giu');
  return msg.replace(re,(all,left,word)=>left+'•'.repeat(word.length));
 }
-function chatBroadcast(m){
- const packet='event: mensaje\ndata:'+JSON.stringify(m)+'\n\n';
+function chatBroadcast(m,tipo='mensaje'){
+ const packet='event: '+tipo+'\ndata:'+JSON.stringify(m)+'\n\n';
  for(const c of CHAT_CLIENTS){try{c.write(packet)}catch(e){CHAT_CLIENTS.delete(c)}}
 }
 http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
@@ -74,7 +74,8 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
    return jn(404,{error:'No existe'})}
  if(u.pathname=='/api/tecnico'&&req.method=='GET'){const usuario=u.searchParams.get('usuario')||'';return store.perfilPublico(usuario).then(d=>{const code=d.error?404:200;res.writeHead(code,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d))},()=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Perfil no disponible'}))})}
  if(u.pathname=='/api/ranking-tecnicos'&&req.method=='GET'){const periodo=u.searchParams.get('periodo')=='temporada'?'temporada':'historico';return store.rankingTecnicos(periodo).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d))},()=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Ranking no disponible'}))})}
- if(u.pathname=='/api/chat'&&req.method=='GET')return store.chatHistorial(+u.searchParams.get('limit')||80).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d))},()=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Chat no disponible'}))});
+ if(u.pathname=='/api/chat'&&req.method=='GET')return store.userByToken(tokOf(req)).then(us=>store.chatHistorial(+u.searchParams.get('limit')||80,us&&us.id)).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d))},()=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Chat no disponible'}))});
+ if(u.pathname=='/api/chat/reaccion'&&req.method=='POST')return body(req,b=>{const jn=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(o))};if(!b)return jn(400,{error:'Pedido inválido'});store.userByToken(tokOf(req,b)).then(async us=>{if(!us)return jn(401,{error:'Iniciá sesión para reaccionar'});if(!rlOk('chatvote:'+us.id,180))return jn(429,{error:'Demasiadas reacciones; probá más tarde'});const d=await store.chatVotar(us.id,b.id,b.valor);if(d.error)return jn(400,d);chatBroadcast({id:d.reaccion.id,likes:d.reaccion.likes,dislikes:d.reaccion.dislikes},'reaccion');return jn(200,d)}).catch(()=>jn(503,{error:'Chat no disponible'}))});
  if(u.pathname=='/api/chat/stream'&&req.method=='GET'){
   res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});res.write('retry:3000\nevent: conectado\ndata:{}\n\n');CHAT_CLIENTS.add(res);req.on('close',()=>CHAT_CLIENTS.delete(res));return;
  }
