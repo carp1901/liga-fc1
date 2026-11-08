@@ -34,7 +34,7 @@ function chatFilter(raw){
  return msg.replace(re,(all,left,word)=>left+'•'.repeat(word.length));
 }
 function chatBroadcast(m){
- const packet='event: mensaje\ndata:'+JSON.stringify(m)+'\\n\\n';
+ const packet='event: mensaje\ndata:'+JSON.stringify(m)+'\n\n';
  for(const c of CHAT_CLIENTS){try{c.write(packet)}catch(e){CHAT_CLIENTS.delete(c)}}
 }
 http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
