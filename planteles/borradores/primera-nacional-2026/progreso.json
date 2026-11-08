@@ -603,17 +603,17 @@
       "porcentaje_media_60": 6.8,
       "fuentes_ovr_ea_fc_individual_verificadas": 0,
       "criterio_actual": "Las 1006 medias son estimaciones propias; no se buscan OVR EA FC individuales para esta división porque no hay cobertura de EA FC. Se revisarán por coherencia competitiva y se mantendrá pendiente el ajuste general de +10 para Primera y Primera Nacional hasta cerrar la auditoría.",
-      "promedio_actual": 58.43
+      "promedio_actual": 58.44
     },
     "proximos_pasos": [
-      "Continuar revisión cualitativa de medias y comparar jugadores con volumen de minutos/rendimiento alto",
+      "Continuar auditoría de medias con foco en titulares habituales y producción estadística, evitando subir automáticamente a suplentes con muchas presencias",
       "Contrastar dorsales oficiales cuando existan nóminas completas; los números restantes siguen siendo provisionales",
       "Auditar atributos individuales (los ocho campos técnicos están vacíos en los 1006 registros) y coherencia entre rol, media y atributos",
       "Revisar vigencia y pertenencia de jugadores a cada plantel"
     ],
     "revision_medias": {
       "jugadores_analizados": 1006,
-      "promedio_general": 58.43,
+      "promedio_general": 58.44,
       "rango": [
         48,
         66
@@ -632,7 +632,7 @@
           "promedio": 60
         }
       ],
-      "observacion": "Se revisaron seis casos con participación alta y media inicial baja, corrigiendo sus valores de forma moderada. 397 jugadores tienen presencias 2026 cargadas; no hay valoraciones individuales de partido cargadas en el CSV. El promedio general se mantiene en 58,43. No se aplica aún el ajuste general de +10.",
+      "observacion": "La revisión de jugadores con 25 o más presencias y media inicial hasta 56 detectó casos justificadamente bajos por minutos reducidos, pero también desvíos. Se corrigieron Mirko Bonfigli y Mario Sanabria con estadísticas 2026 verificadas. Se ajustaron cinco roles/posiciones mal clasificados. Se mantienen pendientes de contraste individual otros casos con estadísticas contradictorias o sin fuente suficientemente sólida. El promedio general es 58,44. No se aplica aún el ajuste general de +10.",
       "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
       "campos_atributos_individuales_vacios": {
         "pas": 1006,
@@ -688,6 +688,57 @@
           "media_anterior": 55,
           "media_nueva": 58,
           "base": "35 presencias; 4 goles; 3 asistencias; valoración media 6,13"
+        },
+        {
+          "jugador": "Mirko Bonfigli",
+          "club_id": "maipu",
+          "media_anterior": 56,
+          "media_nueva": 61,
+          "base": "36 partidos; 24 titularidades; 2830 minutos; 7 goles y 2 asistencias"
+        },
+        {
+          "jugador": "Mario Sanabria",
+          "club_id": "chacarita",
+          "media_anterior": 56,
+          "media_nueva": 59,
+          "base": "35 partidos; 22 titularidades; 2057 minutos; 1 gol y 5 asistencias"
+        }
+      ],
+      "correcciones_de_roles": [
+        {
+          "jugador": "Elías Ocampo",
+          "club_id": "colegiales",
+          "anterior": "ED",
+          "nuevo": "MD",
+          "base": "Interior derecho según ficha 2026"
+        },
+        {
+          "jugador": "Facundo Montiel",
+          "club_id": "colegiales",
+          "anterior": "MC",
+          "nuevo": "MO",
+          "base": "Mediocentro ofensivo según ficha 2026"
+        },
+        {
+          "jugador": "Luciano Viano",
+          "club_id": "racingcba",
+          "anterior": "MC / DEL",
+          "nuevo": "LI / DEF",
+          "base": "Lateral izquierdo según ficha 2026"
+        },
+        {
+          "jugador": "Iñaki Larthirigoyen",
+          "club_id": "santelmo",
+          "anterior": "ED",
+          "nuevo": "EI",
+          "base": "Extremo izquierdo según ficha 2026"
+        },
+        {
+          "jugador": "Mario Sanabria",
+          "club_id": "chacarita",
+          "anterior": "MO",
+          "nuevo": "EI",
+          "base": "Extremo izquierdo según ficha 2026"
         }
       ]
     }
