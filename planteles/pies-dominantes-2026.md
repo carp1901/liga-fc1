@@ -344,3 +344,21 @@ Fecha de revisión: 08/11/2026.
 | Tomás Palacios | Izquierdo | https://www.sofascore.com/es/football/player/tiago-tomas-palacios/1173598 |
 
 **Progreso de Estudiantes:** 10/38 jugadores con pie registrado (incluye a Marcos Rojo, ya cargado previamente). Se continúa con los restantes; no se asignan pies por deducción posicional.
+
+
+## Segunda tanda de Estudiantes de La Plata — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| José Ernesto Sosa | Derecho | https://www.sofascore.com/es/football/player/jose-sosa/110511 |
+| Gabriel Neves | Derecho | https://www.sofascore.com/es/football/player/gabriel-neves/875294 |
+| Tiago Palacios | Izquierdo | https://www.sofascore.com/es/football/player/tiago-palacios/1018468 |
+| Ezequiel Piovi | Derecho | https://www.sofascore.com/es/football/player/ezequiel-piovi/359098 |
+| Alexis Castro | Izquierdo | https://www.sofascore.com/es/football/player/alexis-castro/801037 |
+| Baltasar Rodríguez | Derecho | https://www.sofascore.com/es/football/player/rodriguez-baltasar/1201515 |
+| Miguel Monsalve | Derecho | https://www.sofascore.com/es/football/player/miguel-monsalve/1066620 |
+| Jalil Elías | Derecho | https://www.sofascore.com/es/football/player/jalil-elias/797031 |
+| Bautista Kociubinski | Derecho | https://www.sofascore.com/es/football/player/bautista-kociubinski/1086935 |
+
+**Progreso de Estudiantes:** 19/38 jugadores con pie dominante registrado (incluye a Marcos Rojo).
