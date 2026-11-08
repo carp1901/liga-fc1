@@ -434,3 +434,21 @@ Fecha de revisión: 08/11/2026.
 | Thiago Silvero | Derecho | https://www.sofascore.com/es/football/player/thiago-silveor/1894554 |
 
 **Progreso de Vélez:** 8/30 jugadores con pie registrado. Se continúa con los restantes; los perfiles de juveniles de reserva se contrastan por nombre y club antes de cargar.
+
+
+## Segunda tanda de Vélez Sarsfield — 9 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Elías Gómez | Izquierdo | https://www.sofascore.com/es/football/player/elias-gomez/365862 |
+| Leo Cristaldo | Izquierdo | https://www.sofascore.com/es/football/player/leo-cristaldo/2031284 |
+| Simón Escobar | Izquierdo | https://www.sofascore.com/es/football/player/simon-escobar/2199217 |
+| Lucas Robertone | Derecho | https://www.sofascore.com/es/football/player/lucas-robertone/848926 |
+| Manuel Lanzini | Derecho | https://www.sofascore.com/es/football/player/manuel-lanzini/220315 |
+| Diego Valdés | Derecho | https://www.sofascore.com/es/football/player/diego-valdes/333421 |
+| Rodrigo Aliendro | Derecho | https://www.sofascore.com/football/player/rodrigo-aliendro/830748 |
+| Matías Pellegrini | Izquierdo | https://www.sofascore.com/es/football/player/matias-pellegrini/940610 |
+| Alexis Pereyra | Derecho | https://www.sofascore.com/es/football/player/alexis-pereyra/2502213 |
+
+**Progreso de Vélez:** 17/30 jugadores con pie dominante registrado. Agustín Cortez queda pendiente de una ficha inequívoca.
