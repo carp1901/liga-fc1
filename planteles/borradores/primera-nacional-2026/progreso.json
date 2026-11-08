@@ -851,5 +851,18 @@
     "maximo_actual": 76,
     "trazabilidad": "Cada fila conserva rating_base y ajuste_rating. Todas las medias siguen siendo estimaciones propias; no se convierten en OVR oficiales.",
     "integracion": "Los seis bloques siguen como borradores y no se integran al runtime."
+  },
+  "cobertura_perfiles_atributos": {
+    "fecha": "2026-11-08",
+    "jugadores_revisados": 1006,
+    "subroles_con_perfil": 1006,
+    "subroles_sin_perfil": 0,
+    "perfiles_nuevos": {
+      "MI": 20,
+      "MD": 26,
+      "MP": 8,
+      "LIB": 1
+    },
+    "nota": "Se añadieron offsets para MI, MD, MP y LIB en public/data.js. POR utiliza PROFILES.POR; el resto de subroles ya contaba con offsets. Los atributos individuales siguen siendo derivados por el motor, no datos observados."
   }
 }
