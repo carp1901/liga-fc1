@@ -419,3 +419,19 @@ Se resolvieron dos conflictos de identidad que habían quedado abiertos en el CS
 - **Franco de la Vega → Facundo Sebastián De La Vega.** La fecha de nacimiento 15/04/2003 coincide con la ficha de Solo Ascenso, que registra 16 presencias y cinco goles en Almagro durante 2026. Soccerbase confirma que llegó a Almagro a préstamo desde Aldosivi. Se corrigió la identidad sin duplicar y se mantuvo su perfil de delantero centro. Fuentes: https://www.soloascenso.com.ar/perfil/facundo-de-la-vega/887 ; https://www.soccerbase.com/players/player.sd?player_id=158093 ; https://www.zerozero.com.mx/jugador/facundo-de-la-vega/988104
 
 La fila de Claudio Salto actualiza además el dorsal al 10 y el registro de apariciones 2026. El CSV conserva 33 columnas por fila; el total de jugadores no cambia (1.023). No se modificó el runtime.
+
+
+## Novena tanda de depuración — Almirante Brown y Defensores de Belgrano — 08/11/2026
+
+### Almirante Brown — Joaquín Ibáñez
+Se incorporó **Joaquín Noé Ibáñez Aro**, nacido el 23/06/2004, delantero/extremo derecho. La contratación oficial publicada el 27/06/2026 lo identifica como extremo de 22 años, cedido desde Independiente Rivadavia hasta junio de 2027. Transfermarkt y ZeroZero coinciden en la fecha de nacimiento; ZeroZero registra una aparición con Almirante y 16 partidos previos en Reserva. La planilla de TyC Sports del partido ante Racing de Córdoba (02/08/2026) muestra a Ibáñez en el banco con la camiseta **16** y registra su ingreso y gol. Aunque comparte fecha de nacimiento con **Luciano Pascual**, la misma planilla confirma que ambos estuvieron en el mismo plantel y partido: son jugadores distintos, no un duplicado. Se descarta como correspondencia la ficha Footlab de Joaquín Ibáñez nacido en 1996, que no coincide con el refuerzo oficial. Rating y atributos son estimaciones internas. Fuentes: https://www.soloascenso.com.ar/notas/temperley/almirante-brown-oficializo-la-llegada-de-su-primer-refuerzo/229698 ; https://www.zerozero.com.mx/jugador/joaquin-ibanez/2347167 ; https://www.transfermarkt.com.ar/club-almirante-brown/startseite/verein/12672 ; https://www.tycsports.com/primera-nacional/argentina-campeonato-primera-nacional-2026-almirante-brown-vs-racing-cba-fecha-23-id752717
+
+### Defensores de Belgrano — Nicolás Morro
+Se incorporó **Nicolás Morro**, nacido el 29/08/1997, defensor central zurdo. Defensores oficializó su llegada el 23/06/2026 desde Estudiantes de Río Cuarto. Su ficha 2026 registra una aparición con Defensores (90 minutos, 04/07) y una anterior con Estudiantes en Copa Argentina; sufrió una fractura de tibia y peroné el 10/07, por lo que no se interpreta su baja participación como falta de pertenencia al plantel. Sofascore confirma dorsal **14**, pie izquierdo y fecha de nacimiento. Rating y atributos son estimaciones internas. Fuentes: https://www.soloascenso.com.ar/notas/ferro-carril-oeste/un-refuerzo-confirmado-y-otro-apalabrado-en-el-dragon/229568 ; https://www.soloascenso.com.ar/notas/defensores-de-belgrano/defensores-de-belgrano-y-una-baja-sensible-en-defensa/230208 ; https://www.soloascenso.com.ar/perfil/nicolas-morro/21722 ; https://www.sofascore.com/es-la/football/player/nicolas-morro/2044372
+
+### Resultado de la tanda
+- 2 altas incorporadas: Joaquín Ibáñez (Almirante Brown) y Nicolás Morro (Defensores de Belgrano).
+- Se resolvió el conflicto de identidad de Ibáñez priorizando el comunicado de contratación y las fichas coincidentes de 2004; la planilla confirma que es distinto de Luciano Pascual pese a compartir fecha de nacimiento.
+- Dorsales 16 de Ibáñez y 14 de Morro respaldados por fuentes de partido/ficha.
+- Bloques 4 y 6 validados con 33 columnas por fila. Total actualizado: 1.025 jugadores.
+- No se modificó el runtime.
