@@ -1006,3 +1006,18 @@ Fecha de revisión: 08/11/2026.
 | Facundo Di Biasi | Derecho | https://www.sofascore.com/es/football/player/facundo-di-biasi/2017621 |
 
 **Progreso de Gimnasia:** 13/36 jugadores con pie registrado. Lucas Lamella, Jeremías Langa, Mariano Ojeda y Pedro Silva Torrejón quedan pendientes de fuente individual.
+
+
+## Tercera tanda de Gimnasia y Esgrima La Plata — 6 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Augusto Max | Derecho | https://www.sofascore.com/es/football/player/augusto-max/897058 |
+| Ignacio Miramón | Derecho | https://www.sofascore.com/es/football/player/ignacio-miramon/1090319 |
+| Mateo Seoane | Derecho | https://www.sofascore.com/es/football/player/mateo-seoane/1186698 |
+| Agustín Auzmendi | Derecho | https://www.sofascore.com/es/football/player/agustin-auzmendi/1173824 |
+| Agustín Colazo | Derecho | https://www.sofascore.com/football/player/agustin-colazo/1093119 |
+| Jorge de Asís | Ambos | https://www.sofascore.com/es/football/player/jorge-de-asis/2138839 |
+
+**Progreso de Gimnasia:** 19/36 jugadores con pie registrado. Jorge de Asís figura como ambidiestro.
