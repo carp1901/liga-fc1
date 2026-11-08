@@ -945,7 +945,7 @@
     },
     "coincidencias_bajas_en_csv": 22,
     "altas_publicadas_ausentes_en_club_destino": 62,
-    "estado": "EN CURSO — tres pasadas documentadas (Chacarita, Temperley, Ferro y All Boys); 22 posibles bajas y 62 posibles altas aún no resueltas en conjunto. No se editaron CSV.",
+    "estado": "EN CURSO — cuatro pasadas documentadas: Chacarita, Temperley, Ferro, All Boys, Almagro, Almirante Brown, Atlanta y Atlético de Rafaela. No se modificaron CSV; varios casos requieren cotejo de identidad y ficha completa.",
     "dorsales": {
       "asignaciones_internas_provisionales": 1001,
       "respaldados_por_planillas_de_partidos": 5,
@@ -953,7 +953,7 @@
       "nota": "Cuatro respaldos de Midland y uno de Atlético de Rafaela son planillas de partidos, no nóminas oficiales completas."
     },
     "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md",
-    "siguiente_paso": "Continuar con los clubes restantes, priorizando comunicados oficiales recientes y convocatorias/planillas de noviembre; completar fichas confirmadas antes de editar CSV.",
+    "siguiente_paso": "Continuar con los clubes restantes en bloques grandes; priorizar los 22 candidatos de bajas, verificar planteles actuales y convocatorias de noviembre, y completar fichas de altas respaldadas sin duplicar nombres.",
     "segunda_pasada": {
       "fecha": "2026-11-08",
       "clubes_revisados": [
@@ -987,6 +987,64 @@
         "https://caallboys.com.ar/2026/06/27/comunicado-futbol-profesional-masculino/",
         "https://caallboys.com.ar/2026/11/02/termino-el-ano-con-una-victoria/"
       ]
+    },
+    "cuarta_pasada": {
+      "fecha": "2026-11-08",
+      "clubes_revisados": [
+        "Almagro",
+        "Almirante Brown",
+        "Atlanta",
+        "Atlético de Rafaela"
+      ],
+      "hallazgos": {
+        "almagro": {
+          "altas_respaldadas": [
+            "Matías Laba",
+            "Claudio Salto",
+            "Facundo De La Vega"
+          ],
+          "conflictos_identidad": [
+            "Cristian Salto vs. Claudio Salto",
+            "Franco de la Vega vs. Facundo De La Vega"
+          ],
+          "accion": "No duplicar ni renombrar hasta cotejar fichas individuales."
+        },
+        "almirante_brown": {
+          "altas_respaldadas": [
+            "Joaquín Ibáñez",
+            "Santiago Villalba",
+            "Julián López",
+            "Gonzalo Flores"
+          ],
+          "identidades_pendientes": [
+            "Luciano Pascual vs. Lucas Pascual",
+            "Mariano Santiago vs. Matías Santiago"
+          ],
+          "accion": "Completar fichas y resolver nombres antes de incorporar."
+        },
+        "atlanta": {
+          "descartado_como_alta": [
+            "Alejo Dramisino: página oficial indica préstamo a Deportivo Riestra"
+          ],
+          "pendientes": [
+            "Francisco Romero",
+            "Franco Cáceres"
+          ]
+        },
+        "atletico_rafaela": {
+          "altas_respaldadas_pendientes_ficha": [
+            "Gabriel Esparza",
+            "Matías Morello"
+          ],
+          "ya_cargado": [
+            "Juan Ignacio Cavallaro figura como Juan Cavallaro"
+          ],
+          "limitacion": "Nómina secundaria actualizada al 30/10; falta corroboración institucional antes de integrar."
+        }
+      },
+      "cambios_csv": 0,
+      "criterio": "No agregar ni modificar identidades sin cotejar ficha individual, posición, fecha de nacimiento y atributos.",
+      "reporte": "auditoria-vigencia-2026-11-08.md"
     }
   }
 }
