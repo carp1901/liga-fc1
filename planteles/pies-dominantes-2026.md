@@ -947,3 +947,18 @@ Fecha de revisión: 08/11/2026.
 | Emmanuel Ojeda | Derecho | https://www.sofascore.com/es/football/player/emmanuel-ojeda/857488 |
 
 **Progreso de Huracán:** 16/31 jugadores con pie registrado. Rodrigo Fernández Cedrés y Luca Babino quedan pendientes de una ficha individual fiable.
+
+
+## Tercera tanda de Huracán — 6 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Jordy Caicedo | Derecho | https://www.sofascore.com/es/football/player/jordy-caicedo/804770 |
+| Bruno Barticciotto | Derecho | https://www.sofascore.com/es/football/player/bruno-barticciotto/1014804 |
+| Facundo Waller | Izquierdo | https://www.sofascore.com/es/football/player/facundo-waller/846766 |
+| Óscar Romero | Izquierdo | https://www.sofascore.com/es/football/player/oscar-romero/146416 |
+| Juan Bisanz | Derecho | https://www.sofascore.com/es/football/player/bizans-juan/1104322 |
+| Luca Babino | Izquierdo | https://www.sofascore.com/es/football/player/luca-babino/2036967 |
+
+**Progreso de Huracán:** 22/31 jugadores con pie registrado. Luca Babino aparece cedido a Fénix, pero su ficha mantiene el dato de pie izquierdo.
