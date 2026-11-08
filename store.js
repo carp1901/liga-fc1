@@ -86,6 +86,14 @@ CREATE TABLE IF NOT EXISTS chat_mensajes(
  eliminado BOOLEAN NOT NULL DEFAULT false
 );
 CREATE INDEX IF NOT EXISTS chat_mensajes_id_idx ON chat_mensajes(id DESC);
+CREATE TABLE IF NOT EXISTS chat_reacciones(
+ mensaje_id BIGINT NOT NULL REFERENCES chat_mensajes(id) ON DELETE CASCADE,
+ usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+ valor SMALLINT NOT NULL CHECK(valor IN (-1,1)),
+ creada TIMESTAMPTZ NOT NULL DEFAULT now(),
+ PRIMARY KEY(mensaje_id,usuario_id)
+);
+CREATE INDEX IF NOT EXISTS chat_reacciones_mensaje_idx ON chat_reacciones(mensaje_id);
 CREATE TABLE IF NOT EXISTS chat_sanciones(
  usuario_id INTEGER PRIMARY KEY REFERENCES usuarios(id) ON DELETE CASCADE,
  tipo TEXT NOT NULL CHECK(tipo IN ('mute','suspension')),
@@ -259,11 +267,29 @@ async function definirFavorito(uid,club){
  return{error:'El club favorito ya fue elegido y no se puede cambiar',clubFavorito:ex.rows[0]?.club_favorito||null};
 }
 // ===================== CHAT GENERAL =====================
-async function chatHistorial(limit){
+async function chatHistorial(limit,uid){
  if(!configured)return{enabled:false,mensajes:[]};await ensure();
  const n=Math.max(1,Math.min(150,Math.floor(+limit||80)));
- const r=await pool.query(`SELECT m.id,m.usuario,m.mensaje,m.creado,p.club_favorito FROM chat_mensajes m LEFT JOIN perfiles p ON p.usuario_id=m.usuario_id WHERE m.eliminado=false ORDER BY m.id DESC LIMIT $1`,[n]);
+ const r=await pool.query(`SELECT m.id,m.usuario,m.mensaje,m.creado,p.club_favorito,
+  COALESCE(v.likes,0)::int AS likes,COALESCE(v.dislikes,0)::int AS dislikes,
+  COALESCE(mv.valor,0)::int AS mi_voto,(m.usuario_id=$2) AS mio
+  FROM chat_mensajes m LEFT JOIN perfiles p ON p.usuario_id=m.usuario_id
+  LEFT JOIN (SELECT mensaje_id,COUNT(*) FILTER(WHERE valor=1) AS likes,COUNT(*) FILTER(WHERE valor=-1) AS dislikes FROM chat_reacciones GROUP BY mensaje_id) v ON v.mensaje_id=m.id
+  LEFT JOIN chat_reacciones mv ON mv.mensaje_id=m.id AND mv.usuario_id=$2
+  WHERE m.eliminado=false ORDER BY m.id DESC LIMIT $1`,[n,uid||null]);
  return{enabled:true,mensajes:r.rows.reverse()};
+}
+async function chatVotar(uid,id,valor){
+ if(!configured)return{error:'El chat no está disponible en este servidor'};
+ id=Math.floor(+id);valor=Math.floor(+valor);if(!(uid>0&&id>0)||![1,-1].includes(valor))return{error:'Reacción inválida'};
+ await ensure();
+ const msg=await pool.query(`SELECT usuario_id FROM chat_mensajes WHERE id=$1 AND eliminado=false`,[id]);
+ if(!msg.rowCount)return{error:'El mensaje ya no está disponible'};
+ if(Number(msg.rows[0].usuario_id)===Number(uid))return{error:'No podés reaccionar a tu propio mensaje'};
+ const del=await pool.query(`DELETE FROM chat_reacciones WHERE mensaje_id=$1 AND usuario_id=$2 AND valor=$3 RETURNING mensaje_id`,[id,uid,valor]);
+ if(!del.rowCount)await pool.query(`INSERT INTO chat_reacciones(mensaje_id,usuario_id,valor) VALUES($1,$2,$3) ON CONFLICT(mensaje_id,usuario_id) DO UPDATE SET valor=EXCLUDED.valor,creada=now()`,[id,uid,valor]);
+ const r=await pool.query(`SELECT COUNT(*) FILTER(WHERE valor=1)::int AS likes,COUNT(*) FILTER(WHERE valor=-1)::int AS dislikes,COALESCE(MAX(valor) FILTER(WHERE usuario_id=$2),0)::int AS mi_voto FROM chat_reacciones WHERE mensaje_id=$1`,[id,uid]);
+ return{ok:1,reaccion:{id,likes:r.rows[0].likes,dislikes:r.rows[0].dislikes,mi_voto:r.rows[0].mi_voto}};
 }
 async function chatEnviar(uid,mensaje){
  if(!configured)return{error:'El chat no está disponible en este servidor'};
@@ -364,4 +390,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={perfilPublico,rankingTecnicos,puntosTecnico,chatHistorial,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={perfilPublico,rankingTecnicos,puntosTecnico,chatHistorial,chatVotar,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
