@@ -945,7 +945,7 @@
     },
     "coincidencias_bajas_en_csv": 22,
     "altas_publicadas_ausentes_en_club_destino": 62,
-    "estado": "EN CURSO — segunda pasada documentada para Chacarita, Temperley y Ferro; candidatos restantes pendientes de validación con fuentes oficiales o evidencia de participación actual.",
+    "estado": "EN CURSO — tres pasadas documentadas (Chacarita, Temperley, Ferro y All Boys); 22 posibles bajas y 62 posibles altas aún no resueltas en conjunto. No se editaron CSV.",
     "dorsales": {
       "asignaciones_internas_provisionales": 1001,
       "respaldados_por_planillas_de_partidos": 5,
@@ -953,7 +953,7 @@
       "nota": "Cuatro respaldos de Midland y uno de Atlético de Rafaela son planillas de partidos, no nóminas oficiales completas."
     },
     "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md",
-    "siguiente_paso": "Continuar en bloques con los clubes restantes: contrastar candidatos de altas y bajas contra nóminas actuales y convocatorias/planillas recientes; no modificar CSV sin evidencia suficiente.",
+    "siguiente_paso": "Continuar con los clubes restantes, priorizando comunicados oficiales recientes y convocatorias/planillas de noviembre; completar fichas confirmadas antes de editar CSV.",
     "segunda_pasada": {
       "fecha": "2026-11-08",
       "clubes_revisados": [
@@ -972,6 +972,21 @@
       "cambios_csv": 0,
       "criterio": "No aplicar altas ni bajas por agregadores de mercado ni por ausencia aislada en una nómina. Exigir evidencia de pertenencia/salida y completar ficha antes de editar.",
       "reporte": "auditoria-vigencia-2026-11-08.md"
+    },
+    "tercera_pasada": {
+      "fecha": "2026-11-08",
+      "clubes_revisados": [
+        "All Boys"
+      ],
+      "hallazgos": {
+        "matias_nouet": "Conservar: aunque el comunicado del 27/06 indicó que no sería tenido en cuenta, integró el banco y entró ante Estudiantes el 02/11/2026, según el sitio oficial del club.",
+        "gabriel_ramirez": "Alta confirmada documentalmente: el club informó que firmó contrato hasta el 31/12/2027; falta completar ficha individual antes de cargarlo."
+      },
+      "cambios_csv": 0,
+      "fuentes": [
+        "https://caallboys.com.ar/2026/06/27/comunicado-futbol-profesional-masculino/",
+        "https://caallboys.com.ar/2026/11/02/termino-el-ano-con-una-victoria/"
+      ]
     }
   }
 }
