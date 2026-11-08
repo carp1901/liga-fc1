@@ -29,12 +29,12 @@ const withUser=(req,b,cb)=>{if(!b||typeof b!='object')return cb();delete b.uid;c
 // Chat general: lectura pública, escritura con cuenta y eventos en vivo por SSE.
 const CHAT_CLIENTS=new Set(),CHAT_BAD=['poronga','pija','verga','concha','cogida','cogido','coger','putita','putito','puta','puto','mierda'];
 function chatFilter(raw){
- let msg=String(raw||'').replace(/[\\u0000-\\u001f]/g,' ').trim().slice(0,300);
+ let msg=String(raw||'').replace(/[\u0000-\u001f]/g,' ').trim().slice(0,300);
  const re=new RegExp('(^|[^\\\\p{L}\\\\p{N}])('+CHAT_BAD.join('|')+')(?=$|[^\\\\p{L}\\\\p{N}])','giu');
  return msg.replace(re,(all,left,word)=>left+'•'.repeat(word.length));
 }
 function chatBroadcast(m){
- const packet='event: mensaje\\ndata:'+JSON.stringify(m)+'\\n\\n';
+ const packet='event: mensaje\ndata:'+JSON.stringify(m)+'\\n\\n';
  for(const c of CHAT_CLIENTS){try{c.write(packet)}catch(e){CHAT_CLIENTS.delete(c)}}
 }
 http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
@@ -74,7 +74,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
    return jn(404,{error:'No existe'})}
  if(u.pathname=='/api/chat'&&req.method=='GET')return store.chatHistorial(+u.searchParams.get('limit')||80).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d))},()=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Chat no disponible'}))});
  if(u.pathname=='/api/chat/stream'&&req.method=='GET'){
-  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});res.write('retry:3000\\nevent: conectado\\ndata:{}\\n\\n');CHAT_CLIENTS.add(res);req.on('close',()=>CHAT_CLIENTS.delete(res));return;
+  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});res.write('retry:3000\nevent: conectado\ndata:{}\n\n');CHAT_CLIENTS.add(res);req.on('close',()=>CHAT_CLIENTS.delete(res));return;
  }
  if(u.pathname=='/api/chat'&&req.method=='POST')return body(req,b=>{if(!b)return;store.userByToken(tokOf(req,b)).then(us=>{if(!us)return jnChat(401,{error:'Iniciá sesión para escribir en el chat'});if(!rlOk('chat:'+us.id,12))return jnChat(429,{error:'Estás enviando mensajes muy seguido; esperá un momento'});return store.chatEnviar(us.id,chatFilter(b.mensaje)).then(d=>{if(d.error)return jnChat(403,d);chatBroadcast(d.mensaje);return jnChat(200,d)})}).catch(()=>jnChat(503,{error:'Chat no disponible'}));function jnChat(code,data){res.writeHead(code,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(data))}});
  if(u.pathname=='/api/chat/permisos'&&req.method=='GET')return store.userByToken(tokOf(req)).then(async us=>{if(!us){res.writeHead(401,{'Content-Type':'application/json'});return res.end(JSON.stringify({error:'Iniciá sesión'}))}const owner=!!process.env.CHAT_OWNER_USERNAME&&us.usuario.toLowerCase()===process.env.CHAT_OWNER_USERNAME.trim().toLowerCase(),moderador=owner||await store.chatEsModerador(us.id);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({owner,moderador}))}).catch(()=>{res.writeHead(503);res.end()});
@@ -97,5 +97,5 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
  let f=path.normalize(path.join(PUB,u.pathname=='/'?'index.html':decodeURIComponent(u.pathname)));
  if(!f.startsWith(PUB)||!fs.existsSync(f)||fs.statSync(f).isDirectory()){res.writeHead(404);return res.end('404')}
  res.writeHead(200,{'Content-Type':MIME[path.extname(f)]||'application/octet-stream','Cache-Control':'public,max-age=300'});fs.createReadStream(f).pipe(res)}catch(e){try{res.writeHead(500);res.end()}catch(_){}}}).listen(PORT,()=>console.log('Liga FC en http://localhost:'+PORT));
-setInterval(()=>{const now=Date.now();for(const c of CHAT_CLIENTS)try{c.write(':ping\\n\\n')}catch(e){CHAT_CLIENTS.delete(c)}for(const k in rooms){const r=rooms[k];r.order.forEach(p=>{const c=r.pl[p].res;if(c)try{c.write(':ping\n\n')}catch(e){}});Object.values(r.spec||{}).forEach(c=>{if(c.res)try{c.res.write(':ping\n\n')}catch(e){}});if(now-r.touched>36e5&&!r.order.some(p=>r.pl[p].res)){clearInterval(r.timer);delete rooms[k]}}},15000);
+setInterval(()=>{const now=Date.now();for(const c of CHAT_CLIENTS)try{c.write(':ping\n\n')}catch(e){CHAT_CLIENTS.delete(c)}for(const k in rooms){const r=rooms[k];r.order.forEach(p=>{const c=r.pl[p].res;if(c)try{c.write(':ping\n\n')}catch(e){}});Object.values(r.spec||{}).forEach(c=>{if(c.res)try{c.res.write(':ping\n\n')}catch(e){}});if(now-r.touched>36e5&&!r.order.some(p=>r.pl[p].res)){clearInterval(r.timer);delete rooms[k]}}},15000);
 process.on('uncaughtException',e=>console.error('error',e.message));process.on('unhandledRejection',e=>console.error('promesa rechazada',e&&e.message));
