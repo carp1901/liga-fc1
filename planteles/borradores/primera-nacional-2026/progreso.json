@@ -560,24 +560,24 @@
     156
   ],
   "porcentaje_roles_especificos": 100,
-  "ultima_revision": "2026-11-07: recálculo integral de 1006 registros; promedio 58,46 y 391 jugadores con presencias 2026 cargadas.",
+  "ultima_revision": "2026-11-07: cierre de auditoría diagnóstica de Primera Nacional; 36 clubes, 1006 jugadores, promedio 58,46, 14 medias corregidas, 51 roles estimados documentados y pendientes de atributos/dorsales/vigencia explicitados.",
   "auditoria_en_curso": {
     "fecha": "2026-11-07",
-    "etapa": "Auditoría cualitativa de medias, roles y consistencia de estadísticas en curso",
+    "etapa": "Auditoría diagnóstica cerrada; pendientes de trabajo posterior: atributos, verificación integral de dorsales y vigencia de planteles",
     "validacion_estructural": {
       "clubes": 36,
       "jugadores": 1006,
       "campos_obligatorios_vacios": 0,
       "roles_especificos_cargados": 1006,
-      "roles_estimados_para_revision": 44
+      "roles_estimados_para_revision": 51
     },
     "dorsales": {
       "jugadores_con_numero": 1006,
-      "asignados_internamente_pendientes_de_verificacion_oficial": 1002,
+      "asignados_internamente_pendientes_de_verificacion_oficial": 1001,
       "respaldados_por_planillas_de_partidos": 4,
       "clubes_con_duplicados_detectados": [],
       "numeros_duplicados_midland": [],
-      "observacion": "Se resolvieron los tres conflictos internos de Midland reasignando números provisionales 34, 35 y 36 a jugadores cuyos números previos no estaban respaldados por planillas. Se preservaron los cuatro dorsales contrastados en partidos. No equivale a verificar la numeración oficial de los 36 planteles.",
+      "observacion": "Se resolvieron los tres conflictos internos de Midland (34, 35 y 36), se corrigió la mezcla de fuente de Ignacio Rodríguez y se confirmó el dorsal 3 de Enzo Wattier mediante planilla de partido. Quedan 1001 números internos provisionales; cuatro están respaldados por planillas de Midland y uno por planilla de Atlético Rafaela. No equivale a verificar la numeración oficial completa de los 36 planteles.",
       "correcciones_internas_midland": [
         {
           "jugador": "Tomás Muia",
@@ -591,7 +591,8 @@
           "jugador": "Gonzalo Gómez",
           "dorsal_nuevo": 36
         }
-      ]
+      ],
+      "respaldados_por_fuente_de_temporada": 1
     },
     "medias": {
       "jugadores_con_media": 1006,
@@ -606,10 +607,9 @@
       "promedio_actual": 58.46
     },
     "proximos_pasos": [
-      "Continuar auditoría de medias con foco en titulares habituales y producción estadística, evitando subir automáticamente a suplentes con muchas presencias",
-      "Contrastar dorsales oficiales cuando existan nóminas completas; los números restantes siguen siendo provisionales",
-      "Auditar atributos individuales (los ocho campos técnicos están vacíos en los 1006 registros) y coherencia entre rol, media y atributos",
-      "Revisar vigencia y pertenencia de jugadores a cada plantel"
+      "Completar y calibrar los ocho atributos técnicos por jugador",
+      "Verificar dorsales oficiales y vigencia de los 36 planteles",
+      "Aplicar el ajuste general de +10 a Primera y Primera Nacional cuando se autorice la siguiente etapa"
     ],
     "revision_medias": {
       "jugadores_analizados": 1006,
@@ -632,7 +632,7 @@
           "promedio": 60
         }
       ],
-      "observacion": "Auditoría cualitativa en curso: se revisaron titulares habituales y producción 2026, con catorce ajustes individuales acumulados y seis correcciones de roles/posiciones. Se evitó subir automáticamente a jugadores de rotación o con estadísticas contradictorias. El promedio exacto calculado sobre los 1006 registros es 58,4563 (58,46 redondeado). Se detectaron 391 jugadores con presencias 2026 cargadas. El ajuste general de +10 para Primera y Primera Nacional sigue reservado hasta cerrar la auditoría.",
+      "observacion": "Se completó la auditoría diagnóstica de medias: 1006 valores presentes, rango 48–66, promedio exacto 58,4563 (58,46 redondeado), 68 jugadores con media 60. Se ajustaron 14 medias individuales con datos de temporada; el resto continúa como estimación propia, sin OVR EA FC individuales para esta categoría. El +10 general acordado para Primera y Primera Nacional no se aplicó aún.",
       "criterio": "No buscar OVR EA FC individuales para Primera Nacional: EA FC no cubre esta categoría. Evaluar medias con rendimiento 2026, minutos disponibles, edad, trayectoria, nivel del plantel y coherencia entre compañeros; mantener identificadas las estimaciones.",
       "campos_atributos_individuales_vacios": {
         "pas": 1006,
@@ -794,7 +794,46 @@
         "Continuar validación cualitativa de jugadores con medias bajas, revisando titularidades, minutos y producción",
         "Revisar vigencia de planteles y movimientos de mercado de 2026; resolver posibles bajas/altas",
         "Contrastar dorsales oficiales y completar auditoría de atributos técnicos individuales"
-      ]
-    }
+      ],
+      "correcciones_individuales_count": 14,
+      "correcciones_de_roles_count": 6,
+      "roles_estimados_con_fuente": 51
+    },
+    "estado_auditoria": "CERRADA — revisión estructural y de consistencia completada; limitaciones documentadas",
+    "resultado_final": {
+      "clubes": 36,
+      "jugadores": 1006,
+      "campos_obligatorios_vacios": 0,
+      "roles_especificos_cargados": 1006,
+      "roles_estimados": 51,
+      "medias_cargadas": 1006,
+      "promedio": 58.46,
+      "rango": [
+        48,
+        66
+      ],
+      "medias_60": 68,
+      "medias_individuales_ajustadas": 14,
+      "presencias_2026_cargadas": 391,
+      "dorsales_provisionales": 1001,
+      "dorsales_con_respaldo": 5,
+      "duplicados_dorsales": 0,
+      "atributos_tecnicos_pendientes": {
+        "pas": 1006,
+        "ctl": 1006,
+        "reg": 1006,
+        "rem": 1006,
+        "des": 1006,
+        "mar": 1006,
+        "ant": 1006,
+        "ref": 1006
+      }
+    },
+    "pendientes_no_incluidos_en_cierre": [
+      "Completar ocho atributos técnicos para los 1006 jugadores; no se inventaron valores durante la auditoría",
+      "Verificar 1001 dorsales provisionales contra nóminas oficiales completas",
+      "Revalidar pertenencia actual de cada jugador a su club tras movimientos de mercado",
+      "Profundizar la calibración de las 992 medias que no tuvieron ajuste individual documentado"
+    ]
   }
 }
