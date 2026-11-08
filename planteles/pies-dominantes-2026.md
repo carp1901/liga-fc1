@@ -535,3 +535,19 @@ Fecha de revisión: 08/11/2026.
 | Luis Espino (Pacha) | Izquierdo | https://es.besoccer.com/jugador/a-espino-219866 |
 
 **Resultado de Racing:** 22/22 jugadores del CSV con pie dominante registrado.
+
+
+## Primera tanda de Unión de Santa Fe — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Agustín Chávez | Izquierdo | https://www.sofascore.com/es/football/player/agustin-chavez/2017599 |
+| Matías Mansilla | Derecho | https://www.sofascore.com/es-la/football/player/matias-mansilla/1099481 |
+| Lucas Meuli | Izquierdo | https://www.sofascore.com/es/football/player/meuli-lucas/1200751 |
+| Tobías Rubio | Derecho | https://www.sofascore.com/es/football/player/rubio-tobias/1201527 |
+| Tomás Fagioli | Derecho | https://www.sofascore.com/football/player/tomas-fagioli/2548355 |
+| Nazareno Fazzi | Derecho | https://www.sofascore.com/es/football/player/nazareno-fazzi/2669314 |
+| Ignacio Isla | Ambos | https://www.sofascore.com/football/player/ignacio-isla/2445395 |
+
+**Progreso de Unión:** 7/33 jugadores con pie registrado. Ignacio Isla queda como `Ambos`, tal como indica Sofascore; varios juveniles aparecen en fichas de reserva, pero coinciden en identidad y club.
