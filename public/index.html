@@ -110,7 +110,7 @@ select{pointer-events:none}
 </style></head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">CLASH FUTBOL - 2D ONLINE</h1>
-<section id="m0" class="sc"><button class="bt big" id="bon">Online</button><button class="bt big" id="bof">Offline</button><button class="bt big" id="brk">Rankings</button><button class="bt ok" id="bacc">👤 Ingresar / Crear cuenta</button><button class="bt ok" id="bamg">👥 Amigos</button></section>
+<section id="m0" class="sc"><button class="bt big" id="bon">Online</button><button class="bt big" id="bof">Offline</button><button class="bt big" id="brk">Rankings</button><button class="bt ok" id="bacc">👤 Ingresar / Crear cuenta</button><button class="bt ok" id="bamg">👥 Amigos</button><button class="bt ok" id="bchat">💬 Chat general</button></section>
 <section id="m1" class="sc" hidden><h2 class="mt">Sala privada · Modo clásico</h2><p class="lb">Elegí un código para tu sala y compartilo con tus amigos.</p><input id="cdc" class="in" placeholder="Código de sala (3-12 letras o números)" maxlength="12" autocapitalize="off" autocomplete="off">
 <div class="rw crt"><div class="c2"><label class="lb">crear · división<select id="dv"></select></label><label class="lb">cant. jugadores<select id="np"></select></label><label class="lb">formato<select id="fm"><option value="liga1">Todos contra todos (1 rueda)</option><option value="liga2">Todos contra todos (2 ruedas)</option><option value="copa">Mata-mata</option></select></label><select id="ct" hidden></select></div><button class="bt ok" id="bc2">crear<br>y<br>entrar</button></div><p class="lb" id="rk1"></p>
 <button class="bk" data-back="14">‹ volver</button></section>
@@ -144,6 +144,7 @@ select{pointer-events:none}
 <section id="m19" class="sc" hidden><h2 class="mt">Cuenta</h2><p class="lb">Con una cuenta se guarda el historial de tus carreras. Si no querés, podés jugar siempre como invitado, sin cuenta.</p><div class="rw"><input id="au" class="in" placeholder="Usuario (3 a 16: letras, números, _ . -)" maxlength="16" autocapitalize="off" autocomplete="username" spellcheck="false"></div><div class="rw"><input id="ap" class="in" type="password" placeholder="Contraseña (mínimo 6)" maxlength="72" autocomplete="current-password"></div><div class="rw"><button class="bt ok" id="alg">ingresar</button><button class="bt ok" id="arg">crear cuenta</button></div><p class="lb" id="aer" style="color:#ffb4a8"></p><button class="bk" data-back="0">‹ volver</button></section>
 <section id="m20" class="sc" hidden><h2 class="mt" id="pfn">Mi perfil</h2><div id="pffav"></div><div class="rkb" id="pfb"></div><div class="rw"><button class="bt ok" id="pfx" style="font-size:18px">cerrar sesión</button></div><button class="bk" id="pfback" data-back="0">‹ volver</button></section>
 <section id="m21" class="sc" hidden><h2 class="mt">Amigos</h2><div class="rw"><input id="amu" class="in" placeholder="Usuario de tu amigo" maxlength="16" autocapitalize="off" autocomplete="off" spellcheck="false"><button class="bt ok" id="amx">agregar</button></div><p class="lb" id="ame"></p><div class="rkb" id="amb"></div><button class="bk" data-back="0">‹ volver</button></section>
+<section id="m22" class="sc" hidden><h2 class="mt">Chat general</h2><p class="lb">Todos pueden leer. Para escribir necesitás una cuenta y un club favorito.</p><div id="chatmsgs" class="box" style="height:340px;max-height:55vh;overflow:auto;text-align:left"><span class="mu">Cargando mensajes…</span></div><div id="chatguest" class="nt" hidden>Iniciá sesión para participar del chat. <button class="bt ok" id="chatlogin">Ingresar / crear cuenta</button></div><div id="chatwrite" class="rw" hidden><input id="chatinput" class="in" placeholder="Escribí un mensaje…" maxlength="300" style="flex:1"><button class="bt ok" id="chatsend">Enviar</button></div><p class="lb" id="chaterr"></p><div id="chatadmin" class="box" hidden><h3>Herramientas privadas de moderación</h3><input id="chattarget" class="in" placeholder="Usuario a moderar" maxlength="16"><div class="rw"><input id="chatminutes" class="in" type="number" min="1" max="10080" value="10" placeholder="Minutos"><input id="chatreason" class="in" maxlength="160" placeholder="Motivo (opcional)"></div><div class="rw"><button class="bt ok" id="chatmute">Silenciar</button><button class="bt ok" id="chatunmute">Reactivar</button></div><div id="chatowner" class="rw" hidden><button class="bt ok" id="chatsuspend">Suspender</button><button class="bt ok" id="chatmod">Dar moderador</button><button class="bt ok" id="chatunmod">Quitar moderador</button></div><p class="lb" id="chatmodmsg"></p></div><button class="bk" data-back="0">‹ volver</button></section>
 <p id="er"></p><footer class="nmb"><input id="nm" placeholder="nombre jugador" maxlength="16"></footer></div></div>
 <div id="gm" hidden><div id="gfl" hidden></div><div class="box" id="hd"></div><div class="box" id="hctl" hidden></div><div class="box" id="rnd" hidden></div><div class="box" id="cxend" hidden></div><div id="pk" class="box" hidden></div>
 <div id="pl" hidden><div class="box" style="padding:6px"><div id="sb"></div><div style="position:relative"><canvas id="cv" width="720" height="440"></canvas><div id="ov" hidden></div><div id="pzb"></div><div id="skb"></div><div id="spb"></div></div></div></div>
@@ -733,6 +734,42 @@ document.addEventListener('click',async e=>{const b=e.target.closest&&e.target.c
  try{const path={aceptar:'/responder',rechazar:'/responder',cancelar:'/cancelar',quitar:'/quitar'}[a],r=await amgApi(path,(a=='aceptar'||a=='rechazar')?{id:+id,accion:a}:{id:+id});$('#ame').textContent=r.ok?'':(r.j.error||'No se pudo completar');await amgLoad()}
  catch(x){if(x.auth){$('#aer').textContent='Tu sesión venció: ingresá de nuevo.';goM('m19')}else $('#ame').textContent='No hay conexión con el servidor.'}},true);
 setInterval(()=>{if(AUTH&&!document.hidden)amgLoad()},60000);amgSync();
+// ===== Chat general: historial público persistente + flujo en vivo. Los permisos nunca se muestran en los mensajes. =====
+let CHAT_STREAM=null,CHAT_IDS=new Set(),CHAT_PERMS={owner:false,moderador:false};
+function chatAppend(m){
+ if(!m||m.id==null||CHAT_IDS.has(String(m.id)))return;CHAT_IDS.add(String(m.id));
+ const o=$('#chatmsgs'),d=document.createElement('div');d.className='chmsg';d.dataset.cid=m.id;
+ const time=m.creado?new Date(m.creado).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'}):'';
+ d.innerHTML='<div style="display:flex;align-items:center;gap:7px">'+(m.club_favorito&&TM[m.club_favorito]?cr(m.club_favorito,24):'')+'<b>'+esc(m.usuario||'Técnico')+'</b><small class=mu>'+time+'</small></div><div style="padding:3px 0 8px;white-space:pre-wrap;overflow-wrap:anywhere">'+esc(m.mensaje||'')+'</div><hr style="border:0;border-top:1px solid #ffffff20;margin:2px 0 7px">';
+ o.appendChild(d);o.scrollTop=o.scrollHeight;
+}
+async function chatLoad(){
+ $('#chaterr').textContent='';$('#chatmsgs').innerHTML='<span class=mu>Cargando mensajes…</span>';
+ try{const r=await fetch('/api/chat?limit=100'),d=await r.json();if(!r.ok||d.enabled===false){$('#chatmsgs').textContent='El chat no está disponible en este momento.';return}
+  $('#chatmsgs').innerHTML='';CHAT_IDS.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>';
+ }catch(e){$('#chatmsgs').textContent='No se pudo conectar con el chat.'}
+ $('#chatwrite').hidden=!AUTH;$('#chatguest').hidden=!!AUTH;
+ if(AUTH){try{const r=await fetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadmin').hidden=!CHAT_PERMS.moderador;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadmin').hidden=true}}
+ else{$('#chatadmin').hidden=true;CHAT_PERMS={owner:false,moderador:false}}
+ if(!CHAT_STREAM){CHAT_STREAM=new EventSource('/api/chat/stream');CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
+}
+$('#bchat').onclick=()=>{goM('m22');chatLoad()};
+$('#chatlogin').onclick=()=>{goM('m19');$('#aer').textContent='Iniciá sesión o creá una cuenta para escribir en el chat.'};
+async function chatSend(){
+ const input=$('#chatinput'),msg=input.value.trim();if(!msg)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para escribir.';return}
+ $('#chatsend').disabled=true;$('#chaterr').textContent='';
+ try{const r=await fetch('/api/chat',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({mensaje:msg})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo enviar';return}input.value='';chatAppend(d.mensaje)}
+ catch(e){$('#chaterr').textContent='No hay conexión con el servidor.'}
+ finally{$('#chatsend').disabled=false}
+}
+$('#chatsend').onclick=chatSend;$('#chatinput').onkeydown=e=>{if(e.key=='Enter')chatSend()};
+async function chatModAction(accion){
+ const usuario=$('#chattarget').value.trim();if(!usuario){$('#chatmodmsg').textContent='Escribí el usuario que querés moderar.';return}
+ $('#chatmodmsg').textContent='Procesando…';
+ try{const r=await fetch('/api/chat/moderar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({usuario,accion,minutos:+$('#chatminutes').value,razon:$('#chatreason').value})}),d=await r.json();$('#chatmodmsg').textContent=r.ok?(accion=='silenciar'?'Participante silenciado.':accion=='suspender'?'Participante suspendido.':accion=='reactivar'?'Sanción levantada.':accion=='moderar'?'Moderador habilitado.':'Permiso de moderador retirado.'):(d.error||'No se pudo completar')}
+ catch(e){$('#chatmodmsg').textContent='No hay conexión con el servidor.'}
+}
+$('#chatmute').onclick=()=>chatModAction('silenciar');$('#chatunmute').onclick=()=>chatModAction('reactivar');$('#chatsuspend').onclick=()=>chatModAction('suspender');$('#chatmod').onclick=()=>chatModAction('moderar');$('#chatunmod').onclick=()=>chatModAction('desmoderar');
 let SPEC=null;const myM=()=>S&&S.me&&S.me.team&&S.ms.find(m=>m.a==S.me.team||m.b==S.me.team),specM=()=>SPEC&&S&&S.ms.find(m=>m.a+'|'+m.b==SPEC),ownM=()=>specM()||myM();   // la pizarra muestra el partido que estés viendo
 const MPH=['cer','m1','ht','m2','fin','awd','psel','pso'];
 let GOL=false,GOLC=false,GOLT='g',SKE=false,SKP=0;try{GOL=localStorage.gol=='1';GOLC=localStorage.golc=='1';SKE=localStorage.skipEnd=='1'}catch(e){}
