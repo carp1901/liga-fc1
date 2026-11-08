@@ -288,8 +288,7 @@ async function chatEliminar(uid,id,owner,moderador){
  if(!r.rowCount)return{error:'El comentario ya no existe'};
  const autor=Number(r.rows[0].usuario_id),esOwner=!!r.rows[0].es_owner;
  if(esOwner&&!owner)return{error:'Solo el propietario puede eliminar sus propios comentarios'};
- if(!owner&&!moderador&&autor!==Number(uid))return{error:'No tenés permiso para eliminar este comentario'};
- if(!owner&&!moderador&&autor===Number(uid)){} 
+ if(!owner&&!moderador)return{error:'No tenés permisos para eliminar comentarios'};
  if(moderador&&autor!==Number(uid)&&esOwner)return{error:'No podés eliminar comentarios del propietario'};
  await pool.query(`UPDATE chat_mensajes SET eliminado=true WHERE id=$1`,[id]);
  await pool.query(`DELETE FROM chat_reacciones WHERE mensaje_id=$1`,[id]);
