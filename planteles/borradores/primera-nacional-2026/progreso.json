@@ -16,12 +16,12 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "155 jugadores; 155 roles cargados.",
-      "jugadores": 155,
+      "estado": "152 jugadores; 152 roles cargados.",
+      "jugadores": 152,
       "clubes": {
-        "ferro": 32,
+        "ferro": 31,
         "nuevachicago": 26,
-        "madryn": 24,
+        "madryn": 22,
         "chacarita": 25,
         "allboys": 25,
         "atlanta": 23
@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1026,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinticuatro altas agregadas, treinta y ocho identidades corregidas y un duplicado interclub eliminado. Seis bloques CSV validados; 1.026 jugadores en borradores; sin integración al runtime.",
+  "jugadores_borrador": 1023,
+  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinticuatro altas agregadas, treinta y ocho identidades corregidas y cuatro duplicados interclub eliminados. Seis bloques CSV en borradores; 1.023 jugadores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1177,7 +1177,7 @@
     "bajas_confirmadas_retiradas": 3,
     "altas_agregadas": 24,
     "identidades_corregidas": 38,
-    "jugadores_actuales": 1026
+    "jugadores_actuales": 1023
   },
   "depuracion_primera_tanda": {
     "fecha": "2026-11-08",
@@ -1701,6 +1701,33 @@
       }
     ],
     "validacion": "Bloques 2, 3 y 5: exactamente 33 columnas por fila; total 1.026 jugadores.",
+    "runtime_modificado": false
+  },
+  "depuracion_decimotercera_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1026,
+    "jugadores_despues": 1023,
+    "duplicados_eliminados": [
+      {
+        "jugador": "Mateo Acosta",
+        "club_retirado": "Ferro",
+        "club_conservado": "Estudiantes BA",
+        "dob": "1992-09-22"
+      },
+      {
+        "jugador": "Pío Bonacci",
+        "club_retirado": "Deportivo Madryn",
+        "club_conservado": "Quilmes",
+        "dob": "1998-01-26"
+      },
+      {
+        "jugador": "Abel Bustos",
+        "club_retirado": "Deportivo Madryn",
+        "club_conservado": "Racing Córdoba",
+        "dob": "1999-05-18"
+      }
+    ],
+    "validacion": "Bloque 1 reducido a 152; bloque 2, 3 y 5 sin cambios de cantidad. CSV de 33 columnas.",
     "runtime_modificado": false
   }
 }
