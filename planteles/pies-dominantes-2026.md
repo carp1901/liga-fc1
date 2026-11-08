@@ -738,3 +738,18 @@ Fecha de revisión: 08/11/2026.
 | Lucas Besozzi | Derecho | https://www.sofascore.com/es/football/player/lucas-besozzi/1086339 |
 
 **Progreso de Lanús:** 23/34 jugadores con pie registrado. Quedan pendientes jugadores juveniles sin ficha de pie y otros casos por verificar.
+
+
+## Cuarta tanda de Lanús — 6 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Tobías Quiroz | Derecho | https://www.sofascore.com/es-la/football/player/tobias-quiroz/2110343 |
+| Thiago Balbuena | Izquierdo | https://www.sofascore.com/es-la/football/player/thiago-balbuena/1836931 |
+| Jeremías Chavero | Derecho | https://www.sofascore.com/es/football/player/jeremias-chavero/1836928 |
+| Marcelino Moreno | Derecho | https://www.sofascore.com/football/player/marcelino-moreno/848472 |
+| Eduardo Salvio | Derecho | https://www.sofascore.com/es/football/player/eduardo-salvio/47334 |
+| Yoshan Valois | Derecho | https://www.sofascore.com/football/player/yoshan-valois/1847518 |
+
+**Progreso de Lanús:** 29/34 jugadores con pie dominante registrado. Se identificaron además perfiles de reserva para Jeremías Chavero y Thiago Balbuena; no se asignó nada a partir de la posición.
