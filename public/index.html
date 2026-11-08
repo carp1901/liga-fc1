@@ -142,6 +142,42 @@ select{pointer-events:none}
 #tp .pr>.pmeta .rating{font-size:10px;white-space:nowrap}
 #tp .pr>.pmeta .pstatus{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 @media(max-width:600px){#tp .pr{min-height:32px;padding:3px}#tp .pr>.pn{font-size:12px}#tp .pr>.pmeta{gap:4px}}
+
+/* Ranking de títulos: espacio amplio, podio y tabla histórica */
+#m10{width:100%;max-width:1120px;align-self:center;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;align-items:stretch;padding:5px 8px 14px;gap:10px;scrollbar-gutter:stable}
+#m10>.mt{text-align:center;margin:2px 0 4px}
+#m10 .rkt{margin:2px 0 4px;gap:8px}
+#m10 .c2.w{width:100%;max-width:900px;align-self:center;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:8px}
+#m10 .rkb{width:100%;box-sizing:border-box;margin:4px 0 8px;padding:12px;background:#07180fc9;border:1px solid #ffffff20;border-radius:16px;min-height:140px;overflow:visible}
+#m10 .rkcount{display:flex;align-items:baseline;justify-content:center;gap:9px;flex-wrap:wrap;text-align:center;padding:4px 0 2px;color:#dcebdc}
+#m10 .rkcount strong{font:700 27px "Lilita One","Barlow Condensed",sans-serif;color:#f2b705}
+#m10 .rkcount span{font-size:13px;opacity:.8}
+#m10 .rkpod{width:100%;margin:4px 0 14px}
+#m10 .rkpodhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin:0 2px 9px}
+#m10 .rkpodhead b,.rkfullhead{font:700 18px "Lilita One","Barlow Condensed",sans-serif;color:#d5f2b6}
+#m10 .rkpodhead span{font-size:12px;color:#b9cbb9}
+#m10 .rkpodgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:10px;width:100%}
+#m10 .rkpodcard{min-width:0;min-height:174px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;padding:10px 6px 9px;border:1px solid #ffffff24;border-radius:14px 14px 7px 7px;background:linear-gradient(180deg,#ffffff12,#0005);cursor:pointer;text-align:center;box-sizing:border-box}
+#m10 .rkpodcard.gold{min-height:204px;border:2px solid #d6a52a;background:linear-gradient(180deg,#8b691d55,#0007)}
+#m10 .rkpodcard.silver{border-color:#aeb9c5;background:linear-gradient(180deg,#8c9aa533,#0007)}
+#m10 .rkpodcard.bronze{border-color:#a87548;background:linear-gradient(180deg,#a8754833,#0007)}
+#m10 .rkpodpos{font:700 13px "Lilita One","Barlow Condensed",sans-serif;color:#e6d18a}
+#m10 .rkpodcard .cw{flex:none;max-width:52px}
+#m10 .rkpodname{font:700 14px "Barlow Condensed",sans-serif;line-height:1.15;overflow-wrap:anywhere}
+#m10 .rkpodcard strong{font:700 29px "Lilita One","Barlow Condensed",sans-serif;color:#f2c34b;line-height:1}
+#m10 .rkpodcard small{font-size:11px;color:#d9e2d7}
+#m10 .rkpodlast{font-size:10.5px;color:#b9cbb9}
+#m10 .rkfullhead{display:flex;flex-direction:column;gap:2px;margin:8px 2px 7px}
+#m10 .rkfullhead small{font:400 12px Barlow,sans-serif;color:#b9cbb9}
+#m10 .rkfullwrap{width:100%;overflow-x:auto;border-radius:10px}
+#m10 .rkfullwrap table{width:100%;min-width:340px;border-collapse:collapse}
+#m10 .rkfullwrap td,#m10 .rkfullwrap th{padding:9px 7px;border-bottom:1px solid #ffffff18;text-align:center;font-size:14px}
+#m10 .rkfullwrap td:nth-child(2),#m10 .rkfullwrap th:nth-child(2){text-align:left}
+#m10 .rkfullwrap th{font-size:12px;color:#c8ff8a;background:#ffffff0b}
+#m10 .rkfullwrap tr:last-child td{border-bottom:0}
+#m10 .rkfullwrap td.pt{font-size:17px}
+#m10 .rkpodcard:focus-visible,#m10 .rkfullwrap tr:focus-visible{outline:2px solid #f2b705;outline-offset:2px}
+@media(max-width:600px){#m10{padding:4px 5px 12px;gap:8px}#m10 .rkpodgrid{gap:5px}#m10 .rkpodcard{min-height:164px;padding:8px 3px 7px}#m10 .rkpodcard.gold{min-height:190px}#m10 .rkpodname{font-size:12px}#m10 .rkpodcard strong{font-size:25px}#m10 .rkpodlast{font-size:9.5px}#m10 .rkpodcard .cw{transform:scale(.9)}}
 </style></head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">CLASH FUTBOL - 2D ONLINE</h1>
@@ -624,7 +660,13 @@ async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Ca
   if(!r.ok||d.error){o.innerHTML='<span class=mu>No se pudo cargar el ranking. Probá de nuevo en un rato.</span>';return}
   if(!d.enabled){o.innerHTML='<span class=mu>El ranking no está disponible: este servidor no tiene base de datos conectada.</span>';return}
   const note=RKT=='off'||$('#rkm').value=='offline'?'<div class=nt>⚠️ Ranking offline: los títulos los informa cada dispositivo y no se pueden verificar. Se muestra siempre aparte del online.</div>':'<div class=nt>Solo cuentan torneos online terminados con 10 personas o más.</div>';
-  o.innerHTML=d.rows.length?`<div class=mu style="margin:0 2px 6px">${d.total} título${d.total==1?'':'s'} en total</div><table><tr><th>#</th><th>Club</th><th>Títulos</th><th>Último</th></tr>${d.rows.map(x=>`<tr data-club="${x.club}" style="cursor:pointer"><td>${x.pos}${x.empate?'<span class=tie>=</span>':''}</td><td>${TM[x.club]?cr(x.club,18)+' ':''}${esc(x.nombre)}</td><td class=pt>${x.titulos}</td><td class=mu>${fdate(x.ultimo)}</td></tr>`).join('')}</table><div class=nt>Tocá un club para ver su ficha.</div>${d.rows.some(x=>x.empate)?'<div class=nt>= empatados: comparten posición y se listan por orden alfabético.</div>':''}${note}`:`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}
+  if(d.rows.length){
+   const pod=[{x:d.rows[1],c:'silver',n:'2.º'},{x:d.rows[0],c:'gold',n:'1.º'},{x:d.rows[2],c:'bronze',n:'3.º'}].filter(v=>v.x);
+   const podium=`<section class="rkpod"><div class="rkpodhead"><b>Los más ganadores</b><span>${d.rows.length} clubes en la clasificación</span></div><div class="rkpodgrid">${pod.map(v=>`<div class="rkpodcard ${v.c}" data-club="${v.x.club}" role="button" tabindex="0"><span class="rkpodpos">${v.n}${v.x.empate?' · empate':''}</span>${TM[v.x.club]?cr(v.x.club,48):''}<b class="rkpodname">${esc(v.x.nombre)}</b><strong>${v.x.titulos}</strong><small>títulos</small><span class="rkpodlast">Último: ${fdate(v.x.ultimo)||'—'}</span></div>`).join('')}</div></section>`;
+   const rest=d.rows.slice(3);
+   const table=rest.length?`<div class="rkfullhead">Clasificación completa <small>Del 4.º puesto en adelante · tocá un club para abrir su palmarés</small></div><div class="rkfullwrap"><table><thead><tr><th>#</th><th>Club</th><th>Títulos</th><th>Último</th></tr></thead><tbody>${rest.map(x=>`<tr data-club="${x.club}" style="cursor:pointer"><td>${x.pos}${x.empate?'<span class=tie>=</span>':''}</td><td>${TM[x.club]?cr(x.club,22)+' ':''}${esc(x.nombre)}</td><td class=pt>${x.titulos}</td><td class=mu>${fdate(x.ultimo)}</td></tr>`).join('')}</tbody></table></div>`:'<div class="rkfullhead">Todavía no hay más clubes en esta clasificación.</div>';
+   o.innerHTML=`<div class="rkcount"><strong>${d.total}</strong><span>títulos registrados en este filtro</span></div>${podium}${table}<div class=nt>Tocá un club del podio o de la tabla para ver su ficha completa.</div>${d.rows.some(x=>x.empate)?'<div class=nt>= indica clubes empatados: comparten posición y se ordenan alfabéticamente.</div>':''}${note}`;
+  }else{o.innerHTML=`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}
  catch(e){if(n==RKN)o.innerHTML='<span class=mu>No se pudo cargar el ranking (sin conexión con el servidor).</span>'}}
 $('#brk').onclick=()=>{goM('m10');rkSetup('gen')};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;
 /* ===== Ficha de club y comparador (Bloque 6): todo sale de /api/club, que usa el mismo registro que los rankings. ===== */
