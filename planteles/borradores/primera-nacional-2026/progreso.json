@@ -886,6 +886,52 @@
     ],
     "metodo": "Mismo generador determinista de public/data.js: perfil por posición, ajuste por subrol y media individual, con recentrado ponderado y límites 15-99. Estimaciones reproducibles, no estadísticas observadas ni oficiales.",
     "integracion": "Los seis CSV siguen como borradores; no se modificó el runtime.",
-    "validacion": "Pendiente de auditoría de distribuciones por posición/subrol y extremos."
+    "validacion": "Validación estructural completada: 1.006 jugadores, 8.048 valores presentes, cero vacíos, rango global 15-87. Promedios por posición coherentes con los perfiles del motor; pendiente de revisión individual cualitativa.",
+    "distribucion_por_posicion": {
+      "POR": {
+        "jugadores": 101,
+        "pas": 54.9,
+        "ctl": 54.1,
+        "reg": 43.2,
+        "rem": 28.4,
+        "des": 37.7,
+        "mar": 51,
+        "ant": 64.8,
+        "ref": 72.2
+      },
+      "DEF": {
+        "jugadores": 312,
+        "pas": 60.8,
+        "ctl": 58.8,
+        "reg": 50.6,
+        "rem": 44.8,
+        "des": 56.5,
+        "mar": 74.4,
+        "ant": 73.5,
+        "ref": 19.1
+      },
+      "MED": {
+        "jugadores": 343,
+        "pas": 72.5,
+        "ctl": 72,
+        "reg": 68.7,
+        "rem": 59.7,
+        "des": 65.1,
+        "mar": 62,
+        "ant": 66.8,
+        "ref": 19.3
+      },
+      "DEL": {
+        "jugadores": 250,
+        "pas": 56.5,
+        "ctl": 65,
+        "reg": 68,
+        "rem": 74.9,
+        "des": 73,
+        "mar": 36.9,
+        "ant": 51.6,
+        "ref": 18.4
+      }
+    }
   }
 }
