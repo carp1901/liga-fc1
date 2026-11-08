@@ -1146,7 +1146,7 @@
         "maipu": "Brian Orosco y Agustín Gaitán respaldados por partido/alta; Agustín Leiva, Mateo Ortale, Juan Cruz Arno, Luca Landriel y Agustín Pavón ausentes de CSV; Víctor Barrera prestado y Marcelo Eggel baja.",
         "quilmes": "Pío Bonacci se conserva; Matías/Mateo Rodríguez, Agustín/Axel Batista, Matías/Mauro Fernández y Joaquín/Juan Yangali requieren cotejo; nuevas altas pendientes de ficha."
       },
-      "csv_modificados": false,
+      "csv_modificados": true,
       "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md"
     }
   },
