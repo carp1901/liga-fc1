@@ -975,3 +975,19 @@ Fecha de revisión: 08/11/2026.
 | Óscar Cortés | Derecho | https://www.sofascore.com/es/football/player/oscar-cortes/1173564 |
 
 **Progreso de Huracán:** 26/31 jugadores con pie registrado. Fabrizio Martínez, Martín Nervo, Rodrigo Fernández Cedrés, Santino Raynelli y Tomás Uribe quedan pendientes por falta de una fuente fiable que publique el pie.
+
+
+## Primera tanda de Gimnasia y Esgrima La Plata — 7 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Nelson Insfrán | Derecho | https://www.sofascore.com/football/player/nelson-insfran/875481 |
+| Julián Kadijevic | Derecho | https://www.sofascore.com/football/player/julian-kadijevic/1649897 |
+| Bautista Barros Schelotto | Derecho | https://www.sofascore.com/es/football/player/bautista-barros-schelotto/1085929 |
+| Germán Conti | Derecho | https://www.sofascore.com/es/football/player/german-conti/320917 |
+| Juan Cruz Cortazzo | Derecho | https://www.sofascore.com/es/football/player/juan-cruz-cortazzo/1639642 |
+| Gonzalo Errecalde | Derecho | https://www.sofascore.com/football/player/gonzalo-errecalde/1067805 |
+| Renzo Giampaoli | Derecho | https://www.sofascore.com/es/football/player/renzo-giampaoli/1066559 |
+
+**Progreso de Gimnasia:** 7/36 jugadores con pie registrado. Máximo Cabrera, Patricio Schroeder y Alejo Gelsomino quedan pendientes de ficha individual.
