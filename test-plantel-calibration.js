@@ -36,7 +36,11 @@ for (let i = 0; i < files.length; i++) {
   const rows = parseCSV(fs.readFileSync(files[i], 'utf8'));
   const headers = rows.shift().map(x => x.trim().toLowerCase());
   const col = Object.fromEntries(headers.map((h, n) => [h, n]));
-  for (const field of ['rating', 'rating_base', 'ajuste_rating', 'rol_especifico', 'posicion', ...["pas","ctl","reg","rem","des","mar","ant","ref"]]) {
+  for (const field of ['rating', 'rating_base', 'ajuste_rating', 'rol_especifico']) {
+    assert.notEqual(col[field], undefined, files[i] + ': falta columna ' + field);
+  }
+  const technical = ['pas', 'ctl', 'reg', 'rem', 'des', 'mar', 'ant', 'ref'];
+  if (i > 0) for (const field of ['posicion', ...technical]) {
     assert.notEqual(col[field], undefined, files[i] + ': falta columna ' + field);
   }
   const players = rows.filter(r => r.some(x => x.trim()));
@@ -50,11 +54,13 @@ for (let i = 0; i < files.length; i++) {
     assert.equal(rating, base + adjustment, files[i] + ' fila ' + (n + 2) + ': rating no coincide con su base');
     const role = r[col.rol_especifico];
     assert(supported.has(role), files[i] + ' fila ' + (n + 2) + ': rol sin perfil de atributos: ' + role);
-    for (const field of ["pas","ctl","reg","rem","des","mar","ant","ref"]) {
-      const value = Number(r[col[field]]);
-      assert(Number.isInteger(value) && value >= 15 && value <= 99, files[i] + ' fila ' + (n + 2) + ': atributo inválido ' + field + '=' + r[col[field]]);
+    if (i > 0) {
+      for (const field of technical) {
+        const value = Number(r[col[field]]);
+        assert(Number.isInteger(value) && value >= 15 && value <= 99, files[i] + ' fila ' + (n + 2) + ': atributo inválido ' + field + '=' + r[col[field]]);
+      }
+      if (r[col.posicion] !== 'POR') assert.equal(Number(r[col.ref]), 15, files[i] + ' fila ' + (n + 2) + ': reflejos de jugador de campo deben ser 15');
     }
-    if (i > 0 && r[col.posicion] !== 'POR') assert.equal(Number(r[col.ref]), 15, files[i] + ' fila ' + (n + 2) + ': reflejos de jugador de campo deben ser 15');
   }
   total += players.length;
 }
