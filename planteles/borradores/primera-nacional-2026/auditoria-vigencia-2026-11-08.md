@@ -108,3 +108,12 @@ Se revisaron candidatos de tres clubes con nóminas actuales y registros de part
 - **Cambios en CSV: ninguno.** Se preservan ratings, atributos y dorsales hasta cerrar identidad, vigencia y fuente de cada movimiento.
 
 El contraste confirma que el mercado de pases debe utilizarse como índice de investigación, no como fuente única de altas y bajas.
+
+## Tercera pasada de contraste — All Boys — 08/11/2026
+
+El sitio oficial de All Boys publicó dos evidencias relevantes:
+
+- **Matías Nouet — conservar por ahora.** El comunicado del 27/06/2026 informó que no sería tenido en cuenta para el segundo semestre y que trabajaría diferenciado, lo que explica su alerta en el mercado. Sin embargo, en el partido oficial del 02/11/2026 ante Estudiantes fue incluido entre los suplentes y entró a los 72 minutos. La participación más reciente prevalece para la foto deportiva actual: no corresponde quitarlo del CSV por el comunicado anterior. Fuentes oficiales: https://caallboys.com.ar/2026/06/27/comunicado-futbol-profesional-masculino/ ; https://caallboys.com.ar/2026/11/02/termino-el-ano-con-una-victoria/
+- **Gabriel Ramírez — alta respaldada por el club.** El mismo comunicado oficial del 27/06 informa que firmó contrato con All Boys hasta el 31/12/2027. No aparece en el CSV de All Boys, por lo que pasa de candidato de mercado a alta documentalmente confirmada para la plantilla de la temporada. Antes de editar el CSV resta completar su ficha individual (posición, edad, media, atributos y dorsal) con fuentes consistentes; no se inventan esos campos.
+
+**Resultado de esta pasada:** una alerta de baja descartada para efectos de depuración inmediata (Nouet sigue participando) y una alta confirmada (Gabriel Ramírez) pendiente de completar ficha. Todavía no se modificó el CSV para evitar incorporar un registro incompleto.
