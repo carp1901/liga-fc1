@@ -27,18 +27,28 @@ jobs:
           node --check public/engine.js
           node --check public/player-development.js
           node --check import-squads.js
-      - name: Auditar los 30 planteles y atributos que consume el juego
-        run: node test-squads.js
       - name: Probar evolución e involución de jugadores
         run: node test-player-development.js
       - name: Probar integración de carrera, guardado y cambio de temporada
         run: node test-career-development.js
       - name: Validar escala de medias y perfiles de roles de los planteles
         run: node test-plantel-calibration.js
-      - name: Validar Primera completa sin modificar archivos
-        run: node import-squads.js planteles/primera-2026.csv --dry-run --require-primera-complete
+      - name: Unificar Primera y Primera Nacional para la importación
+        run: |
+          mkdir -p /tmp/planteles
+          {
+            head -n 1 planteles/primera-2026.csv
+            tail -n +2 planteles/primera-2026.csv
+            for file in planteles/borradores/primera-nacional-2026/bloque{1..6}.csv; do
+              tail -n +2 "$file"
+            done
+          } > /tmp/planteles/planteles-2026.csv
+      - name: Validar los 66 clubes antes de publicar
+        run: node import-squads.js /tmp/planteles/planteles-2026.csv --dry-run --require-both-divisions
       - name: Generar archivos que consume el juego
-        run: node import-squads.js planteles/primera-2026.csv --require-primera-complete
+        run: node import-squads.js /tmp/planteles/planteles-2026.csv --require-both-divisions
+      - name: Auditar Primera y Primera Nacional publicadas
+        run: node test-squads.js
       - name: Guardar planteles publicados en GitHub
         run: |
           git config user.name "github-actions[bot]"
@@ -47,6 +57,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Los archivos publicados ya están actualizados."
           else
-            git commit -m "Actualizar planteles reales de Primera 2026"
-            git push origin HEAD:${GITHUB_REF_NAME}
+            git commit -m "Publicar planteles reales de Primera y Primera Nacional 2026"
+            git push origin HEAD:main
           fi

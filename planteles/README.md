@@ -36,17 +36,15 @@ Campos principales:
 
 ## Importación
 
-Validar:
+Validar y publicar conjuntamente Primera y Primera Nacional se hace mediante GitHub Actions. El flujo une temporalmente `planteles/primera-2026.csv` con los seis bloques de `planteles/borradores/primera-nacional-2026/`, valida los 66 clubes y genera `public/squads.json`, `public/squads.js` y `public/squads-meta.json`. No modifica ni reemplaza los CSV originales.
+
+Para una importación manual, primero se construye `/tmp/planteles-2026.csv` con la misma unión y se ejecuta:
 ```bash
-node import-squads.js planteles/primera-2026.csv --dry-run --require-primera-complete
+node import-squads.js /tmp/planteles-2026.csv --dry-run --require-both-divisions
+node import-squads.js /tmp/planteles-2026.csv --require-both-divisions
 ```
 
-Publicar:
-```bash
-node import-squads.js planteles/primera-2026.csv --require-primera-complete
-```
-
-GitHub Actions valida y publica automáticamente `public/squads.json`, `public/squads.js` y `public/squads-meta.json` cuando cambia el CSV o el importador.
+La importación conserva la combinación anterior y reemplaza sólo los clubes incluidos en el CSV. `--require-both-divisions` exige los 30 clubes de Primera y los 36 de Primera Nacional.
 
 
 ### Nacionalidades y pie dominante
@@ -59,4 +57,8 @@ La auditoría final valida 30 clubes, 1.013 jugadores, 1.013 edades, 1.013 dorsa
 
 Se aplicó el aumento acordado de **+10 puntos** a las 1.013 medias de Primera División. Se conserva la valoración anterior en `rating_base` y el ajuste explícito en `ajuste_rating`; no se reemplazan ni se alteran las fuentes individuales. Resultado: promedio 75,71; rango 60–92. La importación automática de GitHub Actions publicó esta versión de Primera en los archivos que consume el juego y la validación terminó correctamente.
 
-El mismo ajuste se aplicó a los 1.006 registros de Primera Nacional, que continúan como borradores sin integración al juego: promedio 68,46; rango 58–76. En ambas divisiones se mantiene la diferencia original entre jugadores; el +10 es una calibración global de escala, no una nueva valoración individual.
+El mismo ajuste se aplicó a los 1.026 registros de Primera Nacional: promedio 68,44; rango 56–78. En ambas divisiones se mantiene la diferencia original entre jugadores; el +10 es una calibración global de escala, no una nueva valoración individual.
+
+## Integración Primera Nacional — 08/11/2026
+
+Los seis bloques de Primera Nacional reúnen 36 clubes y 1.026 jugadores. Antes de la publicación se detectaron y resolvieron todos los dorsales duplicados: se conservaron los números respaldados por fuentes de partido/club y se reasignaron números internos únicos sólo a las fichas marcadas como provisionales. El plantel de Godoy Cruz se contrastó con la formación del 31/10/2026. El flujo de GitHub Actions valida y publica en conjunto los 66 clubes (1.013 de Primera + 1.026 de Primera Nacional), preservando la Primera existente y verificando nombres, dorsales, edades, roles y atributos.
