@@ -149,3 +149,9 @@ Se agregaron Santiago Ariel Villalba, Gonzalo Nahuel Flores y Julián Ignacio L�
 
 ### Octava tanda — Almagro — 08/11/2026
 Se resolvieron dos identidades sin duplicar: Cristian Salto pasó a Claudio Gabriel Salto (dorsal 10 respaldado por Sofascore) y Franco de la Vega pasó a Facundo Sebastián De La Vega (16 presencias y cinco goles en 2026). Total: 1.023 jugadores; 20 altas y 31 identidades corregidas. Los cambios permanecen en borradores.
+
+
+### Novena tanda — 08/11/2026
+- **Almirante Brown:** se incorporó Joaquín Noé Ibáñez Aro (23/06/2004), extremo de 22 años cedido por Independiente Rivadavia; una aparición en Primera y 16 en Reserva. Dorsal 16 confirmado en planilla de partido. Comparte fecha de nacimiento con Luciano Pascual, pero la planilla muestra a ambos en el mismo encuentro.
+- **Defensores de Belgrano:** se incorporó Nicolás Morro (29/08/1997), central zurdo, una aparición con Defensores en 2026; dorsal 14 confirmado por Sofascore. Su fractura del 10/07 explica la ausencia posterior.
+- Total: 1.025 jugadores; 22 altas acumuladas; 31 identidades corregidas; tres bajas retiradas. Sin integración al runtime.
