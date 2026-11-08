@@ -27,7 +27,8 @@ for(let year=0;year<6;year++){
   delete car.pre;
   ENG.preparePre(car);
   const ids=car.cats[car.me.cat].teams;
-  const table=ids.map((id,i)=>({id,pts:ids.length-i,g:0,gf:0,ga:0}));
+  const ordered=ids.filter(id=>id!==club);ordered.splice(Math.floor(ordered.length/2),0,club);
+  const table=ordered.map((id,i)=>({id,pts:ordered.length-i,g:0,gf:0,ga:0}));
   const result=ENG.careerClose(car,table);
   assert(!result.error&&result.car,'debe cerrar cada temporada');
   car=result.car;
