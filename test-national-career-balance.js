@@ -41,6 +41,7 @@ const ids=Object.keys(DATA.TM).filter(id=>DATA.TM[id]);
 const history=Object.fromEntries(ids.map(id=>[id,{id,name:DATA.TM[id].name,firstNationalPromotion:null,firstDivisionTitles:0,firstDivisionTitlesByTournament:{},firstDivisionSeasons:[],nationalTitles:0,metroSeasons:0,firstCSeasons:0,lowestTier:null,seasonMoves:[]} ]));
 const titles=Object.fromEntries(car.cats.map(c=>[c.div,{}]));
 const promotedFromNational=new Set(),firstDivisionChampions={},firstDivisionTournamentChampions={Apertura:{},Clausura:{}},seasonSummaries=[];
+const regenByClub={},regenBySeason=[];let totalRegens=0;
 const bump=(o,id)=>o[id]=(o[id]||0)+1;
 const catName=Object.fromEntries(car.cats.map(c=>[c.div,c.name]));
 for(let y=0;y<seasons;y++){
@@ -66,6 +67,15 @@ for(let y=0;y<seasons;y++){
   });
  });
  const next=closed.car;
+ const oldLog=car.regenLog||[],newLog=(next.regenLog||[]).slice(oldLog.length);
+ totalRegens+=newLog.length;
+ const byClub={};
+ newLog.forEach(e=>{byClub[e.club]=(byClub[e.club]||0)+1;regenByClub[e.club]=(regenByClub[e.club]||0)+1;
+  const squad=next.rosters&&next.rosters[e.club];
+  if(!squad||!squad.some(p=>p.regen&&p.n===e.regen&&p.regenOf===e.retired))throw new Error('Temporada '+year+': regen no persistido en el plantel de '+e.club);
+ });
+ regenBySeason.push({season:year,retirements:newLog.length,byClub});
+ if(!next.rosters)throw new Error('Temporada '+year+': se perdió el registro de planteles de carrera');
  next.cats.forEach((c,i)=>c.teams.forEach(id=>{
   const h=history[id];if(!h)return;
   const d=c.div;
@@ -86,6 +96,7 @@ const descendedToC=promoted.filter(x=>x.firstCSeasons>0).sort((a,b)=>b.firstCSea
 const report={
  audit:'Primera Nacional · carrera realista multitemporada',
  seasons,startingClub:DATA.TM[start].name,startingSeason:2026,clubsTracked:ids.length,
+ generationalRenewal:{totalRegens,clubsWithRegens:Object.keys(regenByClub).length,regensByClub:Object.entries(regenByClub).map(([id,count])=>({id,club:DATA.TM[id].name,count})).sort((a,b)=>b.count-a.count),regensBySeason:regenBySeason,activeRegensAtEnd:Object.values(car.rosters||{}).flat().filter(p=>p.regen).length},
  divisions:car.cats.map(c=>({id:c.div,name:c.name,teams:c.teams.length})),
  nationalChampions:Object.entries(titles.ar2).map(([id,count])=>({club:DATA.TM[id].name,id,titles:count})).sort((a,b)=>b.titles-a.titles),
  firstDivisionTournamentTitles:Object.entries(firstDivisionChampions).map(([id,count])=>({club:DATA.TM[id].name,id,titles:count,seasons:history[id].firstDivisionSeasons})).sort((a,b)=>b.titles-a.titles),
