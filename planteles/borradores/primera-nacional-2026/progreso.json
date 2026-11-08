@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría general en curso: cinco tandas de calibración individual completadas (12 medias ajustadas); 1.026 jugadores validados. Borradores sin integración al runtime.",
+  "estado": "Auditoría y calibración individual en curso: cinco tandas completadas (12 medias ajustadas); distribución recalculada y 1.026 jugadores validados. Borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -1796,7 +1796,7 @@
     "maximo_rating": 78,
     "percentil10": 64,
     "percentil90": 72,
-    "porcentaje_entre64y72": 88.9,
+    "porcentaje_entre64y72": 86,
     "ref_no_arqueros_corregidos": 654,
     "arqueros_sin_cambios": 103,
     "atributos_completos": 1026,
@@ -1804,7 +1804,7 @@
     "ratings_modificados": false,
     "primera_division_modificada": false,
     "runtime_modificado": false,
-    "proximo_paso": "Continuar calibración individual por evidencia de minutos, titularidades, producción y rendimiento; revisar especialmente titulares de medias bajas y extremos de la distribución.",
+    "proximo_paso": "Continuar calibración individual de titulares y figuras con evidencia de minutos, rendimiento y producción; luego revisar posiciones/subroles dudosos caso por caso.",
     "calibracion_primera_tanda": {
       "fecha": "2026-11-08",
       "ratings_ajustados": 6,
@@ -1863,6 +1863,15 @@
       },
       "promedio_actual": 68.44,
       "runtime_modificado": false
-    }
+    },
+    "percentil25": 67,
+    "percentil75": 71,
+    "promedios_por_posicion": {
+      "POR": 68.47,
+      "DEF": 68.72,
+      "MED": 68.13,
+      "DEL": 68.5
+    },
+    "perfiles_subrol_sin_soporte": 0
   }
 }
