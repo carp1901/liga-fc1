@@ -511,3 +511,17 @@ Siguen como pendientes, no como altas de Primera Nacional. Mitre los incluye en 
 - Bloque 1 baja de 155 a 152 jugadores; no se modifican las fichas retenidas.
 - Total general: 1.023 jugadores.
 - Sin integración al runtime.
+
+
+## Decimocuarta tanda de depuración — Atlanta — 08/11/2026
+
+Se incorporaron dos refuerzos que llegaron para el tramo final de la Primera Nacional 2026, ambos confirmados por Solo Ascenso el 09/09/2026:
+
+- **Abel Francisco Romero** (habitualmente listado como Francisco Romero), nacido el 08/03/1999, mediocampista central/defensivo. Se sumó desde Estudiantes de Río Cuarto. El club registra 8 partidos y 463 minutos; Mundo Ascenso asigna dorsal **11**. La ficha DataCancha confirma nombre completo, DOB, club y dorsal. Rating y atributos son estimaciones internas. Fuentes: https://www.soloascenso.com.ar/notas/gimnasia-mendoza/atlanta-sumo-dos-refuerzos-para-la-recta-final-del-torneo/232407 ; https://datacancha.com/player/75896 ; https://caatlanta.com.ar/list/plantel-2026/ ; https://www.mundoascenso.com.ar/plantel/1948-atlanta
+- **Franco David Cáceres**, nacido el 06/01/2000, mediocampista zurdo. Llegó desde Deportivo La Guaira; registra 5 partidos y 100 minutos con Atlanta en la tabla oficial del club. BeSoccer confirma dorsal **16**, pie izquierdo, fecha de nacimiento y posición de mediocampista. Rating y atributos son estimaciones internas. Fuentes: https://www.soloascenso.com.ar/notas/gimnasia-mendoza/atlanta-sumo-dos-refuerzos-para-la-recta-final-del-torneo/232407 ; https://www.besoccer.com/player/f-caceres-924068 ; https://caatlanta.com.ar/list/plantel-2026/ ; https://www.mundoascenso.com.ar/plantel/1948-atlanta
+
+### Resultado de la tanda
+- 2 altas incorporadas en Atlanta.
+- Dorsales 11 y 16 respaldados por fuentes de plantel/ficha.
+- Bloque 1 pasa de 152 a 154 jugadores; total general: 1.025.
+- Sin integración al runtime.
