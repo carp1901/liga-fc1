@@ -52,3 +52,9 @@ La revisión estructural y de consistencia de los seis bloques queda cerrada. Re
 **Pendientes que no se completaron artificialmente:** los ocho atributos técnicos (`pas`, `ctl`, `reg`, `rem`, `des`, `mar`, `ant`, `ref`) continúan vacíos para los 1.006 jugadores; verificar los 1.001 dorsales provisionales; revalidar la pertenencia actual de los planteles; profundizar la calibración de las 992 medias sin ajuste individual documentado. No se aplicó el +10 general de medias acordado para Primera y Primera Nacional.
 
 Esta auditoría cierra el control de calidad del material disponible, no significa que los CSV estén integrados al juego ni que todos los datos estimados estén confirmados oficialmente.
+
+## Ajuste general de escala — 08/11/2026
+
+Tras cerrar la auditoría diagnóstica se aplicó el aumento acordado de **+10 puntos** a los 1.006 ratings de los seis bloques. Se agregaron `rating_base` (valor anterior) y `ajuste_rating` (+10) para conservar trazabilidad. Resultado conjunto: promedio 68,46; rango 58–76. Los valores siguen siendo estimaciones propias; el ajuste no las convierte en OVR oficiales ni modifica sus fuentes.
+
+Los seis CSV siguen siendo borradores de investigación: **no están integrados en el juego**. La automatización del repositorio publica únicamente el CSV de Primera División en los archivos de runtime.
