@@ -172,3 +172,14 @@ Fecha de revisión: 08/11/2026.
 | Sebastián Villa | Derecho | https://www.sofascore.com/es/football/player/sebastian-villa/839983 |
 
 **Progreso de Boca:** 29/31 jugadores con pie registrado.
+
+
+## Cierre de Boca Juniors — 2 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Matías Satas | Izquierdo | https://www.sofascore.com/es/football/player/matias-satas/2082482 |
+| Adam Bareiro | Derecho | https://www.sofascore.com/es/football/player/adam-bareiro/871580 |
+
+**Resultado de Boca:** 31/31 jugadores del CSV con pie dominante registrado.
