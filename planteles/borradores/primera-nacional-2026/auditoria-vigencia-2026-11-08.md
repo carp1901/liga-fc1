@@ -663,3 +663,17 @@ Se revisaron seis casos con participación y datos de temporada suficientemente 
 - **Martín Pino (Godoy Cruz): 75 → 77.** 32 partidos, 32 titularidades, 2.742 minutos, 19 goles y 7 asistencias en Primera Nacional 2026. Se aplica +2 por rendimiento de figura, sin extender el ajuste al resto del plantel. Fuente: https://www.fotmob.com/es/players/1085220/martin-pino
 - Se actualizaron `rating`, `rating_base` y los siete atributos de campo en +2; `ajuste_rating = 10` y `ref = 15` permanecen.
 - Validación global: 1.026 jugadores; promedio 68,4357 (68,44); bloques 155/171/182/194/164/160; cero errores estructurales, de escala o atributos. Los CSV continúan fuera del runtime.
+
+
+## Revisión de distribución posterior a cinco tandas — 08/11/2026
+
+Se recalculó la base completa tras las doce recalibraciones individuales acumuladas.
+
+- **Media:** promedio 68,4357 (68,44); mediana 69; P10 64; P25 67; P75 71; P90 72; rango 56–78.
+- **Concentración:** 882/1.026 (86,0%) entre 64 y 72, frente al 88,9% de la auditoría inicial. La diferenciación mejoró levemente, pero sigue concentrada en el centro.
+- **Promedio por línea:** POR 68,47; DEF 68,72; MED 68,13; DEL 68,50. Diferencia máxima 0,59 puntos.
+- **Clubes:** más altos Godoy Cruz 72,00; Defensores de Belgrano 70,08; San Martín Tucumán 70,04; Deportivo Madryn 69,95; Atlético Rafaela 69,54; Atlanta 69,32. Más bajos Quilmes 67,06; Estudiantes BA 67,18; Midland 67,33; Temperley 67,41; Almagro 67,57; Ciudad de Bolívar 67,59.
+- **Perfiles:** 1.026/1.026 subroles con perfil disponible en `public/data.js`; no se encontraron roles sin soporte.
+- **Integridad:** seis bloques con cantidades 155/171/182/194/164/160; 33 columnas por fila; fórmula `rating = rating_base + ajuste_rating` correcta; cero errores de rango o reflejos de campo.
+
+No se aplicó un aumento global adicional. Próxima prioridad: ampliar la calibración individual de titulares y figuras con evidencia, y después revisar casos de posición/subrol dudosos sin eliminar perfiles híbridos válidos. Los ocho atributos continúan siendo estimaciones reproducibles, no estadísticas observadas.
