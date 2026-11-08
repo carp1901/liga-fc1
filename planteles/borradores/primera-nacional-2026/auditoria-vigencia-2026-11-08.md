@@ -648,3 +648,11 @@ Se revisaron seis casos con participación y datos de temporada suficientemente 
 - **Luis Silba (Deportivo Madryn): 74 → 75.** 32 partidos, 28 titularidades, 2.440 minutos, 16 goles y 2 asistencias en Primera Nacional 2026. El +1 refleja una producción goleadora destacada, manteniendo moderación por edad y minutos. Fuente: https://www.fotmob.com/es/players/807031/luis-silba
 - Se incrementaron en +1 `rating`, `rating_base` y los siete atributos de campo; `ajuste_rating = 10` y `ref = 15` se mantienen.
 - Validación global: 1.026 jugadores; promedio 68,4318 (68,43); cero errores de estructura, fórmula de escala o regla de reflejos. Borradores fuera del runtime.
+
+
+### Cuarta tanda de calibración individual — 08/11/2026
+
+- **Alejandro Quintana (Atlanta): 72 → 73.** 33 presencias, 31 titularidades y 7 goles según Solo Ascenso; ZeroZero registra 6 goles y 5 asistencias en su corte. Se aplica +1 moderado. Fuentes: https://www.soloascenso.com.ar/perfil/alejandro-quintana/6368 ; https://www.ceroacero.es/jugador/alejandro-quintana/122712
+- **Ezequiel Aguirre (Defensores de Belgrano): 73 → 74.** 33 partidos, 33 titularidades, 2.611 minutos, 3 goles y 6 asistencias. Se aplica +1 moderado. Fuente: https://www.fotmob.com/es-419/players/816733/ezequiel-aguirre
+- En ambas fichas se actualizaron `rating`, `rating_base` y los siete atributos de campo en +1; `ajuste_rating = 10` y `ref = 15` permanecen.
+- Validación global: 1.026 jugadores; promedio 68,4337 (68,43); sin duplicados intraclub ni errores estructurales, de escala o de atributos. Borradores fuera del runtime.
