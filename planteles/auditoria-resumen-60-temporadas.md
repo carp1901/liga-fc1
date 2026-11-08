@@ -37,3 +37,20 @@ La simulación incluye envejecimiento, retiros, regeneración, ascensos, descens
 ## Próxima revisión
 
 Auditar la calibración de medias y la composición de los 66 planteles originales de Primera y Primera Nacional, y luego abordar el desarrollo individual de jugadores sin alterar los planteles de Primera ya cerrados.
+
+
+## Estado de los 66 planteles de 2026
+
+El inventario de `squads-meta.json` registra **2.039 futbolistas**: 1.013 en Primera (promedio 33,8 por club) y 1.026 en Primera Nacional (promedio 28,5).
+
+- **Integridad básica:** cero nombres duplicados y cero dorsales duplicados; edad, dorsal, nacionalidad y rol específico completos en los 2.039 jugadores.
+- **Medias:** 920 verificadas y 1.119 estimadas, todas identificadas como tales. En Primera hay 875 verificadas y 138 estimadas; en Nacional, 45 verificadas y 981 estimadas.
+- **Atributos:** 1.173 jugadores tienen atributos manuales y 866 usan atributos derivados por puesto, rol y media.
+- **Pie hábil:** falta en 2.008 jugadores; es el principal dato biográfico pendiente, aunque no impide simular los partidos actuales.
+- **Tamaño de planteles:** Tigre tiene 46 jugadores; San Lorenzo 40; Estudiantes (LP) y Rosario Central 38. Racing tiene 22. En Nacional, seis clubes tienen 22–23 jugadores: Almagro, Central Norte, Colegiales, Madryn, Racing (Cba.) y San Martín (T).
+
+### Lectura y prioridades
+
+La integridad de los datos básicos está completa, pero la confianza de las medias es muy desigual entre categorías: Primera tiene 86,4% de medias verificadas y Nacional apenas 4,4%. Las estimaciones están identificadas y no se presentan como OVR oficiales; el siguiente trabajo debe calibrarlas con rendimiento y nivel competitivo, sin inventar fuentes.
+
+En cantidad, Tigre es el outlier más claro de Primera y conviene revisar si su lista incluye jugadores de reserva/profundidad que no deberían formar parte del plantel principal. Los planteles de Nacional están entre 22 y 34 jugadores, en línea general con el criterio de XI más banco; los seis de 22–23 merecen comprobar si falta algún suplente clave antes de ampliarlos. No se modificó ningún plantel en esta auditoría.
