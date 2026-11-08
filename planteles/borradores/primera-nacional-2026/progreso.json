@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia 36/36; octava tanda documentada. Depuración en curso; borradores sin integración al runtime.",
+  "estado": "Auditoría de vigencia 36/36; novena tanda documentada. Depuración en curso; borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -88,15 +88,15 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "193 jugadores; 193 roles cargados.",
-      "jugadores": 193,
+      "estado": "194 jugadores; 194 roles cargados.",
+      "jugadores": 194,
       "clubes": {
         "ciudadbolivar": 34,
         "colon": 32,
         "tristansuarez": 33,
         "agropecuario": 33,
         "patronato": 34,
-        "almirantebrown": 27
+        "almirantebrown": 28
       },
       "roles_especificos": 193
     },
@@ -136,12 +136,12 @@
         "rafaela",
         "midland"
       ],
-      "estado": "157 jugadores; 157 roles cargados.",
-      "jugadores": 157,
+      "estado": "158 jugadores; 158 roles cargados.",
+      "jugadores": 158,
       "clubes": {
         "sanmiguel": 28,
         "midland": 33,
-        "defensoresbelgrano": 24,
+        "defensoresbelgrano": 25,
         "colegiales": 23,
         "acassuso": 25,
         "rafaela": 24
@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1023,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinte altas agregadas y treinta y una identidades corregidas; seis bloques CSV validados. 1.023 jugadores en borradores; sin integración al runtime.",
+  "jugadores_borrador": 1025,
+  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veintidós altas agregadas y treinta y una identidades corregidas; seis bloques CSV validados. 1.025 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1175,9 +1175,9 @@
     "altas_respaldo_pendientes": "Ver reporte de auditoría; completar ficha individual antes de incorporar.",
     "csv_modificados": true,
     "bajas_confirmadas_retiradas": 3,
-    "altas_agregadas": 20,
+    "altas_agregadas": 22,
     "identidades_corregidas": 31,
-    "jugadores_actuales": 1023
+    "jugadores_actuales": 1025
   },
   "depuracion_primera_tanda": {
     "fecha": "2026-11-08",
@@ -1526,6 +1526,36 @@
       }
     ],
     "validacion": "Bloque 2: 33 columnas en todas las filas; total 1.023 jugadores.",
+    "runtime_modificado": false
+  },
+  "depuracion_novena_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1023,
+    "jugadores_despues": 1025,
+    "altas_agregadas": [
+      {
+        "club": "Almirante Brown",
+        "jugador": "Joaquín Noé Ibáñez Aro",
+        "bloque": 4,
+        "dob": "2004-06-23",
+        "presencias_primer_equipo": 1,
+        "reserva": 16,
+        "dorsal": "16 verificado"
+      },
+      {
+        "club": "Defensores de Belgrano",
+        "jugador": "Nicolás Morro",
+        "bloque": 6,
+        "dob": "1997-08-29",
+        "presencias_club_2026": 1,
+        "dorsal": "14 verificado"
+      }
+    ],
+    "conflictos_resueltos": [
+      "Joaquín Ibáñez: comunicado oficial, Transfermarkt, ZeroZero y planilla TyC confirman al jugador nacido en 2004; la planilla muestra a Ibáñez y Luciano Pascual en el mismo partido pese a compartir fecha de nacimiento."
+    ],
+    "validacion": "Bloques 4 y 6: exactamente 33 columnas por fila; total 1.025 jugadores.",
+    "rating_atributos": "Estimaciones internas; ajuste +10 preservado.",
     "runtime_modificado": false
   }
 }
