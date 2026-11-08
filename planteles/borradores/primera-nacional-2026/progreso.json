@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia 36/36; duodécima tanda documentada. Depuración en curso; borradores sin integración al runtime.",
+  "estado": "Auditoría de vigencia 36/36; decimoquinta tanda documentada. Depuración de altas e identidades cerrada para pasar a auditoría general; borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -16,10 +16,10 @@
         "chacarita",
         "atlanta"
       ],
-      "estado": "154 jugadores; 154 roles cargados.",
-      "jugadores": 154,
+      "estado": "155 jugadores; 155 roles específicos cargados.",
+      "jugadores": 155,
       "clubes": {
-        "ferro": 31,
+        "ferro": 32,
         "nuevachicago": 26,
         "madryn": 22,
         "chacarita": 25,
@@ -40,17 +40,17 @@
         "gimnasiajujuy",
         "almagro"
       ],
-      "estado": "173 jugadores; 173 roles cargados.",
-      "jugadores": 173,
+      "estado": "171 jugadores; 171 roles específicos cargados.",
+      "jugadores": 171,
       "clubes": {
         "chaco": 32,
         "moron": 29,
         "estudiantesba": 33,
         "gimnasiajujuy": 31,
-        "sanmartintuc": 24,
-        "almagro": 24
+        "sanmartintuc": 23,
+        "almagro": 23
       },
-      "roles_especificos": 172
+      "roles_especificos": 171
     },
     {
       "bloque": 3,
@@ -64,7 +64,7 @@
         "temperley",
         "guemes"
       ],
-      "estado": "182 jugadores; 182 roles cargados.",
+      "estado": "182 jugadores; 182 roles específicos cargados.",
       "jugadores": 182,
       "clubes": {
         "losandes": 32,
@@ -74,7 +74,7 @@
         "guemes": 32,
         "racingcba": 22
       },
-      "roles_especificos": 183
+      "roles_especificos": 182
     },
     {
       "bloque": 4,
@@ -88,7 +88,7 @@
         "agropecuario",
         "patronato"
       ],
-      "estado": "194 jugadores; 194 roles cargados.",
+      "estado": "194 jugadores; 194 roles específicos cargados.",
       "jugadores": 194,
       "clubes": {
         "ciudadbolivar": 34,
@@ -98,7 +98,7 @@
         "patronato": 34,
         "almirantebrown": 28
       },
-      "roles_especificos": 193
+      "roles_especificos": 194
     },
     {
       "bloque": 5,
@@ -112,17 +112,17 @@
         "maipu",
         "quilmes"
       ],
-      "estado": "162 jugadores; 162 roles cargados.",
-      "jugadores": 162,
+      "estado": "164 jugadores; 164 roles específicos cargados.",
+      "jugadores": 164,
       "clubes": {
         "gimnasiatiro": 32,
         "quilmes": 33,
         "maipu": 26,
-        "godoycruz": 24,
-        "santelmo": 25,
+        "godoycruz": 25,
+        "santelmo": 26,
         "centralnorte": 22
       },
-      "roles_especificos": 162
+      "roles_especificos": 164
     },
     {
       "bloque": 6,
@@ -136,7 +136,7 @@
         "rafaela",
         "midland"
       ],
-      "estado": "160 jugadores; 160 roles cargados.",
+      "estado": "160 jugadores; 160 roles específicos cargados.",
       "jugadores": 160,
       "clubes": {
         "sanmiguel": 28,
@@ -146,26 +146,26 @@
         "acassuso": 25,
         "rafaela": 26
       },
-      "roles_especificos": 157
+      "roles_especificos": 160
     }
   ],
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1025,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veintiséis altas agregadas, treinta y ocho identidades corregidas y cuatro duplicados interclub eliminados. Seis bloques CSV en borradores; 1.025 jugadores; sin integración al runtime.",
+  "jugadores_borrador": 1026,
+  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración: 3 bajas confirmadas retiradas, 28 altas nuevas agregadas, 50 identidades/datos corregidos, 4 duplicados interclub y 1 duplicado intraclub eliminados. Seis bloques CSV en borradores; 1026 jugadores; sin integración al runtime.",
   "auditoria_final": {
-    "jugadores": 1006,
+    "jugadores": 1026,
     "clubes": 36,
-    "edades_con_fecha_nacimiento": 1006,
-    "dorsales_asignados": 1006,
+    "edades_con_fecha_nacimiento": 1026,
+    "dorsales_asignados": 1026,
     "dorsales_oficiales_verificados": 0,
-    "nacionalidades_asignadas": 1006,
-    "medias_estimadas": 1006,
-    "medias_60": 0,
-    "porcentaje_media_60": 0,
+    "nacionalidades_asignadas": 1026,
+    "medias_estimadas": 1026,
+    "medias_60": 8,
+    "porcentaje_media_60": 0.78,
     "atributos_derivados_por_motor": 21,
-    "roles_especificos_asignados": 1006,
+    "roles_especificos_asignados": 1026,
     "estado_ci": "passed",
     "importacion": "No integrado al runtime; datos conservados como borradores CSV",
     "main": "borradores publicados en main; integración al juego pendiente",
@@ -182,12 +182,12 @@
     "porcentaje_roles_especificos": 100,
     "ultima_revision": "2026-11-07: 1006/1006 roles específicos cargados; 44 asignaciones orientativas marcadas para auditoría.",
     "dorsales_contrastados_en_planillas": 4,
-    "promedio_rating_actual": 68.46,
-    "minimo_rating_actual": 58,
-    "maximo_rating_actual": 76,
+    "promedio_rating_actual": 68.42,
+    "minimo_rating_actual": 56,
+    "maximo_rating_actual": 78,
     "atributos_tecnicos_csv": {
-      "jugadores_con_ocho_campos": 1006,
-      "valores_cargados": 8048,
+      "jugadores_con_ocho_campos": 1026,
+      "valores_cargados": 8208,
       "campos_vacios": 0
     }
   },
@@ -215,8 +215,8 @@
     {
       "club_id": "madryn",
       "nombre": "Deportivo Madryn",
-      "jugadores": 23,
-      "roles_especificos": 23,
+      "jugadores": 22,
+      "roles_especificos": 22,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -225,8 +225,8 @@
     {
       "club_id": "nuevachicago",
       "nombre": "Nueva Chicago",
-      "jugadores": 23,
-      "roles_especificos": 23,
+      "jugadores": 26,
+      "roles_especificos": 26,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -245,8 +245,8 @@
     {
       "club_id": "atlanta",
       "nombre": "Atlanta",
-      "jugadores": 23,
-      "roles_especificos": 23,
+      "jugadores": 25,
+      "roles_especificos": 25,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -285,8 +285,8 @@
     {
       "club_id": "sanmartintuc",
       "nombre": "San Martín de Tucumán",
-      "jugadores": 24,
-      "roles_especificos": 24,
+      "jugadores": 23,
+      "roles_especificos": 23,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -355,8 +355,8 @@
     {
       "club_id": "temperley",
       "nombre": "Temperley",
-      "jugadores": 33,
-      "roles_especificos": 33,
+      "jugadores": 32,
+      "roles_especificos": 32,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -365,8 +365,8 @@
     {
       "club_id": "guemes",
       "nombre": "Güemes",
-      "jugadores": 33,
-      "roles_especificos": 33,
+      "jugadores": 32,
+      "roles_especificos": 32,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -375,8 +375,8 @@
     {
       "club_id": "almirantebrown",
       "nombre": "Almirante Brown",
-      "jugadores": 24,
-      "roles_especificos": 24,
+      "jugadores": 28,
+      "roles_especificos": 28,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -396,7 +396,7 @@
       "club_id": "colon",
       "nombre": "Colón",
       "jugadores": 32,
-      "roles_especificos": 31,
+      "roles_especificos": 32,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -416,7 +416,7 @@
       "club_id": "agropecuario",
       "nombre": "Agropecuario",
       "jugadores": 33,
-      "roles_especificos": 32,
+      "roles_especificos": 33,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -445,16 +445,6 @@
     {
       "club_id": "godoycruz",
       "nombre": "Godoy Cruz",
-      "jugadores": 24,
-      "roles_especificos": 24,
-      "roles_pendientes": 0,
-      "porcentaje_roles": 100,
-      "estado": "pendiente",
-      "motivo": "Roles cargados; las asignaciones estimadas de esta tanda deben revisarse en la auditoría de posiciones, dorsales, medias y atributos."
-    },
-    {
-      "club_id": "santelmo",
-      "nombre": "San Telmo",
       "jugadores": 25,
       "roles_especificos": 25,
       "roles_pendientes": 0,
@@ -463,10 +453,20 @@
       "motivo": "Roles cargados; las asignaciones estimadas de esta tanda deben revisarse en la auditoría de posiciones, dorsales, medias y atributos."
     },
     {
+      "club_id": "santelmo",
+      "nombre": "San Telmo",
+      "jugadores": 26,
+      "roles_especificos": 26,
+      "roles_pendientes": 0,
+      "porcentaje_roles": 100,
+      "estado": "pendiente",
+      "motivo": "Roles cargados; las asignaciones estimadas de esta tanda deben revisarse en la auditoría de posiciones, dorsales, medias y atributos."
+    },
+    {
       "club_id": "gimnasiatiro",
       "nombre": "Gimnasia y Tiro",
-      "jugadores": 30,
-      "roles_especificos": 30,
+      "jugadores": 32,
+      "roles_especificos": 32,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -475,8 +475,8 @@
     {
       "club_id": "maipu",
       "nombre": "Deportivo Maipú",
-      "jugadores": 19,
-      "roles_especificos": 19,
+      "jugadores": 26,
+      "roles_especificos": 26,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -505,8 +505,8 @@
     {
       "club_id": "defensoresbelgrano",
       "nombre": "Defensores de Belgrano",
-      "jugadores": 26,
-      "roles_especificos": 26,
+      "jugadores": 25,
+      "roles_especificos": 25,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -515,8 +515,8 @@
     {
       "club_id": "acassuso",
       "nombre": "Acassuso",
-      "jugadores": 22,
-      "roles_especificos": 22,
+      "jugadores": 25,
+      "roles_especificos": 25,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -535,8 +535,8 @@
     {
       "club_id": "rafaela",
       "nombre": "Atlético de Rafaela",
-      "jugadores": 24,
-      "roles_especificos": 24,
+      "jugadores": 26,
+      "roles_especificos": 26,
       "roles_pendientes": 0,
       "porcentaje_roles": 100,
       "estado": "pendiente",
@@ -1753,6 +1753,36 @@
       }
     ],
     "validacion": "Bloque 1: 154 jugadores, 33 columnas por fila.",
+    "runtime_modificado": false
+  },
+  "depuracion_decimoquinta_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1025,
+    "jugadores_despues": 1026,
+    "altas_nuevas": 2,
+    "traslados_de_club": 1,
+    "correcciones_de_identidad_datos": 12,
+    "duplicados_intraclub_eliminados": 1,
+    "validacion": "Seis bloques con 33 columnas por fila; sin nombres duplicados intraclub; rating_base + ajuste_rating = rating en todos los registros.",
+    "runtime_modificado": false
+  },
+  "ultima_validacion": {
+    "fecha": "2026-11-08",
+    "total_jugadores": 1026,
+    "bloques": [
+      155,
+      171,
+      182,
+      194,
+      164,
+      160
+    ],
+    "columnas_por_fila": 33,
+    "nombres_duplicados_intraclub": 0,
+    "errores_rating": 0,
+    "promedio_rating": 68.42,
+    "minimo_rating": 56,
+    "maximo_rating": 78,
     "runtime_modificado": false
   }
 }
