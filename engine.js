@@ -1,5 +1,5 @@
 (function(){
-const D=typeof require!=='undefined'?require('./data'):window.DATA,{DIVS,CUPS,TM,FM,slots,autoXI,squad,setMix,roleOvr,squadMode,PHIL,phOff,phDelta,validPhil}=D,AV=(x,a)=>x.at?x.at[a]:x.r,avg=(arr,f)=>arr.length?arr.reduce((s,x)=>s+f(x),0)/arr.length:60,rnd=Math.random,rooms={},CFG={randN:10,rVoteT:15,rGraceV:10000,rGraceP:30000,rankMin:10,tick:1000,offline:typeof window!=='undefined',fastWaits:false,realK:D.NORMAL.K,realC:D.NORMAL.C};
+const D=typeof require!=='undefined'?require('./data'):window.DATA,{DIVS,CUPS,TM,FM,slots,autoXI,squad,setMix,roleOvr,squadMode,loadSquads,PHIL,phOff,phDelta,validPhil}=D,REG=typeof require!=='undefined'?require('./public/player-regens'):null,AV=(x,a)=>x.at?x.at[a]:x.r,avg=(arr,f)=>arr.length?arr.reduce((s,x)=>s+f(x),0)/arr.length:60,rnd=Math.random,rooms={},CFG={randN:10,rVoteT:15,rGraceV:10000,rGraceP:30000,rankMin:10,tick:1000,offline:typeof window!=='undefined',fastWaits:false,realK:D.NORMAL.K,realC:D.NORMAL.C};
 // Fuerza efectiva por modo: equilibrado = plantel normalizado (data.js); normal = diferencias reales atenuadas (CFG.realK) para que la calidad no decida de antemano.
 const cmpV=v=>CFG.realC+(v-CFG.realC)*CFG.realK;
 const sqOf=(r,team)=>{const c=r.sqc||(r.sqc={});if(c[team])return c[team];const mix=!!(r.cfg&&r.cfg.mix),raw=squadMode(team,mix);return c[team]=mix?raw:raw.map(x=>({...x,r:cmpV(x.r),at:Object.fromEntries(Object.keys(x.at).map(a=>[a,cmpV(x.at[a])]))}))};
@@ -375,7 +375,7 @@ function careerNew(o){o=o||{};const lg=o.lg=='uy'?'uy':'ar',divs=(lg=='uy'?['uy1
 const RCUP={2026:[2,4,2,1]},RFMT={ar1:'liga1',ar2:'liga1',ar3:'liga2',ar5:'liga1',ar4:'liga1',ar6:'liga2'};
 function realNew(o){o=o||{};const divs=CXORD.map(id=>DIVS.find(d=>d.id==id)),club=o.me&&o.me.club;if(!TM[club])return{error:'Elegí tu club'};
  const cats=divs.map(d=>({div:d.id,name:d.name,teams:d.teams.map(t=>t.id)})),mc=cats.findIndex(c=>c.teams.includes(club));if(mc<0)return{error:'Ese club no está en ninguna división'};
- const car={v:3,mode:'real',season:2026,k:6,n:0,ud:0,cup:RCUP[2026].slice(),fmts:divs.map(d=>RFMT[d.id]),zones:Object.fromEntries(cats.filter(c=>RZ[c.div]).map(c=>[c.div,zsplit(c.teams,RZ[c.div].zs,c.div)])),cats,me:{club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)};car.pre=preGen(car);car.cq=copaQual(cats[0].teams,Object.fromEntries(cats.map(c=>[c.div,c.teams])));car.cp=copaInit(car);return car}
+ const car={v:3,mode:'real',season:2026,k:6,n:0,ud:0,cup:RCUP[2026].slice(),fmts:divs.map(d=>RFMT[d.id]),zones:Object.fromEntries(cats.filter(c=>RZ[c.div]).map(c=>[c.div,zsplit(c.teams,RZ[c.div].zs,c.div)])),cats,me:{club,cat:mc},hist:[],last:null,spd:clamp(+o.spd||1,.25,100)};if(REG){car.rosters=REG.init(cats,id=>squadMode(id,false));loadSquads(car.rosters)}car.pre=preGen(car);car.cq=copaQual(cats[0].teams,Object.fromEntries(cats.map(c=>[c.div,c.teams])));car.cp=copaInit(car);return car}
 // ---- Realista bloque 2: Primera Nacional, Primera C y Promocional Amateur se juegan por zonas (2 ruedas) + final y reducido.
 // La zona del jugador se juega en una sala normal (liga de 2 ruedas, cfg.zone/cfg.zl); la otra zona y las fases finales se simulan al cerrar la temporada.
 // Cada formato es un dato (RZ): zs = tamaños de zona, red = puestos que van al reducido. Reducidos de C (2.º a 7.º) y Promocional (2.º a 4.º): ida y vuelta, define el mejor ubicado (local la vuelta). Pendiente: interzonales.
@@ -448,7 +448,7 @@ const ZF={
   return{def,drop,order:zOrder(zA,zB,[f,ko.w],[]),rep:{final:{a:zA[0],b:zB[0],w:f},red:ko.rds,last:{a:dA,b:dB,w:def}}}},
  ar6(zA,zB){const key=zKey(zA,zB),f=kt(zA[0],zB[0],1),q=[...zA.slice(1,4),...zB.slice(1,4)].sort((x,y)=>key(x)-key(y)),ko=zKO(q,true);
   return{red:ko.w,order:zOrder(zA,zB,[f],[]),rep:{final:{a:zA[0],b:zB[0],w:f},red:ko.rds}}}};
-const careerCfg=car=>{const c0=car.cats[car.me.cat],Z=car.zones&&car.zones[c0.div];if(Z){const pr=c0.div=='ar1';return{div:'custom',real:1,zone:pr?undefined:1,iz:c0.div=='ar2'?1:undefined,zones:Z.map(a=>a.slice()),seg:pr?[16,16]:undefined,zl:RZL[c0.div],teams:Z.flat(),n:Z.flat().length,fmt:pr?'liga1':'liga2',lbl:c0.name+' · Temporada '+car.season}}const cc=careerCfg0(car);if(car.mode=='real'&&RZL[c0.div])cc.zl=RZL[c0.div];return cc};
+const careerCfg=car=>{if(car&&car.mode=='real'&&car.rosters)loadSquads(car.rosters);const c0=car.cats[car.me.cat],Z=car.zones&&car.zones[c0.div];if(Z){const pr=c0.div=='ar1';return{div:'custom',real:1,zone:pr?undefined:1,iz:c0.div=='ar2'?1:undefined,zones:Z.map(a=>a.slice()),seg:pr?[16,16]:undefined,zl:RZL[c0.div],teams:Z.flat(),n:Z.flat().length,fmt:pr?'liga1':'liga2',lbl:c0.name+' · Temporada '+car.season}}const cc=careerCfg0(car);if(car.mode=='real'&&RZL[c0.div])cc.zl=RZL[c0.div];return cc};
 const careerCfg0=car=>({div:'custom',real:car.mode=='real'?1:undefined,teams:car.cats[car.me.cat].teams.slice(),n:car.cats[car.me.cat].teams.length,fmt:car.fmts?car.fmts[car.me.cat]:car.fmt,lbl:car.cats[car.me.cat].name+' · Temporada '+car.season});
 // Cierra la temporada: table = tabla final de la categoría del jugador (la sala ya terminó). Devuelve {car: carrera de la temporada siguiente, summary} o {error}.
 function careerClose(car,table,segT){
@@ -471,7 +471,7 @@ function careerClose(car,table,segT){
   else{inc[0]=up[1];inc[1]=down[0]}}
  const teams=stay.map((t,i)=>[...t,...inc[i]]),to=teams.findIndex(t=>t.includes(club)),pos=(zi>=0&&car.cats[mc].div!='ar1'?mine.filter(id=>zc[zi].includes(id)):mine).indexOf(club)+1,champ=st[mc][0]==club,res=CXLVL[to]<CXLVL[mc]?'sube':CXLVL[to]>CXLVL[mc]?'baja':'sigue';
  if(teams.some((t,i)=>t.length!=sz[i]))return{error:'Error interno: cantidad de equipos desbalanceada'};
- const nc={...car,season:car.season+1,cup:car.cup?(RCUP[car.season+1]||car.cup):undefined,cats:car.cats.map((c,i)=>({...c,teams:teams[i]})),me:{club,cat:to},last:null,hist:[...(car.hist||[]),{y:car.season,cat:car.cats[mc].name,pos,champ,res}]};
+ const nc={...car,season:car.season+1,cup:car.cup?(RCUP[car.season+1]||car.cup):undefined,cats:car.cats.map((c,i)=>({...c,teams:teams[i]})),me:{club,cat:to},last:null,hist:[...(car.hist||[]),{y:car.season,cat:car.cats[mc].name,pos,champ,res}]};if(REG&&car.rosters){const gen=REG.next(car.rosters,nc.season);nc.rosters=gen.rosters;nc.regenLog=[...(car.regenLog||[]),...gen.events];loadSquads(nc.rosters)}
  if(car.zones)nc.zones=Object.fromEntries(car.cats.map((c,i)=>RZ[c.div]?[c.div,zsplit(teams[i],RZ[c.div].zs,c.div)]:null).filter(Boolean));
  nc.pre=preGen(nc);
  if(car.mode=='real'){const L={};car.cats.forEach((c,i)=>L[c.div]=st[i]);const iA=car.cats.findIndex(c=>c.div=='ar2');
