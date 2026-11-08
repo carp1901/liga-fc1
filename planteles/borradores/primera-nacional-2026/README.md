@@ -202,3 +202,8 @@ La depuración de vigencia alcanza **1026 jugadores** en los 36 clubes. Se agreg
 - Las medias/atributos nuevos son estimaciones internas; los dorsales sin evidencia son provisionales.
 - Pendientes: Damián Arce, Patricio Vidal, Santino Bevilacqua, Federico Batule, Joaquín Céliz; confirmar salida de Miguel Mellado/Valentino Werro.
 - Borradores sin integración al runtime. La próxima etapa es la auditoría general de medias y atributos.
+
+
+## Auditoría general de medias y atributos — 08/11/2026
+
+Primera pasada completada sobre 1.026 jugadores de Primera Nacional. Se corrigieron 654 valores de reflejos de jugadores de campo para respetar el mínimo 15 definido por el motor; no se tocaron medias ni los otros siete atributos. La escala actual promedia 68,42 (rango 56–78), con 88,9% de jugadores entre 64 y 72: falta ampliar la diferenciación individual mediante estadísticas y rendimiento, sin otra suba general automática. Se reforzó `test-plantel-calibration.js` para los conteos actuales, los ocho atributos y la regla de reflejos para Primera Nacional. Informe completo: [auditoría general de medias y atributos](auditoria-vigencia-2026-11-08.md). Sin cambios en runtime.
