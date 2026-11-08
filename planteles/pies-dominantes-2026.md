@@ -782,3 +782,22 @@ Fecha de revisión: 08/11/2026.
 | Santiago Fernández | Derecho | https://www.sofascore.com/es/football/player/fernandez-santiago/1462241 |
 
 **Progreso de Talleres:** 8/32 jugadores con pie registrado. Franco Yennerich y Thiago Baroni quedan pendientes de una ficha individual inequívoca.
+
+
+## Segunda tanda de Talleres — 10 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Lucio Ferrari | Izquierdo | https://www.sofascore.com/es/football/player/lucio-ferrari/2163651 |
+| Alexandro Maidana | Izquierdo | https://www.sofascore.com/es/football/player/alexandro-maidana/1546739 |
+| Gonzalo Nuccio | Derecho | https://www.sofascore.com/es-la/football/player/gonzalo-nuccio/2670360 |
+| Román Riquelme | Derecho | https://www.sofascore.com/es/football/player/roman-riquelme/1117101 |
+| Augusto Schott | Derecho | https://www.sofascore.com/football/player/augusto-schott/940689 |
+| Giovanni Baroni | Izquierdo | https://www.sofascore.com/es/football/player/giovanni-baroni/2110313 |
+| Mateo Cáceres | Derecho | https://www.sofascore.com/es/football/player/mateo-caceres/1066573 |
+| Emiliano Chiavassa | Izquierdo | https://www.sofascore.com/es/football/player/emiliano-chiavassa/2110311 |
+| Franco Cristaldo | Derecho | https://www.sofascore.com/es/football/player/franco-cristaldo/558820 |
+| Federico Fattori | Derecho | https://www.sofascore.com/es/football/player/federico-fattori/789640 |
+
+**Progreso de Talleres:** 18/32 jugadores con pie registrado.
