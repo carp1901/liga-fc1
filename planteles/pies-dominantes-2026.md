@@ -477,3 +477,20 @@ Fecha de revisión: 08/11/2026.
 - **Simón Prima:** Derecho. Fuente oficial del club: https://velez.com.ar/futbol/notas/2025/07/29/120303_prima-firma (el artículo lo describe explícitamente como delantero diestro).
 
 **Progreso de Vélez verificado:** 27/30 jugadores con pie dominante registrado. Quedan pendientes Agustín Cortez, Ulises Piedrabuena y Lautaro Piola: sus fichas oficiales consultadas no especifican el pie y no se asigna por deducción.
+
+
+## Primera tanda de Racing Club — 8 jugadores
+Fecha de revisión: 08/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Francisco Gómez | Derecho | https://www.sofascore.com/football/player/gomez-francisco/1201516 |
+| Thiago De Bellis | Derecho | https://www.sofascore.com/football/player/thiago-de-bellis/1837262 |
+| Facundo Cambeses | Derecho | https://www.sofascore.com/es/football/player/facundo-cambeses/836159 |
+| Matías Tagliamonte | Derecho | https://www.sofascore.com/es-la/football/player/matias-tagliamonte/871837 |
+| Marco Di Cesare | Derecho | https://www.sofascore.com/es-la/football/player/marco-di-cesare/1017460 |
+| Ezequiel Cannavo | Derecho | https://www.sofascore.com/es/football/player/ezequiel-cannavo/1094180 |
+| Nazareno Colombo | Derecho | https://www.sofascore.com/es/football/player/nazareno-colombo/913596 |
+| Gastón Martirena | Derecho | https://www.sofascore.com/es-la/football/player/gaston-martirena/1017433 |
+
+**Progreso de Racing:** 8/22 jugadores con pie registrado. Gastón Martirena se mantiene como derecho según Sofascore, aunque su perfil actual ya figura en Nacional.
