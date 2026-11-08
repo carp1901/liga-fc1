@@ -442,5 +442,18 @@
       "Las 138 medias estimadas pueden refinarse más adelante si aparece información mejor."
     ],
     "alcance": "Revisión estática del CSV, metadatos, planteles publicados, reglas de atributos y ruta de dorsales 2D. La suite automatizada queda a cargo del workflow de validación activado por este cambio."
+  },
+  "ajuste_escala_medias": {
+    "fecha": "2026-11-08",
+    "puntos": 10,
+    "jugadores": 1013,
+    "promedio_base": 65.71,
+    "promedio_actual": 75.71,
+    "minimo_base": 50,
+    "maximo_base": 82,
+    "minimo_actual": 60,
+    "maximo_actual": 92,
+    "trazabilidad": "Cada fila conserva rating_base y ajuste_rating. Las medias originales y sus fuentes individuales no se sobrescriben.",
+    "integracion": "GitHub Actions importó el CSV actualizado a public/squads.json, public/squads.js y public/squads-meta.json; workflow exitoso."
   }
 }
