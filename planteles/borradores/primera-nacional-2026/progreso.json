@@ -152,8 +152,8 @@
   "criterio": "No inventar jugadores. Priorizar nóminas oficiales y AFA; contrastar con Mundo Ascenso, Canchallena, páginas de clubes y fuentes estadísticas. Medias EA FC 27/26 cuando exista OVR individual; de lo contrario estimación propia identificada. Dorsales sin confirmación oficial se marcan como asignados internamente. Edad con fuente y referencia 06/11/2026.",
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
-  "jugadores_borrador": 1003,
-  "estado_general": "Auditoría de vigencia completada para 36/36 clubes; primera depuración retiró tres bajas confirmadas. 1.003 jugadores en borradores; medias y atributos preservados. No integrados al juego.",
+  "jugadores_borrador": 1009,
+  "estado_general": "Auditoría de vigencia completa 36/36. Primera depuración retiró tres bajas confirmadas; segunda tanda agregó seis altas fichadas y corrigió dos identidades sin duplicar. 1.009 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -945,7 +945,7 @@
     },
     "coincidencias_bajas_en_csv": 22,
     "altas_publicadas_ausentes_en_club_destino": 62,
-    "estado": "COBERTURA COMPLETA — 36/36 clubes revisados. Primera depuración aplicada: tres bajas confirmadas retiradas. Altas y conflictos de identidad pendientes de ficha/cotejo. CSV sin integración al runtime.",
+    "estado": "COBERTURA COMPLETA — 36/36 clubes revisados. Depuración en curso: tres bajas confirmadas retiradas, seis altas incorporadas y dos identidades corregidas. 1.009 jugadores; conflictos y altas pendientes documentados.",
     "dorsales": {
       "asignaciones_internas_provisionales": 1001,
       "respaldados_por_planillas_de_partidos": 5,
@@ -953,7 +953,7 @@
       "nota": "Cuatro respaldos de Midland y uno de Atlético de Rafaela son planillas de partidos, no nóminas oficiales completas."
     },
     "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md",
-    "siguiente_paso": "Completar fichas de altas respaldadas, resolver identidades y continuar depuración de bajas confirmadas; revisar dorsales oficiales.",
+    "siguiente_paso": "Continuar completando altas respaldadas y resolviendo identidades dudosas; depurar bajas confirmadas restantes y revisar dorsales oficiales.",
     "segunda_pasada": {
       "fecha": "2026-11-08",
       "clubes_revisados": [
@@ -1147,7 +1147,18 @@
         "quilmes": "Pío Bonacci se conserva; Matías/Mateo Rodríguez, Agustín/Axel Batista, Matías/Mauro Fernández y Joaquín/Juan Yangali requieren cotejo; nuevas altas pendientes de ficha."
       },
       "csv_modificados": true,
-      "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md"
+      "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md",
+      "altas_agregadas": 6,
+      "identidades_corregidas": 2,
+      "jugadores_actuales": 1009,
+      "candidatos_pendientes": {
+        "descartado": [
+          "Valentín Burgoa en Godoy Cruz: salida a Orense el 01/08/2026."
+        ],
+        "identidad_sin_resolver": [
+          "Nicolás Ortiz en San Telmo: discrepancia entre ficha de mediocampista de 21 años y defensor central de 31 años."
+        ]
+      }
     }
   },
   "auditoria_vigencia": {
@@ -1164,7 +1175,9 @@
     "altas_respaldo_pendientes": "Ver reporte de auditoría; completar ficha individual antes de incorporar.",
     "csv_modificados": true,
     "bajas_confirmadas_retiradas": 3,
-    "jugadores_actuales": 1003
+    "altas_agregadas": 6,
+    "identidades_corregidas": 2,
+    "jugadores_actuales": 1009
   },
   "depuracion_primera_tanda": {
     "fecha": "2026-11-08",
@@ -1189,6 +1202,61 @@
     ],
     "altas_agregadas": 0,
     "medias_atributos_dorsales_modificados": 0,
+    "runtime_modificado": false
+  },
+  "depuracion_segunda_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1003,
+    "jugadores_despues": 1009,
+    "altas_agregadas": [
+      {
+        "club": "Acassuso",
+        "jugador": "Valentín Serrano",
+        "bloque": 6
+      },
+      {
+        "club": "Acassuso",
+        "jugador": "Manuel Mónaco",
+        "bloque": 6
+      },
+      {
+        "club": "Acassuso",
+        "jugador": "Juan Ignacio Quattrocchi",
+        "bloque": 6
+      },
+      {
+        "club": "Nueva Chicago",
+        "jugador": "Enzo Roldán",
+        "bloque": 1
+      },
+      {
+        "club": "Nueva Chicago",
+        "jugador": "Facundo Castro",
+        "bloque": 1
+      },
+      {
+        "club": "Nueva Chicago",
+        "jugador": "Iván Antúnez",
+        "bloque": 1
+      }
+    ],
+    "identidades_corregidas": [
+      {
+        "club": "Los Andes",
+        "antes": "Agustín González",
+        "despues": "Alexis González",
+        "dob": "2005-01-04",
+        "bloque": 3
+      },
+      {
+        "club": "Colón",
+        "antes": "Facundo García",
+        "despues": "Franco García",
+        "dob": "1997-06-04",
+        "bloque": 4
+      }
+    ],
+    "rating_atributos": "Estimaciones internas identificadas; ajuste de escala +10 preservado.",
     "runtime_modificado": false
   }
 }
