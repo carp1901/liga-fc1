@@ -31,8 +31,12 @@ for(let year=0;year<6;year++){
   const table=ordered.map((id,i)=>({id,pts:ordered.length-i,g:0,gf:0,ga:0}));
   const result=ENG.careerClose(car,table);
   assert(!result.error&&result.car,'debe cerrar cada temporada');
+  const previousLog=car.regenLog||[];
   car=result.car;
+  const seasonEvents=(car.regenLog||[]).slice(previousLog.length).filter(e=>e.club===club);
   totalEvents+=2;
+  assert(seasonEvents.length>=2,'cada temporada debe generar los dos juveniles forzados');
+  seasonEvents.forEach(e=>assert(car.rosters[club].some(p=>p.regen&&p.n===e.regen),'cada juvenil recién generado debe quedar en el plantel'));
 
   assert.equal(car.season,2027+year,'el calendario debe avanzar año a año');
   assert.equal(car.rosters[club].length,initialSize,'el plantel debe conservar su tamaño');
@@ -40,7 +44,6 @@ for(let year=0;year<6;year++){
   assert((car.regenLog||[]).filter(e=>e.club===club).length>=initialClubLog+totalEvents,'el historial del club debe acumular sus retiros');
   const uids=car.rosters[club].map(p=>p.uid);
   assert.equal(new Set(uids).size,uids.length,'no puede haber UID duplicados');
-  assert(car.rosters[club].filter(p=>p.regen).length>=totalEvents,'los juveniles deben permanecer en el plantel');
 
   // Simula guardar y restaurar la carrera, como hace el guardado local.
   car=JSON.parse(JSON.stringify(car));
