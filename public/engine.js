@@ -357,8 +357,8 @@ function recCareer(r){if(r.careered)return;r.careered=1;if(!CFG.onCareer)return;
  const cup=r.cfg.cup?CUPS.find(x=>'cup:'+x.id==r.cfg.div):null,dv=cup?null:DIVS.find(d=>d.id==r.cfg.div),copa=r.cfg.fmt=='copa',rk=copa?null:rankOf(r),
   origen=r.offline?'offline':r.pub?'publica':r.rand?'aleatoria':'privada',recs=[];
  r.order.forEach(p=>{const P=r.pl[p];if(!P||P.bot||!P.team||!TM[P.team])return;if(!r.offline&&!P.uid)return;
-  const t=P.team,q=r.table[t]||{},champ=r.champ==t,pos=rk?(rk[t]||null):null;
-  recs.push({uid:P.uid,tid:r.tid,club:t,clubNombre:TM[t].name,mod:r.offline?'offline':cup?'barrial':'clasico',origen,comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':r.cfg.fixed?'Copa Argentina':String(r.cfg.div)),fmt:r.cfg.displayFmt||r.cfg.fmt,n:r.cfg.n,
+  const t=P.team,q=r.table[t]||{},champ=r.champ==t,pos=rk?(rk[t]||null):null,competidores=Math.max(r.order.filter(id=>!r.pl[id].bot).length,(r.part||[]).length),competitivo=!r.offline&&competidores>=10&&(copa?Number(r.cfg.n)>=8:Number(r.cfg.n)>=10);
+  recs.push({uid:P.uid,tid:r.tid,club:t,clubNombre:TM[t].name,mod:r.offline?'offline':cup?'barrial':'clasico',origen,comp:cup?cup.id:r.cfg.div,compNombre:cup?cup.title:dv?dv.name:(r.cfg.div=='all'?'Todas las divisiones':r.cfg.fixed?'Copa Argentina':String(r.cfg.div)),fmt:r.cfg.displayFmt||r.cfg.fmt,n:r.cfg.n,competitivo,humanos:competidores,
    pos,resultado:champ?'Campeón':copa?copaRes(r,t):(pos?pos+'.º de '+r.cfg.n:'—'),campeon:champ,pj:copa?null:q.pj,g:copa?null:q.g,e:copa?null:q.e,p:copa?null:q.p,gf:copa?null:q.gf,gc:copa?null:q.ga,pts:copa?null:q.pts,at:Date.now()})});
  if(recs.length)try{CFG.onCareer(recs)}catch(e){console.error('carrera:',e.message)}}
 // ---- Clásico personalizado: temporadas con ascensos y descensos.
