@@ -155,3 +155,9 @@ Se resolvieron dos identidades sin duplicar: Cristian Salto pasó a Claudio Gabr
 - **Almirante Brown:** se incorporó Joaquín Noé Ibáñez Aro (23/06/2004), extremo de 22 años cedido por Independiente Rivadavia; una aparición en Primera y 16 en Reserva. Dorsal 16 confirmado en planilla de partido. Comparte fecha de nacimiento con Luciano Pascual, pero la planilla muestra a ambos en el mismo encuentro.
 - **Defensores de Belgrano:** se incorporó Nicolás Morro (29/08/1997), central zurdo, una aparición con Defensores en 2026; dorsal 14 confirmado por Sofascore. Su fractura del 10/07 explica la ausencia posterior.
 - Total: 1.025 jugadores; 22 altas acumuladas; 31 identidades corregidas; tres bajas retiradas. Sin integración al runtime.
+
+
+### Décima tanda — 08/11/2026
+- **Central Norte:** Emanuel Bodencer corregido a Érik Maximiliano Bodencer (dorsal 24); Santiago Quiroga corregido a Sergio Alejandro Quiroga Gabutti (MED/MP, dorsal 32).
+- **Atlético de Rafaela:** incorporados Matías Morello (10 presencias) y Cristian Gabriel Esparza (debut y lesión en julio; dorsal 11). Morello queda con dorsal 99 provisional.
+- Total: 1.027 jugadores; 24 altas acumuladas; 33 identidades corregidas; tres bajas retiradas. Sin integración al runtime.
