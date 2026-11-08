@@ -38,9 +38,9 @@ const car0=ENG.realNew({me:{club:start},spd:100});
 if(car0.error)throw new Error(car0.error);
 let car=car0;
 const ids=Object.keys(DATA.TM).filter(id=>DATA.TM[id]);
-const history=Object.fromEntries(ids.map(id=>[id,{id,name:DATA.TM[id].name,firstNationalPromotion:null,firstDivisionTitles:0,firstDivisionSeasons:[],nationalTitles:0,metroSeasons:0,firstCSeasons:0,lowestTier:null,seasonMoves:[]} ]));
+const history=Object.fromEntries(ids.map(id=>[id,{id,name:DATA.TM[id].name,firstNationalPromotion:null,firstDivisionTitles:0,firstDivisionTitlesByTournament:{},firstDivisionSeasons:[],nationalTitles:0,metroSeasons:0,firstCSeasons:0,lowestTier:null,seasonMoves:[]} ]));
 const titles=Object.fromEntries(car.cats.map(c=>[c.div,{}]));
-const promotedFromNational=new Set(),firstDivisionChampions={},seasonSummaries=[];
+const promotedFromNational=new Set(),firstDivisionChampions={},firstDivisionTournamentChampions={Apertura:{},Clausura:{}},seasonSummaries=[];
 const bump=(o,id)=>o[id]=(o[id]||0)+1;
 const catName=Object.fromEntries(car.cats.map(c=>[c.div,c.name]));
 for(let y=0;y<seasons;y++){
@@ -51,15 +51,19 @@ for(let y=0;y<seasons;y++){
  const sum=closed.summary,year=car.season;
  const first=sum.cats.find(x=>x.name===catName.ar1);
  const firstTitles=first&&first.po&&first.po.tor?first.po.tor.map(x=>({tournament:x.n,champ:x.champ})).filter(x=>x.champ):[];
- firstTitles.forEach(x=>{bump(firstDivisionChampions,x.champ);history[x.champ].firstDivisionTitles++;history[x.champ].firstDivisionSeasons.push(year);bump(titles.ar1,x.champ)});
+ firstTitles.forEach(x=>{bump(firstDivisionChampions,x.champ);bump(firstDivisionTournamentChampions[x.tournament]||(firstDivisionTournamentChampions[x.tournament]={}),x.champ);history[x.champ].firstDivisionTitles++;bump(history[x.champ].firstDivisionTitlesByTournament,x.tournament);history[x.champ].firstDivisionSeasons.push({season:year,tournament:x.tournament});bump(titles.ar1,x.champ)});
  const nat=sum.cats.find(x=>x.name===catName.ar2);
  if(nat&&nat.champ){history[nat.champ].nationalTitles++;bump(titles.ar2,nat.champ)}
  if(nat)(nat.up||[]).forEach(id=>{promotedFromNational.add(id);if(!history[id].firstNationalPromotion)history[id].firstNationalPromotion=year});
  const moves=[];
  sum.cats.forEach((c,i)=>{
   const div=car.cats[i].div;
-  (c.up||[]).forEach(id=>moves.push({id,from:div,to:car.cats[Math.max(0,i-1)].div,type:'up'}));
-  (c.down||[]).forEach(id=>moves.push({id,from:div,to:car.cats[Math.min(car.cats.length-1,i+1)].div,type:'down'}));
+  const upTarget={ar2:'ar1',ar3:'ar2',ar5:'ar2',ar4:'ar3',ar6:'ar4'}[div];
+  (c.up||[]).forEach(id=>{if(upTarget)moves.push({id,from:div,to:upTarget,type:'up'})});
+  (c.down||[]).forEach(id=>{
+   const target=div==='ar1'?'ar2':div==='ar2'?(ENG.isMetro(id)?'ar3':'ar5'):div==='ar3'?'ar4':div==='ar4'?'ar6':null;
+   if(target)moves.push({id,from:div,to:target,type:'down'});
+  });
  });
  const next=closed.car;
  next.cats.forEach((c,i)=>c.teams.forEach(id=>{
@@ -84,7 +88,8 @@ const report={
  seasons,startingClub:DATA.TM[start].name,startingSeason:2026,clubsTracked:ids.length,
  divisions:car.cats.map(c=>({id:c.div,name:c.name,teams:c.teams.length})),
  nationalChampions:Object.entries(titles.ar2).map(([id,count])=>({club:DATA.TM[id].name,id,titles:count})).sort((a,b)=>b.titles-a.titles),
- firstDivisionChampions:Object.entries(firstDivisionChampions).map(([id,count])=>({club:DATA.TM[id].name,id,titles:count})).sort((a,b)=>b.titles-a.titles),
+ firstDivisionTournamentTitles:Object.entries(firstDivisionChampions).map(([id,count])=>({club:DATA.TM[id].name,id,titles:count,seasons:history[id].firstDivisionSeasons})).sort((a,b)=>b.titles-a.titles),
+ firstDivisionTitlesByTournament:Object.fromEntries(Object.entries(firstDivisionTournamentChampions).map(([t,w])=>[t,Object.entries(w).map(([id,count])=>({club:DATA.TM[id].name,id,titles:count})).sort((a,b)=>b.titles-a.titles)])),
  clubsPromotedFromNational:promoted.length,promotedFromNational:promoted,
  promotedWhoWonFirstDivision:promoted.filter(x=>x.firstDivisionTitles>0),
  promotedWhoReachedPrimeraC:descendedToC,
