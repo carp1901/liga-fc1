@@ -614,3 +614,22 @@ El motor reserva `ref` para arqueros y fija el valor de jugadores de campo en 15
 Se actualizó `test-plantel-calibration.js` con los conteos actuales, validación de los ocho atributos (enteros 15–99) y la regla `ref = 15` para jugadores de campo únicamente en los seis bloques de Primera Nacional. Se mantiene la comprobación de escala +10 y perfiles de subrol. El test quedó actualizado; no se afirma ejecución de CI en esta pasada.
 
 **Resultado estructural:** 1.026/1.026 fichas, ocho atributos completos, cero nombres duplicados intraclub y cero errores de escala. Sin cambios en runtime; los seis CSV siguen como borradores.
+
+
+## Auditoría general — primera tanda de calibración individual — 08/11/2026
+
+Se revisaron seis casos con participación y datos de temporada suficientemente respaldados. Se aplicaron ajustes moderados a seis medias y se corrigieron las presencias de un arquero. En cada ajuste de media se movieron en igual medida `rating`, `rating_base` y los siete atributos de campo, manteniendo `ref = 15` para no arqueros y conservando `ajuste_rating = 10`.
+
+- **Franco Saccone (Deportivo Maipú): 67 → 71.** 36 partidos, 35 titularidades, 3 goles, 8 asistencias y 3.104 minutos; las asistencias figuran en percentil 94. Dorsal corregido a 7. Fuentes: https://footystats.org/players/croatia/franco-saccone ; https://www.soloascenso.com.ar/perfil/franco-saccone/30127
+- **Thiago Ocampo (Nueva Chicago): 68 → 71.** 33 partidos, 27 titularidades, 4 goles, 4 asistencias y 2.374 minutos con 18 años. Dorsal corregido a 7. Fuentes: https://www.fotmob.com/players/1801874 ; https://www.soloascenso.com.ar/perfil/thiago-ocampo/32223
+- **Patricio Moyano (Defensores de Belgrano): 68 → 70.** 36 partidos, 26 titularidades, 3 goles y 2 asistencias. Dorsal corregido a 18. Fuente: https://offsidescores.com/es/futbol/equipo/ca-defensores-de-belgrano/2bb9a72f-f03c-4217-9132-fd1654eeed13
+- **Arón Agüero (Deportivo Maipú): 67 → 69.** 30 partidos de liga y 2.700 minutos; 293 recuperaciones y 57 intercepciones (percentil 78). Dorsal corregido a 6. Fuentes: https://www.zerozero.com.mx/jugador/aron-aguero/856836 ; https://fbplot.com/es/players/aron-rodrigo-aguero-gimenez-1346185154809677035
+- **Juan Pablo De La Reta (Deportivo Maipú): 67 → 68.** 30 partidos de liga y 2.384 minutos, 1 asistencia; 27 titularidades. Dorsal corregido a 3. Fuentes: https://www.zerozero.com.mx/jugador/juan-de-la-reta/922510 ; https://www.fotmob.com/es-419/players/1772429/juan-de-la-reta
+- **Enzo Cardozo (Almirante Brown): 67 → 68.** 30 partidos, 27 titularidades, 1 gol y 2 asistencias. Fuentes: https://www.soloascenso.com.ar/perfil/enzo-cardozo/27437 ; https://126goals.com/jugador/358544
+- **Mayco Bergia (Atlético de Rafaela):** media 68 conservada; presencias corregidas de 36 a 22 partidos de liga, 1.980 minutos, 10 vallas invictas y 61% de atajadas. Fuente: https://footystats.org/es/players/argentina/mayco-bergia
+
+### Resultado provisional tras esta tanda
+- 1.026 jugadores; promedio de media actualizado: 68.43.
+- Ajustes: seis medias recalibradas; un conteo de presencias corregido.
+- Todos conservan la fórmula +10 y atributos en rango. No se modificó el runtime.
+- Los siguientes candidatos se revisarán con la misma exigencia: evidencia de minutos/partidos, producción y rol; no se subirá una media sólo por cantidad de presencias.
