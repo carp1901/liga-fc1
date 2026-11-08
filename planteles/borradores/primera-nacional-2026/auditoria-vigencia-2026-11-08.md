@@ -453,3 +453,25 @@ Se incorporó **Nicolás Morro**, nacido el 29/08/1997, defensor central zurdo. 
 - Dorsales 24, 32 y 11 respaldados por fichas de jugador; Morello conserva 99 provisional.
 - Bloques 5 y 6 validados con 33 columnas por fila. Total actualizado: 1.027 jugadores.
 - No se modificó el runtime.
+
+
+## Undécima tanda de depuración — Deportivo Madryn, Deportivo Morón y Gimnasia de Jujuy — 08/11/2026
+
+### Deportivo Madryn — dos identidades corregidas
+- **Carlos Corvalán → Gastón Claudio Corvalán.** La fecha 23/03/1989 coincide con Transfermarkt, Goal y Sofascore. El lateral/central zurdo registra 16 apariciones y un gol en Madryn; se verificó el dorsal **3** en Sofascore. Se mantiene como DEF/DFC porque las estadísticas de temporada lo registran mayormente como central. Fuentes: https://www.transfermarkt.com.ar/claudio-corvalan/profil/spieler/125108 ; https://www.goal.com/es-ar/jugador/c-corvalan/GlwLbGvO7al-s31ZizBLD ; https://www.sofascore.com/es/football/player/claudio-corvalan/249383
+- **Facundo Bersano → Fernando Luis Bersano.** La fecha 03/01/1998 coincide con Transfermarkt y ZeroZero; el jugador figura en Madryn desde el 01/07/2026 y registra siete presencias con el club. Se corrigió el rol específico a LI y pie izquierdo; se conserva el dorsal provisional. Fuentes: https://www.transfermarkt.com.ar/fernando-bersano/profil/spieler/533569 ; https://www.ceroacero.es/jugador/fernando-bersano/555823 ; https://www.sofascore.com/es/football/player/fernando-bersano/895338
+
+### Deportivo Morón — tres identidades corregidas
+- **Ezequiel Iñiguez → Emanuel Iñíguez.** DOB 16/09/1996, lateral derecho. Su llegada fue oficializada por Morón y la ficha 2026 registra 16 presencias y dos goles; dorsal **21** confirmado por Sofascore. Fuentes: https://www.soloascenso.com.ar/perfil/emanuel-iniguez/20360 ; https://www.soloascenso.com.ar/notas/atletico-tucuman/moron-incorporo-a-un-lateral-derecho-campeon-del-nacional/228874 ; https://www.sofascore.com/es/football/player/emanuel-iniguez/900191
+- **Ezequiel Franco → Emiliano Gabriel Franco Pola.** DOB 21/10/1994; su ficha confirma el paso por Atlético Grau y la llegada a Morón en julio de 2026. Se corrigió el nombre sin duplicar; dorsal **29** respaldado por Sofascore. Fuentes: https://www.soloascenso.com.ar/perfil/emiliano-franco/21062 ; https://www.transfermarkt.com.ar/emiliano-franco/profil/spieler/422402 ; https://www.sofascore.com/es-la/football/player/emiliano-franco/830888
+- **Matías Levato → Mateo Levato.** La ficha de Solo Ascenso registra 14 presencias y cinco goles en Morón; Transfermarkt, ZeroZero y Soccerbase coinciden en el 07/06/1996, mientras Solo Ascenso y Sofascore muestran otra fecha (20/01/1996). Se conserva 07/06 por la coincidencia de tres fuentes y se deja documentada la discrepancia. Dorsal **70** confirmado por Sofascore. Fuentes: https://www.soloascenso.com.ar/perfil/mateo-levato/15094 ; https://www.transfermarkt.com.ar/mateo-levato/profil/spieler/538373 ; https://www.sofascore.com/es/football/player/levato-mateo/1022776 ; https://www.soccerbase.com/players/player.sd?player_id=156676
+
+### Gimnasia de Jujuy — corrección de posición de Agustín Alonso
+Se corrigió de MED/MI a DEL/EI. La contratación y el perfil de temporada lo identifican como extremo izquierdo; registró 21 presencias, con 13 ingresos desde el banco. Se actualizó el dorsal al **16**, respaldado por Sofascore. Se conserva la fecha 23/01/2001 de Solo Ascenso/ZeroZero; Sofascore informa 24/01/2001, diferencia de un día que queda señalada. Fuentes: https://www.soloascenso.com.ar/perfil/agustin-alonso/28138 ; https://www.somosjujuy.com.ar/deportes/gimnasia-jujuy-incorporo-agustin-alonso-como-refuerzo-n120569 ; https://www.sofascore.com/es-la/football/player/agustin-alonso/1182395
+
+### Resultado de la tanda
+- 5 identidades corregidas sin duplicar.
+- 1 posición general y subrol corregidos (Agustín Alonso).
+- Dorsales 3, 21, 29, 70 y 16 respaldados por fichas; Fernando Bersano conserva dorsal provisional.
+- Bloques 1 y 2 validados con 33 columnas por fila. Total: 1.027 jugadores.
+- No se modificó el runtime.
