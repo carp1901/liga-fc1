@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Auditoría de vigencia 36/36; décima tanda documentada. Depuración en curso; borradores sin integración al runtime.",
+  "estado": "Auditoría de vigencia 36/36; undécima tanda documentada. Depuración en curso; borradores sin integración al runtime.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -153,7 +153,7 @@
   "primera_publicacion": "No publicar la división hasta completar y validar los 36 clubes.",
   "clubes_cubiertos": 36,
   "jugadores_borrador": 1027,
-  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinticuatro altas agregadas y treinta y tres identidades corregidas; seis bloques CSV validados. 1.027 jugadores en borradores; sin integración al runtime.",
+  "estado_general": "Auditoría de vigencia 36/36 completa. Depuración en curso: tres bajas confirmadas retiradas, veinticuatro altas agregadas y treinta y ocho identidades corregidas; seis bloques CSV validados. 1.027 jugadores en borradores; sin integración al runtime.",
   "auditoria_final": {
     "jugadores": 1006,
     "clubes": 36,
@@ -1176,7 +1176,7 @@
     "csv_modificados": true,
     "bajas_confirmadas_retiradas": 3,
     "altas_agregadas": 24,
-    "identidades_corregidas": 33,
+    "identidades_corregidas": 38,
     "jugadores_actuales": 1027
   },
   "depuracion_primera_tanda": {
@@ -1599,6 +1599,56 @@
     ],
     "validacion": "Bloques 5 y 6: exactamente 33 columnas por fila; total 1.027 jugadores.",
     "rating_atributos": "Estimaciones internas; ajuste +10 preservado.",
+    "runtime_modificado": false
+  },
+  "depuracion_undecima_tanda": {
+    "fecha": "2026-11-08",
+    "jugadores_antes": 1027,
+    "jugadores_despues": 1027,
+    "altas_agregadas": 0,
+    "identidades_corregidas": [
+      {
+        "club": "Deportivo Madryn",
+        "antes": "Carlos Corvalán",
+        "despues": "Gastón Claudio Corvalán",
+        "dob": "1989-03-23"
+      },
+      {
+        "club": "Deportivo Madryn",
+        "antes": "Facundo Bersano",
+        "despues": "Fernando Luis Bersano",
+        "dob": "1998-01-03"
+      },
+      {
+        "club": "Deportivo Morón",
+        "antes": "Ezequiel Iñiguez",
+        "despues": "Emanuel Iñíguez",
+        "dob": "1996-09-16"
+      },
+      {
+        "club": "Deportivo Morón",
+        "antes": "Ezequiel Franco",
+        "despues": "Emiliano Gabriel Franco Pola",
+        "dob": "1994-10-21"
+      },
+      {
+        "club": "Deportivo Morón",
+        "antes": "Matías Levato",
+        "despues": "Mateo Levato",
+        "dob": "1996-06-07",
+        "nota": "Solo Ascenso y Sofascore discrepan con Transfermarkt/ZeroZero/Soccerbase sobre la fecha."
+      }
+    ],
+    "posiciones_corregidas": [
+      {
+        "club": "Gimnasia de Jujuy",
+        "jugador": "Agustín Alonso",
+        "antes": "MED/MI",
+        "despues": "DEL/EI",
+        "dorsal": "16 verificado"
+      }
+    ],
+    "validacion": "Bloques 1 y 2: exactamente 33 columnas por fila; total 1.027 jugadores.",
     "runtime_modificado": false
   }
 }
