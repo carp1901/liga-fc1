@@ -129,3 +129,7 @@ Se incorporó a Leonardo Fabián Marinucci en Deportivo Madryn tras completar fi
 
 ### Cuarta tanda de depuración — Deportivo Maipú — 08/11/2026
 Se agregaron siete fichas: Brian Orosco, Diego Agustín Yavante Gaitán, Matías Agustín Leiva, Mateo Ortale, Juan Cruz Arno, Luca Landriel y Agustín Pavón. Se completaron identidad, fecha de nacimiento, posición, rating y ocho atributos; ratings/atributos son estimaciones internas. Dorsales 99 internos provisionales, sin afirmar numeración oficial. Se corrigió el escapado CSV de siete filas anteriores del bloque 5 y se validó que todas las filas de ese bloque tengan 33 columnas. Base general: **1.017 jugadores**. Detalle y fuentes: auditoria-vigencia-2026-11-08.md.
+
+
+### Quinta tanda de depuración — Gimnasia y Tiro — 08/11/2026
+Se incorporaron Valentín Yampa y Franco Lautaro Gordillo; se corrigieron diez identidades a partir de fechas de nacimiento y se actualizó la posición de Felipe Karabulut. Se normalizaron además filas CSV defectuosas de los bloques 4, 5 y 6; todas las filas de esos tres archivos quedaron con 33 columnas. Las medias y atributos de las nuevas fichas son estimaciones internas y sus dorsales 99 son provisionales. Detalle y fuentes en la auditoría de vigencia.
