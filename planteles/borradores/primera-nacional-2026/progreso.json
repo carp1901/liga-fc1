@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera Nacional",
-  "estado": "Seis CSV publicados en main como borradores. Los ocho atributos técnicos ya están derivados para 1.006 jugadores con el generador del motor; falta validación cualitativa, dorsales oficiales y vigencia. No integrados al juego.",
+  "estado": "Auditoría de vigencia preliminar publicada; 22 posibles bajas y 62 posibles altas detectadas para validación oficial. Los CSV siguen como borradores, no integrados al juego.",
   "total_clubes": 36,
   "bloques": [
     {
@@ -933,5 +933,26 @@
         "ref": 18.4
       }
     }
+  },
+  "auditoria_vigencia_2026_11_08": {
+    "fecha": "2026-11-08",
+    "fuente": "Mundo Ascenso — Mercado de pases Primera Nacional (consulta 08/11/2026)",
+    "url": "https://www.mundoascenso.com.ar/mercado-de-pases/primera-b-nacional",
+    "base": {
+      "clubes": 36,
+      "jugadores": 1006,
+      "ultima_fecha_consulta_registrada": "2026-11-07"
+    },
+    "coincidencias_bajas_en_csv": 22,
+    "altas_publicadas_ausentes_en_club_destino": 62,
+    "estado": "PRELIMINAR — candidatos pendientes de validación con comunicados oficiales, AFA o fichas actuales. No se aplicaron bajas ni altas automáticamente.",
+    "dorsales": {
+      "asignaciones_internas_provisionales": 1001,
+      "respaldados_por_planillas_de_partidos": 5,
+      "dorsales_oficiales_de_plantel_confirmados": 0,
+      "nota": "Cuatro respaldos de Midland y uno de Atlético de Rafaela son planillas de partidos, no nóminas oficiales completas."
+    },
+    "reporte": "planteles/borradores/primera-nacional-2026/auditoria-vigencia-2026-11-08.md",
+    "siguiente_paso": "Validar individualmente los 22 candidatos a baja y 62 candidatos a alta con fuentes oficiales; luego actualizar dorsales sólo con evidencia documental."
   }
 }
