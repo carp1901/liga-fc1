@@ -301,6 +301,22 @@ async function chatModeracion(actor,target,accion,minutos,razon){
  if(accion=='desmoderar'){const q=await pool.query(`DELETE FROM chat_moderadores WHERE usuario_id=$1`,[target]);return q.rowCount?{ok:1}:{error:'Ese usuario no era moderador'}}
  return{error:'Acción de moderación inválida'};
 }
+// Ranking de técnicos: solo carreras nuevas marcadas por el motor del servidor como competitivas. Sin atribución retroactiva.
+function puntosTecnico(c){
+ const n=Math.max(1,Math.floor(+c.participantes||0)),pos=Math.floor(+c.posicion||0),fmt=String(c.formato||''),res=String(c.resultado||'').toLowerCase();
+ if(fmt=='liga1'||fmt=='liga2'){return pos>=1&&pos<=n?n-pos+1:0}
+ let etapa=7;if(res.includes('campeón'))etapa=0;else if(res.includes('finalista'))etapa=1;else if(res.includes('semifinal'))etapa=2;else if(res.includes('cuartos'))etapa=3;else if(res.includes('octavos'))etapa=4;else if(res.includes('dieciseisavos'))etapa=5;else if(res.includes('32avos'))etapa=6;
+ return Math.max(1,Math.ceil(n/Math.pow(2,etapa)));
+}
+async function rankingTecnicos(periodo){
+ if(!configured)return{enabled:false,rows:[]};await ensure();
+ const year=new Date().getFullYear(),season=periodo=='temporada';
+ const r=await pool.query(`SELECT u.usuario,p.club_favorito,c.torneo_id,c.formato,c.participantes,c.posicion,c.resultado,c.campeon,c.finalizado FROM carreras c JOIN usuarios u ON u.id=c.usuario_id LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE c.competitivo=true AND c.modalidad IN ('clasico','barrial') AND c.origen<>'offline' AND ($1::boolean=false OR EXTRACT(YEAR FROM c.finalizado)=$2) ORDER BY c.finalizado DESC`,[season,year]);
+ const by=new Map();for(const c of r.rows){const key=c.usuario.toLowerCase(),x=by.get(key)||{usuario:c.usuario,clubFavorito:c.club_favorito,puntos:0,torneos:0,campeonatos:0,podios:0,ultimo:null};const pts=puntosTecnico(c);x.puntos+=pts;x.torneos++;if(c.campeon)x.campeonatos++;if((c.formato=='liga1'||c.formato=='liga2')?+c.posicion<=3:/campeón|finalista|semifinal/i.test(c.resultado||''))x.podios++;if(!x.ultimo||new Date(c.finalizado)>new Date(x.ultimo))x.ultimo=c.finalizado;if(!x.clubFavorito&&c.club_favorito)x.clubFavorito=c.club_favorito;by.set(key,x)}
+ const rows=[...by.values()].filter(x=>x.puntos>0).sort((a,b)=>b.puntos-a.puntos||b.campeonatos-a.campeonatos||b.podios-a.podios||b.torneos-a.torneos||a.usuario.localeCompare(b.usuario,'es'));
+ let pos=0;rows.forEach((x,i)=>{if(i==0||x.puntos!=rows[i-1].puntos)pos=i+1;x.pos=pos});
+ return{enabled:true,periodo:season?'temporada':'historico',temporada:year,rows};
+}
 // ===================== AMIGOS =====================
 // Una fila por pareja (el índice único del par no distingue quién invitó a quién). estado: 'pendiente' (la envió de_id y la decide a_id) | 'aceptada'.
 // Rechazar o cancelar borra la fila. Solo para cuentas; los invitados no tienen amigos.
@@ -339,4 +355,4 @@ async function cancelarSol(uid,id){
 async function quitarAmigo(uid,otro){
   if(!configured)return{error:'Las cuentas no están disponibles en este servidor'};otro=Math.floor(+otro);if(!(otro>0))return{error:'Amigo inválido'};await ensure();
   const r=await pool.query(`DELETE FROM amistades WHERE estado='aceptada' AND ((de_id=$1 AND a_id=$2) OR (de_id=$2 AND a_id=$1))`,[uid,otro]);return r.rowCount?{ok:1}:{error:'Ya no son amigos'}}
-module.exports={chatHistorial,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
+module.exports={rankingTecnicos,puntosTecnico,chatHistorial,chatEnviar,chatEsModerador,chatModeracion,chatModeracionNombre,definirFavorito,amigos,solicitar,responder,cancelarSol,quitarAmigo,AMG_MAX,AMG_PEND,registrar,login,userByToken,logout,addCareers,perfil,USER_RE,init,register,insert,list,ranking,rankRows,club,clubStats,titulo,tituloInfo,status,SCHEMA,INSERT,LIST,COUNT,ALL};
