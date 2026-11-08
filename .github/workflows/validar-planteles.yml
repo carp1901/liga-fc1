@@ -8,6 +8,7 @@ on:
       - 'test-squads.js'
       - 'test-player-development.js'
       - 'test-career-development.js'
+      - 'test-plantel-calibration.js'
       - '.github/workflows/validar-planteles.yml'
   workflow_dispatch:
 permissions:
@@ -32,6 +33,8 @@ jobs:
         run: node test-player-development.js
       - name: Probar integración de carrera, guardado y cambio de temporada
         run: node test-career-development.js
+      - name: Validar escala de medias y perfiles de roles de los planteles
+        run: node test-plantel-calibration.js
       - name: Validar Primera completa sin modificar archivos
         run: node import-squads.js planteles/primera-2026.csv --dry-run --require-primera-complete
       - name: Generar archivos que consume el juego
