@@ -303,7 +303,7 @@ const tp=p=>post({a:'tac',p}).then(e=>{if(e){TMSG=e;TMT=performance.now();clTc()
 const shownOf=m=>{const v=ownM();if(v&&v.a==m.a&&v.b==m.b){const L=specM()?m.a:S.me.team;return m.a==L?[SH[0],SH[1]]:[SH[1],SH[0]]}return[m.ga,m.gb]};
 const LB={POR:'ARQ',DEF:'DEF',MED:'MED',DEL:'DEL'};// Posición de los suplentes: si el jugador trae una posición específica (x.pos: 'MCD','LI','EXD'...) se usa esa; si no, se reparte según sus atributos para cubrir los roles del banco.
 const subLabels=(sq,ids)=>{const out={},A=(x,k)=>x.at?x.at[k]:x.r,pick=(c,roles,sc)=>{const left=c.slice();roles.forEach(r=>{if(!left.length)return;let b=0;left.forEach((i,j)=>{if(sc[r](sq[i])>sc[r](sq[left[b]]))b=j});out[left[b]]=r;left.splice(b,1)});left.forEach(i=>{let br=roles[0],bv=-1e9;roles.forEach(r=>{const v=sc[r](sq[i]);if(v>bv){bv=v;br=r}});out[i]=br})};
- ids.forEach(i=>{const x=sq[i];if(x.pos)out[i]=x.pos});const g=p=>ids.filter(i=>!out[i]&&sq[i].p==p);
+ ids.forEach(i=>{const x=sq[i],specific=String(x.specificRole||x.pos||'').trim().toUpperCase();if(specific)out[i]=specific});const g=p=>ids.filter(i=>!out[i]&&sq[i].p==p);
  g('POR').forEach(i=>out[i]='ARQ');
  {const c=g('DEF'),lat=x=>A(x,'reg')+A(x,'ctl')+A(x,'pas')-A(x,'mar')*1.3,sc={LI:lat,LD:lat,DEF:x=>A(x,'mar')+A(x,'ant')+A(x,'des')};pick(c,c.length>=3?['LI','LD','DEF']:c.length==2?['DEF','LI']:['DEF'],sc)}
  {const c=g('MED'),sc={MC:x=>A(x,'pas')+A(x,'ctl'),MCD:x=>A(x,'mar')+A(x,'ant')+A(x,'pas')*.4,MO:x=>A(x,'rem')+A(x,'des')+A(x,'reg'),MI:x=>A(x,'reg')+A(x,'pas')*.5-A(x,'mar')*.2,MD:x=>A(x,'reg')+A(x,'pas')*.5-A(x,'mar')*.2};pick(c,c.length>=5?['MC','MCD','MO','MI','MD']:c.length==4?['MC','MCD','MO','MI']:c.length==3?['MC','MCD','MO']:c.length==2?['MC','MCD']:['MC'],sc)}
