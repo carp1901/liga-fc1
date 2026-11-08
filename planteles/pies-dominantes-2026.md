@@ -107,4 +107,12 @@ Fecha de revisión: 08/11/2026.
 
 La discrepancia de **Facundo Gulli** se resolvió a favor del pie izquierdo: además de FotMob, coinciden FIFA CM, FCScoutDB y la ficha de la APF; Sofascore es la única fuente consultada que lo informa diestro.
 
-**Resultado:** 39/40 jugadores de San Lorenzo completados. Queda **Agustín Perez**? Revisar si hay fila sin pie antes de cerrar el club.
+**Resultado:** 39/40 jugadores de San Lorenzo completados; Matías Reali quedó pendiente de confirmar su lateralidad.
+
+
+## Cierre completo — San Lorenzo
+- **Matías Reali:** Ambos pies, confirmado por Sofascore y FotMob.
+  - https://www.sofascore.com/es/football/player/reali-matias/1182457
+  - https://www.fotmob.com/es/players/1271801/matias-reali
+
+**Resultado final de San Lorenzo:** 40/40 jugadores con pie registrado. Se admiten tres valores: `Derecho`, `Izquierdo` y `Ambos`; no se fuerza una lateralidad cuando la ficha confirma uso indistinto de ambos pies.
