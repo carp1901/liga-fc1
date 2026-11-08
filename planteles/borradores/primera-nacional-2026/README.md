@@ -78,3 +78,10 @@ La semilla usa club, orden del registro, nombre y posición, por lo que cada per
 ### Control de carga y distribución — 08/11/2026
 
 Se revalidaron los seis archivos después de completar los atributos: 1.006 jugadores, 8.048/8.048 valores presentes y ningún campo técnico vacío. Rango global observado: 15–87. La distribución media por posición conserva la lógica del motor: arqueros con mayor peso en anticipación/reflejos; defensores en marca/anticipación; mediocampistas en pase/control; delanteros en remate/desmarque. Los 15 en atributos de arquero de jugadores de campo son el mínimo deliberado del motor, no datos faltantes. Esta comprobación es estructural y de coherencia por perfil, no una validación estadística individual.
+
+
+## Auditoría de vigencia — 08/11/2026
+
+Se cruzaron los seis CSV (36 clubes, 1.006 jugadores; corte interno 07/11) con el mercado de pases publicado por Mundo Ascenso. Se detectaron 22 coincidencias de nombres que figuran como bajas pero aún permanecen en el CSV del mismo club, y 62 altas publicadas que no aparecen en el CSV del club de destino. Son candidatos de revisión, no bajas/altas aplicadas automáticamente: falta confirmar cada caso con comunicados oficiales, AFA o fichas actuales. No se modificaron jugadores ni dorsales en esta pasada. La revisión está documentada en [auditoria-vigencia-2026-11-08.md](auditoria-vigencia-2026-11-08.md).
+
+Dorsales: 1.001 asignaciones internas provisionales; cinco con respaldo de planillas de partidos (cuatro de Midland y uno de Atlético de Rafaela). Ninguno se considera todavía parte de una numeración oficial completa de plantel.
