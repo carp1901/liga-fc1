@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-09T07:47:27.001Z",
+  "updatedAt": "2026-11-09T07:48:04.462Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "920 medias con fuente individual + 1119 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -4072,7 +4072,7 @@
     "estimatedRatings": 1119,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 1020,
+    "playersMissingFoot": 1018,
     "playersMissingSpecificRole": 0,
     "playersWithoutManualAttributes": 866
   }
