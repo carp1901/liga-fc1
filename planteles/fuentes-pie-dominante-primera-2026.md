@@ -766,3 +766,12 @@ Se añadieron cinco jugadores con pie explícito en sus fichas individuales o en
 - [Luciano Minniti](https://www.ogol.com.br/jogador/luciano-minniti/2445369) — derecho.
 - [Thiago Sánchez](https://es.besoccer.com/jugador/thiago-sanchez-3284220) — izquierdo.
 - [Lucian Carracedo](https://www.fotmob.com/players/1957994/lucian-carracedo) — derecho.
+
+
+## Central Córdoba — juveniles adicionales
+
+- [Máximo Alvarez](https://es.besoccer.com/jugador/maximo-alvarez-3537530) — derecho.
+- [Tiziano Ramirez](https://www.fifacm.com/player/280284/tiziano-ramirez) — derecho.
+- [Federico Rodriguez](https://www.sofascore.com/es/football/player/federico-rodriguez/2456600) — derecho.
+- [Agustín Romero](https://www.sofascore.com/es/football/player/agustin-romero/2449875) — derecho.
+- [Kevin Ibañez](https://www.fotmob.com/es/players/2341855/kevin-ibanez) — ambidiestro.
