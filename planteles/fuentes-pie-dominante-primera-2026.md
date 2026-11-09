@@ -75,7 +75,7 @@ No se dedujo el pie a partir de la posición o el perfil futbolístico.
 
 ## Atlético Tucumán
 
-Se completaron 17 jugadores con información explícita de pie preferido en fichas individuales de Sofascore y FCScoutDB. Se dejó vacío el resto, sin inferencias por posición.
+Se completaron 18 jugadores con información explícita de pie preferido en fichas individuales de Sofascore y FCScoutDB. Se dejó vacío el resto, sin inferencias por posición.
 
 Fuentes individuales:
 - [Patricio Albornoz — Sofascore](https://www.sofascore.com/football/player/patricio-albornoz/1415736) — derecho.
@@ -95,5 +95,6 @@ Fuentes individuales:
 - [Rodrigo Granillo — FCScoutDB](https://fcscoutdb.com/players/rodrigo-granillo) — derecho.
 - [Ramiro Ruiz Rodríguez — FCScoutDB](https://fcscoutdb.com/players/ramiro-ruiz-rodriguez) — derecho.
 - [Carlos Abeldaño — FCScoutDB](https://fcscoutdb.com/players/carlos-abeldano) — derecho.
+- [Manuel Brondo — Sofascore](https://www.sofascore.com/es/football/player/brondo-manuel/1464531) — derecho.
 
-La plantilla de referencia se contrastó con el [listado oficial del club](https://www.clubatleticotucuman.com.ar/jugadores) y las convocatorias/plantillas de la temporada. La ficha de Manuel Brondo también publica pie derecho en [Sofascore](https://www.sofascore.com/es/football/player/brondo-manuel/1464531), pero se dejó fuera de esta tanda porque el CSV contiene la ficha de Brondo con nombre coincidente? Revisar antes de cargar si la fuente corresponde a la misma ficha.
+La plantilla de referencia se contrastó con el [listado oficial del club](https://www.clubatleticotucuman.com.ar/jugadores) y las convocatorias/plantillas de la temporada.
