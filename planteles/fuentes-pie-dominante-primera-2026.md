@@ -805,3 +805,10 @@ Se añadieron cinco jugadores con pie explícito en sus fichas individuales o en
 - [Emiliano Cantero](https://www.sofascore.com/es/football/player/emiliano-cantero/2031275) — derecho.
 - [Valentín Gonzalez](https://es.besoccer.com/jugador/Santiago-Gonzalez-3495028) — derecho.
 - [Matías Hernández](https://www.sofascore.com/es/football/player/matias-hernandez/1381756) — derecho.
+
+
+## Barracas Central y Deportivo Riestra — juveniles adicionales
+
+- [Mateo Coronel](https://www.sofascore.com/es-la/football/player/mateo-coronel/1803979) — izquierdo.
+- [Valentino Gandín](https://www.sofascore.com/es/football/player/valentino-gandin/1984718) — izquierdo.
+- [Dariel Sánchez Ganly](https://es.besoccer.com/jugador/d-ganly-3560776) — derecho.
