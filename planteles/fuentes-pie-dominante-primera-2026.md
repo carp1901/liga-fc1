@@ -742,3 +742,9 @@ Se completaron tres registros con fuentes individuales que expresan el pie prefe
 ## Platense — juvenil adicional
 
 - [Franco Minerva — BeSoccer](https://es.besoccer.com/jugador/f-minerva-3378761) — izquierdo.
+
+
+## Tigre — otros juveniles
+
+- [Máximo Leguizamón — Sofascore](https://www.sofascore.com/es/football/player/maximo-leguizamon/2456593) — izquierdo.
+- [Bautista Feversani — Sofascore](https://www.sofascore.com/es/football/player/bautista-feversani/2549611) — derecho.
