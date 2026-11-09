@@ -159,3 +159,13 @@ Se completaron 7 registros con fuente individual o ficha de base de datos que id
 - Sarmiento: [Gastón González — FCScoutDB](https://fcscoutdb.com/players?league=353&pos=7) — izquierdo (préstamo vigente en Sarmiento).
 
 Jabes Saralegui queda pendiente: FCScoutDB indica derecho y Sportsdunia indica izquierdo. No se conserva ningún valor mientras exista esa discrepancia.
+
+
+## Continuación de Platense y Sarmiento — actualización
+
+Se añadieron cuatro pies dominantes confirmados explícitamente en FCScoutDB. No se completaron los demás jugadores sin evidencia individual verificable.
+
+- Platense: [Juan Ignacio Saborido — FCScoutDB](https://fcscoutdb.com/players?league=353&pos=3) — derecho.
+- Sarmiento: [Mauricio Martínez — FCScoutDB](https://fcscoutdb.com/players/mauricio-martinez) — derecho.
+- Sarmiento: [Osmar Giménez Bernal — FCScoutDB](https://fcscoutdb.com/players/osmar-gimenez-bernal) — derecho.
+- Sarmiento: [Thiago Santamaría — FCScoutDB](https://fcscoutdb.com/players/thiago-santamaria) — derecho (préstamo vigente en Sarmiento).
