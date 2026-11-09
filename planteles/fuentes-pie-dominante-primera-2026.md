@@ -789,3 +789,9 @@ Se añadieron cinco jugadores con pie explícito en sus fichas individuales o en
 ## Independiente — jugador adicional
 
 - [Ezequiel Ávila — FCScoutDB](https://fcscoutdb.com/players/chimy-avila) — derecho.
+
+
+## Banfield — últimos juveniles identificados
+
+- [Isaias Gutierrez](https://www.sofascore.com/football/player/isaias-gutierrez/2678254) — derecho.
+- [Thomas Rodríguez](https://www.transfermarkt.com.ar/thomas-rodriguez/profil/spieler/402581) — derecho.
