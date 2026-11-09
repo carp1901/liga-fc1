@@ -185,6 +185,52 @@ select{pointer-events:none}
 #m10 .rkfullwrap td.pt{font-size:17px}
 #m10 .rkpodcard:focus-visible,#m10 .rkfullwrap tr:focus-visible{outline:2px solid #f2b705;outline-offset:2px}
 @media(max-width:600px){#m10{padding:4px 5px 12px;gap:8px}#m10 .rkpodgrid{gap:5px}#m10 .rkpodcard{min-height:164px;padding:8px 3px 7px}#m10 .rkpodcard.gold{min-height:190px}#m10 .rkpodname{font-size:12px}#m10 .rkpodcard strong{font-size:25px}#m10 .rkpodlast{font-size:9.5px}#m10 .rkpodcard .cw{transform:scale(.9)}}
+
+/* Rankings: paneles amplios y navegación en cuadros, sin botones tipo globo */
+body:has(#m10:not([hidden])){overflow:hidden}
+body:has(#m10:not([hidden])) #menu{display:grid;place-items:center;overflow:hidden;padding:8px}
+body:has(#m10:not([hidden])) #menu .bd{width:min(1500px,calc(100vw - 16px));max-width:none;height:calc(100dvh - 16px);max-height:none;min-height:0;margin:0 auto;padding:10px 18px 12px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:5px}
+body:has(#m10:not([hidden])) #menu .tt{flex:none;margin:2px 0 5px;font-size:clamp(17px,3.2vw,25px)}
+body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;padding:8px clamp(4px,1.8vw,22px) 18px;gap:12px;scrollbar-gutter:stable}
+#m10 .ranking-main-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;width:100%;margin:4px 0 12px;border:1px solid #ffffff35;border-radius:5px;overflow:hidden;background:#07180f}
+#m10 .ranking-main-tabs button{min-width:0;min-height:54px;padding:12px 8px;border:0;border-right:1px solid #ffffff30;border-radius:0;box-shadow:none;background:#183d27;color:#d8edc8;font-size:clamp(15px,2vw,20px);letter-spacing:.3px}
+#m10 .ranking-main-tabs button:last-child{border-right:0}
+#m10 .ranking-main-tabs button.on{background:#b4f23a;color:#263d0b;box-shadow:inset 0 -4px 0 #6c9c1c}
+#m10 #rkt{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;width:100%;margin:4px 0 12px;border:1px solid #ffffff35;border-radius:5px;overflow:hidden;background:#07180f}
+#m10 #rkt button{min-width:0;min-height:48px;padding:10px 5px;border:0;border-right:1px solid #ffffff25;border-radius:0;box-shadow:none;background:#183d27;color:#d8edc8;font-size:clamp(13px,1.5vw,17px);white-space:normal}
+#m10 #rkt button:last-child{border-right:0}
+#m10 #rkt button.on{background:#b4f23a;color:#263d0b;box-shadow:inset 0 -4px 0 #6c9c1c}
+#m10 #ranktechpanel>.rkt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;width:100%;margin:4px 0 12px;border:1px solid #ffffff35;border-radius:5px;overflow:hidden;background:#07180f}
+#m10 #ranktechpanel>.rkt button{min-height:48px;border:0;border-right:1px solid #ffffff25;border-radius:0;box-shadow:none;background:#183d27;color:#d8edc8;font-size:16px}
+#m10 #ranktechpanel>.rkt button:last-child{border-right:0}
+#m10 #ranktechpanel>.rkt button.on{background:#b4f23a;color:#263d0b;box-shadow:inset 0 -4px 0 #6c9c1c}
+#m10 .c2.w{max-width:none;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px}
+#m10 .lb{font-size:15px;gap:5px}
+#m10 .sc select,#m10 .in{min-height:48px;font-size:18px;border-radius:5px}
+#m10 .rkb{padding:clamp(12px,2vw,22px);margin:6px 0 12px;border-radius:7px;min-height:180px}
+#m10 .rkb td,#m10 .rkb th{padding:9px 8px;font-size:clamp(14px,1.3vw,17px)}
+#m10 .rkb th{font-size:13px}
+#m10 .rkpodcard{min-height:190px;padding:14px 10px}
+#m10 .rkpodcard.gold{min-height:220px}
+#m10 .rkpodname{font-size:clamp(15px,1.4vw,19px)}
+#m10 .rkpodcard strong{font-size:clamp(30px,3vw,38px)}
+#m10 .rkfullwrap td,#m10 .rkfullwrap th{padding:12px 10px;font-size:clamp(14px,1.3vw,17px)}
+@media(max-width:600px){
+ body:has(#m10:not([hidden])) #menu .bd{width:calc(100vw - 8px);height:calc(100dvh - 8px);padding:7px 8px 10px}
+ body:has(#m10:not([hidden])) #m10{padding:5px 2px 14px;gap:9px}
+ #m10 .ranking-main-tabs button{min-height:50px;padding:9px 2px;font-size:clamp(13px,3.8vw,16px);letter-spacing:0}
+ #m10 #rkt{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #m10 #rkt button{min-height:46px;font-size:14px;border-bottom:1px solid #ffffff20}
+ #m10 #rkt button:nth-child(3){border-right:0}
+ #m10 #rkt button:nth-child(4),#m10 #rkt button:nth-child(5){grid-column:span 1}
+ #m10 .rkb{padding:10px;min-height:160px}
+ #m10 .rkpodgrid{gap:6px}
+ #m10 .rkpodcard{min-height:164px;padding:10px 4px 8px}
+ #m10 .rkpodcard.gold{min-height:184px}
+ #m10 .rkpodname{font-size:13px}
+ #m10 .rkpodcard strong{font-size:25px}
+}
+
 </style></head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">CLASH FUTBOL - 2D ONLINE</h1>
