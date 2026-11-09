@@ -759,3 +759,10 @@ Se añadieron cinco jugadores con pie explícito en sus fichas individuales o en
 - [Joaquín Flandes](https://www.sofascore.com/football/player/joaquin-flandes/2689343) — derecho.
 - [Santino Gatti](https://www.sofascore.com/es/football/player/santino-gatti/1835785) — derecho.
 - [Agustín Melano](https://doblegsports.com/jugadores/agust%C3%ADn-melano) — derecho.
+
+
+## Tigre — juveniles adicionales (segunda revisión)
+
+- [Luciano Minniti](https://www.ogol.com.br/jogador/luciano-minniti/2445369) — derecho.
+- [Thiago Sánchez](https://es.besoccer.com/jugador/thiago-sanchez-3284220) — izquierdo.
+- [Lucian Carracedo](https://www.fotmob.com/players/1957994/lucian-carracedo) — derecho.
