@@ -1208,3 +1208,15 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Valentín Fenoglio | Derecho | https://www.fotmob.com/es/players/1493374/valentin-fenoglio |
 
 **Resultado:** 4 registros adicionales verificados y cargados.
+
+
+## Quinta tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Demian Troya | Derecho | https://www.sofascore.com/es/football/player/demian-troya/2142456 |
+| Manuel Tucker | Derecho | https://www.sofascore.com/es/football/player/manuel-tucker/1613377 |
+| Pablo Ferreira | Derecho | https://www.sofascore.com/es/football/player/pablo-ferreira/1210807 |
+| Santiago Sosa Yung | Derecho | https://fafifa.com/es/jugador/santiago-nahuel-sosa-yung |
+
+**Resultado:** 4 registros adicionales verificados y cargados.
