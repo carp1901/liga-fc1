@@ -13,6 +13,10 @@ on:
       - 'test-plantel-calibration.js'
       - '.github/workflows/validar-planteles.yml'
   workflow_dispatch:
+
+concurrency:
+  group: publicar-planteles-main
+  cancel-in-progress: true
 permissions:
   contents: write
 jobs:
