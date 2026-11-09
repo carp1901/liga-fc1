@@ -211,7 +211,7 @@ select{pointer-events:none}
 <div id="rankclubspanel">
 <h3 class="mt">Palmarés de clubes</h3>
 <div class="rkt" id="rkt"><button data-rt="gen" class="on">Online</button><button data-rt="cla">Clásico</button><button data-rt="bar">Barrial</button><button data-rt="off">Offline</button><button data-rt="comp">Por competición</button></div>
-<div class="c2 w ranking-filters"><label class="lb" id="rkml">modalidad<select id="rkm"></select></label><label class="lb">competición / división<select id="rkc"></select></label><label class="lb">tipo de torneo<select id="rkf"><option value="">Todos</option><option value="liga">Liga</option><option value="copa">Copa</option><option value="mixto">Mixto</option></select></label></div>
+<div class="c2 w ranking-filters"><label class="lb">período<select id="rkperiod"><option value="historico">Histórico</option><option value="temporada">Temporada actual</option></select></label><label class="lb" id="rkml">modalidad<select id="rkm"></select></label><label class="lb">competición / división<select id="rkc"></select></label><label class="lb">tipo de torneo<select id="rkf"><option value="">Todos</option><option value="liga">Liga</option><option value="copa">Copa</option><option value="mixto">Mixto</option></select></label></div>
 <div class="rkb" id="rkb"></div><button class="bt ok" id="rkcmp">Comparar clubes</button>
 </div>
 <div id="ranktechpanel" hidden>
@@ -687,7 +687,7 @@ function rkSetup(t){RKT=t;const c=RK_TABS[t];document.querySelectorAll('#rkt but
  $('#rkc').innerHTML=rkCompOpts(c.g,c.req);$('#rkm').value=c.m[0][0];$('#rkc').value=c.req?DATA.CUPS[0].id:'';$('#rkf').value='';rkLoad()}
 const fdate=s=>{const d=new Date(s);return isNaN(d)?'':d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'2-digit'})};
 async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Cargando…</span>';
- const p=new URLSearchParams({mod:$('#rkm').value,comp:$('#rkc').value,fmt:$('#rkf').value});
+ const p=new URLSearchParams({mod:$('#rkm').value,comp:$('#rkc').value,fmt:$('#rkf').value});if($('#rkperiod').value=='temporada')p.set('year',String(new Date().getFullYear()));
  try{const r=await fetch('/api/ranking?'+p),d=await r.json();if(n!=RKN)return;
   if(!r.ok||d.error){o.innerHTML='<span class=mu>No se pudo cargar el ranking. Probá de nuevo en un rato.</span>';return}
   if(!d.enabled){o.innerHTML='<span class=mu>El ranking no está disponible: este servidor no tiene base de datos conectada.</span>';return}
@@ -700,7 +700,7 @@ async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Ca
    o.innerHTML=`<div class="rkcount"><strong>${d.total}</strong><span>títulos registrados en este filtro</span></div>${podium}${table}<div class=nt>Tocá un club del podio o de la tabla para ver su ficha completa.</div>${d.rows.some(x=>x.empate)?'<div class=nt>= indica clubes empatados: comparten posición y se ordenan alfabéticamente.</div>':''}${note}`;
   }else{o.innerHTML=`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}}
  catch(e){if(n==RKN)o.innerHTML='<span class=mu>No se pudo cargar el ranking (sin conexión con el servidor).</span>'}}
-$('#brk').onclick=()=>{goM('m10');rankingMode('clubes')};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;
+$('#brk').onclick=()=>{goM('m10');rankingMode('clubes')};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;$('#rkperiod').onchange=rkLoad;
 /* ===== Ficha de club y comparador (Bloque 6): todo sale de /api/club, que usa el mismo registro que los rankings. ===== */
 const MODL={clasico:'clásico online',barrial:'barrial online',offline:'offline'},FMTL=f=>f=='copa'?'Copa':'Liga',posTxt=p=>p?p.pos+'º'+(p.empate?'=':'')+' de '+p.de:'—';
 let CLUB=null,CLUBHTML='';
