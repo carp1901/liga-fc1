@@ -819,7 +819,7 @@ const sendOff=rec=>fetch('/api/titulo-offline',{method:'POST',body:JSON.stringif
 ENG.CFG.onTitle=rec=>sendOff(rec).catch(e=>{if(!e.perm)ptSet([...ptGet().filter(x=>x.tid!=rec.tid),rec]);throw e});
 const flushPT=()=>{const a=ptGet();if(!a.length)return;Promise.all(a.map(rec=>sendOff(rec).then(()=>rec.tid,e=>e.perm?rec.tid:null))).then(done=>ptSet(ptGet().filter(x=>!done.includes(x.tid))))};flushPT();
 /* ===== Rankings: los datos vienen del servidor (/api/ranking); nada se calcula ni se guarda en el navegador. ===== */
-let RKT='online',RKSUB='all',RKN=0;
+let RKT='online',RKSUB='all',RKOFFSUB='all',RKN=0;
 function rkCompOpts(scope='offline'){
  const cups=DATA.CUPS.map(c=>'<option value="'+c.id+'">'+esc(c.title)+'</option>').join('');
  const dvs=DATA.DIVS.filter(d=>d.ok).map(d=>'<option value="'+d.id+'">'+esc(d.name)+'</option>').join('');
@@ -828,13 +828,28 @@ function rkCompOpts(scope='offline'){
  const all='<option value="">Todas</option>';
  if(scope==='barrial')return all+og('Torneos barriales / regionales',cups);
  if(scope==='clasico')return all+og('Modo clásico',classic);
+ if(scope==='personalizado')return all+'<optgroup label="Carrera personalizada"><option value="pers">Personalizado</option></optgroup>';
  if(scope==='online')return all+og('Clásico',classic)+og('Barrial / regional',cups);
  return all+og('Torneos barriales / regionales',cups)+og('Modo clásico',classic)+'<optgroup label="Carrera personalizada"><option value="pers">Personalizado</option></optgroup>'
 }
-function rkSetup(t){RKT=t;document.querySelectorAll('#rkt button').forEach(b=>b.classList.toggle('on',b.dataset.rt==t));
- const online=t=='online';$('#rkSubtabs').hidden=!online;$('#rkm').innerHTML=online?'<option value="online">Clásico + barrial</option><option value="clasico">Clásico</option><option value="barrial">Barrial / Regional</option>':'<option value="offline">Offline</option>';
- $('#rkml').hidden=true;$('#rkc').innerHTML=online?rkCompOpts(RKSUB=='all'?'online':RKSUB):rkCompOpts('offline');$('#rkc').value='';$('#rkf').value='';
- document.querySelectorAll('#rkSubtabs button').forEach(b=>b.classList.toggle('on',b.dataset.sub==(online?RKSUB:'all')));if(online)$('#rkm').value=RKSUB=='all'?'online':RKSUB;rkLoad()}
+function rkSubtabsRender(online){
+ const items=online?[['all','Todo online'],['clasico','Clásico'],['barrial','Barrial / Regional']]:[['all','Todo offline'],['clasico','Modo clásico'],['barrial','Torneos barriales / regionales'],['personalizado','Carrera personalizada']];
+ const selected=online?RKSUB:RKOFFSUB;
+ $('#rkSubtabs').hidden=false;
+ $('#rkSubtabs').innerHTML=items.map(([id,label])=>'<button data-sub="'+id+'" class="'+(id===selected?'on':'')+'">'+label+'</button>').join('');
+}
+function rkSetup(t){
+ RKT=t;const online=t==='online';
+ document.querySelectorAll('#rkt button').forEach(b=>b.classList.toggle('on',b.dataset.rt===t));
+ rkSubtabsRender(online);
+ $('#rkm').innerHTML=online?'<option value="online">Clásico + barrial</option><option value="clasico">Clásico</option><option value="barrial">Barrial / Regional</option>':'<option value="offline">Offline</option>';
+ const sub=online?RKSUB:RKOFFSUB;
+ $('#rkml').hidden=true;
+ $('#rkc').innerHTML=online?rkCompOpts(sub==='all'?'online':sub):rkCompOpts(sub);
+ $('#rkc').value='';$('#rkf').value='';
+ if(online)$('#rkm').value=RKSUB==='all'?'online':RKSUB;
+ rkLoad()
+}
 const fdate=s=>{const d=new Date(s);return isNaN(d)?'':d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'2-digit'})};
 async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Cargando…</span>';
  const p=new URLSearchParams({mod:$('#rkm').value,comp:$('#rkc').value,fmt:$('#rkf').value});if($('#rkperiod').value=='temporada')p.set('year',String(new Date().getFullYear()));
@@ -850,7 +865,7 @@ async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Ca
    o.innerHTML=`<div class="rkcount"><strong>${d.total}</strong><span>títulos registrados en este filtro</span></div>${podium}${table}<div class=nt>Tocá un club del podio o de la tabla para ver su ficha completa.</div>${d.rows.some(x=>x.empate)?'<div class=nt>= indica clubes empatados: comparten posición y se ordenan alfabéticamente.</div>':''}${note}`;
   }else{o.innerHTML=`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}}
  catch(e){if(n==RKN)o.innerHTML='<span class=mu>No se pudo cargar el ranking (sin conexión con el servidor).</span>'}}
-$('#brk').onclick=()=>{RANK_TAB_HISTORY=[];goM('m10');rankingMode('clubes',false)};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkSubtabs').onclick=e=>{const b=e.target.closest('[data-sub]');if(!b)return;RKSUB=b.dataset.sub;document.querySelectorAll('#rkSubtabs button').forEach(x=>x.classList.toggle('on',x===b));$('#rkm').value=RKSUB=='all'?'online':RKSUB;$('#rkc').innerHTML=rkCompOpts(RKSUB=='all'?'online':RKSUB);$('#rkc').value='';rkLoad()};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;$('#rkperiod').onchange=rkLoad;
+$('#brk').onclick=()=>{RANK_TAB_HISTORY=[];goM('m10');rankingMode('clubes',false)};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkSubtabs').onclick=e=>{const b=e.target.closest('[data-sub]');if(!b)return;if(RKT==='online'){RKSUB=b.dataset.sub;$('#rkm').value=RKSUB==='all'?'online':RKSUB;$('#rkc').innerHTML=rkCompOpts(RKSUB==='all'?'online':RKSUB)}else{RKOFFSUB=b.dataset.sub;$('#rkc').innerHTML=rkCompOpts(RKOFFSUB)}rkSubtabsRender(RKT==='online');$('#rkc').value='';rkLoad()};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;$('#rkperiod').onchange=rkLoad;
 /* ===== Ficha de club y comparador (Bloque 6): todo sale de /api/club, que usa el mismo registro que los rankings. ===== */
 const MODL={clasico:'clásico online',barrial:'barrial online',offline:'offline'},FMTL=f=>f=='copa'?'Copa':'Liga',posTxt=p=>p?p.pos+'º'+(p.empate?'=':'')+' de '+p.de:'—';
 let CLUB=null,CLUBHTML='';
