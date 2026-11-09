@@ -177,7 +177,9 @@ function rankRows(rows,f){
 async function allRows(){await ensure();if(!cache||Date.now()-cache.at>10000)cache={at:Date.now(),rows:(await pool.query(ALL)).rows};return cache.rows}
 async function ranking(f){
   if(!configured)return{enabled:false,total:0,rows:[]};
-  return{enabled:true,...rankRows(await allRows(),f)};
+  const all=await allRows(),year=Number(f&&f.year)||0;
+  const rows=year?all.filter(r=>new Date(r.finalizado).getFullYear()==year):all;
+  return{enabled:true,temporada:year||null,...rankRows(rows,f)};
 }
 // Ficha de un club: totales por modalidad, posición en cada ranking, competiciones ganadas e historial reciente. Todo sale del mismo registro que los rankings (mismas cifras).
 function clubStats(rows,id){
