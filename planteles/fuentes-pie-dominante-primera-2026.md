@@ -444,3 +444,74 @@ Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=1129
 - Martín Cuitiño: derecho.
 - Leonardo Sequeira: derecho.
 
+
+
+## Segunda pasada — Aldosivi, Platense, Banfield, Tigre y Sarmiento
+
+Se añadieron solo coincidencias verificadas en la columna `Foot` de las tablas filtradas por club de FCScoutDB. Los préstamos se incluyeron cuando el registro del juego corresponde al futbolista listado en la ficha.
+
+### aldosivi
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111707).
+
+- Rodrigo González: derecho.
+- Federico Laurelli: izquierdo.
+- Santiago Moya: derecho.
+- Mateo Vales: izquierdo.
+- Federico Gino: derecho.
+- Martín García: derecho.
+- Felipe Anso: derecho.
+- Augusto Fernández: derecho.
+- Matías Godoy: derecho.
+- Natanael Guzmán: derecho.
+- Tomás Fernández: derecho.
+
+### platense
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=112689).
+
+- Brian Bustos: derecho.
+- Mateo Mendia: derecho.
+- Tomás Silva: izquierdo.
+- Martín Barrios: derecho.
+- Gonzalo Lencina: derecho.
+- Nicolás Retamar: derecho.
+
+### banfield
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=110404).
+
+- Joaquín Molina: derecho.
+- Santiago Daniele: derecho.
+- Brandon Oviedo: derecho.
+- Tomás Adoryan: derecho.
+- Manuel Arteaga: derecho.
+- Lautaro Gómez: izquierdo.
+- Federico Medina: derecho.
+- Neyder Moreno: derecho.
+- Ignacio Pais: derecho.
+- Lautaro Villegas: derecho.
+- Federico Anselmo: derecho.
+
+### tigre
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111715).
+
+- Federico Álvarez: izquierdo.
+- Ramón Arias: derecho.
+- Ángelo Marchese: izquierdo.
+- Gonzalo Requena: derecho.
+- Juan Manuel Villalba: izquierdo.
+- Nicolás Dubersarsky: derecho.
+- Manuel Fernández: derecho.
+
+### sarmiento
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=112713).
+
+- Iván Arboleda: derecho.
+- Thyago Ayala: derecho.
+- Gastón Arturia: derecho.
+- Juan Manuel Cabrera: derecho.
+- Ulises Giménez: derecho.
+- Joel Godoy: izquierdo.
+- Elián Giménez: derecho.
+- Julián Mavilla: izquierdo.
+- Agustín Nadruz: derecho.
+- Brandon Márquez: derecho.
+
