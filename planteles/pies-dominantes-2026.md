@@ -1083,3 +1083,14 @@ Fecha de revisión: 09/11/2026.
 | Talleres | Rick Lima Morais | Derecho | https://www.clubtalleres.com.ar/jugadores/rick-jhonatan-lima-morais/ |
 
 Se completan cinco registros con fuente individual que publica explícitamente el pie hábil/preferido. Agustín Cortez sigue pendiente: la ficha oficial de Vélez confirma su identidad y pertenencia al plantel, pero no informa el pie. Los casos sin evidencia individual suficiente permanecen vacíos.
+
+
+## Cierre de faltantes verificables — Newell's Old Boys
+Fecha de revisión: 09/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Francisco Sciarini | Izquierdo | https://www.ysscores.com/es/player/232784038/Francisco-Sciarini |
+| Blas Benedetto | Derecho | https://database.footballmanagerblog.org/fm26/players/2000281963-blas-benedetto |
+
+Francisco Sciarini figura como zurdo en YSScores. Blas Benedetto figura con pie preferido derecho en la base FM Blog. No se asigna lateralidad a partir de la posición ni de la pierna de golpeo en un video.
