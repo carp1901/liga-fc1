@@ -1220,3 +1220,18 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Santiago Sosa Yung | Derecho | https://fafifa.com/es/jugador/santiago-nahuel-sosa-yung |
 
 **Resultado:** 4 registros adicionales verificados y cargados.
+
+
+## Sexta tanda — Tigre, 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Benjamín Figueredo | Derecho | https://www.fotmob.com/players/1957996/benjamin-figueredo |
+| Gastón Pérez | Derecho | https://database.footballmanagerblog.org/fm26/players/2000282987-gaston-perez |
+| Román Pesolilla | Izquierdo | https://database.footballmanagerblog.org/fm26/players/2000324840-roman-pesolilla |
+| Alex González | Izquierdo | https://database.footballmanagerblog.org/fm26/players/2000425949-alex-gonzalez |
+| Román Saravia | Izquierdo | https://database.footballmanagerblog.org/fm26/players/2000300079-roman-saravia |
+| Fabricio Córdoba | Derecho | https://database.footballmanagerblog.org/fm26/players/2000531602-fabricio-cordoba |
+| Santino Galesio | Derecho | https://database.footballmanagerblog.org/fm26/players/2000331305-santino-galesio |
+
+**Resultado:** 7 registros de Tigre confirmados y cargados con fichas individuales.
