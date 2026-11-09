@@ -1196,3 +1196,15 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Joaquín Medina | Derecho | https://www.sofascore.com/es/football/player/joaquin-medina/2187029 |
 
 **Resultado:** 3 registros adicionales verificados y cargados.
+
+
+## Cuarta tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Juan Franco | Derecho | https://www.sofascore.com/es/football/player/juan-franco/926812 |
+| Santiago Roggero | Derecho | https://www.sofascore.com/es/football/player/santiago-roggero/2054622 |
+| Lautaro Agustín Herrera | Derecho | https://es.besoccer.com/jugador/l-herrera-3385941 |
+| Valentín Fenoglio | Derecho | https://www.fotmob.com/es/players/1493374/valentin-fenoglio |
+
+**Resultado:** 4 registros adicionales verificados y cargados.
