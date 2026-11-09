@@ -618,3 +618,62 @@ Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=1109
 
 - Giuliano Cerato: derecho.
 
+
+
+## Segunda pasada — Independiente Rivadavia, Estudiantes de Río Cuarto, Barracas e Instituto
+
+Los datos se tomaron de la columna `Foot` en las tablas de FCScoutDB filtradas por club. En los nombres extendidos de Estudiantes de Río Cuarto e Instituto se cotejó la identidad del jugador en la ficha del plantel; no se trasladaron datos a homónimos.
+
+### rivadavia
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111020).
+
+- Emmanuel Gómez Riga: derecho.
+- Alejo Osella: derecho.
+- Matías Salvo: izquierdo.
+- Diego Crego: izquierdo.
+- Matías Fernandez: derecho.
+- Stefano Moreyra: derecho.
+- Alessandro Riep: derecho.
+- Luis Sequeira: derecho.
+- Kevin Vasquez: derecho.
+- Rodrigo Atencio: izquierdo.
+- Luis Diaz: derecho.
+- Victorio Ramis: derecho.
+- Luciano Sábato: derecho.
+
+### estudiantesrc
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=115470).
+
+- Lucas Mariano Bruera: derecho.
+- Agustín Jesús Lastra: derecho.
+- Lucas Baños: derecho.
+- Juan Antonini: derecho.
+- Gonzalo Joaquín González: derecho.
+- Matías Lautaro Ruiz Díaz: derecho.
+- Fernando Iván Rodríguez: izquierdo.
+- Sergio Maximiliano Ojeda: derecho.
+- Alejandro Martín Cabrera: derecho.
+- Javier Ferreira: derecho.
+- Martín Garnerone: derecho.
+- Yeison Daniel Moreno Murillo: derecho.
+- Joaquín Rivero: derecho.
+- Mauro Abrahán Valiente: derecho.
+- Juan Fernando Garro: derecho.
+- Mateo Bajamich: derecho.
+- Juan Chalá: derecho.
+
+### barracas
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=113044).
+
+- Juan Pablo Insúa: derecho.
+- Yeison Gordillo: derecho.
+
+### instituto
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=110953).
+
+- Emanuel Sittaro: derecho.
+- Agustín Massaccesi: derecho.
+- Juan Andrés Meli: izquierdo.
+- Luca Rafaelli: derecho.
+- Juan Manuel Romero: derecho.
+
