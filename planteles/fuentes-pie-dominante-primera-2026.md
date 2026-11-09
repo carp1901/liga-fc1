@@ -145,3 +145,17 @@ Se agregaron tres fichas individuales que faltaban en clubes de la tanda:
 - Argentinos Juniors: [Facundo Carrizo — Sofascore](https://www.sofascore.com/es/football/player/facundo-carrizo/2338324) — derecho.
 
 No se completaron Fabrizio Martínez, Santino Raynelli, Máximo Cabrera ni Lucas Lamella porque las fuentes consultadas no confirman una pierna dominante específica. En particular, la nota oficial de Gimnasia sobre Lamella indica que maneja ambos perfiles, pero no identifica cuál es el dominante.
+
+## Inicio de la siguiente tanda: Platense, Tigre y Sarmiento
+
+Se completaron 7 registros con fuente individual o ficha de base de datos que identifica el club:
+
+- Platense: [Víctor Cuesta — FCScoutDB](https://fcscoutdb.com/players/victor-cuesta) — izquierdo.
+- Platense: [Gastón Togni — FCScoutDB](https://fcscoutdb.com/players?league=353&pos=7) — izquierdo (préstamo vigente en Platense).
+- Tigre: [Felipe Zenobio — EA SPORTS FC 27](https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/felipe-zenobio/256145) — derecho.
+- Tigre: [Alan Barrionuevo — FUT Mind](https://futmind.com/es/players/269554/alan-barrionuevo) — izquierdo.
+- Tigre: [Joaquín Laso — BallValue](https://ballvalue.com/en/jucatori/joaquin-laso) — derecho.
+- Sarmiento: [Nicolás Pasquini — FCScoutDB](https://fcscoutdb.com/players?league=353&pos=7) — izquierdo.
+- Sarmiento: [Gastón González — FCScoutDB](https://fcscoutdb.com/players?league=353&pos=7) — izquierdo (préstamo vigente en Sarmiento).
+
+Jabes Saralegui queda pendiente: FCScoutDB indica derecho y Sportsdunia indica izquierdo. No se conserva ningún valor mientras exista esa discrepancia.
