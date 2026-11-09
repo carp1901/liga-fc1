@@ -121,3 +121,17 @@ Se completaron 4 jugadores con fichas individuales de FCScoutDB:
 - [Agustín Graneros — FCScoutDB](https://fcscoutdb.com/players/agustin-graneros) — derecho.
 
 Los demás jugadores de ambos planteles siguen pendientes hasta localizar una ficha individual verificable. No se asignaron valores por deducción.
+
+## Instituto de Córdoba
+
+Se completaron 7 jugadores con pie dominante explícito en fichas individuales de FCScoutDB:
+
+- [Alex Luna](https://fcscoutdb.com/players/alex-luna) — derecho.
+- [Juan Ignacio Méndez](https://fcscoutdb.com/players/juan-ignacio-mendez) — derecho.
+- [Franco Moyano](https://fcscoutdb.com/players/franco-moyano) — derecho (ficha individual con préstamo vigente en Instituto).
+- [Jonathan Galván](https://fcscoutdb.com/players/jonathan-galvan) — derecho (ficha individual con préstamo vigente en Instituto).
+- [Leonel Mosevich](https://fcscoutdb.com/players/leonel-mosevich) — derecho (ficha individual con préstamo vigente en Instituto).
+- [Agustín Bravo](https://fcscoutdb.com/players/agustin-bravo) — izquierdo (ficha individual con préstamo vigente en Instituto).
+- [Wílder Viera](https://fcscoutdb.com/players?nat=58&pos=10) — izquierdo.
+
+No se completaron los demás jugadores sin ficha individual coincidente y explícita.
