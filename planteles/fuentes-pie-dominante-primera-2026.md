@@ -296,3 +296,24 @@ Se incorporaron pies preferidos expresos de fichas individuales FCScoutDB. No se
 - [Adrián Balboa — FCScoutDB](https://fcscoutdb.com/players/adrian-balboa) — derecho.
 - [Alexander Machado — FCScoutDB](https://fcscoutdb.com/players/alexander-machado) — izquierdo.
 - [Lisandro Piñero — FCScoutDB](https://fcscoutdb.com/players/lisandro-pinero) — derecho.
+
+
+## Independiente Rivadavia — inicio de auditoría
+
+Se incorporaron los siguientes pies preferidos expresos en fichas individuales FCScoutDB:
+
+- [Nicolás Bolcato — FCScoutDB](https://fcscoutdb.com/players/nicolas-bolcato) — derecho.
+- [Ezequiel Bonifacio — FCScoutDB](https://fcscoutdb.com/players/ezequiel-bonifacio) — derecho.
+- [Leonard Costa — FCScoutDB](https://fcscoutdb.com/players/leonard-costa) — derecho.
+- [Juan Manuel Elordi — FCScoutDB](https://fcscoutdb.com/players/juan-manuel-elordi) — izquierdo.
+- [Luciano Gómez — FCScoutDB](https://fcscoutdb.com/players/luciano-gomez) — derecho.
+- [Sheyko Studer — FCScoutDB](https://fcscoutdb.com/players/sheyko-studer) — derecho.
+- [Alex Vigo — FCScoutDB](https://fcscoutdb.com/players/alex-vigo) — derecho.
+- [Iván Villalba — FCScoutDB](https://fcscoutdb.com/players/ivan-villalba) — derecho.
+- [Tomás Bottari — FCScoutDB](https://fcscoutdb.com/players/tomas-bottari) — derecho.
+- [Leonel Bucca — FCScoutDB](https://fcscoutdb.com/players/leonel-bucca) — izquierdo.
+- [José Florentín — FCScoutDB](https://fcscoutdb.com/players/jose-florentin) — izquierdo.
+- [Gonzalo Ríos — FCScoutDB](https://fcscoutdb.com/players/gonzalo-rios) — derecho.
+- [Alex Arce — FCScoutDB](https://fcscoutdb.com/players/alex-arce) — derecho.
+- [Maximiliano Salas — FCScoutDB](https://fcscoutdb.com/players/maximiliano-salas) — izquierdo.
+- [Fabrizio Sartori — FCScoutDB](https://fcscoutdb.com/players/fabrizio-sartori) — derecho.
