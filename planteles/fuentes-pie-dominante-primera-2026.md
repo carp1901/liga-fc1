@@ -795,3 +795,13 @@ Se añadieron cinco jugadores con pie explícito en sus fichas individuales o en
 
 - [Isaias Gutierrez](https://www.sofascore.com/football/player/isaias-gutierrez/2678254) — derecho.
 - [Thomas Rodríguez](https://www.transfermarkt.com.ar/thomas-rodriguez/profil/spieler/402581) — derecho.
+
+
+## Segunda pasada — Defensa y Justicia y Banfield
+
+- [Facundo Quintana](https://www.sofascore.com/es/football/player/facundo-quintana/1835743) — derecho.
+- [Mateo López](https://www.sofascore.com/es/football/player/mateo-lopez/2169739) — derecho.
+- [Jonás Cabrera](https://www.sofascore.com/es/football/player/jonas-cabrera/2658760) — derecho.
+- [Emiliano Cantero](https://www.sofascore.com/es/football/player/emiliano-cantero/2031275) — derecho.
+- [Valentín Gonzalez](https://es.besoccer.com/jugador/Santiago-Gonzalez-3495028) — derecho.
+- [Matías Hernández](https://www.sofascore.com/es/football/player/matias-hernandez/1381756) — derecho.
