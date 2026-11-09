@@ -1286,3 +1286,13 @@ Se normalizan las etiquetas `Ambos` de Sofascore/FotMob a `Ambidiestro`, para ma
 | Alan Lezcano | Derecho | https://www.transfermarkt.com.ar/ca-tigre/kader/verein/11831/saison_id/2024/plus/1 |
 
 **Criterio:** ambas fichas de Transfermarkt coinciden con fecha de nacimiento y club del registro 2026.
+
+
+## Undécima tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Lucas Lamella | Ambidiestro | https://www.gimnasia.org.ar/un-zaguero-de-primera-lucas-lamella-es-profesional/ |
+| Jabes Saralegui | Derecho | https://www.fotmob.com/players/1413189/jabes-saralegui |
+
+**Criterios:** Gimnasia describe oficialmente a Lucas Lamella como un defensor con buen manejo de los dos perfiles, por lo que se registra como ambidiestro. Para Jabes Saralegui se prioriza la mayoría de fichas individuales consultadas (EA FC, FCScoutDB, FotMob, FM Blog y BallValue: derecho; Sofascore, TransferBOL y PlaymakerStats: izquierdo), cinco contra tres.
