@@ -722,3 +722,12 @@ Se incorporaron datos individuales explícitos de pie preferido:
 - [Thiago Currado — platense](https://www.besoccer.com/player/thiago-currado-3667993) — derecho.
 - [Celias Ingenthron — platense](https://www.sofascore.com/football/player/celias-ingenthron/2186558) — izquierdo.
 - [Santiago Dalmasso — platense](https://www.sofascore.com/football/player/santiago-dalmasso/1819599) — derecho.
+
+
+## Barracas Central — juveniles adicionales
+
+Se completaron tres registros con fuentes individuales que expresan el pie preferido y vinculan al jugador con Barracas Central o su reserva:
+
+- [Alex Juárez](https://www.sofascore.com/es/football/player/alex-juarez/1381561) — derecho.
+- [Francisco Cora](https://es.besoccer.com/jugador/francisco-cora-3686967) — derecho.
+- [Leandro Duarte](https://www.fotmob.com/players/1937496/leandro-duarte) — derecho.
