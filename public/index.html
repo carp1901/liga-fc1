@@ -823,7 +823,7 @@ let RKT='online',RKSUB='all',RKOFFSUB='all',RKN=0;
 function rkCompOpts(scope='offline'){
  const cups=DATA.CUPS.map(c=>'<option value="'+c.id+'">'+esc(c.title)+'</option>').join('');
  const dvs=DATA.DIVS.filter(d=>d.ok).map(d=>'<option value="'+d.id+'">'+esc(d.name)+'</option>').join('');
- const classic=dvs+'<option value="copaarg">Copa Argentina</option><option value="real">Clásico realista</option>';
+ const classic=dvs+'<option value="all">Todas las divisiones (equilibrado)</option><option value="copaarg">Copa Argentina</option><option value="real">Clásico realista</option>';
  const og=(label,html)=>html?'<optgroup label="'+label+'">'+html+'</optgroup>':'';
  const all='<option value="">Todas</option>';
  if(scope==='barrial')return all+og('Torneos barriales / regionales',cups);
