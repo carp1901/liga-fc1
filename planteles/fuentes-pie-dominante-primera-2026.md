@@ -334,3 +334,38 @@ Se incorporaron los siguientes pies preferidos expresos de fichas individuales F
 - [Nicolás Talpone — FCScoutDB](https://fcscoutdb.com/players/nicolas-talpone) — derecho.
 - [Francesco Lo Celso — FCScoutDB](https://fcscoutdb.com/players/francesco-lo-celso) — izquierdo.
 - [Ibrahim Hesar — FCScoutDB](https://fcscoutdb.com/players/ibrahim-hesar) — izquierdo.
+
+
+## Gimnasia y Esgrima de Mendoza — inicio de auditoría
+
+Los pies se tomaron de la columna **Foot** de la tabla filtrada por club en FCScoutDB, que publica el pie preferido para cada jugador del plantel. Se incorporaron solo las coincidencias exactas con los registros del CSV:
+
+- César Rigamonti — derecho.
+- Lautaro Petruchi — derecho.
+- Diego Mondino — derecho.
+- Matías Recalde — izquierdo.
+- Ezequiel Muñoz — derecho.
+- Imanol González — izquierdo.
+- Germán Guiffrey — izquierdo.
+- Luciano Paredes — derecho.
+- Ismael Cortez — derecho.
+- Gerónimo Patritti — derecho.
+- Nahuel Barboza — derecho.
+- Luciano Cingolani — derecho.
+- Ulises Sánchez — derecho.
+- Julián Ceballos — izquierdo.
+- Tomás Ortiz — derecho.
+- Fermín Antonini — derecho.
+- Facundo Lencioni — derecho.
+- Tomás O'Connor — izquierdo.
+- Esteban Fernández — derecho.
+- Lautaro Carrera — derecho.
+- Matías Vargas — derecho.
+- Agustín Módica — derecho.
+- Nicolás Romano — derecho.
+- Santiago Rodríguez — izquierdo.
+- Blas Armoa — derecho.
+- Brian Andrada — izquierdo.
+- Valentino Simoni — derecho.
+
+Fuente de consulta: [FCScoutDB — plantel de Gimnasia y Esgrima de Mendoza](https://fcscoutdb.com/players?club=113050&league=353).
