@@ -571,3 +571,50 @@ Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=1117
 - Alexis Canelo: derecho.
 - Leandro Díaz: derecho.
 
+
+
+## Segunda pasada — Defensa, Vélez, Platense, Tigre e Instituto
+
+Se añadieron únicamente los registros coincidentes con la columna `Foot` de FCScoutDB. Las fuentes son las tablas filtradas por club:
+
+### defensa
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111710).
+
+- Ezequiel Burdin: izquierdo.
+- Demián Domínguez: izquierdo.
+- Samuel Lucero: izquierdo.
+- Ayrton Portillo: derecho.
+- Valentín Loza: derecho.
+- Máximo Rodríguez: izquierdo.
+- Nazareno Roselli: derecho.
+- Mateo Aguiar: derecho.
+- Ramiro Gagliardi: izquierdo.
+- Thiago Martinez: derecho.
+- Juan Pablo Moreno: derecho.
+- Nicolás Palavecino: derecho.
+- Tomás Pérez: derecho.
+- Agustín Hausch: derecho.
+- Jeremías Lucco: derecho.
+
+### velez
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=101088).
+
+- Agustín Cortez: izquierdo.
+
+### platense
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=112689).
+
+- Felipe Bussio: derecho.
+
+### tigre
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111715).
+
+- Luka Fuster: derecho.
+- Ignacio Peluffo: derecho.
+- Ian Subiabre: izquierdo.
+
+### instituto
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=110953).
+
+- Giuliano Cerato: derecho.
+
