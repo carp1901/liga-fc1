@@ -229,3 +229,26 @@ Se incorporaron los pies preferidos explícitos de las fichas individuales FCSco
 - [Jonathan Herrera — FCScoutDB](https://fcscoutdb.com/players/jonathan-herrera) — izquierdo.
 - [Pablo Magnín — FCScoutDB](https://fcscoutdb.com/players/pablo-magnin) — derecho.
 - [Junior Marabel — FCScoutDB](https://fcscoutdb.com/players/junior-marabel) — derecho.
+
+
+## Aldosivi — inicio de auditoría
+
+Se incorporaron los siguientes pies preferidos explícitos de fichas individuales FCScoutDB. Los jugadores no listados o sin dato explícito permanecen pendientes.
+
+- [Lucas Acosta — FCScoutDB](https://fcscoutdb.com/players/lucas-acosta) — derecho.
+- [Ignacio Chicco — FCScoutDB](https://fcscoutdb.com/players/ignacio-chicco) — izquierdo.
+- [Néstor Breitenbruch — FCScoutDB](https://fcscoutdb.com/players/nestor-breitenbruch) — derecho.
+- [Braian Cufré — FCScoutDB](https://fcscoutdb.com/players/braian-cufre) — izquierdo.
+- [Elías López — FCScoutDB](https://fcscoutdb.com/players/elias-lopez) — derecho.
+- [Joaquín Pombo — FCScoutDB](https://fcscoutdb.com/players/joaquin-pombo) — izquierdo.
+- [Leonardo Sigali — FCScoutDB](https://fcscoutdb.com/players/leonardo-sigali) — derecho.
+- [Nicolás Zalazar — FCScoutDB](https://fcscoutdb.com/players/nicolas-zalazar) — derecho.
+- [Lucas Castro — FCScoutDB](https://fcscoutdb.com/players/lucas-castro) — derecho.
+- [Nicolás Gaitán — FCScoutDB](https://fcscoutdb.com/players/nicolas-gaitan) — izquierdo.
+- [Francisco Perruzzi — FCScoutDB](https://fcscoutdb.com/players/francisco-perruzzi) — derecho.
+- [Alan Sosa — FCScoutDB](https://fcscoutdb.com/players/alan-sosa) — izquierdo.
+- [Nicolás Linares — FCScoutDB](https://fcscoutdb.com/players/nicolas-linares) — derecho.
+- [Andrés Chávez — FCScoutDB](https://fcscoutdb.com/players/andres-chavez) — izquierdo.
+- [Nicolás Cordero — FCScoutDB](https://fcscoutdb.com/players/nicolas-cordero) — derecho.
+- [Agustín Palavecino — FCScoutDB](https://fcscoutdb.com/players/agustin-palavecino-276831) — derecho.
+- [Andrés Vombergar — FCScoutDB](https://fcscoutdb.com/players/andres-vombergar) — derecho.
