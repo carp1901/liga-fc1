@@ -797,7 +797,7 @@ function realSoloTeams(){const d=DATA.DIVS.find(x=>x.id==$('#rsdiv').value);$('#
 $('#rsdiv').onchange=realSoloTeams;$('#brealsolo').onclick=()=>{realSoloDivs();goM('m28')};
 async function realSoloStart(id){if(CXBUSY)return;CXBUSY=true;cxLoading(true,'Preparando el torneo…');try{await new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));const car=ENG.realSingleNew({lg:LG,div:$('#rsdiv').value,me:{club:id},spd:+$('#rssp').value||1});if(car.error){$('#rser').textContent=car.error;return}CAR=car;const ok=await cxSeason();if(!ok)CAR=null}catch(x){console.error(x);$('#rser').textContent='No se pudo iniciar el torneo. Volvé a intentarlo.'}finally{cxLoading(false);CXBUSY=false}}
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-rsteam]');if(b)realSoloStart(b.dataset.rsteam)});
-document.querySelectorAll('[data-back]').forEach(b=>b.onclick=goBack);
+document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>b.closest('#m10')?rankBack():goBack());
 /* ===== Torneos barriales (online): competiciones prearmadas (DATA.CUPS + DATA.CUP_META). Reutilizan el mismo motor y las mismas salas. ===== */
 const BM=DATA.CUP_META||{},FMT_LBL={liga1:'Liga (todos contra todos, 1 rueda)',liga2:'Liga (todos contra todos, 2 ruedas)',copa:'Copa (mata-mata)'};let BCUP=null;
 function buildBCups(){$('#cl7').innerHTML=DATA.CUPS.map(c=>{const m=BM[c.id]||{};return `<button class="bt cup" data-bcup="${c.id}"><span>${esc(c.title)}<small style="display:block;white-space:normal">${esc(m.region||'')}</small></span><small>${c.clubs.length} clubes</small></button>`}).join('')}
@@ -841,7 +841,7 @@ async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Ca
    o.innerHTML=`<div class="rkcount"><strong>${d.total}</strong><span>títulos registrados en este filtro</span></div>${podium}${table}<div class=nt>Tocá un club del podio o de la tabla para ver su ficha completa.</div>${d.rows.some(x=>x.empate)?'<div class=nt>= indica clubes empatados: comparten posición y se ordenan alfabéticamente.</div>':''}${note}`;
   }else{o.innerHTML=`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}}
  catch(e){if(n==RKN)o.innerHTML='<span class=mu>No se pudo cargar el ranking (sin conexión con el servidor).</span>'}}
-$('#brk').onclick=()=>{goM('m10');rankingMode('clubes')};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;$('#rkperiod').onchange=rkLoad;
+$('#brk').onclick=()=>{RANK_TAB_HISTORY=[];goM('m10');rankingMode('clubes',false)};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;$('#rkperiod').onchange=rkLoad;
 /* ===== Ficha de club y comparador (Bloque 6): todo sale de /api/club, que usa el mismo registro que los rankings. ===== */
 const MODL={clasico:'clásico online',barrial:'barrial online',offline:'offline'},FMTL=f=>f=='copa'?'Copa':'Liga',posTxt=p=>p?p.pos+'º'+(p.empate?'=':'')+' de '+p.de:'—';
 let CLUB=null,CLUBHTML='';
@@ -1053,7 +1053,9 @@ async function chatModAction(accion){
 }
 $('#chatmute').onclick=()=>chatModAction('silenciar');$('#chatunmute').onclick=()=>chatModAction('reactivar');$('#chatsuspend').onclick=()=>chatModAction('suspender');$('#chatmod').onclick=()=>chatModAction('moderar');$('#chatunmod').onclick=()=>chatModAction('desmoderar');
 let TR_PERIODO='temporada',RANK_MODE='tecnicos';
-function rankingMode(mode){
+let RANK_TAB_HISTORY=[];
+function rankingMode(mode,track=true){
+ if(track&&!$('#m10').hidden&&RANK_MODE!==mode)RANK_TAB_HISTORY.push(RANK_MODE);
  RANK_MODE=mode;
  $('#rankclubs').classList.toggle('on',mode==='clubes');
  $('#ranktech').classList.toggle('on',mode==='tecnicos');
@@ -1083,6 +1085,7 @@ async function hinchasRankLoad(){
   renderFans();
  }catch(e){$('#fanlist').innerHTML='<span class=mu>No hay conexión con el servidor.</span>'}
 }
+function rankBack(){if(RANK_TAB_HISTORY.length){const previous=RANK_TAB_HISTORY.pop();rankingMode(previous,false);return}goBack()}
 $('#rankclubs').onclick=()=>rankingMode('clubes');
 $('#ranktech').onclick=()=>rankingMode('tecnicos');
 $('#rankfans').onclick=()=>rankingMode('hinchas');
@@ -1105,7 +1108,7 @@ async function tecnicoRankLoad(periodo){
   renderTech();
  }catch(e){$('#trlist').innerHTML='<span class=mu>No hay conexión con el servidor.</span>'}
 }
-$('#btr').onclick=()=>{goM('m10');rankingMode('tecnicos')};
+$('#btr').onclick=()=>{RANK_TAB_HISTORY=[];goM('m10');rankingMode('tecnicos',false)};
 $('#trseason').onclick=()=>tecnicoRankLoad('temporada');
 $('#trhistory').onclick=()=>tecnicoRankLoad('historico');
 $('#trsearch').oninput=renderTech;
