@@ -537,7 +537,7 @@
       "Tres dorsales siguen asignados internamente (Agustín Perez, Branco Salinardi y Lautaro Monza); sustituirlos solo si aparece confirmación oficial.",
       "Las 138 medias estimadas pueden refinarse si aparece información individual mejor."
     ],
-    "alcance": "Revisión estática de los 30 planteles de Primera: conteos, nombres únicos, dorsales únicos, edades frente a fecha de nacimiento, nacionalidades, roles específicos, fuentes de dorsales y cobertura de atributos manuales/derivados. Se contrastaron transferencias confirmadas del cierre de mercado; la validación de runtime y publicación queda a cargo del workflow disparado por este commit."
+    "alcance": "Revisión estática de los 30 planteles de Primera: conteos, nombres únicos, dorsales únicos, edades frente a fecha de nacimiento, nacionalidades, roles específicos, fuentes de dorsales y cobertura de atributos manuales/derivados. Se contrastaron transferencias confirmadas del cierre de mercado. GitHub Actions #939 validó los 66 clubes, generó y publicó los archivos de runtime y terminó en success; Primera Nacional se mantuvo sin modificaciones."
   },
   "ajuste_escala_medias": {
     "fecha": "2026-11-08",
@@ -550,7 +550,7 @@
     "minimo_actual": 60,
     "maximo_actual": 92,
     "trazabilidad": "Cada fila vigente conserva rating_base y ajuste_rating=10; las fuentes individuales no se sobrescriben. El jugador transferido fuera de Primera fue retirado del corte actual.",
-    "integracion": "Pendiente de confirmación del workflow de validación y publicación disparado por la actualización de Primera."
+    "integracion": "GitHub Actions #939 finalizó en success: se generaron y publicaron public/squads.json, public/squads.js y public/squads-meta.json. Runtime validado: 66 clubes y 2.038 jugadores; Primera 1.012 y Primera Nacional 1.026 (sin cambios en los CSV de Nacional)."
   },
   "dorsales_con_fuente": 1009,
   "dorsales_asignados_internamente": 3,
@@ -585,5 +585,18 @@
     "pies_asignados": 992,
     "pies_faltantes": 20,
     "criterio": "No inferir por posición ni perfil; mantener vacío cuando no exista evidencia individual fiable."
+  },
+  "ultima_publicacion": {
+    "fecha": "2026-11-09",
+    "workflow": "Validar y publicar planteles",
+    "run": 939,
+    "resultado": "success",
+    "url": "https://github.com/carp1901/liga-fc1/actions/runs/42636690873",
+    "archivos": [
+      "public/squads.json",
+      "public/squads.js",
+      "public/squads-meta.json"
+    ],
+    "control_runtime": "66 clubes y 2.038 jugadores; suma por club 2.038; 0 nombres duplicados, 0 dorsales duplicados, 0 edades faltantes, 0 dorsales faltantes y 0 roles específicos faltantes."
   }
 }
