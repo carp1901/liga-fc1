@@ -291,6 +291,29 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 #m10 .ranking-main-tabs button.on{box-shadow:inset 0 -3px 0 #9bcf45!important}
 @media(max-width:600px){#m10 #rkt{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
+
+/* Rankings: el contenido es la portada; herramientas plegadas y subordinadas */
+#m10 .ranking-panel{width:100%;min-width:0}
+#m10 .ranking-panel-title{margin:2px 0 8px;font-size:clamp(19px,2vw,25px);letter-spacing:.2px}
+#m10 .ranking-results{width:100%;min-height:0;margin:0 0 12px;padding:clamp(10px,1.8vw,20px);background:linear-gradient(145deg,#10291b,#09170f 75%);border:1px solid #ffffff26;border-radius:6px;box-shadow:0 5px 18px #0003}
+#m10 .ranking-results:has(.rkpod){padding:clamp(12px,2vw,22px)}
+#m10 .ranking-tools{width:100%;margin:10px 0 8px;border:1px solid #ffffff1c;border-radius:5px;background:#09170f}
+#m10 .ranking-tools>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;list-style:none;padding:10px 13px;color:#aebfaf;font:600 13px Barlow,sans-serif;cursor:pointer}
+#m10 .ranking-tools>summary::-webkit-details-marker{display:none}
+#m10 .ranking-tools>summary:after{content:'＋';font:700 17px Barlow,sans-serif;color:#9bcf45;margin-left:auto}
+#m10 .ranking-tools[open]>summary:after{content:'−'}
+#m10 .ranking-tools>summary small{font-size:11px;font-weight:400;opacity:.65;text-align:right}
+#m10 .ranking-tools-body{padding:8px 10px 12px;border-top:1px solid #ffffff14}
+#m10 .ranking-tools .rkt{margin:2px 0 10px}
+#m10 .ranking-tools .ranking-filters{gap:8px}
+#m10 .ranking-tools .lb{font-size:12px;color:#9db3a4}
+#m10 .ranking-tools .sc select,#m10 .ranking-tools .in{min-height:38px;font-size:14px;background:#10291b;border:1px solid #ffffff20;color:#e4eee5}
+#m10 .ranking-tools .bt{font-size:13px;padding:7px 12px;margin-top:8px}
+#m10 .ranking-tools .rkt button{min-height:38px;font-size:13px;padding:7px 5px}
+#m10 .ranking-results .rkpodhead{margin-bottom:12px}
+#m10 .ranking-results .rkfullwrap{margin-top:12px}
+#m10 .ranking-results .rkfullwrap table{min-width:0}
+@media(max-width:600px){#m10 .ranking-results{padding:9px 7px;margin-bottom:9px}#m10 .ranking-tools>summary{padding:9px 10px}#m10 .ranking-tools-body{padding:7px}#m10 .ranking-tools .ranking-filters{grid-template-columns:1fr 1fr;gap:7px}#m10 .ranking-tools .rkt{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style></head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">CLASH FUTBOL - 2D ONLINE</h1>
@@ -314,22 +337,34 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 <button id="ranktech" data-ranking="tecnicos">🏅 TÉCNICOS</button>
 <button id="rankfans" data-ranking="hinchas">👥 HINCHAS</button>
 </div>
-<div id="rankclubspanel">
-<h3 class="mt">Palmarés de clubes</h3>
+<div id="rankclubspanel" class="ranking-panel">
+<h3 class="mt ranking-panel-title">Palmarés de clubes</h3>
+<div class="rkb ranking-results" id="rkb"></div>
+<details class="ranking-tools" id="clubRankingTools">
+<summary><span>⚙ Ajustes del ranking</span><small>categoría, período y competición</small></summary>
+<div class="ranking-tools-body">
 <div class="rkt" id="rkt"><button data-rt="gen" class="on">Online</button><button data-rt="cla">Clásico</button><button data-rt="bar">Barrial</button><button data-rt="off">Offline</button><button data-rt="comp">Por competición</button></div>
 <div class="c2 w ranking-filters"><label class="lb">período<select id="rkperiod"><option value="historico">Histórico</option><option value="temporada">Temporada actual</option></select></label><label class="lb" id="rkml">modalidad<select id="rkm"></select></label><label class="lb">competición / división<select id="rkc"></select></label><label class="lb">tipo de torneo<select id="rkf"><option value="">Todos</option><option value="liga">Liga</option><option value="copa">Copa</option><option value="mixto">Mixto</option></select></label></div>
-<div class="rkb" id="rkb"></div><button class="bt ok" id="rkcmp">Comparar clubes</button>
+<button class="bt ok" id="rkcmp">Comparar clubes</button>
 </div>
-<div id="ranktechpanel" hidden>
-<h3 class="mt">Rendimiento de técnicos</h3>
+</details>
+</div>
+<div id="ranktechpanel" class="ranking-panel" hidden>
+<h3 class="mt ranking-panel-title">Rendimiento de técnicos</h3>
+<div class="rkb ranking-results" id="trlist"><span class="mu">Cargando…</span></div>
+<details class="ranking-tools"><summary><span>⚙ Buscar y cambiar período</span><small>opciones de visualización</small></summary><div class="ranking-tools-body">
 <div class="rkt"><button id="trseason" class="on">Temporada actual</button><button id="trhistory">Histórico</button></div>
 <input class="in ranking-search" id="trsearch" placeholder="Buscar técnico" maxlength="24" autocomplete="off">
-<p class="lb" id="trinfo">Clasificación de técnicos por rendimiento en torneos elegibles.</p><div class="rkb" id="trlist"><span class="mu">Cargando…</span></div>
+<p class="lb" id="trinfo">Clasificación de técnicos por rendimiento en torneos elegibles.</p>
+</div></details>
 </div>
-<div id="rankfanspanel" hidden>
-<h3 class="mt">Popularidad de clubes</h3>
+<div id="rankfanspanel" class="ranking-panel" hidden>
+<h3 class="mt ranking-panel-title">Popularidad de clubes</h3>
+<div class="rkb ranking-results" id="fanlist"><span class="mu">Cargando ranking…</span></div>
+<details class="ranking-tools"><summary><span>⚙ Buscar clubes</span><small>opciones de visualización</small></summary><div class="ranking-tools-body">
 <input class="in ranking-search" id="fansearch" placeholder="Buscar club" maxlength="30" autocomplete="off">
-<p class="lb" id="faninfo">Cada cuenta registrada con club favorito suma un hincha.</p><div class="rkb" id="fanlist"><span class="mu">Cargando ranking…</span></div>
+<p class="lb" id="faninfo">Cada cuenta registrada con club favorito suma un hincha.</p>
+</div></details>
 </div>
 <button class="bk" data-back="0">‹ volver</button></section>
 <section id="m11" class="sc" hidden><div class="rkb" id="fcb"></div><div class="rw"><select id="fcc"></select><button class="bt ok" id="fcg">comparar</button></div><button class="bk" data-back="10">‹ volver</button></section>
