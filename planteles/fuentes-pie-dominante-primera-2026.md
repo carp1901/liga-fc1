@@ -515,3 +515,59 @@ Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=1127
 - Agustín Nadruz: derecho.
 - Brandon Márquez: derecho.
 
+
+
+## Segunda pasada — Argentinos Juniors, Belgrano, Instituto y Atlético Tucumán
+
+Se incorporaron coincidencias verificadas en la columna `Foot` de las tablas FCScoutDB filtradas por club. Se respetaron los préstamos que figuran a favor del club del CSV.
+
+### argentinos
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111019).
+
+- Gabriel Florentín: derecho.
+- Thiago Gómez: derecho.
+- Gino Infantino: izquierdo.
+- Gastón Verón: derecho.
+
+### belgrano
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111022).
+
+- Agustín Falcón: derecho.
+- Agustín Griguol: derecho.
+- Álvaro Ocampo: izquierdo.
+- Marcos Ortiz: derecho.
+- Ramiro Tulián: derecho.
+- Agustín Bono: derecho.
+
+### instituto
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=110953).
+
+- Marcos Ledesma: derecho.
+- Fernando Alarcón: izquierdo.
+- Hernán De La Fuente: derecho.
+- Diego Sosa: izquierdo.
+- Gustavo Abregú: derecho.
+- Jonás Acevedo: izquierdo.
+- Matías Gallardo: izquierdo.
+- Jeremías Lázaro: derecho.
+- Jhon Córdoba: derecho.
+- Matías Fonseca: derecho.
+- Nicolás Guerra: derecho.
+- Facundo Suárez: derecho.
+- Matías Tissera: derecho.
+
+### atletico
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111708).
+
+- Gianluca Ferrari: derecho.
+- Juan Gabriel Rodríguez: derecho.
+- Gastón Suso: izquierdo.
+- Luciano Vallejo: izquierdo.
+- Gabriel Compagnucci: derecho.
+- Ezequiel Ham: derecho.
+- Franco Nicola: izquierdo.
+- Kevin Ortiz: derecho.
+- Facundo Pimienta: derecho.
+- Alexis Canelo: derecho.
+- Leandro Díaz: derecho.
+
