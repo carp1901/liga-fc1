@@ -677,3 +677,27 @@ Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=1109
 - Luca Rafaelli: derecho.
 - Juan Manuel Romero: derecho.
 
+
+
+## Segunda pasada — últimas coincidencias de Aldosivi, Atlético y Sarmiento
+
+Se completaron coincidencias restantes con las fichas filtradas de FCScoutDB:
+
+### aldosivi
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111707).
+
+- Juan Bautista Dadín: izquierdo.
+
+### atletico
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=111708).
+
+- Juan José Infante: izquierdo.
+- Ezequiel Godoy: izquierdo.
+- Leonel Vega: derecho.
+
+### sarmiento
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=112713).
+
+- Lucas Suárez: izquierdo.
+- Gabriel Díaz: izquierdo.
+
