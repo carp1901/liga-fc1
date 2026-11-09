@@ -784,3 +784,8 @@ Se añadieron cinco jugadores con pie explícito en sus fichas individuales o en
 - [Mateo Mendizabal](https://www.sofascore.com/es/football/player/mateo-mendizabal/2526149) — derecho.
 - [Lucas Palavecino](https://es.besoccer.com/jugador/lucas-palavecino-3144152) — derecho.
 - [Jeremías Acosta](https://www.sofascore.com/es/football/player/jeremias-acosta/2668526) — izquierdo.
+
+
+## Independiente — jugador adicional
+
+- [Ezequiel Ávila — FCScoutDB](https://fcscoutdb.com/players/chimy-avila) — derecho.
