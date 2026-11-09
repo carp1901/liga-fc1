@@ -1172,3 +1172,16 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Nicolás Garrido | Izquierdo | https://www.365scores.com/es/football/player/nicolas-garrido-224610 |
 
 **Resultado de esta tanda:** 9 registros nuevos incorporados a `planteles/primera-2026.csv`. Los casos sin evidencia inequívoca o con fuentes contradictorias continúan vacíos.
+
+
+## Segunda tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Matías Reali | Ambos | https://www.sofascore.com/es/football/player/reali-matias/1182457 |
+| Sebastián Driussi | Ambos | https://www.sofascore.com/es/football/player/sebastian-driussi/358938 |
+| Brandon Leszczuk | Derecho | https://playersdb.app/player?id=183472 |
+| Gerardo Larraya | Derecho | https://www.sofascore.com/es-la/football/player/gerardo-larraya/2449878 |
+| Iván Erquiaga | Izquierdo | https://www.sofascore.com/es/football/player/ivan-erquiaga/932647 |
+
+**Resultado:** 5 registros adicionales verificados y cargados. Se mantienen pendientes los jugadores sin ficha individual inequívoca y los casos con discrepancias entre fuentes.
