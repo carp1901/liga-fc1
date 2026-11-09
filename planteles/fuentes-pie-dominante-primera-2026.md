@@ -737,3 +737,8 @@ Se completaron tres registros con fuentes individuales que expresan el pie prefe
 
 - [Marco Rivas — Sofascore](https://www.sofascore.com/es-la/football/player/marco-rivas/2056254) — derecho.
 - [Nicolás Afonso — FotMob](https://www.fotmob.com/es/players/1950896/nicolas-afonso) — derecho.
+
+
+## Platense — juvenil adicional
+
+- [Franco Minerva — BeSoccer](https://es.besoccer.com/jugador/f-minerva-3378761) — izquierdo.
