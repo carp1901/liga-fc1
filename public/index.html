@@ -920,6 +920,7 @@ const MPH=['cer','m1','ht','m2','fin','awd','psel','pso'];
 function seedSpectatorLive(m){
  SIM.rest();SIM.q=[];SIM.gq=[];SIM.gap=0;SIM.endScene=null;SIM.frozen=false;
  const h=String(m.a)+'|'+String(m.b)+'|'+String(m.min||0),hash=[...h].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7);
+ const X0=20,Y0=20,FW=680,FH=400;   // medidas de la cancha del 2D (las constantes viven dentro de sim2d.js)
  const x=X0+FW*(.28+(hash%440)/1000),y=Y0+FH*(.2+((hash>>>9)%600)/1000),side=(hash>>>5)&1;
  const candidates=SIM.P.filter(p=>p.s===side&&!p.off&&p.k>0);
  const owner=candidates.sort((a,b)=>Math.hypot(a.x-x,a.y-y)-Math.hypot(b.x-x,b.y-y))[0];
