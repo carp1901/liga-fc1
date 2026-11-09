@@ -317,3 +317,20 @@ Se incorporaron los siguientes pies preferidos expresos en fichas individuales F
 - [Alex Arce — FCScoutDB](https://fcscoutdb.com/players/alex-arce) — derecho.
 - [Maximiliano Salas — FCScoutDB](https://fcscoutdb.com/players/maximiliano-salas) — izquierdo.
 - [Fabrizio Sartori — FCScoutDB](https://fcscoutdb.com/players/fabrizio-sartori) — derecho.
+
+
+## Estudiantes de Río Cuarto — inicio de auditoría
+
+Se incorporaron los siguientes pies preferidos expresos de fichas individuales FCScoutDB:
+
+- [Gonzalo Maffini — FCScoutDB](https://fcscoutdb.com/players/gonzalo-maffini) — derecho.
+- [Facundo Cobos — FCScoutDB](https://fcscoutdb.com/players/facundo-cobos) — izquierdo.
+- [Agustín Quiroga — FCScoutDB](https://fcscoutdb.com/players/agustin-quiroga) — izquierdo.
+- [Matías Valenti — FCScoutDB](https://fcscoutdb.com/players/matias-valenti) — izquierdo.
+- [Raúl Alberto Lozano — FCScoutDB](https://fcscoutdb.com/players/raul-alberto-lozano) — derecho.
+- [Siro Rosané — FCScoutDB](https://fcscoutdb.com/players/siro-rosane) — derecho.
+- [Tomás González — FCScoutDB](https://fcscoutdb.com/players/tomas-gonzalez-83436) — derecho.
+- [Gabriel Alanís — FCScoutDB](https://fcscoutdb.com/players/gabriel-alanis) — izquierdo.
+- [Nicolás Talpone — FCScoutDB](https://fcscoutdb.com/players/nicolas-talpone) — derecho.
+- [Francesco Lo Celso — FCScoutDB](https://fcscoutdb.com/players/francesco-lo-celso) — izquierdo.
+- [Ibrahim Hesar — FCScoutDB](https://fcscoutdb.com/players/ibrahim-hesar) — izquierdo.
