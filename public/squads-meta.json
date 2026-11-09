@@ -1,13 +1,13 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-09T07:48:42.383Z",
+  "updatedAt": "2026-11-09T14:38:46.277Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "920 medias con fuente individual + 1119 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "919 medias con fuente individual + 1119 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
     "river": 27,
-    "independiente": 36,
+    "independiente": 35,
     "estudiantes": 38,
     "velez": 30,
     "racing": 22,
@@ -175,7 +175,6 @@
         "https://clubaindependiente.com.ar/futbol/plantel/perfil/leonardogodoy",
         "https://www.transfermarkt.com.ar/club-atletico-independiente/kader/verein/1234",
         "https://clubaindependiente.com.ar/futbol/plantel/matheo-benitez-machuca",
-        "https://clubaindependiente.com.ar/futbol/plantel/perfil/maxilianogutierrez",
         "https://clubaindependiente.com.ar/futbol/plantel/ezequiel-avila"
       ],
       "ratingSource": [
@@ -183,8 +182,7 @@
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.fifacm.com/26/player/81265",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jonathan-de-irastorza/74818",
-        "https://www.ea.com/en/games/ea-sports-fc/ratings/teams-ratings/independiente/110093",
-        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/maximiliano-gutierrez/71740"
+        "https://www.ea.com/en/games/ea-sports-fc/ratings/teams-ratings/independiente/110093"
       ],
       "roleSource": "https://www.transfermarkt.es/ca-independiente/kader/verein/1234",
       "ageConsulted": "2026-11-05",
@@ -2433,9 +2431,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 2039,
+    "assigned": 2038,
     "missing": 0,
-    "total": 2039,
+    "total": 2038,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -2453,8 +2451,8 @@
         "missing": 0
       },
       "independiente": {
-        "total": 36,
-        "assigned": 36,
+        "total": 35,
+        "assigned": 35,
         "missing": 0
       },
       "estudiantes": {
@@ -2771,10 +2769,10 @@
   },
   "dorsalsComplete": true,
   "ageCoverage": {
-    "assigned": 2039,
+    "assigned": 2038,
     "missing": 0,
-    "birthDates": 2039,
-    "total": 2039,
+    "birthDates": 2038,
+    "total": 2038,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -2792,8 +2790,8 @@
         "missing": 0
       },
       "independiente": {
-        "total": 36,
-        "assigned": 36,
+        "total": 35,
+        "assigned": 35,
         "missing": 0
       },
       "estudiantes": {
@@ -3109,9 +3107,9 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 2039,
+    "assigned": 2038,
     "missing": 0,
-    "total": 2039,
+    "total": 2038,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3126,8 +3124,8 @@
         "assigned": 27
       },
       "independiente": {
-        "total": 36,
-        "assigned": 36
+        "total": 35,
+        "assigned": 35
       },
       "estudiantes": {
         "total": 38,
@@ -3380,9 +3378,9 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 2039,
+    "assigned": 2038,
     "missing": 0,
-    "total": 2039,
+    "total": 2038,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3397,8 +3395,8 @@
         "specific": 27
       },
       "independiente": {
-        "total": 36,
-        "specific": 36
+        "total": 35,
+        "specific": 35
       },
       "estudiantes": {
         "total": 38,
@@ -3651,9 +3649,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 920,
+    "rated": 919,
     "estimated": 1119,
-    "total": 2039,
+    "total": 2038,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -3675,8 +3673,8 @@
         "provisional": 0
       },
       "independiente": {
-        "total": 36,
-        "verified": 30,
+        "total": 35,
+        "verified": 29,
         "estimated": 6,
         "provisional": 0
       },
@@ -4057,18 +4055,18 @@
     "formula": "Se prioriza OVR individual EA FC 27 y EA FC 26 como respaldo; después promedios de partido con al menos 10 apariciones. Sin evidencia individual, no se acepta una media por defecto."
   },
   "attributeCoverage": {
-    "manualPlayers": 1173,
+    "manualPlayers": 1172,
     "derivedPlayers": 866,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 66,
-    "players": 2039,
+    "players": 2038,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
     "playersMissingDorsal": 0,
-    "verifiedRatings": 920,
+    "verifiedRatings": 919,
     "estimatedRatings": 1119,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
