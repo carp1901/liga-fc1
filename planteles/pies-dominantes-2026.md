@@ -1069,3 +1069,17 @@ Fecha de revisión: 08/11/2026.
 | Alan Núñez | Derecho | https://www.sofascore.com/es/football/player/alan-nunez/1116982 |
 
 **Progreso de Argentinos Juniors:** 9/33 jugadores con pie registrado. Santino Gianini no se asigna porque la ficha encontrada lo vincula a otro club y no permite confirmar identidad/plantel con certeza.
+
+
+## Actualización de faltantes — Vélez y Talleres
+Fecha de revisión: 09/11/2026.
+
+| Club | Jugador | Pie | Fuente |
+|---|---|---|---|
+| Vélez | Ulises Piedrabuena | Derecho | https://es.besoccer.com/jugador/u-piedrabuena-3785870?redirected=rf |
+| Vélez | Lautaro Piola | Derecho | https://www.sofascore.com/es/football/player/lautaro-piola/2669157 |
+| Talleres | Thiago Baroni | Derecho | https://www.clubtalleres.com.ar/jugadores/thiago-jesus-baroni/ |
+| Talleres | Ignacio Alastra | Derecho | https://es.besoccer.com/jugador/ignacio-alastra-3667880 |
+| Talleres | Rick Lima Morais | Derecho | https://www.clubtalleres.com.ar/jugadores/rick-jhonatan-lima-morais/ |
+
+Se completan cinco registros con fuente individual que publica explícitamente el pie hábil/preferido. Agustín Cortez sigue pendiente: la ficha oficial de Vélez confirma su identidad y pertenencia al plantel, pero no informa el pie. Los casos sin evidencia individual suficiente permanecen vacíos.
