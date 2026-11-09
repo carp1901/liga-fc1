@@ -165,7 +165,14 @@ async function list(limit){
 // Empates: comparten posición (1,1,3…) y se listan por orden alfabético.
 function rankRows(rows,f){
   f=f||{};const mod=f.mod||'online';
-  const recordCountry=r=>{const c=String(r.competicion||'').toLowerCase(),club=String(r.club||'').toLowerCase();\n  // La identidad del club tiene prioridad: evita que un identificador de competición genérico o heredado lo asigne al país equivocado.\n  if(club.startsWith('uy_'))return'Uruguay';if(club.startsWith('br_'))return'Brasil';\n  if(c==='uy'||c.startsWith('uy1')||c.startsWith('uy2'))return'Uruguay';if(c==='br'||c.startsWith('br1')||c.startsWith('br2'))return'Brasil';\n  // Las copas barriales actuales pertenecen a Argentina.\n  if(['sur','oeste','norte','caba','cuyo','litoral','noa','patagonia','cordoba','bonaerense','ar','ar1','ar2','ar3','ar4','ar5','ar6','copaarg','real','all','custom','pers'].includes(c)||c.startsWith('ar'))return'Argentina';\n  return'Argentina'\n };
+  const recordCountry=r=>{const c=String(r.competicion||'').toLowerCase(),club=String(r.club||'').toLowerCase();
+  // La identidad del club tiene prioridad: evita que un identificador de competición genérico o heredado lo asigne al país equivocado.
+  if(club.startsWith('uy_'))return'Uruguay';if(club.startsWith('br_'))return'Brasil';
+  if(c==='uy'||c.startsWith('uy1')||c.startsWith('uy2'))return'Uruguay';if(c==='br'||c.startsWith('br1')||c.startsWith('br2'))return'Brasil';
+  // Las copas barriales actuales pertenecen a Argentina.
+  if(['sur','oeste','norte','caba','cuyo','litoral','noa','patagonia','cordoba','bonaerense','ar','ar1','ar2','ar3','ar4','ar5','ar6','copaarg','real','all','custom','pers'].includes(c)||c.startsWith('ar'))return'Argentina';
+  return'Argentina'
+ };
   const pass=r=>(mod=='online'?(r.modalidad=='clasico'||r.modalidad=='barrial'):r.modalidad==mod)&&(!f.comp||r.competicion==f.comp)&&(!f.country||recordCountry(r)==f.country)&&(!f.fmt||(f.fmt=='copa'?r.formato=='copa':f.fmt=='mixto'?r.formato=='mixto':String(r.formato).startsWith('liga')));
   const by=new Map();let total=0;
   for(const r of rows){if(!pass(r))continue;total++;const t=new Date(r.finalizado).getTime()||0,x=by.get(r.club);
