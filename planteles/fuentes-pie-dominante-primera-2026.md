@@ -374,3 +374,73 @@ Fuente de consulta: [FCScoutDB — plantel de Gimnasia y Esgrima de Mendoza](htt
 ## Normalización del campo `pie`
 
 En la revisión de consistencia se encontraron 11 valores heredados `Ambos`. Se normalizaron a `Ambidiestro`, que es el valor admitido por el esquema del CSV. No se modificó el sentido del dato.
+
+
+## Segunda pasada — Barracas Central, Deportivo Riestra y Central Córdoba
+
+Se completaron únicamente coincidencias exactas con los planteles de FCScoutDB. La columna `Foot` de cada tabla filtrada es la fuente directa; no se infirieron pies por posición.
+
+### barracas
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=113044).
+
+- Marcelo Miño: derecho.
+- Luca Fernández: derecho.
+- Nicolás Capraro: derecho.
+- Rafael Barrios: derecho.
+- Yonatthan Rak: derecho.
+- Nicolás Demartini: izquierdo.
+- Fernando Tobio: derecho.
+- Gastón Campi: izquierdo.
+- Dardo Miloc: derecho.
+- Iván Tapia: derecho.
+- Iván Guaraz: derecho.
+- Manuel Duarte: derecho.
+- Carlos Arce: derecho.
+- Enzo Taborda: derecho.
+- Tomás Lavezzi: derecho.
+- Maximiliano Puig: derecho.
+- Facundo Bruera: derecho.
+- Gonzalo Morales: izquierdo.
+- Jhonatan Candia: derecho.
+- Lucas Gamba: derecho.
+- Wilfredo Rivera: izquierdo.
+
+### riestra
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=115472).
+
+- Iván López: derecho.
+- Eric Tovo: derecho.
+- Yeison Murillo: derecho.
+- Ignacio Gariglio: derecho.
+- Rodrigo Gallo: izquierdo.
+- Nicolás Sansotre: derecho.
+- Juan Cruz Randazzo: derecho.
+- Cristian Paz: derecho.
+- Facundo Miño: derecho.
+- Mariano Bracamonte: derecho.
+- Pedro Ramírez: derecho.
+- Milton Céliz: derecho.
+- Braian Sanchez: derecho.
+- Pablo Monje: derecho.
+- Nicolás Watson: derecho.
+- Benjamin Pérez: derecho.
+- Thiago Lauro: derecho.
+- Tomás González: derecho.
+- Jonatan Goitia: derecho.
+- Lautaro Duarte: derecho.
+- Ángel Stringa: derecho.
+- Antony Alonso: derecho.
+- Nicolás Benegas: derecho.
+- Alexander Diaz: derecho.
+- Ángel Almada: izquierdo.
+- Mauro Smarra: izquierdo.
+- Gabriel Obredor: derecho.
+
+### centralcba
+Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=112965).
+
+- Darío Cáceres: izquierdo.
+- Yuri Casermeiro: derecho.
+- Martín Cuitiño: derecho.
+- Leonardo Sequeira: derecho.
+
