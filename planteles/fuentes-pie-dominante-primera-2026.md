@@ -169,3 +169,23 @@ Se añadieron cuatro pies dominantes confirmados explícitamente en FCScoutDB. N
 - Sarmiento: [Mauricio Martínez — FCScoutDB](https://fcscoutdb.com/players/mauricio-martinez) — derecho.
 - Sarmiento: [Osmar Giménez Bernal — FCScoutDB](https://fcscoutdb.com/players/osmar-gimenez-bernal) — derecho.
 - Sarmiento: [Thiago Santamaría — FCScoutDB](https://fcscoutdb.com/players/thiago-santamaria) — derecho (préstamo vigente en Sarmiento).
+
+
+## Tigre — continuación de la tanda
+
+Se añadieron los siguientes pies preferidos, verificados en las fichas individuales de FCScoutDB (se conserva vacío cualquier caso sin dato explícito o con discrepancias entre fuentes):
+
+- [Lautaro Morales — FCScoutDB](https://fcscoutdb.com/players/lautaro-morales) — derecho.
+- [Valentín Moreno — FCScoutDB](https://fcscoutdb.com/players/valentin-moreno) — derecho.
+- [Guillermo Soto — FCScoutDB](https://fcscoutdb.com/players/guillermo-soto) — derecho.
+- [Martín Garay — FCScoutDB](https://fcscoutdb.com/players/martin-garay) — derecho.
+- [Santiago González — FCScoutDB](https://fcscoutdb.com/players/santiago-gonzalez-279932) — derecho.
+- [Bruno Leyes — FCScoutDB](https://fcscoutdb.com/players/bruno-leyes) — izquierdo.
+- [Gonzalo Martínez — FCScoutDB](https://fcscoutdb.com/players/gonzalo-martinez) — izquierdo.
+- [Sebastián Medina — FCScoutDB](https://fcscoutdb.com/players/sebastian-medina) — izquierdo.
+- [Simón Rivero — FCScoutDB](https://fcscoutdb.com/players/simon-rivero) — izquierdo.
+- [Santiago López — FCScoutDB](https://fcscoutdb.com/players/santiago-lopez-276822) — derecho.
+- [Mauro Méndez — FCScoutDB](https://fcscoutdb.com/players/mauro-mendez) — derecho.
+- [Alfio Oviedo — FCScoutDB](https://fcscoutdb.com/players/alfio-oviedo) — derecho.
+- [Ignacio Russo — FCScoutDB](https://fcscoutdb.com/players/ignacio-russo) — derecho.
+- [Tiago Serrago — FCScoutDB](https://fcscoutdb.com/players/tiago-serrago) — derecho.
