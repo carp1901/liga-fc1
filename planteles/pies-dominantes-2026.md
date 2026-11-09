@@ -1276,3 +1276,13 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 ## Normalización de valores — 09/11/2026
 
 Se normalizan las etiquetas `Ambos` de Sofascore/FotMob a `Ambidiestro`, para mantener un único valor de campo coherente con los registros ambidiestros ya existentes y con la terminología de las fuentes. No se cambia ningún caso previamente cargado como `Derecho`, `Izquierdo` o `Ambidiestro`.
+
+
+## Décima tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Genaro Ordóñez | Derecho | https://www.transfermarkt.com.ar/instituto-acc-ii/kader/verein/28181/saison_id/2023/plus/1 |
+| Alan Lezcano | Derecho | https://www.transfermarkt.com.ar/ca-tigre/kader/verein/11831/saison_id/2024/plus/1 |
+
+**Criterio:** ambas fichas de Transfermarkt coinciden con fecha de nacimiento y club del registro 2026.
