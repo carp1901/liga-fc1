@@ -1140,3 +1140,16 @@ Fecha de revisión: 09/11/2026.
 | Facundo Jainikoski | Derecho | https://www.sofascore.com/es-la/football/player/facundo-jainikoski/2163574 |
 
 Se agregan ocho pies dominantes con fichas individuales de Sofascore. Se mantienen pendientes los jugadores para los que todavía no hay una ficha inequívoca o fuente que indique el pie.
+
+
+## Tercera actualización de Argentinos Juniors — 4 jugadores
+Fecha de revisión: 09/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Hernán López Muñoz | Izquierdo | https://www.sofascore.com/es-la/football/player/hernan-lopez-munoz/981007 |
+| Diego Porcel | Derecho | https://www.sofascore.com/es/football/player/diego-porcel/1835865 |
+| Tomás Molina | Derecho | https://www.sofascore.com/es-la/football/player/tomas-molina/833194 |
+| Ryoga Kida | Derecho | https://www.sofascore.com/es/football/player/ryoga-kida/1388645 |
+
+Se completan cuatro registros adicionales con perfiles individuales que indican el pie preferido.
