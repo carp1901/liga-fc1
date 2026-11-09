@@ -1123,3 +1123,20 @@ Fecha de revisión: 09/11/2026.
 | Gastón Bouhier | Izquierdo | https://www.sofascore.com/es/football/player/gaston-bouhier/2203606 |
 
 Se completan seis fichas con pie preferido explícito en Sofascore. Facundo Carrizo queda pendiente porque Sofascore y BeSoccer discrepan (derecho/izquierdo); no se elige arbitrariamente una de las dos.
+
+
+## Segunda actualización de Argentinos Juniors — 8 jugadores
+Fecha de revisión: 09/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Santiago Silveira | Derecho | https://www.sofascore.com/es/football/player/santiago-silveira/2082102 |
+| Kevin Gutiérrez | Derecho | https://www.sofascore.com/es-la/football/player/kevin-gutierrez/914145 |
+| Federico Mancuello | Izquierdo | https://www.sofascore.com/es/football/player/federico-mancuello/122615 |
+| Nicolás Oroz | Izquierdo | https://www.sofascore.com/es/football/player/nicolas-oroz/558790 |
+| Emiliano Viveros | Derecho | https://www.sofascore.com/es/football/player/emiliano-viveros/1117022 |
+| Joaquín Gho | Derecho | https://www.sofascore.com/es/football/player/joaquin-gho/1094993 |
+| Matías Giménez | Izquierdo | https://www.sofascore.com/es/football/player/matias-gimenez-rojas/977680 |
+| Facundo Jainikoski | Derecho | https://www.sofascore.com/es-la/football/player/facundo-jainikoski/2163574 |
+
+Se agregan ocho pies dominantes con fichas individuales de Sofascore. Se mantienen pendientes los jugadores para los que todavía no hay una ficha inequívoca o fuente que indique el pie.
