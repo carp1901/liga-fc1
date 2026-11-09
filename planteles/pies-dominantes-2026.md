@@ -1185,3 +1185,14 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Iván Erquiaga | Izquierdo | https://www.sofascore.com/es/football/player/ivan-erquiaga/932647 |
 
 **Resultado:** 5 registros adicionales verificados y cargados. Se mantienen pendientes los jugadores sin ficha individual inequívoca y los casos con discrepancias entre fuentes.
+
+
+## Tercera tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Facundo Alaggia | Derecho | https://www.sofascore.com/es/football/player/facundo-alaggia/2455157 |
+| Jhon Rentería | Izquierdo | https://www.sofascore.com/es/football/player/jhon-renteria/2117907 |
+| Joaquín Medina | Derecho | https://www.sofascore.com/es/football/player/joaquin-medina/2187029 |
+
+**Resultado:** 3 registros adicionales verificados y cargados.
