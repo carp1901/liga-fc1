@@ -1153,3 +1153,22 @@ Fecha de revisión: 09/11/2026.
 | Ryoga Kida | Derecho | https://www.sofascore.com/es/football/player/ryoga-kida/1388645 |
 
 Se completan cuatro registros adicionales con perfiles individuales que indican el pie preferido.
+
+
+## Nueva tanda de verificación — 09/11/2026
+
+Se completan únicamente registros con ficha individual que identifica el pie preferido. Se conservan intactos los valores previamente cargados.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Lucas Ramos López | Ambos | https://www.sofascore.com/es/football/player/lucas-ramos/2502931 |
+| Ignacio Isla | Ambos | https://www.sofascore.com/es-la/football/player/ignacio-isla/2445395 |
+| Jeremías Gallard | Ambos | https://www.sofascore.com/es/football/player/jeremias-gallard/1837210 |
+| Lorenzo Albarracín | Izquierdo | https://es.besoccer.com/jugador/l-albaracin-3415703 |
+| Mateo Aimar | Izquierdo | https://www.transfermarkt.com.ar/mateo-aimar/profil/spieler/1276630 |
+| Jorge de Asís | Ambos | https://www.sofascore.com/es/football/player/jorge-de-asis/2138839 |
+| Emiliano Rigoni | Ambos | https://www.sofascore.com/es/football/player/emiliano-rigoni/257587 |
+| Kevin Ibañez | Ambos | https://www.fotmob.com/es/players/2341855/kevin-ibanez |
+| Nicolás Garrido | Izquierdo | https://www.365scores.com/es/football/player/nicolas-garrido-224610 |
+
+**Resultado de esta tanda:** 9 registros nuevos incorporados a `planteles/primera-2026.csv`. Los casos sin evidencia inequívoca o con fuentes contradictorias continúan vacíos.
