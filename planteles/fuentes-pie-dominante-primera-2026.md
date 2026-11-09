@@ -748,3 +748,14 @@ Se completaron tres registros con fuentes individuales que expresan el pie prefe
 
 - [Máximo Leguizamón — Sofascore](https://www.sofascore.com/es/football/player/maximo-leguizamon/2456593) — izquierdo.
 - [Bautista Feversani — Sofascore](https://www.sofascore.com/es/football/player/bautista-feversani/2549611) — derecho.
+
+
+## Belgrano — segunda tanda de juveniles
+
+Se añadieron cinco jugadores con pie explícito en sus fichas individuales o en la base oficial del club:
+
+- [Jeremías Biani](https://www.besoccer.com/player/biani-3786869) — izquierdo.
+- [Thiago Charras](https://belgranocordoba.com.ar/jugadores/charras-thiago-leonardo) — derecho.
+- [Joaquín Flandes](https://www.sofascore.com/football/player/joaquin-flandes/2689343) — derecho.
+- [Santino Gatti](https://www.sofascore.com/es/football/player/santino-gatti/1835785) — derecho.
+- [Agustín Melano](https://doblegsports.com/jugadores/agust%C3%ADn-melano) — derecho.
