@@ -1260,3 +1260,14 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Santiago Ferez | Derecho | https://database.footballmanagerblog.org/fm26/players/2000200460-santiago-ferez |
 
 **Criterio:** Lautaro Ludueña se identificó por fecha de nacimiento (03/08/2006) y club de reserva en Instituto; Máximo Cabrera coincide por fecha de nacimiento y club entre BeSoccer y FM Blog. Para el resto se usó la ficha individual coincidente de club/plantel.
+
+
+## Novena tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Thiago Cortes | Derecho | https://database.footballmanagerblog.org/fm26/players/2000482813-thiago-cortes |
+| Abel Francisco Romero | Derecho | https://transferbol.com/teams/estudiantes-de-rio-cuarto-2424/f-romero-75896 |
+| Francisco Agustín Gualtieri | Derecho | https://www.fifacm.com/player/276109/francisco-gualtieri |
+
+**Resultado:** 3 registros más confirmados mediante fichas individuales que coinciden con club y datos del plantel.
