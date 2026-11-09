@@ -1108,3 +1108,18 @@ Fecha de revisión: 09/11/2026.
 | Gimnasia | Juan José Pérez | Izquierdo | https://es.besoccer.com/jugador/j-perez-3261634 |
 
 Se completan cinco fichas con dato explícito de pie preferido. Máximo Cabrera se mantiene pendiente por discrepancia entre fuentes; los demás casos sin dato individual verificable no se completan por inferencia.
+
+
+## Primera actualización de Argentinos Juniors — 6 jugadores
+Fecha de revisión: 09/11/2026.
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Franco Paredes | Derecho | https://www.sofascore.com/es/football/player/franco-paredes/989717 |
+| Sebastián Prieto | Izquierdo | https://www.sofascore.com/es-la/football/player/sebastian-prieto/946305 |
+| Luciano Sánchez | Derecho | https://www.sofascore.com/es/football/player/luciano-sanchez/933158 |
+| Franco Vázquez | Izquierdo | https://www.sofascore.com/football/player/franco-vazquez/1485215 |
+| Alan Alcaraz | Ambos | https://www.sofascore.com/es-la/football/player/alan-alcaraz/2550468 |
+| Gastón Bouhier | Izquierdo | https://www.sofascore.com/es/football/player/gaston-bouhier/2203606 |
+
+Se completan seis fichas con pie preferido explícito en Sofascore. Facundo Carrizo queda pendiente porque Sofascore y BeSoccer discrepan (derecho/izquierdo); no se elige arbitrariamente una de las dos.
