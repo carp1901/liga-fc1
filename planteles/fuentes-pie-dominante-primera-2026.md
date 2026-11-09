@@ -135,3 +135,13 @@ Se completaron 7 jugadores con pie dominante explícito en fichas individuales d
 - [Wílder Viera](https://fcscoutdb.com/players?nat=58&pos=10) — izquierdo.
 
 No se completaron los demás jugadores sin ficha individual coincidente y explícita.
+
+## Pendientes de clubes ya auditados — actualización
+
+Se agregaron tres fichas individuales que faltaban en clubes de la tanda:
+
+- Huracán: [Tomás Uribe — Transfermarkt](https://www.transfermarkt.com.ar/tomas-uribe/profil/spieler/1299767) y [BeSoccer](https://es.besoccer.com/jugador/t-uribe-3585085) — derecho.
+- Argentinos Juniors: [Santino Gianini — OffsideScores](https://offsidescores.com/es/jugador/santino-gianini/af0f2c78-7fad-4679-b9f3-45ef60b3f5b5/detalle) — derecho.
+- Argentinos Juniors: [Facundo Carrizo — Sofascore](https://www.sofascore.com/es/football/player/facundo-carrizo/2338324) — derecho.
+
+No se completaron Fabrizio Martínez, Santino Raynelli, Máximo Cabrera ni Lucas Lamella porque las fuentes consultadas no confirman una pierna dominante específica. En particular, la nota oficial de Gimnasia sobre Lamella indica que maneja ambos perfiles, pero no identifica cuál es el dominante.
