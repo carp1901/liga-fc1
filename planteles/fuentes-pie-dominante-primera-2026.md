@@ -369,3 +369,8 @@ Los pies se tomaron de la columna **Foot** de la tabla filtrada por club en FCSc
 - Valentino Simoni — derecho.
 
 Fuente de consulta: [FCScoutDB — plantel de Gimnasia y Esgrima de Mendoza](https://fcscoutdb.com/players?club=113050&league=353).
+
+
+## Normalización del campo `pie`
+
+En la revisión de consistencia se encontraron 11 valores heredados `Ambos`. Se normalizaron a `Ambidiestro`, que es el valor admitido por el esquema del CSV. No se modificó el sentido del dato.
