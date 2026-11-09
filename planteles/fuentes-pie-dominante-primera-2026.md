@@ -252,3 +252,25 @@ Se incorporaron los siguientes pies preferidos explícitos de fichas individuale
 - [Nicolás Cordero — FCScoutDB](https://fcscoutdb.com/players/nicolas-cordero) — derecho.
 - [Agustín Palavecino — FCScoutDB](https://fcscoutdb.com/players/agustin-palavecino-276831) — derecho.
 - [Andrés Vombergar — FCScoutDB](https://fcscoutdb.com/players/andres-vombergar) — derecho.
+
+
+## Defensa y Justicia — inicio de auditoría
+
+Se añadieron los pies preferidos expresos de estas fichas individuales FCScoutDB. Los casos sin dato explícito siguen pendientes; los préstamos se identificaron en las fichas correspondientes.
+
+- [Lautaro Amadé — FCScoutDB](https://fcscoutdb.com/players/lautaro-amade) — derecho.
+- [Matías Borgogno — FCScoutDB](https://fcscoutdb.com/players/matias-borgogno) — derecho.
+- [Damián Fernández — FCScoutDB](https://fcscoutdb.com/players/damian-fernandez-251686) — derecho.
+- [David Martínez — FCScoutDB](https://fcscoutdb.com/players/david-martinez-241569) — izquierdo.
+- [Fernando Román Villalba — FCScoutDB](https://fcscoutdb.com/players/fernando-roman) — izquierdo.
+- [Lucas Souto — FCScoutDB](https://fcscoutdb.com/players/lucas-souto) — derecho.
+- [David Barbona — FCScoutDB](https://fcscoutdb.com/players/david-barbona) — derecho.
+- [Domingo Blanco — FCScoutDB](https://fcscoutdb.com/players/domingo-blanco) — derecho.
+- [Julián López — FCScoutDB](https://fcscoutdb.com/players/julian-lopez) — derecho.
+- [Aarón Molinas — FCScoutDB](https://fcscoutdb.com/players/aaron-molinas) — derecho.
+- [César Pérez — FCScoutDB](https://fcscoutdb.com/players/cesar-perez) — derecho.
+- [Maximiliano Porcel — FCScoutDB](https://fcscoutdb.com/players/maximiliano-porcel) — izquierdo.
+- [Facundo Altamira — FCScoutDB](https://fcscoutdb.com/players/facundo-altamira) — derecho.
+- [Leandro Fernández — FCScoutDB](https://fcscoutdb.com/players/leandro-fernandez) — derecho.
+- [Juan Manuel Gutiérrez — FCScoutDB](https://fcscoutdb.com/players/juan-manuel-gutierrez) — derecho.
+- [Tiziano Perrotta — FCScoutDB](https://fcscoutdb.com/players/tiziano-perrotta) — izquierdo.
