@@ -258,3 +258,8 @@ La publicación automática terminó correctamente. Resultado final: **66 clubes
 Se corrigieron los conflictos de dorsales detectados en la revisión final. Los dorsales reasignados internamente siguen identificados como tales y no se anuncian como oficiales. Godoy Cruz se contrastó con la formación de la fecha 36 del 31/10/2026: https://tn.com.ar/deportes/futbol/2026/10/31/godoy-cruz-vs-almirante-brown-en-vivo-por-la-fecha-36-de-la-primera-nacional-hora-donde-ver-y-formaciones/.
 
 Ejecución CI: https://github.com/carp1901/liga-fc1/actions/runs/42448336693
+
+
+## Pie dominante — 09/11/2026
+
+Los seis bloques tienen el campo pie completo (1.026/1.026). Se conservaron y normalizaron las asignaciones anteriores; para los registros sin fuente individual confiable se aplicó el valor predeterminado autorizado por el usuario según rol_especifico (LI/EI/MI zurdo; LD/ED/MD y resto de roles diestro). Las asignaciones orientativas están documentadas en pies-dominantes-2026.md y no deben confundirse con verificaciones biográficas.
