@@ -274,3 +274,25 @@ Se añadieron los pies preferidos expresos de estas fichas individuales FCScoutD
 - [Leandro Fernández — FCScoutDB](https://fcscoutdb.com/players/leandro-fernandez) — derecho.
 - [Juan Manuel Gutiérrez — FCScoutDB](https://fcscoutdb.com/players/juan-manuel-gutierrez) — derecho.
 - [Tiziano Perrotta — FCScoutDB](https://fcscoutdb.com/players/tiziano-perrotta) — izquierdo.
+
+
+## Banfield — inicio de auditoría
+
+Se incorporaron pies preferidos expresos de fichas individuales FCScoutDB. No se dedujeron los casos sin dato publicado.
+
+- [Diego Rodríguez — FCScoutDB](https://fcscoutdb.com/players/diego-rodriguez) — izquierdo.
+- [Gino Santilli — FCScoutDB](https://fcscoutdb.com/players/gino-santilli) — izquierdo.
+- [Juan Luis Alfaro — FCScoutDB](https://fcscoutdb.com/players/juan-luis-alfaro) — derecho.
+- [Lautaro Cano — FCScoutDB](https://fcscoutdb.com/players/lautaro-cano) — izquierdo.
+- [Santiago López García — FCScoutDB](https://fcscoutdb.com/players/santiago-lopez-garcia) — derecho.
+- [Renzo Malanca — FCScoutDB](https://fcscoutdb.com/players/renzo-malanca) — derecho.
+- [Nicolás Meriano — FCScoutDB](https://fcscoutdb.com/players/nicolas-meriano) — izquierdo.
+- [Nehuén Paz — FCScoutDB](https://fcscoutdb.com/players/nehuen-paz) — izquierdo.
+- [Ignacio Abraham — FCScoutDB](https://fcscoutdb.com/players/ignacio-abraham) — izquierdo.
+- [Favio Álvarez — FCScoutDB](https://fcscoutdb.com/players/favio-alvarez) — derecho.
+- [Santiago Esquivel — FCScoutDB](https://fcscoutdb.com/players/santiago-esquivel) — derecho.
+- [Lautaro Ríos — FCScoutDB](https://fcscoutdb.com/players/lautaro-rios) — derecho.
+- [David Zalazar — FCScoutDB](https://fcscoutdb.com/players/david-zalazar) — izquierdo.
+- [Adrián Balboa — FCScoutDB](https://fcscoutdb.com/players/adrian-balboa) — derecho.
+- [Alexander Machado — FCScoutDB](https://fcscoutdb.com/players/alexander-machado) — izquierdo.
+- [Lisandro Piñero — FCScoutDB](https://fcscoutdb.com/players/lisandro-pinero) — derecho.
