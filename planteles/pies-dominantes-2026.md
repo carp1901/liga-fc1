@@ -1235,3 +1235,14 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Santino Galesio | Derecho | https://database.footballmanagerblog.org/fm26/players/2000331305-santino-galesio |
 
 **Resultado:** 7 registros de Tigre confirmados y cargados con fichas individuales.
+
+
+## Séptima tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Santino Raynelli | Derecho | https://www.transfermarkt.es/santino-raynelli/profil/spieler/1403994 |
+| Fabrizio Martínez | Izquierdo | https://www.transfermarkt.es/fabrizio-martinez/profil/spieler/1299763 |
+| Ronaldo Martínez | Derecho | https://es.besoccer.com/jugador/ronaldo-martinez-3226779 |
+
+**Criterio especial:** para Ronaldo Martínez se priorizó la mayoría de fuentes individuales consultadas (BeSoccer, FotMob, BallValue y Feeberse indican derecho; Sofascore y KickoffScore indican ambos). Se conserva el registro como derecho por mayoría de cuatro contra dos.
