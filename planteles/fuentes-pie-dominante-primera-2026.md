@@ -731,3 +731,9 @@ Se completaron tres registros con fuentes individuales que expresan el pie prefe
 - [Alex Juárez](https://www.sofascore.com/es/football/player/alex-juarez/1381561) — derecho.
 - [Francisco Cora](https://es.besoccer.com/jugador/francisco-cora-3686967) — derecho.
 - [Leandro Duarte](https://www.fotmob.com/players/1937496/leandro-duarte) — derecho.
+
+
+## Tigre — juveniles adicionales
+
+- [Marco Rivas — Sofascore](https://www.sofascore.com/es-la/football/player/marco-rivas/2056254) — derecho.
+- [Nicolás Afonso — FotMob](https://www.fotmob.com/es/players/1950896/nicolas-afonso) — derecho.
