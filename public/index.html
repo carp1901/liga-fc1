@@ -343,7 +343,7 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 <details class="ranking-tools" id="clubRankingTools">
 <summary><span>⚙ Ajustes del ranking</span><small>categoría, período y competición</small></summary>
 <div class="ranking-tools-body">
-<div class="rkt" id="rkt"><button data-rt="gen" class="on">Online</button><button data-rt="cla">Clásico</button><button data-rt="bar">Barrial</button><button data-rt="off">Offline</button><button data-rt="comp">Por competición</button></div>
+<div class="rkt ranking-origin-tabs" id="rkt"><button data-rt="online" class="on">ONLINE</button><button data-rt="offline">OFFLINE</button></div><div class="rkt ranking-subtabs" id="rkSubtabs"><button data-sub="all" class="on">Todo online</button><button data-sub="clasico">Clásico</button><button data-sub="barrial">Barrial / Regional</button></div>
 <div class="c2 w ranking-filters"><label class="lb">período<select id="rkperiod"><option value="historico">Histórico</option><option value="temporada">Temporada actual</option></select></label><label class="lb" id="rkml">modalidad<select id="rkm"></select></label><label class="lb">competición / división<select id="rkc"></select></label><label class="lb">tipo de torneo<select id="rkf"><option value="">Todos</option><option value="liga">Liga</option><option value="copa">Copa</option><option value="mixto">Mixto</option></select></label></div>
 <button class="bt ok" id="rkcmp">Comparar clubes</button>
 </div>
@@ -819,20 +819,20 @@ const sendOff=rec=>fetch('/api/titulo-offline',{method:'POST',body:JSON.stringif
 ENG.CFG.onTitle=rec=>sendOff(rec).catch(e=>{if(!e.perm)ptSet([...ptGet().filter(x=>x.tid!=rec.tid),rec]);throw e});
 const flushPT=()=>{const a=ptGet();if(!a.length)return;Promise.all(a.map(rec=>sendOff(rec).then(()=>rec.tid,e=>e.perm?rec.tid:null))).then(done=>ptSet(ptGet().filter(x=>!done.includes(x.tid))))};flushPT();
 /* ===== Rankings: los datos vienen del servidor (/api/ranking); nada se calcula ni se guarda en el navegador. ===== */
-let RKT='gen',RKN=0;
-const RK_TABS={gen:{m:[['online','Clásico + barrial'],['clasico','Solo clásico'],['barrial','Solo barrial']],g:'all'},cla:{m:[['clasico','']],g:'div'},bar:{m:[['barrial','']],g:'cup'},off:{m:[['offline','']],g:'all'},comp:{m:[['online','Online (clásico + barrial)'],['offline','Offline']],g:'all',req:1}};
-function rkCompOpts(g,req){const cups=DATA.CUPS.map(c=>`<option value="${c.id}">${esc(c.title)}</option>`).join(''),dvs=DATA.DIVS.filter(d=>d.ok).map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('')+'<option value="copaarg">Copa Argentina</option><option value="real">Clásico realista</option><option value="pers">Clásico personalizado</option>';
- const og=(l,h)=>`<optgroup label="${l}">${h}</optgroup>`;return(req?'':'<option value="">Todas</option>')+(g=='cup'?cups:g=='div'?dvs:og('Torneos barriales',cups)+og('Divisiones (modo clásico)',dvs))}
-function rkSetup(t){RKT=t;const c=RK_TABS[t];document.querySelectorAll('#rkt button').forEach(b=>b.classList.toggle('on',b.dataset.rt==t));
- $('#rkm').innerHTML=c.m.map(([v,l])=>`<option value="${v}">${l||v}</option>`).join('');$('#rkml').hidden=c.m.length<2;
- $('#rkc').innerHTML=rkCompOpts(c.g,c.req);$('#rkm').value=c.m[0][0];$('#rkc').value=c.req?DATA.CUPS[0].id:'';$('#rkf').value='';rkLoad()}
+let RKT='online',RKSUB='all',RKN=0;
+function rkCompOpts(){const cups=DATA.CUPS.map(c=>`<option value="${c.id}">${esc(c.title)}</option>`).join(''),dvs=DATA.DIVS.filter(d=>d.ok).map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('')+'<option value="copaarg">Copa Argentina</option><option value="real">Clásico realista</option><option value="pers">Clásico personalizado</option>';
+ const og=(l,h)=>`<optgroup label="${l}">${h}</optgroup>`;return '<option value="">Todas</option>'+og('Torneos barriales / regionales',cups)+og('Modo clásico',dvs+'<option value="copaarg">Copa Argentina</option><option value="real">Clásico realista</option>')+'<optgroup label="Carrera personalizada"><option value="pers">Personalizado</option></optgroup>'}
+function rkSetup(t){RKT=t;document.querySelectorAll('#rkt button').forEach(b=>b.classList.toggle('on',b.dataset.rt==t));
+ const online=t=='online';$('#rkSubtabs').hidden=!online;$('#rkm').innerHTML=online?'<option value="online">Clásico + barrial</option><option value="clasico">Clásico</option><option value="barrial">Barrial / Regional</option>':'<option value="offline">Offline</option>';
+ $('#rkml').hidden=true;$('#rkc').innerHTML=online?'<option value="">Todas</option>':rkCompOpts();$('#rkc').value='';$('#rkf').value='';
+ document.querySelectorAll('#rkSubtabs button').forEach(b=>b.classList.toggle('on',b.dataset.sub==(online?RKSUB:'all')));if(online)$('#rkm').value=RKSUB=='all'?'online':RKSUB;rkLoad()}
 const fdate=s=>{const d=new Date(s);return isNaN(d)?'':d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'2-digit'})};
 async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Cargando…</span>';
  const p=new URLSearchParams({mod:$('#rkm').value,comp:$('#rkc').value,fmt:$('#rkf').value});if($('#rkperiod').value=='temporada')p.set('year',String(new Date().getFullYear()));
  try{const r=await fetch('/api/ranking?'+p),d=await r.json();if(n!=RKN)return;
   if(!r.ok||d.error){o.innerHTML='<span class=mu>No se pudo cargar el ranking. Probá de nuevo en un rato.</span>';return}
   if(!d.enabled){o.innerHTML='<span class=mu>El ranking no está disponible: este servidor no tiene base de datos conectada.</span>';return}
-  const note=RKT=='off'||$('#rkm').value=='offline'?'<div class=nt>⚠️ Ranking offline: los títulos los informa cada dispositivo y no se pueden verificar. Se muestra siempre aparte del online.</div>':'<div class=nt>Solo cuentan torneos online terminados con 10 personas o más.</div>';
+  const note=RKT=='offline'?'<div class=nt>⚠️ Ranking offline: los títulos los informa cada dispositivo y no se pueden verificar. Se muestra siempre aparte del online.</div>':'<div class=nt>Solo cuentan torneos online terminados con 10 personas o más.</div>';
   if(d.rows.length){
    const pod=[{x:d.rows[1],c:'silver',n:'2.º'},{x:d.rows[0],c:'gold',n:'1.º'},{x:d.rows[2],c:'bronze',n:'3.º'}].filter(v=>v.x);
    const podium=`<section class="rkpod"><div class="rkpodhead"><b>Los más ganadores</b><span>${d.rows.length} clubes en la clasificación</span></div><div class="rkpodgrid">${pod.map(v=>`<div class="rkpodcard ${v.c}" data-club="${v.x.club}" role="button" tabindex="0"><span class="rkpodpos">${v.n}${v.x.empate?' · empate':''}</span>${TM[v.x.club]?cr(v.x.club,48):''}<b class="rkpodname">${esc(v.x.nombre)}</b><strong>${v.x.titulos}</strong><small>títulos</small><span class="rkpodlast">Último: ${fdate(v.x.ultimo)||'—'}</span></div>`).join('')}</div></section>`;
@@ -841,7 +841,7 @@ async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Ca
    o.innerHTML=`<div class="rkcount"><strong>${d.total}</strong><span>títulos registrados en este filtro</span></div>${podium}${table}<div class=nt>Tocá un club del podio o de la tabla para ver su ficha completa.</div>${d.rows.some(x=>x.empate)?'<div class=nt>= indica clubes empatados: comparten posición y se ordenan alfabéticamente.</div>':''}${note}`;
   }else{o.innerHTML=`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}}
  catch(e){if(n==RKN)o.innerHTML='<span class=mu>No se pudo cargar el ranking (sin conexión con el servidor).</span>'}}
-$('#brk').onclick=()=>{RANK_TAB_HISTORY=[];goM('m10');rankingMode('clubes',false)};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;$('#rkperiod').onchange=rkLoad;
+$('#brk').onclick=()=>{RANK_TAB_HISTORY=[];goM('m10');rankingMode('clubes',false)};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkSubtabs').onclick=e=>{const b=e.target.closest('[data-sub]');if(!b)return;RKSUB=b.dataset.sub;document.querySelectorAll('#rkSubtabs button').forEach(x=>x.classList.toggle('on',x===b));$('#rkm').value=RKSUB=='all'?'online':RKSUB;$('#rkc').value='';rkLoad()};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;$('#rkperiod').onchange=rkLoad;
 /* ===== Ficha de club y comparador (Bloque 6): todo sale de /api/club, que usa el mismo registro que los rankings. ===== */
 const MODL={clasico:'clásico online',barrial:'barrial online',offline:'offline'},FMTL=f=>f=='copa'?'Copa':'Liga',posTxt=p=>p?p.pos+'º'+(p.empate?'=':'')+' de '+p.de:'—';
 let CLUB=null,CLUBHTML='';
