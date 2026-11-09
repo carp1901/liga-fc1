@@ -165,7 +165,8 @@ async function list(limit){
 // Empates: comparten posición (1,1,3…) y se listan por orden alfabético.
 function rankRows(rows,f){
   f=f||{};const mod=f.mod||'online';
-  const pass=r=>(mod=='online'?(r.modalidad=='clasico'||r.modalidad=='barrial'):r.modalidad==mod)&&(!f.comp||r.competicion==f.comp)&&(!f.fmt||(f.fmt=='copa'?r.formato=='copa':f.fmt=='mixto'?r.formato=='mixto':String(r.formato).startsWith('liga')));
+  const recordCountry=r=>{const c=String(r.competicion||'').toLowerCase(),club=String(r.club||'').toLowerCase();if(c.startsWith('uy'))return'Uruguay';if(c.startsWith('br'))return'Brasil';if(c.startsWith('ar'))return'Argentina';if(['sur','oeste','norte','caba','cuyo','litoral','noa','patagonia','cordoba','bonaerense'].includes(c))return'Argentina';if(club.startsWith('uy_'))return'Uruguay';if(club.startsWith('br_'))return'Brasil';return'Argentina'};
+  const pass=r=>(mod=='online'?(r.modalidad=='clasico'||r.modalidad=='barrial'):r.modalidad==mod)&&(!f.comp||r.competicion==f.comp)&&(!f.country||recordCountry(r)==f.country)&&(!f.fmt||(f.fmt=='copa'?r.formato=='copa':f.fmt=='mixto'?r.formato=='mixto':String(r.formato).startsWith('liga')));
   const by=new Map();let total=0;
   for(const r of rows){if(!pass(r))continue;total++;const t=new Date(r.finalizado).getTime()||0,x=by.get(r.club);
     if(x){x.titulos++;if(t>=x.t){x.t=t;x.nombre=r.club_nombre}}else by.set(r.club,{club:r.club,nombre:r.club_nombre,titulos:1,t})}
