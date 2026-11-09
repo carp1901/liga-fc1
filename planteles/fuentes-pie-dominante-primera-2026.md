@@ -775,3 +775,12 @@ Se añadieron cinco jugadores con pie explícito en sus fichas individuales o en
 - [Federico Rodriguez](https://www.sofascore.com/es/football/player/federico-rodriguez/2456600) — derecho.
 - [Agustín Romero](https://www.sofascore.com/es/football/player/agustin-romero/2449875) — derecho.
 - [Kevin Ibañez](https://www.fotmob.com/es/players/2341855/kevin-ibanez) — ambidiestro.
+
+
+## Segunda pasada — Banfield y Atlético Tucumán
+
+- [Mauro Carrizo](https://es.besoccer.com/jugador/mauro-carrizo-3381328) — derecho.
+- [Marcos López](https://www.sofascore.com/es-la/football/player/marcos-lopez/2455156) — derecho.
+- [Mateo Mendizabal](https://www.sofascore.com/es/football/player/mateo-mendizabal/2526149) — derecho.
+- [Lucas Palavecino](https://es.besoccer.com/jugador/lucas-palavecino-3144152) — derecho.
+- [Jeremías Acosta](https://www.sofascore.com/es/football/player/jeremias-acosta/2668526) — izquierdo.
