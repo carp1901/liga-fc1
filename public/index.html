@@ -833,7 +833,7 @@ function rkCompOpts(scope='offline'){
  return all+og('Torneos barriales / regionales',cups)+og('Modo clásico',classic)+'<optgroup label="Carrera personalizada"><option value="pers">Personalizado</option></optgroup>'
 }
 function rkSubtabsRender(online){
- const items=online?[['all','Todo online'],['clasico','Clásico'],['barrial','Barrial / Regional']]:[['all','Todo offline'],['clasico','Modo clásico'],['barrial','Torneos barriales / regionales'],['personalizado','Carrera personalizada']];
+ const items=online?[['all','Todo online'],['clasico','Clásico'],['barrial','Barrial / Regional']]:[['all','Todo offline'],['clasico','Clásico'],['barrial','Barrial / Regional']];
  const selected=online?RKSUB:RKOFFSUB;
  $('#rkSubtabs').hidden=false;
  $('#rkSubtabs').innerHTML=items.map(([id,label])=>'<button data-sub="'+id+'" class="'+(id===selected?'on':'')+'">'+label+'</button>').join('');
