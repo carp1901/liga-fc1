@@ -98,3 +98,26 @@ Fuentes individuales:
 - [Manuel Brondo — Sofascore](https://www.sofascore.com/es/football/player/brondo-manuel/1464531) — derecho.
 
 La plantilla de referencia se contrastó con el [listado oficial del club](https://www.clubatleticotucuman.com.ar/jugadores) y las convocatorias/plantillas de la temporada.
+
+## Barracas Central
+
+Se completaron 7 jugadores con pie explícito publicado por FCScoutDB. Para Juan Espínola se utilizó el registro de la base de datos que identifica su préstamo vigente en Barracas Central; los otros seis registros identifican directamente al club o su vínculo de préstamo.
+
+- [Juan Espínola — FCScoutDB, base de jugadores](https://fcscoutdb.com/players?nat=58&pos=0) — derecho.
+- [Rodrigo Insúa — FCScoutDB, base de jugadores](https://fcscoutdb.com/players?league=353&pos=7) — izquierdo.
+- [Kevin Jappert — FCScoutDB, base de jugadores](https://fcscoutdb.com/players?league=353&pos=3) — derecho.
+- [Tomás Porra — FCScoutDB, base de jugadores](https://fcscoutdb.com/players?league=353&pos=3) — izquierdo.
+- [Rodrigo Bogarín — FCScoutDB, base de jugadores](https://fcscoutdb.com/players?nat=58&pos=10) — derecho.
+- [Gonzalo Maroni — FCScoutDB](https://fcscoutdb.com/players/gonzalo-maroni) — derecho.
+- [Norberto Briasco — FCScoutDB](https://fcscoutdb.com/players/norberto-briasco) — derecho.
+
+## Deportivo Riestra
+
+Se completaron 4 jugadores con fichas individuales de FCScoutDB:
+
+- [Ignacio Arce — FCScoutDB](https://fcscoutdb.com/players/ignacio-arce) — derecho.
+- [Marino Arzamendia — FCScoutDB, base de arqueros](https://fcscoutdb.com/players?nat=58&pos=0) — derecho.
+- [Carlos Quintana — FCScoutDB, base de mediocampistas/defensores](https://fcscoutdb.com/players?league=353&pos=5) — izquierdo.
+- [Agustín Graneros — FCScoutDB](https://fcscoutdb.com/players/agustin-graneros) — derecho.
+
+Los demás jugadores de ambos planteles siguen pendientes hasta localizar una ficha individual verificable. No se asignaron valores por deducción.
