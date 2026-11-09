@@ -49,13 +49,13 @@ La importación conserva la combinación anterior y reemplaza sólo los clubes i
 
 ### Nacionalidades y pie dominante
 
-La columna `nat` está completa para los 1.013 jugadores de Primera 2026. Las nacionalidades completadas durante la auditoría registran su fuente individual en `nat_source`; no se asignan nacionalidades por inferencia. El pie dominante (`pie`) se considera un dato complementario: permanece vacío cuando no se encontró una fuente individual fiable y no se fuerza un valor por defecto.
+La columna `nat` está completa para los 1.012 jugadores vigentes de Primera 2026. Las nacionalidades completadas durante la auditoría registran su fuente individual en `nat_source`; no se asignan nacionalidades por inferencia. El pie dominante (`pie`) se considera un dato complementario: permanece vacío cuando no se encontró una fuente individual fiable y no se fuerza un valor por defecto.
 
-La auditoría final valida 30 clubes, 1.013 jugadores, 1.013 edades, 1.013 dorsales, 1.013 roles específicos, 1.013 nacionalidades y 21 atributos por jugador (147 con atributos manuales y 866 con atributos derivados por rol, posición y media).
+La auditoría vigente valida 30 clubes, 1.012 jugadores, 1.012 edades, 1.012 dorsales, 1.012 roles específicos, 1.012 nacionalidades y 21 atributos por jugador (146 con al menos un atributo manual y 866 con atributos derivados por rol, posición y media). Los dorsales están completos y sin duplicados; tres se mantienen señalados como asignados internamente. El pie dominante está cargado en 992 jugadores y permanece pendiente en 20, sin inferencias.
 
 ## Ajuste general de escala — 08/11/2026
 
-Se aplicó el aumento acordado de **+10 puntos** a las 1.013 medias de Primera División. Se conserva la valoración anterior en `rating_base` y el ajuste explícito en `ajuste_rating`; no se reemplazan ni se alteran las fuentes individuales. Resultado: promedio 75,71; rango 60–92. La importación automática de GitHub Actions publicó esta versión de Primera en los archivos que consume el juego y la validación terminó correctamente.
+Se aplicó el aumento acordado de **+10 puntos** a las 1.013 medias del corte de Primera del 08/11. En la revisión del 09/11 se retiró a Maximiliano Gutiérrez por su transferencia oficial al Dinamo Moscú; el corte vigente queda en 1.012 jugadores. Se conserva la valoración anterior en `rating_base` y el ajuste explícito en `ajuste_rating`; no se reemplazan ni se alteran las fuentes individuales. Resultado vigente: promedio 75,71; rango 60–92. La importación automática de GitHub Actions publicó esta versión de Primera en los archivos que consume el juego y la validación terminó correctamente.
 
 El mismo ajuste se aplicó a los 1.026 registros de Primera Nacional: promedio 68,44; rango 56–78. En ambas divisiones se mantiene la diferencia original entre jugadores; el +10 es una calibración global de escala, no una nueva valoración individual.
 

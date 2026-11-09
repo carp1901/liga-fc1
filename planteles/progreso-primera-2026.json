@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera División",
-  "estado": "Primera División 2026 aprobada para avanzar a Primera Nacional: 30/30 clubes y 1.013/1.013 jugadores completos en datos esenciales; 138 estimaciones razonables aceptadas según criterio del proyecto.",
+  "estado": "Primera División 2026 en mantenimiento: 30/30 clubes y 1.012/1.012 jugadores completos en datos esenciales; 138 estimaciones propias identificadas. Mantener el foco en Primera División.",
   "criterio": "Medias oficiales EA FC27/FC26 cuando existen; 138 estimaciones propias identificadas para jugadores sin OVR oficial. No se inventan jugadores ni nacionalidades: cada nacionalidad completada conserva su fuente en nat_source.",
   "clubes": {
     "boca": {
@@ -12,7 +12,11 @@
       "medias_con_fuente": 31,
       "medias_provisionales": 0,
       "dorsales_asignados": 31,
-      "dorsales_faltantes": 0
+      "dorsales_faltantes": 0,
+      "medias_estimadas": 0,
+      "pies_asignados": 31,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "river": {
       "estado": "recopilado",
@@ -22,7 +26,11 @@
       "medias_con_fuente": 27,
       "medias_provisionales": 0,
       "dorsales_asignados": 27,
-      "dorsales_faltantes": 0
+      "dorsales_faltantes": 0,
+      "medias_estimadas": 0,
+      "pies_asignados": 27,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "racing": {
       "estado": "recopilado",
@@ -34,19 +42,25 @@
       "dorsales_asignados": 22,
       "dorsales_faltantes": 0,
       "medias_estimadas": 1,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 22,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "independiente": {
       "estado": "recopilado",
-      "jugadores": 36,
+      "jugadores": 35,
       "fuente": "https://www.clubaindependiente.com.ar/futbol/plantel",
       "consultado": "2026-11-05",
-      "medias_con_fuente": 30,
+      "medias_con_fuente": 29,
       "medias_provisionales": 0,
-      "dorsales_asignados": 36,
+      "dorsales_asignados": 35,
       "dorsales_faltantes": 0,
       "medias_estimadas": 6,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 34,
+      "pies_faltantes": 1,
+      "manual": false
     },
     "sanlorenzo": {
       "estado": "recopilado",
@@ -58,7 +72,10 @@
       "dorsales_asignados": 40,
       "dorsales_faltantes": 0,
       "medias_estimadas": 4,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 40,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "estudiantes": {
       "estado": "recopilado",
@@ -70,7 +87,10 @@
       "dorsales_asignados": 38,
       "dorsales_faltantes": 0,
       "medias_estimadas": 5,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 38,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "velez": {
       "estado": "recopilado",
@@ -80,7 +100,11 @@
       "medias_con_fuente": 30,
       "medias_provisionales": 0,
       "dorsales_asignados": 30,
-      "dorsales_faltantes": 0
+      "dorsales_faltantes": 0,
+      "medias_estimadas": 0,
+      "pies_asignados": 30,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "talleres": {
       "estado": "recopilado",
@@ -92,7 +116,10 @@
       "dorsales_asignados": 32,
       "dorsales_faltantes": 0,
       "medias_estimadas": 3,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 32,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "lanus": {
       "estado": "recopilado",
@@ -104,7 +131,10 @@
       "dorsales_asignados": 34,
       "dorsales_faltantes": 0,
       "medias_estimadas": 8,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 32,
+      "pies_faltantes": 2,
+      "manual": false
     },
     "rosario": {
       "estado": "recopilado",
@@ -116,7 +146,10 @@
       "dorsales_asignados": 38,
       "dorsales_faltantes": 0,
       "medias_estimadas": 4,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 38,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "huracan": {
       "estado": "recopilado",
@@ -128,7 +161,10 @@
       "dorsales_asignados": 31,
       "dorsales_faltantes": 0,
       "medias_estimadas": 4,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 31,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "belgrano": {
       "estado": "recopilado",
@@ -140,7 +176,10 @@
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0,
       "medias_estimadas": 9,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 36,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "argentinos": {
       "estado": "recopilado",
@@ -152,7 +191,10 @@
       "dorsales_asignados": 33,
       "dorsales_faltantes": 0,
       "medias_estimadas": 2,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 33,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "defensa": {
       "estado": "recopilado",
@@ -164,7 +206,10 @@
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0,
       "medias_estimadas": 5,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 36,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "newells": {
       "estado": "recopilado",
@@ -176,7 +221,10 @@
       "dorsales_asignados": 31,
       "dorsales_faltantes": 0,
       "medias_estimadas": 1,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 31,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "union": {
       "estado": "recopilado",
@@ -188,7 +236,10 @@
       "dorsales_asignados": 33,
       "dorsales_faltantes": 0,
       "medias_estimadas": 5,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 33,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "tigre": {
       "estado": "recopilado",
@@ -200,7 +251,10 @@
       "dorsales_asignados": 46,
       "dorsales_faltantes": 0,
       "medias_estimadas": 18,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 44,
+      "pies_faltantes": 2,
+      "manual": false
     },
     "platense": {
       "estado": "recopilado",
@@ -212,7 +266,10 @@
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0,
       "medias_estimadas": 3,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 35,
+      "pies_faltantes": 1,
+      "manual": false
     },
     "banfield": {
       "estado": "recopilado",
@@ -224,7 +281,10 @@
       "dorsales_asignados": 35,
       "dorsales_faltantes": 0,
       "medias_estimadas": 3,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 35,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "gimnasia": {
       "estado": "recopilado",
@@ -237,7 +297,10 @@
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0,
       "medias_estimadas": 11,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 36,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "centralcba": {
       "estado": "recopilado",
@@ -249,7 +312,10 @@
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0,
       "medias_estimadas": 8,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 34,
+      "pies_faltantes": 2,
+      "manual": false
     },
     "rivadavia": {
       "estado": "recopilado",
@@ -259,7 +325,11 @@
       "medias_con_fuente": 28,
       "medias_provisionales": 0,
       "dorsales_asignados": 28,
-      "dorsales_faltantes": 0
+      "dorsales_faltantes": 0,
+      "medias_estimadas": 0,
+      "pies_asignados": 28,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "instituto": {
       "estado": "recopilado",
@@ -271,7 +341,10 @@
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0,
       "medias_estimadas": 9,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 32,
+      "pies_faltantes": 4,
+      "manual": false
     },
     "atletico": {
       "estado": "recopilado",
@@ -283,7 +356,10 @@
       "dorsales_asignados": 35,
       "dorsales_faltantes": 0,
       "medias_estimadas": 3,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 35,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "barracas": {
       "estado": "recopilado",
@@ -295,7 +371,10 @@
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0,
       "medias_estimadas": 5,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 35,
+      "pies_faltantes": 1,
+      "manual": false
     },
     "riestra": {
       "estado": "recopilado",
@@ -307,7 +386,10 @@
       "dorsales_asignados": 32,
       "dorsales_faltantes": 0,
       "medias_estimadas": 1,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 32,
+      "pies_faltantes": 0,
+      "manual": false
     },
     "sarmiento": {
       "estado": "recopilado",
@@ -319,7 +401,10 @@
       "dorsales_asignados": 30,
       "dorsales_faltantes": 0,
       "medias_estimadas": 4,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 29,
+      "pies_faltantes": 1,
+      "manual": false
     },
     "aldosivi": {
       "estado": "recopilado",
@@ -331,7 +416,10 @@
       "dorsales_asignados": 36,
       "dorsales_faltantes": 0,
       "medias_estimadas": 8,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 32,
+      "pies_faltantes": 4,
+      "manual": false
     },
     "gimnasiamza": {
       "estado": "recopilado",
@@ -343,7 +431,10 @@
       "dorsales_asignados": 31,
       "dorsales_faltantes": 0,
       "medias_estimadas": 4,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 29,
+      "pies_faltantes": 2,
+      "manual": false
     },
     "estudiantesrc": {
       "estado": "recopilado",
@@ -355,15 +446,18 @@
       "dorsales_asignados": 32,
       "dorsales_faltantes": 0,
       "medias_estimadas": 4,
-      "ultima_revision_medias": "Estimación propia v1"
+      "ultima_revision_medias": "Estimación propia v1",
+      "pies_asignados": 32,
+      "pies_faltantes": 0,
+      "manual": false
     }
   },
-  "jugadores_total": 1013,
-  "medias_con_fuente": 875,
+  "jugadores_total": 1012,
+  "medias_con_fuente": 874,
   "medias_provisionales": 0,
-  "dorsales_asignados": 1013,
+  "dorsales_asignados": 1012,
   "dorsales_faltantes": 0,
-  "actualizado": "2026-11-06",
+  "actualizado": "2026-11-09",
   "ultima_revision_medias": {
     "fecha": "2026-11-06",
     "jugadores": [
@@ -406,54 +500,90 @@
     ]
   },
   "medias_estimadas": 138,
-  "nacionalidades_asignadas": 1013,
+  "nacionalidades_asignadas": 1012,
   "nacionalidades_faltantes": 0,
-  "edades_asignadas": 1013,
+  "edades_asignadas": 1012,
   "edades_faltantes": 0,
-  "roles_especificos_asignados": 1013,
+  "roles_especificos_asignados": 1012,
   "roles_especificos_faltantes": 0,
-  "atributos_jugadores_completos": 1013,
-  "atributos_manual": 147,
+  "atributos_jugadores_completos": 1012,
+  "atributos_manual": 146,
   "atributos_derivados": 866,
   "atributos_por_jugador": 21,
-  "pies_asignados": 1,
-  "pies_faltantes": 1012,
+  "pies_asignados": 992,
+  "pies_faltantes": 20,
   "pie_dominante_opcional": true,
   "revision_final": {
-    "fecha": "2026-11-07",
+    "fecha": "2026-11-09",
     "resultado": "APROBADA",
     "criterio": "No se exige exactitud absoluta; las medias estimadas son aceptables si mantienen una escala coherente con el nivel del jugador y del club.",
     "controles": {
       "clubes": "30/30",
-      "jugadores": "1.013/1.013",
-      "dorsales": "1.013 asignados; 0 faltantes y 0 duplicados",
-      "edades": "1.013 asignadas; 0 faltantes",
-      "nacionalidades": "1.013 asignadas; 0 faltantes",
-      "rolesEspecificos": "1.013 asignados; 0 faltantes",
-      "atributos": "21 atributos por jugador; 1.013 completos",
-      "medias": "875 con fuente individual y 138 estimaciones propias identificadas; 0 medias provisionales sin fuente",
-      "medias60": "40 jugadores con media 60 (3,9% del total), no una asignación masiva por defecto",
-      "equilibrio": "Promedios generales por plantel entre 62,9 y 72,8; progresión coherente entre clubes",
+      "jugadores": "1.012/1.012",
+      "dorsales": "1.012 asignados; 0 faltantes y 0 duplicados; 1.009 con fuente y 3 asignados internamente",
+      "edades": "1.012 asignadas; 0 faltantes; todas coinciden con fecha_nacimiento a referencia 06/11/2026",
+      "nacionalidades": "1.012 asignadas; 0 faltantes",
+      "rolesEspecificos": "1.012 asignados; 0 faltantes",
+      "atributos": "21 atributos por jugador; 1.012 completos en runtime (146 con al menos un atributo manual y 866 derivados por el motor)",
+      "medias": "874 con fuente individual y 138 estimaciones propias identificadas; 0 medias provisionales sin fuente",
+      "medias60": "1 jugador con media vigente 60; 40 con rating_base 60 que, tras el ajuste +10, figuran actualmente con 70",
+      "equilibrio": "Promedios actuales por plantel entre 72,9 y 82,8; se conserva la escala relativa tras el ajuste global +10",
+      "pies": "992 asignados; 20 faltantes. Campo opcional, sin imputaciones.",
       "dorsales2D": "Revisada la ruta de datos: la alineación usa índices del plantel y el render 2D obtiene el dorsal desde el jugador correspondiente.",
       "atributosArquero": "Los jugadores de campo no reciben atributos exclusivos de arquero; validación incluida en test-squads.js"
     },
     "pendientesNoBloqueantes": [
-      "Pie dominante: 1.012 sin dato; campo opcional y no afecta la carga ni el funcionamiento de los planteles.",
-      "Las 138 medias estimadas pueden refinarse más adelante si aparece información mejor."
+      "Pie dominante: 20 sin dato; campo opcional, no se infiere y no afecta la carga ni el funcionamiento de los planteles.",
+      "Tres dorsales siguen asignados internamente (Agustín Perez, Branco Salinardi y Lautaro Monza); sustituirlos solo si aparece confirmación oficial.",
+      "Las 138 medias estimadas pueden refinarse si aparece información individual mejor."
     ],
-    "alcance": "Revisión estática del CSV, metadatos, planteles publicados, reglas de atributos y ruta de dorsales 2D. La suite automatizada queda a cargo del workflow de validación activado por este cambio."
+    "alcance": "Revisión estática de los 30 planteles de Primera: conteos, nombres únicos, dorsales únicos, edades frente a fecha de nacimiento, nacionalidades, roles específicos, fuentes de dorsales y cobertura de atributos manuales/derivados. Se contrastaron transferencias confirmadas del cierre de mercado; la validación de runtime y publicación queda a cargo del workflow disparado por este commit."
   },
   "ajuste_escala_medias": {
     "fecha": "2026-11-08",
     "puntos": 10,
-    "jugadores": 1013,
+    "jugadores": 1012,
     "promedio_base": 65.71,
     "promedio_actual": 75.71,
     "minimo_base": 50,
     "maximo_base": 82,
     "minimo_actual": 60,
     "maximo_actual": 92,
-    "trazabilidad": "Cada fila conserva rating_base y ajuste_rating. Las medias originales y sus fuentes individuales no se sobrescriben.",
-    "integracion": "GitHub Actions importó el CSV actualizado a public/squads.json, public/squads.js y public/squads-meta.json; workflow exitoso."
+    "trazabilidad": "Cada fila vigente conserva rating_base y ajuste_rating=10; las fuentes individuales no se sobrescriben. El jugador transferido fuera de Primera fue retirado del corte actual.",
+    "integracion": "Pendiente de confirmación del workflow de validación y publicación disparado por la actualización de Primera."
+  },
+  "dorsales_con_fuente": 1009,
+  "dorsales_asignados_internamente": 3,
+  "ultima_revision_transferencias": {
+    "fecha": "2026-11-09",
+    "cambios": [
+      "Maximiliano Gutiérrez eliminado de Independiente: el club confirmó su transferencia definitiva al Dinamo Moscú el 16/09/2026."
+    ],
+    "verificaciones": [
+      "Jalil Elías figura solo en Estudiantes; alta oficial del 03/09/2026 tras su salida de Tigre.",
+      "Bruno Sepúlveda figura solo en Platense; salida de Banfield confirmada el 02/09/2026.",
+      "Santiago Solari figura solo en Newell's; préstamo desde Racing confirmado en el cierre del mercado.",
+      "Kevin Lomónaco, Gabriel Ávalos y los jugadores de River/Boca citados en el cierre de mercado no permanecen en los planteles argentinos de origen."
+    ],
+    "fuentes": [
+      "https://clubaindependiente.com.ar/futbol/noticias/1789594937_exitos-guty",
+      "https://estudiantesdelaplata.com/jalil-elias-el-cuarto-refuerzo/",
+      "https://www.tycsports.com/liga-profesional-de-futbol/jugo-en-san-lorenzo-fue-pretendido-por-independiente-pero-jalil-elias-jugara-en-estudiantes-id758627.html",
+      "https://www.tycsports.com/liga-profesional-de-futbol/cambio-de-9-en-banfield-sepulveda-se-va-a-platense-y-llega-una-ex-racing-id758628.html",
+      "https://deportv.gob.ar/futbol/movimientos-mercado-pases-futbol-argentino-nid:16633"
+    ],
+    "alcance": "Control puntual de movimientos confirmados del cierre del mercado y de las bajas posteriores publicadas oficialmente. No se modificó ningún otro jugador sin evidencia suficiente."
+  },
+  "ultima_revision_pies": {
+    "fecha": "2026-11-09",
+    "tanda": "Undécima tanda complementaria",
+    "nuevos": [
+      "Lucas Lamella (Ambidiestro)",
+      "Jabes Saralegui (Derecho)"
+    ],
+    "fuente": "planteles/pies-dominantes-2026.md",
+    "pies_asignados": 992,
+    "pies_faltantes": 20,
+    "criterio": "No inferir por posición ni perfil; mantener vacío cuando no exista evidencia individual fiable."
   }
 }

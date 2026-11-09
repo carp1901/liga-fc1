@@ -30,7 +30,7 @@ const files = [
   'planteles/primera-2026.csv',
   ...Array.from({ length: 6 }, (_, i) => `planteles/borradores/primera-nacional-2026/bloque${i + 1}.csv`)
 ];
-const expected = [1013, 155, 171, 182, 194, 164, 160];
+const expected = [1012, 155, 171, 182, 194, 164, 160];
 let total = 0;
 for (let i = 0; i < files.length; i++) {
   const rows = parseCSV(fs.readFileSync(files[i], 'utf8'));

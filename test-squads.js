@@ -28,7 +28,7 @@ function validateClub(id,division){
 }
 for(const id of EXPECTED)validateClub(id,'primera');
 for(const id of NATIONAL)validateClub(id,'nacional');
-assert.strictEqual(totalPrimera,1013,'cambió inesperadamente el total de Primera');
+assert.strictEqual(totalPrimera,1012,'cambió inesperadamente el total de Primera');
 assert.strictEqual(totalNacional,1026,'cambió inesperadamente el total de Primera Nacional');
 assert(keepers>0&&outfield>0);
-console.log('OK: 66 clubes, 2.039 jugadores (1.013 Primera + 1.026 Nacional), medias/edades/dorsales/roles y '+ATTRS.length+' atributos completos; sin nombres ni dorsales duplicados.');
+console.log('OK: 66 clubes, 2.038 jugadores (1.012 Primera + 1.026 Nacional), medias/edades/dorsales/roles y '+ATTRS.length+' atributos completos; sin nombres ni dorsales duplicados.');
