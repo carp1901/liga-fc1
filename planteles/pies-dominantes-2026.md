@@ -1296,3 +1296,14 @@ Se normalizan las etiquetas `Ambos` de Sofascore/FotMob a `Ambidiestro`, para ma
 | Jabes Saralegui | Derecho | https://www.fotmob.com/players/1413189/jabes-saralegui |
 
 **Criterios:** Gimnasia describe oficialmente a Lucas Lamella como un defensor con buen manejo de los dos perfiles, por lo que se registra como ambidiestro. Para Jabes Saralegui se prioriza la mayoría de fichas individuales consultadas (EA FC, FCScoutDB, FotMob, FM Blog y BallValue: derecho; Sofascore, TransferBOL y PlaymakerStats: izquierdo), cinco contra tres.
+
+
+## Compleción por criterio orientativo solicitado — 09/11/2026
+
+El usuario autorizó asignar un pie predeterminado cuando no se encuentre una fuente individual confiable, especialmente para juveniles. Estas asignaciones no se presentan como verificadas: se estiman por rol específico para que el simulador tenga un valor funcional.
+
+- LI, EI, MI: Izquierdo.
+- LD, ED, MD: Derecho.
+- POR, DFC, LIB, MCD, MC, MO, MP, DC, SD: Derecho como valor predeterminado.
+
+Primera División: se completaron los 20 registros que quedaban vacíos (18 predeterminados derechos y 2 izquierdos). Resultado: 1.012/1.012 con valor cargado. Las asignaciones previas respaldadas por fichas individuales se preservaron.
