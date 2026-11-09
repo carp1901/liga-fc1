@@ -1246,3 +1246,17 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Ronaldo Martínez | Derecho | https://es.besoccer.com/jugador/ronaldo-martinez-3226779 |
 
 **Criterio especial:** para Ronaldo Martínez se priorizó la mayoría de fuentes individuales consultadas (BeSoccer, FotMob, BallValue y Feeberse indican derecho; Sofascore y KickoffScore indican ambos). Se conserva el registro como derecho por mayoría de cuatro contra dos.
+
+
+## Octava tanda complementaria — 09/11/2026
+
+| Jugador | Pie | Fuente |
+|---|---|---|
+| Lucas Cacciabue | Izquierdo | https://database.footballmanagerblog.org/fm26/players/2000441696-lucas-cacciabue |
+| Máximo Cabrera | Derecho | https://www.besoccer.com/player/m-cabrera-3589175 |
+| Lautaro Ludueña | Izquierdo | https://www.sofascore.com/football/player/lautaro-luduena/2449877 |
+| Ramiro González | Derecho | https://database.footballmanagerblog.org/fm26/players/2000393475-ramiro-gonzalez |
+| Juan Posse | Ambos | https://fotlive.net/players/1844360/juan-posse |
+| Santiago Ferez | Derecho | https://database.footballmanagerblog.org/fm26/players/2000200460-santiago-ferez |
+
+**Criterio:** Lautaro Ludueña se identificó por fecha de nacimiento (03/08/2006) y club de reserva en Instituto; Máximo Cabrera coincide por fecha de nacimiento y club entre BeSoccer y FM Blog. Para el resto se usó la ficha individual coincidente de club/plantel.
