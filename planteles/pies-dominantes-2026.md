@@ -1094,3 +1094,17 @@ Fecha de revisión: 09/11/2026.
 | Blas Benedetto | Derecho | https://database.footballmanagerblog.org/fm26/players/2000281963-blas-benedetto |
 
 Francisco Sciarini figura como zurdo en YSScores. Blas Benedetto figura con pie preferido derecho en la base FM Blog. No se asigna lateralidad a partir de la posición ni de la pierna de golpeo en un video.
+
+
+## Actualización de faltantes — Huracán y Gimnasia
+Fecha de revisión: 09/11/2026.
+
+| Club | Jugador | Pie | Fuente |
+|---|---|---|---|
+| Huracán | Martín Nervo | Derecho | https://es.besoccer.com/jugador/h-nervo-54372 |
+| Huracán | Rodrigo Fernández Cedrés | Derecho | https://es.besoccer.com/jugador/rodrigofernandez-cedres-340687 |
+| Gimnasia | Patricio Schroeder | Derecho | https://es.besoccer.com/jugador/patricio-schroeder-3710768 |
+| Gimnasia | Mariano Ojeda | Izquierdo | https://es.besoccer.com/jugador/ojeda-3786962 |
+| Gimnasia | Juan José Pérez | Izquierdo | https://es.besoccer.com/jugador/j-perez-3261634 |
+
+Se completan cinco fichas con dato explícito de pie preferido. Máximo Cabrera se mantiene pendiente por discrepancia entre fuentes; los demás casos sin dato individual verificable no se completan por inferencia.
