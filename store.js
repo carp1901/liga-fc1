@@ -173,7 +173,7 @@ function rankRows(rows,f){
   if(['sur','oeste','norte','caba','cuyo','litoral','noa','patagonia','cordoba','bonaerense','ar','ar1','ar2','ar3','ar4','ar5','ar6','copaarg','real','all','custom','pers'].includes(c)||c.startsWith('ar'))return'Argentina';
   return'Argentina'
  };
-  const pass=r=>(mod=='online'?(r.modalidad=='clasico'||r.modalidad=='barrial'):r.modalidad==mod)&&(!f.comp||r.competicion==f.comp)&&(!f.country||recordCountry(r)==f.country)&&(!f.fmt||(f.fmt=='copa'?r.formato=='copa':f.fmt=='mixto'?r.formato=='mixto':String(r.formato).startsWith('liga')));
+  const pass=r=>(mod=='online'?(r.modalidad=='clasico'||r.modalidad=='barrial'):r.modalidad==mod)&&(!f.comp||(f.comp=='all'?/^(ar|uy|br)\\d+$/i.test(String(r.competicion||'')):r.competicion==f.comp))&&(!f.country||recordCountry(r)==f.country)&&(!f.fmt||(f.fmt=='copa'?r.formato=='copa':f.fmt=='mixto'?r.formato=='mixto':String(r.formato).startsWith('liga')));
   const by=new Map();let total=0;
   for(const r of rows){if(!pass(r))continue;total++;const t=new Date(r.finalizado).getTime()||0,x=by.get(r.club);
     if(x){x.titulos++;if(t>=x.t){x.t=t;x.nombre=r.club_nombre}}else by.set(r.club,{club:r.club,nombre:r.club_nombre,titulos:1,t})}
