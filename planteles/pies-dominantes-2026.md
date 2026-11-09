@@ -3,7 +3,7 @@
 ## Criterio
 - Registrar sólo pie dominante respaldado por una ficha individual del futbolista.
 - Prioridad: Sofascore, FotMob, EA SPORTS FC/FIFA Index u otra base individual fiable.
-- Valores CSV: `Derecho` / `Izquierdo`.
+- Valores CSV: `Derecho` / `Izquierdo` / `Ambidiestro`. Las fichas que indican `Ambos` o `Both` se normalizan como `Ambidiestro`.
 - No inferir por posición, nacionalidad, perfil táctico ni uso frecuente de una pierna.
 - Si no hay fuente individual clara, dejar vacío y mantenerlo pendiente.
 - Cada fila completada debe tener una fuente identificable en este registro.
@@ -1271,3 +1271,8 @@ Se completan únicamente registros con ficha individual que identifica el pie pr
 | Francisco Agustín Gualtieri | Derecho | https://www.fifacm.com/player/276109/francisco-gualtieri |
 
 **Resultado:** 3 registros más confirmados mediante fichas individuales que coinciden con club y datos del plantel.
+
+
+## Normalización de valores — 09/11/2026
+
+Se normalizan las etiquetas `Ambos` de Sofascore/FotMob a `Ambidiestro`, para mantener un único valor de campo coherente con los registros ambidiestros ya existentes y con la terminología de las fuentes. No se cambia ningún caso previamente cargado como `Derecho`, `Izquierdo` o `Ambidiestro`.
