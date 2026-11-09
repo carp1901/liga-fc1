@@ -709,3 +709,16 @@ Se añadieron dos registros con pie preferido explícito en perfiles individuale
 
 - [Gastón Martínez](https://database.footballmanagerblog.org/fm26/players/2000313824-gaston-martinez) — derecho.
 - [Julián Nuñez](https://database.footballmanagerblog.org/fm26/players/2000490773-julian-nunez) — derecho.
+
+
+## Segunda pasada — juveniles de Aldosivi y Platense
+
+Se incorporaron datos individuales explícitos de pie preferido:
+
+- [Matías Aballar — aldosivi](https://www.besoccer.com/player/m-aballar-3764803) — izquierdo.
+- [Kevin Báez — aldosivi](https://www.besoccer.com/player/kevin-baez-3697410) — izquierdo.
+- [Joaquín Salinas — aldosivi](https://www.besoccer.com/player/joaquin-salinas-3707219) — derecho.
+- [Nicolás Sumavil — platense](https://www.sofascore.com/football/player/nicolas-sumavil/1087017) — derecho.
+- [Thiago Currado — platense](https://www.besoccer.com/player/thiago-currado-3667993) — derecho.
+- [Celias Ingenthron — platense](https://www.sofascore.com/football/player/celias-ingenthron/2186558) — izquierdo.
+- [Santiago Dalmasso — platense](https://www.sofascore.com/football/player/santiago-dalmasso/1819599) — derecho.
