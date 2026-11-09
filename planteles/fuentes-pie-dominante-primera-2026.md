@@ -701,3 +701,11 @@ Fuente: [FCScoutDB — plantel filtrado](https://fcscoutdb.com/players?club=1127
 - Lucas Suárez: izquierdo.
 - Gabriel Díaz: izquierdo.
 
+
+
+## Belgrano — juveniles con ficha de FM26
+
+Se añadieron dos registros con pie preferido explícito en perfiles individuales de Football Manager Blog Database, ambos identificados como jugadores de Belgrano:
+
+- [Gastón Martínez](https://database.footballmanagerblog.org/fm26/players/2000313824-gaston-martinez) — derecho.
+- [Julián Nuñez](https://database.footballmanagerblog.org/fm26/players/2000490773-julian-nunez) — derecho.
