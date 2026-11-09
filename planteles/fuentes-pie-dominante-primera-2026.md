@@ -212,3 +212,20 @@ Se incorporaron los siguientes pies preferidos explícitos de fichas individuale
 - [Augusto Lotti — FCScoutDB](https://fcscoutdb.com/players/augusto-lotti) — derecho.
 - [Tomás Nasif — FCScoutDB](https://fcscoutdb.com/players/tomas-nasif) — derecho.
 - [Bruno Sepúlveda — FCScoutDB](https://fcscoutdb.com/players/bruno-sepulveda) — derecho.
+
+
+## Sarmiento — continuación de la tanda
+
+Se incorporaron los pies preferidos explícitos de las fichas individuales FCScoutDB:
+
+- [Yair Arismendi — FCScoutDB](https://fcscoutdb.com/players/yair-arismendi) — izquierdo.
+- [Juan Manuel Insaurralde — FCScoutDB](https://fcscoutdb.com/players/juan-manuel-insaurralde) — izquierdo.
+- [Renzo Orihuela — FCScoutDB](https://fcscoutdb.com/players/renzo-orihuela) — derecho.
+- [Julián Contrera — FCScoutDB](https://fcscoutdb.com/players/julian-contrera) — derecho.
+- [Manuel García — FCScoutDB](https://fcscoutdb.com/players/manuel-garcia) — derecho.
+- [Santiago Salle — FCScoutDB](https://fcscoutdb.com/players/santiago-salle) — derecho.
+- [Cristian Zabala — FCScoutDB](https://fcscoutdb.com/players/cristian-zabala) — derecho.
+- [Diego Churín — FCScoutDB](https://fcscoutdb.com/players/diego-churin) — derecho.
+- [Jonathan Herrera — FCScoutDB](https://fcscoutdb.com/players/jonathan-herrera) — izquierdo.
+- [Pablo Magnín — FCScoutDB](https://fcscoutdb.com/players/pablo-magnin) — derecho.
+- [Junior Marabel — FCScoutDB](https://fcscoutdb.com/players/junior-marabel) — derecho.
