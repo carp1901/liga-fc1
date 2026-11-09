@@ -181,7 +181,7 @@ select{pointer-events:none}
 </style></head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">CLASH FUTBOL - 2D ONLINE</h1>
-<section id="m0" class="sc"><button class="bt big" id="bon">Online</button><button class="bt big" id="bof">Offline</button><button class="bt big" id="brk">Rankings</button><button class="bt ok" id="bacc">👤 Ingresar / Crear cuenta</button><button class="bt ok" id="bamg">👥 Amigos</button><button class="bt ok" id="bchat">💬 Chat general</button><button class="bt ok" id="btr">🏅 Ranking de técnicos</button></section>
+<section id="m0" class="sc"><button class="bt big" id="bon">Online</button><button class="bt big" id="bof">Offline</button><button class="bt big" id="brk">Rankings</button><button class="bt ok" id="bacc">👤 Ingresar / Crear cuenta</button><button class="bt ok" id="bamg">👥 Amigos</button><button class="bt ok" id="bchat">💬 Chat general</button><button class="bt ok" id="btr" hidden>🏅 Ranking de técnicos</button></section>
 <section id="m1" class="sc" hidden><h2 class="mt">Sala privada · Modo clásico</h2><p class="lb">Elegí un código para tu sala y compartilo con tus amigos.</p><input id="cdc" class="in" placeholder="Código de sala (3-12 letras o números)" maxlength="12" autocapitalize="off" autocomplete="off">
 <div class="rw crt"><div class="c2"><label class="lb">crear · división<select id="dv"></select></label><label class="lb">cant. jugadores<select id="np"></select></label><label class="lb">formato<select id="fm"><option value="liga1">Todos contra todos (1 rueda)</option><option value="liga2">Todos contra todos (2 ruedas)</option><option value="copa">Mata-mata</option></select></label><select id="ct" hidden></select></div><button class="bt ok" id="bc2">crear<br>y<br>entrar</button></div><p class="lb" id="rk1"></p>
 <button class="bk" data-back="14">‹ volver</button></section>
@@ -194,7 +194,31 @@ select{pointer-events:none}
 <section id="m8" class="sc" hidden><h2 class="mt">Offline · Carreras</h2><p class="lb">Hasta 3 carreras. Se guardan solas al terminar cada fecha y también podés guardar a mano con 💾.</p><div id="slots"></div><p class="lb" id="slm"></p><button class="bk" data-back="0">‹ volver</button></section>
 <section id="m18" class="sc" hidden><h2 class="mt">Nueva carrera</h2><p class="lb" id="nsl"></p><button class="bt big" id="bo">Modo clásico<small>Realista y Copa Argentina</small></button><button class="bt big" id="bcustom">Personalizado<small>Copa mata-mata, Liga y Mixto</small></button><button class="bt big sm" id="btb">Torneos barriales/<br>regionales<small>(1 temporada)</small></button><div class="lgw"><span class="lb">Liga:</span><div class="lgd"><button id="lgb" class="lgbtn"></button><div id="lgl" class="lgl" hidden></div></div></div><button class="bk" data-back="8">‹ volver</button></section>
 <section id="m9" class="sc" hidden><h2 class="mt" id="ct9"></h2><p class="lb" id="cr9"></p><div class="c2 w"><label class="lb">formato<select id="bfm"></select></label><label class="lb">cantidad de jugadores<select id="bnp"></select></label><input id="cd9" class="in" placeholder="Código de sala (3-12 letras o números)" maxlength="12" autocapitalize="off" autocomplete="off"></div><p class="lb" id="rk9"></p><button class="bt ok" id="bc9">crear<br>y<br>entrar</button><p class="lb">Clubes de la competición:</p><div class="grid cg" id="cg9"></div><button class="bk" data-back="7">‹ volver</button></section>
-<section id="m10" class="sc" hidden><h2 class="mt">Rankings de títulos</h2><div class="rkt" id="rkt"><button data-rt="gen" class="on">Online</button><button data-rt="cla">Clásico</button><button data-rt="bar">Barrial</button><button data-rt="off">Offline</button><button data-rt="comp">Por competición</button></div><div class="c2 w"><label class="lb" id="rkml">modalidad<select id="rkm"></select></label><label class="lb">competición / división<select id="rkc"></select></label><label class="lb">tipo de torneo<select id="rkf"><option value="">Todos</option><option value="liga">Liga</option><option value="copa">Copa</option><option value="mixto">Mixto</option></select></label></div><div class="rkb" id="rkb"></div><button class="bt ok" id="rkcmp">Comparar clubes</button><button class="bk" data-back="0">‹ volver</button></section>
+<section id="m10" class="sc rankings-screen" hidden>
+<h2 class="mt">RANKINGS</h2>
+<div class="rkt ranking-main-tabs" id="rankingTabs">
+<button id="rankclubs" class="on" data-ranking="clubes">⚽ CLUBES</button>
+<button id="ranktech" data-ranking="tecnicos">🏅 TÉCNICOS</button>
+<button id="rankfans" data-ranking="hinchas">👥 HINCHAS</button>
+</div>
+<div id="rankclubspanel">
+<h3 class="mt">Palmarés de clubes</h3>
+<div class="rkt" id="rkt"><button data-rt="gen" class="on">Online</button><button data-rt="cla">Clásico</button><button data-rt="bar">Barrial</button><button data-rt="off">Offline</button><button data-rt="comp">Por competición</button></div>
+<div class="c2 w ranking-filters"><label class="lb" id="rkml">modalidad<select id="rkm"></select></label><label class="lb">competición / división<select id="rkc"></select></label><label class="lb">tipo de torneo<select id="rkf"><option value="">Todos</option><option value="liga">Liga</option><option value="copa">Copa</option><option value="mixto">Mixto</option></select></label></div>
+<div class="rkb" id="rkb"></div><button class="bt ok" id="rkcmp">Comparar clubes</button>
+</div>
+<div id="ranktechpanel" hidden>
+<h3 class="mt">Rendimiento de técnicos</h3>
+<div class="rkt"><button id="trseason" class="on">Temporada actual</button><button id="trhistory">Histórico</button></div>
+<input class="in ranking-search" id="trsearch" placeholder="Buscar técnico" maxlength="24" autocomplete="off">
+<p class="lb" id="trinfo">Clasificación de técnicos por rendimiento en torneos elegibles.</p><div class="rkb" id="trlist"><span class="mu">Cargando…</span></div>
+</div>
+<div id="rankfanspanel" hidden>
+<h3 class="mt">Popularidad de clubes</h3>
+<input class="in ranking-search" id="fansearch" placeholder="Buscar club" maxlength="30" autocomplete="off">
+<p class="lb" id="faninfo">Cada cuenta registrada con club favorito suma un hincha.</p><div class="rkb" id="fanlist"><span class="mu">Cargando ranking…</span></div>
+</div>
+<button class="bk" data-back="0">‹ volver</button></section>
 <section id="m11" class="sc" hidden><div class="rkb" id="fcb"></div><div class="rw"><select id="fcc"></select><button class="bt ok" id="fcg">comparar</button></div><button class="bk" data-back="10">‹ volver</button></section>
 <section id="m13" class="sc" hidden><h2 class="mt">Salas públicas</h2><p class="lb">Torneos online abiertos a cualquiera. Son competiciones de fantasía, no torneos oficiales. Para que un título sea oficial tienen que participar al menos 10 personas reales.</p>
 <div class="c2 w"><label class="lb">categoría<select id="pfc"><option value="">Todas</option><option value="clasico">Clásico</option><option value="barrial">Barrial / Regional</option></select></label><label class="lb">estado<select id="pfs"><option value="">Todos</option><option value="esperando">Esperando jugadores</option><option value="juego">En juego con vacantes</option><option value="completa">Completas (solo espectadores)</option></select></label><label class="lb">formato<select id="pff"><option value="">Todos</option><option value="liga">Liga</option><option value="copa">Mata-mata</option></select></label></div>
@@ -216,7 +240,7 @@ select{pointer-events:none}
 <section id="m20" class="sc" hidden><h2 class="mt" id="pfn">Mi perfil</h2><div id="pffav"></div><div class="rkb" id="pfb"></div><div class="rw"><button class="bt ok" id="pfx" style="font-size:18px">cerrar sesión</button></div><button class="bk" id="pfback" data-back="0">‹ volver</button></section>
 <section id="m21" class="sc" hidden><h2 class="mt">Amigos</h2><div class="rw"><input id="amu" class="in" placeholder="Usuario de tu amigo" maxlength="16" autocapitalize="off" autocomplete="off" spellcheck="false"><button class="bt ok" id="amx">agregar</button></div><p class="lb" id="ame"></p><div class="rkb" id="amb"></div><button class="bk" data-back="0">‹ volver</button></section>
 <section id="m29" class="sc" hidden><h2 class="mt">Chat general</h2><div id="chatmsgs" class="box" style="height:340px;max-height:55vh;overflow:auto;text-align:left"><span class="mu">Cargando mensajes…</span></div><div id="chatguest" class="nt" hidden><span>Para comentar necesitás una cuenta y un club favorito.</span><button class="bt ok" id="chatlogin">Registrarme / ingresar</button></div><div id="chatwrite" class="rw" hidden><input id="chatinput" class="in" placeholder="Escribí un mensaje…" maxlength="300" style="flex:1"><button class="bt ok" id="chatsend">Enviar</button></div><p class="lb" id="chaterr"></p><button class="bt ok" id="chatadminToggle" hidden>Herramientas de moderación</button><div id="chatadmin" class="box" hidden><h3>Herramientas privadas de moderación</h3><input id="chattarget" class="in" placeholder="Usuario a moderar" maxlength="16"><div class="rw"><input id="chatminutes" class="in" type="number" min="1" max="10080" value="10" placeholder="Minutos"><input id="chatreason" class="in" maxlength="160" placeholder="Motivo (opcional)"></div><div class="rw"><button class="bt ok" id="chatmute">Silenciar</button><button class="bt ok" id="chatunmute">Reactivar</button></div><div id="chatowner" class="rw" hidden><button class="bt ok" id="chatsuspend">Suspender</button><button class="bt ok" id="chatmod">Dar moderador</button><button class="bt ok" id="chatunmod">Quitar moderador</button></div><p class="lb" id="chatmodmsg"></p></div><button class="bk" data-back="0">‹ volver</button></section>
-<section id="m30" class="sc" hidden><h2 class="mt">Rankings</h2><div class="rkt"><button id="ranktech" class="on">Técnicos</button><button id="rankfans">Hinchas</button></div><div id="ranktechpanel"><div class="rkt"><button id="trseason" class="on">Temporada actual</button><button id="trhistory">Histórico</button></div><p class="lb" id="trinfo">Solo suman resultados online competitivos vinculados a una cuenta. No se acreditan carreras offline ni títulos antiguos sin atribución comprobable.</p><div class="rkb" id="trlist"><span class="mu">Cargando…</span></div></div><div id="rankfanspanel" hidden><p class="lb" id="faninfo">Cada cuenta con un club favorito suma 1 punto para ese club. El club elegido queda fijo.</p><div class="rkb" id="fanlist"><span class="mu">Cargando ranking…</span></div></div><button class="bk" data-back="0">‹ volver</button></section>
+<section id="m30" class="sc" hidden><h2 class="mt">Rankings</h2><button class="bk" data-back="10">‹ volver a Rankings</button></section>
 <section id="m31" class="sc" hidden><h2 class="mt" id="pubtitle">Perfil del técnico</h2><div class="rkb" id="pubprofile"><span class="mu">Cargando perfil…</span></div><button class="bk" data-back="30">‹ volver al ranking</button></section>
 <p id="er"></p><footer class="nmb"><input id="nm" placeholder="nombre jugador" maxlength="16"></footer></div></div>
 <div id="gm" hidden><div id="gfl" hidden></div><div class="box" id="hd"></div><div class="box" id="hctl" hidden></div><div class="box" id="rnd" hidden></div><div class="box" id="cxend" hidden></div><div id="pk" class="box" hidden></div>
@@ -669,7 +693,7 @@ async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Ca
    o.innerHTML=`<div class="rkcount"><strong>${d.total}</strong><span>títulos registrados en este filtro</span></div>${podium}${table}<div class=nt>Tocá un club del podio o de la tabla para ver su ficha completa.</div>${d.rows.some(x=>x.empate)?'<div class=nt>= indica clubes empatados: comparten posición y se ordenan alfabéticamente.</div>':''}${note}`;
   }else{o.innerHTML=`<span class=mu>Todavía no hay títulos para este filtro.</span>${note}`}}
  catch(e){if(n==RKN)o.innerHTML='<span class=mu>No se pudo cargar el ranking (sin conexión con el servidor).</span>'}}
-$('#brk').onclick=()=>{goM('m10');rkSetup('gen')};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;
+$('#brk').onclick=()=>{goM('m10');rankingMode('clubes')};$('#rkt').onclick=e=>{const b=e.target.closest('[data-rt]');if(b)rkSetup(b.dataset.rt)};$('#rkm').onchange=rkLoad;$('#rkc').onchange=rkLoad;$('#rkf').onchange=rkLoad;
 /* ===== Ficha de club y comparador (Bloque 6): todo sale de /api/club, que usa el mismo registro que los rankings. ===== */
 const MODL={clasico:'clásico online',barrial:'barrial online',offline:'offline'},FMTL=f=>f=='copa'?'Copa':'Liga',posTxt=p=>p?p.pos+'º'+(p.empate?'=':'')+' de '+p.de:'—';
 let CLUB=null,CLUBHTML='';
@@ -882,29 +906,61 @@ async function chatModAction(accion){
 $('#chatmute').onclick=()=>chatModAction('silenciar');$('#chatunmute').onclick=()=>chatModAction('reactivar');$('#chatsuspend').onclick=()=>chatModAction('suspender');$('#chatmod').onclick=()=>chatModAction('moderar');$('#chatunmod').onclick=()=>chatModAction('desmoderar');
 let TR_PERIODO='temporada',RANK_MODE='tecnicos';
 function rankingMode(mode){
- RANK_MODE=mode;$('#ranktech').classList.toggle('on',mode==='tecnicos');$('#rankfans').classList.toggle('on',mode==='hinchas');
- $('#ranktechpanel').hidden=mode!=='tecnicos';$('#rankfanspanel').hidden=mode!=='hinchas';
+ RANK_MODE=mode;
+ $('#rankclubs').classList.toggle('on',mode==='clubes');
+ $('#ranktech').classList.toggle('on',mode==='tecnicos');
+ $('#rankfans').classList.toggle('on',mode==='hinchas');
+ $('#rankclubspanel').hidden=mode!=='clubes';
+ $('#ranktechpanel').hidden=mode!=='tecnicos';
+ $('#rankfanspanel').hidden=mode!=='hinchas';
+ if(mode==='clubes')rkSetup('gen');
+ if(mode==='tecnicos')tecnicoRankLoad(TR_PERIODO);
  if(mode==='hinchas')hinchasRankLoad();
+}
+let FAN_ROWS=[];
+function renderFans(){
+ const q=($('#fansearch').value||'').trim().toLocaleLowerCase('es');
+ const rows=FAN_ROWS.filter(x=>(TM[x.club]?TM[x.club].name:x.club).toLocaleLowerCase('es').includes(q));
+ if(!rows.length){$('#fanlist').innerHTML='<span class=mu>No hay clubes que coincidan con la búsqueda.</span>';return}
+ const top=rows.slice(0,3),rest=rows.slice(3);
+ const podium='<section class="rkpod"><div class="rkpodhead"><b>Los clubes con más hinchas</b><span>'+FAN_ROWS.length+' clubes</span></div><div class="rkpodgrid">'+top.map((x,i)=>'<div class="rkpodcard '+(['gold','silver','bronze'][i])+'"><span class="rkpodpos">'+(i+1)+'º</span>'+(TM[x.club]?cr(x.club,44):'')+'<b class="rkpodname">'+esc(TM[x.club]?TM[x.club].name:x.club)+'</b><strong>'+x.hinchas+'</strong><small>hinchas</small></div>').join('')+'</div></section>';
+ const table='<div class="rkfullhead">Clasificación completa</div><div class="rkfullwrap"><table><thead><tr><th>#</th><th>Club</th><th>Hinchas</th><th>%</th></tr></thead><tbody>'+rows.map(x=>'<tr><td>'+x.pos+'</td><td>'+(TM[x.club]?cr(x.club,22)+' ':'')+esc(TM[x.club]?TM[x.club].name:x.club)+'</td><td class=pt>'+x.hinchas+'</td><td>'+((x.hinchas/(FAN_ROWS.total||1))*100).toFixed(1)+'%</td></tr>').join('')+'</tbody></table></div>';
+ $('#fanlist').innerHTML=podium+table;
 }
 async function hinchasRankLoad(){
  $('#fanlist').innerHTML='<span class=mu>Cargando ranking…</span>';
  try{const r=await fetch('/api/ranking-hinchas'),d=await r.json();if(!r.ok||!d.enabled){$('#fanlist').innerHTML='<span class=mu>El ranking de hinchas no está disponible.</span>';return}
-  $('#faninfo').textContent='Cada cuenta con un club favorito suma exactamente 1 punto. Total de cuentas con club elegido: '+(d.totalCuentas||0)+'. No se suman invitados ni cuentas sin club favorito.';
-  if(!d.rows.length){$('#fanlist').innerHTML='<span class=mu>Todavía no hay hinchas registrados.</span>';return}
-  $('#fanlist').innerHTML='<table><tr><th>#</th><th>Club</th><th>Hinchas</th><th>Puntos</th></tr>'+d.rows.map(x=>'<tr><td>'+x.pos+'</td><td>'+(TM[x.club]?cr(x.club,24)+' ':'')+esc(TM[x.club]?TM[x.club].name:x.club)+'</td><td><b>'+x.hinchas+'</b></td><td>'+x.puntos+'</td></tr>').join('')+'</table>';
+  FAN_ROWS=d.rows||[];FAN_ROWS.total=d.totalCuentas||0;
+  $('#faninfo').textContent='Cada cuenta registrada con un club favorito suma exactamente 1 hincha. Total de cuentas con club elegido: '+FAN_ROWS.total+'. El club favorito queda fijo.';
+  renderFans();
  }catch(e){$('#fanlist').innerHTML='<span class=mu>No hay conexión con el servidor.</span>'}
 }
-$('#ranktech').onclick=()=>rankingMode('tecnicos');$('#rankfans').onclick=()=>rankingMode('hinchas');
+$('#rankclubs').onclick=()=>rankingMode('clubes');
+$('#ranktech').onclick=()=>rankingMode('tecnicos');
+$('#rankfans').onclick=()=>rankingMode('hinchas');
+$('#fansearch').oninput=renderFans;
+let TECH_ROWS=[];
+function renderTech(){
+ const q=($('#trsearch').value||'').trim().toLocaleLowerCase('es');
+ const rows=TECH_ROWS.filter(x=>x.usuario.toLocaleLowerCase('es').includes(q));
+ if(!rows.length){$('#trlist').innerHTML='<span class=mu>No hay técnicos que coincidan con la búsqueda.</span>';return}
+ const top=rows.slice(0,3),rest=rows.slice(3);
+ const podium='<section class="rkpod"><div class="rkpodhead"><b>Los técnicos destacados</b><span>'+TECH_ROWS.length+' técnicos</span></div><div class="rkpodgrid">'+top.map((x,i)=>'<div class="rkpodcard '+(['gold','silver','bronze'][i])+'" data-tecnico="'+esc(x.usuario)+'" role="button" tabindex="0"><span class="rkpodpos">'+(i+1)+'º</span>'+(x.clubFavorito&&TM[x.clubFavorito]?cr(x.clubFavorito,44):'')+'<b class="rkpodname">'+esc(x.usuario)+'</b><strong>'+x.puntos+'</strong><small>puntos</small></div>').join('')+'</div></section>';
+ const table='<div class="rkfullhead">Clasificación completa</div><div class="rkfullwrap"><table><thead><tr><th>#</th><th>Técnico</th><th>Puntos</th><th>🏆</th><th>Podios</th><th>Torneos</th></tr></thead><tbody>'+rows.map(x=>'<tr data-tecnico="'+esc(x.usuario)+'" style="cursor:pointer"><td>'+x.pos+'</td><td>'+(x.clubFavorito&&TM[x.clubFavorito]?cr(x.clubFavorito,22)+' ':'')+esc(x.usuario)+'</td><td class=pt>'+x.puntos+'</td><td>'+x.campeonatos+'</td><td>'+x.podios+'</td><td>'+x.torneos+'</td></tr>').join('')+'</tbody></table></div>';
+ $('#trlist').innerHTML=podium+table;
+}
 async function tecnicoRankLoad(periodo){
  TR_PERIODO=periodo;$('#trseason').classList.toggle('on',periodo=='temporada');$('#trhistory').classList.toggle('on',periodo=='historico');$('#trlist').innerHTML='<span class=mu>Cargando ranking…</span>';
  try{const r=await fetch('/api/ranking-tecnicos?periodo='+periodo),d=await r.json();if(!r.ok||!d.enabled){$('#trlist').innerHTML='<span class=mu>El ranking no está disponible en este momento.</span>';return}
-  $('#trinfo').textContent=(periodo=='temporada'?'Temporada '+d.temporada+'. ':'Histórico desde que se registran resultados competitivos. ')+'Cuentan torneos online elegibles y carreras offline con cuenta. Online: mínimo 10 participantes humanos; ligas de 10 o más equipos y copas de 8 o más. Offline: ligas y mixtos desde 10 equipos, copas desde 8. Liga: el puntaje depende del puesto y la cantidad de equipos. Copa: se reduce a la mitad por cada ronda superada.';
-  if(!d.rows.length){$('#trlist').innerHTML='<span class=mu>Todavía no hay resultados competitivos registrados para este período.</span>';return}
-  $('#trlist').innerHTML='<table><tr><th>#</th><th>Técnico</th><th>Puntos</th><th>🏆</th><th>Torneos</th></tr>'+d.rows.map(x=>'<tr data-tecnico="'+esc(x.usuario)+'" style="cursor:pointer"><td>'+x.pos+'</td><td>'+(x.clubFavorito&&TM[x.clubFavorito]?cr(x.clubFavorito,22)+' ':'')+esc(x.usuario)+'</td><td><b>'+x.puntos+'</b></td><td>'+x.campeonatos+'</td><td>'+x.torneos+'</td></tr>').join('')+'</table>';
+  TECH_ROWS=d.rows||[];
+  $('#trinfo').textContent=(periodo=='temporada'?'Temporada '+d.temporada+'. ':'Histórico desde que se registran resultados competitivos. ')+'Cuentan torneos online elegibles y carreras offline con cuenta. Online: mínimo 10 participantes humanos; ligas de 10 o más equipos y copas de 8 o más. Offline: ligas y mixtos desde 10 equipos, copas desde 8. La puntuación actual pondera la posición final y las rondas alcanzadas.';
+  renderTech();
  }catch(e){$('#trlist').innerHTML='<span class=mu>No hay conexión con el servidor.</span>'}
 }
-$('#btr').onclick=()=>{goM('m30');rankingMode('tecnicos');tecnicoRankLoad('temporada')};
-$('#trseason').onclick=()=>tecnicoRankLoad('temporada');$('#trhistory').onclick=()=>tecnicoRankLoad('historico');
+$('#btr').onclick=()=>{goM('m10');rankingMode('tecnicos')};
+$('#trseason').onclick=()=>tecnicoRankLoad('temporada');
+$('#trhistory').onclick=()=>tecnicoRankLoad('historico');
+$('#trsearch').oninput=renderTech;
 async function tecnicoProfileLoad(usuario){
  goM('m31');$('#pubtitle').textContent='Perfil de '+usuario;$('#pubprofile').innerHTML='<span class=mu>Cargando perfil…</span>';
  try{const r=await fetch('/api/tecnico?usuario='+encodeURIComponent(usuario)),d=await r.json();if(!r.ok||!d.enabled){$('#pubprofile').innerHTML='<span class=mu>'+(d.error||'No se pudo cargar el perfil.')+'</span>';return}
