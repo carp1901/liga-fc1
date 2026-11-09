@@ -25,7 +25,7 @@ try{
   const age0=DATA.squad('boca')[0].age;
   const evolved=second.me.devSq.find(x=>x.n===DATA.squad('boca')[0].n);
   assert(evolved&&evolved.age===age0+1,'la edad no avanzó con la temporada');
-  assert.strictEqual(ENG.development('devtest2').boca[0].profile.pot,devLoaded.boca[0].profile.pot,'el potencial oculto cambió al cargar/avanzar temporada');
+  const devSecond=ENG.development('devtest2').boca;const firstKey=Object.keys(devLoaded.boca)[0];assert(firstKey&&devSecond[firstKey],'se perdió el perfil del primer jugador');assert.strictEqual(devSecond[firstKey].profile.pot,devLoaded.boca[firstKey].profile.pot,'el potencial oculto cambió al cargar/avanzar temporada');
   stop('devtest2');
   console.log('OK: integración realista, perfiles de plantilla, guardado/carga, potencial persistente y edad de temporada.');
 }catch(e){for(const id of ['devtest1','devtest2',...Object.keys(ENG.rooms)])stop(id);throw e}
