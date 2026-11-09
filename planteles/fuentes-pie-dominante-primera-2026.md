@@ -189,3 +189,26 @@ Se añadieron los siguientes pies preferidos, verificados en las fichas individu
 - [Alfio Oviedo — FCScoutDB](https://fcscoutdb.com/players/alfio-oviedo) — derecho.
 - [Ignacio Russo — FCScoutDB](https://fcscoutdb.com/players/ignacio-russo) — derecho.
 - [Tiago Serrago — FCScoutDB](https://fcscoutdb.com/players/tiago-serrago) — derecho.
+
+
+## Platense — continuación de la tanda
+
+Se incorporaron los siguientes pies preferidos explícitos de fichas individuales FCScoutDB. Los jugadores sin dato en sus fichas permanecen sin completar.
+
+- [Juan Pablo Cozzani — FCScoutDB](https://fcscoutdb.com/players/juan-pablo-cozzani) — derecho.
+- [Agustín Lagos — FCScoutDB](https://fcscoutdb.com/players/agustin-lagos) — derecho.
+- [Santiago Quirós — FCScoutDB](https://fcscoutdb.com/players/santiago-quiros) — izquierdo.
+- [Eugenio Raggio — FCScoutDB](https://fcscoutdb.com/players/eugenio-raggio) — derecho.
+- [Ignacio Vázquez — FCScoutDB](https://fcscoutdb.com/players/ignacio-vazquez) — derecho.
+- [Maximiliano Amarfil — FCScoutDB](https://fcscoutdb.com/players/maximiliano-amarfil) — derecho.
+- [Iván Gómez — FCScoutDB](https://fcscoutdb.com/players/ivan-gomez) — derecho.
+- [Guido Mainero — FCScoutDB](https://fcscoutdb.com/players/guido-mainero) — derecho.
+- [Bautista Merlini — FCScoutDB](https://fcscoutdb.com/players/bautista-merlini) — derecho.
+- [Franco Zapiola — FCScoutDB](https://fcscoutdb.com/players/franco-zapiola) — izquierdo.
+- [Héctor Bobadilla — FCScoutDB](https://fcscoutdb.com/players/hector-bobadilla) — derecho.
+- [Juan Gauto — FCScoutDB](https://fcscoutdb.com/players/juan-carlos-gauto) — derecho.
+- [Luciano Giménez — FCScoutDB](https://fcscoutdb.com/players/luciano-gimenez) — derecho.
+- [Leonardo Heredia — FCScoutDB](https://fcscoutdb.com/players/leonardo-heredia) — derecho.
+- [Augusto Lotti — FCScoutDB](https://fcscoutdb.com/players/augusto-lotti) — derecho.
+- [Tomás Nasif — FCScoutDB](https://fcscoutdb.com/players/tomas-nasif) — derecho.
+- [Bruno Sepúlveda — FCScoutDB](https://fcscoutdb.com/players/bruno-sepulveda) — derecho.
