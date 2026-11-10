@@ -259,7 +259,14 @@ class Sim{
    else if((S.koP&&B.own===S.koP)||S.ko){tx=W/2-(S.koP?(S.koP.s?-1:1)*10:0);ty=H/2+52}
    r.tx=clamp(tx,X0+40,X0+FW-40);r.ty=clamp(ty,Y0+24,Y0+FH-24)}
   l1.tx=clamp(lm[0],X0+20,W/2+90);l1.ty=Y0-3;l2.tx=clamp(lm[1],W/2-90,X0+FW-20);l2.ty=Y0+FH+3;
-  {const dx=r.tx-r.x,dy=r.ty-r.y,d=Math.hypot(dx,dy);let sp=0;if(d>24){sp=Math.min(3,(d-24)*.07+.5);r.x+=dx/d*sp;r.y+=dy/d*sp;r.fx=dx/d;r.fy=dy/d}r.ph=(r.ph||0)+sp*.55;r.bob=sp>.5?Math.sin(r.ph)*1.5:0;const bd=Math.hypot(r.x-B.x,r.y-B.y);if(bd<34&&bd>.1){const k=Math.min(2,34-bd);r.x+=(r.x-B.x)/bd*k;r.y+=(r.y-B.y)/bd*k}for(const q of P){if(q.off)continue;const qd=Math.hypot(r.x-q.x,r.y-q.y);if(qd<R+18&&qd>.1){const k=Math.min(1.6,R+18-qd);r.x+=(r.x-q.x)/qd*k;r.y+=(r.y-q.y)/qd*k}}r.x=clamp(r.x,X0+10,X0+FW-10);r.y=clamp(r.y,Y0+12,Y0+FH-12)}   // el árbitro no corre detrás de la pelota: acompaña desde lejos, en diagonal
+  {r.sx=r.sx==null?r.tx:r.sx+(r.tx-r.sx)*.05;r.sy=r.sy==null?r.ty:r.sy+(r.ty-r.sy)*.05;   // objetivo suavizado + velocidad con inercia: el árbitro fluye en vez de vibrar
+   const dx=r.sx-r.x,dy=r.sy-r.y,d=Math.hypot(dx,dy),s0=clamp((d-10)*.045,0,2.8);let ax=d>.1?dx/d*s0:0,ay=d>.1?dy/d*s0:0;
+   const bd=Math.hypot(r.x-B.x,r.y-B.y);if(bd<50&&bd>.1){const k=(50-bd)/50*1.7;ax+=(r.x-B.x)/bd*k;ay+=(r.y-B.y)/bd*k}
+   for(const q of P){if(q.off)continue;const qd=Math.hypot(r.x-q.x,r.y-q.y);if(qd<R+24&&qd>.1){const k=(R+24-qd)/(R+24)*1.3;ax+=(r.x-q.x)/qd*k;ay+=(r.y-q.y)/qd*k}}
+   r.vx=(r.vx||0)+(ax-(r.vx||0))*.1;r.vy=(r.vy||0)+(ay-(r.vy||0))*.1;r.x+=r.vx;r.y+=r.vy;
+   if(bd<22&&bd>.1){r.x+=(r.x-B.x)/bd*1.2;r.y+=(r.y-B.y)/bd*1.2}
+   const sp=Math.hypot(r.vx,r.vy);if(sp>.25){const fx=r.fx||1,fy=r.fy||0,nx=fx+(r.vx/sp-fx)*.12,ny=fy+(r.vy/sp-fy)*.12,nn=Math.hypot(nx,ny)||1;r.fx=nx/nn;r.fy=ny/nn}
+   r.ph=(r.ph||0)+sp*.5;r.bob=Math.sin(r.ph)*clamp(sp-.3,0,1)*1.3;r.x=clamp(r.x,X0+10,X0+FW-10);r.y=clamp(r.y,Y0+12,Y0+FH-12)}   // el árbitro no corre detrás de la pelota: acompaña desde lejos, en diagonal
   [l1,l2].forEach(w=>{w.x+=clamp((w.tx-w.x)*.08,-1.8,1.8);w.y+=(w.ty-w.y)*.12})}   // árbitro cerca de la jugada; jueces de línea a la altura del último defensor
  cornerCross(){const S=this,sc=S.sc,tg=sc.box.length?sc.box[Math.floor(rnd()*sc.box.length)]:sc.taker;sc.tgt=tg;sc.ph='cx';sc.wait=tg;sc.tk=sc.t;S.crossT=S.n;S.crossD=dist(tg,S.B)/((sc.fkd?6.6:5)*S.fs);{const B=S.B,g=S.geo(sc.side),ux=Math.sign(g.gx-B.x)||1,sg=Math.sign(-(tg.y-B.y)*ux)||1,cl=sc.fkd?.5:.78,m=.014+rnd()*.008;sc.closed=rnd()<cl;S.kickAt(tg,(sc.fkd?6.6:5)*S.fs,1,(sc.closed?sg:-sg)*m)}
   S.P.forEach(p=>{if(p.k==0||p===sc.taker)return;if(sc.box.includes(p)||p.s!==sc.side){S.tg(p,tg.x+(rnd()-.5)*46,tg.y+(rnd()-.5)*46);p.vmx=2.6}else p.tg=null})}   // todos van a buscar la pelota
