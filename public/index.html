@@ -50,8 +50,10 @@ i.pk{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:ce
 .box.cl>h2:first-child{cursor:pointer;user-select:none}.box.cl>h2:first-child::before{content:'▾ ';color:var(--mu)}.box.cl.col>h2:first-child::before{content:'▸ '}.box.cl.col>:not(h2:first-child){display:none!important}
 /* Chat general: historial prioritario y moderacion plegable */
 body:has(#m29:not([hidden])){overflow:hidden}
-body:has(#m29:not([hidden])) #menu .bd{align-items:stretch;gap:4px}
-body:has(#m29:not([hidden])) #m29{display:flex!important;flex:1 1 0;min-height:0;height:auto;width:100%;max-width:none;margin:0;align-items:stretch;justify-content:flex-start;gap:7px;overflow:hidden}
+body:has(#m29:not([hidden])) #menu .bd{width:min(460px,calc(100vw - 16px));height:min(920px,calc(100dvh - 16px));max-height:none;box-sizing:border-box;padding:10px 12px 12px;align-items:stretch;gap:4px;overflow:hidden}
+body:has(#m29:not([hidden])) #menu .tt{flex:none;margin:2px 0 7px;font-size:clamp(18px,5vw,25px)}
+body:has(#m29:not([hidden])) #menu .nmb{display:none}
+body:has(#m29:not([hidden])) #m29{display:flex!important;flex:1 1 0;min-height:0;height:auto;width:100%;max-width:none;margin:0;align-items:stretch;justify-content:flex-start;gap:5px;overflow:hidden}
 #m29>h2{flex:none;margin:0;font-size:clamp(22px,3vw,29px)}
 #m29 #chatmsgs{display:block;width:100%;height:auto!important;max-height:none!important;min-height:0;flex:1 1 0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:12px;text-align:left}
 #m29 #chatwrite,#m29 #chatguest{display:flex;width:100%;flex:none;align-items:stretch;margin:0;gap:8px}
@@ -64,8 +66,9 @@ body:has(#m29:not([hidden])) #m29{display:flex!important;flex:1 1 0;min-height:0
 #m29 #chatadmin h3{margin:0 0 6px;font-size:16px}
 #m29>.bk{position:static;flex:none;margin:0 auto 1px;padding:5px 14px;font-size:14px}
 @media(max-width:700px){
- body:has(#m29:not([hidden])) #menu .bd{gap:4px}
- body:has(#m29:not([hidden])) #m29{gap:6px}
+ body:has(#m29:not([hidden])) #menu .bd{padding:8px 9px 9px;gap:3px}
+ body:has(#m29:not([hidden])) #menu .tt{margin:0 0 5px;font-size:20px}
+ body:has(#m29:not([hidden])) #m29{gap:4px}
  #m29>h2{font-size:22px}
  #m29 #chatmsgs{padding:9px}
  #m29 #chatwrite,#m29 #chatguest{gap:6px}
