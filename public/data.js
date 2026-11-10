@@ -227,10 +227,11 @@ function exactSlots(f,st){
   });
  }catch(e){return slots(f).map(p=>p=='POR'?'POR':p=='DEF'?'DFC':p=='MED'?'MC':'DC')}
 }
-const roleGroup=r=>r=='POR'?'POR':['DFC','LI','LD','LIB'].includes(r)?'DEF':['MCD','MC','MO','MP','MI','MD'].includes(r)?'MED':['DC','SD','EI','ED'].includes(r)?'DEL':null;
+const normalizeRole=r=>{r=String(r||'').trim().toUpperCase();return r=='EXD'?'ED':r=='EXI'?'EI':r};
+const roleGroup=r=>{r=normalizeRole(r);return r=='POR'?'POR':['DFC','LI','LD','LIB'].includes(r)?'DEF':['MCD','MC','MO','MP','MI','MD'].includes(r)?'MED':['DC','SD','EI','ED'].includes(r)?'DEL':null};
 const roleFit=(x,want)=>{
- const main=String(x.specificRole||x.pos||'').trim().toUpperCase();
- const alt=Array.isArray(x.alt)?x.alt.map(v=>String(v||'').trim().toUpperCase()):[];
+ const main=normalizeRole(x.specificRole||x.pos||'');
+ const alt=Array.isArray(x.alt)?x.alt.map(normalizeRole):[];
  if(!want||!main)return 0;
  if(main==want)return 2.5;
  if(alt.includes(want))return 1.5;
