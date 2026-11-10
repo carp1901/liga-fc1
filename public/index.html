@@ -57,13 +57,14 @@ body:has(#m29:not([hidden])) #m29{display:flex!important;flex:1 1 0;min-height:0
 #m29>h2{flex:none;margin:0;font-size:clamp(22px,3vw,29px)}
 #m29 #chatmsgs{display:block;width:100%;height:auto!important;max-height:none!important;min-height:0;flex:1 1 0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:12px;text-align:left}
 #m29 #chatwrite,#m29 #chatguest{display:flex;width:100%;flex:none;align-items:stretch;margin:0;gap:8px}
+#m29 #chatwrite[hidden],#m29 #chatguest[hidden],#m29 #chatadminToggle[hidden],#m29 #chatadmin[hidden],#m29 #chatowner[hidden]{display:none!important}
 #m29 #chatguest{justify-content:center}
 #m29 #chatinput{flex:1 1 auto;min-width:0}
 #m29 #chaterr{flex:none;margin:0}
 #m29 #chatadminToggle{flex:none;align-self:center;padding:5px 12px;font-size:14px}
 #m29 #chatadmin{width:100%;max-height:30vh;overflow:auto;flex:none;margin:0;padding:8px}
 #m29 #chatadmin h3{margin:0 0 6px;font-size:16px}
-#m29>.bk{flex:none;margin:0 auto 1px;padding:5px 14px;font-size:14px}
+#m29>.bk{position:static;flex:none;margin:0 auto 1px;padding:5px 14px;font-size:14px}
 @media(max-width:700px){
  body:has(#m29:not([hidden])) #menu{padding:0}
  body:has(#m29:not([hidden])) #menu .bd{width:100vw;height:100dvh;padding:7px 8px 6px;border-width:5px;border-radius:0;gap:4px}
@@ -191,10 +192,8 @@ body:has(#m10:not([hidden])){overflow:hidden}
 body:has(#m10:not([hidden])) #menu{display:grid;place-items:center;overflow:hidden;padding:8px}
 body:has(#m10:not([hidden])) #menu .bd{width:min(1500px,calc(100vw - 16px));max-width:none;height:calc(100dvh - 16px);max-height:none;min-height:0;margin:0 auto;padding:10px 18px 12px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:5px}
 body:has(#m10:not([hidden])) #menu .tt{flex:none;margin:2px 0 5px;font-size:clamp(17px,3.2vw,25px)}
-body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;display:flex;flex-direction:column;flex:1 1 0;min-height:0;overflow:hidden;padding:8px clamp(4px,1.8vw,22px) 18px;gap:8px}
-#m10 .ranking-main-tabs{position:relative;top:auto;z-index:30;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;width:100%;flex:0 0 auto;margin:4px 0 4px;padding:6px 0;background:#07180f;border:1px solid #ffffff35;border-radius:5px;overflow:hidden}
-#m10 .ranking-content{display:block;flex:1 1 0;min-height:0;min-width:0;width:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable;padding:0 2px 12px}
-#m10 .ranking-content>.ranking-panel{width:100%;min-width:0}
+body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;padding:8px clamp(4px,1.8vw,22px) 18px;gap:12px;scrollbar-gutter:stable}
+#m10 .ranking-main-tabs{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;width:100%;flex:0 0 auto;margin:4px 0 12px;padding:6px 0;background:#07180f;border:1px solid #ffffff35;border-radius:5px;overflow:hidden}
 #m10 .ranking-main-tabs button{min-width:0;min-height:54px;padding:12px 8px;border:0;border-right:1px solid #ffffff30;border-radius:0;box-shadow:none;background:#183d27;color:#d8edc8;font-size:clamp(15px,2vw,20px);letter-spacing:.3px}
 #m10 .ranking-main-tabs button:last-child{border-right:0}
 #m10 .ranking-main-tabs button.on{background:#b4f23a;color:#263d0b;box-shadow:inset 0 -4px 0 #6c9c1c}
@@ -340,7 +339,6 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;d
 <button id="ranktech" data-ranking="tecnicos">🏅 TÉCNICOS</button>
 <button id="rankfans" data-ranking="hinchas">👥 HINCHAS</button>
 </div>
-<div id="rankingContent" class="ranking-content">
 <div id="rankclubspanel" class="ranking-panel">
 <h3 class="mt ranking-panel-title">Palmarés de clubes</h3>
 <div class="rkb ranking-results" id="rkb"></div>
@@ -369,7 +367,6 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;d
 <input class="in ranking-search" id="fansearch" placeholder="Buscar club" maxlength="30" autocomplete="off">
 <p class="lb" id="faninfo">Cada cuenta registrada con club favorito suma un hincha.</p>
 </div></details>
-</div>
 <button class="bk" data-back="0">‹ volver</button></section>
 <section id="m11" class="sc" hidden><div class="rkb" id="fcb"></div><div class="rw"><select id="fcc"></select><button class="bt ok" id="fcg">comparar</button></div><button class="bk" data-back="10">‹ volver</button></section>
 <section id="m13" class="sc" hidden><h2 class="mt">Salas públicas</h2><p class="lb">Torneos online abiertos a cualquiera. Son competiciones de fantasía, no torneos oficiales. Para que un título sea oficial tienen que participar al menos 10 personas reales.</p>
@@ -776,7 +773,7 @@ document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[da
 let rq=0;const sched=()=>{if(rq)return;rq=1;requestAnimationFrame(()=>{rq=0;if(S)render()})};
 function start(){$('#menu').hidden=true;$('#gm').hidden=false;applyOrd();if(OFF)ENG.listen(room,pid,v=>{S=v;sched()});else{if(window.ES)ES.close();const es=window.ES=new EventSource(`/ev?room=${room}&pid=${pid}`);es.onmessage=m=>{S=JSON.parse(m.data);sched()}}}
 async function offline(){OFF=true;SPD=+$('#osp').value||1;room='cpu'+Math.random().toString(36).slice(2,7);if(!$('#nm').value.trim())$('#nm').value='DT';const e=await post({a:'create',off:1,speed:+$('#osp').value,cfg:{div:$('#odv').value,fmt:$('#ofm').value,...koCfg('ofm'),n:+$('#onp').value}});if(e){OFF=false;return $('#er').textContent=e}start()}
-$('#bj').onclick=()=>enter('join');$('#bc2').onclick=()=>enter('create');$('#bo2').onclick=offline;const MENU_SCREENS=['m0','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12','m13','m14','m15','m16','m17','m18','m19','m20','m21','m22','m23','m24','m25','m26','m27','m28','m29','m30','m31'];let MENU_HISTORY=['m0'];const currentMenu=()=>MENU_SCREENS.find(i=>!$('#'+i).hidden)||null;const showMenu=n=>MENU_SCREENS.forEach(i=>$('#'+i).hidden=i!==n);const goM=n=>{if(!MENU_SCREENS.includes(n))return;const current=currentMenu();if(current&&current!==n)MENU_HISTORY.push(current);showMenu(n)};const goBack=()=>{const current=currentMenu();while(MENU_HISTORY.length){const previous=MENU_HISTORY.pop();if(previous&&previous!==current&&MENU_SCREENS.includes(previous)){showMenu(previous);return}}showMenu('m0')};const KO=id=>{const sel=$('#'+id),lb=sel&&sel.closest('label');if(!lb)return null;let w=lb.nextElementSibling;if(!w||!w.classList.contains('koopts')){w=document.createElement('span');w.className='koopts';w.hidden=true;w.innerHTML='<label class="lb">cada ronda<select data-ko="legs"><option value="1">Solo ida (1 partido)</option><option value="2">Ida y vuelta (global)</option></select></label><label class="lb">cruces<select data-ko="seed"><option value="rand">Al azar</option><option value="pick">Los elijo yo</option></select></label>';lb.insertAdjacentElement('afterend',w)}return{sel,w}},
+$('#bj').onclick=()=>enter('join');$('#bc2').onclick=()=>enter('create');$('#bo2').onclick=offline;const MENU_SCREENS=['m0','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12','m13','m14','m15','m16','m17','m18','m19','m20','m21','m22','m23','m24','m25','m26','m27','m28','m29','m30','m31'];let MENU_HISTORY=['m0'];const currentMenu=()=>MENU_SCREENS.find(i=>!$('#'+i).hidden)||null;const syncMenuBack=()=>{const current=currentMenu(),canBack=!!current&&current!=='m0'&&MENU_HISTORY.some(i=>i&&i!==current);document.querySelectorAll('#menu .sc .bk').forEach(b=>{b.hidden=!canBack||b.closest('.sc')?.id!==current})};const showMenu=n=>{MENU_SCREENS.forEach(i=>$('#'+i).hidden=i!==n);syncMenuBack()};const goM=n=>{if(!MENU_SCREENS.includes(n))return;const current=currentMenu();if(current&&current!==n)MENU_HISTORY.push(current);showMenu(n)};const goBack=()=>{const current=currentMenu();while(MENU_HISTORY.length){const previous=MENU_HISTORY.pop();if(previous&&previous!==current&&MENU_SCREENS.includes(previous)){showMenu(previous);return}}showMenu('m0')};const KO=id=>{const sel=$('#'+id),lb=sel&&sel.closest('label');if(!lb)return null;let w=lb.nextElementSibling;if(!w||!w.classList.contains('koopts')){w=document.createElement('span');w.className='koopts';w.hidden=true;w.innerHTML='<label class="lb">cada ronda<select data-ko="legs"><option value="1">Solo ida (1 partido)</option><option value="2">Ida y vuelta (global)</option></select></label><label class="lb">cruces<select data-ko="seed"><option value="rand">Al azar</option><option value="pick">Los elijo yo</option></select></label>';lb.insertAdjacentElement('afterend',w)}return{sel,w}},
  koCfg=id=>{const k=KO(id);if(!k||k.sel.value!='copa')return{};return{legs:+k.w.querySelector('[data-ko=legs]').value,seed:k.w.querySelector('[data-ko=seed]').value}};
 setInterval(()=>['fm','ofm','cfm','bfm'].forEach(id=>{const k=KO(id);if(k)k.w.hidden=k.sel.value!='copa'}),400);
 // Mata-mata: solo llaves completas (4/8/16/32). Liga: sin 32. Oculta lo que no corresponde según el formato elegido.
