@@ -857,7 +857,7 @@ const fdate=s=>{const d=new Date(s);return isNaN(d)?'':d.toLocaleDateString('es-
 async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Cargando…</span>';
  const p=new URLSearchParams({mod:$('#rkm').value,comp:$('#rkc').value,fmt:$('#rkf').value,country:window.RK_COUNTRY||''});if($('#rkperiod').value=='temporada')p.set('year',String(new Date().getFullYear()));
  try{const r=await fetch('/api/ranking?'+p),d=await r.json();if(n!=RKN)return;
-  if(!r.ok||d.error){o.innerHTML='<span class=mu>No se pudo cargar el ranking. Probá de nuevo en un rato.</span>';return}
+  if(!r.ok||d.error){o.textContent=d.error||'No se pudo cargar el ranking. Probá de nuevo en un rato.';return}
   if(!d.enabled){o.innerHTML='<span class=mu>El ranking no está disponible: este servidor no tiene base de datos conectada.</span>';return}
   const note=RKT=='offline'?'<div class=nt>⚠️ Ranking offline: los títulos los informa cada dispositivo y no se pueden verificar. Se muestra siempre aparte del online.</div>':'<div class=nt>Solo cuentan torneos online terminados con 10 personas o más.</div>';
   if(d.rows.length){
@@ -1048,14 +1048,19 @@ function chatReactionUpdate(id,r){
 }
 async function chatLoad(){
  $('#chaterr').textContent='';$('#chatmsgs').innerHTML='<span class=mu>Cargando mensajes…</span>';
- try{const r=await fetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();if(!r.ok||d.enabled===false){$('#chatmsgs').textContent='El chat no está disponible en este momento.';return}
-  $('#chatmsgs').innerHTML='';CHAT_IDS.clear();CHAT_DATA.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>';
- }catch(e){$('#chatmsgs').textContent='No se pudo conectar con el chat.'}
+ let historyError='';
+ try{
+  const r=await fetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();
+  if(!r.ok||d.enabled===false){historyError=d.error||'El chat no está disponible en este momento.';$('#chatmsgs').textContent=historyError}
+  else{$('#chatmsgs').innerHTML='';CHAT_IDS.clear();CHAT_DATA.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>'}
+ }catch(e){historyError='No se pudo conectar con el chat.';$('#chatmsgs').textContent=historyError}
+ // Aunque falle el historial, siempre mostrar el acceso correspondiente y conectar el flujo en vivo.
  $('#chatwrite').hidden=!AUTH;$('#chatguest').hidden=!!AUTH;$('#chatguest').dataset.open='0';
  if(AUTH){try{const r=await fetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadminToggle').hidden=!CHAT_PERMS.moderador;$('#chatadmin').hidden=true;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true}}
  else{$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true;CHAT_PERMS={owner:false,moderador:false}}
  if(CHAT_PERMS.moderador)Array.from(CHAT_DATA.values()).forEach(chatAppend);
  if(!CHAT_STREAM){CHAT_STREAM=new EventSource('/api/chat/stream');CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.addEventListener('reaccion',e=>{try{const q=JSON.parse(e.data);chatReactionUpdate(q.id,q)}catch(x){}});CHAT_STREAM.addEventListener('eliminado',e=>{try{chatRemove(JSON.parse(e.data).id)}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
+ if(historyError)$('#chaterr').textContent=historyError;
 }
 $('#bchat').onclick=()=>{goM('m29');chatLoad()};
 $('#chatmsgs').addEventListener('click',e=>{if(!AUTH){$('#chatguest').hidden=false;$('#chaterr').textContent='';}});
@@ -1111,7 +1116,7 @@ function renderFans(){
 }
 async function hinchasRankLoad(){
  $('#fanlist').innerHTML='<span class=mu>Cargando ranking…</span>';
- try{const r=await fetch('/api/ranking-hinchas'),d=await r.json();if(!r.ok||!d.enabled){$('#fanlist').innerHTML='<span class=mu>El ranking de hinchas no está disponible.</span>';return}
+ try{const r=await fetch('/api/ranking-hinchas'),d=await r.json();if(!r.ok||!d.enabled){$('#fanlist').textContent=d.error||'El ranking de hinchas no está disponible.';return}
   FAN_ROWS=d.rows||[];FAN_ROWS.total=d.totalCuentas||0;
   $('#faninfo').textContent='Cada cuenta registrada con un club favorito suma exactamente 1 hincha. Total de cuentas con club elegido: '+FAN_ROWS.total+'. El club favorito queda fijo.';
   renderFans();
@@ -1134,7 +1139,7 @@ function renderTech(){
 }
 async function tecnicoRankLoad(periodo){
  TR_PERIODO=periodo;$('#trseason').classList.toggle('on',periodo=='temporada');$('#trhistory').classList.toggle('on',periodo=='historico');$('#trlist').innerHTML='<span class=mu>Cargando ranking…</span>';
- try{const r=await fetch('/api/ranking-tecnicos?periodo='+periodo),d=await r.json();if(!r.ok||!d.enabled){$('#trlist').innerHTML='<span class=mu>El ranking no está disponible en este momento.</span>';return}
+ try{const r=await fetch('/api/ranking-tecnicos?periodo='+periodo),d=await r.json();if(!r.ok||!d.enabled){$('#trlist').textContent=d.error||'El ranking no está disponible en este momento.';return}
   TECH_ROWS=d.rows||[];
   $('#trinfo').textContent=(periodo=='temporada'?'Temporada '+d.temporada+'. ':'Histórico desde que se registran resultados competitivos. ')+'Cuentan torneos online elegibles y carreras offline con cuenta. Online: mínimo 10 participantes humanos; ligas de 10 o más equipos y copas de 8 o más. Offline: ligas y mixtos desde 10 equipos, copas desde 8. La puntuación actual pondera la posición final y las rondas alcanzadas.';
   renderTech();
