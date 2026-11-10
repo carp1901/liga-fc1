@@ -191,8 +191,10 @@ body:has(#m10:not([hidden])){overflow:hidden}
 body:has(#m10:not([hidden])) #menu{display:grid;place-items:center;overflow:hidden;padding:8px}
 body:has(#m10:not([hidden])) #menu .bd{width:min(1500px,calc(100vw - 16px));max-width:none;height:calc(100dvh - 16px);max-height:none;min-height:0;margin:0 auto;padding:10px 18px 12px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:5px}
 body:has(#m10:not([hidden])) #menu .tt{flex:none;margin:2px 0 5px;font-size:clamp(17px,3.2vw,25px)}
-body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;padding:8px clamp(4px,1.8vw,22px) 18px;gap:12px;scrollbar-gutter:stable}
-#m10 .ranking-main-tabs{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;width:100%;margin:4px 0 12px;padding:6px 0;background:#07180f;border:1px solid #ffffff35;border-radius:5px;overflow:hidden}
+body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;display:flex;flex-direction:column;flex:1 1 0;min-height:0;overflow:hidden;padding:8px clamp(4px,1.8vw,22px) 18px;gap:8px}
+#m10 .ranking-main-tabs{position:relative;top:auto;z-index:30;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;width:100%;flex:0 0 auto;margin:4px 0 4px;padding:6px 0;background:#07180f;border:1px solid #ffffff35;border-radius:5px;overflow:hidden}
+#m10 .ranking-content{display:block;flex:1 1 0;min-height:0;min-width:0;width:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable;padding:0 2px 12px}
+#m10 .ranking-content>.ranking-panel{width:100%;min-width:0}
 #m10 .ranking-main-tabs button{min-width:0;min-height:54px;padding:12px 8px;border:0;border-right:1px solid #ffffff30;border-radius:0;box-shadow:none;background:#183d27;color:#d8edc8;font-size:clamp(15px,2vw,20px);letter-spacing:.3px}
 #m10 .ranking-main-tabs button:last-child{border-right:0}
 #m10 .ranking-main-tabs button.on{background:#b4f23a;color:#263d0b;box-shadow:inset 0 -4px 0 #6c9c1c}
@@ -325,7 +327,8 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 <section id="m3" class="sc" hidden><h2 class="mt">Torneos barriales / regionales</h2><p class="lb">Copas de fantasía: no son torneos oficiales de AFA.</p><div class="cups" id="cl"></div><button class="bk" data-back="8">‹ volver</button></section>
 <section id="m4" class="sc" hidden><h2 class="mt" id="ct4"></h2><div class="c2 w"><label class="lb">formato<select id="cfm"><option value="liga1" selected>Liga (todos contra todos, 1 rueda)</option><option value="liga2">Liga (todos contra todos, 2 ruedas)</option><option value="copa">Mata-mata (llaves completas)</option></select></label><label class="lb">cantidad de equipos<select id="cnp"></select></label><label class="lb">velocidad<select id="csp"><option value="0.25">Muy lenta (x0,25)</option><option value="0.5">Lenta (x0,5)</option><option value="1" selected>Normal</option><option value="2">Rápida (x2)</option><option value="5">Muy rápida (x5)</option></select></label><label class="lb"><span><input type="checkbox" id="ceq" checked> Equilibrar planteles (la táctica decide)</span></label></div><p class="lb">Elegí tu club para empezar:</p><div class="grid cg" id="cg"></div><button class="bk" data-back="3">‹ volver</button></section>
 <section id="m5" class="sc" hidden><h2 class="mt" id="ct5"></h2><p class="lb" id="cc5"></p><div class="rw" style="flex-wrap:wrap"><button class="bt ok" id="rvc2">Confirmar</button><button class="bt ok" id="rvf2">Completar al azar</button><button class="bt ok" id="rvr2">Al azar</button></div><div class="grid cg" id="cg5"></div><button class="bk" data-back="4">‹ volver</button></section>
-<section id="m6" class="sc" hidden><h2 class="mt">Online</h2><button class="bt big" id="bcr">Crear</button><button class="bt big" id="bun">Unirse</button><div class="ph" id="phs"></div><button class="bk" data-back="0">‹ volver</button></section>
+<section id="m6" class="sc" hidden><h2 class="mt">Online</h2><button class="bt big" id="bcr">Crear</button><button class="bt big" id="bun">Unirse</button><div class="ph" id="phs"></div></div>
+<button class="bk" data-back="0">‹ volver</button></section>
 <section id="m7" class="sc" hidden><h2 class="mt">Torneos barriales</h2><p class="lb">Competiciones regionales prearmadas para jugar online con amigos. Copas de fantasía: no son torneos oficiales de AFA.</p><p class="lb">Elegí una competición para crear tu sala privada:</p><div class="cups" id="cl7"></div><button class="bk" data-back="14">‹ volver</button></section>
 <section id="m8" class="sc" hidden><h2 class="mt">Offline · Carreras</h2><p class="lb">Hasta 3 carreras. Se guardan solas al terminar cada fecha y también podés guardar a mano con 💾.</p><div id="slots"></div><p class="lb" id="slm"></p><button class="bk" data-back="0">‹ volver</button></section>
 <section id="m18" class="sc" hidden><h2 class="mt">Nueva carrera</h2><p class="lb" id="nsl"></p><button class="bt big" id="bo">Modo clásico<small>Realista y Copa Argentina</small></button><button class="bt big" id="bcustom">Personalizado<small>Copa mata-mata, Liga y Mixto</small></button><button class="bt big sm" id="btb">Torneos barriales/<br>regionales<small>(1 temporada)</small></button><div class="lgw"><span class="lb">Liga:</span><div class="lgd"><button id="lgb" class="lgbtn"></button><div id="lgl" class="lgl" hidden></div></div></div><button class="bk" data-back="8">‹ volver</button></section>
@@ -337,6 +340,7 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 <button id="ranktech" data-ranking="tecnicos">🏅 TÉCNICOS</button>
 <button id="rankfans" data-ranking="hinchas">👥 HINCHAS</button>
 </div>
+<div id="rankingContent" class="ranking-content">
 <div id="rankclubspanel" class="ranking-panel">
 <h3 class="mt ranking-panel-title">Palmarés de clubes</h3>
 <div class="rkb ranking-results" id="rkb"></div>
