@@ -1,15 +1,15 @@
 'use strict';
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
-function parseCSV(input){const rows=[];let row=[],value='',quoted=false;for(let i=0;i<input.length;i++){const c=input[i];if(quoted){if(c==='"'&&input[i+1]==='"'){value+='"';i++;}else if(c==='"')quoted=false;else value+=c;}else if(c==='"')quoted=true;else if(c===','){row.push(value);value='';}else if(c==='\\n'){row.push(value.replace(/\\r$/,''));rows.push(row);row=[];value='';}else value+=c;}if(value.length||row.length){row.push(value.replace(/\\r$/,''));rows.push(row);}return rows;}
+function parseCSV(input){const rows=[];let row=[],value='',quoted=false;for(let i=0;i<input.length;i++){const c=input[i];if(quoted){if(c==='"'&&input[i+1]==='"'){value+='"';i++;}else if(c==='"')quoted=false;else value+=c;}else if(c==='"')quoted=true;else if(c===','){row.push(value);value='';}else if(c==='\n'){row.push(value.replace(/\r$/,''));rows.push(row);row=[];value='';}else value+=c;}if(value.length||row.length){row.push(value.replace(/\r$/,''));rows.push(row);}return rows;}
 const file='planteles/borradores/primera-b-metro-2026/tanda1.csv';
 const rows=parseCSV(fs.readFileSync(file,'utf8'));
 const headers=rows.shift().map(x=>x.trim().toLowerCase());
 const col=Object.fromEntries(headers.map((h,i)=>[h,i]));
 const source=fs.readFileSync('public/data.js','utf8');
-const match=source.match(/const ROLE_OFFSETS=\\{([\\s\\S]*?)\\n\\};/);
+const match=source.match(/const ROLE_OFFSETS=\{([\s\S]*?)\n\};/);
 assert(match,'No se encontró ROLE_OFFSETS');
-const supported=new Set([...match[1].matchAll(/^\\s*([A-Z]+):\\{/gm)].map(m=>m[1]));
+const supported=new Set([...match[1].matchAll(/^\s*([A-Z]+):\{/gm)].map(m=>m[1]));
 supported.add('POR');
 const expected={arsenal:21,brown:22,armenio:18,argentinomerlo:20,argentinoquilmes:24,camioneros:26,comunicaciones:24,defensoresunidos:22};
 const counts={},names=new Set(),numbers=new Set();
