@@ -40,8 +40,8 @@ jobs:
         run: node import-squads.js planteles/borradores/primera-b-metro-2026/completo.csv --dry-run
       - name: Integrar planteles B Metro en runtime
         run: node import-squads.js planteles/borradores/primera-b-metro-2026/completo.csv
-      - name: Ejecutar pruebas del juego
-        run: npm test
+      - name: Ejecutar pruebas de alineaciones y orientación 2D
+        run: node test-auto-xi.js && node test-sim2d-orientation.js
       - name: Guardar planteles integrados en la rama
         run: |
           git config user.name 'github-actions[bot]'
