@@ -34,7 +34,7 @@ for(const [i,r] of rows.entries()){
   if(!['POR','DEF','MED','DEL'].includes(pos))errors.push('Posición inválida: '+name+' / '+pos);
   if(!Number.isInteger(rating)||rating<1||rating>99)errors.push('Rating inválido: '+name);
   if(!Number.isInteger(age)||age<16||age>55)errors.push('Edad inválida o ausente: '+name);
-  if(!get('rating_source').startsWith('FM27 / FM Blog ABI') && !get('rating_source').startsWith('Estimación orientativa'))errors.push('Fuente ABI ausente: '+name);
+  if(!get('rating_source').startsWith('FM27 / FM Blog ABI') && !get('rating_source').startsWith('Estimación propia'))errors.push('Fuente ABI ausente: '+name);
   if(!get('fuente')||!get('fuente_rol')||!get('nat_source'))errors.push('Fuente faltante: '+name);
   if(!roles.has(role))errors.push('Rol específico inválido: '+name+' / '+role);
   if(get('rating_base')!==get('rating')||get('ajuste_rating')!=='0')errors.push('Base/ajuste inválido: '+name);
