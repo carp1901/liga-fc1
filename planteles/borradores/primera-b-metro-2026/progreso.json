@@ -44,7 +44,8 @@
         "villadalmine",
         "villasancarlos"
       ],
-      "status": "pending"
+      "status": "draft-validated",
+      "players": 169
     }
   ],
   "methodology": {
@@ -102,9 +103,30 @@
     }
   },
   "validation": {
-    "scope": "tanda1.csv + tanda2.csv",
-    "players": 364,
-    "clubs": 15,
+    "scope": "tanda1.csv + tanda2.csv + tanda3.csv",
+    "players": 533,
+    "clubs": 22,
     "manualChecks": "roles, ratings, ages, sources, duplicate names and duplicate shirt numbers"
+  },
+  "batch3": {
+    "csv": "tanda3.csv",
+    "clubs": 7,
+    "players": 169,
+    "fmAbiRatings": 169,
+    "estimatedRatings": 0,
+    "duplicateNames": 0,
+    "duplicateDorsals": 0,
+    "verifiedDorsals": 0,
+    "feet": 0,
+    "birthDates": 0,
+    "clubCounts": {
+      "realpilar": 27,
+      "sanmartinburzaco": 22,
+      "sportivoitaliano": 21,
+      "talleresre": 27,
+      "uai": 24,
+      "villadalmine": 22,
+      "villasancarlos": 26
+    }
   }
 }
