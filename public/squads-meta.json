@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T17:25:59.333Z",
+  "updatedAt": "2026-11-11T17:27:48.292Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1795 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1825 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -92,12 +92,12 @@
     "uai": 24,
     "villadalmine": 22,
     "villasancarlos": 26,
-    "alvarado": 20,
+    "alvarado": 22,
     "nuevejulio": 25,
-    "atenas": 19,
+    "atenas": 22,
     "atsanmartinmza": 22,
     "bmitre": 27,
-    "bocaunidos": 19,
+    "bocaunidos": 22,
     "cipolletti": 26,
     "defbelgranovr": 22,
     "rincon": 22,
@@ -105,7 +105,7 @@
     "soldemayo": 24,
     "tucumancentral": 22,
     "costabrava": 22,
-    "circulo": 20,
+    "circulo": 22,
     "fadep": 22,
     "germinal": 22,
     "gbrown": 22,
@@ -117,11 +117,11 @@
     "sarmientolb": 22,
     "sportivobelgrano": 22,
     "huracanlh": 22,
-    "olimpo": 18,
-    "antoniana": 18,
-    "linqueno": 18,
-    "indchivilcoy": 18,
-    "escobar": 18,
+    "olimpo": 22,
+    "antoniana": 22,
+    "linqueno": 22,
+    "indchivilcoy": 22,
+    "escobar": 22,
     "gimcdu": 32,
     "lasparejas": 30,
     "vilelas": 25,
@@ -2835,13 +2835,28 @@
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos"
     },
     "alvarado": {
-      "source": "https://www.mundoascenso.com.ar/plantel/152-alvarado-mdp",
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/152-alvarado-mdp",
+        "https://www.mundoascenso.com.ar/plantel/1962-alvarado"
+      ],
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/1962-alvarado"
+      ],
       "numberSource": [],
-      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado"
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
+        "https://www.mundoascenso.com.ar/plantel/1962-alvarado"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/1962-alvarado"
+      ]
     },
     "nuevejulio": {
       "source": "https://www.mundoascenso.com.ar/plantel/29-9-de-julio-de-rafaela",
@@ -2855,11 +2870,23 @@
     "atenas": {
       "source": "https://www.mundoascenso.com.ar/plantel/21043-atenas",
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/21043-atenas"
+      ],
       "numberSource": [],
-      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto"
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
+        "https://www.mundoascenso.com.ar/plantel/21043-atenas"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/21043-atenas"
+      ]
     },
     "atsanmartinmza": {
       "source": [
@@ -2914,11 +2941,23 @@
     "bocaunidos": {
       "source": "https://www.mundoascenso.com.ar/plantel/467-boca-unidos",
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/467-boca-unidos"
+      ],
       "numberSource": [],
-      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos"
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
+        "https://www.mundoascenso.com.ar/plantel/467-boca-unidos"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/467-boca-unidos"
+      ]
     },
     "cipolletti": {
       "source": [
@@ -3070,20 +3109,26 @@
         "https://sortitoutsi.net/football-manager-data-update/team/14046676",
         "https://www.transfermarkt.co/jano-martinez/profil/spieler/990192",
         "https://www.flashscore.com.ar/jugador/buscaglia-simon/EPVl20Vj/",
-        "https://www.soloascenso.com.ar/notas/atenas-de-rio-cuarto/dos-altas-y-tres-bajas-confirmadas-para-circulo-deportivo/229838"
+        "https://www.soloascenso.com.ar/notas/atenas-de-rio-cuarto/dos-altas-y-tres-bajas-confirmadas-para-circulo-deportivo/229838",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/8399-circulo-deportivo-otamendi"
       ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM26 CA individual cuando disponible; comparativa por rol en resto",
+      "ratingSource": [
+        "Estimación propia / FM26 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
       "roleSource": [
         "https://sortitoutsi.net/football-manager-data-update/team/14046676",
         "https://www.transfermarkt.co/jano-martinez/profil/spieler/990192",
         "https://sortitoutsi.net/football-manager-data-update/person/2000105019",
-        "https://www.soloascenso.com.ar/notas/atenas-de-rio-cuarto/dos-altas-y-tres-bajas-confirmadas-para-circulo-deportivo/229838"
+        "https://www.soloascenso.com.ar/notas/atenas-de-rio-cuarto/dos-altas-y-tres-bajas-confirmadas-para-circulo-deportivo/229838",
+        "https://www.mundoascenso.com.ar/plantel/8399-circulo-deportivo-otamendi"
       ],
       "natSource": [
         "https://sortitoutsi.net/football-manager-data-update/team/14046676",
         "https://www.transfermarkt.co/jano-martinez/profil/spieler/990192",
-        "https://sortitoutsi.net/football-manager-data-update/person/2000105019"
+        "https://sortitoutsi.net/football-manager-data-update/person/2000105019",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/8399-circulo-deportivo-otamendi"
       ]
     },
     "fadep": {
@@ -3355,59 +3400,115 @@
     "olimpo": {
       "source": "https://www.mundoascenso.com.ar/plantel/209-olimpo",
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/209-olimpo"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo",
+        "https://www.mundoascenso.com.ar/plantel/209-olimpo"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/209-olimpo"
+      ]
     },
     "antoniana": {
       "source": "https://www.mundoascenso.com.ar/plantel/50-juventud-antoniana",
       "consulted": "2026-11-11",
       "ageSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/108538-juv-antoniana",
-        "Sin edad publicada; se deja sin asignar"
+        "Sin edad publicada; se deja sin asignar",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/50-juventud-antoniana"
       ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108538-juv-antoniana",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108538-juv-antoniana"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108538-juv-antoniana",
+        "https://www.mundoascenso.com.ar/plantel/50-juventud-antoniana"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108538-juv-antoniana",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/50-juventud-antoniana"
+      ]
     },
     "linqueno": {
       "source": "https://www.mundoascenso.com.ar/plantel/21041-el-linqueno",
       "consulted": "2026-11-11",
       "ageSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14020248-el-linqueno",
-        "Sin edad publicada; se deja sin asignar"
+        "Sin edad publicada; se deja sin asignar",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/21041-el-linqueno"
       ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14020248-el-linqueno",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14020248-el-linqueno"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14020248-el-linqueno",
+        "https://www.mundoascenso.com.ar/plantel/21041-el-linqueno"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14020248-el-linqueno",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/21041-el-linqueno"
+      ]
     },
     "indchivilcoy": {
       "source": "https://www.mundoascenso.com.ar/plantel/270-independiente-de-chivilcoy",
       "consulted": "2026-11-11",
       "ageSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14046672-independiente-chivilcoy",
-        "Sin edad publicada; se deja sin asignar"
+        "Sin edad publicada; se deja sin asignar",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/270-independiente-de-chivilcoy"
       ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046672-independiente-chivilcoy",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046672-independiente-chivilcoy"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046672-independiente-chivilcoy",
+        "https://www.mundoascenso.com.ar/plantel/270-independiente-de-chivilcoy"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046672-independiente-chivilcoy",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/270-independiente-de-chivilcoy"
+      ]
     },
     "escobar": {
-      "source": "https://www.radiodeportesescobar.com/con-la-permanencia-asegurada-atletico-escobar-le-bajo-el-telon-a-su-temporada-en-el-federal/",
+      "source": [
+        "https://www.radiodeportesescobar.com/con-la-permanencia-asegurada-atletico-escobar-le-bajo-el-telon-a-su-temporada-en-el-federal/",
+        "https://atleticoescobar.com.ar/atletico-escobar-en-su-hora-mas-gloriosa-consiguio-el-ansiado-ascenso-al-torneo-federal-a/ | https://www.soloascenso.com.ar/ficha/45472",
+        "https://atleticoescobar.com.ar/atletico-escobar-en-su-hora-mas-gloriosa-consiguio-el-ansiado-ascenso-al-torneo-federal-a/ | https://www.soloascenso.com.ar/sintesis/atletico-escobar-gimnasia-chivilcoy/45420"
+      ],
       "consulted": "2026-11-11",
       "ageSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar",
-        "Sin edad publicada; se deja sin asignar"
+        "Sin edad publicada; se deja sin asignar",
+        "No publicada; sin edad cargada. Fuente de identificación: https://atleticoescobar.com.ar/atletico-escobar-en-su-hora-mas-gloriosa-consiguio-el-ansiado-ascenso-al-torneo-federal-a/"
       ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar",
+        "https://atleticoescobar.com.ar/atletico-escobar-en-su-hora-mas-gloriosa-consiguio-el-ansiado-ascenso-al-torneo-federal-a/"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://atleticoescobar.com.ar/atletico-escobar-en-su-hora-mas-gloriosa-consiguio-el-ansiado-ascenso-al-torneo-federal-a/"
+      ]
     },
     "gimcdu": {
       "source": "https://www.mundoascenso.com.ar/plantel/3945-gimnasia-concepcion",
@@ -3479,8 +3580,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2044,
-    "missing": 1380,
-    "total": 3424,
+    "missing": 1410,
+    "total": 3454,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3923,9 +4024,9 @@
         "missing": 26
       },
       "alvarado": {
-        "total": 20,
+        "total": 22,
         "assigned": 0,
-        "missing": 20
+        "missing": 22
       },
       "nuevejulio": {
         "total": 25,
@@ -3933,9 +4034,9 @@
         "missing": 25
       },
       "atenas": {
-        "total": 19,
+        "total": 22,
         "assigned": 0,
-        "missing": 19
+        "missing": 22
       },
       "atsanmartinmza": {
         "total": 22,
@@ -3948,9 +4049,9 @@
         "missing": 27
       },
       "bocaunidos": {
-        "total": 19,
+        "total": 22,
         "assigned": 0,
-        "missing": 19
+        "missing": 22
       },
       "cipolletti": {
         "total": 26,
@@ -3988,9 +4089,9 @@
         "missing": 22
       },
       "circulo": {
-        "total": 20,
+        "total": 22,
         "assigned": 0,
-        "missing": 20
+        "missing": 22
       },
       "fadep": {
         "total": 22,
@@ -4048,29 +4149,29 @@
         "missing": 22
       },
       "olimpo": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "antoniana": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "linqueno": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "indchivilcoy": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "escobar": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "gimcdu": {
         "total": 32,
@@ -4112,9 +4213,9 @@
   "dorsalsComplete": false,
   "ageCoverage": {
     "assigned": 3295,
-    "missing": 129,
+    "missing": 159,
     "birthDates": 2075,
-    "total": 3424,
+    "total": 3454,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4557,9 +4658,9 @@
         "missing": 0
       },
       "alvarado": {
-        "total": 20,
+        "total": 22,
         "assigned": 20,
-        "missing": 0
+        "missing": 2
       },
       "nuevejulio": {
         "total": 25,
@@ -4567,9 +4668,9 @@
         "missing": 0
       },
       "atenas": {
-        "total": 19,
+        "total": 22,
         "assigned": 19,
-        "missing": 0
+        "missing": 3
       },
       "atsanmartinmza": {
         "total": 22,
@@ -4582,9 +4683,9 @@
         "missing": 0
       },
       "bocaunidos": {
-        "total": 19,
+        "total": 22,
         "assigned": 19,
-        "missing": 0
+        "missing": 3
       },
       "cipolletti": {
         "total": 26,
@@ -4622,9 +4723,9 @@
         "missing": 0
       },
       "circulo": {
-        "total": 20,
+        "total": 22,
         "assigned": 20,
-        "missing": 0
+        "missing": 2
       },
       "fadep": {
         "total": 22,
@@ -4682,29 +4783,29 @@
         "missing": 7
       },
       "olimpo": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
-      },
-      "antoniana": {
-        "total": 18,
-        "assigned": 14,
         "missing": 4
       },
+      "antoniana": {
+        "total": 22,
+        "assigned": 14,
+        "missing": 8
+      },
       "linqueno": {
-        "total": 18,
+        "total": 22,
         "assigned": 17,
-        "missing": 1
+        "missing": 5
       },
       "indchivilcoy": {
-        "total": 18,
+        "total": 22,
         "assigned": 16,
-        "missing": 2
+        "missing": 6
       },
       "escobar": {
-        "total": 18,
+        "total": 22,
         "assigned": 16,
-        "missing": 2
+        "missing": 6
       },
       "gimcdu": {
         "total": 32,
@@ -4745,8 +4846,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 48,
-    "total": 3424,
+    "missing": 78,
+    "total": 3454,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5101,7 +5202,7 @@
         "assigned": 26
       },
       "alvarado": {
-        "total": 20,
+        "total": 22,
         "assigned": 20
       },
       "nuevejulio": {
@@ -5109,7 +5210,7 @@
         "assigned": 25
       },
       "atenas": {
-        "total": 19,
+        "total": 22,
         "assigned": 19
       },
       "atsanmartinmza": {
@@ -5121,7 +5222,7 @@
         "assigned": 27
       },
       "bocaunidos": {
-        "total": 19,
+        "total": 22,
         "assigned": 19
       },
       "cipolletti": {
@@ -5153,7 +5254,7 @@
         "assigned": 22
       },
       "circulo": {
-        "total": 20,
+        "total": 22,
         "assigned": 20
       },
       "fadep": {
@@ -5201,23 +5302,23 @@
         "assigned": 18
       },
       "olimpo": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "antoniana": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "linqueno": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "indchivilcoy": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "escobar": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "gimcdu": {
@@ -5251,9 +5352,9 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 3424,
+    "assigned": 3454,
     "missing": 0,
-    "total": 3424,
+    "total": 3454,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5608,16 +5709,16 @@
         "specific": 26
       },
       "alvarado": {
-        "total": 20,
-        "specific": 20
+        "total": 22,
+        "specific": 22
       },
       "nuevejulio": {
         "total": 25,
         "specific": 25
       },
       "atenas": {
-        "total": 19,
-        "specific": 19
+        "total": 22,
+        "specific": 22
       },
       "atsanmartinmza": {
         "total": 22,
@@ -5628,8 +5729,8 @@
         "specific": 27
       },
       "bocaunidos": {
-        "total": 19,
-        "specific": 19
+        "total": 22,
+        "specific": 22
       },
       "cipolletti": {
         "total": 26,
@@ -5660,8 +5761,8 @@
         "specific": 22
       },
       "circulo": {
-        "total": 20,
-        "specific": 20
+        "total": 22,
+        "specific": 22
       },
       "fadep": {
         "total": 22,
@@ -5708,24 +5809,24 @@
         "specific": 22
       },
       "olimpo": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "antoniana": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "linqueno": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "indchivilcoy": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "escobar": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "gimcdu": {
         "total": 32,
@@ -5759,8 +5860,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1795,
-    "total": 3424,
+    "estimated": 1825,
+    "total": 3454,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6292,9 +6393,9 @@
         "provisional": 0
       },
       "alvarado": {
-        "total": 20,
+        "total": 22,
         "verified": 20,
-        "estimated": 0,
+        "estimated": 2,
         "provisional": 0
       },
       "nuevejulio": {
@@ -6304,9 +6405,9 @@
         "provisional": 0
       },
       "atenas": {
-        "total": 19,
+        "total": 22,
         "verified": 19,
-        "estimated": 0,
+        "estimated": 3,
         "provisional": 0
       },
       "atsanmartinmza": {
@@ -6322,9 +6423,9 @@
         "provisional": 0
       },
       "bocaunidos": {
-        "total": 19,
+        "total": 22,
         "verified": 19,
-        "estimated": 0,
+        "estimated": 3,
         "provisional": 0
       },
       "cipolletti": {
@@ -6370,9 +6471,9 @@
         "provisional": 0
       },
       "circulo": {
-        "total": 20,
+        "total": 22,
         "verified": 0,
-        "estimated": 20,
+        "estimated": 22,
         "provisional": 0
       },
       "fadep": {
@@ -6442,33 +6543,33 @@
         "provisional": 0
       },
       "olimpo": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "antoniana": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "linqueno": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "indchivilcoy": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "escobar": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "gimcdu": {
@@ -6519,22 +6620,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2252,
+    "derivedPlayers": 2282,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 125,
-    "players": 3424,
+    "players": 3454,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 129,
-    "playersMissingDorsal": 1380,
+    "playersMissingAge": 159,
+    "playersMissingDorsal": 1410,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1795,
+    "estimatedRatings": 1825,
     "provisionalRatings": 0,
-    "playersMissingNationality": 48,
-    "playersMissingFoot": 1367,
+    "playersMissingNationality": 78,
+    "playersMissingFoot": 1397,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 2252
+    "playersWithoutManualAttributes": 2282
   }
 }
