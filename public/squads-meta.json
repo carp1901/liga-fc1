@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-10T22:48:36.798Z",
+  "updatedAt": "2026-11-11T03:28:59.106Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "919 medias con fuente individual + 1119 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1430 medias con fuente individual + 1141 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -69,7 +69,29 @@
     "defensoresbelgrano": 25,
     "colegiales": 23,
     "acassuso": 25,
-    "rafaela": 26
+    "rafaela": 26,
+    "arsenal": 22,
+    "brownadrogue": 25,
+    "armenio": 20,
+    "argentinomerlo": 21,
+    "argentinoquilmes": 25,
+    "camioneros": 25,
+    "comunicaciones": 24,
+    "defensoresunidos": 23,
+    "docksud": 27,
+    "laferrere": 26,
+    "deportivomerlo": 27,
+    "excursionistas": 27,
+    "flandria": 26,
+    "ituzaingo": 21,
+    "liniers": 25,
+    "realpilar": 27,
+    "sanmartinburzaco": 22,
+    "sportivoitaliano": 21,
+    "talleresre": 27,
+    "uai": 24,
+    "villadalmine": 22,
+    "villasancarlos": 26
   },
   "sources": {
     "sanlorenzo": {
@@ -2424,6 +2446,356 @@
         "https://www.soloascenso.com.ar/perfil/matias-morello/27028",
         "https://www.transfermarkt.es/gabriel-esparza/profil/spieler/322115"
       ]
+    },
+    "arsenal": {
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/243-arsenal",
+        "https://tribuna.com/es/clubs/arsenal-sarandi/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "consulted": "2026-11-10",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/102476-arsenal-de-sarandi",
+        "https://www.transfermarkt.com.ar/alexis-payes/profil/spieler/1207328"
+      ],
+      "numberSource": [],
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/102476-arsenal-de-sarandi",
+        "https://www.transfermarkt.com.ar/alexis-payes/profil/spieler/1207328"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/102476-arsenal-de-sarandi",
+        "https://www.transfermarkt.com.ar/alexis-payes/profil/spieler/1207328"
+      ]
+    },
+    "brownadrogue": {
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/468-brown-de-adrogue",
+        "https://tribuna.com/es/clubs/brown-de-adrogue/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "consulted": "2026-11-10",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/3101502-brown-adrogue",
+        "https://www.transfermarkt.com.ar/adriel-ortiz/profil/spieler/1424360",
+        "https://www.transfermarkt.com.ar/lucas-cesare/profil/spieler/1501676",
+        "https://www.soloascenso.com.ar/perfil/dante-cardozo/24324",
+        "https://www.transfermarkt.com/victor-galeano/profil/spieler/1502243",
+        "https://www.soloascenso.com.ar/notas/contenido-no-editorial/se-confirmo-la-primera-baja-de-brown-de-adrogue/228995"
+      ],
+      "numberSource": [],
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/3101502-brown-adrogue",
+        "https://www.transfermarkt.com.ar/adriel-ortiz/profil/spieler/1424360",
+        "https://www.transfermarkt.com.ar/lucas-cesare/profil/spieler/1501676",
+        "https://www.soloascenso.com.ar/perfil/dante-cardozo/24324",
+        "https://www.transfermarkt.com/victor-galeano/profil/spieler/1502243",
+        "https://www.transfermarkt.com.ar/alan-visco/profil/spieler/755670"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/3101502-brown-adrogue",
+        "https://www.transfermarkt.com.ar/adriel-ortiz/profil/spieler/1424360",
+        "https://www.transfermarkt.com.ar/lucas-cesare/profil/spieler/1501676",
+        "https://www.soloascenso.com.ar/perfil/dante-cardozo/24324",
+        "https://www.transfermarkt.com/victor-galeano/profil/spieler/1502243",
+        "https://www.soloascenso.com.ar/notas/contenido-no-editorial/se-confirmo-la-primera-baja-de-brown-de-adrogue/228995"
+      ]
+    },
+    "armenio": {
+      "source": [
+        "https://www.copaargentina.org/es/equipos/135_deportivo-armenio.html",
+        "https://tribuna.com/es/clubs/armenio/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "consulted": "2026-11-10",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108578-dep-armenio",
+        "https://www.soloascenso.com.ar/perfil/facundo-tello/7413",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-figueroa/25105"
+      ],
+      "numberSource": [],
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108578-dep-armenio",
+        "https://www.transfermarkt.com.ar/facundo-tello/profil/spieler/1106698",
+        "https://www.transfermarkt.com.ar/gonzalo-figueroa/profil/spieler/1398551"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108578-dep-armenio",
+        "https://www.soloascenso.com.ar/perfil/facundo-tello/7413",
+        "https://www.soloascenso.com.ar/perfil/gonzalo-figueroa/25105"
+      ]
+    },
+    "argentinomerlo": {
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/138-argentino-de-merlo",
+        "https://tribuna.com/es/clubs/argentino-merlo/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "consulted": "2026-11-10",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/952693-argentino-merlo",
+        "https://www.transfermarkt.com.ar/alejo-tello/profil/spieler/673169",
+        "https://www.transfermarkt.com.ar/nahuel-sica/profil/spieler/730380",
+        "https://www.ceroacero.es/jugador/bruno-maceri/3520205",
+        "https://www.soloascenso.com.ar/perfil/maximo-gomez/30238",
+        "https://www.tribuna.com/es/clubs/argentino-merlo/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "numberSource": [],
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/952693-argentino-merlo",
+        "https://www.transfermarkt.com.ar/alejo-tello/profil/spieler/673169",
+        "https://www.transfermarkt.com.ar/nahuel-sica/profil/spieler/730380",
+        "https://www.ceroacero.es/jugador/bruno-maceri/3520205",
+        "https://www.transfermarkt.com/maximo-gomez/profil/spieler/1394111",
+        "https://www.transfermarkt.es/brian-martin/profil/spieler/551253"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/952693-argentino-merlo",
+        "https://www.transfermarkt.com.ar/alejo-tello/profil/spieler/673169",
+        "https://www.transfermarkt.com.ar/nahuel-sica/profil/spieler/730380",
+        "https://www.ceroacero.es/jugador/bruno-maceri/3520205",
+        "https://www.soloascenso.com.ar/perfil/maximo-gomez/30238",
+        "https://www.tribuna.com/es/clubs/argentino-merlo/squad/stat/2026/primera-b-metropolitana/"
+      ]
+    },
+    "argentinoquilmes": {
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/8376-argentino-de-quilmes",
+        "https://tribuna.com/es/clubs/argentino-quilmes/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "consulted": "2026-11-10",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/3101496-argentino-quilmes",
+        "https://www.tribuna.com/es/clubs/argentino-quilmes/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "numberSource": [],
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/3101496-argentino-quilmes",
+        "https://www.transfermarkt.co/leonel-escudero/profil/spieler/1415836",
+        "https://www.transfermarkt.com.ar/dairo-pena/profil/spieler/1283976",
+        "https://www.sofascore.com/es/football/player/santiago-castano/2065615",
+        "https://www.transfermarkt.com.ar/juan-ignacio-quattrocchi/profil/spieler/1286388"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/3101496-argentino-quilmes",
+        "https://www.tribuna.com/es/clubs/argentino-quilmes/squad/stat/2026/primera-b-metropolitana/"
+      ]
+    },
+    "camioneros": {
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/3943-camioneros",
+        "https://www.clubcamioneros.com.ar/ladeportiva/index.php/2026/01/pretemporada-dia-i-camioneros-puso-primera/"
+      ],
+      "consulted": "2026-11-10",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14024658-camioneros",
+        "https://www.soloascenso.com.ar/perfil/pablo-lopez/24809",
+        "https://www.soloascenso.com.ar/perfil/matias-de-jesus/26574",
+        "https://www.soloascenso.com.ar/perfil/facundo-moyano/21343",
+        "https://www.transfermarkt.es/nicolas-moyano/profil/spieler/866749",
+        "https://www.transfermarkt.es/juan-alvarez/profil/spieler/457537",
+        "https://www.soloascenso.com.ar/perfil/lucas-brizuela/26065",
+        "https://www.soloascenso.com.ar/perfil/nicolas-gonzalez/20636",
+        "https://www.soloascenso.com.ar/perfil/rodrigo-giorno-paredes/9407",
+        "https://www.transfermarkt.es/liam-silva/profil/spieler/1517120"
+      ],
+      "numberSource": [],
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia: 10 partidos de Primera B 2026 + 1 Copa Argentina, 1 gol; no figura en la ficha FM27 consultada"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14024658-camioneros",
+        "https://www.clubcamioneros.com.ar/ladeportiva/index.php/2026/07/el-camion-volvio-al-triunfo-frente-a-liniers/",
+        "https://www.soloascenso.com.ar/perfil/facundo-moyano/21343",
+        "https://www.transfermarkt.es/juan-alvarez/profil/spieler/457537",
+        "https://www.soloascenso.com.ar/perfil/rodrigo-giorno-paredes/9407",
+        "https://www.365scores.com/es/football/player/liam-silva-233401"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14024658-camioneros",
+        "https://www.transfermarkt.es/juan-alvarez/profil/spieler/457537",
+        "https://www.transfermarkt.es/liam-silva/profil/spieler/1517120"
+      ]
+    },
+    "comunicaciones": {
+      "source": "https://www.mundoascenso.com.ar/plantel/76-comunicaciones",
+      "consulted": "2026-11-10",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952702-comunicaciones-arg",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952702-comunicaciones-arg",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952702-comunicaciones-arg"
+    },
+    "defensoresunidos": {
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/119-defensores-unidos",
+        "https://tribuna.com/es/clubs/defensores-unidos/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "consulted": "2026-11-10",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/952734-defensores-unidos",
+        "https://www.tribuna.com/es/clubs/defensores-unidos/squad/stat/2026/primera-b-metropolitana/"
+      ],
+      "numberSource": [],
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/952734-defensores-unidos",
+        "https://www.365scores.com/es/football/player/tziano-girard-235954",
+        "https://www.soloascenso.com.ar/perfil/santiago-patroni/27599",
+        "https://www.365scores.com/es-mx/football/player/stefano-herrera-236430",
+        "https://www.transfermarkt.com.ar/bautista-carboni/profil/spieler/1337265",
+        "https://us.soccerway.com/player/iribarne-salvador/WIHlUVY0/"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/952734-defensores-unidos",
+        "https://www.tribuna.com/es/clubs/defensores-unidos/squad/stat/2026/primera-b-metropolitana/"
+      ]
+    },
+    "docksud": {
+      "source": "https://www.mundoascenso.com.ar/plantel/101-sp-dock-sud",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101506-dock-sud",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101506-dock-sud",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101506-dock-sud"
+    },
+    "laferrere": {
+      "source": "https://www.mundoascenso.com.ar/plantel/113-deportivo-laferrere",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952704-dep-laferrere",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952704-dep-laferrere",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952704-dep-laferrere"
+    },
+    "deportivomerlo": {
+      "source": "https://www.mundoascenso.com.ar/plantel/8383-deportivo-merlo",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/950231-dep-merlo",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/950231-dep-merlo",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/950231-dep-merlo"
+    },
+    "excursionistas": {
+      "source": "https://mail.mundoascenso.com.ar/plantel/102-excursionistas",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952708-excursionistas",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952708-excursionistas",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952708-excursionistas"
+    },
+    "flandria": {
+      "source": "https://www.mundoascenso.com.ar/plantel/471-flandria",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101508-flandria",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101508-flandria",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101508-flandria"
+    },
+    "ituzaingo": {
+      "source": "https://www.mundoascenso.com.ar/plantel/8386-ca-ituzaingo",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952685-ituzaingo",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952685-ituzaingo",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952685-ituzaingo"
+    },
+    "liniers": {
+      "source": "https://www.mundoascenso.com.ar/plantel/8395-liniers",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952716-liniers",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952716-liniers",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952716-liniers"
+    },
+    "realpilar": {
+      "source": "https://www.mundoascenso.com.ar/plantel/300-real-pilar-futbol-club",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14188356-real-pilar",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14188356-real-pilar",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14188356-real-pilar"
+    },
+    "sanmartinburzaco": {
+      "source": "https://www.mundoascenso.com.ar/plantel/108-san-martin-b",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952721-san-martin-burzaco",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952721-san-martin-burzaco",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952721-san-martin-burzaco"
+    },
+    "sportivoitaliano": {
+      "source": "https://www.mundoascenso.com.ar/plantel/89-sportivo-italiano",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/102479-sp-italiano",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/102479-sp-italiano",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/102479-sp-italiano"
+    },
+    "talleresre": {
+      "source": "https://www.mundoascenso.com.ar/plantel/90-talleres-re",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101518-talleres-re",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101518-talleres-re",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101518-talleres-re"
+    },
+    "uai": {
+      "source": "https://www.mundoascenso.com.ar/plantel/122-uai-urquiza",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952737-uai-urquiza",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952737-uai-urquiza",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952737-uai-urquiza"
+    },
+    "villadalmine": {
+      "source": "https://www.mundoascenso.com.ar/plantel/481-villa-dalmine",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952724-villa-dalmine",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952724-villa-dalmine",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952724-villa-dalmine"
+    },
+    "villasancarlos": {
+      "source": "https://www.mundoascenso.com.ar/plantel/8380-villa-san-carlos",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos"
     }
   },
   "completePrimera": true,
@@ -2432,8 +2804,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2038,
-    "missing": 0,
-    "total": 2038,
+    "missing": 533,
+    "total": 2571,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -2764,15 +3136,125 @@
         "total": 26,
         "assigned": 26,
         "missing": 0
+      },
+      "arsenal": {
+        "total": 22,
+        "assigned": 0,
+        "missing": 22
+      },
+      "brownadrogue": {
+        "total": 25,
+        "assigned": 0,
+        "missing": 25
+      },
+      "armenio": {
+        "total": 20,
+        "assigned": 0,
+        "missing": 20
+      },
+      "argentinomerlo": {
+        "total": 21,
+        "assigned": 0,
+        "missing": 21
+      },
+      "argentinoquilmes": {
+        "total": 25,
+        "assigned": 0,
+        "missing": 25
+      },
+      "camioneros": {
+        "total": 25,
+        "assigned": 0,
+        "missing": 25
+      },
+      "comunicaciones": {
+        "total": 24,
+        "assigned": 0,
+        "missing": 24
+      },
+      "defensoresunidos": {
+        "total": 23,
+        "assigned": 0,
+        "missing": 23
+      },
+      "docksud": {
+        "total": 27,
+        "assigned": 0,
+        "missing": 27
+      },
+      "laferrere": {
+        "total": 26,
+        "assigned": 0,
+        "missing": 26
+      },
+      "deportivomerlo": {
+        "total": 27,
+        "assigned": 0,
+        "missing": 27
+      },
+      "excursionistas": {
+        "total": 27,
+        "assigned": 0,
+        "missing": 27
+      },
+      "flandria": {
+        "total": 26,
+        "assigned": 0,
+        "missing": 26
+      },
+      "ituzaingo": {
+        "total": 21,
+        "assigned": 0,
+        "missing": 21
+      },
+      "liniers": {
+        "total": 25,
+        "assigned": 0,
+        "missing": 25
+      },
+      "realpilar": {
+        "total": 27,
+        "assigned": 0,
+        "missing": 27
+      },
+      "sanmartinburzaco": {
+        "total": 22,
+        "assigned": 0,
+        "missing": 22
+      },
+      "sportivoitaliano": {
+        "total": 21,
+        "assigned": 0,
+        "missing": 21
+      },
+      "talleresre": {
+        "total": 27,
+        "assigned": 0,
+        "missing": 27
+      },
+      "uai": {
+        "total": 24,
+        "assigned": 0,
+        "missing": 24
+      },
+      "villadalmine": {
+        "total": 22,
+        "assigned": 0,
+        "missing": 22
+      },
+      "villasancarlos": {
+        "total": 26,
+        "assigned": 0,
+        "missing": 26
       }
     }
   },
-  "dorsalsComplete": true,
+  "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 2038,
+    "assigned": 2571,
     "missing": 0,
-    "birthDates": 2038,
-    "total": 2038,
+    "birthDates": 2069,
+    "total": 2571,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3100,6 +3582,116 @@
         "missing": 0
       },
       "rafaela": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "arsenal": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "brownadrogue": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "armenio": {
+        "total": 20,
+        "assigned": 20,
+        "missing": 0
+      },
+      "argentinomerlo": {
+        "total": 21,
+        "assigned": 21,
+        "missing": 0
+      },
+      "argentinoquilmes": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "camioneros": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "comunicaciones": {
+        "total": 24,
+        "assigned": 24,
+        "missing": 0
+      },
+      "defensoresunidos": {
+        "total": 23,
+        "assigned": 23,
+        "missing": 0
+      },
+      "docksud": {
+        "total": 27,
+        "assigned": 27,
+        "missing": 0
+      },
+      "laferrere": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "deportivomerlo": {
+        "total": 27,
+        "assigned": 27,
+        "missing": 0
+      },
+      "excursionistas": {
+        "total": 27,
+        "assigned": 27,
+        "missing": 0
+      },
+      "flandria": {
+        "total": 26,
+        "assigned": 26,
+        "missing": 0
+      },
+      "ituzaingo": {
+        "total": 21,
+        "assigned": 21,
+        "missing": 0
+      },
+      "liniers": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "realpilar": {
+        "total": 27,
+        "assigned": 27,
+        "missing": 0
+      },
+      "sanmartinburzaco": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "sportivoitaliano": {
+        "total": 21,
+        "assigned": 21,
+        "missing": 0
+      },
+      "talleresre": {
+        "total": 27,
+        "assigned": 27,
+        "missing": 0
+      },
+      "uai": {
+        "total": 24,
+        "assigned": 24,
+        "missing": 0
+      },
+      "villadalmine": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "villasancarlos": {
         "total": 26,
         "assigned": 26,
         "missing": 0
@@ -3107,9 +3699,9 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 2038,
+    "assigned": 2571,
     "missing": 0,
-    "total": 2038,
+    "total": 2571,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3374,13 +3966,101 @@
       "rafaela": {
         "total": 26,
         "assigned": 26
+      },
+      "arsenal": {
+        "total": 22,
+        "assigned": 22
+      },
+      "brownadrogue": {
+        "total": 25,
+        "assigned": 25
+      },
+      "armenio": {
+        "total": 20,
+        "assigned": 20
+      },
+      "argentinomerlo": {
+        "total": 21,
+        "assigned": 21
+      },
+      "argentinoquilmes": {
+        "total": 25,
+        "assigned": 25
+      },
+      "camioneros": {
+        "total": 25,
+        "assigned": 25
+      },
+      "comunicaciones": {
+        "total": 24,
+        "assigned": 24
+      },
+      "defensoresunidos": {
+        "total": 23,
+        "assigned": 23
+      },
+      "docksud": {
+        "total": 27,
+        "assigned": 27
+      },
+      "laferrere": {
+        "total": 26,
+        "assigned": 26
+      },
+      "deportivomerlo": {
+        "total": 27,
+        "assigned": 27
+      },
+      "excursionistas": {
+        "total": 27,
+        "assigned": 27
+      },
+      "flandria": {
+        "total": 26,
+        "assigned": 26
+      },
+      "ituzaingo": {
+        "total": 21,
+        "assigned": 21
+      },
+      "liniers": {
+        "total": 25,
+        "assigned": 25
+      },
+      "realpilar": {
+        "total": 27,
+        "assigned": 27
+      },
+      "sanmartinburzaco": {
+        "total": 22,
+        "assigned": 22
+      },
+      "sportivoitaliano": {
+        "total": 21,
+        "assigned": 21
+      },
+      "talleresre": {
+        "total": 27,
+        "assigned": 27
+      },
+      "uai": {
+        "total": 24,
+        "assigned": 24
+      },
+      "villadalmine": {
+        "total": 22,
+        "assigned": 22
+      },
+      "villasancarlos": {
+        "total": 26,
+        "assigned": 26
       }
     }
   },
   "specificRoleCoverage": {
-    "assigned": 2038,
+    "assigned": 2571,
     "missing": 0,
-    "total": 2038,
+    "total": 2571,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3645,13 +4325,101 @@
       "rafaela": {
         "total": 26,
         "specific": 26
+      },
+      "arsenal": {
+        "total": 22,
+        "specific": 22
+      },
+      "brownadrogue": {
+        "total": 25,
+        "specific": 25
+      },
+      "armenio": {
+        "total": 20,
+        "specific": 20
+      },
+      "argentinomerlo": {
+        "total": 21,
+        "specific": 21
+      },
+      "argentinoquilmes": {
+        "total": 25,
+        "specific": 25
+      },
+      "camioneros": {
+        "total": 25,
+        "specific": 25
+      },
+      "comunicaciones": {
+        "total": 24,
+        "specific": 24
+      },
+      "defensoresunidos": {
+        "total": 23,
+        "specific": 23
+      },
+      "docksud": {
+        "total": 27,
+        "specific": 27
+      },
+      "laferrere": {
+        "total": 26,
+        "specific": 26
+      },
+      "deportivomerlo": {
+        "total": 27,
+        "specific": 27
+      },
+      "excursionistas": {
+        "total": 27,
+        "specific": 27
+      },
+      "flandria": {
+        "total": 26,
+        "specific": 26
+      },
+      "ituzaingo": {
+        "total": 21,
+        "specific": 21
+      },
+      "liniers": {
+        "total": 25,
+        "specific": 25
+      },
+      "realpilar": {
+        "total": 27,
+        "specific": 27
+      },
+      "sanmartinburzaco": {
+        "total": 22,
+        "specific": 22
+      },
+      "sportivoitaliano": {
+        "total": 21,
+        "specific": 21
+      },
+      "talleresre": {
+        "total": 27,
+        "specific": 27
+      },
+      "uai": {
+        "total": 24,
+        "specific": 24
+      },
+      "villadalmine": {
+        "total": 22,
+        "specific": 22
+      },
+      "villasancarlos": {
+        "total": 26,
+        "specific": 26
       }
     }
   },
   "ratingCoverage": {
-    "rated": 919,
-    "estimated": 1119,
-    "total": 2038,
+    "rated": 1430,
+    "estimated": 1141,
+    "total": 2571,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -4049,6 +4817,138 @@
         "verified": 2,
         "estimated": 24,
         "provisional": 0
+      },
+      "arsenal": {
+        "total": 22,
+        "verified": 21,
+        "estimated": 1,
+        "provisional": 0
+      },
+      "brownadrogue": {
+        "total": 25,
+        "verified": 20,
+        "estimated": 5,
+        "provisional": 0
+      },
+      "armenio": {
+        "total": 20,
+        "verified": 18,
+        "estimated": 2,
+        "provisional": 0
+      },
+      "argentinomerlo": {
+        "total": 21,
+        "verified": 17,
+        "estimated": 4,
+        "provisional": 0
+      },
+      "argentinoquilmes": {
+        "total": 25,
+        "verified": 21,
+        "estimated": 4,
+        "provisional": 0
+      },
+      "camioneros": {
+        "total": 25,
+        "verified": 24,
+        "estimated": 1,
+        "provisional": 0
+      },
+      "comunicaciones": {
+        "total": 24,
+        "verified": 24,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "defensoresunidos": {
+        "total": 23,
+        "verified": 18,
+        "estimated": 5,
+        "provisional": 0
+      },
+      "docksud": {
+        "total": 27,
+        "verified": 27,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "laferrere": {
+        "total": 26,
+        "verified": 26,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "deportivomerlo": {
+        "total": 27,
+        "verified": 27,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "excursionistas": {
+        "total": 27,
+        "verified": 27,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "flandria": {
+        "total": 26,
+        "verified": 26,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "ituzaingo": {
+        "total": 21,
+        "verified": 21,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "liniers": {
+        "total": 25,
+        "verified": 25,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "realpilar": {
+        "total": 27,
+        "verified": 27,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "sanmartinburzaco": {
+        "total": 22,
+        "verified": 22,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "sportivoitaliano": {
+        "total": 21,
+        "verified": 21,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "talleresre": {
+        "total": 27,
+        "verified": 27,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "uai": {
+        "total": 24,
+        "verified": 24,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "villadalmine": {
+        "total": 22,
+        "verified": 22,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "villasancarlos": {
+        "total": 26,
+        "verified": 26,
+        "estimated": 0,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -4056,22 +4956,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 866,
+    "derivedPlayers": 1399,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 66,
-    "players": 2038,
+    "clubs": 88,
+    "players": 2571,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 0,
-    "verifiedRatings": 919,
-    "estimatedRatings": 1119,
+    "playersMissingDorsal": 533,
+    "verifiedRatings": 1430,
+    "estimatedRatings": 1141,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 0,
+    "playersMissingFoot": 514,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 866
+    "playersWithoutManualAttributes": 1399
   }
 }

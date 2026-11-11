@@ -80,7 +80,7 @@
     "feet": 19,
     "birthDates": 31
   },
-  "runtimeIntegrated": false,
+  "runtimeIntegrated": true,
   "batch2": {
     "csv": "tanda2.csv",
     "clubs": 7,
@@ -129,5 +129,7 @@
       "villasancarlos": 26
     }
   },
-  "clubIdsAlignedWithRuntime": true
+  "clubIdsAlignedWithRuntime": true,
+  "runtimePlayers": 533,
+  "runtimeClubs": 22
 }
