@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: \${{ github.head_ref || github.ref_name }}
+          ref: ${{ github.head_ref || github.ref_name }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -41,5 +41,5 @@ jobs:
           git add public/squads.json public/squads.js public/squads-meta.json
           if ! git diff --cached --quiet; then
             git commit -m 'Integrar planteles reales Federal A 2026 — tanda 2'
-            git push origin HEAD:\${{ github.head_ref || github.ref_name }}
+            git push origin HEAD:${{ github.head_ref || github.ref_name }}
           fi
