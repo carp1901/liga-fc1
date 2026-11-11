@@ -35,7 +35,7 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 ## Estado
 
 - Rama: `federal-a-2026-tanda-1`
-- Primera tanda depurada: **207 jugadores de diez clubes**, con coincidencia individual entre la ficha de plantel 2026 de Mundo Ascenso y la primera plantilla FM27 / FM Blog.
+- Primera tanda depurada: **225 jugadores de diez clubes**, con coincidencia individual entre la ficha de plantel 2026 de Mundo Ascenso y la primera plantilla FM27 / FM Blog.
 - Desglose: Alvarado 20; 9 de Julio (Rafaela) 25; Atenas (Río Cuarto) 19; San Martín (Mendoza) 18; Bartolomé Mitre (Posadas) 18; Boca Unidos 19; Cipolletti 26; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América (Formosa) 18.
 - Las 199 edades se completaron desde las fichas FM27 individuales. La CA/ABI es la capacidad actual, no la PA.
 - Dorsales: quedan vacíos. Mundo Ascenso presenta duplicaciones de camisetas y fichas repetidas/históricas para varios clubes; no se asignan números sin poder distinguir un dorsal vigente y único.
