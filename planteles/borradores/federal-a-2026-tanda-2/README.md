@@ -1,9 +1,9 @@
 # Federal A 2026 — tanda 2
 
-Segunda tanda: diez clubes y 194 jugadores. Cada plantel queda con al menos 18 futbolistas (11 titulares + 7 suplentes). Dorsales vacíos cuando las fuentes públicas muestran números duplicados o ambiguos.
+Segunda tanda: diez clubes y 200 jugadores. Cada plantel queda con al menos 18 futbolistas (11 titulares + 7 suplentes). Dorsales vacíos cuando las fuentes públicas muestran números duplicados o ambiguos.
 
 ## Cantidades
-- soldemayo: 18
+- soldemayo: 24
 - tucumancentral: 22
 - costabrava: 22
 - circulo: 20
@@ -23,6 +23,7 @@ Segunda tanda: diez clubes y 194 jugadores. Cada plantel queda con al menos 18 f
 - No se rellenaron dorsales dudosos ni se inventaron nombres para alcanzar el mínimo.
 - Revisión puntual de Costa Brava: se agregan Maximiliano Díaz, Brian Montero, Lautaro Ibarra y Nicolás Ovando, contrastados con el plantel 2026 de Transfermarkt, la nómina oficial del club y fuentes de ficha/posición. Costa Brava pasa de 18 a 22 jugadores. Las medias nuevas quedan identificadas como estimaciones propias; las edades y roles se cargan sólo con fuente. No se inventan minutos ni dorsales.
 - Revisión puntual de FADEP: se agregan Lucas Cogorno, Uriel Gizzi, Gonzalo Klusener y Ramón Lentini. Las altas se contrastaron con el anuncio de refuerzos y estadísticas/actas de partidos 2026; FADEP pasa de 18 a 22. Se registran 8 partidos de Gizzi, 20 de Klusener y 10 de Lentini; Cogorno queda sin edad ni apariciones cargadas al no contar con un dato individual suficientemente preciso. Medias nuevas marcadas como estimaciones propias.
+- Revisión puntual de Sol de Mayo: se agregan Claudio Curima, Gustavo Areco, Matías Kucich, Fabio Giménez, Santiago Jara y Kevin Alberto de Jesús Pereira. Los seis aparecen en el plantel 2026 y en registros de temporada; Jara suma 23 presencias y Pereira 22. Sol de Mayo pasa de 18 a 24, con edades y roles contrastados en fichas individuales. Medias nuevas marcadas como estimaciones propias.
 
 ## Fuentes de planteles
 - Sol de Mayo: https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo
