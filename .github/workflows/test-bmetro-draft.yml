@@ -1,7 +1,7 @@
 name: Validar tanda de Primera B Metropolitana
 on:
   push:
-    branches: [planteles-bmetro-2026-tanda1]
+    branches: [main, planteles-bmetro-2026-tanda1]
     paths:
       - 'planteles/borradores/primera-b-metro-2026/**'
       - 'test-bmetro-draft.js'
@@ -29,3 +29,5 @@ jobs:
         run: node import-squads.js planteles/borradores/primera-b-metro-2026/tanda1.csv --dry-run
       - name: Validar cobertura y perfiles
         run: node test-bmetro-draft.js
+
+# El borrador se valida también al incorporarse a main; no publica squads en runtime.
