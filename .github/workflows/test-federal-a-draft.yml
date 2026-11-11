@@ -4,8 +4,10 @@ on:
     branches: [main]
     paths:
       - 'planteles/borradores/federal-a-2026-tanda-2/**'
+      - 'planteles/borradores/federal-a-2026-tanda-3/**'
       - 'test-federal-a-draft.js'
       - 'test-federal-a-tanda2.js'
+      - 'test-federal-a-tanda3.js'
       - 'test-federal-a-runtime.js'
       - 'import-squads.js'
       - '.github/workflows/test-federal-a-draft.yml'
@@ -37,10 +39,12 @@ jobs:
         run: node test-federal-a-draft.js
       - name: Validar segunda tanda y siete suplentes
         run: node test-federal-a-tanda2.js
+      - name: Validar tercera tanda y siete suplentes
+        run: node test-federal-a-tanda3.js
       - name: Validar importación sin publicar
-        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-2/completo.csv --dry-run
-      - name: Integrar segunda tanda en runtime de la rama
-        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-2/completo.csv
+        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-3/completo.csv --dry-run
+      - name: Integrar tercera tanda en runtime de la rama
+        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-3/completo.csv
       - name: Verificar runtime de ambas tandas y mínimo global
         run: node test-federal-a-runtime.js
       - name: Guardar runtime generado en la rama del PR
@@ -49,6 +53,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/squads.json public/squads.js public/squads-meta.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Integrar planteles reales Federal A 2026 — tanda 2'
+            git commit -m 'Integrar planteles reales Federal A 2026 — tanda 3'
             git push origin HEAD:${{ github.head_ref || github.ref_name }}
           fi
