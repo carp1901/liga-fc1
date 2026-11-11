@@ -12,8 +12,8 @@ const batches=[
  {file:'planteles/borradores/primera-b-metro-2026/tanda2.csv',expected:{docksud:27,laferrere:26,deportivomerlo:27,excursionistas:27,flandria:26,ituzaingo:21,liniers:25}},
  {file:'planteles/borradores/primera-b-metro-2026/tanda3.csv',expected:{realpilar:27,sanmartinburzaco:22,sportivoitaliano:21,talleresre:27,uai:24,villadalmine:22,villasancarlos:26}}
 ];
-const allNames=new Set();
-let total=0;
+const allNames=new Set(),allNumbers=new Set();
+let total=0,verifiedDorsals=0;
 for(const batch of batches){
  const rows=parseCSV(fs.readFileSync(batch.file,'utf8'));
  const headers=rows.shift().map(x=>x.trim().toLowerCase());
@@ -35,10 +35,10 @@ for(const batch of batches){
   const key=club+'|'+name.toLowerCase();
   assert(!allNames.has(key),batch.file+' fila '+(n+2)+': jugador duplicado entre tandas '+name);
   allNames.add(key);
-  if(get('dorsal')){const nk=club+'|'+get('dorsal');assert(!numbers.has(nk),batch.file+' fila '+(n+2)+': dorsal duplicado '+get('dorsal'));numbers.add(nk);}
+  if(get('dorsal')){assert(Number.isInteger(Number(get('dorsal')))&&Number(get('dorsal'))>=1&&Number(get('dorsal'))<=99,batch.file+' fila '+(n+2)+': dorsal inválido');assert(get('dorsal_source'),batch.file+' fila '+(n+2)+': dorsal sin fuente');const nk=club+'|'+get('dorsal');assert(!numbers.has(nk),batch.file+' fila '+(n+2)+': dorsal duplicado '+get('dorsal'));assert(!allNumbers.has(nk),batch.file+' fila '+(n+2)+': dorsal duplicado entre tandas '+get('dorsal'));numbers.add(nk);allNumbers.add(nk);verifiedDorsals++;}else assert(!get('dorsal_source'),batch.file+' fila '+(n+2)+': fuente de dorsal sin número');
  }
  assert.deepEqual(counts,batch.expected,batch.file+': cambió la cantidad de jugadores por club');
 }
 assert.equal(batches.reduce((n,b)=>n+Object.keys(b.expected).length,0),22,'Las tres tandas deben cubrir 22 clubes');
 assert.equal(total,533,'Las tres tandas deben contener 533 jugadores');
-console.log('OK: tres tandas B Metro — '+total+' jugadores, 22 clubes, perfiles válidos, fuentes presentes y sin duplicados.');
+console.log('OK: tres tandas B Metro — '+total+' jugadores, 22 clubes, '+verifiedDorsals+' dorsales verificados, perfiles válidos y sin duplicados.');
