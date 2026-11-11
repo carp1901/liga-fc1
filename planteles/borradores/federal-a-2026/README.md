@@ -42,5 +42,5 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 - Nacionalidades corregidas desde las fichas FM27: Luis Uliambre (PAR), Jair Blanco (COL) y José Cabañas (PAR).
 - Archivos individuales y consolidado: `planteles/borradores/federal-a-2026-tanda-1/completo.csv`.
 - Validación: 34 columnas, 192 edades, diez IDs de club esperados, sin duplicados internos, ratings ABI 1–99, `rating_base` igual a `rating` y ajuste 0.
-- Pendiente de ejecución en CI: volver a correr la validación reforzada y el `dry-run` del importador tras completar las edades.
+- CI: el workflow del PR valida el CSV, ejecuta `dry-run`, integra los diez clubes en el runtime de la rama y compara cada jugador importado contra el CSV.
 - Importación runtime: todavía pendiente. No está publicado en `main` ni desplegado.
