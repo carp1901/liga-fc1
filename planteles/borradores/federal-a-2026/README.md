@@ -35,7 +35,8 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 ## Estado
 
 - Rama: `federal-a-2026-tanda-1`
-- Referencia FM27: fichas de los diez clubes localizadas y consultadas; pendiente el cruce individual contra los planteles reales 2026.
-- CSV de jugadores: pendiente de completar y auditar.
+- Referencia FM27: fichas de los diez clubes localizadas y consultadas; pendiente el cruce individual completo contra los planteles reales 2026.
+- Alvarado: primer borrador cargado con 20 jugadores coincidentes entre la ficha FM27 y la nómina 2026 de Mundo Ascenso. Luciano Echeverría quedó fuera porque no aparece en la nómina vigente. Edades y dorsales siguen vacíos por falta de respaldo individual consistente.
+- CSV de jugadores: `planteles/borradores/federal-a-2026-tanda-1/alvarado.csv` es un borrador parcial; los otros nueve clubes siguen pendientes. No considerar la tanda terminada ni importar todavía.
 - Importación runtime: pendiente; no modificar `public/squads.*` en esta etapa.
 - Validación: se añadirá cuando estén completos los diez clubes.
