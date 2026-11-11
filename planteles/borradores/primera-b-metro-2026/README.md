@@ -39,7 +39,7 @@ Trabajo por tres tandas, con 22 clubes en total. Los CSV son fuentes editables; 
 3. Se contrasta la pertenencia al plantel y la participación 2026 con estadísticas de temporada, fichas individuales, reportes de partidos y fuentes de clubes. La columna `fuente_participacion` conserva la referencia utilizada para comprobar actividad.
 4. Cuando un jugador importante de la temporada no aparece en la ficha FM consultada, se permite una estimación propia de media, claramente etiquetada. No se presenta como dato FM.
 5. No se cargan reservas o juveniles sin participación suficiente. Los casos de cambio de club durante 2026 se conservan sólo cuando tuvieron participación comprobable con ese equipo.
-6. No se inventan dorsales ni fechas de nacimiento. Se asigna un dorsal sólo cuando la nómina 2026 de la fuente lo muestra de forma inequívoca para ese jugador y no hay otro futbolista del mismo plantel con el mismo número. Cuando la página repite números o muestra datos contradictorios, el dorsal queda vacío. Cada dorsal cargado conserva `dorsal_source`. El pie dominante se carga únicamente cuando hay una fuente individual.
+6. No se inventan dorsales ni fechas de nacimiento. Para asignar un dorsal se exige una fuente oficial y vigente del propio club que identifique expresamente el número de camiseta. Las planillas públicas de partido consultadas numeran la formación del 1 al 20 por orden de presentación; esos números no son necesariamente los dorsales reales. Tampoco se toman como confirmación las nóminas de terceros cuando contradicen al club. Si no hay respaldo oficial inequívoco, el dorsal queda vacío. Cada dorsal cargado conserva `dorsal_source`. El pie dominante se carga únicamente cuando hay una fuente individual.
 7. Para B Metro se conserva el ABI como base (`ajuste_rating=0`). No se aplica automáticamente el +10 usado en Primera y Primera Nacional: la tercera categoría debe mantener su distancia de nivel hasta terminar la calibración.
 
 ## Estado de la tanda 1
@@ -50,7 +50,7 @@ Trabajo por tres tandas, con 22 clubes en total. Los CSV son fuentes editables; 
 - Medias de referencia FM27: 163
 - Medias estimadas con participación 2026: 22
 - Duplicados de nombre: 0
-- Dorsales verificados: 43; el resto queda vacío por duplicación o falta de confirmación
+- Dorsales oficiales verificados: 6 (Brown de Adrogué); el resto queda vacío por falta de confirmación oficial
 - Pies dominantes con fuente individual: 19
 - Fechas de nacimiento documentadas: 31
 
@@ -64,7 +64,7 @@ El validador específico pasó manualmente sobre las 185 filas: cobertura de los
 - Medias FM27 ABI: 179 (sin estimaciones propias en esta tanda)
 - Distribución: Dock Sud 27, Laferrere 26, Deportivo Merlo 27, Excursionistas 27, Flandria 26, Ituzaingó 21 y Liniers 25.
 - Duplicados internos y contra tanda 1: 0
-- Dorsales verificados: 12; los números repetidos en la nómina se dejan sin asignar.
+- Dorsales oficiales verificados: 0; no se encontró una nómina oficial vigente con números de camiseta inequívocos.
 - Los jugadores cedidos a estos clubes se incluyen cuando FM27 los clasifica en la primera plantilla; los cedidos fuera quedan excluidos.
 
 Las medias y posiciones se tomaron de las fichas de primera plantilla FM27; la pertenencia a los planteles 2026 se contrastó con Mundo Ascenso y, para Ituzaingó, también con Solo Ascenso. El validador se amplió para revisar ambas tandas juntas.
@@ -78,12 +78,20 @@ Las medias y posiciones se tomaron de las fichas de primera plantilla FM27; la p
 - Distribución: Real Pilar 27, San Martín de Burzaco 22, Sportivo Italiano 21, Talleres (RE) 27, UAI Urquiza 24, Villa Dálmine 22 y Villa San Carlos 26.
 - Se contrastó la pertenencia 2026 con las nóminas de Mundo Ascenso y se depuraron duplicados, jugadores cedidos fuera y nombres de FM27 que no aparecen en el plantel 2026 consultado.
 - Los préstamos hacia el club se conservan cuando aparecen en la primera plantilla FM27; los préstamos hacia otros clubes se excluyen.
-- Dorsales verificados: 16; se mantienen vacíos los números repetidos o sin confirmación individual.
+- Dorsales oficiales verificados: 0; no se encontró una nómina oficial vigente con números de camiseta inequívocos.
 
 ## Validación conjunta
 
 - Tres archivos CSV, 22 clubes y **533 jugadores**.
 - Tanda 1: 185; tanda 2: 179; tanda 3: 169.
-- **71 dorsales verificados** y 462 sin dorsal confirmado; ningún dorsal duplicado dentro de un plantel.
-- La validación de cobertura, perfiles, edades, medias, fuentes, dorsales y duplicados se ejecuta sobre las tres tandas juntas.
+- **6 dorsales oficiales verificados** y 527 sin dorsal confirmado; ningún dorsal duplicado dentro de un plantel.
+- Se retiraron 65 números anteriores que provenían de listados o planillas cuya numeración correspondía al orden de la formación y no acreditaba el dorsal de camiseta.
+- La nómina oficial de Brown de Adrogué confirma: Matías Wysocki (12), Carlos Aguirre (4), Alexis Castaño (14), Braian/Brian Guerrero Ruiz (18), Matías Sproat (10) y Nicolás Meaurio (58).
+- La validación de cobertura, perfiles, edades, medias, fuentes, dorsales oficiales y duplicados se ejecuta sobre las tres tandas juntas.
 - Los CSV quedan como respaldo editable. La integración al runtime se realiza desde `completo.csv` mediante el workflow, después de validar cobertura y perfiles; se conservan los planteles de las demás divisiones.
+
+## Auditoría de dorsales
+
+- Fuente oficial con números explícitos y temporada vigente localizada: [Club Atlético Brown de Adrogué](https://clubatleticobrown.com/).
+- Las planillas de Camioneros y otros reportes de partido muestran la numeración de la formación (titulares 1–11 y suplentes 12–20), que no coincide necesariamente con la numeración de camiseta. Ejemplo: la planilla de Brown–Camioneros presenta a Meaurio como 9 y Castaño como 8, mientras el sitio oficial de Brown publica sus camisetas como 58 y 14.
+- Por esa diferencia, se vaciaron los dorsales de terceros que no pudieron confirmarse con fuente oficial. No se rellenan campos para mejorar artificialmente la cobertura.
