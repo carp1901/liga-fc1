@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T06:20:53.229Z",
+  "updatedAt": "2026-11-11T07:05:35.278Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1327 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1507 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -111,7 +111,17 @@
     "gbrown": 18,
     "juventudsl": 18,
     "santamarina": 18,
-    "douglashaig": 18
+    "douglashaig": 18,
+    "gimchivilcoy": 18,
+    "sanmartinformosa": 18,
+    "sarmientolb": 18,
+    "sportivobelgrano": 18,
+    "huracanlh": 18,
+    "olimpo": 18,
+    "antoniana": 18,
+    "linqueno": 18,
+    "indchivilcoy": 18,
+    "escobar": 18
   },
   "sources": {
     "sanlorenzo": {
@@ -3020,6 +3030,114 @@
       "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
       "roleSource": "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig",
       "natSource": "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig"
+    },
+    "gimchivilcoy": {
+      "source": "https://www.mundoascenso.com.ar/plantel/323-gimnasia-de-chivilcoy",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy"
+    },
+    "sanmartinformosa": {
+      "source": "https://www.afa.com.ar/es/posts/san-martin-de-formosa-se-consagro-campeon-del-torneo-federal-a-2026",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa"
+    },
+    "sarmientolb": {
+      "source": "https://www.mundoascenso.com.ar/plantel/224-sarmiento-de-la-banda",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda"
+    },
+    "sportivobelgrano": {
+      "source": "https://sportivobelgrano.com.ar/futbol-profesional/",
+      "consulted": "2026-11-11",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14022190-sportivo-belgrano",
+        "Sin edad publicada; se deja sin asignar"
+      ],
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14022190-sportivo-belgrano",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14022190-sportivo-belgrano"
+    },
+    "huracanlh": {
+      "source": "https://clubhuracanlasheras.com.ar/plantel/",
+      "consulted": "2026-11-11",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108576-huracan-las-heras",
+        "Sin edad publicada; se deja sin asignar"
+      ],
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108576-huracan-las-heras",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108576-huracan-las-heras"
+    },
+    "olimpo": {
+      "source": "https://www.mundoascenso.com.ar/plantel/209-olimpo",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108542-olimpo"
+    },
+    "antoniana": {
+      "source": "https://www.mundoascenso.com.ar/plantel/50-juventud-antoniana",
+      "consulted": "2026-11-11",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108538-juv-antoniana",
+        "Sin edad publicada; se deja sin asignar"
+      ],
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108538-juv-antoniana",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108538-juv-antoniana"
+    },
+    "linqueno": {
+      "source": "https://www.mundoascenso.com.ar/plantel/21041-el-linqueno",
+      "consulted": "2026-11-11",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14020248-el-linqueno",
+        "Sin edad publicada; se deja sin asignar"
+      ],
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14020248-el-linqueno",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14020248-el-linqueno"
+    },
+    "indchivilcoy": {
+      "source": "https://www.mundoascenso.com.ar/plantel/270-independiente-de-chivilcoy",
+      "consulted": "2026-11-11",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046672-independiente-chivilcoy",
+        "Sin edad publicada; se deja sin asignar"
+      ],
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046672-independiente-chivilcoy",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046672-independiente-chivilcoy"
+    },
+    "escobar": {
+      "source": "https://www.radiodeportesescobar.com/con-la-permanencia-asegurada-atletico-escobar-le-bajo-el-telon-a-su-temporada-en-el-federal/",
+      "consulted": "2026-11-11",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar",
+        "Sin edad publicada; se deja sin asignar"
+      ],
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar"
     }
   },
   "completePrimera": true,
@@ -3028,8 +3146,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2038,
-    "missing": 918,
-    "total": 2956,
+    "missing": 1098,
+    "total": 3136,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3570,15 +3688,65 @@
         "total": 18,
         "assigned": 0,
         "missing": 18
+      },
+      "gimchivilcoy": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "sanmartinformosa": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "sarmientolb": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "sportivobelgrano": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "huracanlh": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "olimpo": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "antoniana": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "linqueno": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "indchivilcoy": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "escobar": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
       }
     }
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 2956,
-    "missing": 0,
+    "assigned": 3123,
+    "missing": 13,
     "birthDates": 2069,
-    "total": 2956,
+    "total": 3136,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4119,13 +4287,63 @@
         "total": 18,
         "assigned": 18,
         "missing": 0
+      },
+      "gimchivilcoy": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "sanmartinformosa": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "sarmientolb": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "sportivobelgrano": {
+        "total": 18,
+        "assigned": 17,
+        "missing": 1
+      },
+      "huracanlh": {
+        "total": 18,
+        "assigned": 15,
+        "missing": 3
+      },
+      "olimpo": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "antoniana": {
+        "total": 18,
+        "assigned": 14,
+        "missing": 4
+      },
+      "linqueno": {
+        "total": 18,
+        "assigned": 17,
+        "missing": 1
+      },
+      "indchivilcoy": {
+        "total": 18,
+        "assigned": 16,
+        "missing": 2
+      },
+      "escobar": {
+        "total": 18,
+        "assigned": 16,
+        "missing": 2
       }
     }
   },
   "nationalityCoverage": {
-    "assigned": 2956,
+    "assigned": 3136,
     "missing": 0,
-    "total": 2956,
+    "total": 3136,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4558,13 +4776,53 @@
       "douglashaig": {
         "total": 18,
         "assigned": 18
+      },
+      "gimchivilcoy": {
+        "total": 18,
+        "assigned": 18
+      },
+      "sanmartinformosa": {
+        "total": 18,
+        "assigned": 18
+      },
+      "sarmientolb": {
+        "total": 18,
+        "assigned": 18
+      },
+      "sportivobelgrano": {
+        "total": 18,
+        "assigned": 18
+      },
+      "huracanlh": {
+        "total": 18,
+        "assigned": 18
+      },
+      "olimpo": {
+        "total": 18,
+        "assigned": 18
+      },
+      "antoniana": {
+        "total": 18,
+        "assigned": 18
+      },
+      "linqueno": {
+        "total": 18,
+        "assigned": 18
+      },
+      "indchivilcoy": {
+        "total": 18,
+        "assigned": 18
+      },
+      "escobar": {
+        "total": 18,
+        "assigned": 18
       }
     }
   },
   "specificRoleCoverage": {
-    "assigned": 2956,
+    "assigned": 3136,
     "missing": 0,
-    "total": 2956,
+    "total": 3136,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4997,13 +5255,53 @@
       "douglashaig": {
         "total": 18,
         "specific": 18
+      },
+      "gimchivilcoy": {
+        "total": 18,
+        "specific": 18
+      },
+      "sanmartinformosa": {
+        "total": 18,
+        "specific": 18
+      },
+      "sarmientolb": {
+        "total": 18,
+        "specific": 18
+      },
+      "sportivobelgrano": {
+        "total": 18,
+        "specific": 18
+      },
+      "huracanlh": {
+        "total": 18,
+        "specific": 18
+      },
+      "olimpo": {
+        "total": 18,
+        "specific": 18
+      },
+      "antoniana": {
+        "total": 18,
+        "specific": 18
+      },
+      "linqueno": {
+        "total": 18,
+        "specific": 18
+      },
+      "indchivilcoy": {
+        "total": 18,
+        "specific": 18
+      },
+      "escobar": {
+        "total": 18,
+        "specific": 18
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1327,
-    "total": 2956,
+    "estimated": 1507,
+    "total": 3136,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -5653,6 +5951,66 @@
         "verified": 0,
         "estimated": 18,
         "provisional": 0
+      },
+      "gimchivilcoy": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "sanmartinformosa": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "sarmientolb": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "sportivobelgrano": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "huracanlh": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "olimpo": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "antoniana": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "linqueno": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "indchivilcoy": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "escobar": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -5660,22 +6018,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 1784,
+    "derivedPlayers": 1964,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 108,
-    "players": 2956,
+    "clubs": 118,
+    "players": 3136,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 0,
-    "playersMissingDorsal": 918,
+    "playersMissingAge": 13,
+    "playersMissingDorsal": 1098,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1327,
+    "estimatedRatings": 1507,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 899,
+    "playersMissingFoot": 1079,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 1784
+    "playersWithoutManualAttributes": 1964
   }
 }
