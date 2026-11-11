@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T16:29:21.721Z",
+  "updatedAt": "2026-11-11T16:30:22.915Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1638 medias con fuente individual + 1706 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1715 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -2887,7 +2887,7 @@
       "numberSource": [],
       "ratingSource": [
         "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
-        "Estimación orientativa; rating FM27 individual no disponible; no equivale a OVR EA"
+        "Estimación propia orientativa; rating FM27 individual no disponible; no equivale a OVR EA"
       ],
       "roleSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
@@ -5507,8 +5507,8 @@
     }
   },
   "ratingCoverage": {
-    "rated": 1638,
-    "estimated": 1706,
+    "rated": 1629,
+    "estimated": 1715,
     "total": 3344,
     "provisional": 0,
     "byClub": {
@@ -6066,8 +6066,8 @@
       },
       "bmitre": {
         "total": 27,
-        "verified": 27,
-        "estimated": 0,
+        "verified": 18,
+        "estimated": 9,
         "provisional": 0
       },
       "bocaunidos": {
@@ -6278,8 +6278,8 @@
     "duplicateNumbers": 0,
     "playersMissingAge": 74,
     "playersMissingDorsal": 1300,
-    "verifiedRatings": 1638,
-    "estimatedRatings": 1706,
+    "verifiedRatings": 1629,
+    "estimatedRatings": 1715,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
     "playersMissingFoot": 1287,
