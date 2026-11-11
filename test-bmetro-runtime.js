@@ -7,7 +7,7 @@ const rows=parseCSV(fs.readFileSync(file,'utf8'));
 const headers=rows.shift().map(x=>x.trim().toLowerCase());
 const col=Object.fromEntries(headers.map((h,i)=>[h,i]));
 const expected={};
-for(const row of rows){if(!row.some(Boolean))continue;const get=k=>row[col[k]]||'';const id=get('club_id');(expected[id]||(expected[id]=[])).push({n:get('nombre'),p:get('posicion'),r:Number(get('rating')),role:get('rol'),age:Number(get('edad')),specificRole:get('rol_especifico')});}
+for(const row of rows){if(!row.some(Boolean))continue;const get=k=>row[col[k]]||'';const id=get('club_id');(expected[id]||(expected[id]=[])).push({n:get('nombre'),p:get('posicion'),r:Number(get('rating')),role:get('rol'),age:Number(get('edad')),specificRole:get('rol_especifico'),number:get('dorsal')?Number(get('dorsal')):null,numberSource:get('dorsal_source')});}
 const runtime=JSON.parse(fs.readFileSync('public/squads.json','utf8'));
 const data=fs.readFileSync('public/data.js','utf8');
 let total=0;
@@ -16,10 +16,10 @@ for(const [id,players] of Object.entries(expected)){
  assert(Array.isArray(runtime[id]), 'Falta plantel runtime: '+id);
  assert.equal(runtime[id].length,players.length,'Cantidad distinta en runtime: '+id);
  const actual=new Map(runtime[id].map(p=>[p.n,p]));
- for(const player of players){const got=actual.get(player.n);assert(got,'No se importó '+player.n+' en '+id);assert.equal(got.p,player.p,'Posición distinta: '+player.n);assert.equal(got.r,player.r,'Media distinta: '+player.n);assert.equal(got.role,player.role,'Rol distinto: '+player.n);assert.equal(got.age,player.age,'Edad distinta: '+player.n);assert.equal(got.specificRole,player.specificRole,'Rol específico distinto: '+player.n);}
+ for(const player of players){const got=actual.get(player.n);assert(got,'No se importó '+player.n+' en '+id);assert.equal(got.p,player.p,'Posición distinta: '+player.n);assert.equal(got.r,player.r,'Media distinta: '+player.n);assert.equal(got.role,player.role,'Rol distinto: '+player.n);assert.equal(got.age,player.age,'Edad distinta: '+player.n);assert.equal(got.specificRole,player.specificRole,'Rol específico distinto: '+player.n);assert.equal(got.number??null,player.number,'Dorsal distinto: '+player.n);assert.equal(got.numberSource||'',player.numberSource,'Fuente de dorsal distinta: '+player.n);}
  assert.equal(new Set(runtime[id].map(p=>p.n.toLowerCase())).size,players.length,'Nombres duplicados en runtime: '+id);
  total+=players.length;
 }
 assert.equal(Object.keys(expected).length,22);
 assert.equal(total,533);
-console.log('OK: runtime B Metro — 22 clubes, 533 jugadores; CSV y squads.json coinciden.');
+const assigned=Object.values(expected).flat().filter(p=>p.number!=null).length;console.log('OK: runtime B Metro — 22 clubes, 533 jugadores, '+assigned+' dorsales verificados; CSV y squads.json coinciden.');
