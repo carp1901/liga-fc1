@@ -1,0 +1,135 @@
+{
+  "season": 2026,
+  "division": "Primera B Metropolitana",
+  "batches": 3,
+  "teamsTotal": 22,
+  "batchesPlan": [
+    {
+      "batch": 1,
+      "teams": [
+        "arsenal",
+        "brownadrogue",
+        "armenio",
+        "argentinomerlo",
+        "argentinoquilmes",
+        "camioneros",
+        "comunicaciones",
+        "defensoresunidos"
+      ],
+      "status": "draft-validated",
+      "players": 185
+    },
+    {
+      "batch": 2,
+      "teams": [
+        "docksud",
+        "laferrere",
+        "deportivomerlo",
+        "excursionistas",
+        "flandria",
+        "ituzaingo",
+        "liniers"
+      ],
+      "status": "draft-validated",
+      "players": 179
+    },
+    {
+      "batch": 3,
+      "teams": [
+        "realpilar",
+        "sanmartinburzaco",
+        "sportivoitaliano",
+        "talleresre",
+        "uai",
+        "villadalmine",
+        "villasancarlos"
+      ],
+      "status": "draft-validated",
+      "players": 169
+    }
+  ],
+  "methodology": {
+    "primary": "FM27 team first-team squad, position and FMB Ability",
+    "ratingScale": "FMB ABI 1-99; third-party normalised score based on FM, not raw FM CA/PA and not EA OVR",
+    "ratingAdjustment": 0,
+    "secondarySources": [
+      "club official",
+      "AFA/Copa Argentina",
+      "Mundo Ascenso",
+      "Solo Ascenso",
+      "Transfermarkt",
+      "Tribuna",
+      "Soccerway",
+      "Sofascore",
+      "365Scores",
+      "match reports"
+    ],
+    "noInventedDorsals": true,
+    "noInventedBirthDates": true,
+    "noInventedFeet": true
+  },
+  "batch1": {
+    "csv": "tanda1.csv",
+    "clubs": 8,
+    "players": 185,
+    "fmAbiRatings": 163,
+    "estimatedRatings": 22,
+    "duplicateNames": 0,
+    "duplicateDorsals": 0,
+    "verifiedDorsals": 0,
+    "feet": 19,
+    "birthDates": 31
+  },
+  "runtimeIntegrated": true,
+  "batch2": {
+    "csv": "tanda2.csv",
+    "clubs": 7,
+    "players": 179,
+    "fmAbiRatings": 179,
+    "estimatedRatings": 0,
+    "duplicateNames": 0,
+    "duplicateDorsals": 0,
+    "verifiedDorsals": 0,
+    "feet": 0,
+    "birthDates": 0,
+    "clubCounts": {
+      "docksud": 27,
+      "laferrere": 26,
+      "deportivomerlo": 27,
+      "excursionistas": 27,
+      "flandria": 26,
+      "ituzaingo": 21,
+      "liniers": 25
+    }
+  },
+  "validation": {
+    "scope": "tanda1.csv + tanda2.csv + tanda3.csv",
+    "players": 533,
+    "clubs": 22,
+    "manualChecks": "roles, ratings, ages, sources, duplicate names and duplicate shirt numbers"
+  },
+  "batch3": {
+    "csv": "tanda3.csv",
+    "clubs": 7,
+    "players": 169,
+    "fmAbiRatings": 169,
+    "estimatedRatings": 0,
+    "duplicateNames": 0,
+    "duplicateDorsals": 0,
+    "verifiedDorsals": 0,
+    "feet": 0,
+    "birthDates": 0,
+    "clubCounts": {
+      "realpilar": 27,
+      "sanmartinburzaco": 22,
+      "sportivoitaliano": 21,
+      "talleresre": 27,
+      "uai": 24,
+      "villadalmine": 22,
+      "villasancarlos": 26
+    }
+  },
+  "clubIdsAlignedWithRuntime": true,
+  "runtimePlayers": 533,
+  "runtimeClubs": 22
+}
