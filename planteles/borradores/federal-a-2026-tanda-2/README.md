@@ -1,11 +1,11 @@
 # Federal A 2026 — tanda 2
 
-Segunda tanda: diez clubes y 186 jugadores. Cada plantel queda con al menos 18 futbolistas (11 titulares + 7 suplentes). Dorsales vacíos cuando las fuentes públicas muestran números duplicados o ambiguos.
+Segunda tanda: diez clubes y 190 jugadores. Cada plantel queda con al menos 18 futbolistas (11 titulares + 7 suplentes). Dorsales vacíos cuando las fuentes públicas muestran números duplicados o ambiguos.
 
 ## Cantidades
 - soldemayo: 18
 - tucumancentral: 22
-- costabrava: 18
+- costabrava: 22
 - circulo: 20
 - fadep: 18
 - germinal: 18
@@ -21,6 +21,7 @@ Segunda tanda: diez clubes y 186 jugadores. Cada plantel queda con al menos 18 f
 - Tucumán Central no tiene CA individual de FM27 disponible para su plantilla. Sus medias están marcadas como estimaciones comparativas por rol; edad y posición se tomaron del plantel Transfermarkt 2026.
 - Todas las medias de esta tanda están marcadas como estimación propia: no son OVR de EA FC ni ABI oficial de FM Blog.
 - No se rellenaron dorsales dudosos ni se inventaron nombres para alcanzar el mínimo.
+- Revisión puntual de Costa Brava: se agregan Maximiliano Díaz, Brian Montero, Lautaro Ibarra y Nicolás Ovando, contrastados con el plantel 2026 de Transfermarkt, la nómina oficial del club y fuentes de ficha/posición. Costa Brava pasa de 18 a 22 jugadores. Las medias nuevas quedan identificadas como estimaciones propias; las edades y roles se cargan sólo con fuente. No se inventan minutos ni dorsales.
 
 ## Fuentes de planteles
 - Sol de Mayo: https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo
