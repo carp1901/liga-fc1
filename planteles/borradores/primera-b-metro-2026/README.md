@@ -36,20 +36,22 @@ Trabajo por tres tandas, con 22 clubes en total. Los CSV son fuentes editables; 
 
 1. FM27 es la referencia principal para la lista de primera plantilla, posición y capacidad actual.
 2. Las páginas de FM Blog publican **FMB Ability (ABI) de 1 a 99**, una normalización propia basada en Football Manager. No es el CA/PA bruto del editor de FM ni un OVR de EA FC; se identifica expresamente en `rating_source`.
-3. Se contrasta la pertenencia al plantel con fuentes del club, AFA/Copa Argentina, Mundo Ascenso, Solo Ascenso y fichas estadísticas. Cuando hay contradicción de posición, se prioriza la evidencia de temporada 2026 y se deja la fuente en `fuente_rol`.
-4. Sólo se agregan futbolistas del plantel profesional actual con evidencia suficiente. No se cargan reservas, juveniles sin participación ni jugadores cedidos fuera.
-5. No se inventan dorsales, pies dominantes ni fechas de nacimiento. Los campos sin respaldo quedan vacíos; se completan cuando aparezca una fuente fiable.
-6. Para B Metro se conserva el ABI como base (`ajuste_rating=0`). No se aplica automáticamente el +10 usado en Primera y Primera Nacional: la tercera categoría debe mantener su distancia de nivel hasta terminar la calibración.
+3. Se contrasta la pertenencia al plantel y la participación 2026 con estadísticas de temporada, fichas individuales, reportes de partidos y fuentes de clubes. La columna `fuente_participacion` conserva la referencia utilizada para comprobar actividad.
+4. Cuando un jugador importante de la temporada no aparece en la ficha FM consultada, se permite una estimación propia de media, claramente etiquetada. No se presenta como dato FM.
+5. No se cargan reservas o juveniles sin participación suficiente. Los casos de cambio de club durante 2026 se conservan sólo cuando tuvieron participación comprobable con ese equipo.
+6. No se inventan dorsales ni fechas de nacimiento. Los campos sin respaldo quedan vacíos. El pie dominante se carga únicamente cuando hay una fuente individual.
+7. Para B Metro se conserva el ABI como base (`ajuste_rating=0`). No se aplica automáticamente el +10 usado en Primera y Primera Nacional: la tercera categoría debe mantener su distancia de nivel hasta terminar la calibración.
 
 ## Estado de la tanda 1
 
 - Archivo: `tanda1.csv`
 - Clubes: 8
-- Jugadores cargados como candidatos verificados: 177
+- Jugadores: **185**
+- Medias de referencia FM27: 163
+- Medias estimadas con participación 2026: 22
 - Duplicados de nombre: 0
-- Dorsales duplicados: 0
-- Dorsales con fuente individual: 21
-- Edades cargadas: 177; fechas de nacimiento documentadas: 4
-- Pies dominantes documentados: 0
+- Dorsales verificados: 0 (se dejan vacíos hasta confirmar número de camiseta real)
+- Pies dominantes con fuente individual: 19
+- Fechas de nacimiento documentadas: 31
 
-Los dorsales y pies pendientes no se rellenan con valores ficticios. Antes de la importación final se revisarán las apariciones de cada futbolista, los movimientos de mercado y las discrepancias de posición, y se ejecutará el validador del importador.
+El primer borrador pasó el importador en modo `--dry-run` y el validador específico. La integración a `public/squads.*` queda pendiente hasta completar las tres tandas y la revisión final de cobertura.
