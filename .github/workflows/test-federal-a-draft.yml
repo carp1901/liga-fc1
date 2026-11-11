@@ -1,0 +1,27 @@
+name: Validar borrador Federal A 2026
+on:
+  pull_request:
+    paths:
+      - 'planteles/borradores/federal-a-2026/**'
+      - 'planteles/borradores/federal-a-2026-tanda-1/**'
+      - 'test-federal-a-draft.js'
+      - 'import-squads.js'
+      - '.github/workflows/test-federal-a-draft.yml'
+permissions:
+  contents: read
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar sintaxis del importador
+        run: node --check import-squads.js
+      - name: Validar estructura y contenido de los diez clubes
+        run: node test-federal-a-draft.js
+      - name: Probar importación sin publicar al runtime
+        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-1/completo.csv --dry-run
