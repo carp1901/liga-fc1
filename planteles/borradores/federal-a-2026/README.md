@@ -43,4 +43,4 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 - Archivos individuales y consolidado: `planteles/borradores/federal-a-2026-tanda-1/completo.csv`.
 - Validación: 34 columnas, 192 edades, diez IDs de club esperados, sin duplicados internos, ratings ABI 1–99, `rating_base` igual a `rating` y ajuste 0.
 - CI: el workflow del PR valida el CSV, ejecuta `dry-run`, integra los diez clubes en el runtime de la rama y compara cada jugador importado contra el CSV.
-- Importación runtime: todavía pendiente. No está publicado en `main` ni desplegado.
+- Importación runtime: integrada en la rama del PR mediante `import-squads.js`; la prueba compara los 192 jugadores del runtime contra el CSV y pasó. Queda pendiente integrar el PR en `main` para que entre en la versión publicada.
