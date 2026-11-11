@@ -19,7 +19,7 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 
 - Temporada 2026; primera plantilla y jugadores con participación relevante, sin reservas ni juveniles sin minutos verificables.
 - FM27 / FM Blog como referencia principal de media y posición, igual que en B Metro. Se toma el Current Ability (CA/ABI) individual en escala 1–99; no el Potential Ability (PA), ni un promedio del club, ni OVR de EA. `rating_source` y `fuente_rol` apuntan a la ficha del primer equipo del club en FM Blog, donde aparece el CA y la posición individual de cada futbolista.
-- Pertenencia al plantel 2026 y participación contrastadas con nóminas y registros de competición (Mundo Ascenso, AFA y fuentes de clubes).
+- Pertenencia al plantel 2026 cruzada jugador por jugador entre la ficha de plantel de Mundo Ascenso y la primera plantilla FM27 del club. No se incorporan jugadores que sólo aparezcan en desarrollo/U20 ni jugadores listados fuera del club en FM27.
 - Los dorsales y fechas de nacimiento se cargan sólo cuando hay respaldo individual. Si faltan, quedan vacíos.
 - No se inventan futbolistas, edades, dorsales, nacionalidades ni pies dominantes. Las estimaciones propias sólo se usan con participación comprobable y quedan identificadas.
 - No se aplica el +10 de Primera/Primera Nacional. Se conserva ABI como base, sin ajuste general.
@@ -35,9 +35,12 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 ## Estado
 
 - Rama: `federal-a-2026-tanda-1`
-- Primera pasada de los diez clubes cargada en CSV: **192 jugadores** en total.
+- Primera tanda depurada: **192 jugadores de diez clubes**, con coincidencia individual entre la ficha de plantel 2026 de Mundo Ascenso y la primera plantilla FM27 / FM Blog.
 - Desglose: Alvarado 20; 9 de Julio (Rafaela) 25; Atenas (Río Cuarto) 19; San Martín (Mendoza) 17; Bartolomé Mitre (Posadas) 15; Boca Unidos 19; Cipolletti 17; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América (Formosa) 16.
+- Las 192 edades se completaron desde las fichas FM27 individuales. La CA/ABI es la capacidad actual, no la PA.
+- Dorsales: quedan vacíos. Mundo Ascenso presenta duplicaciones de camisetas y fichas repetidas/históricas para varios clubes; no se asignan números sin poder distinguir un dorsal vigente y único.
+- Nacionalidades corregidas desde las fichas FM27: Luis Uliambre (PAR), Jair Blanco (COL) y José Cabañas (PAR).
 - Archivos individuales y consolidado: `planteles/borradores/federal-a-2026-tanda-1/completo.csv`.
-- Control estructural inicial: 34 columnas por registro; los diez IDs coinciden con `public/data.js`; 192 nombres sin duplicados dentro de la tanda; ratings ABI 1–99, con `rating_base` igual a `rating` y ajuste 0.
-- Pendiente: segunda revisión de nombres y participación, depuración de jugadores que sólo figuren como reserva o sin minutos relevantes, confirmación de edades y dorsales con fuentes individuales y validación final con el importador del juego.
-- Importación runtime: pendiente; no modificar `public/squads.*` en esta etapa. No está publicado en `main` ni desplegado.
+- Validación: 34 columnas, 192 edades, diez IDs de club esperados, sin duplicados internos, ratings ABI 1–99, `rating_base` igual a `rating` y ajuste 0.
+- Pendiente de ejecución en CI: volver a correr la validación reforzada y el `dry-run` del importador tras completar las edades.
+- Importación runtime: todavía pendiente. No está publicado en `main` ni desplegado.
