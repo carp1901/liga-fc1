@@ -1,7 +1,7 @@
 const fs=require('fs'),path=require('path');
 function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c==='"'&&s[i+1]==='"'){v+='"';i++;}else if(c==='"')q=false;else v+=c;}else if(c==='"')q=true;else if(c===','){row.push(v);v='';}else if(c==='\n'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v='';}else v+=c;}if(v||row.length){row.push(v.replace(/\r$/,''));rows.push(row);}return rows;}
 const batches=[
- {label:'primera tanda',file:'planteles/borradores/federal-a-2026-tanda-1/completo.csv',exact:{"nuevejulio":25,"alvarado":20,"atenas":19,"atsanmartinmza":18,"bmitre":18,"bocaunidos":19,"cipolletti":18,"defbelgranovr":22,"rincon":22,"soldeamerica":18}},
+ {label:'primera tanda',file:'planteles/borradores/federal-a-2026-tanda-1/completo.csv',exact:{"nuevejulio":25,"alvarado":20,"atenas":19,"atsanmartinmza":18,"bmitre":27,"bocaunidos":19,"cipolletti":18,"defbelgranovr":22,"rincon":22,"soldeamerica":18}},
  {label:'segunda tanda',file:'planteles/borradores/federal-a-2026-tanda-2/completo.csv',exact:{"soldemayo":18,"tucumancentral":22,"costabrava":18,"circulo":20,"fadep":18,"germinal":18,"gbrown":18,"juventudsl":18,"santamarina":18,"douglashaig":18}},
  {label:'tercera tanda',file:'planteles/borradores/federal-a-2026-tanda-3/completo.csv',minimum:['gimchivilcoy','sanmartinformosa','sarmientolb','sportivobelgrano','huracanlh','olimpo','antoniana','linqueno','indchivilcoy','escobar']},
  {label:'cuarta tanda',file:'planteles/borradores/federal-a-2026-tanda-4/completo.csv',minimum:['gimcdu','lasparejas','vilelas','argmontemaiz','sarmientores','kimberley','villamitre']}

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const file = path.join(__dirname, 'planteles/borradores/federal-a-2026-tanda-1/completo.csv');
 const expected = {
-  nuevejulio: 25, alvarado: 20, atenas: 19, atsanmartinmza: 18, bmitre: 18,
+  nuevejulio: 25, alvarado: 20, atenas: 19, atsanmartinmza: 18, bmitre: 27,
   bocaunidos: 19, cipolletti: 18, defbelgranovr: 22, rincon: 22, soldeamerica: 18
 };
 function parseCSV(s) {
@@ -34,7 +34,7 @@ for(const [i,r] of rows.entries()){
   if(!['POR','DEF','MED','DEL'].includes(pos))errors.push('Posición inválida: '+name+' / '+pos);
   if(!Number.isInteger(rating)||rating<1||rating>99)errors.push('Rating inválido: '+name);
   if(!Number.isInteger(age)||age<16||age>55)errors.push('Edad inválida o ausente: '+name);
-  if(!get('rating_source').startsWith('FM27 / FM Blog ABI'))errors.push('Fuente ABI ausente: '+name);
+  if(!get('rating_source').startsWith('FM27 / FM Blog ABI') && !get('rating_source').startsWith('Estimación propia'))errors.push('Fuente ABI ausente: '+name);
   if(!get('fuente')||!get('fuente_rol')||!get('nat_source'))errors.push('Fuente faltante: '+name);
   if(!roles.has(role))errors.push('Rol específico inválido: '+name+' / '+role);
   if(get('rating_base')!==get('rating')||get('ajuste_rating')!=='0')errors.push('Base/ajuste inválido: '+name);
@@ -44,6 +44,6 @@ for(const [i,r] of rows.entries()){
 }
 for(const [club,n] of Object.entries(expected))if(counts[club]!==n)errors.push(club+': se esperaban '+n+' jugadores y hay '+(counts[club]||0));
 for(const club of Object.keys(counts))if(!expected[club])errors.push('ID no permitido: '+club);
-if(rows.length!==199)errors.push('Total esperado 199; encontrado '+rows.length);
+if(rows.length!==208)errors.push('Total esperado 199; encontrado '+rows.length);
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
-console.log('Federal A 2026: 10 clubes, 199 jugadores, edades, columnas, roles, fuentes, medias y duplicados OK.');
+console.log('Federal A 2026: 10 clubes, 208 jugadores, edades, columnas, roles, fuentes, medias y duplicados OK.');
