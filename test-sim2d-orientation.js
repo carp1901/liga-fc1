@@ -24,24 +24,23 @@ for (let formation = 0; formation < 14; formation++) {
   const sim = new Sim();
   sim.setup(formation, formation, `orientation-${formation}`);
 
-  for (const secondHalf of [false, true]) {
-    sim.setHalf(secondHalf);
-    verify(sim, formation, secondHalf, 1);
+  for (let style = 0; style < 3; style++) {
+    sim.setTac(0, [style, 0, 0, 0, 0]);
+    sim.setTac(1, [style, 0, 0, 0, 0]);
 
-    // Restablecer posiciones (como hace el saque inicial) no debe perder la orientación.
-    sim.rest();
-    for (const p of sim.P) assert.equal(p.hy, p.hy0);
+    for (const secondHalf of [false, true]) {
+      sim.setHalf(secondHalf);
+      verify(sim, formation, secondHalf, style);
 
-    // Cambiar mentalidad vuelve a calcular los puestos, respetando el tiempo actual.
-    sim.setTac(0, [0, 0, 0, 0, 0]);
-    sim.setTac(1, [0, 0, 0, 0, 0]);
-    verify(sim, formation, secondHalf, 0);
+      // Restablecer posiciones (como hace el saque inicial) no debe perder la orientación.
+      sim.rest();
+      for (const p of sim.P) assert.equal(p.hy, p.hy0);
+    }
   }
 
   // Un nuevo setup de partido conserva el tiempo que informa la pantalla.
   sim.setHalf(true);
   sim.setup(formation, formation, `orientation-${formation}-new`);
-  verify(sim, formation, true, 0);
+  verify(sim, formation, true, 2);
 }
-
 console.log(`Orientación 2D OK: ${checked} asignaciones verificadas (14 formaciones, ambos equipos y tiempos).`);
