@@ -1,10 +1,12 @@
-name: Validar e integrar borrador Federal A 2026
+name: Validar e integrar borradores Federal A 2026
 on:
   pull_request:
     paths:
       - 'planteles/borradores/federal-a-2026/**'
       - 'planteles/borradores/federal-a-2026-tanda-1/**'
+      - 'planteles/borradores/federal-a-2026-tanda-2/**'
       - 'test-federal-a-draft.js'
+      - 'test-federal-a-tanda2.js'
       - 'test-federal-a-runtime.js'
       - 'import-squads.js'
       - '.github/workflows/test-federal-a-draft.yml'
@@ -22,13 +24,15 @@ jobs:
           node-version: 22
       - name: Validar sintaxis del importador
         run: node --check import-squads.js
-      - name: Validar los diez clubes y las edades
+      - name: Validar primera tanda
         run: node test-federal-a-draft.js
+      - name: Validar segunda tanda y siete suplentes
+        run: node test-federal-a-tanda2.js
       - name: Validar importación sin publicar
-        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-1/completo.csv --dry-run
-      - name: Integrar los diez clubes en runtime de la rama
-        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-1/completo.csv
-      - name: Verificar que runtime coincide con CSV
+        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-2/completo.csv --dry-run
+      - name: Integrar segunda tanda en runtime de la rama
+        run: node import-squads.js planteles/borradores/federal-a-2026-tanda-2/completo.csv
+      - name: Verificar runtime de ambas tandas y mínimo global
         run: node test-federal-a-runtime.js
       - name: Guardar runtime generado en la rama del PR
         run: |
@@ -36,6 +40,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/squads.json public/squads.js public/squads-meta.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Integrar planteles reales Federal A 2026'
+            git commit -m 'Integrar planteles reales Federal A 2026 — tanda 2'
             git push origin HEAD:${{ github.head_ref || github.ref_name }}
           fi
