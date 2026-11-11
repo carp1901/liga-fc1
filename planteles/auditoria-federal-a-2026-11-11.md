@@ -102,6 +102,6 @@ Fecha de corte: 11/11/2026
 - Villa Mitre: 32
 
 ## Primer ajuste
-Bartolomé Mitre, San Martín de Formosa y Sol de América fueron ampliados de 18 a 27 jugadores cada uno, con nueve incorporaciones documentadas por club. Se usaron FMag/Transfermarkt, el plantel oficial de AFA y registros de temporada según disponibilidad. Las medias añadidas en ambos clubes se etiquetan como estimaciones propias y no como valores oficiales de Football Manager. El runtime se regeneró desde las cuatro tandas y las pruebas de importación/runtime pasaron.
+Bartolomé Mitre, San Martín de Formosa y Sol de América fueron ampliados de 18 a 27 jugadores cada uno, con nueve incorporaciones documentadas por club. Se usaron FMag/Transfermarkt, el plantel oficial de AFA y registros de temporada según disponibilidad. Las medias añadidas en los tres clubes se etiquetan como estimaciones propias y no como valores oficiales de Football Manager. El runtime se regeneró desde las cuatro tandas y las pruebas de importación/runtime pasaron.
 
 Este informe es una fotografía de cantidades, no una aprobación automática de cada nombre. La siguiente etapa es cruzar nominalmente los clubes con menos de 22 y luego revisar los cuatro que superan 28, manteniendo la regla de no sobrepoblar.
