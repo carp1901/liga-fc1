@@ -55,3 +55,16 @@ Trabajo por tres tandas, con 22 clubes en total. Los CSV son fuentes editables; 
 - Fechas de nacimiento documentadas: 31
 
 El validador específico pasó manualmente sobre las 185 filas: cobertura de los ocho clubes, roles válidos, fuentes presentes y sin duplicados. El `--dry-run` completo del importador se repetirá al terminar las tres tandas, antes de publicar. La integración a `public/squads.*` queda pendiente hasta completar las tres tandas y la revisión final de cobertura.
+
+## Estado de la tanda 2
+
+- Archivo: `tanda2.csv`
+- Clubes: 7
+- Jugadores: **179**
+- Medias FM27 ABI: 179 (sin estimaciones propias en esta tanda)
+- Distribución: Dock Sud 27, Laferrere 26, Deportivo Merlo 27, Excursionistas 27, Flandria 26, Ituzaingó 21 y Liniers 25.
+- Duplicados internos y contra tanda 1: 0
+- Dorsales: vacíos cuando la fuente consultada no acredita el número de camiseta individual.
+- Los jugadores cedidos a estos clubes se incluyen cuando FM27 los clasifica en la primera plantilla; los cedidos fuera quedan excluidos.
+
+Las medias y posiciones se tomaron de las fichas de primera plantilla FM27; la pertenencia a los planteles 2026 se contrastó con Mundo Ascenso y, para Ituzaingó, también con Solo Ascenso. El validador se amplió para revisar ambas tandas juntas.
