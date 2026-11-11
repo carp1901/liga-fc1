@@ -12,7 +12,7 @@ function parseCSV(s) {
     if(quoted){if(c==='"'&&s[i+1]==='"'){value+='"';i++;}else if(c==='"')quoted=false;else value+=c;}
     else if(c==='"')quoted=true;
     else if(c===','){row.push(value);value='';}
-    else if(c==='\\n'){row.push(value.replace(/\\r$/,''));rows.push(row);row=[];value='';}
+    else if(c==='\n'){row.push(value.replace(/\r$/,''));rows.push(row);row=[];value='';}
     else value+=c;
   }
   if(value.length||row.length){row.push(value.replace(/\\r$/,''));rows.push(row);}
@@ -44,5 +44,5 @@ for(const [i,r] of rows.entries()){
 for(const [club,n] of Object.entries(expected))if(counts[club]!==n)errors.push(club+': se esperaban '+n+' jugadores y hay '+(counts[club]||0));
 for(const club of Object.keys(counts))if(!expected[club])errors.push('ID no permitido: '+club);
 if(rows.length!==192)errors.push('Total esperado 192; encontrado '+rows.length);
-if(errors.length){console.error(errors.join('\\n'));process.exit(1);}
+if(errors.length){console.error(errors.join('\n'));process.exit(1);}
 console.log('Federal A 2026: 10 clubes, 192 jugadores, columnas, roles, fuentes, medias y duplicados OK.');
