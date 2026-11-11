@@ -67,7 +67,7 @@
     "noInventedDorsals": true,
     "noInventedBirthDates": true,
     "noInventedFeet": true,
-    "dorsalAssignmentRule": "Sólo se asigna el número que la nómina 2026 de Mundo Ascenso muestra de forma inequívoca para ese jugador; números repetidos o contradictorios quedan vacíos. Cada número asignado conserva dorsal_source."
+    "dorsalAssignmentRule": "Sólo se asignan dorsales publicados de forma expresa en una fuente oficial y vigente del propio club. Las planillas de partido consultadas presentan la numeración de la formación (titulares 1–11 y suplentes 12–20), no necesariamente el dorsal real. Listados de terceros se usan como pista, nunca como confirmación si no coinciden con el club. Los casos sin respaldo oficial quedan vacíos."
   },
   "batch1": {
     "csv": "tanda1.csv",
@@ -77,7 +77,7 @@
     "estimatedRatings": 22,
     "duplicateNames": 0,
     "duplicateDorsals": 0,
-    "verifiedDorsals": 43,
+    "verifiedDorsals": 6,
     "feet": 19,
     "birthDates": 31
   },
@@ -90,7 +90,7 @@
     "estimatedRatings": 0,
     "duplicateNames": 0,
     "duplicateDorsals": 0,
-    "verifiedDorsals": 12,
+    "verifiedDorsals": 0,
     "feet": 0,
     "birthDates": 0,
     "clubCounts": {
@@ -107,9 +107,9 @@
     "scope": "tanda1.csv + tanda2.csv + tanda3.csv",
     "players": 533,
     "clubs": 22,
-    "manualChecks": "roles, ratings, ages, sources, duplicate names, unique shirt numbers and dorsal_source",
-    "dorsalsVerified": 71,
-    "dorsalsMissing": 462
+    "manualChecks": "roles, ratings, ages, sources, duplicate names, unique shirt numbers, official dorsal_source and cross-check against match-sheet numbering",
+    "dorsalsVerified": 6,
+    "dorsalsMissing": 527
   },
   "batch3": {
     "csv": "tanda3.csv",
@@ -119,7 +119,7 @@
     "estimatedRatings": 0,
     "duplicateNames": 0,
     "duplicateDorsals": 0,
-    "verifiedDorsals": 16,
+    "verifiedDorsals": 0,
     "feet": 0,
     "birthDates": 0,
     "clubCounts": {
@@ -136,33 +136,40 @@
   "runtimePlayers": 533,
   "runtimeClubs": 22,
   "dorsalCoverage": {
-    "assigned": 71,
-    "missing": 462,
+    "assigned": 6,
+    "missing": 527,
     "total": 533,
-    "source": "Mundo Ascenso planteles 2026; sólo números no duplicados y sin conflicto",
+    "source": "Official current club roster; only explicit and unambiguous shirt numbers",
     "byClub": {
-      "arsenal": 9,
-      "brownadrogue": 4,
-      "armenio": 3,
-      "argentinomerlo": 3,
-      "argentinoquilmes": 5,
-      "camioneros": 9,
-      "comunicaciones": 4,
-      "defensoresunidos": 6,
-      "docksud": 1,
-      "laferrere": 2,
+      "arsenal": 0,
+      "brownadrogue": 6,
+      "armenio": 0,
+      "argentinomerlo": 0,
+      "argentinoquilmes": 0,
+      "camioneros": 0,
+      "comunicaciones": 0,
+      "defensoresunidos": 0,
+      "docksud": 0,
+      "laferrere": 0,
       "deportivomerlo": 0,
-      "excursionistas": 3,
+      "excursionistas": 0,
       "flandria": 0,
-      "ituzaingo": 5,
-      "liniers": 1,
-      "realpilar": 3,
+      "ituzaingo": 0,
+      "liniers": 0,
+      "realpilar": 0,
       "sanmartinburzaco": 0,
-      "sportivoitaliano": 2,
-      "talleresre": 3,
-      "uai": 2,
-      "villadalmine": 2,
-      "villasancarlos": 4
+      "sportivoitaliano": 0,
+      "talleresre": 0,
+      "uai": 0,
+      "villadalmine": 0,
+      "villasancarlos": 0
     }
+  },
+  "dorsalAudit": {
+    "date": "2026-11-11",
+    "previousThirdPartyAssignmentsRemoved": 65,
+    "officiallyConfirmed": 6,
+    "reason": "Match sheets use lineup slot numbers rather than actual shirt numbers; third-party squad listings conflict with the current official Brown roster.",
+    "officialSource": "https://clubatleticobrown.com/"
   }
 }
