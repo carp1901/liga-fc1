@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T16:59:44.898Z",
+  "updatedAt": "2026-11-11T17:02:59.717Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1733 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1755 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -98,15 +98,15 @@
     "atsanmartinmza": 18,
     "bmitre": 27,
     "bocaunidos": 19,
-    "cipolletti": 18,
+    "cipolletti": 26,
     "defbelgranovr": 22,
     "rincon": 22,
     "soldeamerica": 27,
-    "soldemayo": 18,
+    "soldemayo": 24,
     "tucumancentral": 22,
-    "costabrava": 18,
+    "costabrava": 22,
     "circulo": 20,
-    "fadep": 18,
+    "fadep": 22,
     "germinal": 18,
     "gbrown": 18,
     "juventudsl": 18,
@@ -2910,14 +2910,24 @@
     "cipolletti": {
       "source": [
         "https://www.mundoascenso.com.ar/plantel/144-cipolletti",
-        "https://www.mundoascenso.com.ar/plantel/1949-cipolletti"
+        "https://www.mundoascenso.com.ar/plantel/1949-cipolletti",
+        "https://clubcipolletti.com/futbol-profesional/"
       ],
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
       "numberSource": [],
-      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti"
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia / sin CA individual verificable; referencia comparativa por posición dentro del plantel"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
+        "https://clubcipolletti.com/futbol-profesional/"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
+        "Nacionalidad individual no publicada en la ficha consultada; no asignada"
+      ]
     },
     "defbelgranovr": {
       "source": "https://www.mundoascenso.com.ar/plantel/174-def-de-belgrano-vr",
@@ -2962,13 +2972,48 @@
       ]
     },
     "soldemayo": {
-      "source": "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo",
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo",
+        "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo | https://www.transfermarkt.com.ar/claudio-curima/profil/spieler/551142",
+        "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo | https://www.transfermarkt.com.ar/gustavo-areco/profil/spieler/880024",
+        "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo | https://www.transfermarkt.es/club-sol-de-mayo/kader/verein/63109",
+        "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo | https://www.transfermarkt.com.ar/fabio-gimenez/profil/spieler/92038",
+        "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo | https://www.soloascenso.com.ar/perfil/santiago-jara/24752",
+        "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo | https://www.ceroacero.es/jugador/kevin-pereira/3570510"
+      ],
       "consulted": "2026-11-11",
-      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma",
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma",
+        "https://www.transfermarkt.com.ar/claudio-curima/profil/spieler/551142",
+        "https://www.transfermarkt.com.ar/gustavo-areco/profil/spieler/880024",
+        "https://www.transfermarkt.es/club-sol-de-mayo/kader/verein/63109",
+        "https://www.transfermarkt.com.ar/fabio-gimenez/profil/spieler/92038",
+        "https://www.soloascenso.com.ar/perfil/santiago-jara/24752",
+        "https://www.ceroacero.es/jugador/kevin-pereira/3570510"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma",
-      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; comparativa por rol, nivel y participación 2026"
+      ],
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma",
+        "https://www.transfermarkt.com.ar/claudio-curima/profil/spieler/551142",
+        "https://www.transfermarkt.com.ar/gustavo-areco/profil/spieler/880024",
+        "https://www.transfermarkt.es/club-sol-de-mayo/kader/verein/63109",
+        "https://www.transfermarkt.com.ar/fabio-gimenez/profil/spieler/92038",
+        "https://www.soloascenso.com.ar/perfil/santiago-jara/24752",
+        "https://www.ceroacero.es/jugador/kevin-pereira/3570510"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma",
+        "https://www.transfermarkt.com.ar/claudio-curima/profil/spieler/551142",
+        "https://www.transfermarkt.com.ar/gustavo-areco/profil/spieler/880024",
+        "https://www.transfermarkt.es/club-sol-de-mayo/kader/verein/63109",
+        "https://www.transfermarkt.com.ar/fabio-gimenez/profil/spieler/92038",
+        "https://www.soloascenso.com.ar/perfil/santiago-jara/24752",
+        "https://www.ceroacero.es/jugador/kevin-pereira/3570510"
+      ]
     },
     "tucumancentral": {
       "source": "https://www.transfermarkt.es/ca-tucuman-central/kader/verein/128105/saison_id/2025",
@@ -2980,13 +3025,30 @@
       "natSource": "https://www.transfermarkt.es/ca-tucuman-central/kader/verein/128105/saison_id/2025"
     },
     "costabrava": {
-      "source": "https://cacostabrava.com/",
+      "source": [
+        "https://cacostabrava.com/",
+        "https://cacostabrava.com/ | https://www.transfermarkt.com.ar/club-atletico-costa-brava/kader/verein/79503"
+      ],
       "consulted": "2026-11-11",
-      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico",
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico",
+        "https://www--worldfootball--net.c.hs-data.com/teams/te166025/costa-brava-de-gral-pico/",
+        "https://www.transfermarkt.com.ar/club-atletico-costa-brava/kader/verein/79503",
+        "https://sortitoutsi.net/football-manager-data-update/team/14089901"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico",
-      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; referencia comparativa por posición dentro del plantel"
+      ],
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico",
+        "https://www.transfermarkt.com.ar/club-atletico-costa-brava/kader/verein/79503"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico",
+        "https://www.transfermarkt.com.ar/club-atletico-costa-brava/kader/verein/79503"
+      ]
     },
     "circulo": {
       "source": "https://www.mundoascenso.com.ar/plantel/8399-circulo-deportivo-otamendi",
@@ -3012,13 +3074,40 @@
       ]
     },
     "fadep": {
-      "source": "https://fundacionamigospd.com/",
+      "source": [
+        "https://fundacionamigospd.com/",
+        "https://fundacionamigospd.com/ | https://www.estacionzafiro.com.ar/deportes/fadep-fortalece-plantel-refuerzo-trayectoria-torneo-federal-a-n150831",
+        "https://fundacionamigospd.com/ | https://www.ceroacero.es/jugador/uriel-gizzi/2347161",
+        "https://fundacionamigospd.com/ | https://es.besoccer.com/jugador/g-klusener-116091",
+        "https://fundacionamigospd.com/ | https://www.transfermarkt.us/fadep-mendoza-/leistungsdaten/verein/92982/reldata/ARG3%262025"
+      ],
       "consulted": "2026-11-11",
-      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte",
-      "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte",
-      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte"
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte",
+        "https://www.estacionzafiro.com.ar/deportes/fadep-fortalece-plantel-refuerzo-trayectoria-torneo-federal-a-n150831",
+        "https://www.ceroacero.es/jugador/uriel-gizzi/2347161",
+        "https://es.besoccer.com/jugador/g-klusener-116091",
+        "https://www.transfermarkt.us/fadep-mendoza-/leistungsdaten/verein/92982/reldata/ARG3%262025"
+      ],
+      "numberSource": "https://www.estacionzafiro.com.ar/deportes/fadep-fortalece-plantel-refuerzo-trayectoria-torneo-federal-a-n150831",
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; ajustada por posición, edad y participación 2026"
+      ],
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte",
+        "https://www.estacionzafiro.com.ar/deportes/fadep-fortalece-plantel-refuerzo-trayectoria-torneo-federal-a-n150831",
+        "https://www.ceroacero.es/jugador/uriel-gizzi/2347161",
+        "https://es.besoccer.com/jugador/g-klusener-116091",
+        "https://www.transfermarkt.us/fadep-mendoza-/leistungsdaten/verein/92982/reldata/ARG3%262025"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte",
+        "https://www.estacionzafiro.com.ar/deportes/fadep-fortalece-plantel-refuerzo-trayectoria-torneo-federal-a-n150831",
+        "https://www.ceroacero.es/jugador/uriel-gizzi/2347161",
+        "https://es.besoccer.com/jugador/g-klusener-116091",
+        "https://www.transfermarkt.us/fadep-mendoza-/leistungsdaten/verein/92982/reldata/ARG3%262025"
+      ]
     },
     "germinal": {
       "source": "https://www.mundoascenso.com.ar/plantel/283-germinal-rawson",
@@ -3267,8 +3356,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2044,
-    "missing": 1318,
-    "total": 3362,
+    "missing": 1340,
+    "total": 3384,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3741,9 +3830,9 @@
         "missing": 19
       },
       "cipolletti": {
-        "total": 18,
+        "total": 26,
         "assigned": 0,
-        "missing": 18
+        "missing": 26
       },
       "defbelgranovr": {
         "total": 22,
@@ -3761,9 +3850,9 @@
         "missing": 27
       },
       "soldemayo": {
-        "total": 18,
+        "total": 24,
         "assigned": 0,
-        "missing": 18
+        "missing": 24
       },
       "tucumancentral": {
         "total": 22,
@@ -3771,9 +3860,9 @@
         "missing": 22
       },
       "costabrava": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "circulo": {
         "total": 20,
@@ -3781,9 +3870,9 @@
         "missing": 20
       },
       "fadep": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "germinal": {
         "total": 18,
@@ -3899,10 +3988,10 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 3282,
-    "missing": 80,
-    "birthDates": 2069,
-    "total": 3362,
+    "assigned": 3295,
+    "missing": 89,
+    "birthDates": 2075,
+    "total": 3384,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4375,9 +4464,9 @@
         "missing": 0
       },
       "cipolletti": {
-        "total": 18,
+        "total": 26,
         "assigned": 18,
-        "missing": 0
+        "missing": 8
       },
       "defbelgranovr": {
         "total": 22,
@@ -4395,8 +4484,8 @@
         "missing": 0
       },
       "soldemayo": {
-        "total": 18,
-        "assigned": 18,
+        "total": 24,
+        "assigned": 24,
         "missing": 0
       },
       "tucumancentral": {
@@ -4405,8 +4494,8 @@
         "missing": 0
       },
       "costabrava": {
-        "total": 18,
-        "assigned": 18,
+        "total": 22,
+        "assigned": 22,
         "missing": 0
       },
       "circulo": {
@@ -4415,9 +4504,9 @@
         "missing": 0
       },
       "fadep": {
-        "total": 18,
-        "assigned": 18,
-        "missing": 0
+        "total": 22,
+        "assigned": 21,
+        "missing": 1
       },
       "germinal": {
         "total": 18,
@@ -4532,9 +4621,9 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 3362,
-    "missing": 0,
-    "total": 3362,
+    "assigned": 3376,
+    "missing": 8,
+    "total": 3384,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4913,7 +5002,7 @@
         "assigned": 19
       },
       "cipolletti": {
-        "total": 18,
+        "total": 26,
         "assigned": 18
       },
       "defbelgranovr": {
@@ -4929,24 +5018,24 @@
         "assigned": 27
       },
       "soldemayo": {
-        "total": 18,
-        "assigned": 18
+        "total": 24,
+        "assigned": 24
       },
       "tucumancentral": {
         "total": 22,
         "assigned": 22
       },
       "costabrava": {
-        "total": 18,
-        "assigned": 18
+        "total": 22,
+        "assigned": 22
       },
       "circulo": {
         "total": 20,
         "assigned": 20
       },
       "fadep": {
-        "total": 18,
-        "assigned": 18
+        "total": 22,
+        "assigned": 22
       },
       "germinal": {
         "total": 18,
@@ -5039,9 +5128,9 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 3362,
+    "assigned": 3384,
     "missing": 0,
-    "total": 3362,
+    "total": 3384,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5420,8 +5509,8 @@
         "specific": 19
       },
       "cipolletti": {
-        "total": 18,
-        "specific": 18
+        "total": 26,
+        "specific": 26
       },
       "defbelgranovr": {
         "total": 22,
@@ -5436,24 +5525,24 @@
         "specific": 27
       },
       "soldemayo": {
-        "total": 18,
-        "specific": 18
+        "total": 24,
+        "specific": 24
       },
       "tucumancentral": {
         "total": 22,
         "specific": 22
       },
       "costabrava": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "circulo": {
         "total": 20,
         "specific": 20
       },
       "fadep": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "germinal": {
         "total": 18,
@@ -5547,8 +5636,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1733,
-    "total": 3362,
+    "estimated": 1755,
+    "total": 3384,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6116,9 +6205,9 @@
         "provisional": 0
       },
       "cipolletti": {
-        "total": 18,
+        "total": 26,
         "verified": 18,
-        "estimated": 0,
+        "estimated": 8,
         "provisional": 0
       },
       "defbelgranovr": {
@@ -6140,9 +6229,9 @@
         "provisional": 0
       },
       "soldemayo": {
-        "total": 18,
+        "total": 24,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 24,
         "provisional": 0
       },
       "tucumancentral": {
@@ -6152,9 +6241,9 @@
         "provisional": 0
       },
       "costabrava": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "circulo": {
@@ -6164,9 +6253,9 @@
         "provisional": 0
       },
       "fadep": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "germinal": {
@@ -6307,22 +6396,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2190,
+    "derivedPlayers": 2212,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 125,
-    "players": 3362,
+    "players": 3384,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 80,
-    "playersMissingDorsal": 1318,
+    "playersMissingAge": 89,
+    "playersMissingDorsal": 1340,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1733,
+    "estimatedRatings": 1755,
     "provisionalRatings": 0,
-    "playersMissingNationality": 0,
-    "playersMissingFoot": 1305,
+    "playersMissingNationality": 8,
+    "playersMissingFoot": 1327,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 2190
+    "playersWithoutManualAttributes": 2212
   }
 }
