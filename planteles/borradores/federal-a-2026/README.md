@@ -17,9 +17,9 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 
 ## Criterio de relevamiento
 
-- Temporada 2026; primera plantilla y jugadores con participación relevante, sin reservas ni juveniles sin minutos verificables.
+- Temporada 2026; primera plantilla y jugadores con participación relevante, sin reservas ni juveniles sin minutos verificables. Todo club debe disponer de al menos 18 futbolistas cargados: 11 titulares y 7 suplentes.
 - FM27 / FM Blog como referencia principal de media y posición, igual que en B Metro. Se toma el Current Ability (CA/ABI) individual en escala 1–99; no el Potential Ability (PA), ni un promedio del club, ni OVR de EA. `rating_source` y `fuente_rol` apuntan a la ficha del primer equipo del club en FM Blog, donde aparece el CA y la posición individual de cada futbolista.
-- Pertenencia al plantel 2026 cruzada jugador por jugador entre la ficha de plantel de Mundo Ascenso y la primera plantilla FM27 del club. No se incorporan jugadores que sólo aparezcan en desarrollo/U20 ni jugadores listados fuera del club en FM27.
+- Pertenencia al plantel 2026 verificada mediante la ficha de Mundo Ascenso y/o fuentes de plantel del club/competición, y contrastada con la primera plantilla FM27 cuando hay ficha individual. No se incorporan jugadores que sólo aparezcan en desarrollo/U20 ni jugadores que FM27 identifique como cedidos a otro club.
 - Los dorsales y fechas de nacimiento se cargan sólo cuando hay respaldo individual. Si faltan, quedan vacíos.
 - No se inventan futbolistas, edades, dorsales, nacionalidades ni pies dominantes. Las estimaciones propias sólo se usan con participación comprobable y quedan identificadas.
 - No se aplica el +10 de Primera/Primera Nacional. Se conserva ABI como base, sin ajuste general.
@@ -35,12 +35,19 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 ## Estado
 
 - Rama: `federal-a-2026-tanda-1`
-- Primera tanda depurada: **192 jugadores de diez clubes**, con coincidencia individual entre la ficha de plantel 2026 de Mundo Ascenso y la primera plantilla FM27 / FM Blog.
-- Desglose: Alvarado 20; 9 de Julio (Rafaela) 25; Atenas (Río Cuarto) 19; San Martín (Mendoza) 17; Bartolomé Mitre (Posadas) 15; Boca Unidos 19; Cipolletti 17; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América (Formosa) 16.
-- Las 192 edades se completaron desde las fichas FM27 individuales. La CA/ABI es la capacidad actual, no la PA.
+- Primera tanda depurada: **199 jugadores de diez clubes**, con coincidencia individual entre la ficha de plantel 2026 de Mundo Ascenso y la primera plantilla FM27 / FM Blog.
+- Desglose: Alvarado 20; 9 de Julio (Rafaela) 25; Atenas (Río Cuarto) 19; San Martín (Mendoza) 18; Bartolomé Mitre (Posadas) 18; Boca Unidos 19; Cipolletti 18; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América (Formosa) 18.
+- Las 199 edades se completaron desde las fichas FM27 individuales. La CA/ABI es la capacidad actual, no la PA.
 - Dorsales: quedan vacíos. Mundo Ascenso presenta duplicaciones de camisetas y fichas repetidas/históricas para varios clubes; no se asignan números sin poder distinguir un dorsal vigente y único.
 - Nacionalidades corregidas desde las fichas FM27: Luis Uliambre (PAR), Jair Blanco (COL) y José Cabañas (PAR).
 - Archivos individuales y consolidado: `planteles/borradores/federal-a-2026-tanda-1/completo.csv`.
-- Validación: 34 columnas, 192 edades, diez IDs de club esperados, sin duplicados internos, ratings ABI 1–99, `rating_base` igual a `rating` y ajuste 0.
+- Validación: 34 columnas, 199 edades, diez IDs de club esperados, sin duplicados internos, ratings ABI 1–99, `rating_base` igual a `rating` y ajuste 0.
 - CI: el workflow del PR valida el CSV, ejecuta `dry-run`, integra los diez clubes en el runtime de la rama y compara cada jugador importado contra el CSV.
-- Importación runtime: integrada en la rama del PR mediante `import-squads.js`; la prueba compara los 192 jugadores del runtime contra el CSV y pasó. Queda pendiente integrar el PR en `main` para que entre en la versión publicada.
+- Importación runtime: integrada en la rama del PR mediante `import-squads.js`; la prueba compara los 199 jugadores del runtime contra el CSV y pasó. Queda pendiente integrar el PR en `main` para que entre en la versión publicada.
+
+
+## Corrección de banco mínimo
+
+- Se detectó que cuatro planteles tenían menos de 18 futbolistas. Se añadieron siete jugadores con fuentes contrastables: Leandro Barrera (San Martín Mza); Lucciano Arraya Feraud, Esteban Klyniauk y Bruno Rodríguez (Bartolomé Mitre); Fernando Pettineroli (Cipolletti); Javier Sosa y Matías Olmedo (Sol de América).
+- El test de runtime ahora recorre los 98 clubes cargados y falla si alguno queda por debajo de 18 jugadores.
+- Los cuatro planteles que estaban incompletos quedan en 18 cada uno; los otros seis mantienen su cantidad original.
