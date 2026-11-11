@@ -30,7 +30,8 @@
         "ituzaingo",
         "liniers"
       ],
-      "status": "pending"
+      "status": "draft-validated",
+      "players": 179
     },
     {
       "batch": 3,
@@ -78,5 +79,32 @@
     "feet": 19,
     "birthDates": 31
   },
-  "runtimeIntegrated": false
+  "runtimeIntegrated": false,
+  "batch2": {
+    "csv": "tanda2.csv",
+    "clubs": 7,
+    "players": 179,
+    "fmAbiRatings": 179,
+    "estimatedRatings": 0,
+    "duplicateNames": 0,
+    "duplicateDorsals": 0,
+    "verifiedDorsals": 0,
+    "feet": 0,
+    "birthDates": 0,
+    "clubCounts": {
+      "docksud": 27,
+      "laferrere": 26,
+      "deportivomerlo": 27,
+      "excursionistas": 27,
+      "flandria": 26,
+      "ituzaingo": 21,
+      "liniers": 25
+    }
+  },
+  "validation": {
+    "scope": "tanda1.csv + tanda2.csv",
+    "players": 364,
+    "clubs": 15,
+    "manualChecks": "roles, ratings, ages, sources, duplicate names and duplicate shirt numbers"
+  }
 }
