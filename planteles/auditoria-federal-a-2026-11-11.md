@@ -11,10 +11,10 @@ Fecha de corte: 11/11/2026
 
 ## Recuento actual
 - Clubes: 37
-- Jugadores: 807 (consolidado CSV; runtime pendiente de reflejar las últimas tres ampliaciones)
-- Media: 21.8 por club
-- Por debajo del objetivo (18–21): 20
-- En el objetivo (22–28): 13
+- Jugadores: 813 (consolidado CSV; runtime pendiente de reflejar las últimas cuatro ampliaciones)
+- Media: 22.0 por club
+- Por debajo del objetivo (18–21): 19
+- En el objetivo (22–28): 14
 - Por encima del objetivo (29–32): 4
 
 | Club | Jugadores | Estado inicial |
@@ -22,7 +22,7 @@ Fecha de corte: 11/11/2026
 | Atlético San Martín (Mendoza) | 18 | Revisar cobertura |
 | Cipolletti | 26 | En rango |
 | Sol de América | 27 | En rango |
-| Sol de Mayo | 18 | Revisar cobertura |
+| Sol de Mayo | 24 | En rango |
 | Costa Brava | 22 | En rango |
 | FADEP | 22 | En rango |
 | Germinal | 18 | Revisar cobertura |
@@ -60,7 +60,6 @@ Fecha de corte: 11/11/2026
 ## Prioridad de revisión
 ### Cobertura baja (18–21)
 - Atlético San Martín (Mendoza): 18
-- Sol de Mayo: 18
 - Germinal: 18
 - Guillermo Brown: 18
 - Juventud Unida Universitario: 18
@@ -81,6 +80,7 @@ Fecha de corte: 11/11/2026
 - Círculo Deportivo: 20
 
 ### En rango (22–28)
+- Sol de Mayo: 24
 - Cipolletti: 26
 - Costa Brava: 22
 - FADEP: 22
@@ -108,6 +108,7 @@ Bartolomé Mitre, San Martín de Formosa y Sol de América fueron ampliados de 1
 - Cipolletti: 18 → 26, ocho altas contrastadas con la nómina oficial del club y la cobertura de pretemporada 2026.
 - Costa Brava: 18 → 22, cuatro altas contrastadas con el plantel 2026 y fuentes individuales.
 - FADEP: 18 → 22, cuatro altas; tres con apariciones 2026 registradas (Gizzi 8, Klusener 20, Lentini 10) y Cogorno incorporado por anuncio de llegada al plantel.
+- Sol de Mayo: 18 → 24, seis altas contrastadas con nóminas y registros 2026; Santiago Jara suma 23 presencias y Kevin Pereira 22.
 - Las medias nuevas se identifican como estimaciones propias cuando no existe CA individual verificable. No se asignaron dorsales ni participaciones no respaldadas.
 - Estas tres ampliaciones están fusionadas en `main` dentro de los CSV de trabajo. El `public/squads-meta.json` todavía refleja los conteos anteriores (18 para estos clubes); no se considera publicada su actualización en el runtime hasta comprobar la importación.
 
