@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T05:42:41.449Z",
+  "updatedAt": "2026-11-11T06:16:09.210Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1141 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1327 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -101,7 +101,17 @@
     "cipolletti": 18,
     "defbelgranovr": 22,
     "rincon": 22,
-    "soldeamerica": 18
+    "soldeamerica": 18,
+    "soldemayo": 18,
+    "tucumancentral": 22,
+    "costabrava": 18,
+    "circulo": 20,
+    "fadep": 18,
+    "germinal": 18,
+    "gbrown": 18,
+    "juventudsl": 18,
+    "santamarina": 18,
+    "douglashaig": 18
   },
   "sources": {
     "sanlorenzo": {
@@ -2906,6 +2916,110 @@
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa"
+    },
+    "soldemayo": {
+      "source": "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14028729/club-social-y-deportivo-sol-de-mayo-de-viedma"
+    },
+    "tucumancentral": {
+      "source": "https://www.transfermarkt.es/ca-tucuman-central/kader/verein/128105/saison_id/2025",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.transfermarkt.es/ca-tucuman-central/kader/verein/128105/saison_id/2025",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / comparativa FM27 por rol; sin CA individual disponible",
+      "roleSource": "https://www.transfermarkt.es/ca-tucuman-central/kader/verein/128105/saison_id/2025",
+      "natSource": "https://www.transfermarkt.es/ca-tucuman-central/kader/verein/128105/saison_id/2025"
+    },
+    "costabrava": {
+      "source": "https://cacostabrava.com/",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14089901/club-atletico-costa-brava-de-general-pico"
+    },
+    "circulo": {
+      "source": "https://www.mundoascenso.com.ar/plantel/8399-circulo-deportivo-otamendi",
+      "consulted": "2026-11-11",
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-data-update/team/14046676",
+        "https://www.transfermarkt.co/jano-martinez/profil/spieler/990192",
+        "https://www.flashscore.com.ar/jugador/buscaglia-simon/EPVl20Vj/",
+        "https://www.soloascenso.com.ar/notas/atenas-de-rio-cuarto/dos-altas-y-tres-bajas-confirmadas-para-circulo-deportivo/229838"
+      ],
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM26 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-data-update/team/14046676",
+        "https://www.transfermarkt.co/jano-martinez/profil/spieler/990192",
+        "https://sortitoutsi.net/football-manager-data-update/person/2000105019",
+        "https://www.soloascenso.com.ar/notas/atenas-de-rio-cuarto/dos-altas-y-tres-bajas-confirmadas-para-circulo-deportivo/229838"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-data-update/team/14046676",
+        "https://www.transfermarkt.co/jano-martinez/profil/spieler/990192",
+        "https://sortitoutsi.net/football-manager-data-update/person/2000105019"
+      ]
+    },
+    "fadep": {
+      "source": "https://fundacionamigospd.com/",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14209375/fundacion-amigos-por-el-deporte"
+    },
+    "germinal": {
+      "source": "https://www.mundoascenso.com.ar/plantel/283-germinal-rawson",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson"
+    },
+    "gbrown": {
+      "source": "https://www.mundoascenso.com.ar/plantel/34-guillermo-brown",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn"
+    },
+    "juventudsl": {
+      "source": "https://www.mundoascenso.com.ar/plantel/36-juventud-unida-universitario",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario"
+    },
+    "santamarina": {
+      "source": "https://www.mundoascenso.com.ar/plantel/46-ramon-santamarina",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina"
+    },
+    "douglashaig": {
+      "source": "https://www.mundoascenso.com.ar/plantel/233-douglas-haig",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig"
     }
   },
   "completePrimera": true,
@@ -2914,8 +3028,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2038,
-    "missing": 732,
-    "total": 2770,
+    "missing": 918,
+    "total": 2956,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3406,15 +3520,65 @@
         "total": 18,
         "assigned": 0,
         "missing": 18
+      },
+      "soldemayo": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "tucumancentral": {
+        "total": 22,
+        "assigned": 0,
+        "missing": 22
+      },
+      "costabrava": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "circulo": {
+        "total": 20,
+        "assigned": 0,
+        "missing": 20
+      },
+      "fadep": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "germinal": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "gbrown": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "juventudsl": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "santamarina": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
+      },
+      "douglashaig": {
+        "total": 18,
+        "assigned": 0,
+        "missing": 18
       }
     }
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 2770,
+    "assigned": 2956,
     "missing": 0,
     "birthDates": 2069,
-    "total": 2770,
+    "total": 2956,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3905,13 +4069,63 @@
         "total": 18,
         "assigned": 18,
         "missing": 0
+      },
+      "soldemayo": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "tucumancentral": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "costabrava": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "circulo": {
+        "total": 20,
+        "assigned": 20,
+        "missing": 0
+      },
+      "fadep": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "germinal": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "gbrown": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "juventudsl": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "santamarina": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
+      },
+      "douglashaig": {
+        "total": 18,
+        "assigned": 18,
+        "missing": 0
       }
     }
   },
   "nationalityCoverage": {
-    "assigned": 2770,
+    "assigned": 2956,
     "missing": 0,
-    "total": 2770,
+    "total": 2956,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4304,13 +4518,53 @@
       "soldeamerica": {
         "total": 18,
         "assigned": 18
+      },
+      "soldemayo": {
+        "total": 18,
+        "assigned": 18
+      },
+      "tucumancentral": {
+        "total": 22,
+        "assigned": 22
+      },
+      "costabrava": {
+        "total": 18,
+        "assigned": 18
+      },
+      "circulo": {
+        "total": 20,
+        "assigned": 20
+      },
+      "fadep": {
+        "total": 18,
+        "assigned": 18
+      },
+      "germinal": {
+        "total": 18,
+        "assigned": 18
+      },
+      "gbrown": {
+        "total": 18,
+        "assigned": 18
+      },
+      "juventudsl": {
+        "total": 18,
+        "assigned": 18
+      },
+      "santamarina": {
+        "total": 18,
+        "assigned": 18
+      },
+      "douglashaig": {
+        "total": 18,
+        "assigned": 18
       }
     }
   },
   "specificRoleCoverage": {
-    "assigned": 2770,
+    "assigned": 2956,
     "missing": 0,
-    "total": 2770,
+    "total": 2956,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4703,13 +4957,53 @@
       "soldeamerica": {
         "total": 18,
         "specific": 18
+      },
+      "soldemayo": {
+        "total": 18,
+        "specific": 18
+      },
+      "tucumancentral": {
+        "total": 22,
+        "specific": 22
+      },
+      "costabrava": {
+        "total": 18,
+        "specific": 18
+      },
+      "circulo": {
+        "total": 20,
+        "specific": 20
+      },
+      "fadep": {
+        "total": 18,
+        "specific": 18
+      },
+      "germinal": {
+        "total": 18,
+        "specific": 18
+      },
+      "gbrown": {
+        "total": 18,
+        "specific": 18
+      },
+      "juventudsl": {
+        "total": 18,
+        "specific": 18
+      },
+      "santamarina": {
+        "total": 18,
+        "specific": 18
+      },
+      "douglashaig": {
+        "total": 18,
+        "specific": 18
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1141,
-    "total": 2770,
+    "estimated": 1327,
+    "total": 2956,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -5299,6 +5593,66 @@
         "verified": 18,
         "estimated": 0,
         "provisional": 0
+      },
+      "soldemayo": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "tucumancentral": {
+        "total": 22,
+        "verified": 0,
+        "estimated": 22,
+        "provisional": 0
+      },
+      "costabrava": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "circulo": {
+        "total": 20,
+        "verified": 0,
+        "estimated": 20,
+        "provisional": 0
+      },
+      "fadep": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "germinal": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "gbrown": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "juventudsl": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "santamarina": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
+      },
+      "douglashaig": {
+        "total": 18,
+        "verified": 0,
+        "estimated": 18,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -5306,22 +5660,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 1598,
+    "derivedPlayers": 1784,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 98,
-    "players": 2770,
+    "clubs": 108,
+    "players": 2956,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 732,
+    "playersMissingDorsal": 918,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1141,
+    "estimatedRatings": 1327,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 713,
+    "playersMissingFoot": 899,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 1598
+    "playersWithoutManualAttributes": 1784
   }
 }
