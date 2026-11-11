@@ -85,4 +85,4 @@ Las medias y posiciones se tomaron de las fichas de primera plantilla FM27; la p
 - Tres archivos CSV, 22 clubes y **533 jugadores**.
 - Tanda 1: 185; tanda 2: 179; tanda 3: 169.
 - La validación de cobertura, perfiles, edades, medias, fuentes y duplicados se ejecuta sobre las tres tandas juntas.
-- Los archivos siguen siendo borradores: **no están integrados en `public/squads.*` ni publicados dentro del juego**. La integración queda pendiente de revisión final y aprobación.
+- Los CSV quedan como respaldo editable. La integración al runtime se realiza desde `completo.csv` mediante el workflow, después de validar cobertura y perfiles; se conservan los planteles de las demás divisiones.
