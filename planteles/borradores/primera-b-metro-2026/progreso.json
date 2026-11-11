@@ -8,7 +8,7 @@
       "batch": 1,
       "teams": [
         "arsenal",
-        "brown",
+        "brownadrogue",
         "armenio",
         "argentinomerlo",
         "argentinoquilmes",
@@ -128,5 +128,6 @@
       "villadalmine": 22,
       "villasancarlos": 26
     }
-  }
+  },
+  "clubIdsAlignedWithRuntime": true
 }
