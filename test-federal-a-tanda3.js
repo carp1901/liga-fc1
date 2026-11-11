@@ -24,7 +24,7 @@ for(const [i,r] of rows.entries()){
  if(!['ARG','PAR','PER','URU','BRA','CHI','COL','BOL','ECU','VEN'].includes(get('nat')))errors.push('Nacionalidad inválida '+name);
  const key=club+'|'+name.toLowerCase();if(seen.has(key))errors.push('Duplicado '+key);seen.add(key);
 }
-for(const club of expected)if((counts[club]||0)<18)errors.push(club+': no alcanza el mínimo de 18 jugadores ('+(counts[club]||0)+')');
+for(const club of expected){const n=counts[club]||0;if(n<18||n>32)errors.push(club+': fuera del rango permitido 18–32 ('+n+')');}
 if(Object.keys(counts).length!==expected.length)errors.push('La tanda debe contener exactamente los 10 clubes previstos');
 if(rows.length<180)errors.push('La tanda no alcanza 180 registros (10 clubes x mínimo 18)');
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
