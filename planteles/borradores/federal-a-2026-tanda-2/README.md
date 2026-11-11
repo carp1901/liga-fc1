@@ -1,6 +1,7 @@
+
 # Federal A 2026 — tanda 2
 
-Segunda tanda: diez clubes, 186 jugadores. Todos quedan con al menos 18 futbolistas (11 titulares + 7 suplentes). Dorsales vacíos cuando las fuentes públicas muestran números duplicados o ambiguos.
+Segunda tanda: diez clubes y 186 jugadores. Cada plantel queda con al menos 18 futbolistas (11 titulares + 7 suplentes). Dorsales vacíos cuando las fuentes públicas muestran números duplicados o ambiguos.
 
 ## Cantidades
 - soldemayo: 18
@@ -14,11 +15,11 @@ Segunda tanda: diez clubes, 186 jugadores. Todos quedan con al menos 18 futbolis
 - santamarina: 18
 - douglashaig: 18
 
-## Criterio de plantel
+## Criterio de plantel y medias
 - Pertenencia contrastada con planteles 2026 de Mundo Ascenso, sitios oficiales de los clubes o Transfermarkt.
-- Para nueve equipos se usó la Current Ability (CA) de FM27 en Sortitoutsi, normalizada a la escala del juego dividiendo por dos y redondeando. No es OVR de EA FC ni la ABI de FM Blog; se marca como estimación propia derivada de CA.
-- Círculo Deportivo utiliza los datos de CA/edad/posición del registro de FM26 de Sortitoutsi, ya que no se pudo verificar una tabla completa de FM27 para el club.
-- Tucumán Central no tiene CA individual de FM27 disponible para su plantilla. Sus medias están marcadas como estimaciones comparativas y no como ratings oficiales; edad y posición se tomaron del plantel Transfermarkt 2026.
+- Para ocho equipos se usó la Current Ability (CA) de FM27 en Sortitoutsi, normalizada a la escala del juego dividiendo por dos y redondeando. No es OVR de EA FC ni ABI de FM Blog; se marca como estimación propia derivada de CA.
+- Círculo Deportivo utiliza los datos de CA/edad/posición del registro de FM26 de Sortitoutsi, porque no se pudo verificar una tabla completa de FM27 para el club.
+- Tucumán Central no tiene CA individual de FM27 disponible para su plantilla. Sus medias están marcadas como estimaciones comparativas, no como ratings oficiales; edad y posición se tomaron del plantel Transfermarkt 2026.
 - No se rellenaron dorsales dudosos ni se inventaron nombres para alcanzar el mínimo.
 
 ## Fuentes de planteles
