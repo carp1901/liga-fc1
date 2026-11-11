@@ -38,6 +38,7 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 - Referencia FM27: fichas de los diez clubes localizadas y consultadas; pendiente el cruce individual completo contra los planteles reales 2026.
 - Alvarado: borrador de 20 jugadores coincidentes entre FM27 y la nómina 2026 de Mundo Ascenso. Luciano Echeverría quedó fuera al no figurar en la nómina vigente. Edades y dorsales vacíos por falta de respaldo individual consistente.
 - 9 de Julio (Rafaela): borrador de 25 jugadores coincidentes entre FM27 y la nómina 2026 de Mundo Ascenso. Se dejaron fuera nombres con iniciales que no permiten confirmar identidad exacta (por ejemplo, Abondetto/Troncoso). Edades y dorsales pendientes de respaldo consistente.
-- CSV de jugadores: `alvarado.csv` y `nuevejulio.csv` son borradores parciales; los otros ocho clubes siguen pendientes. No considerar la tanda terminada ni importar todavía.
+- Boca Unidos: borrador de 19 jugadores coincidentes entre FM27 y la nómina 2026 de Mundo Ascenso; Tiago Villanueva no se incluyó porque no aparece en la nómina vigente. Dorsales y edades siguen pendientes de respaldo consistente.
+- CSV de jugadores: `alvarado.csv`, `nuevejulio.csv` y `bocaunidos.csv` son borradores parciales; los otros siete clubes siguen pendientes. No considerar la tanda terminada ni importar todavía.
 - Importación runtime: pendiente; no modificar `public/squads.*` en esta etapa.
 - Validación: se añadirá cuando estén completos los diez clubes.
