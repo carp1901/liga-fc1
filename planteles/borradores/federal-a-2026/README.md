@@ -18,7 +18,7 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 ## Criterio de relevamiento
 
 - Temporada 2026; primera plantilla y jugadores con participación relevante, sin reservas ni juveniles sin minutos verificables.
-- FM27 / FM Blog como referencia principal de media y posición, igual que en B Metro. Se toma el Current Ability (CA/ABI) individual en escala 1–99; no el Potential Ability (PA), ni un promedio del club, ni OVR de EA. Cada ficha debe conservar su enlace individual de FM Blog en `rating_source` y `fuente_rol`.
+- FM27 / FM Blog como referencia principal de media y posición, igual que en B Metro. Se toma el Current Ability (CA/ABI) individual en escala 1–99; no el Potential Ability (PA), ni un promedio del club, ni OVR de EA. `rating_source` y `fuente_rol` apuntan a la ficha del primer equipo del club en FM Blog, donde aparece el CA y la posición individual de cada futbolista.
 - Pertenencia al plantel 2026 y participación contrastadas con nóminas y registros de competición (Mundo Ascenso, AFA y fuentes de clubes).
 - Los dorsales y fechas de nacimiento se cargan sólo cuando hay respaldo individual. Si faltan, quedan vacíos.
 - No se inventan futbolistas, edades, dorsales, nacionalidades ni pies dominantes. Las estimaciones propias sólo se usan con participación comprobable y quedan identificadas.
@@ -35,11 +35,9 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 ## Estado
 
 - Rama: `federal-a-2026-tanda-1`
-- Referencia FM27: fichas de los diez clubes localizadas y consultadas; pendiente el cruce individual completo contra los planteles reales 2026.
-- Alvarado: borrador de 20 jugadores coincidentes entre FM27 y la nómina 2026 de Mundo Ascenso. Luciano Echeverría quedó fuera al no figurar en la nómina vigente. Edades y dorsales vacíos por falta de respaldo individual consistente.
-- 9 de Julio (Rafaela): borrador de 25 jugadores coincidentes entre FM27 y la nómina 2026 de Mundo Ascenso. Se dejaron fuera nombres con iniciales que no permiten confirmar identidad exacta (por ejemplo, Abondetto/Troncoso). Edades y dorsales pendientes de respaldo consistente.
-- Boca Unidos: borrador de 19 jugadores coincidentes entre FM27 y la nómina 2026 de Mundo Ascenso; Tiago Villanueva no se incluyó porque no aparece en la nómina vigente. Dorsales y edades siguen pendientes de respaldo consistente.
-- Cipolletti: borrador de 17 jugadores coincidentes por nombre entre FM27 y la nómina 2026 de Mundo Ascenso. Se excluyeron coincidencias ambiguas por iniciales (por ejemplo, Nehuén García/M. López) y jugadores que aparecen en la nómina pero no en el primer equipo FM27. Edades y dorsales pendientes.
-- CSV de jugadores: `alvarado.csv`, `nuevejulio.csv`, `bocaunidos.csv` y `cipolletti.csv` son borradores parciales; los otros seis clubes siguen pendientes. No considerar la tanda terminada ni importar todavía.
-- Importación runtime: pendiente; no modificar `public/squads.*` en esta etapa.
-- Validación: se añadirá cuando estén completos los diez clubes.
+- Primera pasada de los diez clubes cargada en CSV: 192 jugadores en total.
+- Desglose: Alvarado 20; 9 de Julio 25; Atenas 19; San Martín (Mendoza) 17; Bartolomé Mitre 15; Boca Unidos 19; Cipolletti 17; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América 16.
+- Archivos individuales y consolidado: `planteles/borradores/federal-a-2026-tanda-1/completo.csv`.
+- Control estructural inicial: 34 columnas por registro, 10 IDs de club esperados, 192 nombres sin duplicados dentro de la tanda, ratings ABI 1–99 y sin ajustes globales.
+- Pendiente: segunda revisión de nombres/participación, depuración de jugadores que sólo figuran como reserva o sin minutos relevantes, confirmación de edades y dorsales con fuentes individuales y validación con el importador del juego.
+- Importación runtime: pendiente; no modificar `public/squads.*` en esta etapa. No está publicado en `main` ni desplegado.
