@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T07:06:01.451Z",
+  "updatedAt": "2026-11-11T07:14:44.221Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1507 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1706 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -121,7 +121,14 @@
     "antoniana": 18,
     "linqueno": 18,
     "indchivilcoy": 18,
-    "escobar": 18
+    "escobar": 18,
+    "gimcdu": 32,
+    "lasparejas": 30,
+    "vilelas": 25,
+    "argmontemaiz": 26,
+    "kimberley": 30,
+    "villamitre": 32,
+    "sarmientores": 24
   },
   "sources": {
     "sanlorenzo": {
@@ -3138,6 +3145,69 @@
       "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/2000532116-atl-escobar"
+    },
+    "gimcdu": {
+      "source": "https://www.mundoascenso.com.ar/plantel/3945-gimnasia-concepcion",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/108567/club-gimnasia-y-esgrima-de-concepcion-del-uruguay",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/108567/club-gimnasia-y-esgrima-de-concepcion-del-uruguay",
+      "natSource": "https://www.mundoascenso.com.ar/plantel/3945-gimnasia-concepcion"
+    },
+    "lasparejas": {
+      "source": "https://www.mundoascenso.com.ar/plantel/1950-sportivo-las-parejas",
+      "consulted": "2026-11-11",
+      "ageSource": [],
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 referencia de escala y comparativa por rol; CA individual no disponible",
+      "roleSource": "https://www.mundoascenso.com.ar/plantel/1950-sportivo-las-parejas",
+      "natSource": "https://www.mundoascenso.com.ar/plantel/1950-sportivo-las-parejas"
+    },
+    "vilelas": {
+      "source": "https://www.soccerway.com/equipo/defensores-de-puerto-vilelas/zirJ44ye/",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.soccerway.com/equipo/defensores-de-puerto-vilelas/zirJ44ye/",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-data-update/team/14064734",
+      "natSource": "https://www.soccerway.com/equipo/defensores-de-puerto-vilelas/zirJ44ye/"
+    },
+    "argmontemaiz": {
+      "source": "https://www.mundoascenso.com.ar/plantel/306-argentino-de-monte-maiz",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14064652/club-deportivo-argentino-de-monte-maiz",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14064652/club-deportivo-argentino-de-monte-maiz",
+      "natSource": "https://www.mundoascenso.com.ar/plantel/306-argentino-de-monte-maiz"
+    },
+    "kimberley": {
+      "source": "https://www.mundoascenso.com.ar/plantel/286-kimberley-mdp",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14037344/club-atletico-kimberley",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14037344/club-atletico-kimberley",
+      "natSource": "https://www.mundoascenso.com.ar/plantel/286-kimberley-mdp"
+    },
+    "villamitre": {
+      "source": "https://www.mundoascenso.com.ar/plantel/134-villa-mitre",
+      "consulted": "2026-11-11",
+      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/108569/club-villa-mitre-de-bahia-blanca",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/108569/club-villa-mitre-de-bahia-blanca",
+      "natSource": "https://sortitoutsi.net/football-manager-2027/team/108569/club-villa-mitre-de-bahia-blanca"
+    },
+    "sarmientores": {
+      "source": "https://tacazo.com.ar/equipo.html?id=club-1953",
+      "consulted": "2026-11-11",
+      "ageSource": "https://tacazo.com.ar/equipo.html?id=club-1953",
+      "numberSource": [],
+      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14043913/club-atletico-sarmiento-de-resistencia",
+      "natSource": "https://tacazo.com.ar/equipo.html?id=club-1953"
     }
   },
   "completePrimera": true,
@@ -3146,8 +3216,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2038,
-    "missing": 1098,
-    "total": 3136,
+    "missing": 1297,
+    "total": 3335,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3738,15 +3808,50 @@
         "total": 18,
         "assigned": 0,
         "missing": 18
+      },
+      "gimcdu": {
+        "total": 32,
+        "assigned": 0,
+        "missing": 32
+      },
+      "lasparejas": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "vilelas": {
+        "total": 25,
+        "assigned": 0,
+        "missing": 25
+      },
+      "argmontemaiz": {
+        "total": 26,
+        "assigned": 0,
+        "missing": 26
+      },
+      "kimberley": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "villamitre": {
+        "total": 32,
+        "assigned": 0,
+        "missing": 32
+      },
+      "sarmientores": {
+        "total": 24,
+        "assigned": 0,
+        "missing": 24
       }
     }
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 3123,
-    "missing": 13,
+    "assigned": 3261,
+    "missing": 74,
     "birthDates": 2069,
-    "total": 3136,
+    "total": 3335,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4337,13 +4442,48 @@
         "total": 18,
         "assigned": 16,
         "missing": 2
+      },
+      "gimcdu": {
+        "total": 32,
+        "assigned": 30,
+        "missing": 2
+      },
+      "lasparejas": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "vilelas": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "argmontemaiz": {
+        "total": 26,
+        "assigned": 24,
+        "missing": 2
+      },
+      "kimberley": {
+        "total": 30,
+        "assigned": 3,
+        "missing": 27
+      },
+      "villamitre": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "sarmientores": {
+        "total": 24,
+        "assigned": 24,
+        "missing": 0
       }
     }
   },
   "nationalityCoverage": {
-    "assigned": 3136,
+    "assigned": 3335,
     "missing": 0,
-    "total": 3136,
+    "total": 3335,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4816,13 +4956,41 @@
       "escobar": {
         "total": 18,
         "assigned": 18
+      },
+      "gimcdu": {
+        "total": 32,
+        "assigned": 32
+      },
+      "lasparejas": {
+        "total": 30,
+        "assigned": 30
+      },
+      "vilelas": {
+        "total": 25,
+        "assigned": 25
+      },
+      "argmontemaiz": {
+        "total": 26,
+        "assigned": 26
+      },
+      "kimberley": {
+        "total": 30,
+        "assigned": 30
+      },
+      "villamitre": {
+        "total": 32,
+        "assigned": 32
+      },
+      "sarmientores": {
+        "total": 24,
+        "assigned": 24
       }
     }
   },
   "specificRoleCoverage": {
-    "assigned": 3136,
+    "assigned": 3335,
     "missing": 0,
-    "total": 3136,
+    "total": 3335,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5295,13 +5463,41 @@
       "escobar": {
         "total": 18,
         "specific": 18
+      },
+      "gimcdu": {
+        "total": 32,
+        "specific": 32
+      },
+      "lasparejas": {
+        "total": 30,
+        "specific": 30
+      },
+      "vilelas": {
+        "total": 25,
+        "specific": 25
+      },
+      "argmontemaiz": {
+        "total": 26,
+        "specific": 26
+      },
+      "kimberley": {
+        "total": 30,
+        "specific": 30
+      },
+      "villamitre": {
+        "total": 32,
+        "specific": 32
+      },
+      "sarmientores": {
+        "total": 24,
+        "specific": 24
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1507,
-    "total": 3136,
+    "estimated": 1706,
+    "total": 3335,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6011,6 +6207,48 @@
         "verified": 0,
         "estimated": 18,
         "provisional": 0
+      },
+      "gimcdu": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "lasparejas": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "vilelas": {
+        "total": 25,
+        "verified": 0,
+        "estimated": 25,
+        "provisional": 0
+      },
+      "argmontemaiz": {
+        "total": 26,
+        "verified": 0,
+        "estimated": 26,
+        "provisional": 0
+      },
+      "kimberley": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "villamitre": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "sarmientores": {
+        "total": 24,
+        "verified": 0,
+        "estimated": 24,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -6018,22 +6256,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 1964,
+    "derivedPlayers": 2163,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 118,
-    "players": 3136,
+    "clubs": 125,
+    "players": 3335,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 13,
-    "playersMissingDorsal": 1098,
+    "playersMissingAge": 74,
+    "playersMissingDorsal": 1297,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1507,
+    "estimatedRatings": 1706,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 1079,
+    "playersMissingFoot": 1278,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 1964
+    "playersWithoutManualAttributes": 2163
   }
 }
