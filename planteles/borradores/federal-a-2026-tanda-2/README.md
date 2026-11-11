@@ -46,6 +46,7 @@ Segunda tanda: diez clubes y 186 jugadores. Cada plantel queda con al menos 18 f
 - circulo: https://sortitoutsi.net/football-manager-data-update/team/14046676
 - Jano Martínez: https://www.transfermarkt.co/jano-martinez/profil/spieler/990192
 - Simón Buscaglia: https://sortitoutsi.net/football-manager-data-update/person/2000105019
+- Rodrigo Juárez: https://www.soloascenso.com.ar/notas/atenas-de-rio-cuarto/dos-altas-y-tres-bajas-confirmadas-para-circulo-deportivo/229838
 
 Consultado: 2026-11-11.
 
