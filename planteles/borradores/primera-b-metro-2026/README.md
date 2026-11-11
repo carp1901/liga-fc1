@@ -54,4 +54,4 @@ Trabajo por tres tandas, con 22 clubes en total. Los CSV son fuentes editables; 
 - Pies dominantes con fuente individual: 19
 - Fechas de nacimiento documentadas: 31
 
-El primer borrador pasó el importador en modo `--dry-run` y el validador específico. La integración a `public/squads.*` queda pendiente hasta completar las tres tandas y la revisión final de cobertura.
+El validador específico pasó manualmente sobre las 185 filas: cobertura de los ocho clubes, roles válidos, fuentes presentes y sin duplicados. El `--dry-run` completo del importador se repetirá al terminar las tres tandas, antes de publicar. La integración a `public/squads.*` queda pendiente hasta completar las tres tandas y la revisión final de cobertura.
