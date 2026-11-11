@@ -48,3 +48,5 @@ Segunda tanda: diez clubes y 186 jugadores. Cada plantel queda con al menos 18 f
 - Simón Buscaglia: https://sortitoutsi.net/football-manager-data-update/person/2000105019
 
 Consultado: 2026-11-11.
+
+Workflow de validación: referencia de rama corregida para ejecutar checkout y pruebas sobre la rama del PR.
