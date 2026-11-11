@@ -15,11 +15,15 @@ on:
       - 'import-squads.js'
       - 'public/data.js'
       - '.github/workflows/test-bmetro-draft.yml'
+permissions:
+  contents: write
 jobs:
   validar:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -32,5 +36,18 @@ jobs:
           node import-squads.js planteles/borradores/primera-b-metro-2026/tanda3.csv --dry-run
       - name: Validar cobertura y perfiles
         run: node test-bmetro-draft.js
-
-# El borrador se valida también al incorporarse a main; no publica squads en runtime.
+      - name: Validar importación conjunta de los 22 clubes
+        run: node import-squads.js planteles/borradores/primera-b-metro-2026/completo.csv --dry-run
+      - name: Integrar planteles B Metro en runtime
+        run: node import-squads.js planteles/borradores/primera-b-metro-2026/completo.csv
+      - name: Ejecutar pruebas del juego
+        run: npm test
+      - name: Guardar planteles integrados en la rama
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/squads.json public/squads.js public/squads-meta.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Integrar planteles reales de Primera B Metro 2026'
+            git push origin HEAD:${{ github.head_ref || github.ref_name }}
+          fi
