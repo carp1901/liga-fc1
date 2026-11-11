@@ -132,7 +132,7 @@ class Sim{
   if(!S.sc&&best.k>0&&S.throughOK(o,best,bl,press)){S.lp={from:o,to:best,n:S.n};S.through(o,best,press);return}
    S.lp={from:o,to:best,n:S.n};const dd2=dist(best,o),sp2=clamp(dd2/30,3.6,5.8)*(cnt?1.2:1)*[.88,1,1.1][tt[0]];if(Math.abs(best.y-o.y)>FH*.42&&dd2>240){S.crossT=S.n;S.crossD=dd2/(sp2*S.vs);S.switchN=(S.switchN||0)+1}
   S.kickAt(best,sp2,S.run&&S.run.p===best&&S.n<S.run.t?1.5:.7)}
- event(e,as){const S=this,n=S.q.length;if(e.k=='att'&&e.x=='g'&&!S.pso&&(!S.P.length||S.frozen||S.P.length<22)){(S.gq=S.gq||[]).push({e,as});return}if(!S.P.length||S.frozen||(as==1&&S.P.length<22))return;
+ event(e,as){const S=this,n=S.q.length;if(e.x=='g'&&e.k!='pso'&&!S.pso&&(!S.P.length||S.frozen||S.P.length<22)){(S.gq=S.gq||[]).push({e,as});return}if(!S.P.length||S.frozen||(as==1&&S.P.length<22))return;
   const dn=S.dropN||1;if(n>=dn&&n<4&&e.k=='att'&&e.x=='l'&&as!=null&&rnd()<.6&&S.n-(S.lastLat||-999)>600){S.lastLat=S.n;S.latQ=(S.latQ||0)+1;S.q.push({e:{k:'lat'},as:1-as});return}   // la pérdida que se iba a descartar se convierte en saque lateral para el rival
   if(!(e.cd=='r'||e.cd=='r2')&&((n>=dn&&e.k=='lat')||(n>=dn&&(e.k=='foul'||(e.k=='att'&&(e.x=='l'||e.x=='f'))))||(n>=dn+2&&e.k=='att'&&e.x=='o')))return;   // las faltas con expulsión nunca se descartan: se tiene que ver el motivo
   if(n>=7&&e.x!='g')return;S.q.push({e,as})}
