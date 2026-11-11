@@ -29,6 +29,7 @@ jobs:
         run: |
           node import-squads.js planteles/borradores/primera-b-metro-2026/tanda1.csv --dry-run
           node import-squads.js planteles/borradores/primera-b-metro-2026/tanda2.csv --dry-run
+          node import-squads.js planteles/borradores/primera-b-metro-2026/tanda3.csv --dry-run
       - name: Validar cobertura y perfiles
         run: node test-bmetro-draft.js
 
