@@ -15,7 +15,7 @@ function parseCSV(s) {
     else if(c==='\n'){row.push(value.replace(/\r$/,''));rows.push(row);row=[];value='';}
     else value+=c;
   }
-  if(value.length||row.length){row.push(value.replace(/\\r$/,''));rows.push(row);}
+  if(value.length||row.length){row.push(value.replace(/\r$/,''));rows.push(row);}
   return rows;
 }
 const rows=parseCSV(fs.readFileSync(file,'utf8'));
