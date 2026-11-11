@@ -1,0 +1,77 @@
+{
+  "season": 2026,
+  "division": "Primera B Metropolitana",
+  "batches": 3,
+  "teamsTotal": 22,
+  "batchesPlan": [
+    {
+      "batch": 1,
+      "teams": [
+        "arsenal",
+        "brown",
+        "armenio",
+        "argentinomerlo",
+        "argentinoquilmes",
+        "camioneros",
+        "comunicaciones",
+        "defensoresunidos"
+      ],
+      "status": "draft-researched",
+      "players": 177
+    },
+    {
+      "batch": 2,
+      "teams": [
+        "docksud",
+        "laferrere",
+        "deportivomerlo",
+        "excursionistas",
+        "flandria",
+        "ituzaingo",
+        "liniers"
+      ],
+      "status": "pending"
+    },
+    {
+      "batch": 3,
+      "teams": [
+        "realpilar",
+        "sanmartinburzaco",
+        "sportivoitaliano",
+        "talleresre",
+        "uai",
+        "villadalmine",
+        "villasancarlos"
+      ],
+      "status": "pending"
+    }
+  ],
+  "methodology": {
+    "primary": "FM27 team first-team squad, position and FMB Ability",
+    "ratingScale": "FMB ABI 1-99; third-party normalised score based on FM, not raw FM CA/PA and not EA OVR",
+    "ratingAdjustment": 0,
+    "secondarySources": [
+      "club official",
+      "AFA/Copa Argentina",
+      "Mundo Ascenso",
+      "Solo Ascenso",
+      "Transfermarkt",
+      "match reports"
+    ],
+    "noInventedDorsals": true,
+    "noInventedBirthDates": true,
+    "noInventedFeet": true
+  },
+  "batch1": {
+    "csv": "tanda1.csv",
+    "clubs": 8,
+    "players": 177,
+    "duplicateNames": 0,
+    "duplicateDorsals": 0,
+    "verifiedDorsals": 21,
+    "ages": 177,
+    "birthDates": 4,
+    "feet": 0
+  },
+  "runtimeIntegrated": false
+}
