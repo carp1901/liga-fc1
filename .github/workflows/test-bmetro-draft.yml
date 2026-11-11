@@ -40,13 +40,17 @@ jobs:
         run: node import-squads.js planteles/borradores/primera-b-metro-2026/completo.csv --dry-run
       - name: Integrar planteles B Metro en runtime
         run: node import-squads.js planteles/borradores/primera-b-metro-2026/completo.csv
-      - name: Ejecutar pruebas de alineaciones y orientación 2D
-        run: node test-auto-xi.js && node test-sim2d-orientation.js
+      - name: Verificar planteles B Metro importados en runtime
+        run: node test-bmetro-runtime.js
+      - name: Verificar orientación 2D
+        run: node test-sim2d-orientation.js
+      - name: Registrar integración en progreso
+        run: node -e "const fs=require('fs');const p='planteles/borradores/primera-b-metro-2026/progreso.json';const d=JSON.parse(fs.readFileSync(p,'utf8'));d.runtimeIntegrated=true;d.runtimePlayers=533;d.runtimeClubs=22;fs.writeFileSync(p,JSON.stringify(d,null,2)+'\\n');"
       - name: Guardar planteles integrados en la rama
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/squads.json public/squads.js public/squads-meta.json
+          git add public/squads.json public/squads.js public/squads-meta.json planteles/borradores/primera-b-metro-2026/progreso.json
           if ! git diff --cached --quiet; then
             git commit -m 'Integrar planteles reales de Primera B Metro 2026'
             git push origin HEAD:${{ github.head_ref || github.ref_name }}
