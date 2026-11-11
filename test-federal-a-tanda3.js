@@ -21,7 +21,7 @@ for(const [i,r] of rows.entries()){
  if(!get('fuente')||!get('fuente_rol')||!get('nat_source'))errors.push('Fuente incompleta '+name);
  if(!roles.has(role))errors.push('Rol específico inválido '+name);
  if(get('rating_base')!==get('rating')||get('ajuste_rating')!=='0')errors.push('Base/ajuste incorrecto '+name);
- if(!['ARG','PAR','PER','URU','BRA','CHI','COL','BOL','ECU','VEN'].includes(get('nat')))errors.push('Nacionalidad inválida '+name);
+ const nationality=get('nat'),nationalitySource=get('nat_source');if(nationality!==''&&!['ARG','PAR','PER','URU','BRA','CHI','COL','BOL','ECU','VEN'].includes(nationality))errors.push('Nacionalidad inválida '+name);if(nationality===''&&!nationalitySource.startsWith('Nacionalidad individual no verificada; no se asigna.'))errors.push('Nacionalidad vacía sin justificación '+name);
  const key=club+'|'+name.toLowerCase();if(seen.has(key))errors.push('Duplicado '+key);seen.add(key);
 }
 for(const club of expected){const n=counts[club]||0;if(n<18||n>32)errors.push(club+': fuera del rango permitido 18–32 ('+n+')');}

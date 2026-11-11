@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T17:03:29.556Z",
+  "updatedAt": "2026-11-11T17:25:04.953Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1755 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1795 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -95,7 +95,7 @@
     "alvarado": 20,
     "nuevejulio": 25,
     "atenas": 19,
-    "atsanmartinmza": 18,
+    "atsanmartinmza": 22,
     "bmitre": 27,
     "bocaunidos": 19,
     "cipolletti": 26,
@@ -107,16 +107,16 @@
     "costabrava": 22,
     "circulo": 20,
     "fadep": 22,
-    "germinal": 18,
-    "gbrown": 18,
-    "juventudsl": 18,
-    "santamarina": 18,
-    "douglashaig": 18,
-    "gimchivilcoy": 18,
+    "germinal": 22,
+    "gbrown": 22,
+    "juventudsl": 22,
+    "santamarina": 22,
+    "douglashaig": 22,
+    "gimchivilcoy": 22,
     "sanmartinformosa": 27,
-    "sarmientolb": 18,
-    "sportivobelgrano": 18,
-    "huracanlh": 18,
+    "sarmientolb": 22,
+    "sportivobelgrano": 22,
+    "huracanlh": 22,
     "olimpo": 18,
     "antoniana": 18,
     "linqueno": 18,
@@ -2864,14 +2864,27 @@
     "atsanmartinmza": {
       "source": [
         "https://www.mundoascenso.com.ar/plantel/21042-san-martin-mza",
-        "https://www.mundoascenso.com.ar/plantel/49-san-martin-mza"
+        "https://www.mundoascenso.com.ar/plantel/49-san-martin-mza",
+        "https://www.mundoascenso.com.ar/plantel/49-san-martin-mza | https://ligatable.com/es/futbol/argentina/torneo-federal-a/2026-09-06/guillermo-brown-vs-san-martin-mendoza-1606486"
       ],
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/49-san-martin-mza"
+      ],
       "numberSource": [],
-      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza"
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
+        "https://www.mundoascenso.com.ar/plantel/49-san-martin-mza"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/49-san-martin-mza"
+      ]
     },
     "bmitre": {
       "source": [
@@ -3112,56 +3125,131 @@
     "germinal": {
       "source": "https://www.mundoascenso.com.ar/plantel/283-germinal-rawson",
       "consulted": "2026-11-11",
-      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/283-germinal-rawson"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
-      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
+        "https://www.mundoascenso.com.ar/plantel/283-germinal-rawson"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/283-germinal-rawson"
+      ]
     },
     "gbrown": {
-      "source": "https://www.mundoascenso.com.ar/plantel/34-guillermo-brown",
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/34-guillermo-brown",
+        "https://www.mundoascenso.com.ar/plantel/34-guillermo-brown | https://ligatable.com/es/futbol/argentina/torneo-federal-a/2026-09-06/guillermo-brown-vs-san-martin-mendoza-1606486"
+      ],
       "consulted": "2026-11-11",
-      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn",
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/34-guillermo-brown"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn",
-      "natSource": "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn",
+        "https://www.mundoascenso.com.ar/plantel/34-guillermo-brown"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/958199/club-guillermo-brown-de-puerto-madryn",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/34-guillermo-brown"
+      ]
     },
     "juventudsl": {
       "source": "https://www.mundoascenso.com.ar/plantel/36-juventud-unida-universitario",
       "consulted": "2026-11-11",
-      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario",
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/36-juventud-unida-universitario"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario",
-      "natSource": "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario",
+        "https://www.mundoascenso.com.ar/plantel/36-juventud-unida-universitario"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/955211/club-atletico-juventud-unida-universitario",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/36-juventud-unida-universitario"
+      ]
     },
     "santamarina": {
       "source": "https://www.mundoascenso.com.ar/plantel/46-ramon-santamarina",
       "consulted": "2026-11-11",
-      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina",
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/46-ramon-santamarina"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina",
-      "natSource": "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina",
+        "https://www.mundoascenso.com.ar/plantel/46-ramon-santamarina"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/14002964/club-y-biblioteca-ramon-santamarina",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/46-ramon-santamarina"
+      ]
     },
     "douglashaig": {
       "source": "https://www.mundoascenso.com.ar/plantel/233-douglas-haig",
       "consulted": "2026-11-11",
-      "ageSource": "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig",
+      "ageSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/233-douglas-haig"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig",
-      "natSource": "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig",
+        "https://www.mundoascenso.com.ar/plantel/233-douglas-haig"
+      ],
+      "natSource": [
+        "https://sortitoutsi.net/football-manager-2027/team/102483/club-atletico-douglas-haig",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/233-douglas-haig"
+      ]
     },
     "gimchivilcoy": {
       "source": "https://www.mundoascenso.com.ar/plantel/323-gimnasia-de-chivilcoy",
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/323-gimnasia-de-chivilcoy"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy",
+        "https://www.mundoascenso.com.ar/plantel/323-gimnasia-de-chivilcoy"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/323-gimnasia-de-chivilcoy"
+      ]
     },
     "sanmartinformosa": {
       "source": [
@@ -3199,35 +3287,70 @@
     "sarmientolb": {
       "source": "https://www.mundoascenso.com.ar/plantel/224-sarmiento-de-la-banda",
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/224-sarmiento-de-la-banda"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda",
+        "https://www.mundoascenso.com.ar/plantel/224-sarmiento-de-la-banda"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14031215-sarmiento-la-banda",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/224-sarmiento-de-la-banda"
+      ]
     },
     "sportivobelgrano": {
       "source": "https://sportivobelgrano.com.ar/futbol-profesional/",
       "consulted": "2026-11-11",
       "ageSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14022190-sportivo-belgrano",
-        "Sin edad publicada; se deja sin asignar"
+        "Sin edad publicada; se deja sin asignar",
+        "No publicada; sin edad cargada. Fuente de identificación: https://sportivobelgrano.com.ar/futbol-profesional/"
       ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14022190-sportivo-belgrano",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14022190-sportivo-belgrano"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14022190-sportivo-belgrano",
+        "https://sportivobelgrano.com.ar/futbol-profesional/"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14022190-sportivo-belgrano",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://sportivobelgrano.com.ar/futbol-profesional/"
+      ]
     },
     "huracanlh": {
-      "source": "https://clubhuracanlasheras.com.ar/plantel/",
+      "source": [
+        "https://clubhuracanlasheras.com.ar/plantel/",
+        "https://www.mundoascenso.com.ar/plantel/275-huracan-las-heras"
+      ],
       "consulted": "2026-11-11",
       "ageSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/108576-huracan-las-heras",
-        "Sin edad publicada; se deja sin asignar"
+        "Sin edad publicada; se deja sin asignar",
+        "No publicada; sin edad cargada. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/275-huracan-las-heras"
       ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108576-huracan-las-heras",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108576-huracan-las-heras"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / sin CA individual verificable; aproximación por puesto y nivel Federal A 2026"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108576-huracan-las-heras",
+        "https://www.mundoascenso.com.ar/plantel/275-huracan-las-heras"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/108576-huracan-las-heras",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/275-huracan-las-heras"
+      ]
     },
     "olimpo": {
       "source": "https://www.mundoascenso.com.ar/plantel/209-olimpo",
@@ -3356,8 +3479,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2044,
-    "missing": 1340,
-    "total": 3384,
+    "missing": 1380,
+    "total": 3424,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3815,9 +3938,9 @@
         "missing": 19
       },
       "atsanmartinmza": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "bmitre": {
         "total": 27,
@@ -3875,34 +3998,34 @@
         "missing": 22
       },
       "germinal": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "gbrown": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "juventudsl": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "santamarina": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "douglashaig": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "gimchivilcoy": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "sanmartinformosa": {
         "total": 27,
@@ -3910,19 +4033,19 @@
         "missing": 27
       },
       "sarmientolb": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "sportivobelgrano": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "huracanlh": {
-        "total": 18,
+        "total": 22,
         "assigned": 0,
-        "missing": 18
+        "missing": 22
       },
       "olimpo": {
         "total": 18,
@@ -3989,9 +4112,9 @@
   "dorsalsComplete": false,
   "ageCoverage": {
     "assigned": 3295,
-    "missing": 89,
+    "missing": 129,
     "birthDates": 2075,
-    "total": 3384,
+    "total": 3424,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4449,9 +4572,9 @@
         "missing": 0
       },
       "atsanmartinmza": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
+        "missing": 4
       },
       "bmitre": {
         "total": 27,
@@ -4509,34 +4632,34 @@
         "missing": 1
       },
       "germinal": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
+        "missing": 4
       },
       "gbrown": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
+        "missing": 4
       },
       "juventudsl": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
+        "missing": 4
       },
       "santamarina": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
+        "missing": 4
       },
       "douglashaig": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
+        "missing": 4
       },
       "gimchivilcoy": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
+        "missing": 4
       },
       "sanmartinformosa": {
         "total": 27,
@@ -4544,19 +4667,19 @@
         "missing": 6
       },
       "sarmientolb": {
-        "total": 18,
+        "total": 22,
         "assigned": 18,
-        "missing": 0
+        "missing": 4
       },
       "sportivobelgrano": {
-        "total": 18,
+        "total": 22,
         "assigned": 17,
-        "missing": 1
+        "missing": 5
       },
       "huracanlh": {
-        "total": 18,
+        "total": 22,
         "assigned": 15,
-        "missing": 3
+        "missing": 7
       },
       "olimpo": {
         "total": 18,
@@ -4622,8 +4745,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 8,
-    "total": 3384,
+    "missing": 48,
+    "total": 3424,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4990,7 +5113,7 @@
         "assigned": 19
       },
       "atsanmartinmza": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "bmitre": {
@@ -5038,27 +5161,27 @@
         "assigned": 22
       },
       "germinal": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "gbrown": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "juventudsl": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "santamarina": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "douglashaig": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "gimchivilcoy": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "sanmartinformosa": {
@@ -5066,15 +5189,15 @@
         "assigned": 27
       },
       "sarmientolb": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "sportivobelgrano": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "huracanlh": {
-        "total": 18,
+        "total": 22,
         "assigned": 18
       },
       "olimpo": {
@@ -5128,9 +5251,9 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 3384,
+    "assigned": 3424,
     "missing": 0,
-    "total": 3384,
+    "total": 3424,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5497,8 +5620,8 @@
         "specific": 19
       },
       "atsanmartinmza": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "bmitre": {
         "total": 27,
@@ -5545,44 +5668,44 @@
         "specific": 22
       },
       "germinal": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "gbrown": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "juventudsl": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "santamarina": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "douglashaig": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "gimchivilcoy": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "sanmartinformosa": {
         "total": 27,
         "specific": 27
       },
       "sarmientolb": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "sportivobelgrano": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "huracanlh": {
-        "total": 18,
-        "specific": 18
+        "total": 22,
+        "specific": 22
       },
       "olimpo": {
         "total": 18,
@@ -5636,8 +5759,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1755,
-    "total": 3384,
+    "estimated": 1795,
+    "total": 3424,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6187,9 +6310,9 @@
         "provisional": 0
       },
       "atsanmartinmza": {
-        "total": 18,
+        "total": 22,
         "verified": 18,
-        "estimated": 0,
+        "estimated": 4,
         "provisional": 0
       },
       "bmitre": {
@@ -6259,39 +6382,39 @@
         "provisional": 0
       },
       "germinal": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "gbrown": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "juventudsl": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "santamarina": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "douglashaig": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "gimchivilcoy": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "sanmartinformosa": {
@@ -6301,21 +6424,21 @@
         "provisional": 0
       },
       "sarmientolb": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "sportivobelgrano": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "huracanlh": {
-        "total": 18,
+        "total": 22,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 22,
         "provisional": 0
       },
       "olimpo": {
@@ -6396,22 +6519,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2212,
+    "derivedPlayers": 2252,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 125,
-    "players": 3384,
+    "players": 3424,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 89,
-    "playersMissingDorsal": 1340,
+    "playersMissingAge": 129,
+    "playersMissingDorsal": 1380,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1755,
+    "estimatedRatings": 1795,
     "provisionalRatings": 0,
-    "playersMissingNationality": 8,
-    "playersMissingFoot": 1327,
+    "playersMissingNationality": 48,
+    "playersMissingFoot": 1367,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 2212
+    "playersWithoutManualAttributes": 2252
   }
 }
