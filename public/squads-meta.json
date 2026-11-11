@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T16:32:48.833Z",
+  "updatedAt": "2026-11-11T16:33:46.187Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1715 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1724 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -113,7 +113,7 @@
     "santamarina": 18,
     "douglashaig": 18,
     "gimchivilcoy": 18,
-    "sanmartinformosa": 18,
+    "sanmartinformosa": 27,
     "sarmientolb": 18,
     "sportivobelgrano": 18,
     "huracanlh": 18,
@@ -3060,13 +3060,37 @@
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14064649-gimnasia-chivilcoy"
     },
     "sanmartinformosa": {
-      "source": "https://www.afa.com.ar/es/posts/san-martin-de-formosa-se-consagro-campeon-del-torneo-federal-a-2026",
+      "source": [
+        "https://www.afa.com.ar/es/posts/san-martin-de-formosa-se-consagro-campeon-del-torneo-federal-a-2026",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe616049/marcelo-bobadilla/",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe749970/oscar-chiquichano/",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe458488/alejandro-benitez/",
+        "https://www.365scores.com/football/team/san-martin-de-formosa-28940/squad"
+      ],
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe616049/marcelo-bobadilla/",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe749970/oscar-chiquichano/",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe458488/alejandro-benitez/"
+      ],
       "numberSource": [],
-      "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa"
+      "ratingSource": [
+        "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
+        "Estimación propia / referencia orientativa por categoría y rol; no es OVR oficial ni rating FM individual"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe616049/marcelo-bobadilla/",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe749970/oscar-chiquichano/",
+        "https://www--worldfootball--net.c.hs-data.com/person/pe458488/alejandro-benitez/",
+        "https://www.afa.com.ar/es/posts/san-martin-de-formosa-se-consagro-campeon-del-torneo-federal-a-2026",
+        "https://www.365scores.com/football/team/san-martin-de-formosa-28940/squad"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14037347-san-martin-formosa",
+        "https://www.afa.com.ar/es/posts/san-martin-de-formosa-se-consagro-campeon-del-torneo-federal-a-2026"
+      ]
     },
     "sarmientolb": {
       "source": "https://www.mundoascenso.com.ar/plantel/224-sarmiento-de-la-banda",
@@ -3228,8 +3252,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2044,
-    "missing": 1300,
-    "total": 3344,
+    "missing": 1309,
+    "total": 3353,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3777,9 +3801,9 @@
         "missing": 18
       },
       "sanmartinformosa": {
-        "total": 18,
+        "total": 27,
         "assigned": 0,
-        "missing": 18
+        "missing": 27
       },
       "sarmientolb": {
         "total": 18,
@@ -3860,10 +3884,10 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 3270,
-    "missing": 74,
+    "assigned": 3273,
+    "missing": 80,
     "birthDates": 2069,
-    "total": 3344,
+    "total": 3353,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4411,9 +4435,9 @@
         "missing": 0
       },
       "sanmartinformosa": {
-        "total": 18,
-        "assigned": 18,
-        "missing": 0
+        "total": 27,
+        "assigned": 21,
+        "missing": 6
       },
       "sarmientolb": {
         "total": 18,
@@ -4493,9 +4517,9 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 3344,
+    "assigned": 3353,
     "missing": 0,
-    "total": 3344,
+    "total": 3353,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4934,8 +4958,8 @@
         "assigned": 18
       },
       "sanmartinformosa": {
-        "total": 18,
-        "assigned": 18
+        "total": 27,
+        "assigned": 27
       },
       "sarmientolb": {
         "total": 18,
@@ -5000,9 +5024,9 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 3344,
+    "assigned": 3353,
     "missing": 0,
-    "total": 3344,
+    "total": 3353,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5441,8 +5465,8 @@
         "specific": 18
       },
       "sanmartinformosa": {
-        "total": 18,
-        "specific": 18
+        "total": 27,
+        "specific": 27
       },
       "sarmientolb": {
         "total": 18,
@@ -5508,8 +5532,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1715,
-    "total": 3344,
+    "estimated": 1724,
+    "total": 3353,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6167,9 +6191,9 @@
         "provisional": 0
       },
       "sanmartinformosa": {
-        "total": 18,
+        "total": 27,
         "verified": 0,
-        "estimated": 18,
+        "estimated": 27,
         "provisional": 0
       },
       "sarmientolb": {
@@ -6268,22 +6292,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2172,
+    "derivedPlayers": 2181,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 125,
-    "players": 3344,
+    "players": 3353,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 74,
-    "playersMissingDorsal": 1300,
+    "playersMissingAge": 80,
+    "playersMissingDorsal": 1309,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1715,
+    "estimatedRatings": 1724,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 1287,
+    "playersMissingFoot": 1296,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 2172
+    "playersWithoutManualAttributes": 2181
   }
 }
