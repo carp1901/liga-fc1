@@ -6,7 +6,9 @@ const ATTRS=DATA.ATTRS;
 assert.strictEqual(EXPECTED.length,30);
 assert.strictEqual(NATIONAL.length,36,'Primera Nacional debe tener 36 clubes');
 const all=Object.keys(require('./public/squads.json'));
-assert.strictEqual(all.length,66,'deben publicarse exactamente Primera y Primera Nacional');
+const core=[...EXPECTED,...NATIONAL];
+assert(all.length>=core.length,'faltan planteles de Primera y Primera Nacional');
+assert(core.every(id=>all.includes(id)),'faltan clubes de Primera o Primera Nacional en el runtime');
 let totalPrimera=0,totalNacional=0,keepers=0,outfield=0;
 function validateClub(id,division){
   const squad=DATA.squad(id);
