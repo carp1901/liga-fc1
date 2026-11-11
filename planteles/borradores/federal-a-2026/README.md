@@ -35,8 +35,8 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 ## Estado
 
 - Rama: `federal-a-2026-tanda-1`
-- Primera tanda depurada: **199 jugadores de diez clubes**, con coincidencia individual entre la ficha de plantel 2026 de Mundo Ascenso y la primera plantilla FM27 / FM Blog.
-- Desglose: Alvarado 20; 9 de Julio (Rafaela) 25; Atenas (Río Cuarto) 19; San Martín (Mendoza) 18; Bartolomé Mitre (Posadas) 18; Boca Unidos 19; Cipolletti 18; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América (Formosa) 18.
+- Primera tanda depurada: **207 jugadores de diez clubes**, con coincidencia individual entre la ficha de plantel 2026 de Mundo Ascenso y la primera plantilla FM27 / FM Blog.
+- Desglose: Alvarado 20; 9 de Julio (Rafaela) 25; Atenas (Río Cuarto) 19; San Martín (Mendoza) 18; Bartolomé Mitre (Posadas) 18; Boca Unidos 19; Cipolletti 26; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América (Formosa) 18.
 - Las 199 edades se completaron desde las fichas FM27 individuales. La CA/ABI es la capacidad actual, no la PA.
 - Dorsales: quedan vacíos. Mundo Ascenso presenta duplicaciones de camisetas y fichas repetidas/históricas para varios clubes; no se asignan números sin poder distinguir un dorsal vigente y único.
 - Nacionalidades corregidas desde las fichas FM27: Luis Uliambre (PAR), Jair Blanco (COL) y José Cabañas (PAR).
@@ -44,6 +44,12 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 - Validación: 34 columnas, 199 edades, diez IDs de club esperados, sin duplicados internos, ratings ABI 1–99, `rating_base` igual a `rating` y ajuste 0.
 - CI: el workflow del PR valida el CSV, ejecuta `dry-run`, integra los diez clubes en el runtime de la rama y compara cada jugador importado contra el CSV.
 - Importación runtime: integrada en la rama del PR mediante `import-squads.js`; la prueba compara los 199 jugadores del runtime contra el CSV y pasó. Queda pendiente integrar el PR en `main` para que entre en la versión publicada.
+
+### Revisión de Cipolletti
+
+- La ficha oficial del club publica un plantel superior más amplio que el registro inicial de Mundo Ascenso. Se incorporaron ocho futbolistas que aparecen en la nómina oficial 2026 y también en la cobertura de la pretemporada: Franco Papazian, Nehuén García, Luis Mateo Agustín Loncon, Alejo Palomeque, Maximiliano Ramos, Sebastián Jeldres, Nicolás Peralta y Enzo Vallejos.
+- Cipolletti pasa de 18 a 26 jugadores. No se agregaron juveniles de la nómina oficial que no estuvieran corroborados en la lista de pretemporada.
+- Como no se halló CA individual verificable para esas ocho altas, sus medias quedan marcadas como estimaciones propias. No se inventaron edades, dorsales, nacionalidades ni participaciones; esos campos quedan vacíos.
 
 
 ## Corrección de banco mínimo
