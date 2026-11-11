@@ -122,6 +122,7 @@ class Sim{
    if(S.third&&S.third.p===o&&S.n<S.third.t&&q===S.third.r)sc+=75;
    if(sc>bs){bs=sc;best=q;bl=lane}}
   if(sal==0&&press&&uo<.28&&(o.l<=1||o.k==0)&&(!best||bl<14)&&rnd()<.25){const nine2=S.P.filter(q=>q.s==o.s&&q.l==3&&!q.off).sort((a,b)=>Math.abs(a.y-H/2)-Math.abs(b.y-H/2))[0];if(nine2){S.longTo(o,nine2);return}}   // presión muy fuerte y sin líneas de pase claras: pelotazo seguro al delantero
+  if(!S.sc&&press&&uo<.3&&(o.l<=1||o.k==0||o.piv)&&o.k!=10&&(!best||bl<22)&&rnd()<.55){S.clearBall(o);return}   // salida complicada: la revienta arriba y el equipo sube
   if(best&&sal==1){if(best.libB)S.libN=(S.libN||0)+1;if(best.cgB)S.cgN=(S.cgN||0)+1}
   if(best&&best.soc&&best.k>0&&!S.sc){S.runner={p:o,t:S.n+(best.soc==1?110:85),ov:best.soc==1};S.socN=(S.socN||0)+1;if(best.soc==1)S.ovN=(S.ovN||0)+1}
    if(best&&sal==0&&best.thR&&best.k>0){S.third={p:best,r:best.thR,t:S.n+130};S.thirdN=(S.thirdN||0)+1}
@@ -187,13 +188,14 @@ class Sim{
   const i=f%NF;if(S.rbn[i]!==f)return;let k=i*N;for(const p of P){p.x=S.rb[k++];p.y=S.rb[k++];p.vx=S.rb[k++];p.vy=S.rb[k++];p.fx=S.rb[k++];p.fy=S.rb[k++]}B.x=S.rb[k++];B.y=S.rb[k++];B.vx=S.rb[k++];B.vy=S.rb[k++];B.own=null;B.recv=null;S.trail=[]}
  corPre(e,as){const S=this,B=S.B;if(S.pso||B.own&&B.own.s===as&&0)return false;const {gx,dir,ds}=S.geo(as),top=rnd()<.5,ty=top?Y0+(GY0-Y0)*.5:GY1+(Y0+FH-GY1)*.5,tx=gx+dir*34;
   if(!(B.x>X0&&B.x<X0+FW&&B.y>Y0&&B.y<Y0+FH)||Math.hypot(B.x-gx,B.y-ty)<70)return false;
+  {const ow=B.own;if(ow&&ow.s===ds&&ow.k!=0&&!S.P.some(z=>z.s!==ds&&!z.off&&dist(z,ow)<60))return false}   // un defensor con la pelota y sin nadie encima no la manda al córner: no se fuerza la salida
   const gk=S.P.find(p=>p.s==ds&&p.k==0&&!p.off)||S.P.find(p=>p.s==ds&&!p.off);if(!gk)return false;S.prev=gk;S.poss=as;B.free=false;S.pre={e,as,t:S.n,tx,ty,v:clamp(Math.hypot(B.x-tx,B.y-ty)/24,4.5,9)};S.kick(tx,ty,S.pre.v,null,0);return true}   // un córner nace de una pelota que sale por la línea de fondo (atajada, desvío o despeje)
  latPre(e,as){const S=this,B=S.B;if(S.pso||!(B.x>X0+10&&B.x<X0+FW-10&&B.y>Y0&&B.y<Y0+FH))return false;const top=B.y<H/2,ty=top?Y0-32:Y0+FH+32,d=Math.abs(B.y-ty);if(d<46)return false;
   const op=S.P.filter(p=>p.s!==as&&!p.off&&p.k>0).sort((a,b)=>dist(a,B)-dist(b,B))[0];if(!op)return false;S.prev=op;S.pre={e,as,t:S.n,lat:1,tx:B.x+(as?-1:1)*18,ty,v:clamp(d/22,4,8)};S.kick(S.pre.tx,ty,S.pre.v,null,0);return true}
  // Despeje: el defensor / el 5 / el arquero que está presionado cerca de su área la manda lejos sin buscar a nadie; más seguido en equipos defensivos, de salida directa o que protegen el resultado
  clearOK(o,uo,press,tt){const S=this;if(!(o.k==0||o.l<=1||o.piv)||uo>.3||o.k==10)return false;const md=S.mode(o.s),sal=tt[3]||0,two=S.P.filter(z=>z.s!==o.s&&!z.off&&dist(z,o)<44).length>=2;
-  let p=press?.08+(tt[0]==0?.12:tt[0]==1?.04:0)+(sal==2?.16:0)+(md=='protect'?.18:0)+(two?.1:0)+(o.k==0?.04:0):(sal==2?.05:0)+(md=='protect'?.06:0)+(tt[0]==0&&o.k==0?.03:0);if(uo<.14)p+=.06;p*=1.3-S.sv(o,'reg')/200;return rnd()<p}
- clearBall(o){const S=this,dir=o.s?-1:1,side=rnd()<.55?(o.y<H/2?-1:1):(rnd()<.5?-1:1),tx=clamp(o.x+dir*(190+rnd()*130),X0+30,X0+FW-30),ty=clamp(H/2+side*(40+rnd()*(FH*.42)),Y0-20,Y0+FH+20);S.clrN=(S.clrN||0)+1;S.crossT=S.n;S.crossD=dist(o,{x:tx,y:ty})/7;S.kick(tx,ty,clamp(dist(o,{x:tx,y:ty})/22,6,8.2),null,0);S.counter=null}
+  let p=press?.13+(tt[0]==0?.12:tt[0]==1?.04:0)+(sal==2?.16:0)+(md=='protect'?.18:0)+(two?.1:0)+(o.k==0?.04:0):(sal==2?.05:0)+(md=='protect'?.06:0)+(tt[0]==0&&o.k==0?.03:0);if(uo<.14)p+=.06;p*=1.3-S.sv(o,'reg')/200;return rnd()<p}
+ clearBall(o){const S=this,dir=o.s?-1:1,side=rnd()<.55?(o.y<H/2?-1:1):(rnd()<.5?-1:1),tx=clamp(o.x+dir*(190+rnd()*130),X0+30,X0+FW-30),ty=clamp(H/2+side*(40+rnd()*(FH*.42)),Y0-20,Y0+FH+20);S.clrN=(S.clrN||0)+1;S.crossT=S.n;S.crossD=dist(o,{x:tx,y:ty})/7;S.kick(tx,ty,clamp(dist(o,{x:tx,y:ty})/22,6,8.2),null,0);S.counter={s:o.s,t:S.n+170}}   // el equipo sube la línea acompañando el pelotazo y busca el contraataque
  // Pase al hueco: la pelota va al espacio por delante de un compañero que se está lanzando; sale bien o mal según el atributo de pase y la presión (se pasa de largo, se queda corto o se abre)
  throughOK(o,q,lane,press){const S=this,dir=o.s?-1:1,fw=dir*(q.x-o.x),run=q.runUntil>S.n||(q.l>=2&&dir*q.vx>1.3);return run&&fw>55&&lane>40&&dist(o,q)>90&&rnd()<.75}
  through(o,q,press){const S=this,dir=o.s?-1:1,v=Math.hypot(q.vx,q.vy),L=clamp(v*24,60,115),px=clamp(q.x+dir*L,X0+10,X0+FW-10),py=clamp(q.y+(H/2-q.y)*.12,Y0+16,Y0+FH-16),ok=rnd()<clamp(.5+(S.sv(o,'pas')-60)/140-(press?.12:0),.22,.88);S.thrN=(S.thrN||0)+1;
