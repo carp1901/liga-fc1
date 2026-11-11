@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T05:19:22.486Z",
+  "updatedAt": "2026-11-11T05:42:41.449Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1622 medias con fuente individual + 1141 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1141 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -95,13 +95,13 @@
     "alvarado": 20,
     "nuevejulio": 25,
     "atenas": 19,
-    "atsanmartinmza": 17,
-    "bmitre": 15,
+    "atsanmartinmza": 18,
+    "bmitre": 18,
     "bocaunidos": 19,
-    "cipolletti": 17,
+    "cipolletti": 18,
     "defbelgranovr": 22,
     "rincon": 22,
-    "soldeamerica": 16
+    "soldeamerica": 18
   },
   "sources": {
     "sanlorenzo": {
@@ -2835,7 +2835,10 @@
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto"
     },
     "atsanmartinmza": {
-      "source": "https://www.mundoascenso.com.ar/plantel/21042-san-martin-mza",
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/21042-san-martin-mza",
+        "https://www.mundoascenso.com.ar/plantel/49-san-martin-mza"
+      ],
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
       "numberSource": [],
@@ -2844,7 +2847,11 @@
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza"
     },
     "bmitre": {
-      "source": "https://www.mundoascenso.com.ar/plantel/324-bartolome-mitre",
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/324-bartolome-mitre",
+        "https://www.365scores.com/es/football/team/ca-bartolome-mitre-%28posadas%29-84187/squad",
+        "https://fmag.tr/es/kulup/ca-bartolome-mitre-posadas_MTE3NTc0"
+      ],
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
       "numberSource": [],
@@ -2862,7 +2869,10 @@
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos"
     },
     "cipolletti": {
-      "source": "https://www.mundoascenso.com.ar/plantel/144-cipolletti",
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/144-cipolletti",
+        "https://www.mundoascenso.com.ar/plantel/1949-cipolletti"
+      ],
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
       "numberSource": [],
@@ -2904,8 +2914,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2038,
-    "missing": 725,
-    "total": 2763,
+    "missing": 732,
+    "total": 2770,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3363,14 +3373,14 @@
         "missing": 19
       },
       "atsanmartinmza": {
-        "total": 17,
+        "total": 18,
         "assigned": 0,
-        "missing": 17
+        "missing": 18
       },
       "bmitre": {
-        "total": 15,
+        "total": 18,
         "assigned": 0,
-        "missing": 15
+        "missing": 18
       },
       "bocaunidos": {
         "total": 19,
@@ -3378,9 +3388,9 @@
         "missing": 19
       },
       "cipolletti": {
-        "total": 17,
+        "total": 18,
         "assigned": 0,
-        "missing": 17
+        "missing": 18
       },
       "defbelgranovr": {
         "total": 22,
@@ -3393,18 +3403,18 @@
         "missing": 22
       },
       "soldeamerica": {
-        "total": 16,
+        "total": 18,
         "assigned": 0,
-        "missing": 16
+        "missing": 18
       }
     }
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 2763,
+    "assigned": 2770,
     "missing": 0,
     "birthDates": 2069,
-    "total": 2763,
+    "total": 2770,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3862,13 +3872,13 @@
         "missing": 0
       },
       "atsanmartinmza": {
-        "total": 17,
-        "assigned": 17,
+        "total": 18,
+        "assigned": 18,
         "missing": 0
       },
       "bmitre": {
-        "total": 15,
-        "assigned": 15,
+        "total": 18,
+        "assigned": 18,
         "missing": 0
       },
       "bocaunidos": {
@@ -3877,8 +3887,8 @@
         "missing": 0
       },
       "cipolletti": {
-        "total": 17,
-        "assigned": 17,
+        "total": 18,
+        "assigned": 18,
         "missing": 0
       },
       "defbelgranovr": {
@@ -3892,16 +3902,16 @@
         "missing": 0
       },
       "soldeamerica": {
-        "total": 16,
-        "assigned": 16,
+        "total": 18,
+        "assigned": 18,
         "missing": 0
       }
     }
   },
   "nationalityCoverage": {
-    "assigned": 2763,
+    "assigned": 2770,
     "missing": 0,
-    "total": 2763,
+    "total": 2770,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4268,20 +4278,20 @@
         "assigned": 19
       },
       "atsanmartinmza": {
-        "total": 17,
-        "assigned": 17
+        "total": 18,
+        "assigned": 18
       },
       "bmitre": {
-        "total": 15,
-        "assigned": 15
+        "total": 18,
+        "assigned": 18
       },
       "bocaunidos": {
         "total": 19,
         "assigned": 19
       },
       "cipolletti": {
-        "total": 17,
-        "assigned": 17
+        "total": 18,
+        "assigned": 18
       },
       "defbelgranovr": {
         "total": 22,
@@ -4292,15 +4302,15 @@
         "assigned": 22
       },
       "soldeamerica": {
-        "total": 16,
-        "assigned": 16
+        "total": 18,
+        "assigned": 18
       }
     }
   },
   "specificRoleCoverage": {
-    "assigned": 2763,
+    "assigned": 2770,
     "missing": 0,
-    "total": 2763,
+    "total": 2770,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4667,20 +4677,20 @@
         "specific": 19
       },
       "atsanmartinmza": {
-        "total": 17,
-        "specific": 17
+        "total": 18,
+        "specific": 18
       },
       "bmitre": {
-        "total": 15,
-        "specific": 15
+        "total": 18,
+        "specific": 18
       },
       "bocaunidos": {
         "total": 19,
         "specific": 19
       },
       "cipolletti": {
-        "total": 17,
-        "specific": 17
+        "total": 18,
+        "specific": 18
       },
       "defbelgranovr": {
         "total": 22,
@@ -4691,15 +4701,15 @@
         "specific": 22
       },
       "soldeamerica": {
-        "total": 16,
-        "specific": 16
+        "total": 18,
+        "specific": 18
       }
     }
   },
   "ratingCoverage": {
-    "rated": 1622,
+    "rated": 1629,
     "estimated": 1141,
-    "total": 2763,
+    "total": 2770,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -5249,14 +5259,14 @@
         "provisional": 0
       },
       "atsanmartinmza": {
-        "total": 17,
-        "verified": 17,
+        "total": 18,
+        "verified": 18,
         "estimated": 0,
         "provisional": 0
       },
       "bmitre": {
-        "total": 15,
-        "verified": 15,
+        "total": 18,
+        "verified": 18,
         "estimated": 0,
         "provisional": 0
       },
@@ -5267,8 +5277,8 @@
         "provisional": 0
       },
       "cipolletti": {
-        "total": 17,
-        "verified": 17,
+        "total": 18,
+        "verified": 18,
         "estimated": 0,
         "provisional": 0
       },
@@ -5285,8 +5295,8 @@
         "provisional": 0
       },
       "soldeamerica": {
-        "total": 16,
-        "verified": 16,
+        "total": 18,
+        "verified": 18,
         "estimated": 0,
         "provisional": 0
       }
@@ -5296,22 +5306,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 1591,
+    "derivedPlayers": 1598,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 98,
-    "players": 2763,
+    "players": 2770,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 725,
-    "verifiedRatings": 1622,
+    "playersMissingDorsal": 732,
+    "verifiedRatings": 1629,
     "estimatedRatings": 1141,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 706,
+    "playersMissingFoot": 713,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 1591
+    "playersWithoutManualAttributes": 1598
   }
 }
