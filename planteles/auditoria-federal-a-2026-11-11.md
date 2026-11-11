@@ -11,20 +11,20 @@ Fecha de corte: 11/11/2026
 
 ## Recuento actual
 - Clubes: 37
-- Jugadores: 791
-- Media: 21.4 por club
-- Por debajo del objetivo (18–21): 23
-- En el objetivo (22–28): 10
+- Jugadores: 807 (consolidado CSV; runtime pendiente de reflejar las últimas tres ampliaciones)
+- Media: 21.8 por club
+- Por debajo del objetivo (18–21): 20
+- En el objetivo (22–28): 13
 - Por encima del objetivo (29–32): 4
 
 | Club | Jugadores | Estado inicial |
 |---|---:|---|
 | Atlético San Martín (Mendoza) | 18 | Revisar cobertura |
-| Cipolletti | 18 | Revisar cobertura |
+| Cipolletti | 26 | En rango |
 | Sol de América | 27 | En rango |
 | Sol de Mayo | 18 | Revisar cobertura |
-| Costa Brava | 18 | Revisar cobertura |
-| FADEP | 18 | Revisar cobertura |
+| Costa Brava | 22 | En rango |
+| FADEP | 22 | En rango |
 | Germinal | 18 | Revisar cobertura |
 | Guillermo Brown | 18 | Revisar cobertura |
 | Juventud Unida Universitario | 18 | Revisar cobertura |
@@ -60,10 +60,7 @@ Fecha de corte: 11/11/2026
 ## Prioridad de revisión
 ### Cobertura baja (18–21)
 - Atlético San Martín (Mendoza): 18
-- Cipolletti: 18
 - Sol de Mayo: 18
-- Costa Brava: 18
-- FADEP: 18
 - Germinal: 18
 - Guillermo Brown: 18
 - Juventud Unida Universitario: 18
@@ -84,6 +81,9 @@ Fecha de corte: 11/11/2026
 - Círculo Deportivo: 20
 
 ### En rango (22–28)
+- Cipolletti: 26
+- Costa Brava: 22
+- FADEP: 22
 - Sol de América: 27
 - San Martín (Formosa): 27
 - Defensores de Belgrano (Villa Ramallo): 22
@@ -104,4 +104,11 @@ Fecha de corte: 11/11/2026
 ## Primer ajuste
 Bartolomé Mitre, San Martín de Formosa y Sol de América fueron ampliados de 18 a 27 jugadores cada uno, con nueve incorporaciones documentadas por club. Se usaron FMag/Transfermarkt, el plantel oficial de AFA y registros de temporada según disponibilidad. Las medias añadidas en los tres clubes se etiquetan como estimaciones propias y no como valores oficiales de Football Manager. El runtime se regeneró desde las cuatro tandas y las pruebas de importación/runtime pasaron.
 
-Este informe es una fotografía de cantidades, no una aprobación automática de cada nombre. La siguiente etapa es cruzar nominalmente los clubes con menos de 22 y luego revisar los cuatro que superan 28, manteniendo la regla de no sobrepoblar.
+## Ampliaciones posteriores en CSV
+- Cipolletti: 18 → 26, ocho altas contrastadas con la nómina oficial del club y la cobertura de pretemporada 2026.
+- Costa Brava: 18 → 22, cuatro altas contrastadas con el plantel 2026 y fuentes individuales.
+- FADEP: 18 → 22, cuatro altas; tres con apariciones 2026 registradas (Gizzi 8, Klusener 20, Lentini 10) y Cogorno incorporado por anuncio de llegada al plantel.
+- Las medias nuevas se identifican como estimaciones propias cuando no existe CA individual verificable. No se asignaron dorsales ni participaciones no respaldadas.
+- Estas tres ampliaciones están fusionadas en `main` dentro de los CSV de trabajo. El `public/squads-meta.json` todavía refleja los conteos anteriores (18 para estos clubes); no se considera publicada su actualización en el runtime hasta comprobar la importación.
+
+Este informe es una fotografía de cantidades, no una aprobación automática de cada nombre. La siguiente etapa es cruzar nominalmente los 20 clubes que siguen con 18–21 jugadores y luego revisar los cuatro que superan 28, manteniendo la regla de no sobrepoblar.
