@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T16:34:17.543Z",
+  "updatedAt": "2026-11-11T16:35:35.043Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1724 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 1733 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -101,7 +101,7 @@
     "cipolletti": 18,
     "defbelgranovr": 22,
     "rincon": 22,
-    "soldeamerica": 18,
+    "soldeamerica": 27,
     "soldemayo": 18,
     "tucumancentral": 22,
     "costabrava": 18,
@@ -2938,13 +2938,28 @@
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14158099-dep-rincon"
     },
     "soldeamerica": {
-      "source": "https://www.mundoascenso.com.ar/plantel/195-sol-de-america",
+      "source": [
+        "https://www.mundoascenso.com.ar/plantel/195-sol-de-america",
+        "https://www.transfermarkt.com.ar/sol-de-america-formosa-/kader/verein/23173"
+      ],
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa",
+        "https://www.transfermarkt.com.ar/sol-de-america-formosa-/kader/verein/23173"
+      ],
       "numberSource": [],
-      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa"
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación propia / referencia orientativa por rol y categoría; no es OVR oficial ni rating FM individual"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa",
+        "https://www.transfermarkt.com.ar/sol-de-america-formosa-/kader/verein/23173"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa",
+        "https://www.transfermarkt.com.ar/sol-de-america-formosa-/kader/verein/23173"
+      ]
     },
     "soldemayo": {
       "source": "https://www.mundoascenso.com.ar/plantel/1941-sol-de-mayo",
@@ -3252,8 +3267,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2044,
-    "missing": 1309,
-    "total": 3353,
+    "missing": 1318,
+    "total": 3362,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3741,9 +3756,9 @@
         "missing": 22
       },
       "soldeamerica": {
-        "total": 18,
+        "total": 27,
         "assigned": 0,
-        "missing": 18
+        "missing": 27
       },
       "soldemayo": {
         "total": 18,
@@ -3884,10 +3899,10 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 3273,
+    "assigned": 3282,
     "missing": 80,
     "birthDates": 2069,
-    "total": 3353,
+    "total": 3362,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4375,8 +4390,8 @@
         "missing": 0
       },
       "soldeamerica": {
-        "total": 18,
-        "assigned": 18,
+        "total": 27,
+        "assigned": 27,
         "missing": 0
       },
       "soldemayo": {
@@ -4517,9 +4532,9 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 3353,
+    "assigned": 3362,
     "missing": 0,
-    "total": 3353,
+    "total": 3362,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4910,8 +4925,8 @@
         "assigned": 22
       },
       "soldeamerica": {
-        "total": 18,
-        "assigned": 18
+        "total": 27,
+        "assigned": 27
       },
       "soldemayo": {
         "total": 18,
@@ -5024,9 +5039,9 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 3353,
+    "assigned": 3362,
     "missing": 0,
-    "total": 3353,
+    "total": 3362,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5417,8 +5432,8 @@
         "specific": 22
       },
       "soldeamerica": {
-        "total": 18,
-        "specific": 18
+        "total": 27,
+        "specific": 27
       },
       "soldemayo": {
         "total": 18,
@@ -5532,8 +5547,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1724,
-    "total": 3353,
+    "estimated": 1733,
+    "total": 3362,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6119,9 +6134,9 @@
         "provisional": 0
       },
       "soldeamerica": {
-        "total": 18,
+        "total": 27,
         "verified": 18,
-        "estimated": 0,
+        "estimated": 9,
         "provisional": 0
       },
       "soldemayo": {
@@ -6292,22 +6307,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2181,
+    "derivedPlayers": 2190,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 125,
-    "players": 3353,
+    "players": 3362,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 80,
-    "playersMissingDorsal": 1309,
+    "playersMissingDorsal": 1318,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1724,
+    "estimatedRatings": 1733,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 1296,
+    "playersMissingFoot": 1305,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 2181
+    "playersWithoutManualAttributes": 2190
   }
 }
