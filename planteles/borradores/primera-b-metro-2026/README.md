@@ -68,3 +68,21 @@ El validador específico pasó manualmente sobre las 185 filas: cobertura de los
 - Los jugadores cedidos a estos clubes se incluyen cuando FM27 los clasifica en la primera plantilla; los cedidos fuera quedan excluidos.
 
 Las medias y posiciones se tomaron de las fichas de primera plantilla FM27; la pertenencia a los planteles 2026 se contrastó con Mundo Ascenso y, para Ituzaingó, también con Solo Ascenso. El validador se amplió para revisar ambas tandas juntas.
+
+## Estado de la tanda 3
+
+- Archivo: `tanda3.csv`
+- Clubes: 7
+- Jugadores: **169**
+- Medias FM27 ABI: 169 (sin estimaciones propias en esta tanda).
+- Distribución: Real Pilar 27, San Martín de Burzaco 22, Sportivo Italiano 21, Talleres (RE) 27, UAI Urquiza 24, Villa Dálmine 22 y Villa San Carlos 26.
+- Se contrastó la pertenencia 2026 con las nóminas de Mundo Ascenso y se depuraron duplicados, jugadores cedidos fuera y nombres de FM27 que no aparecen en el plantel 2026 consultado.
+- Los préstamos hacia el club se conservan cuando aparecen en la primera plantilla FM27; los préstamos hacia otros clubes se excluyen.
+- Los dorsales quedan vacíos cuando la fuente no acredita el número individual.
+
+## Validación conjunta
+
+- Tres archivos CSV, 22 clubes y **533 jugadores**.
+- Tanda 1: 185; tanda 2: 179; tanda 3: 169.
+- La validación de cobertura, perfiles, edades, medias, fuentes y duplicados se ejecuta sobre las tres tandas juntas.
+- Los archivos siguen siendo borradores: **no están integrados en `public/squads.*` ni publicados dentro del juego**. La integración queda pendiente de revisión final y aprobación.
