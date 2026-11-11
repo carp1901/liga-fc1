@@ -1,0 +1,31 @@
+name: Validar tanda de Primera B Metropolitana
+on:
+  push:
+    branches: [planteles-bmetro-2026-tanda1]
+    paths:
+      - 'planteles/borradores/primera-b-metro-2026/**'
+      - 'test-bmetro-draft.js'
+      - 'import-squads.js'
+      - 'public/data.js'
+      - '.github/workflows/test-bmetro-draft.yml'
+  pull_request:
+    paths:
+      - 'planteles/borradores/primera-b-metro-2026/**'
+      - 'test-bmetro-draft.js'
+      - 'import-squads.js'
+      - 'public/data.js'
+      - '.github/workflows/test-bmetro-draft.yml'
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar sintaxis
+        run: node --check import-squads.js
+      - name: Validar importación sin publicar
+        run: node import-squads.js planteles/borradores/primera-b-metro-2026/tanda1.csv --dry-run
+      - name: Validar cobertura y perfiles
+        run: node test-bmetro-draft.js
