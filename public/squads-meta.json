@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T04:16:40.940Z",
+  "updatedAt": "2026-11-11T05:18:54.676Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1430 medias con fuente individual + 1141 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1622 medias con fuente individual + 1141 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -91,7 +91,17 @@
     "talleresre": 27,
     "uai": 24,
     "villadalmine": 22,
-    "villasancarlos": 26
+    "villasancarlos": 26,
+    "alvarado": 20,
+    "nuevejulio": 25,
+    "atenas": 19,
+    "atsanmartinmza": 17,
+    "bmitre": 15,
+    "bocaunidos": 19,
+    "cipolletti": 17,
+    "defbelgranovr": 22,
+    "rincon": 22,
+    "soldeamerica": 16
   },
   "sources": {
     "sanlorenzo": {
@@ -2796,6 +2806,96 @@
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos"
+    },
+    "alvarado": {
+      "source": "https://www.mundoascenso.com.ar/plantel/152-alvarado-mdp",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado"
+    },
+    "nuevejulio": {
+      "source": "https://www.mundoascenso.com.ar/plantel/29-9-de-julio-de-rafaela",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/955218-9-de-julio-rafaela",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/955218-9-de-julio-rafaela",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/955218-9-de-julio-rafaela"
+    },
+    "atenas": {
+      "source": "https://www.mundoascenso.com.ar/plantel/21043-atenas",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto"
+    },
+    "atsanmartinmza": {
+      "source": "https://www.mundoascenso.com.ar/plantel/21042-san-martin-mza",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza"
+    },
+    "bmitre": {
+      "source": "https://www.mundoascenso.com.ar/plantel/324-bartolome-mitre",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas"
+    },
+    "bocaunidos": {
+      "source": "https://www.mundoascenso.com.ar/plantel/467-boca-unidos",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos"
+    },
+    "cipolletti": {
+      "source": "https://www.mundoascenso.com.ar/plantel/144-cipolletti",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti"
+    },
+    "defbelgranovr": {
+      "source": "https://www.mundoascenso.com.ar/plantel/174-def-de-belgrano-vr",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031203-defensores-vr",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031203-defensores-vr",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14031203-defensores-vr"
+    },
+    "rincon": {
+      "source": "https://www.mundoascenso.com.ar/plantel/301-deportivo-rincon",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14158099-dep-rincon",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14158099-dep-rincon",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14158099-dep-rincon"
+    },
+    "soldeamerica": {
+      "source": "https://www.mundoascenso.com.ar/plantel/195-sol-de-america",
+      "consulted": "2026-11-11",
+      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa",
+      "numberSource": [],
+      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa",
+      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046674-sol-de-america-formosa"
     }
   },
   "completePrimera": true,
@@ -2804,8 +2904,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2038,
-    "missing": 533,
-    "total": 2571,
+    "missing": 725,
+    "total": 2763,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3246,15 +3346,65 @@
         "total": 26,
         "assigned": 0,
         "missing": 26
+      },
+      "alvarado": {
+        "total": 20,
+        "assigned": 0,
+        "missing": 20
+      },
+      "nuevejulio": {
+        "total": 25,
+        "assigned": 0,
+        "missing": 25
+      },
+      "atenas": {
+        "total": 19,
+        "assigned": 0,
+        "missing": 19
+      },
+      "atsanmartinmza": {
+        "total": 17,
+        "assigned": 0,
+        "missing": 17
+      },
+      "bmitre": {
+        "total": 15,
+        "assigned": 0,
+        "missing": 15
+      },
+      "bocaunidos": {
+        "total": 19,
+        "assigned": 0,
+        "missing": 19
+      },
+      "cipolletti": {
+        "total": 17,
+        "assigned": 0,
+        "missing": 17
+      },
+      "defbelgranovr": {
+        "total": 22,
+        "assigned": 0,
+        "missing": 22
+      },
+      "rincon": {
+        "total": 22,
+        "assigned": 0,
+        "missing": 22
+      },
+      "soldeamerica": {
+        "total": 16,
+        "assigned": 0,
+        "missing": 16
       }
     }
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 2571,
+    "assigned": 2763,
     "missing": 0,
     "birthDates": 2069,
-    "total": 2571,
+    "total": 2763,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3695,13 +3845,63 @@
         "total": 26,
         "assigned": 26,
         "missing": 0
+      },
+      "alvarado": {
+        "total": 20,
+        "assigned": 20,
+        "missing": 0
+      },
+      "nuevejulio": {
+        "total": 25,
+        "assigned": 25,
+        "missing": 0
+      },
+      "atenas": {
+        "total": 19,
+        "assigned": 19,
+        "missing": 0
+      },
+      "atsanmartinmza": {
+        "total": 17,
+        "assigned": 17,
+        "missing": 0
+      },
+      "bmitre": {
+        "total": 15,
+        "assigned": 15,
+        "missing": 0
+      },
+      "bocaunidos": {
+        "total": 19,
+        "assigned": 19,
+        "missing": 0
+      },
+      "cipolletti": {
+        "total": 17,
+        "assigned": 17,
+        "missing": 0
+      },
+      "defbelgranovr": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "rincon": {
+        "total": 22,
+        "assigned": 22,
+        "missing": 0
+      },
+      "soldeamerica": {
+        "total": 16,
+        "assigned": 16,
+        "missing": 0
       }
     }
   },
   "nationalityCoverage": {
-    "assigned": 2571,
+    "assigned": 2763,
     "missing": 0,
-    "total": 2571,
+    "total": 2763,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4054,13 +4254,53 @@
       "villasancarlos": {
         "total": 26,
         "assigned": 26
+      },
+      "alvarado": {
+        "total": 20,
+        "assigned": 20
+      },
+      "nuevejulio": {
+        "total": 25,
+        "assigned": 25
+      },
+      "atenas": {
+        "total": 19,
+        "assigned": 19
+      },
+      "atsanmartinmza": {
+        "total": 17,
+        "assigned": 17
+      },
+      "bmitre": {
+        "total": 15,
+        "assigned": 15
+      },
+      "bocaunidos": {
+        "total": 19,
+        "assigned": 19
+      },
+      "cipolletti": {
+        "total": 17,
+        "assigned": 17
+      },
+      "defbelgranovr": {
+        "total": 22,
+        "assigned": 22
+      },
+      "rincon": {
+        "total": 22,
+        "assigned": 22
+      },
+      "soldeamerica": {
+        "total": 16,
+        "assigned": 16
       }
     }
   },
   "specificRoleCoverage": {
-    "assigned": 2571,
+    "assigned": 2763,
     "missing": 0,
-    "total": 2571,
+    "total": 2763,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4413,13 +4653,53 @@
       "villasancarlos": {
         "total": 26,
         "specific": 26
+      },
+      "alvarado": {
+        "total": 20,
+        "specific": 20
+      },
+      "nuevejulio": {
+        "total": 25,
+        "specific": 25
+      },
+      "atenas": {
+        "total": 19,
+        "specific": 19
+      },
+      "atsanmartinmza": {
+        "total": 17,
+        "specific": 17
+      },
+      "bmitre": {
+        "total": 15,
+        "specific": 15
+      },
+      "bocaunidos": {
+        "total": 19,
+        "specific": 19
+      },
+      "cipolletti": {
+        "total": 17,
+        "specific": 17
+      },
+      "defbelgranovr": {
+        "total": 22,
+        "specific": 22
+      },
+      "rincon": {
+        "total": 22,
+        "specific": 22
+      },
+      "soldeamerica": {
+        "total": 16,
+        "specific": 16
       }
     }
   },
   "ratingCoverage": {
-    "rated": 1430,
+    "rated": 1622,
     "estimated": 1141,
-    "total": 2571,
+    "total": 2763,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -4949,6 +5229,66 @@
         "verified": 26,
         "estimated": 0,
         "provisional": 0
+      },
+      "alvarado": {
+        "total": 20,
+        "verified": 20,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "nuevejulio": {
+        "total": 25,
+        "verified": 25,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "atenas": {
+        "total": 19,
+        "verified": 19,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "atsanmartinmza": {
+        "total": 17,
+        "verified": 17,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "bmitre": {
+        "total": 15,
+        "verified": 15,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "bocaunidos": {
+        "total": 19,
+        "verified": 19,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "cipolletti": {
+        "total": 17,
+        "verified": 17,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "defbelgranovr": {
+        "total": 22,
+        "verified": 22,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "rincon": {
+        "total": 22,
+        "verified": 22,
+        "estimated": 0,
+        "provisional": 0
+      },
+      "soldeamerica": {
+        "total": 16,
+        "verified": 16,
+        "estimated": 0,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -4956,22 +5296,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 1399,
+    "derivedPlayers": 1591,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 88,
-    "players": 2571,
+    "clubs": 98,
+    "players": 2763,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 0,
-    "playersMissingDorsal": 533,
-    "verifiedRatings": 1430,
+    "playersMissingDorsal": 725,
+    "verifiedRatings": 1622,
     "estimatedRatings": 1141,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 514,
+    "playersMissingFoot": 706,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 1399
+    "playersWithoutManualAttributes": 1591
   }
 }
