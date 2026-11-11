@@ -1,5 +1,14 @@
 name: Validar e integrar borradores Federal A 2026
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'planteles/borradores/federal-a-2026-tanda-2/**'
+      - 'test-federal-a-draft.js'
+      - 'test-federal-a-tanda2.js'
+      - 'test-federal-a-runtime.js'
+      - 'import-squads.js'
+      - '.github/workflows/test-federal-a-draft.yml'
   pull_request:
     paths:
       - 'planteles/borradores/federal-a-2026/**'
