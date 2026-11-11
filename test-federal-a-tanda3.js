@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path');
-function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c==='"'&&s[i+1]==='"'){v+='"';i++;}else if(c==='"')q=false;else v+=c;}else if(c==='"')q=true;else if(c===','){row.push(v);v='';}else if(c==='\\n'){row.push(v.replace(/\\r$/,''));rows.push(row);row=[];v='';}else v+=c;}if(v||row.length){row.push(v.replace(/\\r$/,''));rows.push(row);}return rows;}
+function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c==='"'&&s[i+1]==='"'){v+='"';i++;}else if(c==='"')q=false;else v+=c;}else if(c==='"')q=true;else if(c===','){row.push(v);v='';}else if(c==='\n'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v='';}else v+=c;}if(v||row.length){row.push(v.replace(/\r$/,''));rows.push(row);}return rows;}
 const file=path.join(__dirname,'planteles/borradores/federal-a-2026-tanda-3/completo.csv');
 const rows=parseCSV(fs.readFileSync(file,'utf8')),headers=rows.shift().map(x=>x.trim().toLowerCase()),idx=Object.fromEntries(headers.map((h,i)=>[h,i]));
 const expected=['gimchivilcoy','sanmartinformosa','sarmientolb','sportivobelgrano','huracanlh','olimpo','antoniana','linqueno','indchivilcoy','escobar'];
@@ -25,5 +25,5 @@ for(const [i,r] of rows.entries()){
 }
 for(const club of expected){if(counts[club]!==18)errors.push(club+': esperado 18, encontrado '+(counts[club]||0));}
 if(rows.length!==180)errors.push('Total esperado 180, encontrado '+rows.length);
-if(errors.length){console.error(errors.join('\\n'));process.exit(1);}
+if(errors.length){console.error(errors.join('\n'));process.exit(1);}
 console.log('Federal A tanda 3: 10 clubes, 180 jugadores, 18 por equipo, fuentes, roles y duplicados OK.');
