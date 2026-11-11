@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-11T15:01:49.757Z",
+  "updatedAt": "2026-11-11T16:29:21.721Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1706 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1638 medias con fuente individual + 1706 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -96,7 +96,7 @@
     "nuevejulio": 25,
     "atenas": 19,
     "atsanmartinmza": 18,
-    "bmitre": 18,
+    "bmitre": 27,
     "bocaunidos": 19,
     "cipolletti": 18,
     "defbelgranovr": 22,
@@ -2880,11 +2880,23 @@
         "https://fmag.tr/es/kulup/ca-bartolome-mitre-posadas_MTE3NTc0"
       ],
       "consulted": "2026-11-11",
-      "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
+      "ageSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
+        "https://fmag.tr/es/kulup/ca-bartolome-mitre-posadas_MTE3NTc0"
+      ],
       "numberSource": [],
-      "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
-      "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
-      "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas"
+      "ratingSource": [
+        "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
+        "Estimación orientativa; rating FM27 individual no disponible; no equivale a OVR EA"
+      ],
+      "roleSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
+        "https://fmag.tr/es/kulup/ca-bartolome-mitre-posadas_MTE3NTc0"
+      ],
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/clubs/14046680-bartolome-mitre-posadas",
+        "https://fmag.tr/es/kulup/ca-bartolome-mitre-posadas_MTE3NTc0"
+      ]
     },
     "bocaunidos": {
       "source": "https://www.mundoascenso.com.ar/plantel/467-boca-unidos",
@@ -3216,8 +3228,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 2044,
-    "missing": 1291,
-    "total": 3335,
+    "missing": 1300,
+    "total": 3344,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -3680,9 +3692,9 @@
         "missing": 18
       },
       "bmitre": {
-        "total": 18,
+        "total": 27,
         "assigned": 0,
-        "missing": 18
+        "missing": 27
       },
       "bocaunidos": {
         "total": 19,
@@ -3848,10 +3860,10 @@
   },
   "dorsalsComplete": false,
   "ageCoverage": {
-    "assigned": 3261,
+    "assigned": 3270,
     "missing": 74,
     "birthDates": 2069,
-    "total": 3335,
+    "total": 3344,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4314,8 +4326,8 @@
         "missing": 0
       },
       "bmitre": {
-        "total": 18,
-        "assigned": 18,
+        "total": 27,
+        "assigned": 27,
         "missing": 0
       },
       "bocaunidos": {
@@ -4481,9 +4493,9 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 3335,
+    "assigned": 3344,
     "missing": 0,
-    "total": 3335,
+    "total": 3344,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4854,8 +4866,8 @@
         "assigned": 18
       },
       "bmitre": {
-        "total": 18,
-        "assigned": 18
+        "total": 27,
+        "assigned": 27
       },
       "bocaunidos": {
         "total": 19,
@@ -4988,9 +5000,9 @@
     }
   },
   "specificRoleCoverage": {
-    "assigned": 3335,
+    "assigned": 3344,
     "missing": 0,
-    "total": 3335,
+    "total": 3344,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5361,8 +5373,8 @@
         "specific": 18
       },
       "bmitre": {
-        "total": 18,
-        "specific": 18
+        "total": 27,
+        "specific": 27
       },
       "bocaunidos": {
         "total": 19,
@@ -5495,9 +5507,9 @@
     }
   },
   "ratingCoverage": {
-    "rated": 1629,
+    "rated": 1638,
     "estimated": 1706,
-    "total": 3335,
+    "total": 3344,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6053,8 +6065,8 @@
         "provisional": 0
       },
       "bmitre": {
-        "total": 18,
-        "verified": 18,
+        "total": 27,
+        "verified": 27,
         "estimated": 0,
         "provisional": 0
       },
@@ -6256,22 +6268,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2163,
+    "derivedPlayers": 2172,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 125,
-    "players": 3335,
+    "players": 3344,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 74,
-    "playersMissingDorsal": 1291,
-    "verifiedRatings": 1629,
+    "playersMissingDorsal": 1300,
+    "verifiedRatings": 1638,
     "estimatedRatings": 1706,
     "provisionalRatings": 0,
     "playersMissingNationality": 0,
-    "playersMissingFoot": 1278,
+    "playersMissingFoot": 1287,
     "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 2163
+    "playersWithoutManualAttributes": 2172
   }
 }
