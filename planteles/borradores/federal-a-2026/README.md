@@ -35,9 +35,9 @@ Trabajo en rama separada. Esta tanda contiene los primeros diez clubes del regis
 ## Estado
 
 - Rama: `federal-a-2026-tanda-1`
-- Primera pasada de los diez clubes cargada en CSV: 192 jugadores en total.
-- Desglose: Alvarado 20; 9 de Julio 25; Atenas 19; San Martín (Mendoza) 17; Bartolomé Mitre 15; Boca Unidos 19; Cipolletti 17; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América 16.
+- Primera pasada de los diez clubes cargada en CSV: **192 jugadores** en total.
+- Desglose: Alvarado 20; 9 de Julio (Rafaela) 25; Atenas (Río Cuarto) 19; San Martín (Mendoza) 17; Bartolomé Mitre (Posadas) 15; Boca Unidos 19; Cipolletti 17; Defensores de Belgrano (Villa Ramallo) 22; Deportivo Rincón 22; Sol de América (Formosa) 16.
 - Archivos individuales y consolidado: `planteles/borradores/federal-a-2026-tanda-1/completo.csv`.
-- Control estructural inicial: 34 columnas por registro, 10 IDs de club esperados, 192 nombres sin duplicados dentro de la tanda, ratings ABI 1–99 y sin ajustes globales.
-- Pendiente: segunda revisión de nombres/participación, depuración de jugadores que sólo figuran como reserva o sin minutos relevantes, confirmación de edades y dorsales con fuentes individuales y validación con el importador del juego.
+- Control estructural inicial: 34 columnas por registro; los diez IDs coinciden con `public/data.js`; 192 nombres sin duplicados dentro de la tanda; ratings ABI 1–99, con `rating_base` igual a `rating` y ajuste 0.
+- Pendiente: segunda revisión de nombres y participación, depuración de jugadores que sólo figuren como reserva o sin minutos relevantes, confirmación de edades y dorsales con fuentes individuales y validación final con el importador del juego.
 - Importación runtime: pendiente; no modificar `public/squads.*` en esta etapa. No está publicado en `main` ni desplegado.
