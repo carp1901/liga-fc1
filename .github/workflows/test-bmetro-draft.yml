@@ -26,7 +26,9 @@ jobs:
       - name: Validar sintaxis
         run: node --check import-squads.js
       - name: Validar importación sin publicar
-        run: node import-squads.js planteles/borradores/primera-b-metro-2026/tanda1.csv --dry-run
+        run: |
+          node import-squads.js planteles/borradores/primera-b-metro-2026/tanda1.csv --dry-run
+          node import-squads.js planteles/borradores/primera-b-metro-2026/tanda2.csv --dry-run
       - name: Validar cobertura y perfiles
         run: node test-bmetro-draft.js
 
