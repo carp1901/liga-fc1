@@ -1,0 +1,28 @@
+name: Validate 2D halftime orientation
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/sim2d.js'
+      - 'test-sim2d-orientation.js'
+      - '.github/workflows/test-sim2d-orientation.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'public/sim2d.js'
+      - 'test-sim2d-orientation.js'
+      - '.github/workflows/test-sim2d-orientation.yml'
+permissions:
+  contents: read
+jobs:
+  orientation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check 2D simulator syntax
+        run: node --check public/sim2d.js
+      - name: Verify all positions and formations across both halves
+        run: node test-sim2d-orientation.js
