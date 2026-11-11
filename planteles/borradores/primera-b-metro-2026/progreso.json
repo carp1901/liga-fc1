@@ -16,8 +16,8 @@
         "comunicaciones",
         "defensoresunidos"
       ],
-      "status": "draft-researched",
-      "players": 177
+      "status": "draft-validated",
+      "players": 185
     },
     {
       "batch": 2,
@@ -56,6 +56,10 @@
       "Mundo Ascenso",
       "Solo Ascenso",
       "Transfermarkt",
+      "Tribuna",
+      "Soccerway",
+      "Sofascore",
+      "365Scores",
       "match reports"
     ],
     "noInventedDorsals": true,
@@ -65,13 +69,14 @@
   "batch1": {
     "csv": "tanda1.csv",
     "clubs": 8,
-    "players": 177,
+    "players": 185,
+    "fmAbiRatings": 163,
+    "estimatedRatings": 22,
     "duplicateNames": 0,
     "duplicateDorsals": 0,
-    "verifiedDorsals": 21,
-    "ages": 177,
-    "birthDates": 4,
-    "feet": 0
+    "verifiedDorsals": 0,
+    "feet": 19,
+    "birthDates": 31
   },
   "runtimeIntegrated": false
 }
