@@ -9,7 +9,8 @@ const supported=new Set([...match[1].matchAll(/^\s*([A-Z]+):\{/gm)].map(m=>m[1])
 supported.add('POR');
 const batches=[
  {file:'planteles/borradores/primera-b-metro-2026/tanda1.csv',expected:{arsenal:22,brown:25,armenio:20,argentinomerlo:21,argentinoquilmes:25,camioneros:25,comunicaciones:24,defensoresunidos:23}},
- {file:'planteles/borradores/primera-b-metro-2026/tanda2.csv',expected:{docksud:27,laferrere:26,deportivomerlo:27,excursionistas:27,flandria:26,ituzaingo:21,liniers:25}}
+ {file:'planteles/borradores/primera-b-metro-2026/tanda2.csv',expected:{docksud:27,laferrere:26,deportivomerlo:27,excursionistas:27,flandria:26,ituzaingo:21,liniers:25}},
+ {file:'planteles/borradores/primera-b-metro-2026/tanda3.csv',expected:{realpilar:27,sanmartinburzaco:22,sportivoitaliano:21,talleresre:27,uai:24,villadalmine:22,villasancarlos:26}}
 ];
 const allNames=new Set();
 let total=0;
@@ -38,5 +39,6 @@ for(const batch of batches){
  }
  assert.deepEqual(counts,batch.expected,batch.file+': cambió la cantidad de jugadores por club');
 }
-assert.equal(Object.keys(batches[0].expected).length+Object.keys(batches[1].expected).length,15,'Las dos tandas deben cubrir 15 clubes');
-console.log('OK: dos tandas B Metro — '+total+' jugadores, 15 clubes, perfiles válidos, fuentes presentes y sin duplicados.');
+assert.equal(batches.reduce((n,b)=>n+Object.keys(b.expected).length,0),22,'Las tres tandas deben cubrir 22 clubes');
+assert.equal(total,533,'Las tres tandas deben contener 533 jugadores');
+console.log('OK: tres tandas B Metro — '+total+' jugadores, 22 clubes, perfiles válidos, fuentes presentes y sin duplicados.');
