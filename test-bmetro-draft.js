@@ -8,7 +8,7 @@ assert(match,'No se encontró ROLE_OFFSETS');
 const supported=new Set([...match[1].matchAll(/^\s*([A-Z]+):\{/gm)].map(m=>m[1]));
 supported.add('POR');
 const batches=[
- {file:'planteles/borradores/primera-b-metro-2026/tanda1.csv',expected:{arsenal:22,brown:25,armenio:20,argentinomerlo:21,argentinoquilmes:25,camioneros:25,comunicaciones:24,defensoresunidos:23}},
+ {file:'planteles/borradores/primera-b-metro-2026/tanda1.csv',expected:{arsenal:22,brownadrogue:25,armenio:20,argentinomerlo:21,argentinoquilmes:25,camioneros:25,comunicaciones:24,defensoresunidos:23}},
  {file:'planteles/borradores/primera-b-metro-2026/tanda2.csv',expected:{docksud:27,laferrere:26,deportivomerlo:27,excursionistas:27,flandria:26,ituzaingo:21,liniers:25}},
  {file:'planteles/borradores/primera-b-metro-2026/tanda3.csv',expected:{realpilar:27,sanmartinburzaco:22,sportivoitaliano:21,talleresre:27,uai:24,villadalmine:22,villasancarlos:26}}
 ];
