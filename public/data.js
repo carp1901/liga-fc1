@@ -150,7 +150,6 @@ lasparejas|Sp. Las Parejas|#d1001f|#111111|50
 vilelas|Def. P. Vilelas|#0a7d3b|#ffffff|47
 argmontemaiz|Argentino (MM)|#0b3d91|#ffffff|48
 sarmientores|Sarmiento (R)|#0a7d3b|#ffffff|49
-estudiantessl|Estudiantes (SL)|#d1001f|#ffffff|50
 kimberley|Kimberley|#ffffff|#0a7d3b|48
 villamitre|Villa Mitre|#0a7d3b|#ffffff|52`;
 const R6=`alumni|Alumni (LH)|#d1001f|#ffffff|38
