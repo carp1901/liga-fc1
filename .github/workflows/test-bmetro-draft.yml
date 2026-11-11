@@ -1,13 +1,5 @@
 name: Validar tanda de Primera B Metropolitana
 on:
-  push:
-    branches: [main, planteles-bmetro-2026-tanda1]
-    paths:
-      - 'planteles/borradores/primera-b-metro-2026/**'
-      - 'test-bmetro-draft.js'
-      - 'import-squads.js'
-      - 'public/data.js'
-      - '.github/workflows/test-bmetro-draft.yml'
   pull_request:
     paths:
       - 'planteles/borradores/primera-b-metro-2026/**'
