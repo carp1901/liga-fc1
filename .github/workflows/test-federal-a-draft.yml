@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'planteles/borradores/federal-a-2026-tanda-1/**'
       - 'planteles/borradores/federal-a-2026-tanda-2/**'
       - 'planteles/borradores/federal-a-2026-tanda-3/**'
       - 'planteles/borradores/federal-a-2026-tanda-4/**'
