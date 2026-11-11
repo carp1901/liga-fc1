@@ -6,11 +6,9 @@ on:
       - 'planteles/borradores/federal-a-2026-tanda-2/**'
       - 'planteles/borradores/federal-a-2026-tanda-3/**'
       - 'planteles/borradores/federal-a-2026-tanda-4/**'
-      - 'planteles/borradores/federal-a-2026-tanda-4/**'
       - 'test-federal-a-draft.js'
       - 'test-federal-a-tanda2.js'
       - 'test-federal-a-tanda3.js'
-      - 'test-federal-a-tanda4.js'
       - 'test-federal-a-tanda4.js'
       - 'test-federal-a-runtime.js'
       - 'import-squads.js'
@@ -21,9 +19,11 @@ on:
       - 'planteles/borradores/federal-a-2026-tanda-1/**'
       - 'planteles/borradores/federal-a-2026-tanda-2/**'
       - 'planteles/borradores/federal-a-2026-tanda-3/**'
+      - 'planteles/borradores/federal-a-2026-tanda-4/**'
       - 'test-federal-a-draft.js'
       - 'test-federal-a-tanda2.js'
       - 'test-federal-a-tanda3.js'
+      - 'test-federal-a-tanda4.js'
       - 'test-federal-a-runtime.js'
       - 'import-squads.js'
       - '.github/workflows/test-federal-a-draft.yml'
@@ -43,7 +43,7 @@ jobs:
         run: node --check import-squads.js
       - name: Validar primera tanda
         run: node test-federal-a-draft.js
-      - name: Validar segunda tanda y siete suplentes
+      - name: Validar segunda tanda y mínimo 18 jugadores
         run: node test-federal-a-tanda2.js
       - name: Validar tercera tanda y mínimo 18 jugadores
         run: node test-federal-a-tanda3.js
