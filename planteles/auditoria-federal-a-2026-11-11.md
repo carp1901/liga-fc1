@@ -11,7 +11,7 @@ Fecha de corte: 11/11/2026
 
 ## Recuento actual
 - Clubes: 37
-- Jugadores: 813 (consolidado CSV; runtime pendiente de reflejar las últimas cuatro ampliaciones)
+- Jugadores: 813 (consolidado CSV y runtime actualizado; 37 clubes)
 - Media: 22.0 por club
 - Por debajo del objetivo (18–21): 19
 - En el objetivo (22–28): 14
@@ -110,6 +110,6 @@ Bartolomé Mitre, San Martín de Formosa y Sol de América fueron ampliados de 1
 - FADEP: 18 → 22, cuatro altas; tres con apariciones 2026 registradas (Gizzi 8, Klusener 20, Lentini 10) y Cogorno incorporado por anuncio de llegada al plantel.
 - Sol de Mayo: 18 → 24, seis altas contrastadas con nóminas y registros 2026; Santiago Jara suma 23 presencias y Kevin Pereira 22.
 - Las medias nuevas se identifican como estimaciones propias cuando no existe CA individual verificable. No se asignaron dorsales ni participaciones no respaldadas.
-- Estas tres ampliaciones están fusionadas en `main` dentro de los CSV de trabajo. El `public/squads-meta.json` todavía refleja los conteos anteriores (18 para estos clubes); no se considera publicada su actualización en el runtime hasta comprobar la importación.
+- Las cuatro ampliaciones están fusionadas en `main`, importadas al runtime y verificadas por `test-federal-a-runtime.js`. El runtime registra 813 jugadores en los 37 clubes del Federal A; los conteos de Cipolletti (26), Costa Brava (22), FADEP (22) y Sol de Mayo (24) coinciden con los CSV.
 
 Este informe es una fotografía de cantidades, no una aprobación automática de cada nombre. La siguiente etapa es cruzar nominalmente los 20 clubes que siguen con 18–21 jugadores y luego revisar los cuatro que superan 28, manteniendo la regla de no sobrepoblar.
