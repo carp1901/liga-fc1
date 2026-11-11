@@ -11,10 +11,10 @@ Fecha de corte: 11/11/2026
 
 ## Recuento actual
 - Clubes: 37
-- Jugadores: 773
-- Media: 20.9 por club
-- Por debajo del objetivo (18–21): 25
-- En el objetivo (22–28): 8
+- Jugadores: 782
+- Media: 21.1 por club
+- Por debajo del objetivo (18–21): 24
+- En el objetivo (22–28): 9
 - Por encima del objetivo (29–32): 4
 
 | Club | Jugadores | Estado inicial |
@@ -31,7 +31,7 @@ Fecha de corte: 11/11/2026
 | Santamarina | 18 | Revisar cobertura |
 | Douglas Haig | 18 | Revisar cobertura |
 | Gimnasia (Chivilcoy) | 18 | Revisar cobertura |
-| San Martín (Formosa) | 18 | Revisar cobertura |
+| San Martín (Formosa) | 27 | En rango |
 | Sarmiento (La Banda) | 18 | Revisar cobertura |
 | Sportivo Belgrano | 18 | Revisar cobertura |
 | Huracán Las Heras | 18 | Revisar cobertura |
@@ -71,7 +71,6 @@ Fecha de corte: 11/11/2026
 - Santamarina: 18
 - Douglas Haig: 18
 - Gimnasia (Chivilcoy): 18
-- San Martín (Formosa): 18
 - Sarmiento (La Banda): 18
 - Sportivo Belgrano: 18
 - Huracán Las Heras: 18
@@ -86,6 +85,7 @@ Fecha de corte: 11/11/2026
 - Círculo Deportivo: 20
 
 ### En rango (22–28)
+- San Martín (Formosa): 27
 - Defensores de Belgrano (Villa Ramallo): 22
 - Deportivo Rincón: 22
 - Tucumán Central: 22
@@ -102,6 +102,6 @@ Fecha de corte: 11/11/2026
 - Villa Mitre: 32
 
 ## Primer ajuste
-Bartolomé Mitre fue ampliado de 18 a 27 jugadores con nueve incorporaciones documentadas en FMag. Sus nueve medias añadidas se etiquetan como estimaciones propias y no como valor oficial de Football Manager. El runtime se regeneró desde las cuatro tandas y las pruebas de importación/runtime pasaron.
+Bartolomé Mitre fue ampliado de 18 a 27 jugadores con nueve incorporaciones documentadas en FMag. San Martín de Formosa también pasó de 18 a 27 con nueve futbolistas respaldados por el plantel oficial de AFA y registros de temporada. Las medias añadidas en ambos clubes se etiquetan como estimaciones propias y no como valores oficiales de Football Manager. El runtime se regeneró desde las cuatro tandas y las pruebas de importación/runtime pasaron.
 
 Este informe es una fotografía de cantidades, no una aprobación automática de cada nombre. La siguiente etapa es cruzar nominalmente los clubes con menos de 22 y luego revisar los cuatro que superan 28, manteniendo la regla de no sobrepoblar.
