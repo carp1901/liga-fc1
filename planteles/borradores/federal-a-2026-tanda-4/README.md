@@ -30,8 +30,9 @@ Total: 199 futbolistas. El mínimo es 18 por club; las cantidades superiores se 
 - FM27 Defensores de Vilelas: https://sortitoutsi.net/football-manager-data-update/team/14064734
 - Argentino de Monte Maíz: https://www.mundoascenso.com.ar/plantel/306-argentino-de-monte-maiz
 - FM27 Argentino: https://sortitoutsi.net/football-manager-2027/team/14064652/club-deportivo-argentino-de-monte-maiz
-- Sarmiento de Resistencia: https://www.soloascenso.com.ar/club/sarmiento-resistencia/328
+- Sarmiento de Resistencia: https://tacazo.com.ar/equipo.html?id=club-1953
 - FM27 Sarmiento: https://sortitoutsi.net/football-manager-2027/team/14043913/club-atletico-sarmiento-de-resistencia
+- Nómina de Sarmiento 2026 con edades y posiciones: https://tacazo.com.ar/equipo.html?id=club-1953
 - Kimberley: https://www.mundoascenso.com.ar/plantel/286-kimberley-mdp
 - FM27 Kimberley: https://sortitoutsi.net/football-manager-2027/team/14037344/club-atletico-kimberley
 - Villa Mitre: https://www.mundoascenso.com.ar/plantel/134-villa-mitre
