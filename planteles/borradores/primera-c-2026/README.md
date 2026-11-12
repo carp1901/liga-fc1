@@ -69,3 +69,12 @@ La integración deberá conservar los planteles de Primera, Primera Nacional, B 
 - La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (47) y Club Mercedes (35).
 - Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
 - Aún no hay CSV importable: faltan verificar edades, roles específicos, dorsales, medias y fuentes de participación jugador por jugador. La tanda no se considera cerrada hasta esa auditoría.
+
+
+## Carga inicial — tanda 1
+
+Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los siete clubes y realizar después una auditoría general conjunta. El archivo `tanda1-inicial.csv` contiene 312 registros (51 Juventud Unida, 43 Estrella del Sur, 50 Argentino de Rosario, 37 Victoriano Arenas, 49 Sacachispas, 47 Leandro N. Alem y 35 Club Mercedes).
+
+Las medias y los dorsales de esta carga inicial son provisionales y están identificados explícitamente como estimaciones; no se presentan como datos oficiales. Las edades, nacionalidades y roles específicos no se completan por inferencia. La auditoría posterior deberá revisar apariciones, altas/bajas, identidades, posiciones, tamaño razonable de cada plantel y reemplazar las estimaciones cuando haya evidencia individual mejor.
+
+La importación automatizada se ejecuta en el PR: valida el CSV, integra únicamente estos siete clubes en el runtime de la rama y comprueba que el resto de los planteles quede idéntico a `main`. Los otros 21 clubes de Primera C quedan fuera de esta primera tanda.
