@@ -34,12 +34,12 @@ Fuente: https://www.soloascenso.com.ar/club/victoriano-arenas/314
 - MED: Leonel Duarte; Santiago Fernandez; Isaías González; Juan Cruz López; Nicolás Mamberti; Tobías Mercado Rusch; Fabián Monserrat; Ivo Patiño; Lucas Pérez; Román Pizzuti; Rodrigo Richards; Ramiro Rivarola; Máximo Sánchez; Emanuel Saporito; Lucas Sireiro; Matías Sosa; Rodrigo Taus; Axel Tisocco.
 - DEL: Sebastián Benega; Uriel Parejas; Facundo Rodríguez; Aaron Rolando; Agustín Serrizuela; Santiago Soria; Leandro Zacarías.
 
-## Sacachispas — 49 nombres publicados
+## Sacachispas — 50 nombres con incorporación validada
 Fuente: https://www.soloascenso.com.ar/club/sacachispas-fc/300
 
 - ARQ: Neyder Aragón; Ezequiel Barreiro; Héctor Navarro; Facundo Troncoso.
 - DEF: Alan Abregú; Benjamín Arias; Alan Buonofiglio; Lautaro Cardozo; Martín Cols; Renzo Fernández; Santiago Flores; Ignacio Loccizano; Luis Lorenzi; Lucas Medina; Ezequiel Moschen; Gonzalo Rocaniere; Uriel Sosa; Leonardo Zaragoza.
-- MED: Emanuel Abregú; Santiago Arrieta; Emanuel Barreiro; Ignacio Branda; Héctor Canteros; Lucas Cipresso; Mateo Comignaghi; Nicolás Cuestas; Lucas Díaz; Facundo Durso; León Fariza; Santiago Gallardo; Fernando Lavalle; Tomás Magnano; Valentín Mancuso; Diego Molina Fariña; Alejo Monje; Nicolás Navarro; Juan Cruz Oltmann; Ricardo Priori; Leandro Ríos; Francesco Toldo; Lautaro Torres.
+- MED: Emanuel Abregú; Santiago Arrieta; Emanuel Barreiro; Ignacio Branda; Héctor Canteros; Lucas Cipresso; Mateo Comignaghi; Matías Arias; Nicolás Cuestas; Lucas Díaz; Facundo Durso; León Fariza; Santiago Gallardo; Fernando Lavalle; Tomás Magnano; Valentín Mancuso; Diego Molina Fariña; Alejo Monje; Nicolás Navarro; Juan Cruz Oltmann; Ricardo Priori; Leandro Ríos; Francesco Toldo; Lautaro Torres.
 - DEL: Bautista Brange; Gerónimo Cardozo; Santiago Ciotta; Ernesto Gallardo; Sebastián Martínez; Maximiliano Quinteros; Santiago Romero; Gonzalo Vivanco.
 
 ## Leandro N. Alem — 47 nombres publicados
@@ -188,3 +188,8 @@ Fuente general de movimientos: https://www.mundoascenso.com.ar/mercado-de-pases/
 
 - Para clubes con perfiles individuales disponibles, el criterio de selección final priorizará presencias, titularidades, ingresos y goles de 2026. Para los demás, se usarán fichas confirmadas de partidos, goles y movimientos de mercado.
 - No se completará el mínimo de 22 con nombres sin participación demostrable si eso contradice la regla de no sobrepoblar. Si la evidencia pública no alcanza para sostener 22, se dejará documentada la limitación y se buscará una fuente adicional antes de importar.
+
+
+### Corrección de nómina — Matías Arias (Sacachispas)
+
+Se incorpora **Matías Arias** como mediocampista. Aunque no figuraba en el bloque nominal de Solo Ascenso utilizado para la captura inicial, su ficha de temporada 2026 registra **16 partidos y 1.306 minutos** con Sacachispas. No corresponde dejarlo afuera de la plantilla por una omisión de la nómina general. Dorsal 51 estimado, pendiente de confirmación oficial. Fuente: https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447
