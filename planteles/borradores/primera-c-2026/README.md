@@ -68,45 +68,39 @@ La integración conservó los planteles de Primera, Primera Nacional, B Metropol
 
 - La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (50), Leandro N. Alem (47) y Club Mercedes (35).
 - Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
-- Las cuatro tandas reúnen 1.122 jugadores en los 28 clubes tras la primera depuración. La carga está integrada y validada; medias y dorsales siguen identificados como estimaciones. Edades, nacionalidades, pie hábil, roles específicos y medias deben revisarse en la auditoría individual final.
+- Las cuatro tandas reúnen 1.123 jugadores en los 28 clubes tras la primera depuración y la incorporación posterior de Matías Arias. La carga está integrada y validada; medias y dorsales siguen identificados como estimaciones. Edades, nacionalidades, pie hábil, roles específicos y medias deben revisarse en la auditoría individual final.
 
 
 ## Carga inicial — tanda 1
 
-Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los siete clubes y realizar después una auditoría general conjunta. El archivo `tanda1-inicial.csv` contiene La tanda 1 quedó en 310 tras su primera auditoría; la tanda 2 agrega 271, la tanda 3 agrega 277 y la tanda 4 agrega 272. Total previsto: 1.122 jugadores en los 28 clubes.
+La primera tanda se preparó con 312 nombres nominales. En la depuración inicial se retiraron Gabriel Rivera (Estrella del Sur) y Nicolás Gentile (Leandro N. Alem), ambos sin participación de primer equipo en 2026. En la auditoría general se agregó Matías Arias a Sacachispas por sus 16 partidos y 1.306 minutos. El CSV actual de esta tanda contiene **311 jugadores en siete clubes**.
 
-Las medias y los dorsales de esta carga inicial son provisionales y están identificados explícitamente como estimaciones; no se presentan como datos oficiales. Las edades, nacionalidades y roles específicos no se completan por inferencia. La auditoría posterior deberá revisar apariciones, altas/bajas, identidades, posiciones, tamaño razonable de cada plantel y reemplazar las estimaciones cuando haya evidencia individual mejor.
-
-La importación automatizada se ejecuta en el PR: valida el CSV, integra únicamente estos siete clubes en el runtime de la rama y comprueba que el resto de los planteles quede idéntico a `main`. Los otros 21 clubes de Primera C quedan fuera de esta primera tanda. El runtime contiene sólo estos siete planteles de la categoría por ahora.
-
-
-La prueba de integración compara los clubes ajenos a Primera C contra el runtime de `main`; la lectura de ese archivo usa un buffer ampliado para permitir la comparación completa de los planteles existentes.
-
+La prueba automatizada integra los cuatro CSV en conjunto, verifica nombres y dorsales únicos dentro de cada club, y comprueba que los planteles ajenos a Primera C no cambien. Las medias y los dorsales continúan identificados como estimaciones; las edades, nacionalidades, pies hábiles y roles específicos se completarán en la auditoría individual.
 
 ## Carga inicial — tanda 2
 
-La segunda tanda incorpora 7 clubes y 271 jugadores nominales: Berazategui (38), Deportivo Paraguayo (42), Defensores de Cambaceres (35), Puerto Nuevo (33), Centro Español (29), J.J. Urquiza (49) y Atlético Lugano (45). Con la tanda 1, el runtime de la rama debe quedar en 581 jugadores y 14 clubes de Primera C.
+La segunda tanda incorpora 7 clubes y 271 jugadores nominales: Berazategui (38), Deportivo Paraguayo (42), Defensores de Cambaceres (35), Puerto Nuevo (33), Centro Español (29), J.J. Urquiza (49) y Atlético Lugano (45). Con la tanda 1, el runtime integrado debe quedar en **582 jugadores y 14 clubes**.
 
 La auditoría posterior debe prestar especial atención a Puerto Nuevo: la presentación oficial de febrero informó 26 jugadores, mientras que la nómina actualizada de Solo Ascenso contiene 33. Se conserva la nómina actualizada para la carga y se revisarán altas, bajas y convocatorias antes de depurar.
 
 
 ## Carga inicial — tanda 3
 
-La tercera tanda incorpora 7 clubes y 277 jugadores nominales: Atlas (42), Cañuelas (31 jugadores únicos; Santino Sapio se registra una sola vez), Central Ballester (51), Central Córdoba de Rosario (32), Claypole (39), Deportivo Español (39) y Muñiz (38). Con las dos tandas anteriores, el runtime de la rama debe quedar en 858 jugadores y 21 clubes de Primera C.
+La tercera tanda incorpora 7 clubes y 277 jugadores nominales: Atlas (42), Cañuelas (31 jugadores únicos; Santino Sapio se registra una sola vez), Central Ballester (51), Central Córdoba de Rosario (32), Claypole (39), Deportivo Español (39) y Muñiz (38). Con las dos tandas anteriores, el runtime integrado debe quedar en **854 jugadores y 21 clubes**, después de la primera depuración de Central Ballester.
 
 Central Ballester y Deportivo Español quedan señalados para revisar tamaño y rotación; Cañuelas tiene una doble clasificación de Santino Sapio que se representa con posición secundaria, no con un jugador duplicado.
 
 
 ## Carga inicial — tanda 4
 
-La cuarta tanda incorporó 7 clubes y 272 jugadores nominales: El Porvenir (47 antes de depuración), Fénix (42), General Lamadrid (35), Leones FC (37), Luján (33), Sportivo Barracas (39) y Yupanqui (39). Tras la primera depuración general, El Porvenir queda con 44 y el total de la categoría con 1.122 jugadores en 28 clubes.
+La cuarta tanda incorporó 7 clubes y 272 jugadores nominales: El Porvenir (47 antes de depuración), Fénix (42), General Lamadrid (35), Leones FC (37), Luján (33), Sportivo Barracas (39) y Yupanqui (39). Tras retirar tres arqueros sin participación de primer equipo, El Porvenir queda con 44. El runtime completo queda en **1.123 jugadores en 28 clubes**.
 
-La auditoría general final debe revisar especialmente Central Ballester (51), Juventud Unida (51), Argentino de Rosario (50), J.J. Urquiza (49) y Sportivo Barracas (trece delanteros), además de las edades, posiciones específicas, apariciones, bajas y medias de los 28 planteles.
+La auditoría general final debe revisar especialmente Central Ballester (51), Juventud Unida (51), Argentino de Rosario (50), Sacachispas (50), J.J. Urquiza (49) y Sportivo Barracas (trece delanteros), además de las edades, posiciones específicas, apariciones, bajas y medias de los 28 planteles.
 
 
 ## Primera depuración general — 12/11/2026
 
-Tras revisar evidencia de participación y convocatorias, se retiraron ocho jugadores de la carga preliminar: cinco de Central Ballester y tres de El Porvenir. El runtime queda en **1.122 jugadores** en los 28 clubes. No se alteraron los otros planteles.
+Tras revisar evidencia de participación y convocatorias, se retiraron ocho jugadores de la carga preliminar: cinco de Central Ballester y tres de El Porvenir. El runtime quedó inicialmente en 1.122; luego se agregó Matías Arias y ahora contiene **1.123 jugadores** en los 28 clubes. No se alteraron los otros planteles.
 
 - Central Ballester: 51 jugadores, cuatro arqueros y 17 mediocampistas.
 - El Porvenir: 44 jugadores, cuatro arqueros.
