@@ -55,7 +55,7 @@ Trabajo de recopilación por cuatro tandas. Los archivos de esta carpeta son bor
 ## Estado
 
 - [x] Relevamiento nominal inicial de tanda 1: 7 clubes
-- [x] Carga preliminar de tanda 1 en runtime: 310 jugadores en 7 clubes
+- [x] Carga preliminar de tanda 1 en runtime: 581 jugadores en 14 clubes
 - [ ] Auditoría general posterior a la carga: apariciones, bajas, posiciones, tamaño, edades, roles, medias y dorsales
 - [ ] Tanda 2: 7 clubes
 - [ ] Tanda 3: 7 clubes
@@ -69,12 +69,12 @@ La integración deberá conservar los planteles de Primera, Primera Nacional, B 
 
 - La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (47) y Club Mercedes (35).
 - Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
-- La carga preliminar ya está integrada en `public/squads.json`, `public/squads.js` y `public/squads-meta.json`: 310 jugadores (se cargaron 312 y se retiraron dos tras la primera auditoría), todos con dorsal estimado identificado y sin duplicados dentro de cada club. No se considera carga definitiva: edades, nacionalidades, roles específicos y medias deben revisarse en la auditoría general.
+- La tanda 1 está integrada con 310 jugadores y la tanda 2 se encuentra preparada para integrar 271 más; total previsto al importar esta tanda: 581 en 14 clubes. Las dos tandas usan medias y dorsales provisionales identificados como estimaciones, todos con dorsal estimado identificado y sin duplicados dentro de cada club. No se considera carga definitiva: edades, nacionalidades, roles específicos y medias deben revisarse en la auditoría general.
 
 
 ## Carga inicial — tanda 1
 
-Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los siete clubes y realizar después una auditoría general conjunta. El archivo `tanda1-inicial.csv` contiene 312 registros iniciales; tras la primera auditoría quedaron 310 (51 Juventud Unida, 42 Estrella del Sur, 50 Argentino de Rosario, 37 Victoriano Arenas, 49 Sacachispas, 46 Leandro N. Alem y 35 Club Mercedes).
+Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los siete clubes y realizar después una auditoría general conjunta. El archivo `tanda1-inicial.csv` contiene La tanda 1 se cargó con 312 y quedó en 310 tras la primera auditoría; la tanda 2 agrega 271. Total actual: 581 jugadores en 14 clubes.
 
 Las medias y los dorsales de esta carga inicial son provisionales y están identificados explícitamente como estimaciones; no se presentan como datos oficiales. Las edades, nacionalidades y roles específicos no se completan por inferencia. La auditoría posterior deberá revisar apariciones, altas/bajas, identidades, posiciones, tamaño razonable de cada plantel y reemplazar las estimaciones cuando haya evidencia individual mejor.
 
@@ -82,3 +82,10 @@ La importación automatizada se ejecuta en el PR: valida el CSV, integra únicam
 
 
 La prueba de integración compara los clubes ajenos a Primera C contra el runtime de `main`; la lectura de ese archivo usa un buffer ampliado para permitir la comparación completa de los planteles existentes.
+
+
+## Carga inicial — tanda 2
+
+La segunda tanda incorpora 7 clubes y 271 jugadores nominales: Berazategui (38), Deportivo Paraguayo (42), Defensores de Cambaceres (35), Puerto Nuevo (33), Centro Español (29), J.J. Urquiza (49) y Atlético Lugano (45). Con la tanda 1, el runtime de la rama debe quedar en 581 jugadores y 14 clubes de Primera C.
+
+La auditoría posterior debe prestar especial atención a Puerto Nuevo: la presentación oficial de febrero informó 26 jugadores, mientras que la nómina actualizada de Solo Ascenso contiene 33. Se conserva la nómina actualizada para la carga y se revisarán altas, bajas y convocatorias antes de depurar.
