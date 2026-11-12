@@ -78,3 +78,6 @@ Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los
 Las medias y los dorsales de esta carga inicial son provisionales y están identificados explícitamente como estimaciones; no se presentan como datos oficiales. Las edades, nacionalidades y roles específicos no se completan por inferencia. La auditoría posterior deberá revisar apariciones, altas/bajas, identidades, posiciones, tamaño razonable de cada plantel y reemplazar las estimaciones cuando haya evidencia individual mejor.
 
 La importación automatizada se ejecuta en el PR: valida el CSV, integra únicamente estos siete clubes en el runtime de la rama y comprueba que el resto de los planteles quede idéntico a `main`. Los otros 21 clubes de Primera C quedan fuera de esta primera tanda.
+
+
+La prueba de integración compara los clubes ajenos a Primera C contra el runtime de `main`; la lectura de ese archivo usa un buffer ampliado para permitir la comparación completa de los planteles existentes.
