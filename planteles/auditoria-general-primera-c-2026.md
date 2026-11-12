@@ -121,7 +121,7 @@ Se contrastó el plantel de 51 jugadores con las estadísticas de Primera C 2026
 - El restante es **Aarón Quijano**: disputó 14 partidos y 1.138 minutos para Ballester, pero salió a Central Córdoba de Rosario el 22/06/2026. No debe quedar en el plantel de cierre de Ballester; ya figura correctamente en el CSV de Central Córdoba.
 - **Franco Gómez** fue retirado del CSV: su perfil individual de Solo Ascenso registra cero presencias, cero titularidades y cero convocatorias en 2026.
 - **Agustín Corbalán** fue anunciado como baja en enero de 2025, pero aparece en la nómina actual de Central Ballester publicada por Solo Ascenso. Se conserva por esa evidencia de pertenencia al plantel 2026; falta confirmar si integró convocatorias.
-- Hay otros 18 nombres del CSV que no aparecen en la tabla de minutos de ZeroZero. No se eliminan automáticamente: deben cruzarse con fichas de partido y convocatorias para distinguir jugadores sin participación de suplentes no utilizados o altas del primer equipo.
+- Hay otros 19 nombres del CSV que no aparecen en la tabla de minutos de ZeroZero. No se eliminan automáticamente: deben cruzarse con fichas de partido y convocatorias para distinguir jugadores sin participación de suplentes no utilizados o altas del primer equipo.
 
 Fuentes: [estadísticas de minutos de Central Ballester (ZeroZero)](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_equipa=45605&v1=j&v2=t&v3=5), [perfil de Franco Gómez (Solo Ascenso)](https://www.soloascenso.com.ar/perfil/franco-gomez/16183), [baja de Agustín Corbalán (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-sumo-varias-desvinculaciones-en-su-equipo/211667), [salida de Aarón Quijano a Central Córdoba (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/central-ballester-tuvo-una-baja-y-tiene-un-refuerzo-al-caer/229572).
 
@@ -443,3 +443,15 @@ Fuentes: [plantel actual de Muñiz](https://www.soloascenso.com.ar/club/muniz/34
 - El total global se mantiene en **1.123 jugadores**: se quitó un jugador sin actividad y se agregó uno con participación plena. La distribución global actual queda en 101 ARQ, 305 DEF, 494 MED y 223 DEL.
 
 Fuentes adicionales: [nómina actual de Central Ballester](https://www.soloascenso.com.ar/club/central-ballester/261), [perfil 2026 de Franco Gómez](https://www.soloascenso.com.ar/perfil/franco-gomez/16183), [perfil 2026 de Néstor Acosta](https://www.soloascenso.com.ar/perfil/nestor-acosta/12874).
+
+
+### Central Ballester — cruce adicional de convocatorias
+
+- **Maximiliano Maciel se conserva**: fue citado 21 veces, ingresó en 11 partidos y fue suplente sin entrar en ocho. Su retiro anunciado el 16/10 fue posterior al cierre de la temporada, por lo que pertenece al plantel 2026.
+- **Santiago Garro se conserva**: fue presentado como refuerzo del primer equipo en febrero y aparece como suplente en convocatorias de septiembre y octubre.
+- **Nicolás Suaya se conserva**: fue presentado como refuerzo del primer equipo en enero. No registra minutos, pero sí convocatorias de suplentes no utilizados en las fichas de temporada.
+- **Jesús Monzón se conserva**: aparece en el banco de suplentes de la fecha 13.
+- **Agustín Corbalán se mantiene en revisión**: figura en la nómina actual del primer equipo, aunque todavía no se encontró una convocatoria o minuto de 2026.
+- Los demás nombres sin minutos no se eliminan por ahora: falta completar el cruce de convocatorias y fichas individuales. La regla es no retirar a un integrante del primer equipo sólo por no haber ingresado.
+
+Fuentes: [Maximiliano Maciel: 21 convocatorias, 11 ingresos y ocho partidos sin ingresar](https://www.soloascenso.com.ar/notas/central-ballester/un-referente-de-ballester-se-retiro-del-futbol-profesional/233675), [continuidad de Maciel para 2026](https://www.soloascenso.com.ar/notas/central-ballester/el-delantero-con-experiencia-que-seguira-en-ballester/223881), [presentación de Santiago Garro](https://www.soloascenso.com.ar/notas/puerto-nuevo/central-ballester-incorporo-a-otro-joven-arquero-al-plantel/225381), [presentación de Nicolás Suaya](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-presento-a-tres-jugadores-nuevos-para-el-plantel/223900), [convocatoria de la fecha 31](https://www.soloascenso.com.ar/ficha/45320), [convocatoria de la fecha 13](https://www.ceroacero.es/partido/2026-08-04-paraguayo-central-ballester/12020535).
