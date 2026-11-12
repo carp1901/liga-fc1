@@ -304,3 +304,49 @@ Fuentes: [plantel de Sportivo Barracas](https://www.soloascenso.com.ar/club/spor
 Fuentes: [plantel de Yupanqui](https://www.soloascenso.com.ar/club/yupanqui/317), [altas, bajas y renovaciones de enero](https://www.soloascenso.com.ar/notas/yupanqui/el-trapero-presento-tres-incorporaciones-y-una-renovacion/224236), [refuerzos de febrero](https://www.soloascenso.com.ar/notas/lujan/el-trapero-confirmo-la-llegada-de-seis-nuevos-refuerzos/224666), [regreso de Santino Colángelo](https://www.soloascenso.com.ar/notas/yupanqui/santino-colangelo-vuelve-a-ponerse-la-camiseta-de-yupanqui/230105), [registro de 11 partidos en 2026](https://www.soloascenso.com.ar/perfil/santino-colangelo/30359).
 
 **Resultado de esta tanda:** los cuatro planteles coinciden con sus nóminas actuales y las altas/bajas documentadas. Se confirma el regreso de Colángelo a Yupanqui y se evita sumar juveniles a Español solo por haber entrenado con Primera. No se aplicaron cambios especulativos.
+
+
+## 10. Auditoría individual — sexta tanda amplia
+
+Se revisaron Leones FC, Luján, Central Córdoba de Rosario y General Lamadrid.
+
+### Leones FC — 37 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 37 nombres del CSV.
+- Las altas de Gustavo Britos, Nicolás Giménez, Lionel Segovia y Gonzalo Gómez están incluidas.
+- No se detectó una baja adicional ni una omisión inequívoca en el cruce de la lista actual.
+- Se mantiene pendiente profundizar el historial individual de los jugadores con poca participación; la lista nominal por sí sola no alcanza para recortar el plantel.
+
+Fuente: [plantel de Leones FC](https://www.soloascenso.com.ar/club/leones-fc-rosario/1228), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Luján — 33 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 33 nombres del CSV.
+- Se verificaron las incorporaciones de Sebastián Gallo, Tobías Luna y Adrián Ocampo; los tres están incluidos.
+- Brandon Arriola se marchó a Dock Sud en junio y no aparece en el CSV.
+- Luján fue campeón de la Primera C 2026 y ascendió a Primera B para 2027. La composición del plantel de cierre queda correctamente separada de los movimientos que ocurran después de la temporada.
+- No se detecta omisión o baja nueva en este cruce.
+
+Fuentes: [plantel de Luján](https://www.soloascenso.com.ar/club/lujan/290), [llegadas de Tobías Luna y Adrián Ocampo y salida de Brandon Arriola](https://www.soloascenso.com.ar/notas/berazategui/lujan-tiene-dos-refuerzos-para-el-segundo-semestre/229549), [estadísticas de la campaña campeona](https://www.soloascenso.com.ar/notas/lujan/los-grandes-numeros-del-lujan-campeon-de-la-primera-c/233965).
+
+### Central Córdoba de Rosario — 32 cargados
+
+- Se cotejó el plantel oficial presentado en febrero (30 futbolistas) con los movimientos de mitad de temporada.
+- Las salidas de Renzo Altamura, Gino Albertengo y Brian Otero están correctamente reflejadas: los tres dejaron el club en junio.
+- Las incorporaciones de Aarón Quijano, Mirko Pfarherr, Diego Barrionuevo y Nelson Ávalos aparecen en el CSV.
+- **Leonel Fagúndez** tuvo tres participaciones y 34 minutos al inicio de la temporada, pero no figura en el CSV actual. Como su actividad fue muy limitada, queda como caso a evaluar en el criterio de plantel de cierre, no como alta automática.
+- No se retiran otros nombres en esta tanda.
+
+Fuentes: [plantel profesional presentado para 2026](https://www.soloascenso.com.ar/notas/central-cordoba-rosario/central-cordoba-y-sus-jugadores-para-competir-en-el-2026/225133), [salidas de Altamura, Albertengo y Otero](https://www.soloascenso.com.ar/notas/general-lamadrid/tres-bajas-en-la-delantera-de-central-cordoba-de-rosario/229367), [perfil y tres participaciones de Leonel Fagúndez](https://www.zerozero.pt/jogador/leonel-fagundez/2700216?epoca_id=155), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### General Lamadrid — 35 cargados
+
+- La presentación oficial de febrero confirmó 33 integrantes del plantel profesional, y la nómina actual de Solo Ascenso registra las incorporaciones y movimientos posteriores.
+- **Néstor Acosta es una omisión importante del CSV actual**: fue titular en los 33 partidos de Liga, con 2.887 minutos y 16 vallas invictas. Debe incorporarse al plantel 2026.
+- Tomás Moreno, Iván Ruíz y Breyner Mata salieron del plantel en octubre para buscar continuidad y no deben reincorporarse al cierre de temporada.
+- Darío Nami se incorporó desde El Porvenir durante el año y está correctamente incluido.
+- La incorporación de Néstor Acosta queda pendiente de integración en el CSV y runtime, para evitar una modificación parcial que deje desincronizados los datos publicados.
+
+Fuentes: [presentación del plantel profesional de 2026](https://www.soloascenso.com.ar/notas/general-lamadrid/lamadrid-presento-a-todos-sus-futbolistas-para-el-2026/225081), [perfil de Acosta: 33 partidos y 2.887 minutos](https://www.soloascenso.com.ar/perfil/nestor-acosta/12874), [confirmación de su salida recién para 2027](https://www.soloascenso.com.ar/notas/deportivo-camioneros/nestor-acosta-el-idolo-no-continuara-en-lamadrid/234243), [movimiento de Nami desde El Porvenir](https://www.soloascenso.com.ar/notas/muniz/el-porvenir-sufrio-su-primera-baja-y-ya-tiene-destino/229788).
+
+**Resultado de esta tanda:** se detectó una omisión prioritaria (Néstor Acosta en Lamadrid). La integración se deja pendiente hasta poder actualizar de manera consistente CSV y runtime; no se publica una corrección incompleta. También queda pendiente decidir si Leonel Fagúndez, con solo 34 minutos, debe formar parte del plantel de cierre de Central Córdoba.
