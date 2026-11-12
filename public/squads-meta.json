@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T02:12:50.785Z",
+  "updatedAt": "2026-11-12T04:38:17.166Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "1629 medias con fuente individual + 1825 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -2494,7 +2494,7 @@
         "https://www.footballmanagerblog.org/database/fm27/clubs/102476-arsenal-de-sarandi",
         "https://www.transfermarkt.com.ar/alexis-payes/profil/spieler/1207328"
       ],
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": [
         "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
         "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
@@ -2522,7 +2522,10 @@
         "https://www.transfermarkt.com/victor-galeano/profil/spieler/1502243",
         "https://www.soloascenso.com.ar/notas/contenido-no-editorial/se-confirmo-la-primera-baja-de-brown-de-adrogue/228995"
       ],
-      "numberSource": "https://clubatleticobrown.com/",
+      "numberSource": [
+        "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
+        "https://clubatleticobrown.com/"
+      ],
       "ratingSource": [
         "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
         "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
@@ -2555,7 +2558,7 @@
         "https://www.soloascenso.com.ar/perfil/facundo-tello/7413",
         "https://www.soloascenso.com.ar/perfil/gonzalo-figueroa/25105"
       ],
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": [
         "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
         "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
@@ -2585,7 +2588,7 @@
         "https://www.soloascenso.com.ar/perfil/maximo-gomez/30238",
         "https://www.tribuna.com/es/clubs/argentino-merlo/squad/stat/2026/primera-b-metropolitana/"
       ],
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": [
         "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
         "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
@@ -2617,7 +2620,7 @@
         "https://www.footballmanagerblog.org/database/fm27/clubs/3101496-argentino-quilmes",
         "https://www.tribuna.com/es/clubs/argentino-quilmes/squad/stat/2026/primera-b-metropolitana/"
       ],
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": [
         "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
         "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
@@ -2652,7 +2655,7 @@
         "https://www.soloascenso.com.ar/perfil/rodrigo-giorno-paredes/9407",
         "https://www.transfermarkt.es/liam-silva/profil/spieler/1517120"
       ],
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": [
         "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
         "Estimación propia: 10 partidos de Primera B 2026 + 1 Copa Argentina, 1 gol; no figura en la ficha FM27 consultada"
@@ -2675,7 +2678,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/76-comunicaciones",
       "consulted": "2026-11-10",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952702-comunicaciones-arg",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952702-comunicaciones-arg",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952702-comunicaciones-arg"
@@ -2690,7 +2693,7 @@
         "https://www.footballmanagerblog.org/database/fm27/clubs/952734-defensores-unidos",
         "https://www.tribuna.com/es/clubs/defensores-unidos/squad/stat/2026/primera-b-metropolitana/"
       ],
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": [
         "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
         "Estimación propia: participación en Primera B 2026 y perfil posicional; no se encontró ABI FM27 individual"
@@ -2712,7 +2715,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/101-sp-dock-sud",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101506-dock-sud",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101506-dock-sud",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101506-dock-sud"
@@ -2721,7 +2724,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/113-deportivo-laferrere",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952704-dep-laferrere",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952704-dep-laferrere",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952704-dep-laferrere"
@@ -2730,7 +2733,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/8383-deportivo-merlo",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/950231-dep-merlo",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/950231-dep-merlo",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/950231-dep-merlo"
@@ -2739,7 +2742,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/102-excursionistas",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952708-excursionistas",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952708-excursionistas",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952708-excursionistas"
@@ -2748,7 +2751,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/471-flandria",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101508-flandria",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101508-flandria",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101508-flandria"
@@ -2757,7 +2760,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/8386-ca-ituzaingo",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952685-ituzaingo",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952685-ituzaingo",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952685-ituzaingo"
@@ -2766,7 +2769,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/8395-liniers",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952716-liniers",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952716-liniers",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952716-liniers"
@@ -2775,7 +2778,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/300-real-pilar-futbol-club",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14188356-real-pilar",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14188356-real-pilar",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/14188356-real-pilar"
@@ -2784,7 +2787,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/108-san-martin-b",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952721-san-martin-burzaco",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952721-san-martin-burzaco",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952721-san-martin-burzaco"
@@ -2793,7 +2796,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/89-sportivo-italiano",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/102479-sp-italiano",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/102479-sp-italiano",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/102479-sp-italiano"
@@ -2802,7 +2805,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/90-talleres-re",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101518-talleres-re",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101518-talleres-re",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/3101518-talleres-re"
@@ -2811,7 +2814,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/122-uai-urquiza",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952737-uai-urquiza",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952737-uai-urquiza",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952737-uai-urquiza"
@@ -2820,7 +2823,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/481-villa-dalmine",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952724-villa-dalmine",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952724-villa-dalmine",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952724-villa-dalmine"
@@ -2829,7 +2832,7 @@
       "source": "https://www.mundoascenso.com.ar/plantel/8380-villa-san-carlos",
       "consulted": "2026-11-11",
       "ageSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos",
-      "numberSource": [],
+      "numberSource": "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado.",
       "ratingSource": "FM27 / FM Blog ABI 1-99; referencia de capacidad actual, no OVR EA",
       "roleSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos",
       "natSource": "https://www.footballmanagerblog.org/database/fm27/clubs/952755-villa-san-carlos"
@@ -3582,8 +3585,8 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 2927,
-    "missing": 527,
+    "assigned": 3454,
+    "missing": 0,
     "total": 3454,
     "byClub": {
       "sanlorenzo": {
@@ -3918,113 +3921,113 @@
       },
       "arsenal": {
         "total": 22,
-        "assigned": 0,
-        "missing": 22
+        "assigned": 22,
+        "missing": 0
       },
       "brownadrogue": {
         "total": 25,
-        "assigned": 6,
-        "missing": 19
+        "assigned": 25,
+        "missing": 0
       },
       "armenio": {
         "total": 20,
-        "assigned": 0,
-        "missing": 20
+        "assigned": 20,
+        "missing": 0
       },
       "argentinomerlo": {
         "total": 21,
-        "assigned": 0,
-        "missing": 21
+        "assigned": 21,
+        "missing": 0
       },
       "argentinoquilmes": {
         "total": 25,
-        "assigned": 0,
-        "missing": 25
+        "assigned": 25,
+        "missing": 0
       },
       "camioneros": {
         "total": 25,
-        "assigned": 0,
-        "missing": 25
+        "assigned": 25,
+        "missing": 0
       },
       "comunicaciones": {
         "total": 24,
-        "assigned": 0,
-        "missing": 24
+        "assigned": 24,
+        "missing": 0
       },
       "defensoresunidos": {
         "total": 23,
-        "assigned": 0,
-        "missing": 23
+        "assigned": 23,
+        "missing": 0
       },
       "docksud": {
         "total": 27,
-        "assigned": 0,
-        "missing": 27
+        "assigned": 27,
+        "missing": 0
       },
       "laferrere": {
         "total": 26,
-        "assigned": 0,
-        "missing": 26
+        "assigned": 26,
+        "missing": 0
       },
       "deportivomerlo": {
         "total": 27,
-        "assigned": 0,
-        "missing": 27
+        "assigned": 27,
+        "missing": 0
       },
       "excursionistas": {
         "total": 27,
-        "assigned": 0,
-        "missing": 27
+        "assigned": 27,
+        "missing": 0
       },
       "flandria": {
         "total": 26,
-        "assigned": 0,
-        "missing": 26
+        "assigned": 26,
+        "missing": 0
       },
       "ituzaingo": {
         "total": 21,
-        "assigned": 0,
-        "missing": 21
+        "assigned": 21,
+        "missing": 0
       },
       "liniers": {
         "total": 25,
-        "assigned": 0,
-        "missing": 25
+        "assigned": 25,
+        "missing": 0
       },
       "realpilar": {
         "total": 27,
-        "assigned": 0,
-        "missing": 27
+        "assigned": 27,
+        "missing": 0
       },
       "sanmartinburzaco": {
         "total": 22,
-        "assigned": 0,
-        "missing": 22
+        "assigned": 22,
+        "missing": 0
       },
       "sportivoitaliano": {
         "total": 21,
-        "assigned": 0,
-        "missing": 21
+        "assigned": 21,
+        "missing": 0
       },
       "talleresre": {
         "total": 27,
-        "assigned": 0,
-        "missing": 27
+        "assigned": 27,
+        "missing": 0
       },
       "uai": {
         "total": 24,
-        "assigned": 0,
-        "missing": 24
+        "assigned": 24,
+        "missing": 0
       },
       "villadalmine": {
         "total": 22,
-        "assigned": 0,
-        "missing": 22
+        "assigned": 22,
+        "missing": 0
       },
       "villasancarlos": {
         "total": 26,
-        "assigned": 0,
-        "missing": 26
+        "assigned": 26,
+        "missing": 0
       },
       "alvarado": {
         "total": 22,
@@ -4213,7 +4216,7 @@
       }
     }
   },
-  "dorsalsComplete": false,
+  "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3295,
     "missing": 159,
@@ -6632,7 +6635,7 @@
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 159,
-    "playersMissingDorsal": 527,
+    "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
     "estimatedRatings": 1825,
     "provisionalRatings": 0,

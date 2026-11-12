@@ -2,24 +2,12 @@
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
 function parseCSV(input){const rows=[];let row=[],value='',quoted=false;for(let i=0;i<input.length;i++){const c=input[i];if(quoted){if(c==='"'&&input[i+1]==='"'){value+='"';i++;}else if(c==='"')quoted=false;else value+=c;}else if(c==='"')quoted=true;else if(c===','){row.push(value);value='';}else if(c==='\n'){row.push(value.replace(/\r$/,''));rows.push(row);row=[];value='';}else value+=c;}if(value.length||row.length){row.push(value.replace(/\r$/,''));rows.push(row);}return rows;}
-const file='planteles/borradores/primera-b-metro-2026/completo.csv';
-const rows=parseCSV(fs.readFileSync(file,'utf8'));
-const headers=rows.shift().map(x=>x.trim().toLowerCase());
-const col=Object.fromEntries(headers.map((h,i)=>[h,i]));
-const expected={};
+const file='planteles/borradores/primera-b-metro-2026/completo.csv';const rows=parseCSV(fs.readFileSync(file,'utf8'));const headers=rows.shift().map(x=>x.trim().toLowerCase());const col=Object.fromEntries(headers.map((h,i)=>[h,i]));const expected={};
 for(const row of rows){if(!row.some(Boolean))continue;const get=k=>row[col[k]]||'';const id=get('club_id');(expected[id]||(expected[id]=[])).push({n:get('nombre'),p:get('posicion'),r:Number(get('rating')),role:get('rol'),age:Number(get('edad')),specificRole:get('rol_especifico'),number:get('dorsal')?Number(get('dorsal')):null,numberSource:get('dorsal_source')});}
-const runtime=JSON.parse(fs.readFileSync('public/squads.json','utf8'));
-const data=fs.readFileSync('public/data.js','utf8');
-let total=0;
-for(const [id,players] of Object.entries(expected)){
- assert(data.includes(id+'|'), 'Club no registrado en public/data.js: '+id);
- assert(Array.isArray(runtime[id]), 'Falta plantel runtime: '+id);
- assert.equal(runtime[id].length,players.length,'Cantidad distinta en runtime: '+id);
- const actual=new Map(runtime[id].map(p=>[p.n,p]));
- for(const player of players){const got=actual.get(player.n);assert(got,'No se importó '+player.n+' en '+id);assert.equal(got.p,player.p,'Posición distinta: '+player.n);assert.equal(got.r,player.r,'Media distinta: '+player.n);assert.equal(got.role,player.role,'Rol distinto: '+player.n);assert.equal(got.age,player.age,'Edad distinta: '+player.n);assert.equal(got.specificRole,player.specificRole,'Rol específico distinto: '+player.n);assert.equal(got.number??null,player.number,'Dorsal distinto: '+player.n);assert.equal(got.numberSource||'',player.numberSource,'Fuente de dorsal distinta: '+player.n);}
- assert.equal(new Set(runtime[id].map(p=>p.n.toLowerCase())).size,players.length,'Nombres duplicados en runtime: '+id);
- total+=players.length;
+const runtime=JSON.parse(fs.readFileSync('public/squads.json','utf8'));const data=fs.readFileSync('public/data.js','utf8');let total=0,assigned=0;
+for(const [id,players] of Object.entries(expected)){assert(data.includes(id+'|'),'Club no registrado en public/data.js: '+id);assert(Array.isArray(runtime[id]),'Falta plantel runtime: '+id);assert.equal(runtime[id].length,players.length,'Cantidad distinta en runtime: '+id);const actual=new Map(runtime[id].map(p=>[p.n,p]));const nums=new Set();
+ for(const player of players){const got=actual.get(player.n);assert(got,'No se importó '+player.n+' en '+id);assert.equal(got.p,player.p,'Posición distinta: '+player.n);assert.equal(got.r,player.r,'Media distinta: '+player.n);assert.equal(got.role,player.role,'Rol distinto: '+player.n);assert.equal(got.age,player.age,'Edad distinta: '+player.n);assert.equal(got.specificRole,player.specificRole,'Rol específico distinto: '+player.n);assert(Number.isInteger(player.number)&&player.number>=1&&player.number<=99,'CSV sin dorsal válido: '+id+'/'+player.n);assert(player.numberSource,'CSV sin fuente de dorsal: '+id+'/'+player.n);assert.equal(got.number,player.number,'Dorsal distinto: '+player.n);assert.equal(got.numberSource||'',player.numberSource,'Fuente de dorsal distinta: '+player.n);assert(!nums.has(player.number),'Dorsal duplicado en CSV: '+id+' #'+player.number);nums.add(player.number);assigned++;}
+ assert.equal(new Set(runtime[id].map(p=>p.n.toLowerCase())).size,players.length,'Nombres duplicados en runtime: '+id);assert.equal(new Set(runtime[id].map(p=>p.number)).size,players.length,'Dorsales duplicados en runtime: '+id);total+=players.length;
 }
-assert.equal(Object.keys(expected).length,22);
-assert.equal(total,533);
-const assigned=Object.values(expected).flat().filter(p=>p.number!=null).length;console.log('OK: runtime B Metro — 22 clubes, 533 jugadores, '+assigned+' dorsales verificados; CSV y squads.json coinciden.');
+assert.equal(Object.keys(expected).length,22);assert.equal(total,533);assert.equal(assigned,533);
+console.log('OK: runtime B Metro — 22 clubes, 533 jugadores, todos con dorsal y fuente, sin duplicados; CSV y squads.json coinciden.');

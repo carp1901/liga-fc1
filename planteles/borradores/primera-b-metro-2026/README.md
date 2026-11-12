@@ -39,7 +39,7 @@ Trabajo por tres tandas, con 22 clubes en total. Los CSV son fuentes editables; 
 3. Se contrasta la pertenencia al plantel y la participación 2026 con estadísticas de temporada, fichas individuales, reportes de partidos y fuentes de clubes. La columna `fuente_participacion` conserva la referencia utilizada para comprobar actividad.
 4. Cuando un jugador importante de la temporada no aparece en la ficha FM consultada, se permite una estimación propia de media, claramente etiquetada. No se presenta como dato FM.
 5. No se cargan reservas o juveniles sin participación suficiente. Los casos de cambio de club durante 2026 se conservan sólo cuando tuvieron participación comprobable con ese equipo.
-6. No se inventan dorsales ni fechas de nacimiento. Para asignar un dorsal se exige una fuente oficial y vigente del propio club que identifique expresamente el número de camiseta. Las planillas públicas de partido consultadas numeran la formación del 1 al 20 por orden de presentación; esos números no son necesariamente los dorsales reales. Tampoco se toman como confirmación las nóminas de terceros cuando contradicen al club. Si no hay respaldo oficial inequívoco, el dorsal queda vacío. Cada dorsal cargado conserva `dorsal_source`. El pie dominante se carga únicamente cuando hay una fuente individual.
+6. Se conservan los dorsales confirmados en fuentes oficiales vigentes. Por autorización expresa del usuario (12/11/2026), cuando no hay un número verificable se asigna un dorsal estimado libre y coherente con la posición y el orden del plantel; se identifica en `dorsal_source` como estimación propia y nunca se presenta como oficial. Las planillas públicas de partido que numeran la formación del 1 al 20 no se toman como dorsales reales. El pie dominante se carga únicamente cuando hay una fuente individual.
 7. Para B Metro se conserva el ABI como base (`ajuste_rating=0`). No se aplica automáticamente el +10 usado en Primera y Primera Nacional: la tercera categoría debe mantener su distancia de nivel hasta terminar la calibración.
 
 ## Estado de la tanda 1
@@ -84,14 +84,14 @@ Las medias y posiciones se tomaron de las fichas de primera plantilla FM27; la p
 
 - Tres archivos CSV, 22 clubes y **533 jugadores**.
 - Tanda 1: 185; tanda 2: 179; tanda 3: 169.
-- **6 dorsales oficiales verificados** y 527 sin dorsal confirmado; ningún dorsal duplicado dentro de un plantel.
+- **533 dorsales asignados:** 6 oficiales verificados (Brown de Adrogué) y 527 estimados por posición/orden. Cero dorsales vacíos y cero duplicados dentro de un plantel.
 - Se retiraron 65 números anteriores que provenían de listados o planillas cuya numeración correspondía al orden de la formación y no acreditaba el dorsal de camiseta.
 - La nómina oficial de Brown de Adrogué confirma: Matías Wysocki (12), Carlos Aguirre (4), Alexis Castaño (14), Braian/Brian Guerrero Ruiz (18), Matías Sproat (10) y Nicolás Meaurio (58).
-- La validación de cobertura, perfiles, edades, medias, fuentes, dorsales oficiales y duplicados se ejecuta sobre las tres tandas juntas.
+- La validación de cobertura, perfiles, edades, medias, fuentes, dorsales confirmados/estimados y duplicados se ejecuta sobre las tres tandas juntas.
 - Los CSV quedan como respaldo editable. La integración al runtime se realiza desde `completo.csv` mediante el workflow, después de validar cobertura y perfiles; se conservan los planteles de las demás divisiones.
 
 ## Auditoría de dorsales
 
 - Fuente oficial con números explícitos y temporada vigente localizada: [Club Atlético Brown de Adrogué](https://clubatleticobrown.com/).
 - Las planillas de Camioneros y otros reportes de partido muestran la numeración de la formación (titulares 1–11 y suplentes 12–20), que no coincide necesariamente con la numeración de camiseta. Ejemplo: la planilla de Brown–Camioneros presenta a Meaurio como 9 y Castaño como 8, mientras el sitio oficial de Brown publica sus camisetas como 58 y 14.
-- Por esa diferencia, se vaciaron los dorsales de terceros que no pudieron confirmarse con fuente oficial. No se rellenan campos para mejorar artificialmente la cobertura.
+- Por esa diferencia, esos números de planilla no se consideran confirmación. Los seis dorsales oficiales de Brown se conservan; los restantes se completan con estimaciones internas identificadas, sin atribuirles carácter oficial.
