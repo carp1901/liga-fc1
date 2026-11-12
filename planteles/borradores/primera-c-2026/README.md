@@ -1,6 +1,6 @@
 # Primera C 2026 — planteles reales
 
-Trabajo de recopilación por cuatro tandas. Los archivos de esta carpeta son borradores editables y no se integran al juego hasta completar los 28 clubes y pasar la auditoría conjunta.
+Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 clubes ya están integrados al runtime; la auditoría individual final sigue en curso.
 
 ## Clubes incluidos (IDs de public/data.js)
 
@@ -54,22 +54,21 @@ Trabajo de recopilación por cuatro tandas. Los archivos de esta carpeta son bor
 
 ## Estado
 
-- [x] Relevamiento nominal inicial de tanda 1: 7 clubes
-- [x] Carga preliminar de tanda 1 en runtime: 1.122 jugadores en 28 clubes
-- [ ] Auditoría general posterior a la carga: apariciones, bajas, posiciones, tamaño, edades, roles, medias y dorsales
-- [ ] Tanda 2: 7 clubes
-- [ ] Tanda 3: 7 clubes
-- [ ] Tanda 4: 7 clubes
-- [ ] Auditoría conjunta final de los 28 clubes
+- [x] Tanda 1 cargada: 310 jugadores en 7 clubes
+- [x] Tanda 2 cargada: 271 jugadores en 7 clubes
+- [x] Tanda 3 cargada: 272 jugadores en 7 clubes tras primera depuración
+- [x] Tanda 4 cargada: 269 jugadores en 7 clubes tras primera depuración
+- [x] Integración y pruebas de integridad: 1.122 jugadores en 28 clubes
+- [ ] Auditoría individual final: apariciones, bajas, posiciones, edades, roles y medias
 
-La integración deberá conservar los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No modificar la lista de equipos, el motor ni las divisiones ya completas.
+La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
 
 ## Avance 12/11/2026
 
 - La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (47) y Club Mercedes (35).
 - Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
-- Las cuatro tandas reúnen 1.122 jugadores en los 28 clubes. La carga es preliminar: medias y dorsales siguen identificados como estimaciones, y falta la auditoría general final. Las dos tandas usan medias y dorsales provisionales identificados como estimaciones, todos con dorsal estimado identificado y sin duplicados dentro de cada club. No se considera carga definitiva: edades, nacionalidades, roles específicos y medias deben revisarse en la auditoría general.
+- Las cuatro tandas reúnen 1.122 jugadores en los 28 clubes tras la primera depuración. La carga está integrada y validada; medias y dorsales siguen identificados como estimaciones. Edades, nacionalidades, pie hábil, roles específicos y medias deben revisarse en la auditoría individual final.
 
 
 ## Carga inicial — tanda 1
@@ -100,9 +99,9 @@ Central Ballester y Deportivo Español quedan señalados para revisar tamaño y 
 
 ## Carga inicial — tanda 4
 
-La cuarta tanda incorpora 7 clubes y 272 jugadores nominales: El Porvenir (44), Fénix (42), General Lamadrid (35), Leones FC (37), Luján (33), Sportivo Barracas (39) y Yupanqui (39). Con las tandas 1, 2 y 3, la categoría completa queda preparada con 1.130 jugadores en 28 clubes.
+La cuarta tanda incorporó 7 clubes y 272 jugadores nominales: El Porvenir (47 antes de depuración), Fénix (42), General Lamadrid (35), Leones FC (37), Luján (33), Sportivo Barracas (39) y Yupanqui (39). Tras la primera depuración general, El Porvenir queda con 44 y el total de la categoría con 1.122 jugadores en 28 clubes.
 
-La auditoría general final debe revisar especialmente El Porvenir (siete arqueros) y Sportivo Barracas (trece delanteros), además de las edades, posiciones específicas, apariciones, bajas y medias de los 28 planteles.
+La auditoría general final debe revisar especialmente Central Ballester (51), Juventud Unida (51), Argentino de Rosario (50), J.J. Urquiza (49) y Sportivo Barracas (trece delanteros), además de las edades, posiciones específicas, apariciones, bajas y medias de los 28 planteles.
 
 
 ## Primera depuración general — 12/11/2026
@@ -115,3 +114,6 @@ Tras revisar evidencia de participación y convocatorias, se retiraron ocho juga
 - Se mantiene a Luis Andrade en El Porvenir: disputó dos partidos y 118 minutos.
 
 El informe global de auditoría está en `auditoria-general-primera-c-2026.md`; la revisión individual de los restantes planteles sigue abierta.
+
+
+Informe general: `planteles/auditoria-general-primera-c-2026.md`.
