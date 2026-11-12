@@ -65,3 +65,26 @@ Fuente: https://www.soloascenso.com.ar/club/mercedes/438
 - Los siete clubes ya tienen una nómina de referencia publicada: Juventud Unida, Estrella del Sur, Argentino de Rosario, Victoriano Arenas, Sacachispas, Leandro N. Alem y Club Mercedes.
 - La suma nominal publicada es una base de investigación, no el total definitivo de jugadores a cargar. Se hará depuración de altas/bajas y apariciones antes de aplicar el mínimo de 22; no se completará con jugadores ficticios.
 - Los listados de temporada se usan como punto de partida, no como prueba de que todos los jugadores siguen en el plantel al cierre de temporada. Se contrastarán apariciones y fichas de partido para depurar futbolistas sin participación o con salida confirmada.
+
+
+## Auditoría preliminar de participación — corte 12/11/2026
+
+Esta sección registra evidencia de uso real en partidos, no una depuración definitiva. Una aparición en una formación o banco confirma participación/convocatoria en ese encuentro; no demuestra por sí sola continuidad al cierre de temporada. Los nombres publicados que no aparecen en la muestra consultada quedan pendientes, no descartados.
+
+### Evidencia de partidos revisados
+
+- **Juventud Unida:** en Juventud Unida 3–2 Berazategui (03/10/2026, fecha 31) aparecen como titulares Alessandro López, Franco Cardozo, Mariano Di Franco, Maximiliano Paredes, Ian Escobar, Alan Vega, Kevin Barrionuevo, Diego Cardozo, Duncan Hughes, Nahuel Aiuto y Luciano Brandán. En el banco: Agustín Burlón, Esteban Fernández, Enzo Guzmán, Federico Vega, Braian Maidana, Andrés Molinas, Alexis Albistur, Mateo Pedemonti y Enzo Arreguín. Fuente: https://www.soloascenso.com.ar/sintesis/juventud-unida-berazategui/45316
+- **Estrella del Sur:** en Estrella del Sur 1–1 Yupanqui (12/09/2026, fecha 28) figuran como titulares Valentín Díaz, Kevin Araujo, Gastón David, Gonzalo Nuñez, Santiago Gutiérrez, Guillermo Hauche, Lucas Chiapparo, Tomás Bravo, Julián Eseiza, Ciro Campuzano y Lautaro Torres. En el banco: Ezequiel Portillo, Sebastián Feletto, Gonzalo Contreras, Kevin Poblet, Nahuel Gómez, Aaron Spagna, Santiago Sardano, Lucas Vázquez y Leandro Moreira. Fuente: https://www.soloascenso.com.ar/ficha/46100
+- **Victoriano Arenas:** en Victoriano Arenas 1–0 Berazategui (22/08/2026, fecha 25) figuran como titulares Nicolás Baus, Matías Gómez, Alan Salmantón, Luciano Vargas, Matías Rodríguez, Fabián Monserrat, Leonel Duarte, Sebastián Benega, Tobías Mercado Rusch, Santiago Fernandez y Leandro Zacarías. En el banco: Santiago Benvenutti, Joaquín Grane Morrone, Emanuel Saporito, Axel Tisocco, Juan Cruz López, Nicolás Mamberti, Ramiro Rivarola, Facundo Rodríguez y Uriel Parejas. Fuente: https://www.soloascenso.com.ar/ficha/45242
+- **Sacachispas:** en Sacachispas 0–1 Victoriano Arenas (21/09/2026, fecha 29) figuran como titulares Neyder Aragón, Luis Lorenzi, Ezequiel Moschen, Gonzalo Rocaniere, Benjamín Arias, Diego Molina Fariña, Ricardo Priori, Leandro Ríos, Alejo Monje, Ernesto Gallardo y Lautaro Cardozo. En el banco: Facundo Troncoso, Uriel Sosa, Lucas Díaz, Emanuel Barreiro, Nicolás Navarro, Santiago Gallardo, Lautaro Torres, Tomás Magnano y Facundo Durso. Fuente: https://www.soloascenso.com.ar/ficha/45283
+- **Club Mercedes:** en Deportivo Paraguayo 1–1 Mercedes (05/10/2026, fecha 31) figuran como titulares Kevin Semeniuk, Emanuel Murillo, Hernán Pineda, Román López, Rodrigo Torres, Franco Ortigosa, Tomás Chaparro, Leandro Amado, Francisco Ruiz, Lisandro Sánchez Olmos y Juan Cruz Vera Borda. En el banco: Rodrigo Nicasio, Martín Zuccaro, Thomas Bentancor, Juan Román López, Juan Culio, Máximo Chan, Dante Díaz, Arturo Mendoza y Mateo Blanco. Fuente: https://www.soloascenso.com.ar/ficha/45317
+- **Argentino de Rosario:** la tabla de goleadores de la temporada incluye a Dago Sánchez Palencia (3) y Facundo Aronna (2), ausentes de la nómina nominal inicial de 50 nombres. No se los agrega todavía: hay que confirmar su identidad, puesto, pertenencia al club y si corresponde al plantel 2026 antes de crear registros. Fuente: https://www.soloascenso.com.ar/club/argentino-de-rosario/243
+- **Leandro N. Alem:** la consulta de resultados confirma que terminó 14.º en Zona A con 31 puntos y que disputó su último partido el 12/10/2026 ante Victoriano Arenas. La fuente consultada no aportó todavía una ficha de formación utilizable para cruzar los 47 nombres; no se descarta a nadie por falta de evidencia en esta muestra. Fuente: https://www.mundoascenso.com.ar/club/125-ln-alem
+
+### Criterio de depuración aplicado
+
+1. Priorizar titulares, suplentes y cambios documentados en fichas de partido 2026.
+2. Mantener como pendientes los nombres que solo aparecen en la nómina general, hasta encontrar participación, alta confirmada u otra evidencia fiable.
+3. Investigar por separado goleadores/participantes ausentes de la lista nominal; no crear jugadores por coincidencia parcial de nombre.
+4. Revisar bajas y préstamos confirmados antes de decidir el plantel de cierre de temporada.
+5. No reducir planteles solo para alcanzar una cifra arbitraria: el objetivo sigue siendo conservar los jugadores reales relevantes, con al menos 22 por club cuando la evidencia lo permita, sin sobrepoblar con reservas sin participación.
