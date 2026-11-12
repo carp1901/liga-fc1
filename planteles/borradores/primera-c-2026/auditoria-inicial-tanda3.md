@@ -9,12 +9,12 @@ Estado: tercera tanda preparada para integrar; auditoría individual completa pe
 |---|---:|---:|---:|---:|---:|
 | Atlas | 42 | 4 | 12 | 21 | 5 |
 | Cañuelas | 31 | 3 | 7 | 15 | 6 |
-| Central Ballester | 56 | 8 | 17 | 18 | 13 |
+| Central Ballester | 51 | 4 | 17 | 17 | 13 |
 | Central Córdoba (Rosario) | 32 | 4 | 9 | 17 | 2 |
 | Claypole | 39 | 3 | 7 | 22 | 7 |
 | Deportivo Español | 39 | 5 | 10 | 16 | 8 |
 | Muñiz | 38 | 4 | 12 | 14 | 8 |
-| **Total** | **277** | **31** | **74** | **123** | **49** |
+| **Total actual** | **272** | **27** | **74** | **122** | **49** |
 
 Con las tandas 1 y 2, esta carga deja un total de **858 jugadores en 21 clubes**. La nómina de Cañuelas contiene una doble clasificación de Santino Sapio (DEF/MED); se carga una sola vez, como DEF, con MED como posición secundaria.
 
@@ -53,3 +53,8 @@ Fuentes principales: [Federico Vega — Juventud](https://www.soloascenso.com.ar
 2. Revisar las alertas de Central Ballester, Deportivo Español y Central Córdoba.
 3. Completar edades, pie hábil, nacionalidades, roles específicos y medias con fuentes individuales.
 4. Completar la tanda 4 y después realizar la auditoría conjunta de los 28 clubes.
+
+
+### Corrección posterior de Central Ballester
+
+La tabla anterior refleja el estado después de retirar cinco jugadores de Central Ballester: Lucas Contreras, Ramón Francois, Franco Gerez, Federico Vega y Alexis Oviedo. El club queda con 51 jugadores, cuatro arqueros y 17 mediocampistas. Se mantienen Nehuén Viñas, Santino Gutiérrez, Nicolás Suaya y Santiago Garro como arqueros del primer equipo; los dos últimos fueron fichados oficialmente y tuvieron convocatorias, aunque no minutos.

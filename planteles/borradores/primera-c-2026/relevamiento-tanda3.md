@@ -77,3 +77,13 @@ Fuente: https://www.soloascenso.com.ar/club/muniz/346
 - **Rodrigo Ortiz / Rodrigo Ortíz:** Deportivo Paraguayo incorporó en julio al delantero Rodrigo Ortiz, de 25 años, con pasado en Central Ballester; Claypole tiene al mediocampista Rodrigo Benjamín Ortíz, de 25 años. Son jugadores distintos. Fuentes: https://www.soloascenso.com.ar/notas/central-cordoba-rosario/paraguayo-tiene-una-nueva-incorporacion-para-el-ataque/230131 y https://www.soloascenso.com.ar/perfil/rodrigo-ortiz/22791
 - **Alexis Oviedo:** Central Ballester tiene a Alexis Gabriel Oviedo, de 19 años, mediocampista; Muñiz tiene a Alexis Patricio Oviedo, de 23 años, delantero. Son jugadores distintos. Fuentes: https://www.soloascenso.com.ar/perfil/alexis-oviedo/32256 y https://www.transfermarkt.com.ar/alexis-oviedo/profil/spieler/668952
 - Los homónimos **Lautaro Torres** y **Rodrigo Soria** ya quedaron diferenciados en las auditorías de las tandas 1 y 2.
+
+
+### Depuración de primera pasada — 12/11/2026
+
+Se retiraron del plantel de juego cinco nombres de Central Ballester:
+- **Federico Vega:** cero presencias de primer equipo en 2026; no figura en la nómina de cuatro arqueros de ZeroZero.
+- **Alexis Oviedo:** cuatro convocatorias como suplente sin ingresar; se excluye por no registrar minutos.
+- **Lucas Contreras, Ramón Francois y Franco Gerez:** no se encontró evidencia de convocatoria ni participación en el primer equipo 2026; no aparecen en la nómina de cuatro arqueros del primer equipo consultada. Se excluyen del runtime, manteniendo el registro de la nómina original en esta auditoría.
+
+Se conservan **Nehuén Viñas, Santino Gutiérrez, Nicolás Suaya y Santiago Garro**: Viñas tuvo continuidad; Gutiérrez fue parte de la rotación; Suaya y Garro fueron incorporaciones anunciadas para el primer equipo y figuran en convocatorias, aunque no sumaron minutos. Fuentes: https://www.zerozero.com.ve/equipo/central-ballester/45605?epoca_id=155 ; https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-presento-a-tres-jugadores-nuevos-para-el-plantel/223900 ; https://www.soloascenso.com.ar/notas/central-ballester/central-ballester-incorporo-a-otro-joven-arquero-al-plantel/225381 ; https://www.soloascenso.com.ar/perfil/federico-vega/31290 ; https://www.soloascenso.com.ar/perfil/alexis-oviedo/32256

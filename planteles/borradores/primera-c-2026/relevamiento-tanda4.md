@@ -76,3 +76,13 @@ Fuente: https://www.soloascenso.com.ar/club/yupanqui/317
 - **Gonzalo Medina:** Leandro N. Alem tiene a Gonzalo Medina, de 22 años, con dos partidos y 47 minutos; Fénix tiene a Gonzalo David Medina, de 21 años, con una convocatoria sin ingresar. Son dos jugadores distintos. Fuentes: https://www.ceroacero.com.co/jugador/gonzalo-medina/3542176?epoca_id=155 y https://www.soloascenso.com.ar/perfil/gonzalo-medina/30199
 - **Gonzalo Ramírez:** Leandro N. Alem tiene a Gonzalo Gabriel Ramírez, defensor de 26 años; Luján tiene a Gonzalo Ramírez, delantero de 22 años. Son distintos. Fuentes: https://www.soloascenso.com.ar/perfil/gonzalo-ramirez/26449 y https://www.soloascenso.com.ar/ficha/43050
 - **Santiago Díaz:** Cambaceres tiene a Santiago Nahuel Díaz, defensor de 26 años; Luján tiene a Santiago Díaz, mediocampista de 21 años, con una presencia en 2026. Son distintos. Fuentes: https://www.transfermarkt.com.ar/santiago-diaz/profil/spieler/1237746 y https://www.soloascenso.com.ar/ficha/45096
+
+
+### Depuración de primera pasada — 12/11/2026
+
+Se retiraron tres arqueros de El Porvenir:
+- **Cristian Arce:** su perfil registra cero presencias en 2026.
+- **Facundo Arcas:** no se encontró participación ni convocatoria de primer equipo en 2026; su actividad documentada corresponde a temporadas anteriores.
+- **Tomás Guzmán:** no se encontró participación en el primer equipo; sus apariciones localizadas corresponden a encuentros de reserva.
+
+Se mantienen **Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade**. Andrade tiene dos partidos y 118 minutos en Primera C; Freire, Guzmán y Juárez aparecen en formaciones confirmadas durante la segunda rueda. Fuentes: https://www.soloascenso.com.ar/perfil/cristian-arce/24105 ; https://www.ceroacero.com.co/jugador/luis-andrade/848249?epoca_id=155 ; https://www.soloascenso.com.ar/ficha/45321 ; https://www.soloascenso.com.ar/ficha/45292 ; https://www.soloascenso.com.ar/ficha/45263
