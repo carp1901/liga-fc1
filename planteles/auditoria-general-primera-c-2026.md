@@ -167,3 +167,47 @@ Fuentes: [altas iniciales de enero](https://www.soloascenso.com.ar/notas/argenti
 Fuentes: [J.J. Urquiza vs Juventud Unida, fecha 27](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html), [J.J. Urquiza vs Alem, fecha 30](https://jjurquiza.com.ar/NotasPrimera/Nota4127.html), [bajas anunciadas en enero](https://www.soloascenso.com.ar/notas/jj-urquiza/jj-urquiza-inicia-2026-con-cinco-bajas-en-su-plantel/223387).
 
 **Resultado de esta tanda:** se confirmaron dos salidas ya correctamente reflejadas en Juventud Unida y tres salidas de Argentino que no deben reintroducirse. Se detectó un jugador convocado que falta en Sacachispas (Valentín Mancuso). No se hicieron recortes especulativos ni cambios de runtime: la próxima pasada debe resolver esa incorporación y terminar el cruce individual de los planteles que siguen por encima de 40 jugadores.
+
+
+## 7. Auditoría individual — tercera tanda amplia
+
+Se revisaron Leandro N. Alem, Atlético Lugano, El Porvenir y Estrella del Sur. El cruce se hizo sobre las nóminas de los CSV y movimientos/convocatorias de 2026.
+
+### Leandro N. Alem — 46 cargados
+
+- Las fichas de agosto y octubre confirman el núcleo utilizado: Lucas Rodríguez, Claudio Curima, Leandro Cantón, Iván Gauna, Cristian Seltzer, Ezequiel Abal, Matías Medina, Alan Cristeff, Brian Risso Patrón, Lautaro Segovia y Diego Pertossi aparecen en la temporada.
+- Ignacio y Tomás Buenrostro habían sido anunciados como bajas antes del inicio de 2026 y no están en el CSV.
+- Gonzalo Mendiburu se conserva: su participación sostenida durante 2026 prevalece sobre cualquier anuncio de salida posterior.
+- El plantel de 46 sigue siendo demasiado grande para darlo por definitivo. No se recorta a los demás jugadores sin cruzar sus presencias y convocatorias.
+
+Fuentes: [Alem vs Puerto Nuevo, fecha 26](https://www.soloascenso.com.ar/ficha/45260), [Alem vs Centro Español, fecha 31](https://www.soloascenso.com.ar/ficha/45313), [salidas de Ignacio y Tomás Buenrostro](https://www.soloascenso.com.ar/notas/villa-san-carlos/los-jugadores-de-alem-que-jugaran-en-la-primera-nacional/222698).
+
+### Atlético Lugano — 45 cargados
+
+- La nómina de Solo Ascenso coincide en sus nombres principales con el CSV.
+- Se verificaron las cuatro incorporaciones de la temporada que figuran en el mercado: Ignacio Gallo, Denzel Giménez, Leonel Ovejero y Matías Benardoni. Los cuatro están incluidos.
+- Pablo Quiroga también permanece correctamente: su pase desde El Porvenir a Lugano está registrado en el mercado de pases.
+- No encontré una baja documentada que permita quitar a otro integrante del CSV. La cantidad de 45 requiere una pasada de participación individual antes de reducirse.
+
+Fuentes: [plantel de Atlético Lugano](https://www.soloascenso.com.ar/club/lugano/289), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### El Porvenir — 44 cargados
+
+- Se contrastaron las convocatorias de agosto, septiembre y octubre. Aparecen de forma reiterada Sergio Juárez, Kevin Romero, Julián Quinteros, Javier Peralta Salinas, Esteban Ayala, Franco Ávalos, Leonel Bolig, Jeremías Arrieta, Leandro Villagra, Hernán Rodríguez, Ulises Macías, Luis Pérez Díaz y Nicolás De Benedetti.
+- **Darío Nami no está en el CSV**, correctamente: salió a General Lamadrid el 28/06 después de disputar 16 partidos y marcar cuatro goles con El Porvenir.
+- El mercado de enero documentó 11 altas y 12 bajas; los nombres que dejaron el club antes del inicio no deben reincorporarse solo por aparecer en planteles históricos.
+- No se retiran más jugadores todavía. El tamaño de 44 exige revisar especialmente los nombres que no aparecen en las convocatorias del segundo semestre.
+
+Fuentes: [mercado de altas y bajas de enero](https://www.soloascenso.com.ar/notas/el-porvenir/el-porvenir-sacude-el-mercado-refuerzos-y-salidas-definidas/224370), [salida de Darío Nami](https://www.soloascenso.com.ar/notas/muniz/el-porvenir-sufrio-su-primera-baja-y-ya-tiene-destino/229788), [El Porvenir vs Claypole, fecha 26](https://www.soloascenso.com.ar/ficha/45263), [El Porvenir vs Cañuelas, fecha 31](https://www.soloascenso.com.ar/ficha/45321).
+
+### Estrella del Sur — 42 cargados
+
+- Las convocatorias de septiembre confirman a Valentín Díaz, Ramiro López, Gastón David, Gonzalo Núñez, Dilan Maidana, Aaron Spagna, Lucas Chiapparo, Tomás Bravo, Julián Eseiza, Ciro Campuzano, Lautaro Torres, Lucas Vázquez y Leandro Moreira.
+- Las incorporaciones de Valentín Díaz, Santiago Gutiérrez y Ramiro López fueron anunciadas en febrero; las tres están contempladas en el CSV.
+- Lautaro Torres y Leandro Moreira llegaron durante el año y también están incluidos.
+- Benjamín Gutiérrez e Iván Caravaca fueron bajas y no aparecen en el CSV actual, correctamente.
+- No se aplican recortes por la diferencia entre la lista de plantel y las convocatorias: falta cruzar la nómina completa y separar suplentes habituales de nombres sin actividad.
+
+Fuentes: [altas de febrero](https://www.soloascenso.com.ar/notas/afa/estrella-del-sur-sumo-tres-refuerzos-para-su-plantel/224620), [Estrella del Sur vs Yupanqui, fecha 28](https://www.soloascenso.com.ar/ficha/46100), [Estrella del Sur vs Argentino de Rosario, fecha 30](https://www.soloascenso.com.ar/ficha/45303), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+**Resultado de esta tanda:** se confirmaron como correctas las bajas ya reflejadas de los cuatro clubes (Buenrostro, Nami, y las bajas de Estrella), así como las incorporaciones de Lugano y Estrella. No se encontró evidencia suficientemente concluyente para retirar más jugadores. Los cuatro planteles siguen en revisión individual por su tamaño.
