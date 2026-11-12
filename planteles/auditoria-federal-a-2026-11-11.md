@@ -98,7 +98,7 @@ PR: https://github.com/carp1901/liga-fc1/pull/63
 
 ## Calidad y datos no verificados
 - Las medias nuevas sin CA individual verificable se identifican como estimaciones propias; no se presentan como valores oficiales de Football Manager.
-- No se inventaron dorsales en estas dos tandas.
+- Durante las tandas de ampliación no se asignaron dorsales; la asignación se realizó en una etapa separada, después de cerrar la revisión nominal de planteles.
 - Edad y nacionalidad quedan vacías cuando no se encontró una fuente individual fiable; la ausencia de nacionalidad está justificada en `nat_source`.
 - No se inventaron participaciones ni minutos. Sólo se registran cuando existe evidencia de partidos.
 
@@ -106,4 +106,13 @@ PR: https://github.com/carp1901/liga-fc1/pull/63
 - Las cuatro validaciones de tandas, los cuatro dry-runs de importación, las cuatro importaciones y la prueba integral del runtime terminaron correctamente en ambas tandas.
 - El runtime se generó desde los cuatro CSV y el test comprobó los 37 clubes, sus cantidades y la correspondencia CSV/runtime.
 - La siguiente revisión es nominal: Gimnasia (Concepción del Uruguay) y Villa Mitre (32 cada uno), Sportivo Las Parejas y Kimberley (30 cada uno). Sólo se retirarán jugadores si se confirma que son reservas sin participación relevante o registros incorrectos.
-- Después de cerrar la auditoría de sobrepoblación se abordarán los dorsales.
+- La revisión de los cuatro planteles de 30–32 jugadores no detectó motivos suficientes para retirar futbolistas; se conservaron.
+- Se completó la asignación de dorsales para los 883 jugadores: 10 confirmados en una planilla de partido 2026 y 873 estimados por posición/orden de plantel. Ningún dorsal queda vacío y no hay números repetidos dentro de un club.
+
+
+## Asignación de dorsales — 11/11/2026
+- 883 jugadores de 37 clubes con dorsal asignado.
+- 10 dorsales confirmados en la planilla de Sportivo Las Parejas vs. Gimnasia Concepción del 19/09/2026: https://gamesare.live/match/1606507.
+- 873 dorsales estimados cuando no se encontró evidencia individual fiable. Cada registro identifica la estimación en `dorsal_source`; no se presentan como números oficiales.
+- Se aplicaron rangos coherentes por posición y se validó que cada jugador tenga un número entero entre 1 y 99, que no existan dorsales repetidos dentro del mismo club y que el runtime conserve el número y su fuente.
+- `test-federal-a-runtime.js` ahora comprueba ausencia de dorsales vacíos, duplicados y diferencias entre CSV y runtime.
