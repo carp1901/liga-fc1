@@ -15,8 +15,8 @@ const rows=parsed.flat();const col=Object.fromEntries(headers.map((h,i)=>[h,i]))
 const expected={
  juventudunida:51,estrelladelsur:42,argentinorosario:50,victorianoarenas:37,sacachispas:50,alem:46,mercedes:35,
  berazategui:38,paraguayo:42,cambaceres:35,puertonuevo:33,centroespanol:29,jjurquiza:49,lugano:45,
- atlas:42,canuelas:31,centralballester:51,centralcordobarosario:32,claypole:39,espanol:39,muniz:38,
- porvenir:44,fenix:42,lamadrid:35,leones:37,lujan:33,sportivobarracas:39,yupanqui:39
+ atlas:42,canuelas:31,centralballester:50,centralcordobarosario:32,claypole:39,espanol:39,muniz:38,
+ porvenir:44,fenix:42,lamadrid:36,leones:37,lujan:33,sportivobarracas:39,yupanqui:39
 };
 const allowed=new Set(Object.keys(expected)),names=new Set(),numbers=new Set(),totalByClub={};let total=0;
 const normalizedName=s=>Array.from(s.normalize('NFD')).filter(ch=>{const n=ch.charCodeAt(0);return n<768||n>879;}).join('').toLowerCase();
@@ -49,6 +49,8 @@ pair('santiago diaz',['cambaceres|DEF','lujan|MED']);
 const sapio=rows.filter(row=>row[col.nombre]==='Santino Sapio');assert.equal(sapio.length,1);assert.equal(sapio[0][col.posiciones_secundarias],'MED');
 const matias=rows.find(row=>row[col.club_id]==='sacachispas'&&row[col.nombre]==='Matías Arias');assert(matias,'Falta Matías Arias, con 16 partidos y 1.306 minutos');assert.equal(matias[col.posicion],'MED');assert.equal(Number(matias[col.edad]),25);assert.equal(Number(matias[col.dorsal]),51);
 assert(rows.some(row=>row[col.club_id]==='cambaceres'&&row[col.nombre]==='Víctor Gómez'),'Falta Víctor Gómez, confirmado por perfil individual en Cambaceres');
+assert(rows.some(row=>row[col.club_id]==='lamadrid'&&row[col.nombre]==='Néstor Acosta'),'Falta Néstor Acosta, titular en los 33 partidos de Lamadrid');
+assert(!rows.some(row=>row[col.club_id]==='centralballester'&&row[col.nombre]==='Franco Gómez'),'Franco Gómez no tuvo presencias ni convocatorias de primer equipo en 2026');
 if(process.argv.includes('--runtime')){
  const runtime=JSON.parse(fs.readFileSync('public/squads.json','utf8'));const meta=JSON.parse(fs.readFileSync('public/squads-meta.json','utf8'));const data=fs.readFileSync('public/data.js','utf8');
  for(const [id,count] of Object.entries(expected)){
@@ -63,4 +65,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 1.130 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 1.123 jugadores, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 1.123 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 1.123 jugadores, sin duplicados internos ni dorsales repetidos.');
