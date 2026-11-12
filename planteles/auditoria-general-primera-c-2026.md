@@ -211,3 +211,49 @@ Fuentes: [mercado de altas y bajas de enero](https://www.soloascenso.com.ar/nota
 Fuentes: [altas de febrero](https://www.soloascenso.com.ar/notas/afa/estrella-del-sur-sumo-tres-refuerzos-para-su-plantel/224620), [Estrella del Sur vs Yupanqui, fecha 28](https://www.soloascenso.com.ar/ficha/46100), [Estrella del Sur vs Argentino de Rosario, fecha 30](https://www.soloascenso.com.ar/ficha/45303), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
 **Resultado de esta tanda:** se confirmaron como correctas las bajas ya reflejadas de los cuatro clubes (Buenrostro, Nami, y las bajas de Estrella), así como las incorporaciones de Lugano y Estrella. No se encontró evidencia suficientemente concluyente para retirar más jugadores. Los cuatro planteles siguen en revisión individual por su tamaño.
+
+
+## 8. Auditoría individual — cuarta tanda amplia
+
+Se revisaron Victoriano Arenas, Deportivo Paraguayo, Atlas y Fénix. En esta tanda hubo buen cruce entre los listados de plantel de Solo Ascenso y los CSV.
+
+### Victoriano Arenas — 37 cargados
+
+- La nómina de Solo Ascenso coincide con los 37 jugadores del CSV.
+- Se verificaron como incorporaciones de 2026 a Julián García, Sebastián De Luca y Matías Rodríguez, todos incluidos.
+- Jeremías Denis y Matías Billordo, anunciados como bajas antes de 2026, no aparecen en el CSV.
+- La convocatoria de la fecha 30 confirma a Julián García, Sebastián De Luca, Matías Gómez, Alan Salmantón, Emanuel Saporito, Fabián Monserrat, Leonel Duarte, Matías Sosa, Santiago Soria, Isaías González y Ramiro Rivarola, todos incluidos.
+- No se detectó una omisión ni una baja nueva para aplicar.
+
+Fuentes: [plantel de Victoriano Arenas](https://www.soloascenso.com.ar/club/victoriano-arenas/314), [bajas y refuerzos de diciembre](https://www.soloascenso.com.ar/notas/victoriano-arenas/el-cava-tiene-dos-bajas-confirmadas-para-el-2026/223243), [Victoriano vs Juventud Unida, fecha 30](https://www.soloascenso.com.ar/sintesis/boca-juniors-racing-club/45301).
+
+### Deportivo Paraguayo — 42 cargados
+
+- La nómina de Solo Ascenso coincide con los 42 jugadores del CSV.
+- Se verificó la salida previa al torneo de Rodrigo Dinocco, Diego Zumbo y Ezequiel Abal; no aparecen en el CSV de Paraguayo.
+- Ian Lynch y Rodrigo Ortiz se incorporaron durante 2026 y sí están incluidos. Lynch llegó desde Lamadrid a mitad de año; Ortiz regresó en julio.
+- Diego Fassi y Ramiro Oliverio sufrieron lesiones importantes durante la temporada, pero permanecen como integrantes del plantel: una lesión de larga duración no equivale a una desvinculación.
+- No se detectó una omisión o una baja adicional para aplicar.
+
+Fuentes: [plantel de Deportivo Paraguayo](https://www.soloascenso.com.ar/club/deportivo-paraguayo/268), [bajas de diciembre](https://www.soloascenso.com.ar/notas/deportivo-paraguayo/se-dieron-a-conocer-las-primeras-salidas-en-paraguayo/222920), [llegada de Ian Lynch y Rodrigo Ortiz](https://www.soloascenso.com.ar/notas/claypole/paraguayo-tiene-una-nueva-incorporacion-para-el-ataque/230131), [lesiones de Fassi y Oliverio](https://www.soloascenso.com.ar/notas/deportivo-paraguayo/paraguayo-tendra-un-duelo-crucial-con-argentino-de-rosario/230866), [convocatoria previa a la fecha 30](https://www.soloascenso.com.ar/notas/estrella-del-sur-alejandro-korn/paraguayo-juega-en-su-casa-frente-a-uno-de-los-escoltas/233008).
+
+### Atlas — 42 cargados
+
+- La nómina de Solo Ascenso coincide con los 42 jugadores del CSV.
+- Se contrastaron las incorporaciones anunciadas en febrero: los nombres del listado de altas están representados en el CSV.
+- Los jugadores que el mercado registra como bajas hacia Control Orientado, Leones FC y Lugano no deben reincorporarse al plantel de Atlas.
+- No se detectó una omisión ni una baja nueva para aplicar. El número de 42 sigue siendo alto, pero no hay evidencia suficiente para recortar nombres de la lista vigente sin revisar participaciones individuales.
+
+Fuentes: [plantel de Atlas](https://www.soloascenso.com.ar/club/atlas/247), [refuerzos presentados en febrero](https://www.soloascenso.com.ar/notas/atlas/el-marron-presento-oficialmente-a-sus-nuevos-jugadores/224589), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Fénix — 42 cargados
+
+- La nómina de Solo Ascenso coincide con los 42 jugadores del CSV.
+- Se revisó el extenso recambio previo al inicio de 2026: las bajas de Ramiro Cordero, Juan Martín Chiarantano, Ramiro Gómez, Kevin Lugo, Ignacio Rojas, Fabián Díaz, Dante Silva, Santiago Auteri, Carlos Giménez, Ignacio Ahumada, Eduardo Sánchez y otros nombres del plantel anterior no fueron reintroducidas en el CSV.
+- Se verificaron las altas de Damián Pérez Roa, Diego Zumbo, Facundo Gómez, Nahuel Ortigoza, Emir Ham, Nicolás Velazco, Marcos Jara, Lucas Rancic, Augusto Ghiglione, Mariano Mittelman, Santiago Erviti, Bautista Álvarez y otras incorporaciones: están representadas en la nómina actual.
+- Jeremías Mayor se conserva porque su continuidad fue confirmada pese a que inicialmente se lo había mencionado entre las posibles salidas.
+- No se detectó una omisión ni una baja adicional para aplicar.
+
+Fuentes: [plantel de Fénix](https://www.soloascenso.com.ar/club/fenix/274), [once bajas confirmadas en enero](https://www.soloascenso.com.ar/notas/fenix/malas-noticias-en-fenix-se-confirmaron-once-bajas/224238), [refuerzos de enero](https://www.soloascenso.com.ar/notas/afa/dos-nuevos-refuerzos-se-sumaron-al-plantel-de-fenix/224442), [altas de febrero](https://www.soloascenso.com.ar/notas/afa/fenix-presento-cuatro-nuevos-refuerzos-para-la-primera-c/223460).
+
+**Resultado de esta tanda:** los cuatro CSV coinciden con las nóminas de plantel consultadas y reflejan las altas y bajas relevantes del mercado. No se modificaron jugadores: la auditoría no consiste en reducir planteles arbitrariamente, sino en asegurar que cada nombre tenga respaldo y pertenezca al plantel de 2026.
