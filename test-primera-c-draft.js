@@ -9,7 +9,7 @@ for(let i=1;i<parsed.length;i++)assert.deepEqual(parsed[i].shift().map(x=>x.trim
 const rows=parsed.flat();const col=Object.fromEntries(headers.map((h,i)=>[h,i]));
 const expected={juventudunida:51,estrelladelsur:42,argentinorosario:50,victorianoarenas:37,sacachispas:49,alem:46,mercedes:35,berazategui:38,paraguayo:42,cambaceres:35,puertonuevo:33,centroespanol:29,jjurquiza:49,lugano:45};
 const allowed=new Set(Object.keys(expected)),names=new Set(),numbers=new Set(),totalByClub={};let total=0;
-const normalizedName=s=>s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();
+const normalizedName=s=>Array.from(s.normalize('NFD')).filter(ch=>{const n=ch.charCodeAt(0);return n<768||n>879;}).join('').toLowerCase();
 const crossNames=new Map();
 for(const [i,row] of rows.entries()){
  if(!row.some(x=>x.trim()))continue;const get=k=>row[col[k]]||'';const club=get('club_id'),name=get('nombre'),pos=get('posicion'),rating=Number(get('rating')),dorsal=Number(get('dorsal'));
