@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T21:36:07.874Z",
+  "updatedAt": "2026-11-12T23:30:56.433Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "1629 medias con fuente individual + 2948 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -145,14 +145,14 @@
     "lugano": 45,
     "atlas": 42,
     "canuelas": 31,
-    "centralballester": 51,
+    "centralballester": 50,
     "centralcordobarosario": 32,
     "claypole": 39,
     "espanol": 39,
     "muniz": 38,
     "porvenir": 44,
     "fenix": 42,
-    "lamadrid": 35,
+    "lamadrid": 36,
     "leones": 37,
     "lujan": 33,
     "sportivobarracas": 39,
@@ -3821,12 +3821,18 @@
       "natSource": []
     },
     "lamadrid": {
-      "source": "https://www.soloascenso.com.ar/club/gral-lamadrid/278",
+      "source": [
+        "https://www.soloascenso.com.ar/perfil/nestor-acosta/12874",
+        "https://www.soloascenso.com.ar/club/gral-lamadrid/278"
+      ],
       "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ageSource": "https://www.soloascenso.com.ar/perfil/nestor-acosta/12874",
+      "numberSource": [
+        "Dorsal estimado para Néstor Acosta; 31 libre en el plantel, no confirmado oficialmente.",
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.soloascenso.com.ar/perfil/nestor-acosta/12874",
       "natSource": []
     },
     "leones": {
@@ -4581,8 +4587,8 @@
         "missing": 0
       },
       "centralballester": {
-        "total": 51,
-        "assigned": 51,
+        "total": 50,
+        "assigned": 50,
         "missing": 0
       },
       "centralcordobarosario": {
@@ -4616,8 +4622,8 @@
         "missing": 0
       },
       "lamadrid": {
-        "total": 35,
-        "assigned": 35,
+        "total": 36,
+        "assigned": 36,
         "missing": 0
       },
       "leones": {
@@ -4644,8 +4650,8 @@
   },
   "dorsalsComplete": true,
   "ageCoverage": {
-    "assigned": 3296,
-    "missing": 1281,
+    "assigned": 3297,
+    "missing": 1280,
     "birthDates": 2075,
     "total": 4577,
     "byClub": {
@@ -5355,9 +5361,9 @@
         "missing": 31
       },
       "centralballester": {
-        "total": 51,
+        "total": 50,
         "assigned": 0,
-        "missing": 51
+        "missing": 50
       },
       "centralcordobarosario": {
         "total": 32,
@@ -5390,8 +5396,8 @@
         "missing": 42
       },
       "lamadrid": {
-        "total": 35,
-        "assigned": 0,
+        "total": 36,
+        "assigned": 1,
         "missing": 35
       },
       "leones": {
@@ -5986,7 +5992,7 @@
         "assigned": 0
       },
       "centralballester": {
-        "total": 51,
+        "total": 50,
         "assigned": 0
       },
       "centralcordobarosario": {
@@ -6014,7 +6020,7 @@
         "assigned": 0
       },
       "lamadrid": {
-        "total": 35,
+        "total": 36,
         "assigned": 0
       },
       "leones": {
@@ -6605,7 +6611,7 @@
         "specific": 0
       },
       "centralballester": {
-        "total": 51,
+        "total": 50,
         "specific": 0
       },
       "centralcordobarosario": {
@@ -6633,7 +6639,7 @@
         "specific": 0
       },
       "lamadrid": {
-        "total": 35,
+        "total": 36,
         "specific": 0
       },
       "leones": {
@@ -7507,9 +7513,9 @@
         "provisional": 0
       },
       "centralballester": {
-        "total": 51,
+        "total": 50,
         "verified": 0,
-        "estimated": 51,
+        "estimated": 50,
         "provisional": 0
       },
       "centralcordobarosario": {
@@ -7549,9 +7555,9 @@
         "provisional": 0
       },
       "lamadrid": {
-        "total": 35,
+        "total": 36,
         "verified": 0,
-        "estimated": 35,
+        "estimated": 36,
         "provisional": 0
       },
       "leones": {
@@ -7592,7 +7598,7 @@
     "players": 4577,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1281,
+    "playersMissingAge": 1280,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
     "estimatedRatings": 2948,
