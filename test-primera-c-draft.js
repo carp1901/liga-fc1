@@ -24,7 +24,7 @@ for(const [i,row] of rows.entries()){
  totalByClub[club]=(totalByClub[club]||0)+1;const nk=club+'|'+dorsal;assert(!numbers.has(nk),'Dorsal duplicado: '+nk);numbers.add(nk);total++;
  if(!crossNames.has(normalizedName(name)))crossNames.set(normalizedName(name),[]);crossNames.get(normalizedName(name)).push({club,pos,name});
 }
-assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las dos tandas');assert.equal(total,858,'Total nominal inesperado');
+assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las tres tandas');assert.equal(total,858,'Total nominal inesperado');
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
 assert.deepEqual(collisions,['alexis oviedo','federico vega','lautaro torres','rodrigo ortiz','rodrigo soria'],'Apareció un homónimo entre clubes no auditado');
 const rt=crossNames.get('rodrigo soria');assert.deepEqual(rt.map(x=>x.club+'|'+x.pos).sort(),['lugano|MED','victorianoarenas|ARQ']);
