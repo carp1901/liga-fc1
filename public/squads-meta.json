@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T06:27:04.037Z",
+  "updatedAt": "2026-11-12T06:30:13.536Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2406 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2683 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -142,7 +142,14 @@
     "puertonuevo": 33,
     "centroespanol": 29,
     "jjurquiza": 49,
-    "lugano": 45
+    "lugano": 45,
+    "atlas": 42,
+    "canuelas": 31,
+    "centralballester": 56,
+    "centralcordobarosario": 32,
+    "claypole": 39,
+    "espanol": 39,
+    "muniz": 38
   },
   "sources": {
     "sanlorenzo": {
@@ -3718,6 +3725,69 @@
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
       "roleSource": [],
       "natSource": []
+    },
+    "atlas": {
+      "source": "https://www.soloascenso.com.ar/club/atlas/247",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "canuelas": {
+      "source": "https://www.soloascenso.com.ar/club/canuelas-fc/256",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "centralballester": {
+      "source": "https://www.soloascenso.com.ar/club.php?eq=261",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "centralcordobarosario": {
+      "source": "https://www.soloascenso.com.ar/club/central-cordoba-rosario/262",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "claypole": {
+      "source": "https://www.soloascenso.com.ar/club/claypole/258",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "espanol": {
+      "source": "https://www.soloascenso.com.ar/club/deportivo-espanol/307",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "muniz": {
+      "source": "https://www.soloascenso.com.ar/club/muniz/346",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
     }
   },
   "completePrimera": true,
@@ -3725,9 +3795,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4035,
+    "assigned": 4312,
     "missing": 0,
-    "total": 4035,
+    "total": 4312,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4423,15 +4493,50 @@
         "total": 45,
         "assigned": 45,
         "missing": 0
+      },
+      "atlas": {
+        "total": 42,
+        "assigned": 42,
+        "missing": 0
+      },
+      "canuelas": {
+        "total": 31,
+        "assigned": 31,
+        "missing": 0
+      },
+      "centralballester": {
+        "total": 56,
+        "assigned": 56,
+        "missing": 0
+      },
+      "centralcordobarosario": {
+        "total": 32,
+        "assigned": 32,
+        "missing": 0
+      },
+      "claypole": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "espanol": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "muniz": {
+        "total": 38,
+        "assigned": 38,
+        "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3295,
-    "missing": 740,
+    "missing": 1017,
     "birthDates": 2075,
-    "total": 4035,
+    "total": 4312,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5127,13 +5232,48 @@
         "total": 45,
         "assigned": 0,
         "missing": 45
+      },
+      "atlas": {
+        "total": 42,
+        "assigned": 0,
+        "missing": 42
+      },
+      "canuelas": {
+        "total": 31,
+        "assigned": 0,
+        "missing": 31
+      },
+      "centralballester": {
+        "total": 56,
+        "assigned": 0,
+        "missing": 56
+      },
+      "centralcordobarosario": {
+        "total": 32,
+        "assigned": 0,
+        "missing": 32
+      },
+      "claypole": {
+        "total": 39,
+        "assigned": 0,
+        "missing": 39
+      },
+      "espanol": {
+        "total": 39,
+        "assigned": 0,
+        "missing": 39
+      },
+      "muniz": {
+        "total": 38,
+        "assigned": 0,
+        "missing": 38
       }
     }
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 659,
-    "total": 4035,
+    "missing": 936,
+    "total": 4312,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5690,13 +5830,41 @@
       "lugano": {
         "total": 45,
         "assigned": 0
+      },
+      "atlas": {
+        "total": 42,
+        "assigned": 0
+      },
+      "canuelas": {
+        "total": 31,
+        "assigned": 0
+      },
+      "centralballester": {
+        "total": 56,
+        "assigned": 0
+      },
+      "centralcordobarosario": {
+        "total": 32,
+        "assigned": 0
+      },
+      "claypole": {
+        "total": 39,
+        "assigned": 0
+      },
+      "espanol": {
+        "total": 39,
+        "assigned": 0
+      },
+      "muniz": {
+        "total": 38,
+        "assigned": 0
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 581,
-    "total": 4035,
+    "missing": 858,
+    "total": 4312,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6253,13 +6421,41 @@
       "lugano": {
         "total": 45,
         "specific": 0
+      },
+      "atlas": {
+        "total": 42,
+        "specific": 0
+      },
+      "canuelas": {
+        "total": 31,
+        "specific": 0
+      },
+      "centralballester": {
+        "total": 56,
+        "specific": 0
+      },
+      "centralcordobarosario": {
+        "total": 32,
+        "specific": 0
+      },
+      "claypole": {
+        "total": 39,
+        "specific": 0
+      },
+      "espanol": {
+        "total": 39,
+        "specific": 0
+      },
+      "muniz": {
+        "total": 38,
+        "specific": 0
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2406,
-    "total": 4035,
+    "estimated": 2683,
+    "total": 4312,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7095,6 +7291,48 @@
         "verified": 0,
         "estimated": 45,
         "provisional": 0
+      },
+      "atlas": {
+        "total": 42,
+        "verified": 0,
+        "estimated": 42,
+        "provisional": 0
+      },
+      "canuelas": {
+        "total": 31,
+        "verified": 0,
+        "estimated": 31,
+        "provisional": 0
+      },
+      "centralballester": {
+        "total": 56,
+        "verified": 0,
+        "estimated": 56,
+        "provisional": 0
+      },
+      "centralcordobarosario": {
+        "total": 32,
+        "verified": 0,
+        "estimated": 32,
+        "provisional": 0
+      },
+      "claypole": {
+        "total": 39,
+        "verified": 0,
+        "estimated": 39,
+        "provisional": 0
+      },
+      "espanol": {
+        "total": 39,
+        "verified": 0,
+        "estimated": 39,
+        "provisional": 0
+      },
+      "muniz": {
+        "total": 38,
+        "verified": 0,
+        "estimated": 38,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -7102,22 +7340,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2863,
+    "derivedPlayers": 3140,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 139,
-    "players": 4035,
+    "clubs": 146,
+    "players": 4312,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 740,
+    "playersMissingAge": 1017,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2406,
+    "estimatedRatings": 2683,
     "provisionalRatings": 0,
-    "playersMissingNationality": 659,
-    "playersMissingFoot": 1978,
-    "playersMissingSpecificRole": 581,
-    "playersWithoutManualAttributes": 2863
+    "playersMissingNationality": 936,
+    "playersMissingFoot": 2255,
+    "playersMissingSpecificRole": 858,
+    "playersWithoutManualAttributes": 3140
   }
 }
