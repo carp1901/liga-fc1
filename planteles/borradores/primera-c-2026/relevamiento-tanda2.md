@@ -18,13 +18,13 @@ Fuente: https://www.soloascenso.com.ar/club/deportivo-paraguayo/268
 - MED: Alexis Barrionuevo; Camilo Cardona; Tobías Chávez; Carlos Esparragoza; Iván Fidalgo; Ezequiel García; José Luis Gómez; Maximiliano Leal; Walter Lugo; Ian Lynch; Francisco Musumeci; Federico Pellegrino; Diego Plaksa; Braian Rojas; José Sogos; Tomás Sposaro.
 - DEL: Tobías Cubilla; Leandro Fernández; Guillermo Giménez; Rodrigo Ávalos; Rolando González; Juan Mendoza; Rodrigo Ortiz; Martín Reinoso.
 
-## Defensores de Cambaceres — 34 jugadores
+## Defensores de Cambaceres — 35 jugadores
 Fuente: https://www.soloascenso.com.ar/club/defensores-de-cambaceres/265
 
 - ARQ: Santiago Calvo; Emanuel Duba.
 - DEF: Enzo Avalos; Santiago Díaz; Facundo Fajardo; Pablo Fernández; Tiziano García; Dylan Godoy; Benjamín González; Sergio Luayza; Juan Ignacio Trentín.
 - MED: Román Abelando; Mariano Alderetes; Matías Arbizu; Santiago Argüello; Patricio Contana; Matías Domínguez; Alessandro Duarte; Federico Giménez; Ignacio Lachalde; Nicolas Le Bellot; Alan Meschini; Santino Musciati; Carlos Raga Córdoba; Mauricio Romero; Dago Sanchez Palencia; Juan Sosa.
-- DEL: Facundo Aronna; Rodolfo Fernández Gerzel; Damián Martínez; Bautista Odo Medina; Matías Rebagliati; Juan Segundo Vera; Valentino Toniolo.
+- DEL: Facundo Aronna; Rodolfo Fernández Gerzel; Damián Martínez; Bautista Odo Medina; Matías Rebagliati; Juan Segundo Vera; Valentino Toniolo; Víctor Gómez.
 
 ## Puerto Nuevo — 33 jugadores
 Fuente: https://www.soloascenso.com.ar/club/puerto-nuevo/297
@@ -64,3 +64,10 @@ Fuente: https://www.soloascenso.com.ar/club/lugano/289
 - Cambaceres incorpora en su lista a Carlos Raga Córdoba, Dago Sánchez Palencia y Facundo Aronna, los tres documentados como salidas de Argentino de Rosario. No deben quedar duplicados en el club rosarino.
 - Rodrigo Soria aparece en Victoriano Arenas como arquero de 23 años y en Lugano como mediocampista de 39 años. Son dos futbolistas distintos; no fusionar.
 - La lista nominal no equivale a una convocatoria ni prueba minutos. No depurar hasta revisar fichas y perfiles individuales.
+
+
+### Verificaciones adicionales previas a la carga
+
+- **Víctor Gómez (Cambaceres):** la nómina general de Solo Ascenso no lo incluye en el bloque de plantel, pero su perfil individual registra 25 presencias en 2026, cuatro titularidades, 21 ingresos como suplente y dos goles. Se incorpora como delantero por evidencia individual. Fuente: https://www.soloascenso.com.ar/perfil/victor-gomez/896
+- **Braian Benítez (Berazategui):** no se incorpora al corte de cierre. Aunque fue el goleador del equipo con cinco tantos, rescindió el 05/08/2026 y siguió su carrera en Racing de Carhué tras 17 partidos. Fuente: https://www.soloascenso.com.ar/notas/lujan/el-goleador-de-berazategui-no-seguira-en-el-plantel/231117
+- **William Giménez (Centro Español):** no se incorpora al corte de cierre. Fue cedido a Excursionistas el 20/06/2026 luego de marcar 13 goles en 16 partidos. Fuente: https://www.soloascenso.com.ar/notas/fenix/centro-espanol-pierde-una-pieza-clave-para-la-segunda-rueda/229439
