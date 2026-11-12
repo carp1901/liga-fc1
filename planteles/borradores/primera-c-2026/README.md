@@ -54,7 +54,7 @@ Trabajo de recopilación por cuatro tandas. Los archivos de esta carpeta son bor
 
 ## Estado
 
-- [ ] Tanda 1: 7 clubes
+- [x] Relevamiento nominal inicial de tanda 1: 7 clubes (captura publicada; pendiente depuración por apariciones/altas/bajas)
 - [ ] Tanda 2: 7 clubes
 - [ ] Tanda 3: 7 clubes
 - [ ] Tanda 4: 7 clubes
@@ -62,3 +62,10 @@ Trabajo de recopilación por cuatro tandas. Los archivos de esta carpeta son bor
 - [ ] Importación a `public/squads.json`, `public/squads.js` y `public/squads-meta.json` sólo después de aprobar la auditoría
 
 La integración deberá conservar los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No modificar la lista de equipos, el motor ni las divisiones ya completas.
+
+
+## Avance 12/11/2026
+
+- La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (46) y Club Mercedes (35).
+- Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
+- Aún no hay CSV importable: faltan verificar edades, roles específicos, dorsales, medias y fuentes de participación jugador por jugador. La tanda no se considera cerrada hasta esa auditoría.
