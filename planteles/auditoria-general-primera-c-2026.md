@@ -350,3 +350,50 @@ Fuentes: [plantel profesional presentado para 2026](https://www.soloascenso.com.
 Fuentes: [presentación del plantel profesional de 2026](https://www.soloascenso.com.ar/notas/general-lamadrid/lamadrid-presento-a-todos-sus-futbolistas-para-el-2026/225081), [perfil de Acosta: 33 partidos y 2.887 minutos](https://www.soloascenso.com.ar/perfil/nestor-acosta/12874), [confirmación de su salida recién para 2027](https://www.soloascenso.com.ar/notas/deportivo-camioneros/nestor-acosta-el-idolo-no-continuara-en-lamadrid/234243), [movimiento de Nami desde El Porvenir](https://www.soloascenso.com.ar/notas/muniz/el-porvenir-sufrio-su-primera-baja-y-ya-tiene-destino/229788).
 
 **Resultado de esta tanda:** se detectó una omisión prioritaria (Néstor Acosta en Lamadrid). La integración se deja pendiente hasta poder actualizar de manera consistente CSV y runtime; no se publica una corrección incompleta. También queda pendiente decidir si Leonel Fagúndez, con solo 34 minutos, debe formar parte del plantel de cierre de Central Córdoba.
+
+
+## 11. Auditoría individual — séptima tanda amplia
+
+Se revisaron Berazategui, Cañuelas, Centro Español y Club Mercedes.
+
+### Berazategui — 38 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 38 jugadores del CSV.
+- Se verificaron las incorporaciones anunciadas en el mercado de pases: Santiago Escudero, Federico Tursi, Leonel Miranda y Joaquín Molina. Los cuatro están incluidos.
+- No se detectó una baja adicional u omisión inequívoca en este cruce.
+- No se recorta el plantel sin revisar participación individual de los nombres con menos actividad.
+
+Fuentes: [plantel de Berazategui](https://www.soloascenso.com.ar/club/berazategui/253), [plantel 2026 de Mundo Ascenso](https://www.mundoascenso.com.ar/plantel/8382-berazategui), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Cañuelas — 31 cargados
+
+- La nómina de Solo Ascenso coincide con los 31 jugadores del CSV.
+- Se verificaron las renovaciones y altas iniciales: Agustín Coali, Adrián Marín, Mateo Coyette y Alexis Quagliano están incluidos.
+- Facundo Cipresso llegó desde Argentino de Merlo en julio y está incluido.
+- Jeremías Heidenreich, Santiago Pavón, Santiago Centurión, Nahuel Guerrero, Laureano Colombo, David Soria y Kevin Ribeiro no se reincorporaron al plantel 2026.
+- Gerónimo Patritti fue transferido a Gimnasia de Mendoza antes del inicio y no aparece en el CSV.
+- Santino Sapio figura una sola vez; MED se conserva como posición secundaria para evitar duplicarlo por aparecer en más de una línea de las fuentes.
+
+Fuentes: [plantel de Cañuelas](https://www.soloascenso.com.ar/club/canuelas-fc/256), [bajas y primeras altas](https://www.soloascenso.com.ar/notas/canuelas-fc/el-tambero-pierde-a-su-goleador-para-afrontar-lo-que-viene/222729), [salidas adicionales](https://www.soloascenso.com.ar/notas/canuelas-fc/el-tambero-dio-a-conocer-la-salida-de-varios-jugadores/222048), [venta de Gerónimo Patritti](https://www.soloascenso.com.ar/notas/canuelas-fc/el-capitan-de-canuelas-dio-el-salto-a-la-liga-profesional/224411), [alta de Facundo Cipresso](https://www.soloascenso.com.ar/notas/deportivo-espanol/desde-la-primera-b-llego-un-refuerzo-para-canuelas/230619), [convocatoria de la fecha 27](https://www.soloascenso.com.ar/notas/canuelas-fc/canuelas-se-la-juega-frente-al-puntero-del-torneo/232237).
+
+### Centro Español — 29 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 29 jugadores del CSV.
+- Tomás Rozic, incorporación desde Comunicaciones, está incluido.
+- Las bajas de William Giménez, Ivo Regules, Rodrigo Suárez y Carlos Di Pietro no fueron incorporadas al plantel de cierre.
+- Santiago Gómez y David Bulacio, bajas confirmadas antes del inicio de 2026, tampoco aparecen en el CSV.
+- La ficha de la fecha 27 confirma titulares y suplentes del núcleo del plantel y coincide con los nombres cargados.
+- No se detecta omisión o baja nueva en este cruce.
+
+Fuentes: [plantel de Centro Español](https://www.soloascenso.com.ar/club/centro-espanol/257), [bajas de Santiago Gómez y David Bulacio](https://www.soloascenso.com.ar/notas/centro-espanol/centro-espanol-sufrio-la-partida-de-dos-jugadores/223373), [convocatoria de la fecha 27](https://www.soloascenso.com.ar/ficha/45273), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Club Mercedes — 35 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 35 jugadores del CSV.
+- La incorporación de Arturo Daniel Mendoza desde Jorge Newbery de Comodoro Rivadavia está incluida.
+- No se detectó una baja u omisión nueva que justifique modificar el CSV.
+- Se mantiene la revisión de dorsales como estimados cuando no existe número oficial confirmado; no se altera la cantidad de jugadores para forzar un tamaño fijo.
+
+Fuentes: [plantel de Club Mercedes](https://www.soloascenso.com.ar/club/mercedes/438), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+**Resultado de esta tanda:** los cuatro CSV coinciden con las nóminas actuales consultadas y con los movimientos de mercado verificados. No se aplican recortes especulativos ni se agregan juveniles sin convocatoria o participación comprobable.
