@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T06:30:37.445Z",
+  "updatedAt": "2026-11-12T06:34:01.250Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2683 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2955 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -149,7 +149,14 @@
     "centralcordobarosario": 32,
     "claypole": 39,
     "espanol": 39,
-    "muniz": 38
+    "muniz": 38,
+    "porvenir": 47,
+    "fenix": 42,
+    "lamadrid": 35,
+    "leones": 37,
+    "lujan": 33,
+    "sportivobarracas": 39,
+    "yupanqui": 39
   },
   "sources": {
     "sanlorenzo": {
@@ -3788,6 +3795,69 @@
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
       "roleSource": [],
       "natSource": []
+    },
+    "porvenir": {
+      "source": "https://www.soloascenso.com.ar/club/el-porvenir/270",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "fenix": {
+      "source": "https://www.soloascenso.com.ar/club/fenix/274",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "lamadrid": {
+      "source": "https://www.soloascenso.com.ar/club/gral-lamadrid/278",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "leones": {
+      "source": "https://www.soloascenso.com.ar/club/leones-fc-rosario/1228",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "lujan": {
+      "source": "https://www.soloascenso.com.ar/club/lujan/290",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "sportivobarracas": {
+      "source": "https://www.soloascenso.com.ar/club/sportivo-barracas/249",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "yupanqui": {
+      "source": "https://www.soloascenso.com.ar/club/yupanqui/317",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
     }
   },
   "completePrimera": true,
@@ -3795,9 +3865,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4312,
+    "assigned": 4584,
     "missing": 0,
-    "total": 4312,
+    "total": 4584,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4528,15 +4598,50 @@
         "total": 38,
         "assigned": 38,
         "missing": 0
+      },
+      "porvenir": {
+        "total": 47,
+        "assigned": 47,
+        "missing": 0
+      },
+      "fenix": {
+        "total": 42,
+        "assigned": 42,
+        "missing": 0
+      },
+      "lamadrid": {
+        "total": 35,
+        "assigned": 35,
+        "missing": 0
+      },
+      "leones": {
+        "total": 37,
+        "assigned": 37,
+        "missing": 0
+      },
+      "lujan": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "sportivobarracas": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
+      },
+      "yupanqui": {
+        "total": 39,
+        "assigned": 39,
+        "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3295,
-    "missing": 1017,
+    "missing": 1289,
     "birthDates": 2075,
-    "total": 4312,
+    "total": 4584,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5267,13 +5372,48 @@
         "total": 38,
         "assigned": 0,
         "missing": 38
+      },
+      "porvenir": {
+        "total": 47,
+        "assigned": 0,
+        "missing": 47
+      },
+      "fenix": {
+        "total": 42,
+        "assigned": 0,
+        "missing": 42
+      },
+      "lamadrid": {
+        "total": 35,
+        "assigned": 0,
+        "missing": 35
+      },
+      "leones": {
+        "total": 37,
+        "assigned": 0,
+        "missing": 37
+      },
+      "lujan": {
+        "total": 33,
+        "assigned": 0,
+        "missing": 33
+      },
+      "sportivobarracas": {
+        "total": 39,
+        "assigned": 0,
+        "missing": 39
+      },
+      "yupanqui": {
+        "total": 39,
+        "assigned": 0,
+        "missing": 39
       }
     }
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 936,
-    "total": 4312,
+    "missing": 1208,
+    "total": 4584,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5858,13 +5998,41 @@
       "muniz": {
         "total": 38,
         "assigned": 0
+      },
+      "porvenir": {
+        "total": 47,
+        "assigned": 0
+      },
+      "fenix": {
+        "total": 42,
+        "assigned": 0
+      },
+      "lamadrid": {
+        "total": 35,
+        "assigned": 0
+      },
+      "leones": {
+        "total": 37,
+        "assigned": 0
+      },
+      "lujan": {
+        "total": 33,
+        "assigned": 0
+      },
+      "sportivobarracas": {
+        "total": 39,
+        "assigned": 0
+      },
+      "yupanqui": {
+        "total": 39,
+        "assigned": 0
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 858,
-    "total": 4312,
+    "missing": 1130,
+    "total": 4584,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6449,13 +6617,41 @@
       "muniz": {
         "total": 38,
         "specific": 0
+      },
+      "porvenir": {
+        "total": 47,
+        "specific": 0
+      },
+      "fenix": {
+        "total": 42,
+        "specific": 0
+      },
+      "lamadrid": {
+        "total": 35,
+        "specific": 0
+      },
+      "leones": {
+        "total": 37,
+        "specific": 0
+      },
+      "lujan": {
+        "total": 33,
+        "specific": 0
+      },
+      "sportivobarracas": {
+        "total": 39,
+        "specific": 0
+      },
+      "yupanqui": {
+        "total": 39,
+        "specific": 0
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2683,
-    "total": 4312,
+    "estimated": 2955,
+    "total": 4584,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7333,6 +7529,48 @@
         "verified": 0,
         "estimated": 38,
         "provisional": 0
+      },
+      "porvenir": {
+        "total": 47,
+        "verified": 0,
+        "estimated": 47,
+        "provisional": 0
+      },
+      "fenix": {
+        "total": 42,
+        "verified": 0,
+        "estimated": 42,
+        "provisional": 0
+      },
+      "lamadrid": {
+        "total": 35,
+        "verified": 0,
+        "estimated": 35,
+        "provisional": 0
+      },
+      "leones": {
+        "total": 37,
+        "verified": 0,
+        "estimated": 37,
+        "provisional": 0
+      },
+      "lujan": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "sportivobarracas": {
+        "total": 39,
+        "verified": 0,
+        "estimated": 39,
+        "provisional": 0
+      },
+      "yupanqui": {
+        "total": 39,
+        "verified": 0,
+        "estimated": 39,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -7340,22 +7578,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3140,
+    "derivedPlayers": 3412,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 146,
-    "players": 4312,
+    "clubs": 153,
+    "players": 4584,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1017,
+    "playersMissingAge": 1289,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2683,
+    "estimatedRatings": 2955,
     "provisionalRatings": 0,
-    "playersMissingNationality": 936,
-    "playersMissingFoot": 2255,
-    "playersMissingSpecificRole": 858,
-    "playersWithoutManualAttributes": 3140
+    "playersMissingNationality": 1208,
+    "playersMissingFoot": 2527,
+    "playersMissingSpecificRole": 1130,
+    "playersWithoutManualAttributes": 3412
   }
 }
