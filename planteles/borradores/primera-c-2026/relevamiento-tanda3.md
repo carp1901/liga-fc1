@@ -69,3 +69,11 @@ Fuente: https://www.soloascenso.com.ar/club/muniz/346
 - **Atlas:** Simón Martínez y Daian Vocos aparecen en la nómina actual tras salir de Deportivo Español. Gustavo Britos dejó Atlas y pasó a Leones FC el 25/06, tras 13 partidos y cinco goles; no incluirlo en el corte de Atlas. Fuentes: https://www.soloascenso.com.ar/notas/el-porvenir/leones-de-rosario-oficializo-la-llegada-de-tres-refuerzos/229626
 - **Muñiz:** Félix Orode y Rodrigo Gómez salieron a mitad de temporada; no se incluyen en la nómina de cierre. Mantener su historial 2026 fuera del plantel actual.
 - **Deportivo Español:** William Giménez, Cristian Barrios y Diosnel Zuccarino ya no forman parte del plantel de cierre; Simón Martínez pasó a Atlas.
+
+
+### Homónimos revisados
+
+- **Federico Vega:** Juventud Unida tiene al lateral derecho Federico Darío José Vega, de 33 años; Central Ballester lista a Federico Iván Vega, arquero de 26 años. Son personas distintas. El arquero de Ballester no registra presencias en 2026 y queda señalado para depuración posterior. Fuentes: https://www.soloascenso.com.ar/notas/juventud-unida/llegaron-dos-refuerzos-de-experiencia-para-juventud-unida/225749 y https://www.soloascenso.com.ar/perfil/federico-vega/31290
+- **Rodrigo Ortiz / Rodrigo Ortíz:** Deportivo Paraguayo incorporó en julio al delantero Rodrigo Ortiz, de 25 años, con pasado en Central Ballester; Claypole tiene al mediocampista Rodrigo Benjamín Ortíz, de 25 años. Son jugadores distintos. Fuentes: https://www.soloascenso.com.ar/notas/central-cordoba-rosario/paraguayo-tiene-una-nueva-incorporacion-para-el-ataque/230131 y https://www.soloascenso.com.ar/perfil/rodrigo-ortiz/22791
+- **Alexis Oviedo:** Central Ballester tiene a Alexis Gabriel Oviedo, de 19 años, mediocampista; Muñiz tiene a Alexis Patricio Oviedo, de 23 años, delantero. Son jugadores distintos. Fuentes: https://www.soloascenso.com.ar/perfil/alexis-oviedo/32256 y https://www.transfermarkt.com.ar/alexis-oviedo/profil/spieler/668952
+- Los homónimos **Lautaro Torres** y **Rodrigo Soria** ya quedaron diferenciados en las auditorías de las tandas 1 y 2.
