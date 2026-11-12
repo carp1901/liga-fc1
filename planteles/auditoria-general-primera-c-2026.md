@@ -111,3 +111,18 @@ Se conservan Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade. Luis 
 5. Recalibrar medias y sustituir dorsales estimados por números oficiales cuando se encuentren fuentes fiables.
 
 **Conclusión:** la carga de Primera C está completa y la integridad básica está validada. La depuración aplicada ya eliminó nombres sin participación de primer equipo, pero el trabajo no debe considerarse final hasta revisar la participación y la composición de los 28 planteles.
+
+
+## 5. Auditoría individual en curso — Central Ballester
+
+Se contrastó el plantel de 51 jugadores con las estadísticas de Primera C 2026 y las convocatorias publicadas:
+
+- ZeroZero registra 32 futbolistas con minutos en Central Ballester al cierre de la fase regular (actualización del 16/10/2026). De ellos, 31 están en el CSV actual.
+- El restante es **Aarón Quijano**: disputó 14 partidos y 1.138 minutos para Ballester, pero salió a Central Córdoba de Rosario el 22/06/2026. No debe quedar en el plantel de cierre de Ballester; ya figura correctamente en el CSV de Central Córdoba.
+- **Franco Gómez** tiene perfil individual de Solo Ascenso con cero presencias en 2026. Es candidato confirmado a retiro de la carga.
+- **Agustín Corbalán** fue anunciado como baja por el club en enero de 2025 y no se encontró evidencia de reincorporación ni de participación en 2026. Queda marcado para retirar si no aparece evidencia posterior que contradiga esa baja.
+- Hay otros 18 nombres del CSV que no aparecen en la tabla de minutos de ZeroZero. No se eliminan automáticamente: deben cruzarse con fichas de partido y convocatorias para distinguir jugadores sin participación de suplentes no utilizados o altas del primer equipo.
+
+Fuentes: [estadísticas de minutos de Central Ballester (ZeroZero)](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_equipa=45605&v1=j&v2=t&v3=5), [perfil de Franco Gómez (Solo Ascenso)](https://www.soloascenso.com.ar/perfil/franco-gomez/16183), [baja de Agustín Corbalán (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-sumo-varias-desvinculaciones-en-su-equipo/211667), [salida de Aarón Quijano a Central Córdoba (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/central-ballester-tuvo-una-baja-y-tiene-un-refuerzo-al-caer/229572).
+
+**Estado de esta revisión:** todavía no se modificó el CSV de Central Ballester. La depuración se aplicará después de terminar el cruce de los nombres pendientes, para no retirar futbolistas del primer equipo por una ausencia aislada en una base estadística.
