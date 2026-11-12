@@ -257,3 +257,50 @@ Fuentes: [plantel de Atlas](https://www.soloascenso.com.ar/club/atlas/247), [ref
 Fuentes: [plantel de Fénix](https://www.soloascenso.com.ar/club/fenix/274), [once bajas confirmadas en enero](https://www.soloascenso.com.ar/notas/fenix/malas-noticias-en-fenix-se-confirmaron-once-bajas/224238), [refuerzos de enero](https://www.soloascenso.com.ar/notas/afa/dos-nuevos-refuerzos-se-sumaron-al-plantel-de-fenix/224442), [altas de febrero](https://www.soloascenso.com.ar/notas/afa/fenix-presento-cuatro-nuevos-refuerzos-para-la-primera-c/223460).
 
 **Resultado de esta tanda:** los cuatro CSV coinciden con las nóminas de plantel consultadas y reflejan las altas y bajas relevantes del mercado. No se modificaron jugadores: la auditoría no consiste en reducir planteles arbitrariamente, sino en asegurar que cada nombre tenga respaldo y pertenezca al plantel de 2026.
+
+
+## 9. Auditoría individual — quinta tanda amplia
+
+Se revisaron Claypole, Deportivo Español, Sportivo Barracas y Yupanqui, contrastando las cuatro nóminas con las listas actuales de Solo Ascenso y las novedades de mercado de 2026.
+
+### Claypole — 39 cargados
+
+- La nómina de Solo Ascenso coincide con los 39 jugadores del CSV.
+- Se verificaron las altas previas al torneo: Alejo Klipauka, Tomás Luján y Joaquín Cabrera están incluidos.
+- Tomás Tello, Santiago Galván y Matías Coselli, informados como salidas antes del inicio, no aparecen en el CSV.
+- La lista de plantel publicada incluye a los futbolistas que sostuvieron el equipo durante el segundo semestre. No se detecta omisión o baja nueva en este cruce.
+
+Fuentes: [plantel de Claypole](https://www.soloascenso.com.ar/club/claypole/258), [altas y bajas antes del torneo](https://www.soloascenso.com.ar/notas/claypole/con-fixture-definido-claypole-ya-piensa-en-el-proximo-ano/223128), [renovaciones y tres refuerzos](https://www.soloascenso.com.ar/notas/claypole/tres-refuerzos-una-baja-y-varias-renovaciones-en-claypole/222830).
+
+### Deportivo Español — 39 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 39 jugadores del CSV.
+- Las seis promociones desde Reserva anunciadas el 22/08 fueron revisadas: Juan Torre y Luca Morales ya están incluidos. José Carballo, Nahuel Gamboa, Tobías Díaz y Franco Stábile no se agregan por ahora porque el anuncio confirma su promoción y entrenamientos con Primera, pero no acredita por sí solo minutos ni convocatorias de partido.
+- Las altas registradas en el mercado (Santiago Ávila, Darío Salina, Fabián Leguizamón y Franco Lopresti) están reflejadas en el CSV.
+- Las bajas de Rodrigo Jalitt, Nicolás Ortiz, Thomas Arrieta, Bruno Robles, Diosnel Zuccarino y Simón Martínez no se reincorporan.
+- No se detecta omisión o baja nueva que justifique modificar el CSV.
+
+Fuentes: [plantel de Deportivo Español](https://www.soloascenso.com.ar/club/deportivo-espanol/307), [seis juveniles promovidos a Primera](https://www.soloascenso.com.ar/notas/deportivo-espanol/seis-juveniles-de-espanol-empezaron-a-entrenar-con-primera/231701), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c), [convocatoria de la fecha 30](https://www.soloascenso.com.ar/ficha/45309).
+
+### Sportivo Barracas — 39 cargados
+
+- La nómina de Solo Ascenso coincide con los 39 jugadores del CSV.
+- Las altas de enero (incluidos Alen Boschi y Leonel Barrionuevo) están incorporadas.
+- Se confirmó la llegada de Nicolás Jorquera en julio y Exequiel Ortiz también aparece como incorporación de mitad de año; ambos están en el CSV.
+- Las bajas anunciadas antes de la temporada (Fabrizio Brandán, Onan Hilt, Franco Sosa y Santiago Chira, entre otros) no se incorporaron.
+- No se detecta omisión o baja nueva en el cruce.
+
+Fuentes: [plantel de Sportivo Barracas](https://www.soloascenso.com.ar/club/sportivo-barracas/249), [bajas previas al torneo](https://www.soloascenso.com.ar/notas/sportivo-barracas/se-confirmaron-las-primeras-salidas-en-sportivo-barracas/223263), [alta de Alen Boschi y mercado inicial](https://www.soloascenso.com.ar/notas/sportivo-barracas/sportivo-barracas-anuncio-la-llegada-de-un-nuevo-refuerzo/224357), [llegada de Leonel Barrionuevo](https://www.soloascenso.com.ar/notas/sportivo-barracas/desde-almagro-llego-un-nuevo-refuerzo-para-el-arrabalero/224444), [llegada de Nicolás Jorquera](https://www.soloascenso.com.ar/notas/sportivo-barracas/presento-su-segunda-incorporacion/230104).
+
+### Yupanqui — 39 cargados
+
+- La nómina de Solo Ascenso coincide con los 39 jugadores del CSV.
+- Se verificaron las incorporaciones de enero y febrero, así como las renovaciones anunciadas. Los futbolistas que dejaron el club antes del inicio no fueron cargados.
+- **Santino Colángelo se conserva correctamente**: aunque figuró entre las bajas de enero, regresó desde Almagro a préstamo el 06/07 y disputó 11 partidos con Yupanqui en 2026.
+- Santiago Brotzman y Santino Colángelo fueron las incorporaciones del mercado de invierno; ambos están contemplados.
+- Felipe Rocca, que salió a Gimnasia de Concepción del Uruguay, no figura en el CSV.
+- No se detecta omisión o baja nueva en el cruce.
+
+Fuentes: [plantel de Yupanqui](https://www.soloascenso.com.ar/club/yupanqui/317), [altas, bajas y renovaciones de enero](https://www.soloascenso.com.ar/notas/yupanqui/el-trapero-presento-tres-incorporaciones-y-una-renovacion/224236), [refuerzos de febrero](https://www.soloascenso.com.ar/notas/lujan/el-trapero-confirmo-la-llegada-de-seis-nuevos-refuerzos/224666), [regreso de Santino Colángelo](https://www.soloascenso.com.ar/notas/yupanqui/santino-colangelo-vuelve-a-ponerse-la-camiseta-de-yupanqui/230105), [registro de 11 partidos en 2026](https://www.soloascenso.com.ar/perfil/santino-colangelo/30359).
+
+**Resultado de esta tanda:** los cuatro planteles coinciden con sus nóminas actuales y las altas/bajas documentadas. Se confirma el regreso de Colángelo a Yupanqui y se evita sumar juveniles a Español solo por haber entrenado con Primera. No se aplicaron cambios especulativos.
