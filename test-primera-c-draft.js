@@ -29,7 +29,7 @@ if(process.argv.includes('--runtime')){
    assert.equal(p.number,Number(get('dorsal')),'Dorsal runtime incorrecto: '+p.n);assert.equal(p.numberSource,get('dorsal_source'),'Fuente dorsal runtime incorrecta: '+p.n);assert(p.ratingSource.startsWith('Estimación propia inicial v1'),'Media sin etiqueta de estimación: '+p.n);
   }
  }
- const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8'}));
+ const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
  for(const [id,count] of Object.entries(expected))assert.equal(meta.counts[id],count,'Metadata incorrecta: '+id);
 }
