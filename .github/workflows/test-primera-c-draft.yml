@@ -1,0 +1,40 @@
+name: Cargar planteles iniciales Primera C 2026
+on:
+  pull_request:
+    paths:
+      - 'planteles/borradores/primera-c-2026/**'
+      - 'test-primera-c-draft.js'
+      - 'import-squads.js'
+      - '.github/workflows/test-primera-c-draft.yml'
+permissions:
+  contents: write
+jobs:
+  validar-e-integrar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar sintaxis del importador
+        run: node --check import-squads.js
+      - name: Validar CSV inicial de los siete clubes
+        run: node test-primera-c-draft.js
+      - name: Validar importación sin publicar
+        run: node import-squads.js planteles/borradores/primera-c-2026/tanda1-inicial.csv --dry-run
+      - name: Integrar los siete planteles en runtime de la rama
+        run: node import-squads.js planteles/borradores/primera-c-2026/tanda1-inicial.csv
+      - name: Auditar la integración y proteger las demás divisiones
+        run: node test-primera-c-draft.js --runtime
+      - name: Guardar runtime integrado en la rama del PR
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/squads.json public/squads.js public/squads-meta.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Cargar planteles iniciales Primera C 2026 — tanda 1'
+            git push origin HEAD:${{ github.head_ref || github.ref_name }}
+          fi
