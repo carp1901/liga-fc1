@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T04:38:51.963Z",
+  "updatedAt": "2026-11-12T06:18:10.174Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 1825 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2137 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -128,7 +128,14 @@
     "argmontemaiz": 26,
     "kimberley": 30,
     "villamitre": 32,
-    "sarmientores": 24
+    "sarmientores": 24,
+    "juventudunida": 51,
+    "estrelladelsur": 43,
+    "argentinorosario": 50,
+    "victorianoarenas": 37,
+    "sacachispas": 49,
+    "alem": 47,
+    "mercedes": 35
   },
   "sources": {
     "sanlorenzo": {
@@ -3578,6 +3585,69 @@
       "ratingSource": "Estimación propia / FM27 CA individual cuando disponible; comparativa por rol en resto",
       "roleSource": "https://sortitoutsi.net/football-manager-2027/team/14043913/club-atletico-sarmiento-de-resistencia",
       "natSource": "https://tacazo.com.ar/equipo.html?id=club-1953"
+    },
+    "juventudunida": {
+      "source": "https://www.soloascenso.com.ar/club/juventud-unida/284",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "estrelladelsur": {
+      "source": "https://www.soloascenso.com.ar/club/estrella-del-sur-alejandro-korn/900",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "argentinorosario": {
+      "source": "https://www.soloascenso.com.ar/club/argentino-de-rosario/243",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "victorianoarenas": {
+      "source": "https://www.soloascenso.com.ar/club/victoriano-arenas/314",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "sacachispas": {
+      "source": "https://www.soloascenso.com.ar/club/sacachispas-fc/300",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "alem": {
+      "source": "https://www.soloascenso.com.ar/club.php?_pagi_pg=12&eq=285",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "mercedes": {
+      "source": "https://www.soloascenso.com.ar/club/mercedes/438",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
     }
   },
   "completePrimera": true,
@@ -3585,9 +3655,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 3454,
+    "assigned": 3766,
     "missing": 0,
-    "total": 3454,
+    "total": 3766,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4213,15 +4283,50 @@
         "total": 24,
         "assigned": 24,
         "missing": 0
+      },
+      "juventudunida": {
+        "total": 51,
+        "assigned": 51,
+        "missing": 0
+      },
+      "estrelladelsur": {
+        "total": 43,
+        "assigned": 43,
+        "missing": 0
+      },
+      "argentinorosario": {
+        "total": 50,
+        "assigned": 50,
+        "missing": 0
+      },
+      "victorianoarenas": {
+        "total": 37,
+        "assigned": 37,
+        "missing": 0
+      },
+      "sacachispas": {
+        "total": 49,
+        "assigned": 49,
+        "missing": 0
+      },
+      "alem": {
+        "total": 47,
+        "assigned": 47,
+        "missing": 0
+      },
+      "mercedes": {
+        "total": 35,
+        "assigned": 35,
+        "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3295,
-    "missing": 159,
+    "missing": 471,
     "birthDates": 2075,
-    "total": 3454,
+    "total": 3766,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4847,13 +4952,48 @@
         "total": 24,
         "assigned": 24,
         "missing": 0
+      },
+      "juventudunida": {
+        "total": 51,
+        "assigned": 0,
+        "missing": 51
+      },
+      "estrelladelsur": {
+        "total": 43,
+        "assigned": 0,
+        "missing": 43
+      },
+      "argentinorosario": {
+        "total": 50,
+        "assigned": 0,
+        "missing": 50
+      },
+      "victorianoarenas": {
+        "total": 37,
+        "assigned": 0,
+        "missing": 37
+      },
+      "sacachispas": {
+        "total": 49,
+        "assigned": 0,
+        "missing": 49
+      },
+      "alem": {
+        "total": 47,
+        "assigned": 0,
+        "missing": 47
+      },
+      "mercedes": {
+        "total": 35,
+        "assigned": 0,
+        "missing": 35
       }
     }
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 78,
-    "total": 3454,
+    "missing": 390,
+    "total": 3766,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5354,13 +5494,41 @@
       "sarmientores": {
         "total": 24,
         "assigned": 24
+      },
+      "juventudunida": {
+        "total": 51,
+        "assigned": 0
+      },
+      "estrelladelsur": {
+        "total": 43,
+        "assigned": 0
+      },
+      "argentinorosario": {
+        "total": 50,
+        "assigned": 0
+      },
+      "victorianoarenas": {
+        "total": 37,
+        "assigned": 0
+      },
+      "sacachispas": {
+        "total": 49,
+        "assigned": 0
+      },
+      "alem": {
+        "total": 47,
+        "assigned": 0
+      },
+      "mercedes": {
+        "total": 35,
+        "assigned": 0
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 0,
-    "total": 3454,
+    "missing": 312,
+    "total": 3766,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5861,13 +6029,41 @@
       "sarmientores": {
         "total": 24,
         "specific": 24
+      },
+      "juventudunida": {
+        "total": 51,
+        "specific": 0
+      },
+      "estrelladelsur": {
+        "total": 43,
+        "specific": 0
+      },
+      "argentinorosario": {
+        "total": 50,
+        "specific": 0
+      },
+      "victorianoarenas": {
+        "total": 37,
+        "specific": 0
+      },
+      "sacachispas": {
+        "total": 49,
+        "specific": 0
+      },
+      "alem": {
+        "total": 47,
+        "specific": 0
+      },
+      "mercedes": {
+        "total": 35,
+        "specific": 0
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 1825,
-    "total": 3454,
+    "estimated": 2137,
+    "total": 3766,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6619,6 +6815,48 @@
         "verified": 0,
         "estimated": 24,
         "provisional": 0
+      },
+      "juventudunida": {
+        "total": 51,
+        "verified": 0,
+        "estimated": 51,
+        "provisional": 0
+      },
+      "estrelladelsur": {
+        "total": 43,
+        "verified": 0,
+        "estimated": 43,
+        "provisional": 0
+      },
+      "argentinorosario": {
+        "total": 50,
+        "verified": 0,
+        "estimated": 50,
+        "provisional": 0
+      },
+      "victorianoarenas": {
+        "total": 37,
+        "verified": 0,
+        "estimated": 37,
+        "provisional": 0
+      },
+      "sacachispas": {
+        "total": 49,
+        "verified": 0,
+        "estimated": 49,
+        "provisional": 0
+      },
+      "alem": {
+        "total": 47,
+        "verified": 0,
+        "estimated": 47,
+        "provisional": 0
+      },
+      "mercedes": {
+        "total": 35,
+        "verified": 0,
+        "estimated": 35,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -6626,22 +6864,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2282,
+    "derivedPlayers": 2594,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 125,
-    "players": 3454,
+    "clubs": 132,
+    "players": 3766,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 159,
+    "playersMissingAge": 471,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 1825,
+    "estimatedRatings": 2137,
     "provisionalRatings": 0,
-    "playersMissingNationality": 78,
-    "playersMissingFoot": 1397,
-    "playersMissingSpecificRole": 0,
-    "playersWithoutManualAttributes": 2282
+    "playersMissingNationality": 390,
+    "playersMissingFoot": 1709,
+    "playersMissingSpecificRole": 312,
+    "playersWithoutManualAttributes": 2594
   }
 }
