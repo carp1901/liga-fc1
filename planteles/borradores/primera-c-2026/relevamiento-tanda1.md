@@ -42,8 +42,26 @@ Fuente: https://www.soloascenso.com.ar/club/sacachispas-fc/300
 - MED: Emanuel Abregú; Santiago Arrieta; Emanuel Barreiro; Ignacio Branda; Héctor Canteros; Lucas Cipresso; Mateo Comignaghi; Nicolás Cuestas; Lucas Díaz; Facundo Durso; León Fariza; Santiago Gallardo; Fernando Lavalle; Tomás Magnano; Valentín Mancuso; Diego Molina Fariña; Alejo Monje; Nicolás Navarro; Juan Cruz Oltmann; Ricardo Priori; Leandro Ríos; Francesco Toldo; Lautaro Torres.
 - DEL: Bautista Brange; Gerónimo Cardozo; Santiago Ciotta; Ernesto Gallardo; Sebastián Martínez; Maximiliano Quinteros; Santiago Romero; Gonzalo Vivanco.
 
-## Pendientes para cerrar la tanda
-- **Leandro N. Alem:** Solo Ascenso informó 18 incorporaciones para 2026, pero ese artículo no es una nómina completa y no basta para reconstruir el plantel vigente. Fuente: https://www.soloascenso.com.ar/notas/leandro-n-alem/leandro-alem-volvio-a-sumar-jugadores-en-el-plantel/224300
-- **Club Mercedes:** Mundo Ascenso muestra sólo a L. Zotta en su ficha de plantel; es insuficiente para establecer una nómina completa. Fuente: https://www.mundoascenso.com.ar/plantel/307-club-mercedes
-- No se van a importar estos siete clubes hasta completar también Alem y Mercedes, revisar movimientos de mitad de temporada y conseguir datos suficientes para edad/rol/dorsal/atributos.
+## Leandro N. Alem — 46 nombres publicados
+Fuente: https://www.soloascenso.com.ar/club.php?_pagi_pg=12&eq=285
+
+- ARQ: Santiago Alstitud; Julián Cazaux; Juan Figueroa; Nicolás Gentile; Lucas Rodríguez.
+- DEF: Jeremías Armua; Leandro Canton; Claudio Curima; Andrés Fortini; Iván Gauna; Alejandro Gómez; Román Kozicki; Lucas Maidana; Thomas Mielniczuk; Facundo Moreno; Gonzalo Ramírez; Federico Rotela; Cristian Seltzer; Franco Torrico.
+- MED: Ezequiel Abal; Diego Altamirano; Thiago Arrieta; Santiago Castellis; Iván Colman; Pedro Cristaldo; Alan Cristeff; Alan Falkiewicz; Ciro Farias; Nicolás Fortini; Fernando Gutiérrez; Juan Ibáñez; José María Leiva; Tomás Lescano; Gonzalo Medina; Matías Medina; Ivo Oszust; Tobías Pavón; Juan Rodríguez; Lautaro Segovia; Federico Vallone; Damián Vázquez.
+- DEL: Agustín Almirón; Lautaro Leguizamón; Gonzalo Mendiburu; Rodrigo Onofrio; Diego Pertossi; Brian Risso Patrón.
+- Depuración pendiente: Gonzalo Mendiburu y Nicolás Gentile fueron anunciados como bajas para 2027 tras la temporada 2026, pero ambos aparecen en el plantel de temporada; Agustín Dilandro salió a préstamo. La nómina se cruzará con las convocatorias y partidos para distinguir plantel de inicio y de cierre.
+
+## Club Mercedes — 35 nombres publicados
+Fuente: https://www.soloascenso.com.ar/club/mercedes/438
+
+- ARQ: Iván Casco; Rodrigo Nicasio; Kevin Semeniuk; Franco Tonatto.
+- DEF: Facundo Alani; Thomas Bentancor; Máximo Chan; Román Cruz; Román López; Emanuel Murillo; Hernán Pineda; Sabino Redondi; Felipe Ruíz Díaz; Franco Taborda; Rodrigo Torres; Martín Zuccaro.
+- MED: Lucas Calderón; Gonzalo Cañete; Tomás Chaparro; Franco Cruz; Juan Culio; Ulises Antonio Dematei; Dante Díaz; Juan Román López; Franco Ortigosa; Maximiliano Pighin; Santiago Romagnoli.
+- DEL: Tomás Ángel Acosta; Leandro Amado; Mateo Blanco; Lautaro Lagos; Arturo Mendoza; Francisco Ruiz; Lisandro Sánchez Olmos; Juan Cruz Vera Borda.
+
+- La ficha de Mundo Ascenso de Mercedes no es completa; la nómina de Solo Ascenso y las formaciones confirmadas de partidos 2026 aportan una base mucho mejor. Se debe validar la permanencia de cada jugador y revisar movimientos antes de importarla.
+
+## Cierre de la tanda 1 — relevamiento nominal inicial
+- Los siete clubes ya tienen una nómina de referencia publicada: Juventud Unida, Estrella del Sur, Argentino de Rosario, Victoriano Arenas, Sacachispas, Leandro N. Alem y Club Mercedes.
+- La suma nominal publicada es una base de investigación, no el total definitivo de jugadores a cargar. Se hará depuración de altas/bajas y apariciones antes de aplicar el mínimo de 22; no se completará con jugadores ficticios.
 - Los listados de temporada se usan como punto de partida, no como prueba de que todos los jugadores siguen en el plantel al cierre de temporada. Se contrastarán apariciones y fichas de partido para depurar futbolistas sin participación o con salida confirmada.
