@@ -7,16 +7,16 @@ Estado: cuarta tanda preparada para integrar; auditoría general final pendiente
 
 | Club | Jugadores | ARQ | DEF | MED | DEL |
 |---|---:|---:|---:|---:|---:|
-| El Porvenir | 47 | 7 | 13 | 17 | 10 |
+| El Porvenir | 44 | 4 | 13 | 17 | 10 |
 | Fénix | 42 | 3 | 13 | 19 | 7 |
 | General Lamadrid | 35 | 3 | 9 | 17 | 6 |
 | Leones FC | 37 | 4 | 10 | 16 | 7 |
 | Luján | 33 | 3 | 8 | 15 | 7 |
 | Sportivo Barracas | 39 | 3 | 7 | 16 | 13 |
 | Yupanqui | 39 | 3 | 10 | 18 | 8 |
-| **Total** | **272** | **26** | **70** | **118** | **58** |
+| **Total actual** | **269** | **23** | **70** | **118** | **58** |
 
-Con las tres tandas anteriores, la categoría completa queda preparada con **1.130 jugadores en 28 clubes**.
+Con las tres tandas anteriores, la categoría quedó inicialmente en 1.130; tras retirar tres arqueros sin participación de primer equipo de El Porvenir, el runtime queda en **1.122 jugadores en 28 clubes**.
 
 Fuentes de nómina: [El Porvenir](https://www.soloascenso.com.ar/club/el-porvenir/270), [Fénix](https://www.soloascenso.com.ar/club/fenix/274), [General Lamadrid](https://www.soloascenso.com.ar/club/gral-lamadrid/278), [Leones FC](https://www.soloascenso.com.ar/club/leones-fc-rosario/1228), [Luján](https://www.soloascenso.com.ar/club/lujan/290), [Sportivo Barracas](https://www.soloascenso.com.ar/club/sportivo-barracas/249) y [Yupanqui](https://www.soloascenso.com.ar/club/yupanqui/317).
 
@@ -58,3 +58,8 @@ Se detectaron ocho pares de nombres repetidos entre clubes. Se mantienen separad
 3. Reducir planteles sólo cuando la evidencia indique jugadores sin participación o fuera del club; mantener al menos 22 jugadores y siete alternativas de banco.
 4. Corregir posiciones específicas y asignar roles de campo con evidencia.
 5. Reemplazar medias y dorsales estimados por datos confirmados cuando existan; mantener estimaciones marcadas donde no haya fuente.
+
+
+### Corrección posterior de El Porvenir
+
+Se retiraron Facundo Arcas, Cristian Arce y Tomás Guzmán por no registrar participación de primer equipo en 2026. Se mantienen Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade. El perfil de Luis Andrade (Luis Miguel Andrade Arboleda) registra dos partidos y 118 minutos; no debe confundirse con otro jugador ni duplicarse por el nombre abreviado.
