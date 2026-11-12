@@ -121,3 +121,23 @@ Fuente general de movimientos: https://www.mundoascenso.com.ar/mercado-de-pases/
 - En las fichas de partido algunos jugadores aparecen con variantes ortográficas o abreviadas (por ejemplo, Manuel Báez/Baez; Theo Guiñazú/Guiñazú Reynoso; Dago Sánchez Palencia/Sanchez Palencia). Se deben normalizar como una sola identidad solo cuando la coincidencia esté respaldada por club, posición y contexto.
 - La lista nominal de Alem debe cruzarse con las fichas de marzo, septiembre y octubre antes de decidir qué jugadores conservar; hay apellidos iguales y jugadores que cambiaron de situación a lo largo del año.
 - El mercado de pases es una fuente de movimientos, pero no siempre informa fecha exacta de salida ni participación posterior. Para el plantel de cierre se prioriza la ficha de partidos más reciente disponible y se registra la transferencia como baja cuando aparece confirmada.
+
+
+## Segunda pasada de fichas confirmadas — 12/11/2026
+
+### Juventud Unida — cruce de nómina con ficha completa
+
+- **Juventud Unida 4–1 Club Mercedes (30/08/2026, fecha 26):** la ficha de Solo Ascenso publica formaciones confirmadas y suplentes. En Juventud fueron titulares Alessandro López, Franco Cardozo, Mariano Di Franco, Maximiliano Paredes, Ian Escobar, Alan Vega, Kevin Barrionuevo, Diego Cardozo, Alexis Albistur, Nahuel Aiuto y Enzo Arreguín. Ingresaron Duncan Hughes, Andrés Molinas, Enzo Guzmán, Mateo Pedemonti y Joaquín Iglesias. También estuvieron en el banco Agustín Burlón, Esteban Fernández, Emiliano Ortíz y Mauro Peiro. Esto confirma participación para 20 futbolistas de la nómina nominal, con minutos para cinco suplentes; no alcanza por sí solo para descartar a los demás. Fuente: https://www.soloascenso.com.ar/ficha/45257
+- **Corrección de posición a revisar:** Diego Cardozo aparece como titular con dorsal 10 y Alexis Albistur con 11 en esta ficha. La asignación definitiva de posiciones debe contrastarse con otras fechas, no copiarse automáticamente desde la lista nominal.
+- **Club Mercedes en la misma ficha:** Iván Casco, Thomas Bentancor, Hernán Pineda, Martín Zuccaro, Rodrigo Torres, Tomás Chaparro, Maximiliano Pighin, Arturo Mendoza, Franco Ortigosa, Máximo Chan y Francisco Ruiz fueron titulares. Rodrigo Nicasio, Juan Culio, Román López, Juan Román López, Leandro Amado, Dante Díaz, Gonzalo Cañete, Lisandro Sánchez Olmos y Mateo Blanco estuvieron entre los suplentes. La ficha confirma actividad de estos 20 nombres, incluyendo varios delanteros/mediocampistas de la nómina inicial. Fuente: https://www.soloascenso.com.ar/ficha/45257
+
+### Victoriano Arenas — ficha completa de fecha 25
+
+- **Victoriano Arenas 1–0 Berazategui (22/08/2026, fecha 25):** titulares confirmados: Nicolás Baus, Matías Gómez, Alan Salmantón, Luciano Vargas, Matías Rodríguez, Fabián Monserrat, Leonel Duarte, Sebastián Benega, Tobías Mercado Rusch, Santiago Fernandez y Leandro Zacarías. Suplentes: Santiago Benvenutti, Joaquín Grane Morrone, Emanuel Saporito, Axel Tisocco, Juan Cruz López, Nicolás Mamberti, Ramiro Rivarola, Facundo Rodríguez y Uriel Parejas. Ingresaron Saporito, Parejas, Facundo Rodríguez, Rivarola y Mamberti. La ficha confirma participación competitiva para 20 jugadores y valida especialmente a Facundo Rodríguez como incorporación con minutos. Fuente: https://www.soloascenso.com.ar/ficha/45242
+- La ficha usa la variante **Santiago Benvenutti**, mientras la lista nominal figura **Santiago Benvenutti**; mantener una sola identidad y no duplicar por variantes de escritura. El arquero que inicia es Nicolás Baus; no inferir que los otros arqueros sin ficha reciente no integraban el plantel.
+
+### Criterio de depuración actualizado
+
+- Una ficha confirmada de partido permite marcar presencia y, cuando hay cambios, minutos; no demuestra por sí sola que un jugador integre el plantel al cierre de temporada.
+- La nómina de cierre debe cruzarse con movimientos de mercado y fichas posteriores. Las convocatorias tempranas sirven para conservar el historial de temporada, pero no justifican incluir automáticamente a un jugador cedido o transferido antes del corte.
+- No reducir planteles a los 20 nombres de una convocatoria: el objetivo sigue siendo un plantel de juego equilibrado, con al menos 22 futbolistas cuando la evidencia de temporada lo permita, sin sumar juveniles o reservas sin participación solo para alcanzar el mínimo.
