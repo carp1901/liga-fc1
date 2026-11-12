@@ -135,7 +135,8 @@ class Sim{
  event(e,as){const S=this,n=S.q.length;if(e.x=='g'&&e.k!='pso'&&!S.pso&&(!S.P.length||S.frozen||S.P.length<22)){(S.gq=S.gq||[]).push({e,as});return}if(!S.P.length||S.frozen||(as==1&&S.P.length<22))return;
   const dn=S.dropN||1;if(n>=dn&&n<4&&e.k=='att'&&e.x=='l'&&as!=null&&rnd()<.6&&S.n-(S.lastLat||-999)>600){S.lastLat=S.n;S.latQ=(S.latQ||0)+1;S.q.push({e:{k:'lat'},as:1-as});return}   // la pérdida que se iba a descartar se convierte en saque lateral para el rival
   if(!(e.cd=='r'||e.cd=='r2')&&((n>=dn&&e.k=='lat')||(n>=dn&&(e.k=='foul'||(e.k=='att'&&(e.x=='l'||e.x=='f'))))||(n>=dn+2&&e.k=='att'&&e.x=='o')))return;   // las faltas con expulsión nunca se descartan: se tiene que ver el motivo
-  if(n>=(S.qMax||7)&&e.x!='g')return;S.q.push({e,as})}
+  if(n>=(S.qMax||7)&&e.x!='g')return;if(e.x=='g'&&e.k!='pso')S.q=S.q.filter(it=>it.e&&(it.e.x=='g'||it.e.k=='pso'||it.e.cd));   // un gol pasa delante de las jugadas pendientes: se ve cuando pasa, no 20 minutos después
+  S.q.push({e,as})}
  begin(){const S=this,it=S.q.shift(),e=it.e,as=it.as;S.clr();S.B.free=false;S.poss=as;S.fs=1;
   if(e.k=='att')S.attSc(e,as);else if(e.k=='pso'){S.pso=true;S.psoN=(S.psoN||0)+1;S.penSc(e,as)}else if(e.k=='foul'||e.k=='fk'||e.k=='pen')S.incSc(e,as);else if(e.k=='cor'){if(!S.corPre(e,as))S.corSc(e,as)}else if(e.k=='lat'){if(!S.latPre(e,as))S.latSc(e,as)}}
  psoLine(ex){const S=this;[0,1].forEach(s=>{const L=S.P.filter(p=>p.s==s&&!p.off&&p.k!=0&&p!==ex),n=L.length,sp=Math.min(34,(FH-50)/Math.max(1,n-1));L.forEach((p,j)=>S.tg(p,W/2+(s?22:-22),H/2+(j-(n-1)/2)*sp))})}
