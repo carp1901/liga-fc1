@@ -35,6 +35,9 @@ const ao=crossNames.get('alexis oviedo');assert.deepEqual(ao.map(x=>x.club+'|'+x
 const gm=crossNames.get('gonzalo medina');assert.deepEqual(gm.map(x=>x.club+'|'+x.pos).sort(),['alem|MED','fenix|MED']);
 const gr=crossNames.get('gonzalo ramirez');assert.deepEqual(gr.map(x=>x.club+'|'+x.pos).sort(),['alem|DEF','lujan|DEL']);
 const sd=crossNames.get('santiago diaz');assert.deepEqual(sd.map(x=>x.club+'|'+x.pos).sort(),['cambaceres|DEF','lujan|MED']);
+const gm=crossNames.get('gonzalo medina');assert.deepEqual(gm.map(x=>x.club+'|'+x.pos).sort(),['alem|MED','fenix|MED']);
+const gr=crossNames.get('gonzalo ramirez');assert.deepEqual(gr.map(x=>x.club+'|'+x.pos).sort(),['alem|DEF','lujan|DEL']);
+const sd=crossNames.get('santiago diaz');assert.deepEqual(sd.map(x=>x.club+'|'+x.pos).sort(),['cambaceres|DEF','lujan|MED']);
 const sapio=rows.filter(row=>row[col.nombre]==='Santino Sapio');assert.equal(sapio.length,1);assert.equal(sapio[0][col.posiciones_secundarias],'MED');
 assert(rows.some(row=>row[col.club_id]==='cambaceres'&&row[col.nombre]==='Víctor Gómez'),'Falta Víctor Gómez, confirmado por perfil individual en Cambaceres');
 if(process.argv.includes('--runtime')){
