@@ -54,11 +54,11 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 
 ## Estado
 
-- [x] Tanda 1 cargada: 310 jugadores en 7 clubes
+- [x] Tanda 1 cargada: 311 jugadores en 7 clubes
 - [x] Tanda 2 cargada: 271 jugadores en 7 clubes
 - [x] Tanda 3 cargada: 272 jugadores en 7 clubes tras primera depuración
 - [x] Tanda 4 cargada: 269 jugadores en 7 clubes tras primera depuración
-- [x] Integración y pruebas de integridad: 1.122 jugadores en 28 clubes
+- [x] Integración y pruebas de integridad: 1.123 jugadores en 28 clubes
 - [ ] Auditoría individual final: apariciones, bajas, posiciones, edades, roles y medias
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
@@ -66,7 +66,7 @@ La integración conservó los planteles de Primera, Primera Nacional, B Metropol
 
 ## Avance 12/11/2026
 
-- La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (47) y Club Mercedes (35).
+- La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (50), Leandro N. Alem (47) y Club Mercedes (35).
 - Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
 - Las cuatro tandas reúnen 1.122 jugadores en los 28 clubes tras la primera depuración. La carga está integrada y validada; medias y dorsales siguen identificados como estimaciones. Edades, nacionalidades, pie hábil, roles específicos y medias deben revisarse en la auditoría individual final.
 
@@ -117,3 +117,8 @@ El informe global de auditoría está en `auditoria-general-primera-c-2026.md`; 
 
 
 Informe general: `planteles/auditoria-general-primera-c-2026.md`.
+
+
+### Ajuste de nómina posterior
+
+Se agregó Matías Arias a Sacachispas: su ficha 2026 confirma 16 partidos y 1.306 minutos. El total actual queda en 1.123 jugadores; la prueba de integridad se actualizó para validar esta incorporación.
