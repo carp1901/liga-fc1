@@ -55,7 +55,7 @@ Trabajo de recopilación por cuatro tandas. Los archivos de esta carpeta son bor
 ## Estado
 
 - [x] Relevamiento nominal inicial de tanda 1: 7 clubes
-- [x] Carga preliminar de tanda 1 en runtime: 858 jugadores en 21 clubes
+- [x] Carga preliminar de tanda 1 en runtime: 1.130 jugadores en 28 clubes
 - [ ] Auditoría general posterior a la carga: apariciones, bajas, posiciones, tamaño, edades, roles, medias y dorsales
 - [ ] Tanda 2: 7 clubes
 - [ ] Tanda 3: 7 clubes
@@ -69,12 +69,12 @@ La integración deberá conservar los planteles de Primera, Primera Nacional, B 
 
 - La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (47) y Club Mercedes (35).
 - Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
-- La tanda 1 está integrada con 310 jugadores, la tanda 2 con 271 y la tanda 3 agrega 277; total previsto al importar esta tanda: 858 en 21 clubes. Las dos tandas usan medias y dorsales provisionales identificados como estimaciones, todos con dorsal estimado identificado y sin duplicados dentro de cada club. No se considera carga definitiva: edades, nacionalidades, roles específicos y medias deben revisarse en la auditoría general.
+- Las cuatro tandas reúnen 1.130 jugadores en los 28 clubes. La carga es preliminar: medias y dorsales siguen identificados como estimaciones, y falta la auditoría general final. Las dos tandas usan medias y dorsales provisionales identificados como estimaciones, todos con dorsal estimado identificado y sin duplicados dentro de cada club. No se considera carga definitiva: edades, nacionalidades, roles específicos y medias deben revisarse en la auditoría general.
 
 
 ## Carga inicial — tanda 1
 
-Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los siete clubes y realizar después una auditoría general conjunta. El archivo `tanda1-inicial.csv` contiene La tanda 1 quedó en 310 tras su primera auditoría; la tanda 2 agrega 271 y la tanda 3 agrega 277. Total actual previsto: 858 jugadores en 21 clubes.
+Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los siete clubes y realizar después una auditoría general conjunta. El archivo `tanda1-inicial.csv` contiene La tanda 1 quedó en 310 tras su primera auditoría; la tanda 2 agrega 271, la tanda 3 agrega 277 y la tanda 4 agrega 272. Total previsto: 1.130 jugadores en los 28 clubes.
 
 Las medias y los dorsales de esta carga inicial son provisionales y están identificados explícitamente como estimaciones; no se presentan como datos oficiales. Las edades, nacionalidades y roles específicos no se completan por inferencia. La auditoría posterior deberá revisar apariciones, altas/bajas, identidades, posiciones, tamaño razonable de cada plantel y reemplazar las estimaciones cuando haya evidencia individual mejor.
 
@@ -96,3 +96,10 @@ La auditoría posterior debe prestar especial atención a Puerto Nuevo: la prese
 La tercera tanda incorpora 7 clubes y 277 jugadores nominales: Atlas (42), Cañuelas (31 jugadores únicos; Santino Sapio se registra una sola vez), Central Ballester (56), Central Córdoba de Rosario (32), Claypole (39), Deportivo Español (39) y Muñiz (38). Con las dos tandas anteriores, el runtime de la rama debe quedar en 858 jugadores y 21 clubes de Primera C.
 
 Central Ballester y Deportivo Español quedan señalados para revisar tamaño y rotación; Cañuelas tiene una doble clasificación de Santino Sapio que se representa con posición secundaria, no con un jugador duplicado.
+
+
+## Carga inicial — tanda 4
+
+La cuarta tanda incorpora 7 clubes y 272 jugadores nominales: El Porvenir (47), Fénix (42), General Lamadrid (35), Leones FC (37), Luján (33), Sportivo Barracas (39) y Yupanqui (39). Con las tandas 1, 2 y 3, la categoría completa queda preparada con 1.130 jugadores en 28 clubes.
+
+La auditoría general final debe revisar especialmente El Porvenir (siete arqueros) y Sportivo Barracas (trece delanteros), además de las edades, posiciones específicas, apariciones, bajas y medias de los 28 planteles.
