@@ -66,6 +66,6 @@ La integración deberá conservar los planteles de Primera, Primera Nacional, B 
 
 ## Avance 12/11/2026
 
-- La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (46) y Club Mercedes (35).
+- La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (47) y Club Mercedes (35).
 - Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
 - Aún no hay CSV importable: faltan verificar edades, roles específicos, dorsales, medias y fuentes de participación jugador por jugador. La tanda no se considera cerrada hasta esa auditoría.
