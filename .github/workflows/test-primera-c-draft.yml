@@ -23,10 +23,14 @@ jobs:
         run: node --check import-squads.js
       - name: Validar CSV inicial de los siete clubes
         run: node test-primera-c-draft.js
-      - name: Validar importación sin publicar
-        run: node import-squads.js planteles/borradores/primera-c-2026/tanda1-inicial.csv --dry-run
-      - name: Integrar los siete planteles en runtime de la rama
-        run: node import-squads.js planteles/borradores/primera-c-2026/tanda1-inicial.csv
+      - name: Validar importaciones sin publicar
+        run: |
+          node import-squads.js planteles/borradores/primera-c-2026/tanda1-inicial.csv --dry-run
+          node import-squads.js planteles/borradores/primera-c-2026/tanda2-inicial.csv --dry-run
+      - name: Integrar los catorce planteles en runtime de la rama
+        run: |
+          node import-squads.js planteles/borradores/primera-c-2026/tanda1-inicial.csv
+          node import-squads.js planteles/borradores/primera-c-2026/tanda2-inicial.csv
       - name: Auditar la integración y proteger las demás divisiones
         run: node test-primera-c-draft.js --runtime
       - name: Guardar runtime integrado en la rama del PR
