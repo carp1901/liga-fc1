@@ -141,3 +141,16 @@ Fuente general de movimientos: https://www.mundoascenso.com.ar/mercado-de-pases/
 - Una ficha confirmada de partido permite marcar presencia y, cuando hay cambios, minutos; no demuestra por sí sola que un jugador integre el plantel al cierre de temporada.
 - La nómina de cierre debe cruzarse con movimientos de mercado y fichas posteriores. Las convocatorias tempranas sirven para conservar el historial de temporada, pero no justifican incluir automáticamente a un jugador cedido o transferido antes del corte.
 - No reducir planteles a los 20 nombres de una convocatoria: el objetivo sigue siendo un plantel de juego equilibrado, con al menos 22 futbolistas cuando la evidencia de temporada lo permita, sin sumar juveniles o reservas sin participación solo para alcanzar el mínimo.
+
+
+### Argentino de Rosario — actualización de nómina y cierre de temporada
+
+- La página de club de Solo Ascenso, consultada el 12/11/2026, mantiene una nómina de 50 jugadores y registra resultados hasta el 31/10. En la nómina publicada ya no aparecen Dago Sánchez Palencia, Facundo Aronna ni Carlos Raga Córdoba; sí aparecen, entre otros, Ignacio Canteros y Juan Bautista Cantiani. Esto coincide con el registro de salidas a Cambaceres ya documentado y refuerza que los tres primeros no deben quedar en el plantel de cierre de Argentino, aunque sí conservarse como participantes de la temporada 2026 en el historial de relevamiento. Fuente: https://www.soloascenso.com.ar/club/argentino-de-rosario/243
+- La tabla de goleadores de esa misma página confirma producción durante el torneo para Thiago Bartalini (6), Theo Guiñazú (5), Julián Andrada (4), Octavio Rubarth (3), Facundo Aronna (2) y otros. La aparición de Aronna como goleador histórico de la temporada no contradice su ausencia de la nómina final: son datos de alcance distinto (participación anual frente a plantel actualizado).
+- No se incorporará todavía a Manuel González: aunque figura como alta en el mercado consultado previamente, no se encontró aún una coincidencia inequívoca de identidad, posición y participación que permita sumarlo sin riesgo de duplicado.
+
+### Estado de la tanda 1 tras el nuevo cruce
+
+- Las fichas confirmadas de Juventud Unida, Victoriano Arenas y Mercedes permiten validar una base de jugadores de rotación real y no solo nombres listados.
+- Para completar el corte de cierre de los siete clubes todavía falta cruzar plantel actualizado y/o convocatorias de las últimas fechas de Estrella del Sur, Sacachispas y Alem, y revisar el corte final de Juventud, Victoriano y Mercedes frente a movimientos de mercado.
+- Esta tanda sigue **en auditoría**. No se genera CSV definitivo ni se importa al juego hasta resolver duplicados, salidas, posiciones y el tamaño razonable de cada plantel.
