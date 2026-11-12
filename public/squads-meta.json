@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T06:38:28.404Z",
+  "updatedAt": "2026-11-12T06:41:41.804Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2947 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2948 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -133,7 +133,7 @@
     "estrelladelsur": 42,
     "argentinorosario": 50,
     "victorianoarenas": 37,
-    "sacachispas": 49,
+    "sacachispas": 50,
     "alem": 46,
     "mercedes": 35,
     "berazategui": 38,
@@ -3644,12 +3644,18 @@
       "natSource": []
     },
     "sacachispas": {
-      "source": "https://www.soloascenso.com.ar/club/sacachispas-fc/300",
+      "source": [
+        "https://www.soloascenso.com.ar/club/sacachispas-fc/300",
+        "https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447"
+      ],
       "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ageSource": "https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado inicial; no confirmado oficialmente."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447",
       "natSource": []
     },
     "alem": {
@@ -3865,9 +3871,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4576,
+    "assigned": 4577,
     "missing": 0,
-    "total": 4576,
+    "total": 4577,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4515,8 +4521,8 @@
         "missing": 0
       },
       "sacachispas": {
-        "total": 49,
-        "assigned": 49,
+        "total": 50,
+        "assigned": 50,
         "missing": 0
       },
       "alem": {
@@ -4638,10 +4644,10 @@
   },
   "dorsalsComplete": true,
   "ageCoverage": {
-    "assigned": 3295,
+    "assigned": 3296,
     "missing": 1281,
     "birthDates": 2075,
-    "total": 4576,
+    "total": 4577,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5289,8 +5295,8 @@
         "missing": 37
       },
       "sacachispas": {
-        "total": 49,
-        "assigned": 0,
+        "total": 50,
+        "assigned": 1,
         "missing": 49
       },
       "alem": {
@@ -5412,8 +5418,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1200,
-    "total": 4576,
+    "missing": 1201,
+    "total": 4577,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5932,7 +5938,7 @@
         "assigned": 0
       },
       "sacachispas": {
-        "total": 49,
+        "total": 50,
         "assigned": 0
       },
       "alem": {
@@ -6031,8 +6037,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1122,
-    "total": 4576,
+    "missing": 1123,
+    "total": 4577,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6551,7 +6557,7 @@
         "specific": 0
       },
       "sacachispas": {
-        "total": 49,
+        "total": 50,
         "specific": 0
       },
       "alem": {
@@ -6650,8 +6656,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2947,
-    "total": 4576,
+    "estimated": 2948,
+    "total": 4577,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7429,9 +7435,9 @@
         "provisional": 0
       },
       "sacachispas": {
-        "total": 49,
+        "total": 50,
         "verified": 0,
-        "estimated": 49,
+        "estimated": 50,
         "provisional": 0
       },
       "alem": {
@@ -7578,22 +7584,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3404,
+    "derivedPlayers": 3405,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 153,
-    "players": 4576,
+    "players": 4577,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 1281,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2947,
+    "estimatedRatings": 2948,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1200,
-    "playersMissingFoot": 2519,
-    "playersMissingSpecificRole": 1122,
-    "playersWithoutManualAttributes": 3404
+    "playersMissingNationality": 1201,
+    "playersMissingFoot": 2520,
+    "playersMissingSpecificRole": 1123,
+    "playersWithoutManualAttributes": 3405
   }
 }
