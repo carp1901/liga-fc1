@@ -7,7 +7,7 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 
 - **28 clubes** cargados.
 - **1.123 jugadores** en runtime después de la primera depuración general.
-- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron diez nombres: dos en la depuración de la tanda 1 y ocho en esta primera auditoría general.
+- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron diez nombres (dos en la depuración de la tanda 1 y ocho en la primera auditoría general) y se agregó Matías Arias tras confirmar 16 partidos y 1.306 minutos con Sacachispas.
 - Los 28 clubes cumplen el mínimo de 22 jugadores: el menor plantel actual tiene 29 y el mayor 51.
 - Promedio actual: 40,1 jugadores por club. Es una base preliminar; todavía hay equipos demasiado grandes para considerarlos definitivos.
 
@@ -65,6 +65,10 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 - Gabriel Rivera (Estrella del Sur): perfil individual sin partidos jugados en 2026.
 - Nicolás Gentile (Leandro N. Alem): sin participaciones ni convocatorias de primer equipo en 2026.
 
+### Corrección de Sacachispas
+
+- **Matías Arias** se agregó al plantel como mediocampista: su ficha de Primera C 2026 registra 16 partidos y 1.306 minutos. La nómina general de Solo Ascenso lo omitía, pero su participación está respaldada por el perfil estadístico. Dorsal 51 estimado; edad 25 confirmada. Fuente: https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447
+
 ### Central Ballester
 
 Se retiraron cinco jugadores:
@@ -89,12 +93,12 @@ Se conservan Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade. Luis 
 |---|---:|---:|
 | Arqueros | 100 | 8,9% |
 | Defensores | 306 | 27,3% |
-| Mediocampistas | 493 | 43,9% |
+| Mediocampistas | 494 | 44,0% |
 | Delanteros | 223 | 19,9% |
 
 - Las 1.123 medias son estimaciones iniciales por nivel de club y posición; promedio global 44,47, rango 40–50. No son ratings oficiales ni se consideran calibradas.
 - Los 1.123 dorsales están marcados como estimados.
-- Faltan edad, nacionalidad, pie hábil y rol específico en los 1.123 registros.
+- Falta la edad en 1.122 registros (Matías Arias tiene 25 años documentados); faltan nacionalidad, pie hábil y rol específico en los 1.123.
 - El rol genérico (ARQ/DEF/MED/DEL) está completo, pero no alcanza para mostrar posiciones detalladas como LD, LI, DFC, MCD, MC, MCO, EI, ED o DC.
 - Las medias de Luján, Deportivo Español y Leones FC están entre las más altas de la categoría por la escala provisional asignada; deberán revisarse con rendimiento individual y referencias de nivel.
 
