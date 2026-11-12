@@ -10,24 +10,24 @@ Se cargaron 312 registros de siete clubes, utilizando las nóminas 2026 publicad
 | Club | Jugadores cargados | ARQ | DEF | MED | DEL |
 |---|---:|---:|---:|---:|---:|
 | Juventud Unida | 51 | 4 | 15 | 21 | 11 |
-| Estrella del Sur | 43 | 6 | 10 | 18 | 9 |
+| Estrella del Sur | 42 | 5 | 10 | 18 | 9 |
 | Argentino de Rosario | 50 | 3 | 11 | 26 | 10 |
 | Victoriano Arenas | 37 | 4 | 8 | 18 | 7 |
 | Sacachispas | 49 | 4 | 14 | 23 | 8 |
-| Leandro N. Alem | 47 | 5 | 14 | 22 | 6 |
+| Leandro N. Alem | 46 | 4 | 14 | 22 | 6 |
 | Club Mercedes | 35 | 4 | 12 | 11 | 8 |
-| **Total** | **312** | **30** | **84** | **139** | **59** |
+| **Total actual** | **310** | **28** | **84** | **139** | **59** |
 
 Las siete cantidades y las categorías de posición coinciden con las nóminas publicadas de Solo Ascenso: [Juventud](https://www.soloascenso.com.ar/club/juventud-unida/284), [Estrella](https://www.soloascenso.com.ar/club/estrella-del-sur-alejandro-korn/900), [Argentino](https://www.soloascenso.com.ar/club/argentino-de-rosario/243), [Victoriano](https://www.soloascenso.com.ar/club/victoriano-arenas/314), [Sacachispas](https://www.soloascenso.com.ar/club/sacachispas-fc/300), [Alem](https://www.soloascenso.com.ar/club.php?_pagi_pg=12&eq=285) y [Mercedes](https://www.soloascenso.com.ar/club/mercedes/438).
 
 ## 2. Controles automáticos
 
-- 312 jugadores cargados en 7 clubes.
+- 312 jugadores cargados inicialmente; tras la primera depuración quedan 310 en 7 clubes.
 - 0 nombres repetidos dentro de un mismo club.
 - 0 dorsales duplicados dentro de un mismo club.
 - 0 dorsales vacíos.
-- 312 dorsales marcados como estimados; no se los presenta como dorsales oficiales.
-- 312 medias marcadas como estimaciones propias iniciales.
+- 310 dorsales marcados como estimados; no se los presenta como dorsales oficiales.
+- 310 medias marcadas como estimaciones propias iniciales.
 - Media global provisional: 44,1; rango actual: 42–46.
 - No se completaron edades, nacionalidades, pie hábil ni roles específicos por inferencia.
 
@@ -75,7 +75,16 @@ Se revisaron fichas de partidos para validar presencia real, no sólo pertenenci
 
 Los dorsales que aparecen en una ficha de partido son números usados en ese encuentro. No se convierten automáticamente en dorsales permanentes de temporada cuando no hay corroboración adicional.
 
-## 6. Pendientes de la auditoría completa
+## 6. Primera depuración aplicada — 12/11/2026
+
+Se retiraron dos nombres de la carga inicial porque la evidencia individual no respalda participación en el primer equipo durante 2026:
+
+- **Gabriel Rivera (Estrella del Sur):** el perfil de ZeroZero registra "sin partidos jugados" en 2026. Se excluye del plantel de juego; queda documentado como parte de la nómina publicada, pero sin participación. Fuente: https://www.zerozero.pe/jugador/gabriel-rivera/2346224?epoca_id=155
+- **Nicolás Gentile (Leandro N. Alem):** Solo Ascenso informa que integró el primer equipo, pero no tuvo participaciones ni siquiera en el banco durante 2026. Se excluye del plantel de juego. Fuente: https://www.soloascenso.com.ar/notas/argentino-de-quilmes/leandro-alem-sufrio-dos-bajas-de-cara-al-proximo-ano/234281
+
+No se retiró a Julián Cazaux: aunque en enero se informó que no había tenido oportunidades en Primera, en agosto fue titular en un amistoso de 90 minutos ante Deportivo Muñiz. Queda como tercer arquero pendiente de confirmar si tuvo convocatoria oficial. Fuente: https://www.soloascenso.com.ar/notas/leandro-n-alem/leandro-alem-sumo-mas-minutos-de-futbol-ante-muniz/231045
+
+## 7. Pendientes de la auditoría completa
 
 1. Obtener perfiles individuales y presencias de los 312 jugadores para distinguir titulares, rotación y nombres nominales sin minutos.
 2. Revisar altas, bajas, préstamos y homónimos club por club con fecha de corte de 2026.

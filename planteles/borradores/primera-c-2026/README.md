@@ -55,7 +55,7 @@ Trabajo de recopilación por cuatro tandas. Los archivos de esta carpeta son bor
 ## Estado
 
 - [x] Relevamiento nominal inicial de tanda 1: 7 clubes
-- [x] Carga preliminar de tanda 1 en runtime: 312 jugadores en 7 clubes
+- [x] Carga preliminar de tanda 1 en runtime: 310 jugadores en 7 clubes
 - [ ] Auditoría general posterior a la carga: apariciones, bajas, posiciones, tamaño, edades, roles, medias y dorsales
 - [ ] Tanda 2: 7 clubes
 - [ ] Tanda 3: 7 clubes
@@ -69,12 +69,12 @@ La integración deberá conservar los planteles de Primera, Primera Nacional, B 
 
 - La primera captura nominal de los siete clubes está guardada en `relevamiento-tanda1.md`: Juventud Unida (51), Estrella del Sur (43), Argentino de Rosario (50), Victoriano Arenas (37), Sacachispas (49), Leandro N. Alem (47) y Club Mercedes (35).
 - Estas cantidades corresponden a las nóminas publicadas por Solo Ascenso, no a la cantidad final que se importará. Se depurarán nombres sin participación, bajas y movimientos de mitad de temporada; no se va a cargar automáticamente cada nombre ni a sobrepoblar clubes.
-- La carga preliminar ya está integrada en `public/squads.json`, `public/squads.js` y `public/squads-meta.json`: 312 jugadores, todos con dorsal estimado identificado y sin duplicados dentro de cada club. No se considera carga definitiva: edades, nacionalidades, roles específicos y medias deben revisarse en la auditoría general.
+- La carga preliminar ya está integrada en `public/squads.json`, `public/squads.js` y `public/squads-meta.json`: 310 jugadores (se cargaron 312 y se retiraron dos tras la primera auditoría), todos con dorsal estimado identificado y sin duplicados dentro de cada club. No se considera carga definitiva: edades, nacionalidades, roles específicos y medias deben revisarse en la auditoría general.
 
 
 ## Carga inicial — tanda 1
 
-Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los siete clubes y realizar después una auditoría general conjunta. El archivo `tanda1-inicial.csv` contiene 312 registros (51 Juventud Unida, 43 Estrella del Sur, 50 Argentino de Rosario, 37 Victoriano Arenas, 49 Sacachispas, 47 Leandro N. Alem y 35 Club Mercedes).
+Se acordó cambiar el orden de trabajo: cargar primero la nómina nominal de los siete clubes y realizar después una auditoría general conjunta. El archivo `tanda1-inicial.csv` contiene 312 registros iniciales; tras la primera auditoría quedaron 310 (51 Juventud Unida, 42 Estrella del Sur, 50 Argentino de Rosario, 37 Victoriano Arenas, 49 Sacachispas, 46 Leandro N. Alem y 35 Club Mercedes).
 
 Las medias y los dorsales de esta carga inicial son provisionales y están identificados explícitamente como estimaciones; no se presentan como datos oficiales. Las edades, nacionalidades y roles específicos no se completan por inferencia. La auditoría posterior deberá revisar apariciones, altas/bajas, identidades, posiciones, tamaño razonable de cada plantel y reemplazar las estimaciones cuando haya evidencia individual mejor.
 
