@@ -42,7 +42,7 @@ Fuente: https://www.soloascenso.com.ar/club/sacachispas-fc/300
 - MED: Emanuel Abregú; Santiago Arrieta; Emanuel Barreiro; Ignacio Branda; Héctor Canteros; Lucas Cipresso; Mateo Comignaghi; Nicolás Cuestas; Lucas Díaz; Facundo Durso; León Fariza; Santiago Gallardo; Fernando Lavalle; Tomás Magnano; Valentín Mancuso; Diego Molina Fariña; Alejo Monje; Nicolás Navarro; Juan Cruz Oltmann; Ricardo Priori; Leandro Ríos; Francesco Toldo; Lautaro Torres.
 - DEL: Bautista Brange; Gerónimo Cardozo; Santiago Ciotta; Ernesto Gallardo; Sebastián Martínez; Maximiliano Quinteros; Santiago Romero; Gonzalo Vivanco.
 
-## Leandro N. Alem — 46 nombres publicados
+## Leandro N. Alem — 47 nombres publicados
 Fuente: https://www.soloascenso.com.ar/club.php?_pagi_pg=12&eq=285
 
 - ARQ: Santiago Alstitud; Julián Cazaux; Juan Figueroa; Nicolás Gentile; Lucas Rodríguez.
