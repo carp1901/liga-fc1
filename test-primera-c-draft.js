@@ -47,6 +47,7 @@ pair('gonzalo medina',['alem|MED','fenix|MED']);
 pair('gonzalo ramirez',['alem|DEF','lujan|DEL']);
 pair('santiago diaz',['cambaceres|DEF','lujan|MED']);
 const sapio=rows.filter(row=>row[col.nombre]==='Santino Sapio');assert.equal(sapio.length,1);assert.equal(sapio[0][col.posiciones_secundarias],'MED');
+const matias=rows.find(row=>row[col.club_id]==='sacachispas'&&row[col.nombre]==='Matías Arias');assert(matias,'Falta Matías Arias, con 16 partidos y 1.306 minutos');assert.equal(matias[col.posicion],'MED');assert.equal(Number(matias[col.edad]),25);assert.equal(Number(matias[col.dorsal]),51);
 assert(rows.some(row=>row[col.club_id]==='cambaceres'&&row[col.nombre]==='Víctor Gómez'),'Falta Víctor Gómez, confirmado por perfil individual en Cambaceres');
 if(process.argv.includes('--runtime')){
  const runtime=JSON.parse(fs.readFileSync('public/squads.json','utf8'));const meta=JSON.parse(fs.readFileSync('public/squads-meta.json','utf8'));const data=fs.readFileSync('public/data.js','utf8');
