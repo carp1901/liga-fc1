@@ -69,3 +69,10 @@ Fuente: https://www.soloascenso.com.ar/club/yupanqui/317
 - **Gustavo Britos** llegó a Leones FC desde Atlas; no duplicar en Atlas y Leones.
 - **Marcos Bale** llegó a Yupanqui desde Deportivo Español; no duplicar en ambos.
 - **Tomás Bellido** pasó de Luján a Sportivo Barracas; no duplicar en ambos.
+
+
+### Homónimos verificados con perfiles individuales
+
+- **Gonzalo Medina:** Leandro N. Alem tiene a Gonzalo Medina, de 22 años, con dos partidos y 47 minutos; Fénix tiene a Gonzalo David Medina, de 21 años, con una convocatoria sin ingresar. Son dos jugadores distintos. Fuentes: https://www.ceroacero.com.co/jugador/gonzalo-medina/3542176?epoca_id=155 y https://www.soloascenso.com.ar/perfil/gonzalo-medina/30199
+- **Gonzalo Ramírez:** Leandro N. Alem tiene a Gonzalo Gabriel Ramírez, defensor de 26 años; Luján tiene a Gonzalo Ramírez, delantero de 22 años. Son distintos. Fuentes: https://www.soloascenso.com.ar/perfil/gonzalo-ramirez/26449 y https://www.soloascenso.com.ar/ficha/43050
+- **Santiago Díaz:** Cambaceres tiene a Santiago Nahuel Díaz, defensor de 26 años; Luján tiene a Santiago Díaz, mediocampista de 21 años, con una presencia en 2026. Son distintos. Fuentes: https://www.transfermarkt.com.ar/santiago-diaz/profil/spieler/1237746 y https://www.soloascenso.com.ar/ficha/45096
