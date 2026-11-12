@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T06:19:20.359Z",
+  "updatedAt": "2026-11-12T06:23:25.296Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2137 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2135 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -130,11 +130,11 @@
     "villamitre": 32,
     "sarmientores": 24,
     "juventudunida": 51,
-    "estrelladelsur": 43,
+    "estrelladelsur": 42,
     "argentinorosario": 50,
     "victorianoarenas": 37,
     "sacachispas": 49,
-    "alem": 47,
+    "alem": 46,
     "mercedes": 35
   },
   "sources": {
@@ -3655,9 +3655,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 3766,
+    "assigned": 3764,
     "missing": 0,
-    "total": 3766,
+    "total": 3764,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4290,8 +4290,8 @@
         "missing": 0
       },
       "estrelladelsur": {
-        "total": 43,
-        "assigned": 43,
+        "total": 42,
+        "assigned": 42,
         "missing": 0
       },
       "argentinorosario": {
@@ -4310,8 +4310,8 @@
         "missing": 0
       },
       "alem": {
-        "total": 47,
-        "assigned": 47,
+        "total": 46,
+        "assigned": 46,
         "missing": 0
       },
       "mercedes": {
@@ -4324,9 +4324,9 @@
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3295,
-    "missing": 471,
+    "missing": 469,
     "birthDates": 2075,
-    "total": 3766,
+    "total": 3764,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4959,9 +4959,9 @@
         "missing": 51
       },
       "estrelladelsur": {
-        "total": 43,
+        "total": 42,
         "assigned": 0,
-        "missing": 43
+        "missing": 42
       },
       "argentinorosario": {
         "total": 50,
@@ -4979,9 +4979,9 @@
         "missing": 49
       },
       "alem": {
-        "total": 47,
+        "total": 46,
         "assigned": 0,
-        "missing": 47
+        "missing": 46
       },
       "mercedes": {
         "total": 35,
@@ -4992,8 +4992,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 390,
-    "total": 3766,
+    "missing": 388,
+    "total": 3764,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5500,7 +5500,7 @@
         "assigned": 0
       },
       "estrelladelsur": {
-        "total": 43,
+        "total": 42,
         "assigned": 0
       },
       "argentinorosario": {
@@ -5516,7 +5516,7 @@
         "assigned": 0
       },
       "alem": {
-        "total": 47,
+        "total": 46,
         "assigned": 0
       },
       "mercedes": {
@@ -5527,8 +5527,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 312,
-    "total": 3766,
+    "missing": 310,
+    "total": 3764,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6035,7 +6035,7 @@
         "specific": 0
       },
       "estrelladelsur": {
-        "total": 43,
+        "total": 42,
         "specific": 0
       },
       "argentinorosario": {
@@ -6051,7 +6051,7 @@
         "specific": 0
       },
       "alem": {
-        "total": 47,
+        "total": 46,
         "specific": 0
       },
       "mercedes": {
@@ -6062,8 +6062,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2137,
-    "total": 3766,
+    "estimated": 2135,
+    "total": 3764,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6823,9 +6823,9 @@
         "provisional": 0
       },
       "estrelladelsur": {
-        "total": 43,
+        "total": 42,
         "verified": 0,
-        "estimated": 43,
+        "estimated": 42,
         "provisional": 0
       },
       "argentinorosario": {
@@ -6847,9 +6847,9 @@
         "provisional": 0
       },
       "alem": {
-        "total": 47,
+        "total": 46,
         "verified": 0,
-        "estimated": 47,
+        "estimated": 46,
         "provisional": 0
       },
       "mercedes": {
@@ -6864,22 +6864,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2594,
+    "derivedPlayers": 2592,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 132,
-    "players": 3766,
+    "players": 3764,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 471,
+    "playersMissingAge": 469,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2137,
+    "estimatedRatings": 2135,
     "provisionalRatings": 0,
-    "playersMissingNationality": 390,
-    "playersMissingFoot": 1709,
-    "playersMissingSpecificRole": 312,
-    "playersWithoutManualAttributes": 2594
+    "playersMissingNationality": 388,
+    "playersMissingFoot": 1707,
+    "playersMissingSpecificRole": 310,
+    "playersWithoutManualAttributes": 2592
   }
 }
