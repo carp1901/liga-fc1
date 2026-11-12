@@ -397,3 +397,39 @@ Fuentes: [plantel de Centro Español](https://www.soloascenso.com.ar/club/centro
 Fuentes: [plantel de Club Mercedes](https://www.soloascenso.com.ar/club/mercedes/438), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
 **Resultado de esta tanda:** los cuatro CSV coinciden con las nóminas actuales consultadas y con los movimientos de mercado verificados. No se aplican recortes especulativos ni se agregan juveniles sin convocatoria o participación comprobable.
+
+
+## 12. Auditoría individual — octava tanda amplia
+
+Se revisaron Defensores de Cambaceres, Puerto Nuevo y Deportivo Muñiz.
+
+### Defensores de Cambaceres — 35 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 35 jugadores del CSV.
+- Se verificó la incorporación de Dago Sánchez Palencia, Carlos Raga Córdoba y Facundo Aronna desde Argentino de Rosario. Los tres están incluidos en Cambaceres y correctamente excluidos del plantel de cierre de Argentino.
+- Víctor Gómez se conserva: sumó 25 presencias y dos goles en la temporada. Su salida anunciada en octubre fue posterior al cierre de la fase regular, por lo que no debe borrarse del plantel 2026.
+- Las trece salidas anunciadas el 23/10 corresponden a la preparación de 2027; no se usan para borrar retroactivamente a quienes integraron el plantel durante 2026.
+- No se detecta omisión o baja nueva en este cruce.
+
+Fuentes: [plantel de Cambaceres](https://www.soloascenso.com.ar/club/defensores-de-cambaceres/265), [ficha de la fecha 30 ante Centro Español](https://www.soloascenso.com.ar/ficha/45300), [presentación de las trece bajas para 2027](https://www.universofutbol.com/plantillas/archivos/template_clubes.php?camp=1839&div=4&equ=274), [movimientos desde Argentino de Rosario](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Puerto Nuevo — 33 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 33 jugadores del CSV.
+- El club había presentado 26 profesionales en febrero; el CSV refleja las incorporaciones posteriores que sí quedaron en el plantel y aparecen en las convocatorias, entre ellas Yair Núñez, Lautaro Arellano, Ricardo Grance, Carlos Ortiz, Ezequiel Sánchez, Santiago Roldán y Luciano Verón.
+- Se verificó que Guido Ferrara, Ricardo Grance, Juan Pablo López, Franco Coronel, Maximiliano Carnelutto, Rodrigo Martínez, Ignacio Cahiza, Enzo Ritacco, Lautaro Arellano, Luciano Verón, Facundo Esquivel y Mateo Escobar integraron convocatorias de la temporada.
+- No se detecta omisión o baja nueva que justifique modificar el CSV.
+
+Fuentes: [plantel oficial presentado en febrero](https://www.soloascenso.com.ar/notas/puerto-nuevo/puerto-nuevo-tiene-todo-listo-para-competir-en-el-2026/225078), [plantel actual de Puerto Nuevo](https://www.soloascenso.com.ar/club/puerto-nuevo/297), [refuerzos adicionales](https://www.soloascenso.com.ar/notas/puerto-nuevo/puerto-nuevo-presento-otros-cuatro-jovenes-refuerzos/224463), [convocatoria de la fecha 14](https://www.soloascenso.com.ar/ficha/45116), [convocatoria de la fecha 19](https://www.soloascenso.com.ar/ficha/45188).
+
+### Deportivo Muñiz — 38 cargados
+
+- La nómina actual de Solo Ascenso coincide con los 38 jugadores del CSV.
+- Se verificaron las 17 bajas de la temporada anterior y las seis incorporaciones iniciales. Los nombres que no continuaron no se reincorporaron al CSV.
+- Félix Orode no aparece en el CSV de cierre, correctamente: fue parte del equipo durante el primer semestre, pero en agosto pasó a La Campana de Saladillo. Sus dos goles y 16 partidos de 2026 no implican que siguiera en Muñiz al cierre.
+- Se incluyeron las altas posteriores que aparecen en convocatorias, entre ellas Nicolás Slimmens, Juan Cruz Mesa y Ezequiel López.
+- La lista de plantel coincide con los 38 nombres cargados. No se detecta omisión o baja nueva.
+
+Fuentes: [plantel actual de Muñiz](https://www.soloascenso.com.ar/club/muniz/346), [17 bajas y seis altas de enero](https://www.soloascenso.com.ar/notas/muniz/el-rayo-volvio-al-trabajo-con-mucho-movimiento-en-su-plantel/223532), [refuerzos confirmados antes del inicio](https://www.soloascenso.com.ar/notas/muniz/muniz-viajo-a-la-costa-para-continuar-con-la-pretemporada/223979), [salida de Félix Orode en agosto](https://www.sportdigital.com.ar/nota/14553/futbol-gran-refuerzo-de-la-campana-para-el-torneo-clausura), [registro de su temporada con Muñiz](https://www.besoccer.com/player/felix-orode).
+
+**Resultado de esta tanda:** los tres CSV coinciden con las nóminas actuales consultadas. Se confirma que Orode debe permanecer fuera del plantel de cierre de Muñiz, mientras que Víctor Gómez debe conservarse en Cambaceres para la temporada 2026.
