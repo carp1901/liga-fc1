@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T06:23:25.296Z",
+  "updatedAt": "2026-11-12T06:26:36.827Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2135 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2406 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -135,7 +135,14 @@
     "victorianoarenas": 37,
     "sacachispas": 49,
     "alem": 46,
-    "mercedes": 35
+    "mercedes": 35,
+    "berazategui": 38,
+    "paraguayo": 42,
+    "cambaceres": 35,
+    "puertonuevo": 33,
+    "centroespanol": 29,
+    "jjurquiza": 49,
+    "lugano": 45
   },
   "sources": {
     "sanlorenzo": {
@@ -3648,6 +3655,69 @@
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
       "roleSource": [],
       "natSource": []
+    },
+    "berazategui": {
+      "source": "https://www.soloascenso.com.ar/club/berazategui/253",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "paraguayo": {
+      "source": "https://www.soloascenso.com.ar/club/deportivo-paraguayo/268",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "cambaceres": {
+      "source": "https://www.soloascenso.com.ar/club/defensores-de-cambaceres/265",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "puertonuevo": {
+      "source": "https://www.soloascenso.com.ar/club/puerto-nuevo/297",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "centroespanol": {
+      "source": "https://www.soloascenso.com.ar/club/centro-espanol/257",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "jjurquiza": {
+      "source": "https://www.soloascenso.com.ar/club/jj-urquiza/283",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
+    },
+    "lugano": {
+      "source": "https://www.soloascenso.com.ar/club/lugano/289",
+      "consulted": "2026-11-12",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
+      "roleSource": [],
+      "natSource": []
     }
   },
   "completePrimera": true,
@@ -3655,9 +3725,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 3764,
+    "assigned": 4035,
     "missing": 0,
-    "total": 3764,
+    "total": 4035,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4318,15 +4388,50 @@
         "total": 35,
         "assigned": 35,
         "missing": 0
+      },
+      "berazategui": {
+        "total": 38,
+        "assigned": 38,
+        "missing": 0
+      },
+      "paraguayo": {
+        "total": 42,
+        "assigned": 42,
+        "missing": 0
+      },
+      "cambaceres": {
+        "total": 35,
+        "assigned": 35,
+        "missing": 0
+      },
+      "puertonuevo": {
+        "total": 33,
+        "assigned": 33,
+        "missing": 0
+      },
+      "centroespanol": {
+        "total": 29,
+        "assigned": 29,
+        "missing": 0
+      },
+      "jjurquiza": {
+        "total": 49,
+        "assigned": 49,
+        "missing": 0
+      },
+      "lugano": {
+        "total": 45,
+        "assigned": 45,
+        "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3295,
-    "missing": 469,
+    "missing": 740,
     "birthDates": 2075,
-    "total": 3764,
+    "total": 4035,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4987,13 +5092,48 @@
         "total": 35,
         "assigned": 0,
         "missing": 35
+      },
+      "berazategui": {
+        "total": 38,
+        "assigned": 0,
+        "missing": 38
+      },
+      "paraguayo": {
+        "total": 42,
+        "assigned": 0,
+        "missing": 42
+      },
+      "cambaceres": {
+        "total": 35,
+        "assigned": 0,
+        "missing": 35
+      },
+      "puertonuevo": {
+        "total": 33,
+        "assigned": 0,
+        "missing": 33
+      },
+      "centroespanol": {
+        "total": 29,
+        "assigned": 0,
+        "missing": 29
+      },
+      "jjurquiza": {
+        "total": 49,
+        "assigned": 0,
+        "missing": 49
+      },
+      "lugano": {
+        "total": 45,
+        "assigned": 0,
+        "missing": 45
       }
     }
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 388,
-    "total": 3764,
+    "missing": 659,
+    "total": 4035,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5522,13 +5662,41 @@
       "mercedes": {
         "total": 35,
         "assigned": 0
+      },
+      "berazategui": {
+        "total": 38,
+        "assigned": 0
+      },
+      "paraguayo": {
+        "total": 42,
+        "assigned": 0
+      },
+      "cambaceres": {
+        "total": 35,
+        "assigned": 0
+      },
+      "puertonuevo": {
+        "total": 33,
+        "assigned": 0
+      },
+      "centroespanol": {
+        "total": 29,
+        "assigned": 0
+      },
+      "jjurquiza": {
+        "total": 49,
+        "assigned": 0
+      },
+      "lugano": {
+        "total": 45,
+        "assigned": 0
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 310,
-    "total": 3764,
+    "missing": 581,
+    "total": 4035,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6057,13 +6225,41 @@
       "mercedes": {
         "total": 35,
         "specific": 0
+      },
+      "berazategui": {
+        "total": 38,
+        "specific": 0
+      },
+      "paraguayo": {
+        "total": 42,
+        "specific": 0
+      },
+      "cambaceres": {
+        "total": 35,
+        "specific": 0
+      },
+      "puertonuevo": {
+        "total": 33,
+        "specific": 0
+      },
+      "centroespanol": {
+        "total": 29,
+        "specific": 0
+      },
+      "jjurquiza": {
+        "total": 49,
+        "specific": 0
+      },
+      "lugano": {
+        "total": 45,
+        "specific": 0
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2135,
-    "total": 3764,
+    "estimated": 2406,
+    "total": 4035,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -6857,6 +7053,48 @@
         "verified": 0,
         "estimated": 35,
         "provisional": 0
+      },
+      "berazategui": {
+        "total": 38,
+        "verified": 0,
+        "estimated": 38,
+        "provisional": 0
+      },
+      "paraguayo": {
+        "total": 42,
+        "verified": 0,
+        "estimated": 42,
+        "provisional": 0
+      },
+      "cambaceres": {
+        "total": 35,
+        "verified": 0,
+        "estimated": 35,
+        "provisional": 0
+      },
+      "puertonuevo": {
+        "total": 33,
+        "verified": 0,
+        "estimated": 33,
+        "provisional": 0
+      },
+      "centroespanol": {
+        "total": 29,
+        "verified": 0,
+        "estimated": 29,
+        "provisional": 0
+      },
+      "jjurquiza": {
+        "total": 49,
+        "verified": 0,
+        "estimated": 49,
+        "provisional": 0
+      },
+      "lugano": {
+        "total": 45,
+        "verified": 0,
+        "estimated": 45,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -6864,22 +7102,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 2592,
+    "derivedPlayers": 2863,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 132,
-    "players": 3764,
+    "clubs": 139,
+    "players": 4035,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 469,
+    "playersMissingAge": 740,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2135,
+    "estimatedRatings": 2406,
     "provisionalRatings": 0,
-    "playersMissingNationality": 388,
-    "playersMissingFoot": 1707,
-    "playersMissingSpecificRole": 310,
-    "playersWithoutManualAttributes": 2592
+    "playersMissingNationality": 659,
+    "playersMissingFoot": 1978,
+    "playersMissingSpecificRole": 581,
+    "playersWithoutManualAttributes": 2863
   }
 }
