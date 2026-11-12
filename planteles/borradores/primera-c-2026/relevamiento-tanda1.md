@@ -10,7 +10,7 @@ Fuente: https://www.soloascenso.com.ar/club/juventud-unida/284
 - MED: Felipe Ameijeiras; Enzo Arreguín; Santino Barletta; Tobías Barrientos; Kevin Barrionuevo; Duncan Hughes; Rodrigo Lastra; Diego López; Tiago Luna; Ángel Luna; Lautaro Montes; Santiago Núñez; Tomás Otero; Mauro Peiro; Gabriel Rivarola; Antonio Riveros; Nahuel Rodríguez; Mateo Ursi; Nicolás Valeriano; Alan Vega; Leandro Velázquez.
 - DEL: Nahuel Aiuto; Alexis Albistur; Luciano Brandán; Lautaro Candia; Diego Cardozo; Daniel Mafrici; Braian Maidana; Andrés Molinas; Emiliano Ortíz; Mateo Pedemonti; Catriel Quinteros.
 
-## Estrella del Sur — 42 nombres publicados
+## Estrella del Sur — 43 nombres publicados
 Fuente: https://www.soloascenso.com.ar/club/estrella-del-sur-alejandro-korn/900
 
 - ARQ: Santiago Delabarba; Valentín Díaz; Tomás Lingua Bender; Ezequiel Portillo; Ignacio Quiroz; Gabriel Rivera.
@@ -18,7 +18,7 @@ Fuente: https://www.soloascenso.com.ar/club/estrella-del-sur-alejandro-korn/900
 - MED: Kevin Aquino; Kevin Araujo; Tomás Bravo; Ciro Campuzano; Lucas Chiapparo; Gonzalo Contreras; Marcos Del Río; Julián Eseiza; Joshua Gómez; Nahuel Gómez; Santiago Gutiérrez; Román Martinangeli; Kevin Poblet; Santiago Sardano; Felipe Scabuzzo; Santiago Tallarico; Cristian Toledo; Héctor Torrejón.
 - DEL: Dylan Garzón; Guillermo Hauche; Nicolás Maldonado; Geremías Martínez; Elias Mazzantti; Leandro Moreira; Aaron Spagna; Lautaro Torres; Lucas Vázquez.
 
-## Argentino de Rosario — 49 nombres publicados
+## Argentino de Rosario — 50 nombres publicados
 Fuente: https://www.soloascenso.com.ar/club/argentino-de-rosario/243
 
 - ARQ: Fabricio Manduca; Francisco Olivera; Franco Puppo.
@@ -34,7 +34,7 @@ Fuente: https://www.soloascenso.com.ar/club/victoriano-arenas/314
 - MED: Leonel Duarte; Santiago Fernandez; Isaías González; Juan Cruz López; Nicolás Mamberti; Tobías Mercado Rusch; Fabián Monserrat; Ivo Patiño; Lucas Pérez; Román Pizzuti; Rodrigo Richards; Ramiro Rivarola; Máximo Sánchez; Emanuel Saporito; Lucas Sireiro; Matías Sosa; Rodrigo Taus; Axel Tisocco.
 - DEL: Sebastián Benega; Uriel Parejas; Facundo Rodríguez; Aaron Rolando; Agustín Serrizuela; Santiago Soria; Leandro Zacarías.
 
-## Sacachispas — 46 nombres publicados
+## Sacachispas — 49 nombres publicados
 Fuente: https://www.soloascenso.com.ar/club/sacachispas-fc/300
 
 - ARQ: Neyder Aragón; Ezequiel Barreiro; Héctor Navarro; Facundo Troncoso.
