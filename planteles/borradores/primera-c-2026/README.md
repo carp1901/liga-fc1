@@ -116,3 +116,11 @@ Informe general: `planteles/auditoria-general-primera-c-2026.md`.
 ### Ajuste de nómina posterior
 
 Se agregó Matías Arias a Sacachispas: su ficha 2026 confirma 16 partidos y 1.306 minutos. El total actual queda en 1.123 jugadores; la prueba de integridad se actualizó para validar esta incorporación.
+
+
+## Correcciones de auditoría individual — 12/11/2026
+
+- Central Ballester queda con 50 jugadores tras retirar a Franco Gómez, que registra cero presencias y cero convocatorias en 2026. Agustín Corbalán se conserva porque figura en la nómina actual del primer equipo.
+- General Lamadrid queda con 36 jugadores tras incorporar a Néstor Acosta, titular en los 33 partidos de 2026 (2.887 minutos y 16 vallas invictas). Dorsal 31 estimado.
+- El total se mantiene en 1.123 jugadores y 28 clubes; la distribución global queda en 101 ARQ, 305 DEF, 494 MED y 223 DEL.
+- La auditoría de runtime se ejecutará sobre esta corrección antes de integrar los cambios a main.

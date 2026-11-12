@@ -7,8 +7,8 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 
 - **28 clubes** cargados.
 - **1.123 jugadores** en runtime después de la primera depuración general.
-- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron diez nombres (dos en la depuración de la tanda 1 y ocho en la primera auditoría general) y se agregó Matías Arias tras confirmar 16 partidos y 1.306 minutos con Sacachispas.
-- Los 28 clubes cumplen el mínimo de 22 jugadores: el menor plantel actual tiene 29 y el mayor 51.
+- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron once nombres (dos en la depuración de la tanda 1, ocho en la primera auditoría general y Franco Gómez de Central Ballester) y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
+- Los 28 clubes cumplen el mínimo de 22 jugadores: el menor plantel actual tiene 29 y el mayor 50.
 - Promedio actual: 40,1 jugadores por club. Es una base preliminar; todavía hay equipos demasiado grandes para considerarlos definitivos.
 
 ## 2. Composición actual por club
@@ -16,7 +16,7 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 | Club | Jugadores | ARQ | DEF | MED | DEL |
 |---|---:|---:|---:|---:|---:|
 | Juventud Unida | 51 | 4 | 15 | 21 | 11 |
-| Central Ballester | 51 | 4 | 17 | 17 | 13 |
+| Central Ballester | 50 | 4 | 16 | 17 | 13 |
 | Argentino de Rosario | 50 | 3 | 11 | 26 | 10 |
 | Sacachispas | 50 | 4 | 14 | 24 | 8 |
 | J.J. Urquiza | 49 | 4 | 11 | 23 | 11 |
@@ -37,13 +37,13 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 | Leones FC | 37 | 4 | 10 | 16 | 7 |
 | Club Mercedes | 35 | 4 | 12 | 11 | 8 |
 | Defensores de Cambaceres | 35 | 2 | 9 | 16 | 8 |
-| General Lamadrid | 35 | 3 | 9 | 17 | 6 |
+| General Lamadrid | 36 | 4 | 9 | 17 | 6 |
 | Puerto Nuevo | 33 | 2 | 9 | 15 | 7 |
 | Luján | 33 | 3 | 8 | 15 | 7 |
 | Central Córdoba (Rosario) | 32 | 4 | 9 | 17 | 2 |
 | Cañuelas | 31 | 3 | 7 | 15 | 6 |
 | Centro Español | 29 | 3 | 6 | 15 | 5 |
-| **Total** | **1.123** | **100** | **306** | **494** | **223** |
+| **Total** | **1.123** | **101** | **305** | **494** | **223** |
 
 ## 3. Controles de integridad
 
@@ -104,7 +104,7 @@ Se conservan Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade. Luis 
 
 ## 6. Próximas prioridades
 
-1. Seguir depurando los planteles más numerosos: Juventud Unida (51), Central Ballester (51), Argentino de Rosario (50), Sacachispas (49), J.J. Urquiza (49), Alem (46), Lugano (45) y El Porvenir (44).
+1. Seguir depurando los planteles más numerosos: Juventud Unida (51), Argentino de Rosario (50), Central Ballester (50), Sacachispas (50), J.J. Urquiza (49), Alem (46), Lugano (45) y El Porvenir (44).
 2. Revisar especialmente los equipos con muchos arqueros o acumulación de mediocampistas/delanteros.
 3. Cruzar perfiles individuales, fichas de partidos y movimientos de mercado para los 1.123 jugadores, no sólo las listas generales.
 4. Completar edades, nacionalidades, pie hábil y roles específicos.
@@ -119,13 +119,13 @@ Se contrastó el plantel de 51 jugadores con las estadísticas de Primera C 2026
 
 - ZeroZero registra 32 futbolistas con minutos en Central Ballester al cierre de la fase regular (actualización del 16/10/2026). De ellos, 31 están en el CSV actual.
 - El restante es **Aarón Quijano**: disputó 14 partidos y 1.138 minutos para Ballester, pero salió a Central Córdoba de Rosario el 22/06/2026. No debe quedar en el plantel de cierre de Ballester; ya figura correctamente en el CSV de Central Córdoba.
-- **Franco Gómez** tiene perfil individual de Solo Ascenso con cero presencias en 2026. Es candidato confirmado a retiro de la carga.
-- **Agustín Corbalán** fue anunciado como baja por el club en enero de 2025 y no se encontró evidencia de reincorporación ni de participación en 2026. Queda marcado para retirar si no aparece evidencia posterior que contradiga esa baja.
-- Hay otros 18 nombres del CSV que no aparecen en la tabla de minutos de ZeroZero. No se eliminan automáticamente: deben cruzarse con fichas de partido y convocatorias para distinguir jugadores sin participación de suplentes no utilizados o altas del primer equipo.
+- **Franco Gómez** fue retirado del CSV: su perfil individual de Solo Ascenso registra cero presencias, cero titularidades y cero convocatorias en 2026.
+- **Agustín Corbalán** fue anunciado como baja en enero de 2025, pero aparece en la nómina actual de Central Ballester publicada por Solo Ascenso. Se conserva por esa evidencia de pertenencia al plantel 2026; falta confirmar si integró convocatorias.
+- Hay otros 19 nombres del CSV que no aparecen en la tabla de minutos de ZeroZero. No se eliminan automáticamente: deben cruzarse con fichas de partido y convocatorias para distinguir jugadores sin participación de suplentes no utilizados o altas del primer equipo.
 
 Fuentes: [estadísticas de minutos de Central Ballester (ZeroZero)](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_equipa=45605&v1=j&v2=t&v3=5), [perfil de Franco Gómez (Solo Ascenso)](https://www.soloascenso.com.ar/perfil/franco-gomez/16183), [baja de Agustín Corbalán (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-sumo-varias-desvinculaciones-en-su-equipo/211667), [salida de Aarón Quijano a Central Córdoba (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/central-ballester-tuvo-una-baja-y-tiene-un-refuerzo-al-caer/229572).
 
-**Estado de esta revisión:** todavía no se modificó el CSV de Central Ballester. La depuración se aplicará después de terminar el cruce de los nombres pendientes, para no retirar futbolistas del primer equipo por una ausencia aislada en una base estadística.
+**Estado de esta revisión:** Central Ballester queda con 50 jugadores tras retirar a Franco Gómez, sin tocar a Agustín Corbalán por su presencia en la nómina actual. Aarón Quijano sigue correctamente en Central Córdoba tras su salida de Ballester.
 
 
 ## 6. Auditoría individual — segunda tanda amplia
@@ -339,17 +339,17 @@ Fuentes: [plantel de Luján](https://www.soloascenso.com.ar/club/lujan/290), [ll
 
 Fuentes: [plantel profesional presentado para 2026](https://www.soloascenso.com.ar/notas/central-cordoba-rosario/central-cordoba-y-sus-jugadores-para-competir-en-el-2026/225133), [salidas de Altamura, Albertengo y Otero](https://www.soloascenso.com.ar/notas/general-lamadrid/tres-bajas-en-la-delantera-de-central-cordoba-de-rosario/229367), [perfil y tres participaciones de Leonel Fagúndez](https://www.zerozero.pt/jogador/leonel-fagundez/2700216?epoca_id=155), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
-### General Lamadrid — 35 cargados
+### General Lamadrid — 36 cargados
 
 - La presentación oficial de febrero confirmó 33 integrantes del plantel profesional, y la nómina actual de Solo Ascenso registra las incorporaciones y movimientos posteriores.
-- **Néstor Acosta es una omisión importante del CSV actual**: fue titular en los 33 partidos de Liga, con 2.887 minutos y 16 vallas invictas. Debe incorporarse al plantel 2026.
+- **Néstor Acosta ya fue incorporado al CSV**: fue titular en los 33 partidos de Liga, con 2.887 minutos y 16 vallas invictas. Se le asignó dorsal 31 estimado, libre en el club.
 - Tomás Moreno, Iván Ruíz y Breyner Mata salieron del plantel en octubre para buscar continuidad y no deben reincorporarse al cierre de temporada.
 - Darío Nami se incorporó desde El Porvenir durante el año y está correctamente incluido.
-- La incorporación de Néstor Acosta queda pendiente de integración en el CSV y runtime, para evitar una modificación parcial que deje desincronizados los datos publicados.
+- La incorporación de Néstor Acosta se integra junto con la depuración de Central Ballester mediante una misma actualización del runtime.
 
 Fuentes: [presentación del plantel profesional de 2026](https://www.soloascenso.com.ar/notas/general-lamadrid/lamadrid-presento-a-todos-sus-futbolistas-para-el-2026/225081), [perfil de Acosta: 33 partidos y 2.887 minutos](https://www.soloascenso.com.ar/perfil/nestor-acosta/12874), [confirmación de su salida recién para 2027](https://www.soloascenso.com.ar/notas/deportivo-camioneros/nestor-acosta-el-idolo-no-continuara-en-lamadrid/234243), [movimiento de Nami desde El Porvenir](https://www.soloascenso.com.ar/notas/muniz/el-porvenir-sufrio-su-primera-baja-y-ya-tiene-destino/229788).
 
-**Resultado de esta tanda:** se detectó una omisión prioritaria (Néstor Acosta en Lamadrid). La integración se deja pendiente hasta poder actualizar de manera consistente CSV y runtime; no se publica una corrección incompleta. También queda pendiente decidir si Leonel Fagúndez, con solo 34 minutos, debe formar parte del plantel de cierre de Central Córdoba.
+**Resultado de esta tanda:** se corrigió la omisión de Néstor Acosta y se retiró a Franco Gómez. Leonel Fagúndez sigue fuera del CSV de Central Córdoba porque sólo registra 34 minutos en tres partidos; se mantiene la decisión de no inflar el plantel con participaciones mínimas.
 
 
 ## 11. Auditoría individual — séptima tanda amplia
@@ -433,3 +433,25 @@ Fuentes: [plantel oficial presentado en febrero](https://www.soloascenso.com.ar/
 Fuentes: [plantel actual de Muñiz](https://www.soloascenso.com.ar/club/muniz/346), [17 bajas y seis altas de enero](https://www.soloascenso.com.ar/notas/muniz/el-rayo-volvio-al-trabajo-con-mucho-movimiento-en-su-plantel/223532), [refuerzos confirmados antes del inicio](https://www.soloascenso.com.ar/notas/muniz/muniz-viajo-a-la-costa-para-continuar-con-la-pretemporada/223979), [salida de Félix Orode en agosto](https://www.sportdigital.com.ar/nota/14553/futbol-gran-refuerzo-de-la-campana-para-el-torneo-clausura), [registro de su temporada con Muñiz](https://www.besoccer.com/player/felix-orode).
 
 **Resultado de esta tanda:** los tres CSV coinciden con las nóminas actuales consultadas. Se confirma que Orode debe permanecer fuera del plantel de cierre de Muñiz, mientras que Víctor Gómez debe conservarse en Cambaceres para la temporada 2026.
+
+
+## 13. Correcciones finales de la auditoría — Central Ballester y Lamadrid
+
+- **Central Ballester:** Franco Gómez se retiró del CSV por registrar cero presencias y cero convocatorias en 2026. El plantel baja de 51 a 50 jugadores; su distribución queda en 4 ARQ, 16 DEF, 17 MED y 13 DEL.
+- **Agustín Corbalán se conserva** a pesar de la baja anunciada en enero de 2025, porque figura en la nómina actual del primer equipo de Central Ballester. La pertenencia está respaldada; sus convocatorias todavía deben verificarse.
+- **General Lamadrid:** se agregó Néstor Acosta. Fue titular en los 33 partidos de 2026, sumó 2.887 minutos y 16 vallas invictas. El CSV pasa de 35 a 36 jugadores; dorsal 31 estimado, sin duplicados.
+- El total global se mantiene en **1.123 jugadores**: se quitó un jugador sin actividad y se agregó uno con participación plena. La distribución global actual queda en 101 ARQ, 305 DEF, 494 MED y 223 DEL.
+
+Fuentes adicionales: [nómina actual de Central Ballester](https://www.soloascenso.com.ar/club/central-ballester/261), [perfil 2026 de Franco Gómez](https://www.soloascenso.com.ar/perfil/franco-gomez/16183), [perfil 2026 de Néstor Acosta](https://www.soloascenso.com.ar/perfil/nestor-acosta/12874).
+
+
+### Central Ballester — cruce adicional de convocatorias
+
+- **Maximiliano Maciel se conserva**: fue citado 21 veces, ingresó en 11 partidos y fue suplente sin entrar en ocho. Su retiro anunciado el 16/10 fue posterior al cierre de la temporada, por lo que pertenece al plantel 2026.
+- **Santiago Garro se conserva**: fue presentado como refuerzo del primer equipo en febrero y aparece como suplente en convocatorias de septiembre y octubre.
+- **Nicolás Suaya se conserva**: fue presentado como refuerzo del primer equipo en enero. No registra minutos, pero sí convocatorias de suplentes no utilizados en las fichas de temporada.
+- **Jesús Monzón se conserva**: aparece en el banco de suplentes de la fecha 13.
+- **Agustín Corbalán se mantiene en revisión**: figura en la nómina actual del primer equipo, aunque todavía no se encontró una convocatoria o minuto de 2026.
+- Los demás nombres sin minutos no se eliminan por ahora: falta completar el cruce de convocatorias y fichas individuales. La regla es no retirar a un integrante del primer equipo sólo por no haber ingresado.
+
+Fuentes: [Maximiliano Maciel: 21 convocatorias, 11 ingresos y ocho partidos sin ingresar](https://www.soloascenso.com.ar/notas/central-ballester/un-referente-de-ballester-se-retiro-del-futbol-profesional/233675), [continuidad de Maciel para 2026](https://www.soloascenso.com.ar/notas/central-ballester/el-delantero-con-experiencia-que-seguira-en-ballester/223881), [presentación de Santiago Garro](https://www.soloascenso.com.ar/notas/puerto-nuevo/central-ballester-incorporo-a-otro-joven-arquero-al-plantel/225381), [presentación de Nicolás Suaya](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-presento-a-tres-jugadores-nuevos-para-el-plantel/223900), [convocatoria de la fecha 31](https://www.soloascenso.com.ar/ficha/45320), [convocatoria de la fecha 13](https://www.ceroacero.es/partido/2026-08-04-paraguayo-central-ballester/12020535).
