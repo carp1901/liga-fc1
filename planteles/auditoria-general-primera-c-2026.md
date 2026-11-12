@@ -126,3 +126,44 @@ Se contrastó el plantel de 51 jugadores con las estadísticas de Primera C 2026
 Fuentes: [estadísticas de minutos de Central Ballester (ZeroZero)](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_equipa=45605&v1=j&v2=t&v3=5), [perfil de Franco Gómez (Solo Ascenso)](https://www.soloascenso.com.ar/perfil/franco-gomez/16183), [baja de Agustín Corbalán (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-sumo-varias-desvinculaciones-en-su-equipo/211667), [salida de Aarón Quijano a Central Córdoba (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/central-ballester-tuvo-una-baja-y-tiene-un-refuerzo-al-caer/229572).
 
 **Estado de esta revisión:** todavía no se modificó el CSV de Central Ballester. La depuración se aplicará después de terminar el cruce de los nombres pendientes, para no retirar futbolistas del primer equipo por una ausencia aislada en una base estadística.
+
+
+## 6. Auditoría individual — segunda tanda amplia
+
+Se revisaron en conjunto Sacachispas, Argentino de Rosario, Juventud Unida y J.J. Urquiza, contrastando CSV con nóminas, fichas de partidos, convocatorias y movimientos de mitad de temporada.
+
+### Sacachispas — 50 cargados
+
+- Las fichas de las fechas 18, 27 y 31 confirman continuidad de Neyder Aragón, Luis Lorenzi, Gonzalo Rocaniere, Alan Buonofiglio, Benjamín Arias, Ricardo Priori, Leandro Ríos, Santiago Gallardo, Gonzalo Vivanco, Alejo Monje, Lautaro Torres, Diego Molina Fariña, Uriel Sosa y Facundo Durso, entre otros.
+- **Valentín Mancuso** aparece en el banco de suplentes en las fechas 18, 27 y 31. No figura en el CSV actual: queda marcado como incorporación pendiente de integrar, con dorsal estimado y sin inventar minutos.
+- La nómina de Mundo Ascenso muestra una plantilla de menor tamaño y nombres que no coinciden completamente con las convocatorias de septiembre/octubre. Por eso no se toma esa lista aislada como motivo para borrar jugadores.
+- No se retira ningún jugador en esta tanda: primero hay que cotejar los 50 nombres con el historial completo de convocatorias y confirmar si existen otros jugadores del primer equipo ausentes del CSV.
+
+Fuentes: [Sacachispas vs Juventud Unida, fecha 18](https://www.soloascenso.com.ar/ficha/45177), [Centro Español vs Sacachispas, fecha 27](https://www.soloascenso.com.ar/ficha/45273), [Sacachispas vs Estrella del Sur, fecha 31](https://www.soloascenso.com.ar/ficha/45312), [plantel publicado por Mundo Ascenso](https://www.mundoascenso.com.ar/plantel/1942-sacachispas-fc).
+
+### Argentino de Rosario — 50 cargados
+
+- La nómina actual de Solo Ascenso y las fichas de las fechas 3, 17 y 26 permiten confirmar una base amplia del plantel, incluyendo Francisco Olivera, Bruno Cabrera, Tiago Celes, Thiago Bartalini, Juan Cruz Cisneros, Manuel Correa Medina, Theo Guiñazú, Luciano Fernández, Lautaro Torrez, Octavio Rubarth, Wilfran Quinto Orejuela, Kevin Schmidt, entre otros.
+- Se confirma como correcta la depuración de **Dago Sánchez Palencia, Carlos Raga Córdoba y Facundo Aronna** del plantel de cierre: los tres participaron en la primera parte del año, pero Dago y Raga salieron hacia Cambaceres en junio; Aronna también dejó el equipo en ese recambio. No deben volver a agregarse como integrantes del cierre de Argentino.
+- El plantel de cierre debe reflejar los refuerzos y juveniles que tomaron esos lugares. No se retira ningún otro nombre en esta tanda.
+
+Fuentes: [plantel y goleadores de Argentino de Rosario](https://www.soloascenso.com.ar/club/argentino-de-rosario/243), [bajas de Dago y Raga](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-de-rosario-sufrio-dos-bajas-en-el-mediocampo/229363), [salida de Aronna y rearmado para la segunda mitad](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-afrontara-un-duelo-directo-por-la-permanencia/229684), [Argentino vs Centro Español, fecha 26](https://www.soloascenso.com.ar/ficha/45255), [Juventud vs Argentino, fecha 17](https://www.soloascenso.com.ar/ficha/45158).
+
+### Juventud Unida — 51 cargados
+
+- Se comprobó que el CSV no conserva a **Fernando Giménez** ni a **Santino Bevilacqua** como parte del plantel de cierre, correctamente: Giménez se fue a préstamo a Villa Dálmine el 23/07 luego de jugar 10 partidos y marcar cinco goles; Bevilacqua pasó a San Miguel durante la primera mitad del año.
+- Las ocho incorporaciones anunciadas antes del debut y las cinco altas iniciales fueron contrastadas con las fichas de partidos. Los futbolistas que continuaron en el equipo aparecen en las convocatorias y alineaciones de marzo a septiembre.
+- El registro de ZeroZero publica 42 integrantes en su plantilla de temporada y una columna de estadísticas liderada por Maximiliano Paredes (31 partidos), Ian Escobar (28), Mariano Di Franco, Diego Cardozo y Nahuel Aiuto (24 cada uno). Es una referencia de uso, no una lista exhaustiva de todos los convocados; no se recorta el CSV solo por la diferencia de conteo.
+- **No se aplican bajas automáticas**: queda pendiente el cruce nominal completo de los 51 con las convocatorias, especialmente arqueros y jugadores sin minutos.
+
+Fuentes: [altas iniciales de enero](https://www.soloascenso.com.ar/notas/argentino-de-merlo/inicio-la-pretemporada-con-refuerzos-y-amistosos-confirmados/223842), [ocho incorporaciones previas al debut](https://www.soloascenso.com.ar/notas/juventud-unida/el-lobo-sumo-ocho-caras-nuevas-previo-al-debut-en-el-torneo/224961), [salida de Fernando Giménez y Bevilacqua](https://www.soloascenso.com.ar/notas/sacachispas-fc/salida-sensible-en-juventud-unida-se-fue-su-goleador/230602), [estadísticas de temporada y plantilla](https://www.zerozero.com.ar/equipo/juventud-unida-san-miguel/45600), [Juventud vs Mercedes, fecha 26](https://www.soloascenso.com.ar/ficha/45257).
+
+### J.J. Urquiza — 49 cargados
+
+- Se cruzaron las convocatorias oficiales del club del 6 y 28 de septiembre. Los titulares y suplentes publicados coinciden con jugadores incluidos en el CSV: Facundo Durán, Elías Quiroga, Leonardo Luna, Patricio Díaz, Issa Jean Sane, Bautista García, Nehuén Montoya, Franco Ocampo, Fabián Lucero, Thiago Ventura, Axel Meridione, Mateo Figueroa, Thiago Urquiza, Mateo Chade, Tomás Mendoza, Manuel Aiello, Luca Fusca, Joaquín Del Castillo y Apolo Rapp.
+- **Gastón Cueto y Fabián Lucero se conservan**: aunque una nota de enero los incluyó entre las bajas, el club publicó a ambos en convocatorias oficiales de septiembre. La evidencia posterior prevalece sobre el anuncio inicial.
+- No se elimina ningún jugador por la nota de bajas de enero; las convocatorias oficiales de la temporada muestran que hubo cambios posteriores.
+
+Fuentes: [J.J. Urquiza vs Juventud Unida, fecha 27](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html), [J.J. Urquiza vs Alem, fecha 30](https://jjurquiza.com.ar/NotasPrimera/Nota4127.html), [bajas anunciadas en enero](https://www.soloascenso.com.ar/notas/jj-urquiza/jj-urquiza-inicia-2026-con-cinco-bajas-en-su-plantel/223387).
+
+**Resultado de esta tanda:** se confirmaron dos salidas ya correctamente reflejadas en Juventud Unida y tres salidas de Argentino que no deben reintroducirse. Se detectó un jugador convocado que falta en Sacachispas (Valentín Mancuso). No se hicieron recortes especulativos ni cambios de runtime: la próxima pasada debe resolver esa incorporación y terminar el cruce individual de los planteles que siguen por encima de 40 jugadores.
