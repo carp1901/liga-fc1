@@ -64,10 +64,11 @@
       "365Scores",
       "match reports"
     ],
-    "noInventedDorsals": true,
+    "noInventedDorsals": false,
     "noInventedBirthDates": true,
     "noInventedFeet": true,
-    "dorsalAssignmentRule": "Sólo se asignan dorsales publicados de forma expresa en una fuente oficial y vigente del propio club. Las planillas de partido consultadas presentan la numeración de la formación (titulares 1–11 y suplentes 12–20), no necesariamente el dorsal real. Listados de terceros se usan como pista, nunca como confirmación si no coinciden con el club. Los casos sin respaldo oficial quedan vacíos."
+    "dorsalAssignmentRule": "Se conservan los 6 dorsales oficiales de Brown de Adrogué. Por autorización del usuario del 12/11/2026, los restantes se completan con números estimados libres por posición y orden del plantel; cada uno se identifica en dorsal_source. No se usan números de orden de planillas de partido como si fueran dorsales oficiales.",
+    "allowEstimatedDorsals": true
   },
   "batch1": {
     "csv": "tanda1.csv",
@@ -136,34 +137,13 @@
   "runtimePlayers": 533,
   "runtimeClubs": 22,
   "dorsalCoverage": {
-    "assigned": 6,
-    "missing": 527,
     "total": 533,
-    "source": "Official current club roster; only explicit and unambiguous shirt numbers",
-    "byClub": {
-      "arsenal": 0,
-      "brownadrogue": 6,
-      "armenio": 0,
-      "argentinomerlo": 0,
-      "argentinoquilmes": 0,
-      "camioneros": 0,
-      "comunicaciones": 0,
-      "defensoresunidos": 0,
-      "docksud": 0,
-      "laferrere": 0,
-      "deportivomerlo": 0,
-      "excursionistas": 0,
-      "flandria": 0,
-      "ituzaingo": 0,
-      "liniers": 0,
-      "realpilar": 0,
-      "sanmartinburzaco": 0,
-      "sportivoitaliano": 0,
-      "talleresre": 0,
-      "uai": 0,
-      "villadalmine": 0,
-      "villasancarlos": 0
-    }
+    "assigned": 533,
+    "missing": 0,
+    "confirmed": 6,
+    "estimated": 527,
+    "duplicateNumbers": 0,
+    "updated": "2026-11-12"
   },
   "dorsalAudit": {
     "date": "2026-11-11",
