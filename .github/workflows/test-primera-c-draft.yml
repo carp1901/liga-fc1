@@ -21,7 +21,7 @@ jobs:
           node-version: 22
       - name: Validar sintaxis del importador
         run: node --check import-squads.js
-      - name: Validar CSV inicial de los siete clubes
+      - name: Validar CSV inicial de los catorce clubes
         run: node test-primera-c-draft.js
       - name: Validar importaciones sin publicar
         run: |
@@ -39,6 +39,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/squads.json public/squads.js public/squads-meta.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Cargar planteles iniciales Primera C 2026 — tanda 1'
+            git commit -m 'Cargar planteles iniciales Primera C 2026 — tandas 1 y 2'
             git push origin HEAD:${{ github.head_ref || github.ref_name }}
           fi
