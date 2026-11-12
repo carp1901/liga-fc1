@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T06:34:26.843Z",
+  "updatedAt": "2026-11-12T06:38:01.016Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2955 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2947 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -145,12 +145,12 @@
     "lugano": 45,
     "atlas": 42,
     "canuelas": 31,
-    "centralballester": 56,
+    "centralballester": 51,
     "centralcordobarosario": 32,
     "claypole": 39,
     "espanol": 39,
     "muniz": 38,
-    "porvenir": 47,
+    "porvenir": 44,
     "fenix": 42,
     "lamadrid": 35,
     "leones": 37,
@@ -3865,9 +3865,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4584,
+    "assigned": 4576,
     "missing": 0,
-    "total": 4584,
+    "total": 4576,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4575,8 +4575,8 @@
         "missing": 0
       },
       "centralballester": {
-        "total": 56,
-        "assigned": 56,
+        "total": 51,
+        "assigned": 51,
         "missing": 0
       },
       "centralcordobarosario": {
@@ -4600,8 +4600,8 @@
         "missing": 0
       },
       "porvenir": {
-        "total": 47,
-        "assigned": 47,
+        "total": 44,
+        "assigned": 44,
         "missing": 0
       },
       "fenix": {
@@ -4639,9 +4639,9 @@
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3295,
-    "missing": 1289,
+    "missing": 1281,
     "birthDates": 2075,
-    "total": 4584,
+    "total": 4576,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5349,9 +5349,9 @@
         "missing": 31
       },
       "centralballester": {
-        "total": 56,
+        "total": 51,
         "assigned": 0,
-        "missing": 56
+        "missing": 51
       },
       "centralcordobarosario": {
         "total": 32,
@@ -5374,9 +5374,9 @@
         "missing": 38
       },
       "porvenir": {
-        "total": 47,
+        "total": 44,
         "assigned": 0,
-        "missing": 47
+        "missing": 44
       },
       "fenix": {
         "total": 42,
@@ -5412,8 +5412,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1208,
-    "total": 4584,
+    "missing": 1200,
+    "total": 4576,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5980,7 +5980,7 @@
         "assigned": 0
       },
       "centralballester": {
-        "total": 56,
+        "total": 51,
         "assigned": 0
       },
       "centralcordobarosario": {
@@ -6000,7 +6000,7 @@
         "assigned": 0
       },
       "porvenir": {
-        "total": 47,
+        "total": 44,
         "assigned": 0
       },
       "fenix": {
@@ -6031,8 +6031,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1130,
-    "total": 4584,
+    "missing": 1122,
+    "total": 4576,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6599,7 +6599,7 @@
         "specific": 0
       },
       "centralballester": {
-        "total": 56,
+        "total": 51,
         "specific": 0
       },
       "centralcordobarosario": {
@@ -6619,7 +6619,7 @@
         "specific": 0
       },
       "porvenir": {
-        "total": 47,
+        "total": 44,
         "specific": 0
       },
       "fenix": {
@@ -6650,8 +6650,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2955,
-    "total": 4584,
+    "estimated": 2947,
+    "total": 4576,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7501,9 +7501,9 @@
         "provisional": 0
       },
       "centralballester": {
-        "total": 56,
+        "total": 51,
         "verified": 0,
-        "estimated": 56,
+        "estimated": 51,
         "provisional": 0
       },
       "centralcordobarosario": {
@@ -7531,9 +7531,9 @@
         "provisional": 0
       },
       "porvenir": {
-        "total": 47,
+        "total": 44,
         "verified": 0,
-        "estimated": 47,
+        "estimated": 44,
         "provisional": 0
       },
       "fenix": {
@@ -7578,22 +7578,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3412,
+    "derivedPlayers": 3404,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 153,
-    "players": 4584,
+    "players": 4576,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1289,
+    "playersMissingAge": 1281,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2955,
+    "estimatedRatings": 2947,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1208,
-    "playersMissingFoot": 2527,
-    "playersMissingSpecificRole": 1130,
-    "playersWithoutManualAttributes": 3412
+    "playersMissingNationality": 1200,
+    "playersMissingFoot": 2519,
+    "playersMissingSpecificRole": 1122,
+    "playersWithoutManualAttributes": 3404
   }
 }
