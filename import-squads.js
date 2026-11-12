@@ -30,7 +30,8 @@ rows.forEach((r,i)=>{
  const key=club+'|'+name.toLowerCase();if(seen[key]){errors.push('Fila '+(i+2)+': jugador duplicado en '+club+': '+name);return}seen[key]=1;
  if(number!=null){const nk=club+'|'+number;if(seenNumbers[nk]){errors.push('Fila '+(i+2)+': dorsal duplicado en '+club+': '+number);return}seenNumbers[nk]=1}
  const player={n:name,p:pos,r:Math.round(rating),role:get('rol')||raw};
- if(get('abreviatura'))player.short=get('abreviatura');if(get('nat'))player.nat=get('nat');if(get('nat_source'))player.natSource=get('nat_source');if(get('id'))player.id=get('id');
+ if(get('abreviatura')&&!/^[A-Z]{3}$/.test(get('abreviatura'))&&get('abreviatura')!==get('nat'))player.short=get('abreviatura');   // 'ARG' (código de país copiado por error) no es un nombre corto: se ignora y se deriva del nombre
+ if(get('nat'))player.nat=get('nat');if(get('nat_source'))player.natSource=get('nat_source');if(get('id'))player.id=get('id');
  if(age!=null)player.age=age;if(birth)player.birthDate=birth;if(get('fuente_edad'))player.ageSource=get('fuente_edad');
  if(number!=null)player.number=number;if(get('dorsal_source'))player.numberSource=get('dorsal_source');
  if(get('pie'))player.foot=get('pie');
