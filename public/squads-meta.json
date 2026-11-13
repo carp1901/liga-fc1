@@ -7596,7 +7596,7 @@
   "qualityAudit": {
     "clubs": 153,
     "players": 4540,
-    "duplicateNames": 1,
+    "duplicateNames": 0,
     "duplicateNumbers": 0,
     "playersMissingAge": 1243,
     "playersMissingDorsal": 0,
