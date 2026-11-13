@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **1.013 jugadores en 28 clubes**.
-- Once clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30) y Club Mercedes (29).
-- Quedan **17 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **993 jugadores en 28 clubes**.
+- Doce clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29) y Argentino de Rosario (30).
+- Quedan **16 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1066,3 +1066,14 @@ Se corrigieron posiciones: Franco Ortigosa como delantero y Francisco Ruiz como 
 Fuentes: [plantel de cierre de Club Mercedes](https://www.zerozero.pt/equipa/club-mercedes/91322), [estadísticas individuales 2026](https://www.zerozero.com.mx/equipa/club-mercedes/91322/jugadores?epoca_stats_id=155), [plantel Solo Ascenso](https://www.soloascenso.com.ar/club/mercedes/438), [citados para la fecha 25](https://noticiasmercedinas.com/site/2026/08/21/club-mercedes-y-sacahispas-sobresale-en-la-primera-c/).
 
 **Recuento vigente:** 1.013 jugadores en 28 clubes; once planteles dentro del límite y 17 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Argentino de Rosario — 50 → 30
+
+Se utilizó la tabla individual de partidos jugados de Primera C 2026. Se conservaron los 30 futbolistas de mayor participación de la nómina del CSV. Se retiraron 12 nombres sin apariciones registradas y los ocho de menor uso: Fabricio Manduca (1), Facundo Yess (1), Lautaro Pino (1), Mauro Scassa (1), Bismark Gómez (2), Tomás Ávalos (2), Miguel Hernández Castillo (2) y Rodrigo González (3, todos como suplente).
+
+Dago Palencia, Facundo Aronna y Carlos Raga Córdoba no se reincorporan a Argentino: sus estadísticas incluyen la primera parte del año, pero se trasladaron a Cambaceres durante la temporada y ya están en la plantilla de ese club. Se conservaron las formas de nombre ya usadas en CSV para Theo Guiñazú, Wilfran Quinto Orejuela y Miguel Hernández Castillo cuando la ficha estadística presenta el apellido ampliado. El registro “Federico Nahuel” con 44 partidos se consideró una anomalía y no se importó: no figura en la nómina del club ni en el CSV y supera los 30 partidos del torneo.
+
+Fuentes: [estadísticas individuales de Argentino](https://www.zerozero.pt/equipa/argentino-de-rosario/43541/jogadores), [plantel y transferencias 2026](https://www.zerozero.pt/equipa/argentino-de-rosario/43541?epoca_id=155), [Rodrigo González: tres ingresos desde el banco](https://www.soloascenso.com.ar/perfil/rodrigo-gonzalez/28301), [Miguel Báez: tres partidos y 35 minutos](https://www.ceroacero.com.co/jugador/miguel-baez/1582947?epoca_id=155).
+
+**Recuento vigente:** 993 jugadores en 28 clubes; doce planteles dentro del límite y 16 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
