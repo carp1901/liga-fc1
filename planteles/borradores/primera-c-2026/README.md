@@ -56,10 +56,10 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
 - [x] Tanda 2: 224 jugadores en 7 clubes
-- [x] Tanda 3: 248 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
+- [x] Tanda 3: 239 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
 - [x] Tanda 4: 223 jugadores en 7 clubes
-- [x] CSV actualizado: 896 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 7 planteles que aún superan 30 jugadores
+- [x] CSV actualizado: 897 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 6 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -296,3 +296,12 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - Darío Nami no se mantiene en Lamadrid: salió durante la temporada y continuó en El Porvenir. Ian Lynch también salió hacia Deportivo Paraguayo; ya figura en el plantel de ese club.
 - Fuentes: [estadísticas individuales de Lamadrid](https://www.zerozero.pt/equipa/general-lamadrid/45578/jogadores), [plantel de cierre 2026](https://www.soloascenso.com.ar/club/gral-lamadrid/278), [perfil de Alejo Roa y 30 presencias](https://www.soloascenso.com.ar/perfil/alejo-roa/24038), [fichas de partido y convocatorias](https://devotodelamadrid.blogspot.com/2026/09/).
 - Nuevo recuento CSV: **896 jugadores en 28 clubes**. Veintiún clubes cumplen el máximo de 30; quedan siete planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Claypole
+
+- **Claypole: 39 → 30 jugadores.** El CSV coincidía con la nómina de cierre publicada por Solo Ascenso. Se conservaron los 30 futbolistas con participación más relevante en 2026, priorizando los registros de partidos y las convocatorias del tramo final.
+- Se retiraron nueve integrantes de la nómina amplia con uso nulo o insuficiente para el plantel principal. No se agregaron jugadores que ya habían salido antes del cierre: Luca Falabella pasó a Sportivo Ameliano en febrero y Farid Jasni se incorporó a Fénix el 29/06/2026.
+- Se conserva **Leonel Llodrá** con el nombre de uso del club; su nombre completo es Matías Leonel Llodrá y registra 25 partidos y siete goles en 2026.
+- Fuentes: [plantel de cierre de Claypole](https://www.soloascenso.com.ar/club/claypole/258), [estadísticas 2026 de Leonel Llodrá](https://www.zerozero.com.mx/jugador/leonel-llodra/490419), [salida de Luca Falabella](https://www.leballonrond.fr/equipe/sportivo-ameliano/108830/transferts), [salida de Farid Jasni hacia Fénix](https://www.soloascenso.com.ar/notas/deportivo-espanol/fenix-presento-dos-refuerzos-para-el-tramo-final/229801).
+- Nuevo recuento CSV: **897 jugadores en 28 clubes**. Veintidós clubes cumplen el máximo de 30; quedan seis planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
