@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **1.062 jugadores en 28 clubes**.
-- Seis clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29) y Luján (27).
-- Quedan **22 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **1.059 jugadores en 28 clubes**.
+- Siete clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27) y Puerto Nuevo (30).
+- Quedan **21 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1008,3 +1008,12 @@ Se aplicó una depuración respaldada por la nómina oficial AFA 2026, el plante
 Fuentes: [nómina oficial AFA y ascenso de Luján](https://www.afa.com.ar/es/posts/lujan-supero-a-berazategui-en-la-final-por-el-ascenso-y-jugara-la-proxima-temporada-en-primera-b), [plantel de cierre Solo Ascenso](https://www.soloascenso.com.ar/club/lujan/290), [perfil de Nahuel Icazatti](https://www.soloascenso.com.ar/perfil/nahuel-icazatti/22784), [síntesis Luján–Berazategui, fecha 34](https://www.soloascenso.com.ar/ficha/46167).
 
 **Pendiente:** la integración de runtime (squads.json, squads.js y squads-meta.json) se ejecuta por el workflow del PR después de los cambios en CSV/test. No se considera sincronizada hasta verificar un run exitoso y el commit automático resultante.
+
+
+### Puerto Nuevo — 33 → 30
+
+Se retiraron Benjamín Ferreyra, Federico Aciar y Tomás Schefer. Los tres aparecen en la nómina actualizada del club, pero sus estadísticas individuales de Primera C 2026 registran cero partidos jugados; las fichas de partido consultadas los muestran como suplentes no utilizados. Se conservaron otros jugadores con participaciones breves (por ejemplo, Joaquín Pillwein: 5 partidos/53 minutos; Ezequiel Sánchez: 1/19; Lucas Ortiz: 1/1), y se mantuvo a Thiago Ricalde como segundo arquero por pertenecer a la nómina profesional inicial.
+
+Fuentes: [plantel profesional inicial de 26 jugadores](https://www.soloascenso.com.ar/notas/puerto-nuevo/puerto-nuevo-tiene-todo-listo-para-competir-en-el-2026/225078), [plantel actualizado](https://www.soloascenso.com.ar/club/puerto-nuevo/297), [estadísticas individuales de Puerto Nuevo](https://www.ceroacero.com.co/equipo/puerto-nuevo/45607/jugadores?epoca_stats_id=155), [Benjamín Ferreyra](https://www.ceroacero.com.co/jugador/benjamin-ferreyra/3555652?epoca_id=155), [Federico Aciar](https://www.ceroacero.com.co/jugador/federico-aciar/3625947?epoca_id=155), [Tomás Schefer](https://www.ceroacero.com.co/jugador/tomas-schefer/3558784?epoca_id=155).
+
+**Recuento vigente:** 1.059 jugadores en 28 clubes; siete planteles dentro del límite y 21 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
