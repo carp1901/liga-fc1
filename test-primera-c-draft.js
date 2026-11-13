@@ -16,7 +16,7 @@ const expected={
  juventudunida:30,estrelladelsur:29,argentinorosario:30,victorianoarenas:30,sacachispas:30,alem:29,mercedes:29,
  berazategui:30,paraguayo:30,cambaceres:30,puertonuevo:30,centroespanol:29,jjurquiza:30,lugano:45,
  atlas:28,canuelas:30,centralballester:30,centralcordobarosario:30,claypole:30,espanol:30,muniz:30,
- porvenir:30,fenix:29,lamadrid:29,leones:37,lujan:27,sportivobarracas:27,yupanqui:30
+ porvenir:30,fenix:29,lamadrid:29,leones:30,lujan:27,sportivobarracas:27,yupanqui:30
 };
 const allowed=new Set(Object.keys(expected)),names=new Set(),numbers=new Set(),totalByClub={};let total=0;
 const normalizedName=s=>Array.from(s.normalize('NFD')).filter(ch=>{const n=ch.charCodeAt(0);return n<768||n>879;}).join('').toLowerCase();
@@ -36,7 +36,7 @@ for(const [i,row] of rows.entries()){
  if(!crossNames.has(normalizedName(name)))crossNames.set(normalizedName(name),[]);
  crossNames.get(normalizedName(name)).push({club,pos,name});
 }
-assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,848,'Total nominal inesperado');
+assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,841,'Total nominal inesperado');
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
 assert.deepEqual(collisions,['lautaro torres','rodrigo ortiz','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
 const pair=(name,expectedPair)=>assert.deepEqual(crossNames.get(name).map(x=>x.club+'|'+x.pos).sort(),expectedPair);
@@ -55,6 +55,9 @@ const espanolRows=rows.filter(row=>row[col.club_id]==='espanol');assert.equal(es
 for(const name of ['Franco Lopresti','Alexis Peralta','Nahuel Villalba','Santiago Caldas','Toribio González','Luca Morales','Marcelo Asto Fonseca','Tomás Di Gregorio','Jonathan Giménez','Fabián Leguizamón','Nicolás Ostuni','Ramiro Cruz'])assert(!espanolRows.some(row=>row[col.nombre]===name),'Deportivo Español conserva un jugador fuera del corte estadístico: '+name);
 for(const name of ['Simón Martínez','Cristian Barrios','Diosnel Zuccarino'])assert(espanolRows.some(row=>row[col.nombre]===name),'Falta jugador con participación estadística en Deportivo Español: '+name);
 assert(espanolRows.some(row=>row[col.nombre]==='Juan Torre'),'Debe conservarse Juan Torre como segundo arquero');
+const leonesRows=rows.filter(row=>row[col.club_id]==='leones');assert.equal(leonesRows.length,30,'Leones FC debe quedar con 30 jugadores');
+for(const name of ['Martín Talamonti','Mateo Gallego','Guido Vergini','Lucas Villarino','Federico Chapartegui','Javier Falcón','Valentín Lemos'])assert(!leonesRows.some(row=>row[col.nombre]===name),'Leones FC conserva un jugador fuera del recorte de profundidad: '+name);
+for(const name of ['Lucas Alegre','Nicolás Baleani','Ezequiel Daniele'])assert(leonesRows.some(row=>row[col.nombre]===name),'Leones FC debe conservar su cobertura de tres arqueros');
 const atlasRows=rows.filter(row=>row[col.club_id]==='atlas');assert.equal(atlasRows.length,28,'Atlas debe quedar con 28 jugadores del plantel principal');
 for(const name of ['Valentino Destéfano','Thiago Rivero','Khalid Ceballos','Leandro Díaz','Lucas Flores','Jonas Palavecino','Tobías Peralta','Rodrigo Alarcón','Francisco Bello','Benjamín Casaux','Luciano Franchelli','Juan Pablo González','Axel Orué','Mariano Ramírez'])assert(!atlasRows.some(row=>row[col.nombre]===name),'Atlas conserva un jugador fuera del corte: '+name);
 assert(atlasRows.some(row=>row[col.nombre]==='Lautaro Fontán'),'Debe conservarse Lautaro Fontán como segundo arquero');
@@ -133,4 +136,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 848 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 848 jugadores, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 841 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 841 jugadores, sin duplicados internos ni dorsales repetidos.');
