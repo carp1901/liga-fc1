@@ -684,3 +684,48 @@ Fuentes: [nómina y goleadores de Atlas](https://www.soloascenso.com.ar/club/atl
 
 ### Resultado de esta pasada
 Se validaron tres nóminas y se incorporaron indicadores verificables de participación. **No hubo cambios de filas ni de dorsales**. La depuración definitiva de estos tres clubes queda condicionada a poder cruzar presencias individuales de todos los jugadores; no se aplicará un máximo arbitrario de integrantes.
+
+
+## 12. Auditoría nominal ampliada — Leandro N. Alem, Central Córdoba (Rosario), Claypole, Deportivo Español y Muñiz
+
+Se revisó un segundo bloque de cinco clubes, cruzando los CSV con nóminas publicadas, anuncios de plantel y fichas de partidos. No se aplicaron recortes automáticos: cuando una fuente describe el plantel inicial y otra refleja incorporaciones posteriores, se prioriza el plantel de cierre y se documenta el movimiento.
+
+### Leandro N. Alem — 46 cargados
+- Se corroboró que Gonzalo Mendiburu integró el primer equipo durante 2026: fue citado 25 veces, titular en 15, suplente en diez e ingresó en cuatro. Su salida anunciada el 6 de noviembre corresponde a la temporada 2027 y no debe borrarse del plantel histórico 2026.
+- Nicolás Gentile y Agustín Dilandro tampoco se agregan al CSV: la fuente informa que Gentile no tuvo participaciones ni integró bancos en 2026, mientras que Dilandro salió a préstamo.
+- El bloque de 46 sigue siendo grande; se conserva por ahora hasta disponer de la nómina de cierre completa y el registro individual de todos los futbolistas.
+
+Fuentes: [bajas de Alem para 2027 y balance de Mendiburu/Gentile](https://www.soloascenso.com.ar/notas/claypole/leandro-alem-sufrio-dos-bajas-de-cara-al-proximo-ano/234281), [altas de Alem para 2026](https://www.soloascenso.com.ar/notas/leandro-n-alem/leandro-alem-volvio-a-sumar-jugadores-en-el-plantel/224300).
+
+### Central Córdoba (Rosario) — 32 cargados
+- El anuncio oficial de inicio de temporada presentó un plantel de 30 jugadores, con nombres que luego tuvieron movimientos y salidas. La nómina estadística de cierre consultada publica 27 futbolistas y no debe tomarse como padrón exhaustivo, ya que omite jugadores que aparecen en fichas posteriores.
+- El CSV contiene 32 registros e incorpora movimientos posteriores, entre ellos Aaron Quijano, que llegó desde Central Ballester, además de otros jugadores de la rotación. No se detectó evidencia suficiente para quitar dos nombres sólo por la diferencia entre la presentación inicial (30) y el CSV de cierre.
+- **Decisión:** mantener 32 provisionalmente; completar el cruce individual de altas, bajas y presencias antes de recortar.
+
+Fuentes: [presentación del plantel inicial de 30 futbolistas](https://www.soloascenso.com.ar/notas/central-cordoba-rosario/central-cordoba-y-sus-jugadores-para-competir-en-el-2026/225133), [plantel y resultados de Central Córdoba 2026](https://www.mundoascenso.com.ar/plantel/75-central-cordoba-r), [nómina estadística de Central Córdoba 2026](https://www.zerozero.pt/equipa/central-cordoba-rosario/29621?edicao_id=212447).
+
+### Claypole — 39 cargados
+- Los 39 nombres del CSV coinciden con la nómina de cierre de Solo Ascenso. Se contrastaron además convocatorias de distintas etapas: la ficha ante Muñiz (fecha 16) confirma titulares y banco, y la previa ante Central Córdoba de septiembre confirma continuidad de la base titular.
+- Las altas de Valentín Hiriart y Brahian Guayquinao en julio están contempladas; Hiriart fue titular y Guayquinao integró el banco en su primera convocatoria.
+- La lista inicial de Mundo Ascenso/TACAZO es más corta que la nómina de cierre de Solo Ascenso, por lo que no se mezcla como si fuera una baja definitiva.
+- **Decisión:** conservar los 39; la nómina consolidada y los movimientos de mitad de año respaldan la composición actual del CSV.
+
+Fuentes: [nómina de cierre de Claypole](https://www.soloascenso.com.ar/club/claypole/258), [convocatoria y formación ante Muñiz](https://www.soloascenso.com.ar/ficha/45155), [altas de Hiriart y Guayquinao](https://www.soloascenso.com.ar/notas/leandro-n-alem/santiago-fleitas-es-el-nuevo-director-tecnico-de-claypole/230133), [plantel publicado por TACAZO](https://tacazo.com.ar/equipo.html?id=club-8391).
+
+### Deportivo Español — 39 cargados
+- Los 39 nombres del CSV coinciden con la nómina de cierre de Solo Ascenso.
+- Las convocatorias de junio y septiembre confirman rotación amplia: aparecen entre otros Matías Caputo, Elías Barraza, Ricardo Cabrera, Santiago Yossini, Enzo Martínez, Lautaro Barros, Cristian Canan, Matías David, Mauricio Fernández, Tobías Narejko, Patricio Pérez y Nicolás Ríos.
+- La nómina reducida de Mundo Ascenso no representa todo el plantel; se prioriza la lista detallada de Solo Ascenso y las fichas de partidos.
+- **Decisión:** mantener los 39; no se detectaron bajas o duplicaciones inequívocas en este cruce.
+
+Fuentes: [nómina de cierre de Deportivo Español](https://www.soloascenso.com.ar/club/deportivo-espanol/307), [convocatoria ante Claypole, junio](https://www.soloascenso.com.ar/notas/deportivo-espanol/espanol-enfrentara-a-claypole-y-quiere-seguir-sumando/228851), [formación y suplentes ante Central Ballester, septiembre](https://www.soloascenso.com.ar/ficha/45309).
+
+### Deportivo Muñiz — 38 cargados
+- Se contrastó la nómina con fichas de partidos del segundo semestre. Ante Leandro N. Alem (fecha 28), la formación y el banco incluyen a Agustín Di Biase, Eric Giménez, Kevin Farías, Brandon Verón, Gonzalo Villafañe, Ezequiel Ponce, Iván Malmoria, Agustín Gutiérrez, Juan Carabali, Alexis Oviedo, Dylan Albornoz y varios relevos que están contemplados en el CSV.
+- La nómina resumida de Mundo Ascenso está incompleta y no se usa como fundamento para dar de baja a los restantes futbolistas.
+- **Decisión:** conservar los 38 por ahora; falta una revisión de presencias individual de todos los nombres para una poda responsable.
+
+Fuentes: [ficha Muñiz–Alem, fecha 28](https://www.zerozero.pt/jogo/2026-09-12-deportivo-muniz-leandro-n-alem/12020646), [resultados y nómina parcial de Muñiz](https://www.mundoascenso.com.ar/plantel/8393-muniz).
+
+### Resultado del bloque
+Se auditaron cinco clubes adicionales. Se confirmó la permanencia histórica de Mendiburu en Alem para 2026, se documentaron diferencias entre planteles iniciales y de cierre en Central Córdoba y Claypole, y se corroboraron convocatorias de Claypole, Español y Muñiz. **No se modificaron filas**: no apareció una salida inequívoca que justificara un cambio seguro.
