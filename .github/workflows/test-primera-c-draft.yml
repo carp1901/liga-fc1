@@ -1,4 +1,3 @@
-name: Cargar planteles iniciales Primera C 2026
 on:
   pull_request:
     paths:
@@ -6,6 +5,15 @@ on:
       - 'test-primera-c-draft.js'
       - 'import-squads.js'
       - '.github/workflows/test-primera-c-draft.yml'
+  push:
+    branches:
+      - 'primera-c-auditoria-correcciones-finales'
+    paths:
+      - 'planteles/borradores/primera-c-2026/**'
+      - 'test-primera-c-draft.js'
+      - 'import-squads.js'
+      - '.github/workflows/test-primera-c-draft.yml'
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:

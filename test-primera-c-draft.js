@@ -13,10 +13,10 @@ const headers=parsed[0].shift().map(x=>x.trim().toLowerCase());
 for(let i=1;i<parsed.length;i++)assert.deepEqual(parsed[i].shift().map(x=>x.trim().toLowerCase()),headers,'Los cuatro CSV deben compartir esquema');
 const rows=parsed.flat();const col=Object.fromEntries(headers.map((h,i)=>[h,i]));
 const expected={
- juventudunida:51,estrelladelsur:42,argentinorosario:50,victorianoarenas:37,sacachispas:50,alem:46,mercedes:35,
- berazategui:38,paraguayo:42,cambaceres:35,puertonuevo:33,centroespanol:29,jjurquiza:49,lugano:45,
- atlas:42,canuelas:31,centralballester:50,centralcordobarosario:32,claypole:39,espanol:39,muniz:38,
- porvenir:44,fenix:42,lamadrid:36,leones:37,lujan:33,sportivobarracas:39,yupanqui:39
+ juventudunida:30,estrelladelsur:29,argentinorosario:30,victorianoarenas:30,sacachispas:30,alem:29,mercedes:29,
+ berazategui:30,paraguayo:30,cambaceres:30,puertonuevo:30,centroespanol:29,jjurquiza:30,lugano:30,
+ atlas:28,canuelas:30,centralballester:30,centralcordobarosario:30,claypole:30,espanol:29,muniz:30,
+ porvenir:30,fenix:29,lamadrid:28,leones:30,lujan:27,sportivobarracas:27,yupanqui:30
 };
 const allowed=new Set(Object.keys(expected)),names=new Set(),numbers=new Set(),totalByClub={};let total=0;
 const normalizedName=s=>Array.from(s.normalize('NFD')).filter(ch=>{const n=ch.charCodeAt(0);return n<768||n>879;}).join('').toLowerCase();
@@ -36,16 +36,93 @@ for(const [i,row] of rows.entries()){
  if(!crossNames.has(normalizedName(name)))crossNames.set(normalizedName(name),[]);
  crossNames.get(normalizedName(name)).push({club,pos,name});
 }
-assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,1123,'Total nominal inesperado');
+assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,824,'Total nominal inesperado');
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
-assert.deepEqual(collisions,['gonzalo medina','gonzalo ramirez','lautaro torres','rodrigo ortiz','rodrigo soria','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
+assert.deepEqual(collisions,['lautaro torres','rodrigo ortiz','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
 const pair=(name,expectedPair)=>assert.deepEqual(crossNames.get(name).map(x=>x.club+'|'+x.pos).sort(),expectedPair);
-pair('rodrigo soria',['lugano|MED','victorianoarenas|ARQ']);
+assert.equal(crossNames.get('rodrigo soria').length,1,'Rodrigo Soria solo debe figurar en Lugano en 2026');
 pair('lautaro torres',['estrelladelsur|DEL','sacachispas|MED']);
 pair('rodrigo ortiz',['claypole|MED','paraguayo|DEL']);
-pair('gonzalo medina',['alem|MED','fenix|MED']);
-pair('gonzalo ramirez',['alem|DEF','lujan|DEL']);
 pair('santiago diaz',['cambaceres|DEF','lujan|MED']);
+const yupanquiRows=rows.filter(row=>row[col.club_id]==='yupanqui');assert.equal(yupanquiRows.length,30,'Yupanqui debe quedar con 30 jugadores según participación 2026');
+for(const name of ['Alexis González Portillo','Vito Jaime','José Manuel Méndez','Juan Ignacio Varela','Tomás Wandyk','Santiago Cenci','Ignacio Perussia','Tobías Coria'])assert(!yupanquiRows.some(row=>row[col.nombre]===name),'Yupanqui conserva un jugador fuera del corte de participación: '+name);
+assert(yupanquiRows.some(row=>row[col.nombre]==='Nahuel Castro López'),'Debe conservarse Nahuel Castro López, arquero con más minutos de Yupanqui');
+const munizRows=rows.filter(row=>row[col.club_id]==='muniz');assert.equal(munizRows.length,30,'Muñiz debe quedar con los 30 jugadores registrados en estadísticas 2026');
+for(const name of ['Dylan Varela','Ignacio Colman','David De La Rosa','Juan Ignacio Lagarrigue','Franco Saavedra','Lautaro Saavedra','Franco Baigorria','Hernán González','Maximiliano López','Lorenzo Risso','Matías Silvero','Ezequiel López','Gonzalo Maguna'])assert(!munizRows.some(row=>row[col.nombre]===name),'Muñiz conserva un jugador fuera del corte estadístico: '+name);
+for(const name of ['Felix Orode','Braian González','Rodrigo Gómez','Felipe Pérez','Nahuel Cáceres'])assert(munizRows.some(row=>row[col.nombre]===name),'Falta jugador con participación estadística en Muñiz: '+name);
+assert.equal(munizRows.find(row=>row[col.nombre]==='Juan Carabali')?.[col.posicion],'DEL','Juan Carabali debe figurar como delantero según la ficha 2026');
+const espanolRows=rows.filter(row=>row[col.club_id]==='espanol');assert.equal(espanolRows.length,29,'Deportivo Español debe quedar en 30 jugadores según estadísticas individuales 2026');
+for(const name of ['Franco Lopresti','Alexis Peralta','Nahuel Villalba','Santiago Caldas','Toribio González','Luca Morales','Marcelo Asto Fonseca','Tomás Di Gregorio','Jonathan Giménez','Fabián Leguizamón','Nicolás Ostuni','Ramiro Cruz'])assert(!espanolRows.some(row=>row[col.nombre]===name),'Deportivo Español conserva un jugador fuera del corte estadístico: '+name);
+for(const name of ['Cristian Barrios','Diosnel Zuccarino'])assert(espanolRows.some(row=>row[col.nombre]===name),'Falta jugador con participación estadística en Deportivo Español: '+name);
+assert(espanolRows.some(row=>row[col.nombre]==='Juan Torre'),'Debe conservarse Juan Torre como segundo arquero');
+assert(!espanolRows.some(row=>row[col.nombre]==='Simón Martínez'),'Simón Martínez se trasladó a Atlas durante 2026; no duplicarlo en Español');
+const leonesRows=rows.filter(row=>row[col.club_id]==='leones');assert.equal(leonesRows.length,30,'Leones FC debe quedar con 30 jugadores');
+for(const name of ['Martín Talamonti','Mateo Gallego','Guido Vergini','Lucas Villarino','Federico Chapartegui','Javier Falcón','Valentín Lemos'])assert(!leonesRows.some(row=>row[col.nombre]===name),'Leones FC conserva un jugador fuera del recorte de profundidad: '+name);
+for(const name of ['Lucas Alegre','Nicolás Baleani','Ezequiel Daniele'])assert(leonesRows.some(row=>row[col.nombre]===name),'Leones FC debe conservar su cobertura de tres arqueros');
+const luganoRows=rows.filter(row=>row[col.club_id]==='lugano');assert.equal(luganoRows.length,30,'Lugano debe quedar en 30 jugadores');
+for(const name of ['Gonzalo Berozuk','Bautista Aguirre','Damián Fernández','Máximo Colla','Uriel Georgieff','Thiago Leyro','Ignacio Gallo','Tobías Graña','Santino Milanesi','Nicolás Blanco','Juan Cristaldo','Gabriel Unrein','Valentino Rizzo','Joaquín López','Denzel Giménez','Matías Benardoni','Leonel Ovejero'])assert(!luganoRows.some(row=>row[col.nombre]===name),'Lugano conserva un nombre fuera del corte/corrección: '+name);
+for(const name of ['Matías Bernardoni','Axel Ovejero','Hernán Sanaria','Braian Curbelo'])assert(luganoRows.some(row=>row[col.nombre]===name),'Falta jugador de la nómina oficial de Lugano: '+name);
+assert.equal(luganoRows.filter(row=>row[col.posicion]==='ARQ').length,3,'Lugano debe conservar tres arqueros');
+const atlasRows=rows.filter(row=>row[col.club_id]==='atlas');assert(atlasRows.some(row=>row[col.nombre]==='Simón Martínez'),'Simón Martínez debe figurar en Atlas al cierre de 2026');assert.equal(atlasRows.length,28,'Atlas debe quedar con 28 jugadores del plantel principal');
+for(const name of ['Valentino Destéfano','Thiago Rivero','Khalid Ceballos','Leandro Díaz','Lucas Flores','Jonas Palavecino','Tobías Peralta','Rodrigo Alarcón','Francisco Bello','Benjamín Casaux','Luciano Franchelli','Juan Pablo González','Axel Orué','Mariano Ramírez'])assert(!atlasRows.some(row=>row[col.nombre]===name),'Atlas conserva un jugador fuera del corte: '+name);
+assert(atlasRows.some(row=>row[col.nombre]==='Lautaro Fontán'),'Debe conservarse Lautaro Fontán como segundo arquero');
+assert(atlasRows.some(row=>row[col.nombre]==='Lucas Uñate'),'Debe conservarse Lucas Uñate (Facundo Lucas Uñate), con 22 partidos');
+const claypoleRows=rows.filter(row=>row[col.club_id]==='claypole');assert.equal(claypoleRows.length,30,'Claypole debe quedar en 30 jugadores del plantel principal');
+for(const name of ['Juan Ignacio Barretta','Axel Copa','Agustín Maciel','Gustavo Meneces','Lautaro Vallejos','Axel Aguirre','Pablo Almada','Lautaro Cossio','Gastón Maidana'])assert(!claypoleRows.some(row=>row[col.nombre]===name),'Claypole conserva un jugador fuera del corte: '+name);
+assert(claypoleRows.some(row=>row[col.nombre]==='Leonel Llodrá'),'Debe conservarse Leonel Llodrá, Matías Leonel Llodrá, con 25 partidos en 2026');
+const lamadridRows=rows.filter(row=>row[col.club_id]==='lamadrid');assert.equal(lamadridRows.length,28,'General Lamadrid debe quedar con 28 jugadores de la nómina de cierre');
+for(const name of ['Tiziano Colla','Lucas Nuesch','Thiago Pittella','Gianluca Francone','Valentino Lozano','Martin Spaccarotella','Tobías Vedovati','Hugo Zarco','Darío Nami','Tomás Moreno','Breyner Mata'])assert(!lamadridRows.some(row=>row[col.nombre]===name),'Lamadrid conserva un jugador fuera del corte de cierre: '+name);
+assert(!lamadridRows.some(row=>row[col.nombre]==='Juan Pablo López'),'Juan Pablo López ya estaba transferido a Puerto Nuevo al inicio de 2026');
+assert(rows.some(row=>row[col.club_id]==='puertonuevo'&&row[col.nombre]==='Juan Pablo López'),'Juan Pablo López debe figurar únicamente en Puerto Nuevo');
+assert(lamadridRows.some(row=>row[col.nombre]==='Franco Davalos'),'Debe conservarse Franco Davalos como arquero suplente');
+const urquizaRows=rows.filter(row=>row[col.club_id]==='jjurquiza');assert.equal(urquizaRows.length,30,'JJ Urquiza debe quedar en 30 jugadores de mayor participación 2026');
+for(const name of ['Maximiliano Hernán Colman','Mateo Figueroa','Martín Busto','Facundo Cabrera','Nahuel Barrionuevo','Valentino Cantafio','Mauro Díaz','Mateo Grecco','Thiago Milanese','Gabriel Miller','Franco Núñez Rivas','Martín Peralta','Nahuel Rivero','Marcos Ruanova','Thiago Urquiza','Lionel Benítez','Mateo De Olivera','Lautaro Ferro','Luca Martínez'])assert(!urquizaRows.some(row=>row[col.nombre]===name),'JJ Urquiza conserva un jugador fuera del corte: '+name);
+assert(urquizaRows.some(row=>row[col.nombre]==='Ramiro Cordero'),'Debe conservarse Ramiro Cordero como arquero suplente');
+const barracasRows=rows.filter(row=>row[col.club_id]==='sportivobarracas');assert.equal(barracasRows.length,27,'Sportivo Barracas debe quedar con 27 jugadores del plantel principal');
+for(const name of ['Bautista Nocefore','Brandon Costilla','Facundo Morán','Thiago Rodríguez','Nicolás Boynarian','Federico Gile','Tobías Mas','Ernesto Pontoriero','Enzo Rodrigues','Enzo Soria','Thiago Dini','Luca López'])assert(!barracasRows.some(row=>row[col.nombre]===name),'Sportivo Barracas conserva un jugador fuera del corte: '+name);
+assert(barracasRows.some(row=>row[col.nombre]==='Alen Boschi'),'Debe conservarse Alen Tomás Boschi, futbolista activo en 2026');
+const fenixRows=rows.filter(row=>row[col.club_id]==='fenix');assert.equal(fenixRows.length,29,'Fénix debe quedar en 29 jugadores de mayor participación 2026');
+for(const name of ['Santiago Erviti','Luca Maidana','Juan Manuel Velásquez','Camilo Cournou Heredia','Ciro Florentin','Joaquín Juárez','Maximiliano María','Gonzalo Medina','Ignacio Romano','Nathan Tito Sosa','Ignacio Vera','Matías Villalba','Santiago Liva','Franco Pérez','Ramiro Breccia'])assert(!fenixRows.some(row=>row[col.nombre]===name),'Fénix conserva un jugador fuera del corte: '+name);
+assert(fenixRows.some(row=>row[col.nombre]==='Francisco Macri'),'Debe conservarse Francisco Macri: fue titular en el cierre de temporada');
+const porvenirRows=rows.filter(row=>row[col.club_id]==='porvenir');assert.equal(porvenirRows.length,30,'El Porvenir debe quedar en 30 jugadores de mayor participación');
+for(const name of ['Diego Freire','Kevin Delgado','Tiago Ifran','Juan Ignacio Santarelli','Fabián Agudelo','Joaquín Caballero','Iván Espinosa','Uriel Gamarra','Agustín Ignacio Invernizzi','Kwame Sankara Souffrant','Luca Zerbo','Luca Tadeo Lagiglia','Lautaro Miguens','Ismael Ortiz'])assert(!porvenirRows.some(row=>row[col.nombre]===name),'El Porvenir conserva un jugador fuera del corte: '+name);
+assert(porvenirRows.some(row=>row[col.nombre]==='Luis Andrade'),'Debe conservarse el segundo arquero Luis Andrade');
+assert(porvenirRows.some(row=>row[col.nombre]==='Bruno Schmid'),'Debe conservarse Bruno Schmid por sus tres partidos');
+const cordobaRows=rows.filter(row=>row[col.club_id]==='centralcordobarosario');assert.equal(cordobaRows.length,30,'Central Córdoba Rosario debe quedar en 30 jugadores');
+for(const name of ["Tomás D'Amico",'Mirko Pfarherr','Franco Fagúndez','Martín Porta','Santiago Arduino'])assert(!cordobaRows.some(row=>row[col.nombre]===name),'Central Córdoba conserva un jugador fuera del corte: '+name);
+assert(cordobaRows.some(row=>row[col.nombre]==='Santiago Spelzini'),'Debe conservarse Santiago Spelzini por cinco partidos');
+for(const name of ['Brian Otero','Renzo Altamura','Gino Albertengo'])assert(cordobaRows.some(row=>row[col.nombre]===name),'Falta jugador con participación comprobada en Central Córdoba: '+name);
+const paraguayoRows=rows.filter(row=>row[col.club_id]==='paraguayo');assert.equal(paraguayoRows.length,30,'Deportivo Paraguayo debe quedar en 30 jugadores');
+for(const name of ['Sergio Quiroga','Ignacio Alvite','Joaquín Flores','Agustín Moreira','Santino Peluffo','Ignacio Zorrilla','Alexis Barrionuevo','Tobías Chávez','Ezequiel García','José Luis Gómez','Francisco Musumeci','Diego Plaksa','Rodrigo Ávalos'])assert(!paraguayoRows.some(row=>row[col.nombre]===name),'Paraguayo conserva un jugador fuera del corte: '+name);
+assert(paraguayoRows.some(row=>row[col.nombre]==='César Ávalos'),'Debe incorporarse César Ávalos, con 15 partidos y gol en la fecha 5');
+assert.equal(paraguayoRows.find(row=>row[col.nombre]==='Juan José Aguilar')?.[col.posicion],'MED','Juan José Aguilar debe figurar como mediocampista');
+const berazateguiRows=rows.filter(row=>row[col.club_id]==='berazategui');assert.equal(berazateguiRows.length,30,'Berazategui debe quedar con los 30 jugadores de mayor participación 2026');
+for(const name of ['Santiago Escudero','Agustín Hernández','Federico Tursi','Joaquín Asselborn','Derek Bentancor','Facundo Caballero','Luciano De Respinis','Luca Bergliavaz','Thiago Ferreyra','Camilo Díaz'])assert(!berazateguiRows.some(row=>row[col.nombre]===name),'Berazategui conserva un jugador fuera del corte de participación: '+name);
+for(const name of ['Joaquín Pucheta','Braian Benítez'])assert(berazateguiRows.some(row=>row[col.nombre]===name),'Falta jugador de alta participación en Berazategui: '+name);
+for(const [name,pos] of [['Thiago Benítez','DEF'],['Alexis Godoy','MED'],['Bautista Hernández','MED'],['Emiliano Caballero','MED']])assert.equal(berazateguiRows.find(row=>row[col.nombre]===name)?.[col.posicion],pos,'Posición de Berazategui incorrecta: '+name);
+const victorianoRows=rows.filter(row=>row[col.club_id]==='victorianoarenas');assert.equal(victorianoRows.length,30,'Victoriano Arenas debe quedar en 30 jugadores');
+for(const name of ['Santiago Benvenutti','Rodrigo Soria','Lucas Borras','Ivo Patiño','Rodrigo Richards','Lucas Sireiro','Rodrigo Taus'])assert(!victorianoRows.some(row=>row[col.nombre]===name),'Victoriano conserva un jugador fuera del corte de participación: '+name);
+const argentinoRows=rows.filter(row=>row[col.club_id]==='argentinorosario');assert.equal(argentinoRows.length,30,'Argentino de Rosario debe quedar en 30 futbolistas con mayor participación');
+for(const name of ['Fabricio Manduca','Tomás Ávalos','Brandon Fontana','Jhon Palacin Ramírez','Facundo Cefarelli','Joaquín Duarte','Marcos Ginex','Bismark Gómez','Sebastián Guanter','Miguel Hernández Castillo','Lautaro Pino','Agustín Sánchez Graziadei','Javier Saucedo','Facundo Yess','Facundo Franceschini','Rodrigo González','Nicolás Heiz','Lucas Molina','Franco Peralta Bravo','Mauro Scassa'])assert(!argentinoRows.some(row=>row[col.nombre]===name),'Argentino conserva un jugador fuera del corte de participación: '+name);
+const mercedesRows=rows.filter(row=>row[col.club_id]==='mercedes');assert.equal(mercedesRows.length,29,'Club Mercedes debe quedar con su plantel de cierre de 29 jugadores');
+for(const name of ['Franco Tonatto','Román Cruz','Franco Taborda','Lucas Calderón','Ulises Antonio Dematei','Lautaro Lagos'])assert(!mercedesRows.some(row=>row[col.nombre]===name),'Mercedes conserva un jugador fuera del plantel de cierre: '+name);
+assert.equal(mercedesRows.find(row=>row[col.nombre]==='Franco Ortigosa')?.[col.posicion],'DEL','Franco Ortigosa debe figurar como delantero');
+assert.equal(mercedesRows.find(row=>row[col.nombre]==='Francisco Ruiz')?.[col.posicion],'MED','Francisco Ruiz debe figurar como mediocampista');
+const cambaceresRows=rows.filter(row=>row[col.club_id]==='cambaceres');assert.equal(cambaceresRows.length,30,'Cambaceres debe quedar en los 30 futbolistas de mayor participación 2026');
+for(const name of ['Enzo Avalos','Dylan Godoy','Benjamín González','Román Abelando','Matías Arbizu','Santiago Argüello','Federico Giménez','Ignacio Lachalde','Nicolas Le Bellot','Santino Musciati','Juan Sosa','Damián Martínez','Matías Rebagliati','Juan Segundo Vera'])assert(!cambaceresRows.some(row=>row[col.nombre]===name),'Cambaceres conserva un jugador fuera del corte de participación: '+name);
+for(const name of ['Esteban Coronel','Bryan Schmidt','Román Zárate','Facundo Odello','Javier Sequeyra','Tomás Baglieri','Tomás Ledesma','Renzo Fernández','Mariano Coletto'])assert(cambaceresRows.some(row=>row[col.nombre]===name),'Falta jugador con participación confirmada en Cambaceres: '+name);
+const estrellaRows=rows.filter(row=>row[col.club_id]==='estrelladelsur');assert.equal(estrellaRows.length,29,'Estrella del Sur debe quedar en 29 jugadores del plantel de cierre');
+for(const name of ['Santiago Delabarba','Tomás Lingua Bender','Ignacio Quiroz','Tomás Eguia','Kevin Escobar','Facundo Montes de Oca','Nicolás Montes de Oca','Kevin Aquino','Joshua Gómez','Santiago Tallarico','Cristian Toledo','Nicolás Maldonado','Geremías Martínez','Elias Mazzantti'])assert(!estrellaRows.some(row=>row[col.nombre]===name),'Estrella conserva un jugador fuera del plantel de cierre: '+name);
+for(const name of ['Gabriel Rivera','Lucas Cabrera','Felipe Scabuzzo'])assert(estrellaRows.some(row=>row[col.nombre]===name),'Falta integrante confirmado del plantel de cierre de Estrella: '+name);
+const juventudRows=rows.filter(row=>row[col.club_id]==='juventudunida');assert.equal(juventudRows.length,30,'Juventud Unida debe quedar en 30 jugadores con presencia priorizada');
+for(const name of ['Ezequiel Figueroa','Martín Mesilla','Julián Carnelos','Fabrizio Furnaro','Román Gauto','Tomás Silveyra','Felipe Ameijeiras','Santino Barletta','Tobías Barrientos','Lautaro Montes','Tomás Otero','Gabriel Rivarola','Antonio Riveros','Nahuel Rodríguez','Nicolás Valeriano','Leandro Velázquez','Lautaro Candia','Daniel Mafrici','Mateo Ursi','Joaquín Iglesias','Diego López','Santiago Núñez'])assert(!juventudRows.some(row=>row[col.nombre]===name),'Juventud Unida conserva un jugador fuera del corte de participación: '+name);
+assert(juventudRows.some(row=>row[col.nombre]==='Fernando Giménez'),'Debe incorporarse Fernando Giménez, con 10 partidos en 2026');
+const puertoRows=rows.filter(row=>row[col.club_id]==='puertonuevo');assert.equal(puertoRows.length,30,'Puerto Nuevo debe quedar en 30 jugadores');
+for(const name of ['Federico Aciar','Benjamín Ferreyra','Tomás Schefer'])assert(!puertoRows.some(row=>row[col.nombre]===name),'Puerto Nuevo conserva un jugador sin presencias oficiales: '+name);
+const lujanRows=rows.filter(row=>row[col.club_id]==='lujan');assert.equal(lujanRows.length,27,'Luján debe quedar en 27 jugadores tras la depuración respaldada');
+for(const name of ['Valentín Alegre','Juan Moreno','Román Busto','Santiago Tríbulo','Gonzalo Ramírez','Aaron Villecco'])assert(!lujanRows.some(row=>row[col.nombre]===name),'Luján conserva un nombre retirado sin participación oficial: '+name);
+assert(lujanRows.some(row=>row[col.nombre]==='Maximiliano Piñeiro'),'Debe conservarse Piñeiro por convocatoria en la fecha 34');
+for(const [name,pos] of [['Lucas Gómez','DEF'],['Franco Pérez','DEL'],['Tomás Dopazo','MED']])assert.equal(lujanRows.find(row=>row[col.nombre]===name)?.[col.posicion],pos,'Posición de Luján incorrecta: '+name);
 const sapio=rows.filter(row=>row[col.nombre]==='Santino Sapio');assert.equal(sapio.length,1);assert.equal(sapio[0][col.posiciones_secundarias],'MED');
 const matias=rows.find(row=>row[col.club_id]==='sacachispas'&&row[col.nombre]==='Matías Arias');assert(matias,'Falta Matías Arias, con 16 partidos y 1.306 minutos');assert.equal(matias[col.posicion],'MED');assert.equal(Number(matias[col.edad]),25);assert.equal(Number(matias[col.dorsal]),51);
 assert(rows.some(row=>row[col.club_id]==='cambaceres'&&row[col.nombre]==='Víctor Gómez'),'Falta Víctor Gómez, confirmado por perfil individual en Cambaceres');
@@ -65,4 +142,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 1.123 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 1.123 jugadores, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 824 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 824 jugadores, sin duplicados internos ni dorsales repetidos.');
