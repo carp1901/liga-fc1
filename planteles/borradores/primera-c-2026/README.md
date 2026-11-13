@@ -57,7 +57,7 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
 - [x] Tanda 2: 243 jugadores en 7 clubes
 - [x] Tanda 3: 248 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
-- [x] Tanda 4: 266 jugadores en 7 clubes
+- [x] Tanda 4: 245 jugadores en 7 clubes
 - [x] CSV actualizado: 937 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
 - [ ] Auditoría individual final de los 10 planteles que aún superan 30 jugadores
 
