@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **937 jugadores en 28 clubes**.
-- Dieciocho clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30) y Fénix (29).
-- Quedan **10 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **925 jugadores en 28 clubes**.
+- Diecinueve clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30), Fénix (29) y Sportivo Barracas (27).
+- Quedan **9 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1140,4 +1140,15 @@ Iván Gorosito se conserva con el nombre de uso del club: la ficha de ZeroZero a
 
 Fuentes: [estadísticas individuales de Fénix](https://www.zerozero.pt/equipa/fenix/26695/jogadores), [perfil de Iván Gorosito](https://www.zerozero.pe/jugador/ivan-gorosito/989369?epoca_id=155), [cierre oficial de temporada](https://clubatleticofenix.com/fenix-2-1-leones-oficial-cierre-de-temporada-y-descenso-en-primera-c/), [presentación de refuerzos 2026](https://www.soloascenso.com.ar/notas/fenix/siguen-llegando-fenix-sumo-una-nueva-incorporacion/224754).
 
-**Recuento vigente:** 937 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente:** 925 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Sportivo Barracas — 39 → 27
+
+Se conservaron los futbolistas del núcleo principal con participación comprobada en la temporada y se retiraron 12 nombres con uso nulo o mínimo que no forman parte de la rotación principal.
+
+Alen Boschi se mantiene con el nombre de uso del club: su nombre completo es Alen Tomás Boschi, y algunas bases lo muestran como Tomás Boschi, con 23 partidos y 672 minutos. No se crean dos registros. Félix Orode no se incorpora: dejó Sportivo Barracas y pasó a La Campana/Muñiz durante agosto de 2026. Emanuel de Porras y Julián Bottaro tampoco aparecen en el plantel de cierre.
+
+Fuentes: [plantel 2026 de Sportivo Barracas](https://www.365scores.com/es/football/team/sportivo-barracas-14371/squad), [nómina Copa Argentina](https://www.copaargentina.org/es/equipos/121_sportivo-barracas.html), [estadísticas de Tomás/Alen Boschi](https://es.besoccer.com/jugador/career-path/tomas-boschi-3813516), [nombre completo de Alen Boschi](https://www.transfermarkt.es/alen-boschi/profil/spieler/1462817), [salida de Félix Orode](https://www.sportdigital.com.ar/nota/14553/futbol-gran-refuerzo-de-la-campana-para-el-torneo-clausura).
+
+**Recuento vigente:** 925 jugadores en 28 clubes; diecinueve planteles dentro del límite y nueve pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
