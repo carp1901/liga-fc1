@@ -91,8 +91,8 @@ Se conservan Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade. Luis 
 
 | Posición | Jugadores | Porcentaje |
 |---|---:|---:|
-| Arqueros | 100 | 8,9% |
-| Defensores | 306 | 27,3% |
+| Arqueros | 101 | 9,0% |
+| Defensores | 305 | 27,2% |
 | Mediocampistas | 494 | 44,0% |
 | Delanteros | 223 | 19,9% |
 
@@ -482,3 +482,38 @@ Fuente de las 15 edades: https://tacazo.com.ar/equipo.html?id=club-1942 . Fuente
 La nómina de temporada de Solo Ascenso contiene 49 nombres y los 49 están presentes en el CSV. Matías Arias es el único registro adicional respecto de esa lista, incorporado aparte por su ficha individual de temporada (16 partidos, 1.306 minutos). Por lo tanto, el total de 50 tiene respaldo nominal; no se agregan nombres por la lista parcial de TACAZO/Mundo Ascenso. Kevin Romero aparece en algunas fuentes de Sacachispas, pero sus registros de 2026 lo ubican en El Porvenir (23 partidos, 1.845 minutos), por lo que no se incorpora a Sacachispas.
 
 Fuentes: https://www.soloascenso.com.ar/club/sacachispas-fc/300 ; https://es.besoccer.com/jugador/k-romero-3540358 .
+
+
+## 7. Auditoría ampliada — Juventud Unida, Argentino de Rosario y Central Ballester
+
+### Juventud Unida — cierre de temporada
+
+- Se contrastaron los **51 registros** del CSV con la nómina 2026 publicada por Solo Ascenso: coinciden los nombres del plantel cargado, incluidos los cuatro arqueros.
+- La convocatoria y formación confirmada frente a Mercedes (fecha 26) aporta una segunda verificación: los 11 titulares y los nueve suplentes publicados están incluidos en el CSV. Se confirma especialmente la presencia de Andrés Molinas, Emiliano Ortíz y Mateo Pedemonti, que no deben confundirse con altas de otros clubes.
+- Fernando Giménez y Santino Bevilacqua no se reincorporan al plantel de cierre: las fuentes de mercado/temporada registran sus salidas durante el año.
+- **Resultado:** no se recorta el plantel por ahora. Los 51 coinciden con la nómina actual consultada; el tamaño queda marcado para una depuración posterior sólo si aparecen bajas o jugadores ajenos al primer equipo con evidencia individual.
+
+Fuentes: [nómina 2026 de Juventud Unida](https://www.soloascenso.com.ar/club/juventud-unida/284), [convocados y formación ante Mercedes](https://www.soloascenso.com.ar/ficha/45257), [previa del partido y lista de convocados](https://www.soloascenso.com.ar/notas/central-ballester/juventud-unida-y-un-enfrentamiento-directo-contra-mercedes/231988).
+
+### Argentino de Rosario — movimientos y nómina de cierre
+
+- La nómina vigente de Solo Ascenso y las convocatorias de las fechas 26, 28, 30 y 31 confirman la presencia de la base que figura en el CSV: Francisco Olivera, Mateo González, Ignacio Canteros, Tiago Celes, Luciano Fernández, Joaquín Galimberti, Juan Cruz Cisneros, Theo Guiñazú, Thiago Bartalini, Octavio Rubarth y Juan Bautista Cantiani, entre otros.
+- Se mantiene la exclusión de **Carlos Raga Córdoba, Dago Sánchez Palencia y Facundo Aronna** del plantel de cierre, porque sus salidas a Cambaceres fueron registradas en el mercado de mitad de temporada.
+- El registro de mercado menciona a Manuel González como alta desde Chañarense, pero no aparece en la nómina consolidada de Solo Ascenso ni en las convocatorias finales consultadas. **No se agrega** sin evidencia de integración efectiva al plantel de cierre.
+- **Resultado:** no se agregan nombres por rumores o registros aislados de mercado ni se eliminan futbolistas que aparecen en convocatorias de la segunda mitad.
+
+Fuentes: [nómina 2026 de Argentino de Rosario](https://www.soloascenso.com.ar/club/argentino-de-rosario/243), [formación y banco ante Centro Español, fecha 26](https://www.soloascenso.com.ar/ficha/45255), [convocatoria ante Central Córdoba, fecha 28](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-busca-quedarse-con-el-clasico-en-el-gabino-sosa/232558), [formación ante Estrella del Sur, fecha 30](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-volvio-a-caer-y-quedo-muy-comprometido/233061), [bajas de Raga y Dago](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-de-rosario-sufrio-dos-bajas-en-el-mediocampo/229363), [mercado de pases Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Central Ballester — altas y bajas de mitad de año
+
+- Se confirma que **Gabriel González** llegó a préstamo desde Comunicaciones en junio; el mediocampista ya figura en el CSV.
+- **Brian Vittadello** llegó desde J.J. Urquiza en junio y disputó siete partidos con Central Ballester; también figura en el CSV. La lesión informada al cierre de la temporada no cambia su pertenencia al plantel 2026.
+- **Luca Navarra** llegó desde Claypole y está incluido en el CSV. Se conserva porque integró el plantel y tuvo participación; no se lo confunde con la baja de Aaron Quijano.
+- **Aaron Quijano** permanece correctamente en Central Córdoba de Rosario tras su salida de Ballester. No se duplica entre ambos clubes.
+- **Resultado:** las tres incorporaciones de mitad de temporada identificadas (González, Vittadello y Navarra) están contempladas. No se agregan duplicados ni se hacen bajas adicionales sin revisar las convocatorias restantes.
+
+Fuentes: [llegada de Gabriel González](https://www.soloascenso.com.ar/notas/atlas/central-ballester-tiene-un-nuevo-jugador-en-el-mediocampo/229554), [llegadas de Vittadello y Navarra](https://www.soloascenso.com.ar/notas/central-ballester/se-confirmo-un-refuerzo-y-llego-otro-atacante-en-ballester/229680), [participación y lesión de Vittadello](https://www.soloascenso.com.ar/notas/central-ballester/brian-vittadello-se-lesiono-y-sera-baja-por-un-tiempo-largo/233662), [traspasos de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Corrección estadística
+
+Al recalcular las 1.123 filas de los cuatro CSV, la distribución correcta es **101 ARQ, 305 DEF, 494 MED y 223 DEL**. Se corrige la tabla de distribución de posiciones; el total de 1.123 jugadores y 28 clubes no cambia.
