@@ -58,7 +58,7 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 2: 255 jugadores en 7 clubes
 - [x] Tanda 3: 250 jugadores en 7 clubes tras las depuraciones de Central Ballester y Cañuelas
 - [x] Tanda 4: 266 jugadores en 7 clubes
-- [x] CSV actualizado: 976 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [x] CSV actualizado: 978 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
 - [ ] Auditoría individual final de los 14 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
@@ -233,4 +233,4 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - Se retiraron diez nombres fuera del corte de participación, incluidos jugadores sin partidos registrados. **Sebastián Villalba** se conserva con ese nombre de uso del club: su nombre completo es Héctor Cayetano Sebastián Villalba y su perfil registra 25 partidos y 2.141 minutos. Juan Pablo Serrizuela también se conserva con el nombre de plantilla, aunque la tabla de ZeroZero lo abrevia como Juan Serrizuela.
 - Se corrigieron posiciones según la ficha individual: Thiago Benítez DEF, Alexis Godoy MED, Bautista Hernández MED y Emiliano Caballero MED.
 - Fuentes: [estadísticas individuales de Berazategui](https://www.zerozero.pt/equipa/berazategui/25748/jogadores), [plantel de Primera C 2026](https://www.zerozero.pt/equipa/berazategui/25748?edicao_id=212447), [perfil de Sebastián Villalba](https://www.soloascenso.com.ar/perfil/hector-villalba/23503), [perfil de Joaquín Bentancor: sin partidos 2026](https://www.zerozero.pe/jugador/joaquin-bentancor/2418102?epoca_id=155).
-- Nuevo recuento CSV: **976 jugadores en 28 clubes**. Catorce clubes cumplen el máximo de 30; quedan 14 planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+- Nuevo recuento CSV: **978 jugadores en 28 clubes**. Catorce clubes cumplen el máximo de 30; quedan 14 planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
