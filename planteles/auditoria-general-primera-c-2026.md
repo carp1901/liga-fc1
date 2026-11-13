@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **896 jugadores en 28 clubes**.
-- Veintiún clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30), Fénix (29), Sportivo Barracas (27), JJ Urquiza (30) y General Lamadrid (29).
-- Quedan **7 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **897 jugadores en 28 clubes**.
+- Veintidós clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30), Fénix (29), Sportivo Barracas (27), JJ Urquiza (30), General Lamadrid (29) y Claypole (30).
+- Quedan **6 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1140,7 +1140,7 @@ Iván Gorosito se conserva con el nombre de uso del club: la ficha de ZeroZero a
 
 Fuentes: [estadísticas individuales de Fénix](https://www.zerozero.pt/equipa/fenix/26695/jogadores), [perfil de Iván Gorosito](https://www.zerozero.pe/jugador/ivan-gorosito/989369?epoca_id=155), [cierre oficial de temporada](https://clubatleticofenix.com/fenix-2-1-leones-oficial-cierre-de-temporada-y-descenso-en-primera-c/), [presentación de refuerzos 2026](https://www.soloascenso.com.ar/notas/fenix/siguen-llegando-fenix-sumo-una-nueva-incorporacion/224754).
 
-**Recuento vigente:** 896 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente:** 897 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
 
 
 ### Sportivo Barracas — 39 → 27
@@ -1174,3 +1174,14 @@ Alejo Roa se mantiene con el nombre del club: la ficha estadística lo abrevia c
 Fuentes: [estadísticas individuales de Lamadrid](https://www.zerozero.pt/equipa/general-lamadrid/45578/jogadores), [plantel de cierre 2026](https://www.soloascenso.com.ar/club/gral-lamadrid/278), [perfil de Alejo Roa](https://www.soloascenso.com.ar/perfil/alejo-roa/24038), [fichas de partido](https://devotodelamadrid.blogspot.com/2026/09/).
 
 **Recuento vigente:** 896 jugadores en 28 clubes; veintiún planteles dentro del límite y siete pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Claypole — 39 → 30
+
+El CSV coincidía con la nómina de cierre publicada por Solo Ascenso. Se conservaron los 30 futbolistas con participación más relevante en 2026, priorizando los registros de partidos y las convocatorias del tramo final. Se retiraron nueve integrantes de la nómina amplia con uso nulo o insuficiente para el plantel principal.
+
+No se agregaron jugadores que ya habían salido antes del cierre: Luca Falabella pasó a Sportivo Ameliano en febrero y Farid Jasni se incorporó a Fénix el 29/06/2026. Se conserva Leonel Llodrá con el nombre de uso del club; su nombre completo es Matías Leonel Llodrá y registra 25 partidos y siete goles en 2026.
+
+Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), [estadísticas de Leonel Llodrá](https://www.zerozero.com.mx/jugador/leonel-llodra/490419), [salida de Luca Falabella](https://www.leballonrond.fr/equipe/sportivo-ameliano/108830/transferts), [salida de Farid Jasni](https://www.soloascenso.com.ar/notas/deportivo-espanol/fenix-presento-dos-refuerzos-para-el-tramo-final/229801).
+
+**Recuento vigente:** 897 jugadores en 28 clubes; veintidós planteles dentro del límite y seis pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
