@@ -57,9 +57,9 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 1: 275 jugadores en 7 clubes tras depurar Sacachispas y Alem
 - [x] Tanda 2: 271 jugadores en 7 clubes
 - [x] Tanda 3: 250 jugadores en 7 clubes tras las depuraciones de Central Ballester y Cañuelas
-- [x] Tanda 4: 272 jugadores en 7 clubes
-- [x] CSV y runtime sincronizados: 1.068 jugadores en 28 clubes (pruebas automáticas finales pendientes)
-- [ ] Auditoría individual final de los 23 planteles que aún superan 30 jugadores
+- [x] Tanda 4: 266 jugadores en 7 clubes
+- [x] CSV actualizado: 1.062 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 22 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -149,3 +149,13 @@ Las cifras anteriores de Central Ballester (50/51) y los totales de 1.123/1.126 
 - `public/squads.json`, `public/squads.js` y `public/squads-meta.json` ya están sincronizados con los CSV. El test espera 1.068 jugadores; falta la ejecución confirmada de GitHub Actions y el chequeo de runtime.
 
 Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-general-primera-c-2026.md`.
+
+
+## Actualización 13/11/2026 — depuración de Luján
+
+- **Luján: 33 → 27 jugadores.** Se cruzó la nómina 2026 publicada por AFA (26 futbolistas) con la lista de cierre de Solo Ascenso y las convocatorias/síntesis de las fechas finales.
+- Se retiraron Valentín Alegre, Juan Moreno, Román Busto, Santiago Tríbulo, Gonzalo Ramírez y Aaron Villecco: no aparecen en la nómina oficial de AFA ni se encontró participación/convocatoria oficial de Primera C para ellos. No se los confundió con futbolistas de otros clubes con el mismo nombre.
+- Se conservó **Maximiliano Piñeiro** porque figura como suplente en la síntesis de Luján–Berazategui del 25/10/2026 (fecha 34), aunque no integra la nómina AFA de 26. Así se mantiene un jugador adicional con evidencia directa de convocatoria.
+- Se ajustaron posiciones según la nómina AFA: Lucas Gómez como DEF, Tomás Dopazo como MED y Franco Pérez como DEL. Nahuel Icazatti se conserva: su ficha individual confirma 29 presencias, 23 titularidades y 6 ingresos desde el banco; su nombre completo es Leandro Nahuel Icazatti.
+- Fuentes: [plantel oficial de AFA](https://www.afa.com.ar/es/posts/lujan-supero-a-berazategui-en-la-final-por-el-ascenso-y-jugara-la-proxima-temporada-en-primera-b), [plantel de cierre de Solo Ascenso](https://www.soloascenso.com.ar/club/lujan/290), [perfil de Nahuel Icazatti](https://www.soloascenso.com.ar/perfil/nahuel-icazatti/22784), [convocatoria de fecha 34](https://www.soloascenso.com.ar/ficha/46167).
+- Nuevo recuento CSV: **1.062 jugadores en 28 clubes**. Seis clubes cumplen el máximo de 30; quedan 22 planteles por revisar. La sincronización de runtime y la prueba automatizada se verificarán en el workflow del PR.
