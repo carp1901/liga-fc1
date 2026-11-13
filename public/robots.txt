@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clash-futbol-2d-online.onrender.com/sitemap.xml
