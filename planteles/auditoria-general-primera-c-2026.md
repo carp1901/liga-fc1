@@ -729,3 +729,60 @@ Fuentes: [ficha Muñiz–Alem, fecha 28](https://www.zerozero.pt/jogo/2026-09-12
 
 ### Resultado del bloque
 Se auditaron cinco clubes adicionales. Se confirmó la permanencia histórica de Mendiburu en Alem para 2026, se documentaron diferencias entre planteles iniciales y de cierre en Central Córdoba y Claypole, y se corroboraron convocatorias de Claypole, Español y Muñiz. **No se modificaron filas**: no apareció una salida inequívoca que justificara un cambio seguro.
+
+
+## 13. Auditoría final de los siete clubes restantes — correcciones nominales
+
+Se completó el cruce nominal de los siete clubes que faltaban revisar en este bloque. Se priorizaron las nóminas de cierre de Solo Ascenso y AFA, las presentaciones oficiales y las fichas de partidos. Hubo dos correcciones concretas en el CSV de tanda 4.
+
+### General Lamadrid — corrección de tres omisiones
+- La nómina actual de Solo Ascenso incluye a **Tomás Moreno** e **Iván Ruiz** en el mediocampo y a **Breyner Mata** en ataque. Los tres estaban ausentes del CSV.
+- Se incorporan los tres con ratings y dorsales estimados, dejando explícito que los dorsales no son oficiales: Tomás Moreno #44, Iván Ruiz #45 y Breyner Mata #46.
+- El plantel pasa de 36 a **39 jugadores**, coincidiendo con la nómina de cierre consultada. La presentación inicial del club había anunciado 33, pero la lista de cierre incorpora más futbolistas durante la temporada.
+
+Fuentes: [nómina de cierre de General Lamadrid](https://www.soloascenso.com.ar/club/general-lamadrid/278), [presentación del plantel inicial de 33](https://www.soloascenso.com.ar/notas/almagro/lamadrid-presento-a-todos-sus-futbolistas-para-el-2026/225081).
+
+### Yupanqui — baja confirmada de Santino Colángelo
+- El CSV todavía contenía a **Santino Colángelo**, pero el registro de mercado de enero confirma que dejó Yupanqui y pasó a Almagro antes del inicio de la temporada 2026.
+- Se elimina su fila del CSV. Las otras bajas anunciadas (Alan Palavecino, Dante Pérez Lazarte, Mauro Peiro y Lautaro Ortega) ya estaban correctamente ausentes.
+- El plantel pasa de 39 a **38 jugadores**. No se elimina a Juan Ignacio Varela, que renovó para 2026, ni a los refuerzos incorporados durante el armado de la temporada.
+
+Fuentes: [baja de Santino Colángelo y renovaciones/refuerzos de Yupanqui](https://www.soloascenso.com.ar/notas/yupanqui/el-trapero-presento-tres-incorporaciones-y-una-renovacion/224236), [refuerzos y bajas adicionales de Yupanqui](https://www.soloascenso.com.ar/notas/lujan/el-trapero-confirmo-la-llegada-de-seis-nuevos-refuerzos/224666).
+
+### Leones FC (Rosario) — 37 cargados
+- Los 37 nombres del CSV coinciden con la nómina de cierre de Solo Ascenso. La nómina incluye a Mario Senra, Gustavo Britos y Lucas Manochi, cuya trayectoria entre clubes ya se había revisado para evitar duplicaciones.
+- Se conserva el plantel; no se detectan bajas pendientes en el cruce nominal.
+
+Fuente: [nómina de cierre y goleadores de Leones FC](https://www.soloascenso.com.ar/club/leones-fc-rosario/1228).
+
+### Luján — 33 cargados
+- Los 33 nombres del CSV coinciden con la nómina de cierre de Solo Ascenso. La lista oficial de AFA presenta un recorte de jugadores, mientras que las fichas de partidos del cierre muestran una convocatoria más amplia con titulares y suplentes; por eso no se reduce el CSV a la lista abreviada.
+- Se confirma que Adrián Ocampo y Tobías Luna llegaron en junio y están incluidos; Brandon Arriola salió a Dock Sud y no figura en el CSV.
+- **Decisión:** conservar los 33.
+
+Fuentes: [nómina de cierre de Luján](https://www.soloascenso.com.ar/club/lujan/290), [plantel 2026 y campaña según AFA](https://www.afa.com.ar/es/posts/lujan-supero-a-berazategui-en-la-final-por-el-ascenso-y-jugara-la-proxima-temporada-en-primera-b), [altas y baja de mitad de año](https://www.soloascenso.com.ar/notas/estrella-del-sur-alejandro-korn/lujan-tiene-dos-refuerzos-para-el-segundo-semestre/229549), [formación y banco en la final](https://www.soloascenso.com.ar/ficha/46167).
+
+### El Porvenir — 44 cargados
+- Los 44 registros del CSV coinciden con la base principal de la nómina de cierre. Solo Ascenso publica además tres arqueros (Facundo Arcas, Cristian Arce y Tomás Guzmán) que no están en el CSV, lo que elevaría el bloque de arqueros a siete.
+- Para evitar sobrepoblar el puesto, no se agregan esos tres nombres sin confirmar participación o convocatorias individuales. Se deja la diferencia señalada para revisar presencias antes de incorporarlos.
+
+Fuente: [nómina de cierre de El Porvenir](https://www.soloascenso.com.ar/club/el-porvenir/270).
+
+### Fénix — 42 cargados
+- Se cruzó el CSV con dos listados 2026, pero presentan discrepancias importantes de nombres y dorsales; uno de los listados de mercado duplica futbolistas en varias posiciones. No se usa esa fuente incompleta para eliminar jugadores ni para agregar nombres sin una ficha individual que confirme su pertenencia.
+- **Decisión:** mantener los 42 y dejar el cruce nominal como pendiente de resolución por ficha de partido/participación.
+
+Fuentes: [plantel Fénix 2026 en Mundo Ascenso](https://www.mundoascenso.com.ar/plantel/103-fenix), [plantel Fénix 2026 en ZeroZero](https://www.zerozero.pt/equipa/fenix/26695?edicao_id=212447).
+
+### Sportivo Barracas — 39 cargados
+- El listado disponible de Mundo Ascenso es parcial y no contiene la nómina completa; el mercado previo a la temporada registra ocho incorporaciones y varias bajas, por lo que no es correcto compararlo como padrón definitivo contra los 39 del CSV.
+- Se conserva el bloque y se evita eliminar nombres a partir de una página incompleta.
+
+Fuentes: [plantel parcial 2026 de Sportivo Barracas](https://www.mundoascenso.com.ar/plantel/110-sportivo-barracas), [altas de Diego Perea y armado del plantel](https://www.soloascenso.com.ar/notas/ituzaingo/diego-perea-se-convirtio-en-nuevo-refuerzo-del-arrabalero/224281), [primeras bajas confirmadas](https://www.soloascenso.com.ar/notas/sportivo-barracas/se-confirmaron-las-primeras-salidas-en-sportivo-barracas/223263).
+
+### Resultado y validación estructural actualizada
+- Se agregaron **Tomás Moreno, Iván Ruiz y Breyner Mata** a Lamadrid y se retiró **Santino Colángelo** de Yupanqui.
+- Recuento actualizado: **1.126 jugadores en 28 clubes**.
+- Distribución: **102 ARQ, 305 DEF, 495 MED y 224 DEL**.
+- Validación de los cuatro CSV: cero dorsales vacíos, cero nombres duplicados dentro de un club y cero dorsales duplicados dentro de un club.
+- Los siete clubes restantes quedaron revisados; Fénix y Sportivo Barracas mantienen una salvedad por fuentes parciales o discordantes, y El Porvenir queda con tres arqueros adicionales pendientes de confirmar por participación.
