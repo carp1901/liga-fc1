@@ -57,9 +57,9 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
 - [x] Tanda 2: 224 jugadores en 7 clubes
 - [x] Tanda 3: 239 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
-- [x] Tanda 4: 209 jugadores en 7 clubes tras depurar Yupanqui
-- [x] CSV actualizado: 848 jugadores en 28 clubes; 27 planteles cumplen el máximo de 30
-- [ ] Auditoría individual final de los 2 planteles que aún superan 30 jugadores: Lugano y Leones FC
+- [x] Tanda 4: 202 jugadores en 7 clubes tras depurar Yupanqui y Leones FC
+- [x] CSV actualizado: 841 jugadores en 28 clubes; 28 planteles cumplen el máximo de 30
+- [ ] Auditoría individual final de el plantel que aún supera 30 jugadores: Lugano
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -310,8 +310,8 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 ## Actualización 13/11/2026 — Yupanqui
 
 - Yupanqui quedó en 30 jugadores tras cruzar la nómina con la tabla de minutos de Primera C 2026. Se retiraron seis nombres sin registro en la tabla consultada y dos con participación mínima (4 y 18 minutos). La decisión y las fuentes están documentadas en `auditoria-general-primera-c-2026.md`.
-- Recuento exacto de los cuatro CSV: tanda 1, 207; tanda 2, 224; tanda 3, 208; tanda 4, 209. Total: **848 jugadores en 28 clubes**.
-- Dos clubes continúan por encima de 30: Lugano y Leones FC.
+- Recuento exacto de los cuatro CSV: tanda 1, 207; tanda 2, 224; tanda 3, 208; tanda 4, 202. Total: **841 jugadores en 28 clubes**.
+- Un club continúa por encima de 30: Lugano.
 
 
 ## Actualización 13/11/2026 — Deportivo Muñiz
@@ -324,3 +324,9 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 
 - Deportivo Español quedó en 30 jugadores tras aplicar el registro individual de la temporada 2026. Se conservaron los jugadores con participación más alta, se mantuvo un segundo arquero (Juan Torre) y se incorporaron tres nombres con partidos oficiales que faltaban en el CSV. Los dorsales agregados son estimados.
 - Recuento consolidado: **848 jugadores en 28 clubes**, 27 dentro del máximo y dos pendientes (Lugano y Leones FC). La sincronización del runtime y la CI todavía deben verificarse.
+
+
+## Actualización 13/11/2026 — Leones FC
+
+- Leones FC quedó en 30 jugadores. El recorte de siete futbolistas se basó en el plantel publicado, el once más utilizado (mínimo de 10 partidos) y planillas de septiembre; se conservó una cobertura de tres arqueros. Como no se encontró una tabla pública completa de minutos de todo el plantel, el recorte se documenta como selección de profundidad, no como prueba de cero presencias.
+- Recuento consolidado: **841 jugadores en 28 clubes**, 28 dentro del máximo y uno pendiente: Lugano. La sincronización del runtime y la CI todavía deben verificarse.
