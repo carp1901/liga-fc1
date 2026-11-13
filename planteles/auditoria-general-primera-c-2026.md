@@ -937,3 +937,17 @@ Cañuelas tenía 31 jugadores en el CSV. Se retiró **Francisco Riscino** por no
 - El recuento general de los cuatro CSV pasa de 1.106 a **1.105 jugadores** en 28 clubes.
 
 Fuentes: [estadísticas de jugadores de Cañuelas 2026](https://www.zerozero.pt/equipa/canuelas/45601/jogadores), [plantel 2026 de Solo Ascenso](https://www.soloascenso.com.ar/club/canuelas-fc/256), [boletín AFA que registra a Riscino en Tercera C](https://assets1.afa.com.ar/2026/BOLETINES/Boletin-6885-29.04.docx-%282%29.pdf), [amistosos de pretemporada](https://www.soloascenso.com.ar/notas/canuelas-fc/el-tambero-se-midio-ante-un-equipo-de-la-primera-nacional/224295).
+
+
+## 20. Validación posterior a la segunda poda
+
+Tras depurar Cañuelas, se volvió a ejecutar el recorrido estructural equivalente al test de los cuatro CSV:
+
+- **1.105 jugadores y 28 clubes**.
+- Central Ballester: 30; Cañuelas: 30.
+- 25 clubes siguen por encima de 30.
+- Las cuatro tandas conservan el mismo esquema de 31 columnas; no hay filas malformadas, campos obligatorios vacíos, dorsales duplicados ni nombres duplicados dentro de cada club.
+- Los seis homónimos entre clubes siguen explícitamente contemplados por el test.
+- `test-primera-c-draft.js` ya espera 1.105 registros y los nuevos recuentos de Cañuelas y Central Ballester.
+
+GitHub Actions todavía no devuelve una ejecución confirmada para estos commits. Por eso el resultado de esta revisión es una validación de los datos y de la lógica del test, no una certificación del runtime. La integración automática del runtime debe confirmarse en el PR.
