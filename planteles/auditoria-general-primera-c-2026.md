@@ -992,7 +992,7 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **976 jugadores en 28 clubes**.
+- CSV: **978 jugadores en 28 clubes**.
 - Catorce clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30) y Berazategui (30).
 - Quedan **14 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
@@ -1098,4 +1098,4 @@ Se mantuvo el nombre de uso **Sebastián Villalba**: su nombre completo es Héct
 
 Fuentes: [estadísticas individuales de Berazategui](https://www.zerozero.pt/equipa/berazategui/25748/jogadores), [plantel 2026](https://www.zerozero.pt/equipa/berazategui/25748?edicao_id=212447), [perfil de Sebastián Villalba](https://www.soloascenso.com.ar/perfil/hector-villalba/23503), [Joaquín Bentancor: sin partidos 2026](https://www.zerozero.pe/jugador/joaquin-bentancor/2418102?epoca_id=155).
 
-**Recuento vigente:** 976 jugadores en 28 clubes; catorce planteles dentro del límite y 14 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente:** 978 jugadores en 28 clubes; catorce planteles dentro del límite y 14 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
