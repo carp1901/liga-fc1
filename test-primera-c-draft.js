@@ -40,7 +40,7 @@ assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
 assert.deepEqual(collisions,['lautaro torres','rodrigo ortiz','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
 const pair=(name,expectedPair)=>assert.deepEqual(crossNames.get(name).map(x=>x.club+'|'+x.pos).sort(),expectedPair);
-pair('rodrigo soria',['lugano|MED','victorianoarenas|ARQ']);
+assert.equal(crossNames.get('rodrigo soria').length,1,'Rodrigo Soria solo debe figurar en Lugano en 2026');
 pair('lautaro torres',['estrelladelsur|DEL','sacachispas|MED']);
 pair('rodrigo ortiz',['claypole|MED','paraguayo|DEL']);
 pair('santiago diaz',['cambaceres|DEF','lujan|MED']);
@@ -81,7 +81,7 @@ assert(urquizaRows.some(row=>row[col.nombre]==='Ramiro Cordero'),'Debe conservar
 const barracasRows=rows.filter(row=>row[col.club_id]==='sportivobarracas');assert.equal(barracasRows.length,27,'Sportivo Barracas debe quedar con 27 jugadores del plantel principal');
 for(const name of ['Bautista Nocefore','Brandon Costilla','Facundo Morán','Thiago Rodríguez','Nicolás Boynarian','Federico Gile','Tobías Mas','Ernesto Pontoriero','Enzo Rodrigues','Enzo Soria','Thiago Dini','Luca López'])assert(!barracasRows.some(row=>row[col.nombre]===name),'Sportivo Barracas conserva un jugador fuera del corte: '+name);
 assert(barracasRows.some(row=>row[col.nombre]==='Alen Boschi'),'Debe conservarse Alen Tomás Boschi, futbolista activo en 2026');
-const fenixRows=rows.filter(row=>row[col.club_id]==='fenix');assert.equal(fenixRows.length,29,'Fénix debe quedar en 30 jugadores de mayor participación 2026');
+const fenixRows=rows.filter(row=>row[col.club_id]==='fenix');assert.equal(fenixRows.length,29,'Fénix debe quedar en 29 jugadores de mayor participación 2026');
 for(const name of ['Santiago Erviti','Luca Maidana','Juan Manuel Velásquez','Camilo Cournou Heredia','Ciro Florentin','Joaquín Juárez','Maximiliano María','Gonzalo Medina','Ignacio Romano','Nathan Tito Sosa','Ignacio Vera','Matías Villalba','Santiago Liva','Franco Pérez','Ramiro Breccia'])assert(!fenixRows.some(row=>row[col.nombre]===name),'Fénix conserva un jugador fuera del corte: '+name);
 assert(fenixRows.some(row=>row[col.nombre]==='Francisco Macri'),'Debe conservarse Francisco Macri: fue titular en el cierre de temporada');
 const porvenirRows=rows.filter(row=>row[col.club_id]==='porvenir');assert.equal(porvenirRows.length,30,'El Porvenir debe quedar en 30 jugadores de mayor participación');
