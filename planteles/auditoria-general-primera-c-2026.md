@@ -550,3 +550,46 @@ Fuentes: [nómina 2026 de Club Mercedes](https://www.soloascenso.com.ar/club/mer
 ### Recuento estructural actualizado
 
 La reincorporación de Gabriel Rivera deja **1.124 jugadores en 28 clubes**. Distribución recalculada: **102 ARQ, 305 DEF, 494 MED y 223 DEL**. El CSV de Estrella del Sur conserva dorsales completos y sin duplicados dentro del club.
+
+
+## 9. Auditoría ampliada — Berazategui, Deportivo Paraguayo, Cambaceres y Puerto Nuevo
+
+### Berazategui — nómina de cierre
+
+- Los **38 jugadores** del CSV coinciden con la nómina 2026 publicada por Solo Ascenso.
+- Se verifican incorporaciones de mitad de temporada como Leonel Miranda y Joaquín Molina, ambos ya incluidos en el archivo.
+- No se incorporan jugadores sólo por aparecer en notas de mercado sin formar parte de la nómina de cierre.
+- **Resultado:** sin altas ni bajas adicionales en este cruce.
+
+Fuente: [nómina 2026 de Berazategui](https://www.soloascenso.com.ar/club/berazategui/253).
+
+### Deportivo Paraguayo — nómina de cierre
+
+- Los **42 jugadores** cargados coinciden con la nómina 2026 publicada por Solo Ascenso.
+- La llegada de Ian Lynch está reflejada en el CSV; no se detectan omisiones nominales adicionales en el cruce de la lista consolidada.
+- **Resultado:** se conserva el plantel de 42 sin ampliarlo.
+
+Fuente: [nómina 2026 de Deportivo Paraguayo](https://www.soloascenso.com.ar/club/deportivo-paraguayo/268).
+
+### Defensores de Cambaceres — altas de mitad de temporada
+
+- Los **35 jugadores** del CSV coinciden con la nómina 2026 publicada por Solo Ascenso.
+- Se mantienen **Carlos Raga Córdoba, Dago Sánchez Palencia y Facundo Aronna**: llegaron desde Argentino de Rosario durante junio y aparecen en la nómina de Cambaceres. Su salida de Argentino no implica que hayan quedado fuera de Primera C.
+- Se mantiene también **Víctor Gómez**, quien figura en la nómina 2026 y tuvo participación durante el torneo.
+- Las bajas anunciadas al finalizar octubre corresponden a la preparación de 2027 y no se aplican retroactivamente al plantel de cierre 2026.
+- **Resultado:** el traspaso de los tres jugadores colombianos está correctamente reflejado entre los dos clubes, sin duplicarlos en Argentino.
+
+Fuentes: [nómina 2026 de Cambaceres](https://www.soloascenso.com.ar/club/defensores-de-cambaceres/265), [llegada de Raga y Dago](https://www.soloascenso.com.ar/notas/central-cordoba-rosario/defensores-de-cambaceres-sumo-sus-primeros-dos-refuerzos/229362), [depuración anunciada para 2027](https://www.soloascenso.com.ar/notas/san-miguel/cambaceres-comenzo-la-depuracion-trece-bajas-confirmadas/234036).
+
+### Puerto Nuevo — nómina de cierre
+
+- Los **33 jugadores** del CSV coinciden con la nómina 2026 publicada por Solo Ascenso.
+- Se mantienen los jugadores que integraron el primer equipo durante el cierre de temporada.
+- Los futbolistas probados en el amistoso posterior al torneo ante la reserva de Platense (entre ellos Santiago Molina, Axel Viani, Kevin Sotelo y Matheo Domínguez) no se agregan automáticamente: esa práctica corresponde a la preparación posterior y no acredita por sí sola que integraran el plantel competitivo 2026.
+- **Resultado:** no se detectan omisiones ni altas adicionales confirmadas para el cierre de 2026.
+
+Fuentes: [nómina 2026 de Puerto Nuevo](https://www.soloascenso.com.ar/club/puerto-nuevo/297), [amistoso posterior al cierre ante Platense](https://www.soloascenso.com.ar/notas/leones-fc-rosario/puerto-nuevo-sumo-minutos-de-futbol-frente-a-platense/234329).
+
+### Resultado del bloque
+
+Se revisaron cuatro planteles completos más. No hubo cambios de filas: las nóminas consolidadas coinciden con los CSV y los movimientos de mitad de temporada están asignados al club correcto. Se mantiene el total de **1.124 jugadores en 28 clubes**.
