@@ -54,12 +54,12 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 
 ## Estado
 
-- [x] Tanda 1: 312 jugadores en 7 clubes
+- [x] Tanda 1: 275 jugadores en 7 clubes tras depurar Sacachispas y Alem
 - [x] Tanda 2: 271 jugadores en 7 clubes
 - [x] Tanda 3: 250 jugadores en 7 clubes tras las depuraciones de Central Ballester y Cañuelas
 - [x] Tanda 4: 272 jugadores en 7 clubes
-- [ ] Validación final e integración del CSV depurado: 1.105 jugadores en 28 clubes
-- [ ] Auditoría individual final del resto de los 27 planteles
+- [x] CSV y runtime sincronizados: 1.068 jugadores en 28 clubes (pruebas automáticas finales pendientes)
+- [ ] Auditoría individual final de los 23 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -131,10 +131,21 @@ Se agregó Matías Arias a Sacachispas: su ficha 2026 confirma 16 partidos y 1.3
 - Se fija un máximo de **30 jugadores por club**, con objetivo habitual de 22–27. Puede haber menos de 22 si el plantel real y la participación lo justifican.
 - La comparación con B Metro (promedio 24,2) y Federal A (23,7) confirma que Primera C estaba sobredimensionada.
 - **Central Ballester:** se depuró de 50 a 30 jugadores usando la tabla completa de minutos de Primera C 2026 y la revisión de convocatorias. Se retiraron 20 registros; el detalle está en la sección 17 del informe general.
-- Recuento de los cuatro CSV después de esta poda: **1.106 jugadores en 28 clubes**. Los otros 26 planteles todavía requieren depuración.
+- Recuento de los cuatro CSV después de esta poda: **1.106 jugadores en 28 clubes**. Los otros 23 planteles todavía requieren depuración.
 - El runtime aún no se considera actualizado: falta terminar la poda, ejecutar las pruebas conjuntas y validar la integración.
 
 Las cifras anteriores de Central Ballester (50/51) y los totales de 1.123/1.126 describen etapas históricas de la carga; el estado vigente es el indicado en esta actualización.
 
 - **Cañuelas:** se depuró de 31 a 30 jugadores. Se retiró Francisco Riscino al no encontrarse participación oficial de Primera C; el informe general documenta el cruce con estadísticas y el boletín de AFA.
 - Estado vigente tras ambas podas: **1.105 jugadores en 28 clubes; Central Ballester y Cañuelas ya están en 30**. Quedan 25 clubes por encima del máximo.
+
+
+## Actualización 13/11/2026 — depuración de tanda 1
+
+- **Sacachispas:** 50 → 30. Se conservaron 26 jugadores con participación registrada y cuatro nombres con convocatorias de primer equipo respaldadas. Se retiraron 20 jugadores sin uso/convocatoria suficiente.
+- **Leandro N. Alem:** 46 → 29. Se conservaron los jugadores de participación suficiente; Facundo Moreno salió por registrar solo 18 minutos y Agustín Dilandro queda fuera del plantel de cierre porque fue cedido a Guillermo Renny el 15/09/2026 (había jugado 16 partidos y 731 minutos antes de salir).
+- El recuento de Primera C baja de 1.105 a **1.068 jugadores en 28 clubes**. La distribución vigente por tanda es: tanda 1, 275; tanda 2, 271; tanda 3, 250; tanda 4, 272.
+- **Cinco clubes** ya cumplen el máximo: Central Ballester (30), Cañuelas (30), Sacachispas (30), Alem (29) y Centro Español (29). Quedan 23 planteles por depurar.
+- `public/squads.json`, `public/squads.js` y `public/squads-meta.json` ya están sincronizados con los CSV. El test espera 1.068 jugadores; falta la ejecución confirmada de GitHub Actions y el chequeo de runtime.
+
+Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-general-primera-c-2026.md`.

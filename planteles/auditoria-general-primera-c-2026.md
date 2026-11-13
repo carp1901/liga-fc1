@@ -951,3 +951,40 @@ Tras depurar Cañuelas, se volvió a ejecutar el recorrido estructural equivalen
 - `test-primera-c-draft.js` ya espera 1.105 registros y los nuevos recuentos de Cañuelas y Central Ballester.
 
 GitHub Actions todavía no devuelve una ejecución confirmada para estos commits. Por eso el resultado de esta revisión es una validación de los datos y de la lógica del test, no una certificación del runtime. La integración automática del runtime debe confirmarse en el PR.
+
+
+## 21. Tercera depuración — Sacachispas
+
+Sacachispas tenía 50 jugadores. Se aplicó el cruce entre la tabla de participación de temporada y las fichas de partido confirmadas:
+
+- La tabla de análisis «con y sin» registra participación para 26 jugadores del CSV, desde Leandro Ríos (28 partidos con él en cancha) hasta Alan Abregú (3). Se conservaron esos 26 nombres.
+- Se sumaron cuatro jugadores respaldados por convocatorias de primer equipo: Benjamín Arias (titular en la ficha del 21/09), Ezequiel Barreiro (arquero suplente en la ficha del 04/10), Nicolás Navarro (suplente en fichas del 05/09 y 04/10) y Valentín Mancuso (convocado en las fichas del 22/08, 05/09 y 04/10).
+- Santiago Romero no se mantuvo: solo aparece en una convocatoria puntual del 05/09, sin minutos ni evidencia de recurrencia comparable a los cuatro casos conservados.
+- Se retiraron 20 nombres sin participación estadística ni convocatoria de cierre suficiente: Héctor Navarro, Martín Cols, Renzo Fernández, Santiago Flores, Ignacio Loccizano, Lucas Medina, Leonardo Zaragoza, Santiago Arrieta, Ignacio Branda, Lucas Cipresso, Mateo Comignaghi, Nicolás Cuestas, León Fariza, Fernando Lavalle, Juan Cruz Oltmann, Francesco Toldo, Bautista Brange, Santiago Ciotta, Sebastián Martínez y Santiago Romero.
+- **Resultado: 50 → 30 jugadores.** No se completó el plantel con reservas profundas; se conservaron tres arqueros y los futbolistas de campo con uso o convocatorias respaldadas.
+
+Fuentes: [participación por jugador de Sacachispas 2026](https://www.ceroacero.com.co/equipo/sacachispas/27315/con-y-sin), [plantel y resumen de temporada](https://www.ceroacero.com.co/equipo/sacachispas/27315?epoca_id=155), [ficha 22/08 ante Mercedes](https://www.zerozero.pt/jogo/2026-08-22-club-mercedes-sacachispas/12020596), [ficha 05/09 ante Centro Español](https://www.zerozero.pt/jogo/2026-09-05-centro-espanol-sacachispas/12020623), [ficha 04/10 ante Estrella del Sur](https://www.zerozero.pt/jogo/2026-10-04-sacachispas-estrella-del-sur/12020681), [ficha 21/09 ante Victoriano Arenas](https://www.soloascenso.com.ar/ficha/45283).
+
+## 22. Cuarta depuración — Leandro N. Alem
+
+Leandro N. Alem tenía 46 jugadores. Se cruzó la tabla individual de Primera C 2026, el plantel actualizado y las bajas de mitad de temporada:
+
+- Se conservaron 29 jugadores del CSV con participación de temporada suficiente para formar parte del plantel de cierre.
+- Se retiraron 16 nombres sin minutos registrados en la tabla individual 2026: Julián Cazaux, Román Kozicki, Thomas Mielniczuk, Franco Torrico, Diego Altamirano, Thiago Arrieta, Santiago Castellis, Iván Colman, Alan Falkiewicz, Ciro Farias, Juan Ibáñez, José María Leiva, Ivo Oszust, Juan Rodríguez, Federico Vallone y Rodrigo Onofrio.
+- También se retiró Facundo Moreno: la tabla de temporada le asigna una única aparición y 18 minutos, insuficientes para mantenerlo en el plantel reducido.
+- **Agustín Dilandro no se incorpora al CSV de cierre.** Aunque disputó 16 partidos y 731 minutos por Alem, el 15/09/2026 se confirmó su salida a préstamo a Guillermo Renny de Córdoba; su última participación había sido el 18/07. Se conserva como participante histórico de Alem en 2026, no como integrante del plantel de cierre.
+- **Resultado: 46 → 29 jugadores.** Se deja el club por debajo del máximo de 30, sin incorporar juveniles o suplentes sin uso para completar cupos.
+
+Se mantiene el nombre **Alan Cristeff**: su perfil individual de 2026 registra 23 partidos y 1.827 minutos; una tabla agregada muestra una variante inconsistente del nombre. Se priorizó el perfil individual y la nómina actualizada.
+
+Fuentes: [estadísticas individuales de Alem 2026](https://www.zerozero.com.mx/equipo/leandro-n-alem/45580/jogadores?epoca_stats_id=155), [perfil 2026 de Agustín Dilandro: 16 partidos y 731 minutos](https://www.zerozero.com.mx/jugador/agustin-dilandro/3525872?epoca_id=155), [confirmación de su préstamo a Guillermo Renny, 15/09/2026](https://www.soloascenso.com.ar/notas/deportivo-espanol/leandro-alem-sufrio-una-baja-de-peso-en-el-mediocampo/232660), [plantel de Alem al cierre](https://www.ceroacero.com.co/equipo/leandro-n-alem/45580), [perfil 2026 de Alan Cristeff](https://www.zerozero.com.ve/jugador/alan-cristeff/363169?edicao_id=212447&op=zoomstats&tpstats=club).
+
+## 23. Sincronización de CSV, runtime y prueba — 13/11/2026
+
+Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.json`, `public/squads.js` y `public/squads-meta.json` con los cuatro CSV. El total de Primera C queda en **1.068 jugadores en 28 clubes**; el runtime completo de las 153 plantillas queda en **4.540 jugadores**.
+
+- Sacachispas: 30; Leandro N. Alem: 29; Central Ballester: 30; Cañuelas: 30; Centro Español: 29.
+- Quedan **23 clubes** por encima del máximo de 30.
+- Se actualizaron los recuentos de `test-primera-c-draft.js` a 1.068, con los nuevos totales por club.
+- Se recalcularon los contadores de cobertura de dorsales, edades, nacionalidad, pie, roles específicos y medias en `public/squads-meta.json`.
+- La sincronización de archivos ya está hecha; falta ejecutar GitHub Actions y la prueba con `--runtime` para confirmar formalmente la importación, antes de integrar el PR.
