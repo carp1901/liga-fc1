@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **1.038 jugadores en 28 clubes**.
-- Ocho clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30) y Juventud Unida (30).
-- Quedan **20 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **1.024 jugadores en 28 clubes**.
+- Nueve clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30) y Estrella del Sur (29).
+- Quedan **19 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1031,3 +1031,16 @@ Se cruzó el CSV con la tabla individual de ZeroZero para Primera C 2026, que re
 Fuentes: [tabla individual de Juventud Unida 2026](https://www.zerozero.pt/equipa/juventud-unida-san-miguel/45600/jogadores), [plantel y estadísticas de temporada](https://www.zerozero.com.ar/equipo/juventud-unida-san-miguel/45600), [El Porvenir–Juventud Unida: Fernando Giménez titular y goleador](https://www.ceroacero.com.co/partido/2026-05-16-el-porvenir-juventud-unida-san-miguel/12020423).
 
 **Recuento vigente:** 1.038 jugadores en 28 clubes; ocho planteles dentro del límite y 20 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Estrella del Sur — 43 → 29
+
+Se contrastó la nómina del CSV con el plantel de cierre de ZeroZero y sus estadísticas individuales. Se retiraron 14 nombres que no figuran en el plantel de cierre ni en los registros de participación. Se conservaron Gabriel Rivera, Lucas Cabrera y Felipe Scabuzzo porque sí figuran en la nómina de cierre aunque no tengan minutos registrados.
+
+- Iván Caravaca se excluye del plantel de cierre: aunque disputó cinco partidos y 149 minutos al inicio de 2026, comunicó su salida el 30/06/2026.
+- Juan Scarel se excluye por su transferencia a Argentino de Quilmes el 18/07/2026.
+- Se conserva una única ficha de Lautaro Torres: la tabla de estadísticas lo duplica con edades y posiciones distintas.
+
+Fuentes: [plantel 2026 de Estrella del Sur](https://www.zerozero.pt/equipa/estrella-del-sur/341204?epoca_id=155), [tabla de estadísticas individuales](https://www.zerozero.pt/equipa/estrella-del-sur/341204/jogadores), [transferencias 2026](https://www.zerozero.pt/equipa/estrella-del-sur/341204/transferencias), [nota sobre la salida de Caravaca](https://www.soloascenso.com.ar/notas/general-lamadrid/estrella-del-sur-sumo-un-refuerzo-y-sufrio-una-baja/229820), [perfil de Caravaca con cinco partidos](https://www.ceroacero.com.co/jugador/ivan-caravaca/1238941).
+
+**Recuento vigente:** 1.024 jugadores en 28 clubes; nueve planteles dentro del límite y 19 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
