@@ -821,3 +821,16 @@ Fuentes: [nómina de cierre de El Porvenir](https://www.soloascenso.com.ar/club/
 - Las salvedades de Fénix y Sportivo Barracas quedan resueltas: sus 42 y 39 jugadores, respectivamente, coinciden con la nómina de cierre de Solo Ascenso.
 - El Porvenir queda con cuatro arqueros respaldados por participación/uso de Primera; no se incorporan los otros tres nombres de la lista general por falta de evidencia de uso en el primer equipo.
 - **No se modificaron filas del CSV en esta pasada**. Recuento global sin cambios: 1.126 jugadores en 28 clubes. Se mantienen las validaciones estructurales ya registradas.
+
+
+## 15. Corrección de cifras de participación — J.J. Urquiza, Lugano y Atlas
+
+Se corrigieron algunos datos de la primera pasada de participación (sección 11), porque la lectura inicial mezcló estadísticas de diferentes fuentes y temporadas.
+
+- **J.J. Urquiza:** la ficha de CeroaCero atribuye 2.745 minutos a Facundo Durán; BeSoccer registra 26 partidos y 2.303 minutos para Nehuén Montoya. El jugador número 12 de JJU fue Franco Ocampo, con 15 ingresos desde el banco. No corresponde atribuir los 2.745 minutos a Montoya.
+- **Atlético Lugano:** la ficha de estadísticas de Primera C 2026 registra 2.665 minutos para Celso Báez y 14 ingresos desde el banco para Jonathan Acuña.
+- **Atlas:** la ficha de Primera C 2026 registra 2.790 minutos para Ricardo Grieger y 12 ingresos desde el banco para Nahuel Piethe.
+
+Estos indicadores confirman participación real de titulares y relevos, pero no equivalen a una lista completa de apariciones de los 42–49 jugadores de cada plantel. No se usa la ausencia de un jugador en los líderes estadísticos como prueba de que no participó.
+
+Fuentes: [estadísticas J.J. Urquiza 2026](https://www.ceroacero.com.co/equipo/justo-jose-de-urquiza/45579/estadisticas), [estadísticas J.J. Urquiza en BeSoccer](https://es.besoccer.com/equipo/jj-urquiza?redirby=rf_rest), [estadísticas Lugano 2026](https://www.zerozero.pt/equipa/lugano/45602/estatisticas), [estadísticas Atlas 2026](https://www.ceroacero.com.co/equipo/atlas/45609/estadisticas).
