@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T23:32:38.271Z",
+  "updatedAt": "2026-11-13T19:06:06.072Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2948 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2649 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -129,34 +129,34 @@
     "kimberley": 30,
     "villamitre": 32,
     "sarmientores": 24,
-    "juventudunida": 51,
-    "estrelladelsur": 42,
-    "argentinorosario": 50,
-    "victorianoarenas": 37,
-    "sacachispas": 50,
-    "alem": 46,
-    "mercedes": 35,
-    "berazategui": 38,
-    "paraguayo": 42,
-    "cambaceres": 35,
-    "puertonuevo": 33,
+    "juventudunida": 30,
+    "estrelladelsur": 29,
+    "argentinorosario": 30,
+    "victorianoarenas": 30,
+    "sacachispas": 30,
+    "alem": 29,
+    "mercedes": 29,
+    "berazategui": 30,
+    "paraguayo": 30,
+    "cambaceres": 30,
+    "puertonuevo": 30,
     "centroespanol": 29,
-    "jjurquiza": 49,
-    "lugano": 45,
-    "atlas": 42,
-    "canuelas": 31,
-    "centralballester": 50,
-    "centralcordobarosario": 32,
-    "claypole": 39,
-    "espanol": 39,
-    "muniz": 38,
-    "porvenir": 44,
-    "fenix": 42,
-    "lamadrid": 36,
-    "leones": 37,
-    "lujan": 33,
-    "sportivobarracas": 39,
-    "yupanqui": 39
+    "jjurquiza": 30,
+    "lugano": 30,
+    "atlas": 28,
+    "canuelas": 30,
+    "centralballester": 30,
+    "centralcordobarosario": 30,
+    "claypole": 30,
+    "espanol": 29,
+    "muniz": 30,
+    "porvenir": 30,
+    "fenix": 29,
+    "lamadrid": 28,
+    "leones": 30,
+    "lujan": 27,
+    "sportivobarracas": 27,
+    "yupanqui": 30
   },
   "sources": {
     "sanlorenzo": {
@@ -3608,19 +3608,31 @@
       "natSource": "https://tacazo.com.ar/equipo.html?id=club-1953"
     },
     "juventudunida": {
-      "source": "https://www.soloascenso.com.ar/club/juventud-unida/284",
-      "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "source": [
+        "https://www.soloascenso.com.ar/club/juventud-unida/284",
+        "https://www.ceroacero.com.co/equipo/juventud-unida-san-miguel/45600/jugadores"
+      ],
+      "consulted": [
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "ageSource": "https://www.ceroacero.com.co/equipo/juventud-unida-san-miguel/45600/jugadores",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado; número libre asignado para evitar duplicados, no confirmado en ficha oficial."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.ceroacero.com.co/equipo/juventud-unida-san-miguel/45600/jugadores",
       "natSource": []
     },
     "estrelladelsur": {
       "source": "https://www.soloascenso.com.ar/club/estrella-del-sur-alejandro-korn/900",
       "consulted": "2026-11-12",
       "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado por continuidad de numeración del plantel; no confirmado oficialmente."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
       "roleSource": [],
       "natSource": []
@@ -3649,7 +3661,10 @@
         "https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447"
       ],
       "consulted": "2026-11-12",
-      "ageSource": "https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447",
+      "ageSource": [
+        "https://tacazo.com.ar/equipo.html?id=club-1942",
+        "https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447"
+      ],
       "numberSource": [
         "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
         "Dorsal estimado inicial; no confirmado oficialmente."
@@ -3677,30 +3692,63 @@
       "natSource": []
     },
     "berazategui": {
-      "source": "https://www.soloascenso.com.ar/club/berazategui/253",
-      "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "source": [
+        "https://www.soloascenso.com.ar/club/berazategui/253",
+        "https://www.zerozero.pt/equipa/berazategui/25748/jogadores"
+      ],
+      "consulted": [
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "ageSource": "https://www.zerozero.pt/equipa/berazategui/25748/jogadores",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado; número libre asignado para evitar duplicados, no confirmado en ficha oficial."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.zerozero.pt/equipa/berazategui/25748/jogadores",
       "natSource": []
     },
     "paraguayo": {
-      "source": "https://www.soloascenso.com.ar/club/deportivo-paraguayo/268",
-      "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "source": [
+        "https://www.soloascenso.com.ar/club/deportivo-paraguayo/268",
+        "https://www.zerozero.pt/equipa/paraguayo/23534?edicao_id=212447"
+      ],
+      "consulted": [
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "ageSource": "https://www.zerozero.pt/equipa/paraguayo/23534?edicao_id=212447",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado; número libre asignado para evitar duplicados, no confirmado en ficha oficial."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.zerozero.pt/equipa/paraguayo/23534?edicao_id=212447",
       "natSource": []
     },
     "cambaceres": {
-      "source": "https://www.soloascenso.com.ar/club/defensores-de-cambaceres/265",
-      "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "source": [
+        "https://www.soloascenso.com.ar/club/defensores-de-cambaceres/265",
+        "https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576/jogadores"
+      ],
+      "consulted": [
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "ageSource": [
+        "https://www.soloascenso.com.ar/perfil/facundo-fajardo/25469",
+        "https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576/jogadores"
+      ],
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado; número libre asignado para evitar duplicados, no confirmado en ficha oficial."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": [
+        "https://www.soloascenso.com.ar/perfil/facundo-fajardo/25469",
+        "https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576/jogadores"
+      ],
       "natSource": []
     },
     "puertonuevo": {
@@ -3731,12 +3779,21 @@
       "natSource": []
     },
     "lugano": {
-      "source": "https://www.soloascenso.com.ar/club/lugano/289",
-      "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "source": [
+        "https://www.soloascenso.com.ar/club/lugano/289",
+        "https://www.zerozero.pt/jogador/axel-ovejero/860566"
+      ],
+      "consulted": [
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "ageSource": "https://www.zerozero.pt/jogador/axel-ovejero/860566",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado (63): la nómina pública no muestra número confirmado; no usar el número de camiseta de una planilla como dorsal de temporada."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.zerozero.pt/jogador/axel-ovejero/860566",
       "natSource": []
     },
     "atlas": {
@@ -3767,12 +3824,21 @@
       "natSource": []
     },
     "centralcordobarosario": {
-      "source": "https://www.soloascenso.com.ar/club/central-cordoba-rosario/262",
-      "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "source": [
+        "https://www.soloascenso.com.ar/club/central-cordoba-rosario/262",
+        "https://www.zerozero.pt/equipa/central-cordoba-rosario/29621?edicao_id=212447"
+      ],
+      "consulted": [
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "ageSource": "https://www.zerozero.pt/equipa/central-cordoba-rosario/29621?edicao_id=212447",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado; número libre asignado para evitar duplicados, no confirmado en ficha oficial."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.zerozero.pt/equipa/central-cordoba-rosario/29621?edicao_id=212447",
       "natSource": []
     },
     "claypole": {
@@ -3785,21 +3851,39 @@
       "natSource": []
     },
     "espanol": {
-      "source": "https://www.soloascenso.com.ar/club/deportivo-espanol/307",
-      "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "source": [
+        "https://www.soloascenso.com.ar/club/deportivo-espanol/307",
+        "https://www.ceroacero.com.co/equipo/deportivo-espanol/9190/jugadores?epoca_stats_id=155&o=j"
+      ],
+      "consulted": [
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "ageSource": "https://www.ceroacero.com.co/equipo/deportivo-espanol/9190/jugadores?epoca_stats_id=155&o=j",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado para completar el plantel 2026; no confirmado oficialmente."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.ceroacero.com.co/equipo/deportivo-espanol/9190/jugadores?epoca_stats_id=155&o=j",
       "natSource": []
     },
     "muniz": {
-      "source": "https://www.soloascenso.com.ar/club/muniz/346",
-      "consulted": "2026-11-12",
-      "ageSource": [],
-      "numberSource": "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+      "source": [
+        "https://www.soloascenso.com.ar/club/muniz/346",
+        "https://www.zerozero.pt/equipa/deportivo-muniz/61453/jogadores"
+      ],
+      "consulted": [
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "ageSource": "https://www.zerozero.pt/equipa/deportivo-muniz/61453/jogadores",
+      "numberSource": [
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado para completar el plantel 2026; no confirmado oficialmente."
+      ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
-      "roleSource": [],
+      "roleSource": "https://www.zerozero.pt/equipa/deportivo-muniz/61453/jogadores",
       "natSource": []
     },
     "porvenir": {
@@ -3829,7 +3913,8 @@
       "ageSource": "https://www.soloascenso.com.ar/perfil/nestor-acosta/12874",
       "numberSource": [
         "Dorsal estimado para Néstor Acosta; 31 libre en el plantel, no confirmado oficialmente.",
-        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente."
+        "Dorsal estimado inicial por posición y orden de nómina; no confirmado oficialmente.",
+        "Dorsal estimado para completar la nómina 2026; no confirmado oficialmente."
       ],
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
       "roleSource": "https://www.soloascenso.com.ar/perfil/nestor-acosta/12874",
@@ -3877,9 +3962,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4577,
+    "assigned": 4278,
     "missing": 0,
-    "total": 4577,
+    "total": 4278,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4507,58 +4592,58 @@
         "missing": 0
       },
       "juventudunida": {
-        "total": 51,
-        "assigned": 51,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "estrelladelsur": {
-        "total": 42,
-        "assigned": 42,
+        "total": 29,
+        "assigned": 29,
         "missing": 0
       },
       "argentinorosario": {
-        "total": 50,
-        "assigned": 50,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "victorianoarenas": {
-        "total": 37,
-        "assigned": 37,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "sacachispas": {
-        "total": 50,
-        "assigned": 50,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "alem": {
-        "total": 46,
-        "assigned": 46,
+        "total": 29,
+        "assigned": 29,
         "missing": 0
       },
       "mercedes": {
-        "total": 35,
-        "assigned": 35,
+        "total": 29,
+        "assigned": 29,
         "missing": 0
       },
       "berazategui": {
-        "total": 38,
-        "assigned": 38,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "paraguayo": {
-        "total": 42,
-        "assigned": 42,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "cambaceres": {
-        "total": 35,
-        "assigned": 35,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "puertonuevo": {
-        "total": 33,
-        "assigned": 33,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "centroespanol": {
@@ -4567,93 +4652,93 @@
         "missing": 0
       },
       "jjurquiza": {
-        "total": 49,
-        "assigned": 49,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "lugano": {
-        "total": 45,
-        "assigned": 45,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "atlas": {
-        "total": 42,
-        "assigned": 42,
+        "total": 28,
+        "assigned": 28,
         "missing": 0
       },
       "canuelas": {
-        "total": 31,
-        "assigned": 31,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "centralballester": {
-        "total": 50,
-        "assigned": 50,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "centralcordobarosario": {
-        "total": 32,
-        "assigned": 32,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "claypole": {
-        "total": 39,
-        "assigned": 39,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "espanol": {
-        "total": 39,
-        "assigned": 39,
+        "total": 29,
+        "assigned": 29,
         "missing": 0
       },
       "muniz": {
-        "total": 38,
-        "assigned": 38,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "porvenir": {
-        "total": 44,
-        "assigned": 44,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "fenix": {
-        "total": 42,
-        "assigned": 42,
+        "total": 29,
+        "assigned": 29,
         "missing": 0
       },
       "lamadrid": {
-        "total": 36,
-        "assigned": 36,
+        "total": 28,
+        "assigned": 28,
         "missing": 0
       },
       "leones": {
-        "total": 37,
-        "assigned": 37,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "lujan": {
-        "total": 33,
-        "assigned": 33,
+        "total": 27,
+        "assigned": 27,
         "missing": 0
       },
       "sportivobarracas": {
-        "total": 39,
-        "assigned": 39,
+        "total": 27,
+        "assigned": 27,
         "missing": 0
       },
       "yupanqui": {
-        "total": 39,
-        "assigned": 39,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
-    "assigned": 3297,
-    "missing": 1280,
+    "assigned": 3335,
+    "missing": 943,
     "birthDates": 2075,
-    "total": 4577,
+    "total": 4278,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5281,59 +5366,59 @@
         "missing": 0
       },
       "juventudunida": {
-        "total": 51,
-        "assigned": 0,
-        "missing": 51
+        "total": 30,
+        "assigned": 1,
+        "missing": 29
       },
       "estrelladelsur": {
-        "total": 42,
+        "total": 29,
         "assigned": 0,
-        "missing": 42
+        "missing": 29
       },
       "argentinorosario": {
-        "total": 50,
+        "total": 30,
         "assigned": 0,
-        "missing": 50
+        "missing": 30
       },
       "victorianoarenas": {
-        "total": 37,
+        "total": 30,
         "assigned": 0,
-        "missing": 37
+        "missing": 30
       },
       "sacachispas": {
-        "total": 50,
-        "assigned": 1,
-        "missing": 49
+        "total": 30,
+        "assigned": 14,
+        "missing": 16
       },
       "alem": {
-        "total": 46,
+        "total": 29,
         "assigned": 0,
-        "missing": 46
+        "missing": 29
       },
       "mercedes": {
-        "total": 35,
+        "total": 29,
         "assigned": 0,
-        "missing": 35
+        "missing": 29
       },
       "berazategui": {
-        "total": 38,
-        "assigned": 0,
-        "missing": 38
+        "total": 30,
+        "assigned": 2,
+        "missing": 28
       },
       "paraguayo": {
-        "total": 42,
-        "assigned": 0,
-        "missing": 42
+        "total": 30,
+        "assigned": 1,
+        "missing": 29
       },
       "cambaceres": {
-        "total": 35,
-        "assigned": 0,
-        "missing": 35
+        "total": 30,
+        "assigned": 10,
+        "missing": 20
       },
       "puertonuevo": {
-        "total": 33,
+        "total": 30,
         "assigned": 0,
-        "missing": 33
+        "missing": 30
       },
       "centroespanol": {
         "total": 29,
@@ -5341,91 +5426,91 @@
         "missing": 29
       },
       "jjurquiza": {
-        "total": 49,
+        "total": 30,
         "assigned": 0,
-        "missing": 49
+        "missing": 30
       },
       "lugano": {
-        "total": 45,
-        "assigned": 0,
-        "missing": 45
+        "total": 30,
+        "assigned": 1,
+        "missing": 29
       },
       "atlas": {
-        "total": 42,
+        "total": 28,
         "assigned": 0,
-        "missing": 42
+        "missing": 28
       },
       "canuelas": {
-        "total": 31,
+        "total": 30,
         "assigned": 0,
-        "missing": 31
+        "missing": 30
       },
       "centralballester": {
-        "total": 50,
+        "total": 30,
         "assigned": 0,
-        "missing": 50
+        "missing": 30
       },
       "centralcordobarosario": {
-        "total": 32,
-        "assigned": 0,
-        "missing": 32
+        "total": 30,
+        "assigned": 3,
+        "missing": 27
       },
       "claypole": {
-        "total": 39,
+        "total": 30,
         "assigned": 0,
-        "missing": 39
+        "missing": 30
       },
       "espanol": {
-        "total": 39,
-        "assigned": 0,
-        "missing": 39
+        "total": 29,
+        "assigned": 2,
+        "missing": 27
       },
       "muniz": {
-        "total": 38,
-        "assigned": 0,
-        "missing": 38
+        "total": 30,
+        "assigned": 5,
+        "missing": 25
       },
       "porvenir": {
-        "total": 44,
+        "total": 30,
         "assigned": 0,
-        "missing": 44
+        "missing": 30
       },
       "fenix": {
-        "total": 42,
+        "total": 29,
         "assigned": 0,
-        "missing": 42
+        "missing": 29
       },
       "lamadrid": {
-        "total": 36,
+        "total": 28,
         "assigned": 1,
-        "missing": 35
+        "missing": 27
       },
       "leones": {
-        "total": 37,
+        "total": 30,
         "assigned": 0,
-        "missing": 37
+        "missing": 30
       },
       "lujan": {
-        "total": 33,
+        "total": 27,
         "assigned": 0,
-        "missing": 33
+        "missing": 27
       },
       "sportivobarracas": {
-        "total": 39,
+        "total": 27,
         "assigned": 0,
-        "missing": 39
+        "missing": 27
       },
       "yupanqui": {
-        "total": 39,
+        "total": 30,
         "assigned": 0,
-        "missing": 39
+        "missing": 30
       }
     }
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1201,
-    "total": 4577,
+    "missing": 902,
+    "total": 4278,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5928,47 +6013,47 @@
         "assigned": 24
       },
       "juventudunida": {
-        "total": 51,
+        "total": 30,
         "assigned": 0
       },
       "estrelladelsur": {
-        "total": 42,
+        "total": 29,
         "assigned": 0
       },
       "argentinorosario": {
-        "total": 50,
+        "total": 30,
         "assigned": 0
       },
       "victorianoarenas": {
-        "total": 37,
+        "total": 30,
         "assigned": 0
       },
       "sacachispas": {
-        "total": 50,
+        "total": 30,
         "assigned": 0
       },
       "alem": {
-        "total": 46,
+        "total": 29,
         "assigned": 0
       },
       "mercedes": {
-        "total": 35,
+        "total": 29,
         "assigned": 0
       },
       "berazategui": {
-        "total": 38,
+        "total": 30,
         "assigned": 0
       },
       "paraguayo": {
-        "total": 42,
+        "total": 30,
         "assigned": 0
       },
       "cambaceres": {
-        "total": 35,
+        "total": 30,
         "assigned": 0
       },
       "puertonuevo": {
-        "total": 33,
+        "total": 30,
         "assigned": 0
       },
       "centroespanol": {
@@ -5976,75 +6061,75 @@
         "assigned": 0
       },
       "jjurquiza": {
-        "total": 49,
+        "total": 30,
         "assigned": 0
       },
       "lugano": {
-        "total": 45,
+        "total": 30,
         "assigned": 0
       },
       "atlas": {
-        "total": 42,
+        "total": 28,
         "assigned": 0
       },
       "canuelas": {
-        "total": 31,
+        "total": 30,
         "assigned": 0
       },
       "centralballester": {
-        "total": 50,
+        "total": 30,
         "assigned": 0
       },
       "centralcordobarosario": {
-        "total": 32,
+        "total": 30,
         "assigned": 0
       },
       "claypole": {
-        "total": 39,
+        "total": 30,
         "assigned": 0
       },
       "espanol": {
-        "total": 39,
+        "total": 29,
         "assigned": 0
       },
       "muniz": {
-        "total": 38,
+        "total": 30,
         "assigned": 0
       },
       "porvenir": {
-        "total": 44,
+        "total": 30,
         "assigned": 0
       },
       "fenix": {
-        "total": 42,
+        "total": 29,
         "assigned": 0
       },
       "lamadrid": {
-        "total": 36,
+        "total": 28,
         "assigned": 0
       },
       "leones": {
-        "total": 37,
+        "total": 30,
         "assigned": 0
       },
       "lujan": {
-        "total": 33,
+        "total": 27,
         "assigned": 0
       },
       "sportivobarracas": {
-        "total": 39,
+        "total": 27,
         "assigned": 0
       },
       "yupanqui": {
-        "total": 39,
+        "total": 30,
         "assigned": 0
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1123,
-    "total": 4577,
+    "missing": 824,
+    "total": 4278,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6547,47 +6632,47 @@
         "specific": 24
       },
       "juventudunida": {
-        "total": 51,
+        "total": 30,
         "specific": 0
       },
       "estrelladelsur": {
-        "total": 42,
+        "total": 29,
         "specific": 0
       },
       "argentinorosario": {
-        "total": 50,
+        "total": 30,
         "specific": 0
       },
       "victorianoarenas": {
-        "total": 37,
+        "total": 30,
         "specific": 0
       },
       "sacachispas": {
-        "total": 50,
+        "total": 30,
         "specific": 0
       },
       "alem": {
-        "total": 46,
+        "total": 29,
         "specific": 0
       },
       "mercedes": {
-        "total": 35,
+        "total": 29,
         "specific": 0
       },
       "berazategui": {
-        "total": 38,
+        "total": 30,
         "specific": 0
       },
       "paraguayo": {
-        "total": 42,
+        "total": 30,
         "specific": 0
       },
       "cambaceres": {
-        "total": 35,
+        "total": 30,
         "specific": 0
       },
       "puertonuevo": {
-        "total": 33,
+        "total": 30,
         "specific": 0
       },
       "centroespanol": {
@@ -6595,75 +6680,75 @@
         "specific": 0
       },
       "jjurquiza": {
-        "total": 49,
+        "total": 30,
         "specific": 0
       },
       "lugano": {
-        "total": 45,
+        "total": 30,
         "specific": 0
       },
       "atlas": {
-        "total": 42,
+        "total": 28,
         "specific": 0
       },
       "canuelas": {
-        "total": 31,
+        "total": 30,
         "specific": 0
       },
       "centralballester": {
-        "total": 50,
+        "total": 30,
         "specific": 0
       },
       "centralcordobarosario": {
-        "total": 32,
+        "total": 30,
         "specific": 0
       },
       "claypole": {
-        "total": 39,
+        "total": 30,
         "specific": 0
       },
       "espanol": {
-        "total": 39,
+        "total": 29,
         "specific": 0
       },
       "muniz": {
-        "total": 38,
+        "total": 30,
         "specific": 0
       },
       "porvenir": {
-        "total": 44,
+        "total": 30,
         "specific": 0
       },
       "fenix": {
-        "total": 42,
+        "total": 29,
         "specific": 0
       },
       "lamadrid": {
-        "total": 36,
+        "total": 28,
         "specific": 0
       },
       "leones": {
-        "total": 37,
+        "total": 30,
         "specific": 0
       },
       "lujan": {
-        "total": 33,
+        "total": 27,
         "specific": 0
       },
       "sportivobarracas": {
-        "total": 39,
+        "total": 27,
         "specific": 0
       },
       "yupanqui": {
-        "total": 39,
+        "total": 30,
         "specific": 0
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2948,
-    "total": 4577,
+    "estimated": 2649,
+    "total": 4278,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7417,69 +7502,69 @@
         "provisional": 0
       },
       "juventudunida": {
-        "total": 51,
+        "total": 30,
         "verified": 0,
-        "estimated": 51,
+        "estimated": 30,
         "provisional": 0
       },
       "estrelladelsur": {
-        "total": 42,
+        "total": 29,
         "verified": 0,
-        "estimated": 42,
+        "estimated": 29,
         "provisional": 0
       },
       "argentinorosario": {
-        "total": 50,
+        "total": 30,
         "verified": 0,
-        "estimated": 50,
+        "estimated": 30,
         "provisional": 0
       },
       "victorianoarenas": {
-        "total": 37,
+        "total": 30,
         "verified": 0,
-        "estimated": 37,
+        "estimated": 30,
         "provisional": 0
       },
       "sacachispas": {
-        "total": 50,
+        "total": 30,
         "verified": 0,
-        "estimated": 50,
+        "estimated": 30,
         "provisional": 0
       },
       "alem": {
-        "total": 46,
+        "total": 29,
         "verified": 0,
-        "estimated": 46,
+        "estimated": 29,
         "provisional": 0
       },
       "mercedes": {
-        "total": 35,
+        "total": 29,
         "verified": 0,
-        "estimated": 35,
+        "estimated": 29,
         "provisional": 0
       },
       "berazategui": {
-        "total": 38,
+        "total": 30,
         "verified": 0,
-        "estimated": 38,
+        "estimated": 30,
         "provisional": 0
       },
       "paraguayo": {
-        "total": 42,
+        "total": 30,
         "verified": 0,
-        "estimated": 42,
+        "estimated": 30,
         "provisional": 0
       },
       "cambaceres": {
-        "total": 35,
+        "total": 30,
         "verified": 0,
-        "estimated": 35,
+        "estimated": 30,
         "provisional": 0
       },
       "puertonuevo": {
-        "total": 33,
+        "total": 30,
         "verified": 0,
-        "estimated": 33,
+        "estimated": 30,
         "provisional": 0
       },
       "centroespanol": {
@@ -7489,99 +7574,99 @@
         "provisional": 0
       },
       "jjurquiza": {
-        "total": 49,
+        "total": 30,
         "verified": 0,
-        "estimated": 49,
+        "estimated": 30,
         "provisional": 0
       },
       "lugano": {
-        "total": 45,
+        "total": 30,
         "verified": 0,
-        "estimated": 45,
+        "estimated": 30,
         "provisional": 0
       },
       "atlas": {
-        "total": 42,
+        "total": 28,
         "verified": 0,
-        "estimated": 42,
+        "estimated": 28,
         "provisional": 0
       },
       "canuelas": {
-        "total": 31,
+        "total": 30,
         "verified": 0,
-        "estimated": 31,
+        "estimated": 30,
         "provisional": 0
       },
       "centralballester": {
-        "total": 50,
+        "total": 30,
         "verified": 0,
-        "estimated": 50,
+        "estimated": 30,
         "provisional": 0
       },
       "centralcordobarosario": {
-        "total": 32,
+        "total": 30,
         "verified": 0,
-        "estimated": 32,
+        "estimated": 30,
         "provisional": 0
       },
       "claypole": {
-        "total": 39,
+        "total": 30,
         "verified": 0,
-        "estimated": 39,
+        "estimated": 30,
         "provisional": 0
       },
       "espanol": {
-        "total": 39,
+        "total": 29,
         "verified": 0,
-        "estimated": 39,
+        "estimated": 29,
         "provisional": 0
       },
       "muniz": {
-        "total": 38,
+        "total": 30,
         "verified": 0,
-        "estimated": 38,
+        "estimated": 30,
         "provisional": 0
       },
       "porvenir": {
-        "total": 44,
+        "total": 30,
         "verified": 0,
-        "estimated": 44,
+        "estimated": 30,
         "provisional": 0
       },
       "fenix": {
-        "total": 42,
+        "total": 29,
         "verified": 0,
-        "estimated": 42,
+        "estimated": 29,
         "provisional": 0
       },
       "lamadrid": {
-        "total": 36,
+        "total": 28,
         "verified": 0,
-        "estimated": 36,
+        "estimated": 28,
         "provisional": 0
       },
       "leones": {
-        "total": 37,
+        "total": 30,
         "verified": 0,
-        "estimated": 37,
+        "estimated": 30,
         "provisional": 0
       },
       "lujan": {
-        "total": 33,
+        "total": 27,
         "verified": 0,
-        "estimated": 33,
+        "estimated": 27,
         "provisional": 0
       },
       "sportivobarracas": {
-        "total": 39,
+        "total": 27,
         "verified": 0,
-        "estimated": 39,
+        "estimated": 27,
         "provisional": 0
       },
       "yupanqui": {
-        "total": 39,
+        "total": 30,
         "verified": 0,
-        "estimated": 39,
+        "estimated": 30,
         "provisional": 0
       }
     },
@@ -7590,22 +7675,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3405,
+    "derivedPlayers": 3106,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 153,
-    "players": 4577,
+    "players": 4278,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1280,
+    "playersMissingAge": 943,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2948,
+    "estimatedRatings": 2649,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1201,
-    "playersMissingFoot": 2520,
-    "playersMissingSpecificRole": 1123,
-    "playersWithoutManualAttributes": 3405
+    "playersMissingNationality": 902,
+    "playersMissingFoot": 2221,
+    "playersMissingSpecificRole": 824,
+    "playersWithoutManualAttributes": 3106
   }
 }
