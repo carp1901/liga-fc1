@@ -926,3 +926,14 @@ Después de la reducción de Central Ballester y la corrección de la fila de Ga
 - La prueba `test-primera-c-draft.js` quedó actualizada a los nuevos recuentos y total de 1.106.
 
 **Importante:** esta comprobación replica las validaciones estructurales del script sobre los CSV, pero todavía no equivale a una ejecución confirmada de GitHub Actions ni a la auditoría del runtime. El workflow debe ejecutar la importación de los cuatro CSV y la verificación de `public/squads.json` cuando corra en el PR.
+
+
+## 19. Segunda depuración — Cañuelas
+
+Cañuelas tenía 31 jugadores en el CSV. Se retiró **Francisco Riscino** por no encontrar participación oficial de Primera C 2026: no aparece en la tabla individual de jugadores con partidos de Cañuelas, y el boletín disciplinario de AFA que lo menciona lo ubica en Tercera C. Su inclusión en la nómina general de Solo Ascenso y en un amistoso de pretemporada no alcanza para considerarlo parte de la primera plantilla con participación oficial.
+
+- Cañuelas: 31 → **30 jugadores**.
+- Se conservan los otros 30 nombres, incluidos los jugadores de rotación y suplentes con participación oficial.
+- El recuento general de los cuatro CSV pasa de 1.106 a **1.105 jugadores** en 28 clubes.
+
+Fuentes: [estadísticas de jugadores de Cañuelas 2026](https://www.zerozero.pt/equipa/canuelas/45601/jogadores), [plantel 2026 de Solo Ascenso](https://www.soloascenso.com.ar/club/canuelas-fc/256), [boletín AFA que registra a Riscino en Tercera C](https://assets1.afa.com.ar/2026/BOLETINES/Boletin-6885-29.04.docx-%282%29.pdf), [amistosos de pretemporada](https://www.soloascenso.com.ar/notas/canuelas-fc/el-tambero-se-midio-ante-un-equipo-de-la-primera-nacional/224295).
