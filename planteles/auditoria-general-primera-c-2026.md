@@ -469,3 +469,16 @@ Fuentes: [Maximiliano Maciel: 21 convocatorias, 11 ingresos y ocho partidos sin 
 
 - La nómina de Solo Ascenso para Primera C 2026 (https://www.soloascenso.com.ar/club/sacachispas-fc/300) lo clasifica como MED; TACAZO (https://tacazo.com.ar/equipo.html?id=club-1942) y Mundo Ascenso (https://www.mundoascenso.com.ar/plantel/1942-sacachispas-fc) lo clasifican como DEF. Se mantiene MED provisionalmente porque la fuente de plantilla de Solo Ascenso está vinculada al mismo registro de temporada utilizado para el resto del plantel. Revisar rol específico antes de cerrar.
 - TACAZO publica edad 21. El registro ya la incorpora. El dorsal 42 permanece estimado hasta validar el #15 que aparece en la lista de Mundo Ascenso.
+
+
+## 14. Completar edades verificadas — Sacachispas
+
+Se incorporan edades publicadas por TACAZO para 15 futbolistas de Sacachispas, con la URL guardada en `fuente_edad`: Facundo Troncoso (23), Héctor Navarro (18), Alan Buonofiglio (29), Lautaro Cardozo (23), Ezequiel Moschen (25), Emanuel Barreiro (23), Héctor Canteros (36), Facundo Durso (25), Santiago Gallardo (29), Valentín Mancuso (21), Diego Molina Fariña (32), Alejo Monje (24), Juan Cruz Oltmann (24), Ricardo Priori (29) y Lautaro Torres (29). Matías Arias ya tenía edad 25 documentada por ZeroZero. El club queda con 16/50 edades informadas; no se completan las restantes por inferencia.
+
+Fuente de las 15 edades: https://tacazo.com.ar/equipo.html?id=club-1942 . Fuente de Matías Arias: https://www.zerozero.pt/jogador/matias-arias/1235568?edicao_id=212447 .
+
+### Cruce de nómina de Sacachispas
+
+La nómina de temporada de Solo Ascenso contiene 49 nombres y los 49 están presentes en el CSV. Matías Arias es el único registro adicional respecto de esa lista, incorporado aparte por su ficha individual de temporada (16 partidos, 1.306 minutos). Por lo tanto, el total de 50 tiene respaldo nominal; no se agregan nombres por la lista parcial de TACAZO/Mundo Ascenso. Kevin Romero aparece en algunas fuentes de Sacachispas, pero sus registros de 2026 lo ubican en El Porvenir (23 partidos, 1.845 minutos), por lo que no se incorpora a Sacachispas.
+
+Fuentes: https://www.soloascenso.com.ar/club/sacachispas-fc/300 ; https://es.besoccer.com/jugador/k-romero-3540358 .
