@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-13T17:19:19.282Z",
+  "updatedAt": "2026-11-13T17:35:36.971Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2911 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2893 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -130,7 +130,7 @@
     "villamitre": 32,
     "sarmientores": 24,
     "juventudunida": 51,
-    "estrelladelsur": 42,
+    "estrelladelsur": 43,
     "argentinorosario": 50,
     "victorianoarenas": 37,
     "sacachispas": 30,
@@ -144,19 +144,19 @@
     "jjurquiza": 49,
     "lugano": 45,
     "atlas": 42,
-    "canuelas": 31,
-    "centralballester": 50,
+    "canuelas": 30,
+    "centralballester": 30,
     "centralcordobarosario": 32,
     "claypole": 39,
     "espanol": 39,
     "muniz": 38,
     "porvenir": 44,
     "fenix": 42,
-    "lamadrid": 36,
+    "lamadrid": 39,
     "leones": 37,
     "lujan": 33,
     "sportivobarracas": 39,
-    "yupanqui": 39
+    "yupanqui": 38
   },
   "sources": {
     "sanlorenzo": {
@@ -3877,9 +3877,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4540,
+    "assigned": 4522,
     "missing": 0,
-    "total": 4540,
+    "total": 4522,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4512,8 +4512,8 @@
         "missing": 0
       },
       "estrelladelsur": {
-        "total": 42,
-        "assigned": 42,
+        "total": 43,
+        "assigned": 43,
         "missing": 0
       },
       "argentinorosario": {
@@ -4582,13 +4582,13 @@
         "missing": 0
       },
       "canuelas": {
-        "total": 31,
-        "assigned": 31,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "centralballester": {
-        "total": 50,
-        "assigned": 50,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "centralcordobarosario": {
@@ -4622,8 +4622,8 @@
         "missing": 0
       },
       "lamadrid": {
-        "total": 36,
-        "assigned": 36,
+        "total": 39,
+        "assigned": 39,
         "missing": 0
       },
       "leones": {
@@ -4642,18 +4642,18 @@
         "missing": 0
       },
       "yupanqui": {
-        "total": 39,
-        "assigned": 39,
+        "total": 38,
+        "assigned": 38,
         "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
-    "assigned": 3297,
-    "missing": 1243,
+    "assigned": 3310,
+    "missing": 1212,
     "birthDates": 2075,
-    "total": 4540,
+    "total": 4522,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5286,9 +5286,9 @@
         "missing": 51
       },
       "estrelladelsur": {
-        "total": 42,
+        "total": 43,
         "assigned": 0,
-        "missing": 42
+        "missing": 43
       },
       "argentinorosario": {
         "total": 50,
@@ -5302,8 +5302,8 @@
       },
       "sacachispas": {
         "total": 30,
-        "assigned": 1,
-        "missing": 29
+        "assigned": 14,
+        "missing": 16
       },
       "alem": {
         "total": 29,
@@ -5356,14 +5356,14 @@
         "missing": 42
       },
       "canuelas": {
-        "total": 31,
+        "total": 30,
         "assigned": 0,
-        "missing": 31
+        "missing": 30
       },
       "centralballester": {
-        "total": 50,
+        "total": 30,
         "assigned": 0,
-        "missing": 50
+        "missing": 30
       },
       "centralcordobarosario": {
         "total": 32,
@@ -5396,9 +5396,9 @@
         "missing": 42
       },
       "lamadrid": {
-        "total": 36,
+        "total": 39,
         "assigned": 1,
-        "missing": 35
+        "missing": 38
       },
       "leones": {
         "total": 37,
@@ -5416,16 +5416,16 @@
         "missing": 39
       },
       "yupanqui": {
-        "total": 39,
+        "total": 38,
         "assigned": 0,
-        "missing": 39
+        "missing": 38
       }
     }
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1164,
-    "total": 4540,
+    "missing": 1146,
+    "total": 4522,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5932,7 +5932,7 @@
         "assigned": 0
       },
       "estrelladelsur": {
-        "total": 42,
+        "total": 43,
         "assigned": 0
       },
       "argentinorosario": {
@@ -5988,11 +5988,11 @@
         "assigned": 0
       },
       "canuelas": {
-        "total": 31,
+        "total": 30,
         "assigned": 0
       },
       "centralballester": {
-        "total": 50,
+        "total": 30,
         "assigned": 0
       },
       "centralcordobarosario": {
@@ -6020,7 +6020,7 @@
         "assigned": 0
       },
       "lamadrid": {
-        "total": 36,
+        "total": 39,
         "assigned": 0
       },
       "leones": {
@@ -6036,15 +6036,15 @@
         "assigned": 0
       },
       "yupanqui": {
-        "total": 39,
+        "total": 38,
         "assigned": 0
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1086,
-    "total": 4540,
+    "missing": 1068,
+    "total": 4522,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6551,7 +6551,7 @@
         "specific": 0
       },
       "estrelladelsur": {
-        "total": 42,
+        "total": 43,
         "specific": 0
       },
       "argentinorosario": {
@@ -6607,11 +6607,11 @@
         "specific": 0
       },
       "canuelas": {
-        "total": 31,
+        "total": 30,
         "specific": 0
       },
       "centralballester": {
-        "total": 50,
+        "total": 30,
         "specific": 0
       },
       "centralcordobarosario": {
@@ -6639,7 +6639,7 @@
         "specific": 0
       },
       "lamadrid": {
-        "total": 36,
+        "total": 39,
         "specific": 0
       },
       "leones": {
@@ -6655,15 +6655,15 @@
         "specific": 0
       },
       "yupanqui": {
-        "total": 39,
+        "total": 38,
         "specific": 0
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2911,
-    "total": 4540,
+    "estimated": 2893,
+    "total": 4522,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7423,9 +7423,9 @@
         "provisional": 0
       },
       "estrelladelsur": {
-        "total": 42,
+        "total": 43,
         "verified": 0,
-        "estimated": 42,
+        "estimated": 43,
         "provisional": 0
       },
       "argentinorosario": {
@@ -7507,15 +7507,15 @@
         "provisional": 0
       },
       "canuelas": {
-        "total": 31,
+        "total": 30,
         "verified": 0,
-        "estimated": 31,
+        "estimated": 30,
         "provisional": 0
       },
       "centralballester": {
-        "total": 50,
+        "total": 30,
         "verified": 0,
-        "estimated": 50,
+        "estimated": 30,
         "provisional": 0
       },
       "centralcordobarosario": {
@@ -7555,9 +7555,9 @@
         "provisional": 0
       },
       "lamadrid": {
-        "total": 36,
+        "total": 39,
         "verified": 0,
-        "estimated": 36,
+        "estimated": 39,
         "provisional": 0
       },
       "leones": {
@@ -7579,9 +7579,9 @@
         "provisional": 0
       },
       "yupanqui": {
-        "total": 39,
+        "total": 38,
         "verified": 0,
-        "estimated": 39,
+        "estimated": 38,
         "provisional": 0
       }
     },
@@ -7590,22 +7590,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3368,
+    "derivedPlayers": 3350,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 153,
-    "players": 4540,
+    "players": 4522,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1243,
+    "playersMissingAge": 1212,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2911,
+    "estimatedRatings": 2893,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1164,
-    "playersMissingFoot": 2483,
-    "playersMissingSpecificRole": 1086,
-    "playersWithoutManualAttributes": 3368
+    "playersMissingNationality": 1146,
+    "playersMissingFoot": 2465,
+    "playersMissingSpecificRole": 1068,
+    "playersWithoutManualAttributes": 3350
   }
 }
