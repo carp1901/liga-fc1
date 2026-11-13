@@ -1184,7 +1184,7 @@ No se agregaron jugadores que ya habían salido antes del cierre: Luca Falabella
 
 Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), [estadísticas de Leonel Llodrá](https://www.zerozero.com.mx/jugador/leonel-llodra/490419), [salida de Luca Falabella](https://www.leballonrond.fr/equipe/sportivo-ameliano/108830/transferts), [salida de Farid Jasni](https://www.soloascenso.com.ar/notas/deportivo-espanol/fenix-presento-dos-refuerzos-para-el-tramo-final/229801).
 
-**Recuento vigente tras depurar Yupanqui:** 841 jugadores en 28 clubes; veintiocho planteles dentro del límite y uno pendiente: Lugano. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente tras depurar Yupanqui:** 826 jugadores en 28 clubes; los 28 planteles cumplen el máximo de 30. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
 
 
 ## Actualización 13/11/2026 — depuración de Yupanqui
@@ -1218,3 +1218,12 @@ Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), 
 - Se conservaron tres arqueros (Lucas Alegre, Nicolás Baleani y Ezequiel Daniele), además del núcleo que aparece en el once de más utilizados y en las planillas de septiembre. La fuente pública consultada no expone una tabla completa de minutos de los 37, por lo que este recorte queda marcado como criterio de profundidad y no como prueba de cero presencias.
 - Fuentes: [plantel, top de partidos y once más utilizado de Leones FC 2026](https://www.zerozero.com.ve/equipo/leones-fc/368209?epoca_id=155), [plantel de Leones FC en Solo Ascenso](https://www.soloascenso.com.ar/club/leones-fc-rosario/1228), [planilla Leones FC–Luján (28/09/2026)](https://www.soloascenso.com.ar/ficha/45305), [planilla Lugano–Leones FC (12/09/2026)](https://www.ceroacero.com.co/partido/2026-09-12-lugano-leones-fc/12020647).
 - Nuevo recuento CSV: **841 jugadores en 28 clubes**. Veintiocho planteles cumplen el máximo de 30; solo Lugano sigue por encima. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Lugano y cierre de los CSV
+
+- **Lugano: 45 → 30 jugadores.** Se contrastó la nómina 2026 con el once más utilizado, los principales registros de partidos/minutos y cinco planillas de partidos de la temporada. Se retiraron tres nombres que no figuraban en la nómina 2026 consultada (Gonzalo Berozuk, Bautista Aguirre y Damián Fernández) y doce jugadores de profundidad que no aparecen en el once habitual ni en las planillas revisadas.
+- Se conservaron los tres arqueros de la nómina (Nazareno Gatas, Jonathan García Procopio y Hernán Sanaria) y el núcleo de participación acreditada: Celso Báez, Gabriel Urruchúa, Juan Cruz Julián, Tomás Cagliari, Juan Cruz Iglesias, Matías Gelpi, Nicolás Campa, Rodrigo Soria, Ángel Gómez, Jonathan Acuña y relevos que aparecen en las planillas.
+- Correcciones de identidad: “Matías Benardoni” → **Matías Bernardoni** y “Leonel Ovejero” → **Axel Ovejero**, de acuerdo con la nómina de temporada. No se presenta el recorte de profundidad como prueba de cero participaciones: la tabla pública completa de minutos no estuvo disponible; se documenta como depuración de reserva y se conservan los jugadores que sí aparecen en los registros consultados.
+- Fuentes: [nómina 2026 y estadísticas de Lugano](https://www.zerozero.cv/equipa/lugano/45602?edicao_id=212447), [estadísticas de temporada](https://www.zerozero.pt/equipa/lugano/45602/estatisticas), [Lugano–Centro Español (30/03)](https://www.ceroacero.com.co/partido/2026-03-30-centro-espanol-lugano/12020308), [Lugano–Leandro N. Alem (25/04)](https://www.ceroacero.com.co/partido/2026-04-25-lugano-leandro-n-alem/12020381), [Luján–Lugano (18/04)](https://www.ceroacero.com.co/partido/2026-04-18-lujan-lugano/12020358), [Lugano–Luján (16/08)](https://www.ceroacero.com.co/partido/2026-08-16-lugano-lujan/12020581), [Lugano–Leones FC (12/09)](https://www.ceroacero.com.co/partido/2026-09-12-lugano-leones-fc/12020647).
+- Recuento actualizado de los cuatro CSV: **826 jugadores en 28 clubes; los 28 planteles están en 30 o menos**. Falta sincronizar y verificar el runtime, ejecutar pruebas/CI y reconciliar la rama con `main` antes de integrar.
