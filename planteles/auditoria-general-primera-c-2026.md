@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **1.019 jugadores en 28 clubes**.
-- Diez clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29) y Cambaceres (30).
-- Quedan **18 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **1.013 jugadores en 28 clubes**.
+- Once clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30) y Club Mercedes (29).
+- Quedan **17 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1055,3 +1055,14 @@ Se conserva el nombre **Facundo Fajardo** tal como lo registra Solo Ascenso: su 
 Fuentes: [estadísticas individuales de Cambaceres](https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576/jogadores), [plantel 2026](https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576), [perfil de Facundo Fajardo](https://www.soloascenso.com.ar/perfil/facundo-fajardo/25469), [síntesis de la fecha 29](https://www.jjurquiza.com.ar/NotasPrimera/Nota4125.html).
 
 **Recuento vigente:** 1.019 jugadores en 28 clubes; diez planteles dentro del límite y 18 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Club Mercedes — 35 → 29
+
+Se tomó como referencia el plantel de cierre 2026 de ZeroZero, que enumera 29 futbolistas. Se retiraron Franco Tonatto, Román Cruz, Franco Taborda, Lucas Calderón, Ulises Antonio Dematei y Lautaro Lagos, ausentes de esa nómina de cierre. Se conservaron Rodrigo Nicasio y Santiago Romagnoli aunque no tengan minutos, porque sí forman parte del plantel publicado.
+
+Se corrigieron posiciones: Franco Ortigosa como delantero y Francisco Ruiz como mediocampista. La tabla individual registra 27 futbolistas con participación y dos sin minutos, coherente con la nómina de 29.
+
+Fuentes: [plantel de cierre de Club Mercedes](https://www.zerozero.pt/equipa/club-mercedes/91322), [estadísticas individuales 2026](https://www.zerozero.com.mx/equipa/club-mercedes/91322/jugadores?epoca_stats_id=155), [plantel Solo Ascenso](https://www.soloascenso.com.ar/club/mercedes/438), [citados para la fecha 25](https://noticiasmercedinas.com/site/2026/08/21/club-mercedes-y-sacahispas-sobresale-en-la-primera-c/).
+
+**Recuento vigente:** 1.013 jugadores en 28 clubes; once planteles dentro del límite y 17 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
