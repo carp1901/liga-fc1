@@ -786,3 +786,38 @@ Fuentes: [plantel parcial 2026 de Sportivo Barracas](https://www.mundoascenso.co
 - Distribución: **102 ARQ, 305 DEF, 495 MED y 224 DEL**.
 - Validación de los cuatro CSV: cero dorsales vacíos, cero nombres duplicados dentro de un club y cero dorsales duplicados dentro de un club.
 - Los siete clubes restantes quedaron revisados; Fénix y Sportivo Barracas mantienen una salvedad por fuentes parciales o discordantes, y El Porvenir queda con tres arqueros adicionales pendientes de confirmar por participación.
+
+
+## 14. Revisión de salvedades: Fénix, Sportivo Barracas y El Porvenir
+
+Esta pasada resuelve las salvedades que habían quedado abiertas en la sección 13. Se compararon los cuatro CSV con las nóminas completas de cierre de Solo Ascenso y, cuando hubo información disponible, con fichas de partidos y estadísticas individuales.
+
+### Fénix — 42 jugadores, nómina confirmada
+- **El CSV coincide nombre por nombre con la nómina de cierre de Solo Ascenso**: 3 arqueros, 13 defensores, 19 mediocampistas y 7 delanteros.
+- La página de Mundo Ascenso que había generado la discrepancia presenta duplicaciones y una lista distinta; se considera una ficha desactualizada o inconsistente y deja de usarse como padrón de control.
+- Las fichas de partido confirman participación de futbolistas del CSV: en marzo aparecen Mariano Mittelman, Julián Bembo, Facundo Gómez, Nahuel Ortigoza, Emir Ham, Nicolás Velazco, Diego Zumbo, Matías Martínez, Iván Gorosito, Joan Esteche y Sebastián Montero entre titulares y suplentes. En octubre aparecen Marcos Jara, Agustín Suárez, Facundo Gómez, Sebastián Ibars, Manuel Masdeu, Joan Esteche, Leonel Álvarez, Lucas Rancic, Iván Gorosito, Matías Martínez y Diego Palacios Mena, además de suplentes del mismo CSV.
+- **Decisión:** mantener los 42. Se cierra la discrepancia: no hay que importar la nómina alternativa de Mundo Ascenso.
+
+Fuentes: [plantel de cierre de Fénix](https://www.soloascenso.com.ar/club/fenix/274), [convocatoria de marzo](https://www.soloascenso.com.ar/sintesis/fenix-puerto-nuevo/45715), [formación de octubre](https://www.soloascenso.com.ar/ficha/45322), [plantel alternativo de Mundo Ascenso](https://www.mundoascenso.com.ar/plantel/103-fenix).
+
+### Sportivo Barracas — 39 jugadores, nómina confirmada
+- **El CSV coincide nombre por nombre con la nómina completa de Solo Ascenso**: 3 arqueros, 7 defensores, 16 mediocampistas y 13 delanteros.
+- La página de Mundo Ascenso muestra una versión abreviada (dos arqueros, cuatro defensores y once jugadores en cada una de las otras líneas) y no debe utilizarse para reducir el plantel.
+- La ficha del partido del 5 de octubre confirma una convocatoria real de jugadores del CSV: Leonel Barrionuevo, Italo Portillo, Franco Córdoba, Nazareno Vidal, Santiago Sosa, Mauro Romay, Felipe Estevez, Nahuel Durruty, Tomás Di Criscenzo, Iván Santa Cruz y Julián Rodríguez como titulares; Ignacio Díaz Peyrous, Rodrigo Sequeira, Agustín Titunik, Santiago Gómez, Lautaro Ortega, Exequiel Ortiz, Tomás Boschi, Ignacio Zanzi y Tomás Bellido como suplentes.
+- Las estadísticas públicas de temporada son parciales y cubren sólo parte de la nómina; no justifican borrar a futbolistas de la lista completa que tuvieron menos minutos.
+- **Decisión:** mantener los 39 y cerrar la salvedad de fuente incompleta.
+
+Fuentes: [nómina completa de Sportivo Barracas](https://www.soloascenso.com.ar/club/sportivo-barracas/249), [ficha del partido ante Leones](https://www.zerozero.com.ve/partido/2026-10-05-sportivo-barracas-leones-fc/12020683), [plantel abreviado de Mundo Ascenso](https://www.mundoascenso.com.ar/plantel/110-sportivo-barracas), [estadísticas parciales de temporada](https://www.plaibook.live/pro/teams/sportivo-barracas).
+
+### El Porvenir — 44 jugadores, cuatro arqueros conservados
+- El CSV tiene **4 arqueros**: Luis Andrade, Diego Freire, Lautaro Guzmán y Sergio Juárez. Los cuatro cuentan con evidencia de participación o uso en el primer equipo: Andrade (2 partidos), Freire (1), Guzmán (3) y Juárez como arquero titular habitual, además de la convocatoria ante Fénix.
+- Solo Ascenso publica otros tres arqueros en su lista general: Facundo Arcas, Cristian Arce y Tomás Guzmán. La ficha individual de Cristian Arce marca cero presencias en 2026; Tomás Guzmán fue incorporado desde Comunicaciones para completar la estructura del plantel y no hay evidencia de minutos en Primera; no se encontró una ficha de participación 2026 que justifique sumar a Arcas.
+- Diego Freire fue presentado como arquero que alternaría con Reserva, pero sí tuvo al menos una aparición oficial con Primera. Lautaro Guzmán debutó en septiembre y tuvo tres apariciones registradas.
+- **Decisión:** mantener cuatro arqueros y no agregar los tres nombres sólo por figurar en una nómina extensa. La evidencia disponible no los acredita como alternativas utilizadas del primer equipo durante la temporada.
+
+Fuentes: [nómina de cierre de El Porvenir](https://www.soloascenso.com.ar/club/el-porvenir/270), [perfil de Cristian Arce (0 presencias)](https://www.soloascenso.com.ar/perfil/cristian-arce/24105), [incorporaciones de pretemporada](https://www.soloascenso.com.ar/notas/el-porvenir/el-porvenir-perfila-su-plantel-en-plena-pretemporada/224708), [estadísticas de Diego Freire](https://www.ceroacero.com.co/jugador/diego-freire/3569433?epoca_id=155), [estadísticas de Luis Andrade](https://www.ceroacero.com.co/jugador/luis-andrade/848249?epoca_id=155), [estadísticas de Lautaro Guzmán](https://www.ceroacero.com.co/jugador/lautaro-guzman/3527638?epoca_id=155), [convocatoria ante Fénix](https://www.soloascenso.com.ar/ficha/45226), [debut de Lautaro Guzmán](https://www.cutralcoalinstante.com/2026/09/08/el-arquero-lautaro-jose-guzman-debuto-en-el-primer-equipo-de-el-porvenir/).
+
+### Resultado de esta revisión
+- Las salvedades de Fénix y Sportivo Barracas quedan resueltas: sus 42 y 39 jugadores, respectivamente, coinciden con la nómina de cierre de Solo Ascenso.
+- El Porvenir queda con cuatro arqueros respaldados por participación/uso de Primera; no se incorporan los otros tres nombres de la lista general por falta de evidencia de uso en el primer equipo.
+- **No se modificaron filas del CSV en esta pasada**. Recuento global sin cambios: 1.126 jugadores en 28 clubes. Se mantienen las validaciones estructurales ya registradas.
