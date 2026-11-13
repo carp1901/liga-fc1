@@ -834,3 +834,60 @@ Se corrigieron algunos datos de la primera pasada de participación (sección 11
 Estos indicadores confirman participación real de titulares y relevos, pero no equivalen a una lista completa de apariciones de los 42–49 jugadores de cada plantel. No se usa la ausencia de un jugador en los líderes estadísticos como prueba de que no participó.
 
 Fuentes: [estadísticas J.J. Urquiza 2026](https://www.ceroacero.com.co/equipo/justo-jose-de-urquiza/45579/estadisticas), [estadísticas J.J. Urquiza en BeSoccer](https://es.besoccer.com/equipo/jj-urquiza?redirby=rf_rest), [estadísticas Lugano 2026](https://www.zerozero.pt/equipa/lugano/45602/estatisticas), [estadísticas Atlas 2026](https://www.ceroacero.com.co/equipo/atlas/45609/estadisticas).
+
+
+## 16. Criterio definitivo de cantidad — comparación entre categorías
+
+A partir de la revisión conjunta de los CSV de las categorías cargadas, se establece un límite operativo para Primera C: **ningún plantel debe superar los 30 futbolistas**. La referencia más cercana son las divisiones inferiores ya relevadas, no el tamaño de las nóminas de Primera División.
+
+| Categoría | Clubes | Jugadores | Promedio por club | Rango |
+|---|---:|---:|---:|---:|
+| Primera División | 30 | 1.012 | 33,7 | 22–46 |
+| Primera Nacional | 36 | 1.026 | 28,5 | 22–34 |
+| Primera B Metropolitana | 22 | 533 | 24,2 | 20–27 |
+| Federal A (tanda integrada) | 10 | 237 | 23,7 | 22–27 |
+| Primera C actual | 28 | 1.126 | 40,2 | 29–51 |
+
+Primera División no se toma como patrón porque sus planteles profesionales son más amplios. B Metro y Federal A muestran una composición compacta, generalmente de 22 a 27 futbolistas; Primera Nacional promedia 28,5. Por lo tanto, el criterio acordado para Primera C es: **preferentemente 22–27 jugadores y nunca más de 30**. No se rellenan planteles por cantidad mínima si la nómina real justifica menos.
+
+### Exceso actual de Primera C
+
+Hay 27 de los 28 clubes por encima del máximo. Para llevarlos a 30, el exceso acumulado es de **286 registros**. La cifra indica el volumen de depuración necesario, no autoriza a eliminar nombres sin contraste de participación.
+
+- Juventud Unida: 51 → reducir al menos 21.
+- Argentino de Rosario: 50 → reducir al menos 20.
+- Victoriano Arenas: 37 → reducir al menos 7.
+- Sacachispas: 50 → reducir al menos 20.
+- Leandro N. Alem: 46 → reducir al menos 16.
+- Club Mercedes: 35 → reducir al menos 5.
+- Estrella del Sur: 43 → reducir al menos 13.
+- Berazategui: 38 → reducir al menos 8.
+- Deportivo Paraguayo: 42 → reducir al menos 12.
+- Cambaceres: 35 → reducir al menos 5.
+- Puerto Nuevo: 33 → reducir al menos 3.
+- J.J. Urquiza: 49 → reducir al menos 19.
+- Atlético Lugano: 45 → reducir al menos 15.
+- Atlas: 42 → reducir al menos 12.
+- Cañuelas: 31 → reducir al menos 1.
+- Central Ballester: 50 → reducir al menos 20.
+- Central Córdoba (Rosario): 32 → reducir al menos 2.
+- Claypole: 39 → reducir al menos 9.
+- Deportivo Español: 39 → reducir al menos 9.
+- Muñiz: 38 → reducir al menos 8.
+- El Porvenir: 44 → reducir al menos 14.
+- Fénix: 42 → reducir al menos 12.
+- General Lamadrid: 39 → reducir al menos 9.
+- Leones FC: 37 → reducir al menos 7.
+- Luján: 33 → reducir al menos 3.
+- Sportivo Barracas: 39 → reducir al menos 9.
+- Yupanqui: 38 → reducir al menos 8.
+
+### Método de depuración desde esta revisión
+
+1. Mantener jugadores con titularidades, ingresos desde el banco o convocatorias repetidas y verificables en 2026.
+2. Priorizar para revisión los nombres sin presencias, sin convocatorias o que sólo figuren en listados generales/juveniles, además de duplicados, jugadores transferidos y bajas anteriores al corte.
+3. No usar la ausencia en una tabla parcial de goleadores o líderes de minutos como prueba de inactividad.
+4. Si un club no tiene 30 futbolistas con participación demostrable, conservar un plantel menor; no incorporar reservas sin uso para alcanzar una cifra.
+5. Actualizar los cuatro CSV, recalcular dorsales y ejecutar la validación estructural al terminar cada bloque.
+
+**Estado:** este apartado fija el criterio y cuantifica la depuración pendiente. No representa todavía una reducción de los CSV: los 1.126 registros corresponden al estado actual de la rama antes de esta poda.
