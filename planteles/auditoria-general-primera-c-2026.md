@@ -652,3 +652,35 @@ Fuentes: [nómina de Centro Español](https://www.soloascenso.com.ar/club/centro
 ### Resultado del bloque
 
 Se auditaron cinco clubes adicionales. Los cinco CSV coinciden nominalmente con las nóminas de cierre consultadas; se validaron movimientos relevantes y se documentó la discrepancia secundaria de Cañuelas. **No se modificaron filas**. J.J. Urquiza (49), Lugano (45) y Atlas (42) quedan como prioridad para una pasada individual de minutos y convocatorias, con el objetivo de depurar sin sobrepoblar y sin borrar suplentes legítimos.
+
+
+## 11. Primera pasada de participación — J.J. Urquiza, Atlético Lugano y Atlas
+
+Se inició la depuración de los tres planteles más extensos. Se cruzó la nómina cargada con las páginas de cierre 2026 y con estadísticas públicas de participación. **No se eliminan jugadores en esta pasada**, porque la información disponible confirma nóminas completas y algunos indicadores de rotación, pero no ofrece un registro individual exhaustivo y homogéneo de minutos para todos los integrantes. Recortar por intuición podría quitar suplentes reales o juveniles utilizados.
+
+### J.J. Urquiza — 49 cargados
+- Los 49 nombres del CSV coinciden con la nómina de cierre de Solo Ascenso.
+- La temporada de Primera C 2026 registra 32 partidos. BeSoccer identifica a Nehuén Montoya entre los jugadores destacados con 31 partidos y 2.745 minutos; también aparecen como destacados Facundo Durán, Dylan Gauna, Bautista García y Leonardo Luna.
+- La nómina publicada contiene cuatro arqueros, 11 defensores, 27 mediocampistas y delanteros combinados. La cantidad es alta, pero la lista de cierre por sí sola no distingue entre titulares, relevos y juveniles.
+- **Decisión:** conservar los 49 provisionalmente y no hacer una poda sin fichas de presencias/minutos para el resto.
+
+Fuentes: [nómina de J.J. Urquiza](https://www.soloascenso.com.ar/club/jj-urquiza/283), [estadísticas de J.J. Urquiza 2025/26](https://es.besoccer.com/equipo/jj-urquiza?redirby=rf_rest), [perfil estadístico de Patricio Díaz](https://www.soloascenso.com.ar/perfil/patricio-diaz/29027).
+
+### Atlético Lugano — 45 cargados
+- Los 45 nombres del CSV coinciden con la nómina de cierre de Solo Ascenso.
+- La temporada 2026 registra 30 partidos de liga en la ficha de estadísticas consultada.
+- ZeroZero destaca a Celso Báez como el jugador con más minutos (2.665) y a Jonathan Acuña como el jugador número 12, con 14 partidos ingresando desde el banco. Gabriel Urruchúa terminó como máximo goleador con nueve tantos; también figuran Juan Cruz Iglesias (cinco), Matías Coselli (cuatro) y Rodrigo Soria (tres).
+- **Decisión:** conservar los 45 provisionalmente. Los datos confirman rotación y participación de suplentes, pero no permiten clasificar con seguridad a los restantes futbolistas sin actividad.
+
+Fuentes: [nómina y goleadores de Lugano](https://www.soloascenso.com.ar/club/lugano/289), [estadísticas de Lugano 2026](https://www.zerozero.pt/equipa/lugano/45602/estatisticas), [convocados del debut 2026](https://www.soloascenso.com.ar/notas/lugano/lugano-inicia-un-nuevo-campeonato-frente-a-sacachispas/225093).
+
+### Atlas — 42 cargados
+- Los 42 nombres del CSV coinciden con la nómina de cierre de Solo Ascenso.
+- La temporada consultada registra 31 partidos. ZeroZero/CeroaCero identifica a Ricardo Grieger como líder de minutos con 2.790 y a Nahuel Piethe como principal relevo, con 12 partidos ingresando desde el banco.
+- Los goleadores publicados incluyen a Gustavo Britos (cinco), Alexander Meza (cuatro), Simón Martínez (tres) y Nicolás Pérez (dos). Britos no se agrega al CSV de cierre porque su salida a Leones FC ya fue documentada en la auditoría anterior.
+- **Decisión:** conservar los 42 provisionalmente; no se confunde a los jugadores de menor participación con futbolistas ajenos al plantel.
+
+Fuentes: [nómina y goleadores de Atlas](https://www.soloascenso.com.ar/club/atlas/247), [estadísticas individuales de Atlas 2026](https://www.ceroacero.com.co/equipo/atlas/45609/estadisticas), [plantel Atlas 2026](https://www.zerozero.pt/equipa/atlas/45609?edicao_id=212447).
+
+### Resultado de esta pasada
+Se validaron tres nóminas y se incorporaron indicadores verificables de participación. **No hubo cambios de filas ni de dorsales**. La depuración definitiva de estos tres clubes queda condicionada a poder cruzar presencias individuales de todos los jugadores; no se aplicará un máximo arbitrario de integrantes.
