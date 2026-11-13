@@ -1184,7 +1184,7 @@ No se agregaron jugadores que ya habían salido antes del cierre: Luca Falabella
 
 Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), [estadísticas de Leonel Llodrá](https://www.zerozero.com.mx/jugador/leonel-llodra/490419), [salida de Luca Falabella](https://www.leballonrond.fr/equipe/sportivo-ameliano/108830/transferts), [salida de Farid Jasni](https://www.soloascenso.com.ar/notas/deportivo-espanol/fenix-presento-dos-refuerzos-para-el-tramo-final/229801).
 
-**Recuento vigente tras depurar Yupanqui:** 857 jugadores en 28 clubes; veinticinco planteles dentro del límite y tres pendientes: Lugano, Deportivo Español y Leones FC. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente tras depurar Yupanqui:** 848 jugadores en 28 clubes; veintisiete planteles dentro del límite y dos pendientes: Lugano y Leones FC. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
 
 
 ## Actualización 13/11/2026 — depuración de Yupanqui
@@ -1202,3 +1202,11 @@ Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), 
 - Los cinco dorsales agregados (43–47) son estimados y están identificados como tales. Las edades y posiciones de los incorporados proceden de la ficha estadística de temporada.
 - Fuentes: [estadísticas individuales de Deportivo Muñiz 2026](https://www.zerozero.pt/equipa/deportivo-muniz/61453/jogadores), [plantel de temporada](https://www.zerozero.pt/equipa/deportivo-muniz/61453?epoca_id=155).
 - Nuevo recuento CSV: **857 jugadores en 28 clubes**. Veinticinco planteles cumplen el máximo de 30; quedan tres por depurar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Deportivo Español
+
+- **Deportivo Español: 39 → 30 jugadores.** Se utilizó la tabla de estadísticas individuales de Primera C 2026, ordenada por partidos/minutos. Se conservaron los 26 futbolistas presentes en el borrador que sí aparecen entre los 30 con más participación, se mantuvo a Juan Torre como segundo arquero y se incorporaron Simón Martínez (13 PJ), Cristian Barrios (12) y Diosnel Zuccarino (6). Nicolás Ortiz (2 PJ) quedó fuera del corte para preservar la cobertura de dos arqueros.
+- Se retiraron 12 nombres sin participación en el registro individual de temporada o que no aparecen en esa tabla. Los dorsales nuevos 44–46 son estimados; edades y posiciones se tomaron de las fichas estadísticas.
+- Fuente principal: [estadísticas individuales de Deportivo Español — Primera C 2026](https://www.ceroacero.com.co/equipo/deportivo-espanol/9190/jugadores?epoca_stats_id=155&o=j). Complemento: [plantel y estadísticas del club](https://www.zerozero.pt/equipa/deportivo-espanol/9190?edicao_id=212447).
+- Nuevo recuento CSV: **848 jugadores en 28 clubes**. Veintisiete planteles cumplen el máximo de 30; quedan dos por depurar: Lugano y Leones FC. Runtime y CI siguen pendientes de ejecución confirmada.
