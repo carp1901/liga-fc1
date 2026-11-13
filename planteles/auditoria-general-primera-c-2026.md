@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **964 jugadores en 28 clubes**.
-- Dieciséis clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30) y Central Córdoba Rosario (30).
-- Quedan **12 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **950 jugadores en 28 clubes**.
+- Diecisiete clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30) y El Porvenir (30).
+- Quedan **11 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1119,3 +1119,14 @@ Se cruzó el CSV con el plantel 2026 y las estadísticas de uso. Se incorporaron
 Fuentes: [plantel 2026](https://www.zerozero.pt/equipa/central-cordoba-rosario/29621?edicao_id=212447), [once más utilizado y estadísticas de equipo](https://www.zerozero.pt/equipa/central-cordoba-rosario/29621), [estadísticas de minutos](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_jogador=840689&op=sjo&v=jt5).
 
 **Recuento vigente:** 964 jugadores en 28 clubes; dieciséis planteles dentro del límite y doce pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### El Porvenir — 44 → 30
+
+Se utilizó la tabla individual de partidos de Primera C 2026 y se priorizaron los 30 futbolistas de mayor participación, conservando a Luis Andrade como segundo arquero (2 partidos) y a Bruno Schmid (3 partidos) para completar el corte. Se retiraron 14 nombres de uso mínimo o sin respaldo suficiente en el registro.
+
+Dario Nami no se reincorpora: dejó El Porvenir y pasó a Muñiz durante julio de 2026. Gustavo Rodas tampoco se incorpora pese a aparecer en una tabla estadística anómala, ya que su trayectoria profesional terminó en 2018.
+
+Fuentes: [estadísticas individuales de El Porvenir](https://www.zerozero.pt/equipa/el-porvenir/9149/jogadores), [salida de Dario Nami hacia Muñiz](https://www.soloascenso.com.ar/notas/muniz/el-porvenir-sufrio-su-primera-baja-y-ya-tiene-destino/229788), [trayectoria de Gustavo Rodas y retiro](https://www.infobae.com/deportes/2025/01/17/el-jugador-que-era-mejor-que-messi-en-las-inferiores-de-newells-y-termino-odiando-el-futbol-la-historia-de-billy-rodas/).
+
+**Recuento vigente:** 950 jugadores en 28 clubes; diecisiete planteles dentro del límite y once pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
