@@ -15,7 +15,7 @@ const rows=parsed.flat();const col=Object.fromEntries(headers.map((h,i)=>[h,i]))
 const expected={
  juventudunida:30,estrelladelsur:29,argentinorosario:30,victorianoarenas:30,sacachispas:30,alem:29,mercedes:29,
  berazategui:30,paraguayo:30,cambaceres:30,puertonuevo:30,centroespanol:29,jjurquiza:49,lugano:45,
- atlas:42,canuelas:30,centralballester:30,centralcordobarosario:32,claypole:39,espanol:39,muniz:38,
+ atlas:42,canuelas:30,centralballester:30,centralcordobarosario:30,claypole:39,espanol:39,muniz:38,
  porvenir:44,fenix:42,lamadrid:39,leones:37,lujan:27,sportivobarracas:39,yupanqui:38
 };
 const allowed=new Set(Object.keys(expected)),names=new Set(),numbers=new Set(),totalByClub={};let total=0;
@@ -36,7 +36,7 @@ for(const [i,row] of rows.entries()){
  if(!crossNames.has(normalizedName(name)))crossNames.set(normalizedName(name),[]);
  crossNames.get(normalizedName(name)).push({club,pos,name});
 }
-assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,966,'Total nominal inesperado');
+assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,964,'Total nominal inesperado');
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
 assert.deepEqual(collisions,['gonzalo medina','lautaro torres','rodrigo ortiz','rodrigo soria','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
 const pair=(name,expectedPair)=>assert.deepEqual(crossNames.get(name).map(x=>x.club+'|'+x.pos).sort(),expectedPair);
@@ -45,6 +45,9 @@ pair('lautaro torres',['estrelladelsur|DEL','sacachispas|MED']);
 pair('rodrigo ortiz',['claypole|MED','paraguayo|DEL']);
 pair('gonzalo medina',['alem|MED','fenix|MED']);
 pair('santiago diaz',['cambaceres|DEF','lujan|MED']);
+const cordobaRows=rows.filter(row=>row[col.club_id]==='centralcordobarosario');assert.equal(cordobaRows.length,30,'Central Córdoba Rosario debe quedar en 30 jugadores');
+for(const name of ['Tomás D'Amico','Mirko Pfarherr','Franco Fagúndez','Martín Porta','Santiago Spelzini','Santiago Arduino'])assert(!cordobaRows.some(row=>row[col.nombre]===name),'Central Córdoba conserva un jugador fuera del corte: '+name);
+for(const name of ['Brian Otero','Renzo Altamura','Gino Albertengo','Leonel Fagúndez'])assert(cordobaRows.some(row=>row[col.nombre]===name),'Falta jugador con participación comprobada en Central Córdoba: '+name);
 const paraguayoRows=rows.filter(row=>row[col.club_id]==='paraguayo');assert.equal(paraguayoRows.length,30,'Deportivo Paraguayo debe quedar en 30 jugadores');
 for(const name of ['Sergio Quiroga','Ignacio Alvite','Joaquín Flores','Agustín Moreira','Santino Peluffo','Ignacio Zorrilla','Alexis Barrionuevo','Tobías Chávez','Ezequiel García','José Luis Gómez','Francisco Musumeci','Diego Plaksa','Rodrigo Ávalos'])assert(!paraguayoRows.some(row=>row[col.nombre]===name),'Paraguayo conserva un jugador fuera del corte: '+name);
 assert(paraguayoRows.some(row=>row[col.nombre]==='César Ávalos'),'Debe incorporarse César Ávalos, con 15 partidos y gol en la fecha 5');
@@ -95,4 +98,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 966 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 966 jugadores, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 964 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 966 jugadores, sin duplicados internos ni dorsales repetidos.');
