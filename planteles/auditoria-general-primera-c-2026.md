@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **978 jugadores en 28 clubes**.
-- Catorce clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30) y Berazategui (30).
-- Quedan **14 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **966 jugadores en 28 clubes**.
+- Quince clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30) y Deportivo Paraguayo (30).
+- Quedan **13 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1099,3 +1099,14 @@ Se mantuvo el nombre de uso **Sebastián Villalba**: su nombre completo es Héct
 Fuentes: [estadísticas individuales de Berazategui](https://www.zerozero.pt/equipa/berazategui/25748/jogadores), [plantel 2026](https://www.zerozero.pt/equipa/berazategui/25748?edicao_id=212447), [perfil de Sebastián Villalba](https://www.soloascenso.com.ar/perfil/hector-villalba/23503), [Joaquín Bentancor: sin partidos 2026](https://www.zerozero.pe/jugador/joaquin-bentancor/2418102?epoca_id=155).
 
 **Recuento vigente:** 978 jugadores en 28 clubes; catorce planteles dentro del límite y 14 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Deportivo Paraguayo — 42 → 30
+
+Se cruzó el CSV con las estadísticas individuales de la temporada y las salidas de mitad de año. Se conservó el núcleo de mayor participación, con Enzo De La Peña como segundo arquero (2 partidos), y se incorporó César Ávalos (22 años, DEL), con 15 partidos y un gol ante Estrella del Sur en la fecha 5. Se retiraron 13 nombres de uso mínimo o sin registro suficiente.
+
+Patricio Romero no se incorporó: disputó 13 partidos en el primer semestre, pero dejó el club el 27/06/2026 para pasar a San Telmo. Se corrigió a Juan José Aguilar como MED y se fijaron los dorsales confirmados de Rolando Herrera (1) y Enzo De La Peña (12). Se mantiene “Nahuel Quevedo” como nombre de uso en las síntesis, aunque ZeroZero presenta la ficha como Ángel Quevedo.
+
+Fuentes: [plantel y estadísticas 2026](https://www.zerozero.pt/equipa/paraguayo/23534?edicao_id=212447), [Paraguayo–Estrella: gol de César Ávalos](https://www.tn.com.ar/deportes/futbol/2026/03/28/paraguayo-vs-estrella-en-vivo-por-la-fecha-5-de-la-primera-c-hora-donde-ver-y-formaciones/), [salida de Patricio Romero](https://www.soloascenso.com.ar/notas/deportivo-espanol/un-referente-de-paraguayo-seguira-su-carrera-en-el-nacional/229693), [síntesis de fecha 29](https://revistatribunaroja.blogspot.com/2026/08/un-empate-con-gusto-a-poco.html).
+
+**Recuento vigente:** 966 jugadores en 28 clubes; quince planteles dentro del límite y trece pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
