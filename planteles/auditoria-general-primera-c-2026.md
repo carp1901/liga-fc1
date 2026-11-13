@@ -850,9 +850,9 @@ A partir de la revisión conjunta de los CSV de las categorías cargadas, se est
 
 Primera División no se toma como patrón porque sus planteles profesionales son más amplios. B Metro y Federal A muestran una composición compacta, generalmente de 22 a 27 futbolistas; Primera Nacional promedia 28,5. Por lo tanto, el criterio acordado para Primera C es: **preferentemente 22–27 jugadores y nunca más de 30**. No se rellenan planteles por cantidad mínima si la nómina real justifica menos.
 
-### Exceso actual de Primera C
+### Exceso inicial de Primera C (antes de la poda de Central Ballester)
 
-Hay 27 de los 28 clubes por encima del máximo. Para llevarlos a 30, el exceso acumulado es de **286 registros**. La cifra indica el volumen de depuración necesario, no autoriza a eliminar nombres sin contraste de participación.
+Antes de la primera poda, 27 de los 28 clubes estaban por encima del máximo. Para llevarlos a 30, el exceso acumulado era de **286 registros**. La cifra es la línea de base previa a la depuración documentada en la sección 17.
 
 - Juventud Unida: 51 → reducir al menos 21.
 - Argentino de Rosario: 50 → reducir al menos 20.
@@ -890,7 +890,7 @@ Hay 27 de los 28 clubes por encima del máximo. Para llevarlos a 30, el exceso a
 4. Si un club no tiene 30 futbolistas con participación demostrable, conservar un plantel menor; no incorporar reservas sin uso para alcanzar una cifra.
 5. Actualizar los cuatro CSV, recalcular dorsales y ejecutar la validación estructural al terminar cada bloque.
 
-**Estado:** este apartado fija el criterio y cuantifica la depuración pendiente. No representa todavía una reducción de los CSV: los 1.126 registros corresponden al estado actual de la rama antes de esta poda.
+**Estado:** este apartado fija el criterio y cuantifica la línea de base. La primera poda posterior redujo Central Ballester de 50 a 30 y el total de los CSV a 1.106 jugadores; la sección 17 registra ese cambio.
 
 
 ## 17. Primera depuración por participación — Central Ballester
