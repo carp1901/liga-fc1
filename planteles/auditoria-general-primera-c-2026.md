@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **1.024 jugadores en 28 clubes**.
-- Nueve clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30) y Estrella del Sur (29).
-- Quedan **19 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **1.019 jugadores en 28 clubes**.
+- Diez clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29) y Cambaceres (30).
+- Quedan **18 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1044,3 +1044,14 @@ Se contrastó la nómina del CSV con el plantel de cierre de ZeroZero y sus esta
 Fuentes: [plantel 2026 de Estrella del Sur](https://www.zerozero.pt/equipa/estrella-del-sur/341204?epoca_id=155), [tabla de estadísticas individuales](https://www.zerozero.pt/equipa/estrella-del-sur/341204/jogadores), [transferencias 2026](https://www.zerozero.pt/equipa/estrella-del-sur/341204/transferencias), [nota sobre la salida de Caravaca](https://www.soloascenso.com.ar/notas/general-lamadrid/estrella-del-sur-sumo-un-refuerzo-y-sufrio-una-baja/229820), [perfil de Caravaca con cinco partidos](https://www.ceroacero.com.co/jugador/ivan-caravaca/1238941).
 
 **Recuento vigente:** 1.024 jugadores en 28 clubes; nueve planteles dentro del límite y 19 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Defensores de Cambaceres — 35 → 30
+
+Se ordenó la nómina por partidos disputados en la tabla individual de Primera C 2026 y se conservó el corte de 30 futbolistas con mayor participación. Se retiraron 14 nombres fuera de ese corte y se incorporaron nueve jugadores de uso comprobado que faltaban en el CSV: Esteban Coronel, Bryan Schmidt, Román Zárate, Facundo Odello, Javier Sequeyra, Tomás Baglieri, Tomás Ledesma, Renzo Fernández y Mariano Coletto.
+
+Se conserva el nombre **Facundo Fajardo** tal como lo registra Solo Ascenso: su perfil confirma 22 presencias y 21 titularidades. ZeroZero lo muestra como “Agustín Fajardo”, pero el perfil individual de Solo Ascenso identifica su nombre completo como Facundo Fajardo González; no se crean dos registros por esa diferencia de fuentes. Edad 27 confirmada.
+
+Fuentes: [estadísticas individuales de Cambaceres](https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576/jogadores), [plantel 2026](https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576), [perfil de Facundo Fajardo](https://www.soloascenso.com.ar/perfil/facundo-fajardo/25469), [síntesis de la fecha 29](https://www.jjurquiza.com.ar/NotasPrimera/Nota4125.html).
+
+**Recuento vigente:** 1.019 jugadores en 28 clubes; diez planteles dentro del límite y 18 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
