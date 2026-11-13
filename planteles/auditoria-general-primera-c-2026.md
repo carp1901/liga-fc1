@@ -1184,7 +1184,7 @@ No se agregaron jugadores que ya habían salido antes del cierre: Luca Falabella
 
 Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), [estadísticas de Leonel Llodrá](https://www.zerozero.com.mx/jugador/leonel-llodra/490419), [salida de Luca Falabella](https://www.leballonrond.fr/equipe/sportivo-ameliano/108830/transferts), [salida de Farid Jasni](https://www.soloascenso.com.ar/notas/deportivo-espanol/fenix-presento-dos-refuerzos-para-el-tramo-final/229801).
 
-**Recuento vigente tras depurar Yupanqui:** 826 jugadores en 28 clubes; los 28 planteles cumplen el máximo de 30. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente tras depurar Yupanqui:** 824 jugadores en 28 clubes; los 28 planteles cumplen el máximo de 30. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
 
 
 ## Actualización 13/11/2026 — depuración de Yupanqui
@@ -1227,3 +1227,11 @@ Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), 
 - Correcciones de identidad: “Matías Benardoni” → **Matías Bernardoni** y “Leonel Ovejero” → **Axel Ovejero**, de acuerdo con la nómina de temporada. No se presenta el recorte de profundidad como prueba de cero participaciones: la tabla pública completa de minutos no estuvo disponible; se documenta como depuración de reserva y se conservan los jugadores que sí aparecen en los registros consultados.
 - Fuentes: [nómina 2026 y estadísticas de Lugano](https://www.zerozero.cv/equipa/lugano/45602?edicao_id=212447), [estadísticas de temporada](https://www.zerozero.pt/equipa/lugano/45602/estatisticas), [Lugano–Centro Español (30/03)](https://www.ceroacero.com.co/partido/2026-03-30-centro-espanol-lugano/12020308), [Lugano–Leandro N. Alem (25/04)](https://www.ceroacero.com.co/partido/2026-04-25-lugano-leandro-n-alem/12020381), [Luján–Lugano (18/04)](https://www.ceroacero.com.co/partido/2026-04-18-lujan-lugano/12020358), [Lugano–Luján (16/08)](https://www.ceroacero.com.co/partido/2026-08-16-lugano-lujan/12020581), [Lugano–Leones FC (12/09)](https://www.ceroacero.com.co/partido/2026-09-12-lugano-leones-fc/12020647).
 - Recuento actualizado de los cuatro CSV: **826 jugadores en 28 clubes; los 28 planteles están en 30 o menos**. Falta sincronizar y verificar el runtime, ejecutar pruebas/CI y reconciliar la rama con `main` antes de integrar.
+
+
+## Corrección de traspasos — 13/11/2026
+
+- **Juan Pablo López** se retiró de General Lamadrid y se conserva solo en Puerto Nuevo. Su perfil de Solo Ascenso y el historial de transferencias confirman el pase de General Lamadrid a Puerto Nuevo el 01/01/2026; el registro 2026 muestra 26 presencias con Puerto Nuevo. Lamadrid queda en 28 jugadores, sin completar cupos artificialmente.
+- **Simón Martínez** se retiró de Deportivo Español y se conserva solo en Atlas. La ficha de ZeroZero divide su temporada 2026 entre Deportivo Español (13 partidos) y Atlas (11), y el perfil de Solo Ascenso lo identifica en Atlas al cierre. Español queda en 29 jugadores.
+- Fuentes: [perfil 2026 de Juan Pablo López en Puerto Nuevo](https://www.soloascenso.com.ar/perfil/juan-pablo-lopez/26082), [historial de traspasos de Juan Pablo López](https://www.flashscore.com.ar/jugador/juan-pablo-lopez/lGyG5JuH/), [perfil 2026 de Simón Martínez](https://www.ceroacero.com.co/jugador/simon-martinez/3525177?edicao_id=212447), [perfil de Simón Martínez en Atlas](https://www.soloascenso.com.ar/perfil/simon-martinez/22131).
+- Recuento final de los cuatro CSV: **824 jugadores en 28 clubes**, todos los planteles con 30 o menos. Tanda 1: 207; tanda 2: 209; tanda 3: 207; tanda 4: 201. Runtime y CI aún pendientes de confirmación.
