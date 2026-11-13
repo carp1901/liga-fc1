@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **986 jugadores en 28 clubes**.
-- Trece clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30) y Victoriano Arenas (30).
-- Quedan **15 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **976 jugadores en 28 clubes**.
+- Catorce clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30) y Berazategui (30).
+- Quedan **14 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1088,3 +1088,14 @@ Se conservan los 30 futbolistas de mayor continuidad, con dos arqueros que sí r
 Fuentes: [plantel 2026 de Victoriano Arenas](https://www.zerozero.pt/equipa/victoriano-arenas/45608?edicao_id=212447), [estadísticas individuales](https://www.zerozero.pt/equipa/victoriano-arenas/45608/jogadores), [resumen de la temporada](https://www.zerozero.pt/equipa/victoriano-arenas/45608/estatisticas?redirm=1).
 
 **Recuento vigente:** 986 jugadores en 28 clubes; trece planteles dentro del límite y 15 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Berazategui — 38 → 30
+
+Se conservó el corte de 30 futbolistas con mayor participación en las estadísticas individuales de Primera C 2026. Se incorporaron Joaquín Pucheta (19 partidos) y Braian Benítez (16), ausentes del CSV pese a su participación, y se retiraron diez nombres fuera del corte.
+
+Se mantuvo el nombre de uso **Sebastián Villalba**: su nombre completo es Héctor Cayetano Sebastián Villalba y registra 25 partidos/2.141 minutos. Juan Pablo Serrizuela también se conserva con el nombre de plantilla aunque la tabla de estadísticas lo abrevie como Juan Serrizuela. Se corrigieron posiciones: Thiago Benítez DEF, Alexis Godoy MED, Bautista Hernández MED y Emiliano Caballero MED.
+
+Fuentes: [estadísticas individuales de Berazategui](https://www.zerozero.pt/equipa/berazategui/25748/jogadores), [plantel 2026](https://www.zerozero.pt/equipa/berazategui/25748?edicao_id=212447), [perfil de Sebastián Villalba](https://www.soloascenso.com.ar/perfil/hector-villalba/23503), [Joaquín Bentancor: sin partidos 2026](https://www.zerozero.pe/jugador/joaquin-bentancor/2418102?epoca_id=155).
+
+**Recuento vigente:** 976 jugadores en 28 clubes; catorce planteles dentro del límite y 14 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
