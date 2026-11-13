@@ -1,7 +1,7 @@
 # Auditoría general — Primera C 2026
 
-Fecha: 12/11/2026  
-Estado: primera auditoría global aplicada; revisión individual de todos los planteles todavía en curso.
+Fecha de actualización: 13/11/2026  
+Estado: depuración individual en curso; el recuento vigente está consolidado en la última sección. Las secciones 1–5 conservan el corte histórico de la primera auditoría (1.124 registros) y no representan el estado actual.
 
 ## 1. Resultado general
 
@@ -988,3 +988,23 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 - Se actualizaron los recuentos de `test-primera-c-draft.js` a 1.068, con los nuevos totales por club.
 - Se recalcularon los contadores de cobertura de dorsales, edades, nacionalidad, pie, roles específicos y medias en `public/squads-meta.json`.
 - La sincronización de archivos ya está hecha; falta ejecutar GitHub Actions y la prueba con `--runtime` para confirmar formalmente la importación, antes de integrar el PR.
+
+
+## 6. Estado vigente — 13/11/2026
+
+- CSV: **1.062 jugadores en 28 clubes**.
+- Seis clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29) y Luján (27).
+- Quedan **22 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+
+### Luján — 33 → 27
+
+Se aplicó una depuración respaldada por la nómina oficial AFA 2026, el plantel de cierre de Solo Ascenso y las convocatorias de Primera C:
+
+- Retirados: Valentín Alegre (tercer arquero sin aparición/convocatoria oficial localizada), Juan Moreno, Román Busto, Santiago Tríbulo, Gonzalo Ramírez y Aaron Villecco (no figuran en la nómina AFA y no se encontró evidencia de participación o convocatoria oficial de Primera C).
+- Conservado Maximiliano Piñeiro: aunque no está en la nómina AFA de 26, aparece como suplente en la ficha de Luján–Berazategui del 25/10/2026 (fecha 34), por lo que se mantiene como integrante convocado del primer equipo.
+- Nahuel Icazatti se conserva: su perfil individual lo identifica con nombre completo Leandro Nahuel Icazatti y registra 29 presencias, 23 titularidades y 6 ingresos desde el banco.
+- Posiciones corregidas según AFA: Lucas Gómez DEF, Tomás Dopazo MED y Franco Pérez DEL.
+
+Fuentes: [nómina oficial AFA y ascenso de Luján](https://www.afa.com.ar/es/posts/lujan-supero-a-berazategui-en-la-final-por-el-ascenso-y-jugara-la-proxima-temporada-en-primera-b), [plantel de cierre Solo Ascenso](https://www.soloascenso.com.ar/club/lujan/290), [perfil de Nahuel Icazatti](https://www.soloascenso.com.ar/perfil/nahuel-icazatti/22784), [síntesis Luján–Berazategui, fecha 34](https://www.soloascenso.com.ar/ficha/46167).
+
+**Pendiente:** la integración de runtime (squads.json, squads.js y squads-meta.json) se ejecuta por el workflow del PR después de los cambios en CSV/test. No se considera sincronizada hasta verificar un run exitoso y el commit automático resultante.
