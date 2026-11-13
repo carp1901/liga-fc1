@@ -55,11 +55,11 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 ## Estado
 
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
-- [x] Tanda 2: 243 jugadores en 7 clubes
+- [x] Tanda 2: 224 jugadores en 7 clubes
 - [x] Tanda 3: 248 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
 - [x] Tanda 4: 233 jugadores en 7 clubes
-- [x] CSV actualizado: 925 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 9 planteles que aún superan 30 jugadores
+- [x] CSV actualizado: 906 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 8 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -277,3 +277,12 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - No se reincorporaron Emanuel de Porras ni Julián Bottaro, ausentes del plantel de cierre; Félix Orode dejó Sportivo Barracas y pasó a La Campana/Muñiz durante agosto de 2026.
 - Fuentes: [plantel actual de Sportivo Barracas](https://www.365scores.com/es/football/team/sportivo-barracas-14371/squad), [plantel y nómina de Copa Argentina](https://www.copaargentina.org/es/equipos/121_sportivo-barracas.html), [estadísticas de Tomás/Alen Boschi: 23 partidos y 672 minutos](https://es.besoccer.com/jugador/career-path/tomas-boschi-3813516), [nombre completo Alen Tomás Boschi](https://www.transfermarkt.es/alen-boschi/profil/spieler/1462817), [salida de Félix Orode](https://www.sportdigital.com.ar/nota/14553/futbol-gran-refuerzo-de-la-campana-para-el-torneo-clausura).
 - Nuevo recuento CSV: **925 jugadores en 28 clubes**. Diecinueve clubes cumplen el máximo de 30; quedan nueve planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de JJ Urquiza
+
+- **JJ Urquiza: 49 → 30 jugadores.** Se priorizó la participación individual en Primera C 2026, tomando como base la tabla de partidos jugados y el plantel de temporada.
+- Se retiraron 19 nombres de baja participación, sin minutos o fuera de la nómina principal de cierre. Se mantuvo a Ramiro Cordero como segundo arquero (1 partido), además del titular Facundo Durán, para conservar cobertura en el puesto.
+- No se importó el registro incompleto “Brian” que aparece en la tabla estadística: no ofrece apellido verificable ni correspondencia inequívoca con un jugador del CSV.
+- Fuentes: [estadísticas individuales de JJ Urquiza](https://www.zerozero.pt/equipa/justo-jose-de-urquiza/45579/jogadores?redird=1), [plantel 2026 y transferencias](https://www.zerozero.pt/equipa/justo-jose-de-urquiza/45579?epoca_id=155), [convocatorias de temporada](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html).
+- Nuevo recuento CSV: **906 jugadores en 28 clubes**. Veinte clubes cumplen el máximo de 30; quedan ocho planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
