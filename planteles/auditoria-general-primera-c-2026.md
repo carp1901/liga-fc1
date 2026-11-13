@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **966 jugadores en 28 clubes**.
-- Quince clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30) y Deportivo Paraguayo (30).
-- Quedan **13 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **964 jugadores en 28 clubes**.
+- Dieciséis clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30) y Central Córdoba Rosario (30).
+- Quedan **12 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1110,3 +1110,12 @@ Patricio Romero no se incorporó: disputó 13 partidos en el primer semestre, pe
 Fuentes: [plantel y estadísticas 2026](https://www.zerozero.pt/equipa/paraguayo/23534?edicao_id=212447), [Paraguayo–Estrella: gol de César Ávalos](https://www.tn.com.ar/deportes/futbol/2026/03/28/paraguayo-vs-estrella-en-vivo-por-la-fecha-5-de-la-primera-c-hora-donde-ver-y-formaciones/), [salida de Patricio Romero](https://www.soloascenso.com.ar/notas/deportivo-espanol/un-referente-de-paraguayo-seguira-su-carrera-en-el-nacional/229693), [síntesis de fecha 29](https://revistatribunaroja.blogspot.com/2026/08/un-empate-con-gusto-a-poco.html).
 
 **Recuento vigente:** 966 jugadores en 28 clubes; quince planteles dentro del límite y trece pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Central Córdoba Rosario — 32 → 30
+
+Se cruzó el CSV con el plantel 2026 y las estadísticas de uso. Se incorporaron Brian Otero (14 partidos), Renzo Altamura (12) y Gino Albertengo (10), delanteros de la nómina 2026 que faltaban en el archivo. Se retiraron Tomás D'Amico (2 partidos), Mirko Pfarherr (2), Martín Porta (2), Franco Fagúndez (no figura en el plantel de temporada) y Santiago Arduino (5). Se conserva Santiago Spelzini (5) en lugar de Leonel Fagúndez (3) para priorizar participación comprobada.
+
+Fuentes: [plantel 2026](https://www.zerozero.pt/equipa/central-cordoba-rosario/29621?edicao_id=212447), [once más utilizado y estadísticas de equipo](https://www.zerozero.pt/equipa/central-cordoba-rosario/29621), [estadísticas de minutos](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_jogador=840689&op=sjo&v=jt5).
+
+**Recuento vigente:** 964 jugadores en 28 clubes; dieciséis planteles dentro del límite y doce pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
