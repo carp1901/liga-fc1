@@ -593,3 +593,62 @@ Fuentes: [nómina 2026 de Puerto Nuevo](https://www.soloascenso.com.ar/club/puer
 ### Resultado del bloque
 
 Se revisaron cuatro planteles completos más. No hubo cambios de filas: las nóminas consolidadas coinciden con los CSV y los movimientos de mitad de temporada están asignados al club correcto. Se mantiene el total de **1.124 jugadores en 28 clubes**.
+
+
+## 10. Auditoría ampliada — J.J. Urquiza, Atlético Lugano, Atlas, Cañuelas y Centro Español
+
+Se realizó un cruce nominal completo de los cinco CSV con las nóminas de cierre 2026 publicadas por Solo Ascenso y una revisión conjunta de altas, bajas y convocatorias relevantes. **No se modifican filas en este bloque**: no apareció una omisión o salida inequívoca que justifique cambiar los datos actuales.
+
+### J.J. Urquiza — 49 cargados
+
+- Los 49 nombres del CSV coinciden con la nómina actual de Solo Ascenso.
+- La ficha del debut ante Mercedes confirma que Brian Vittadello integró el equipo al comienzo del torneo, pero el registro de mercado muestra su salida a Central Ballester en junio. Por eso está correctamente ausente del CSV de J.J. Urquiza y presente en Central Ballester.
+- Fabián Lucero y Gastón Cueto se conservan: ambos aparecen en la nómina de cierre y en la formación/banco de la primera fecha; además Cueto figura entre los goleadores.
+- Manuel Aiello está incluido como alta de mitad de año desde Riestra.
+- La nómina de 49 es grande. No se recorta por intuición: queda priorizada para una auditoría individual de minutos y convocatorias antes de cualquier baja.
+
+Fuentes: [nómina de J.J. Urquiza](https://www.soloascenso.com.ar/club/jj-urquiza/283), [síntesis J.J. Urquiza–Mercedes, fecha 1](https://www.soloascenso.com.ar/sintesis/jj-urquiza-mercedes/44981), [mercado de pases Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Atlético Lugano — 45 cargados
+
+- Los 45 nombres del CSV coinciden con la nómina de cierre publicada por Solo Ascenso.
+- Se corroboran las incorporaciones de Jonathan García, Rodrigo Soria, Celso Báez, Gabriel Urruchúa, Matías Gelpi, Juan Cristaldo, Matías Coselli, Nicolás Insaurralde, José Montiel, Ángel Gómez, Juan Cruz Julián, Pablo Quiroga, Dylan Jara, Santino Milanesi, Damián Fernández, Tobías Graña, Jonathan Acuña, Luca Godoy y Nazareno Plaza.
+- La probable formación y la lista de convocados del debut ante Sacachispas incluyen a los principales refuerzos; la nómina de cierre también conserva a los jugadores que sostuvieron el equipo en el segundo semestre.
+- Se conserva la grafía **Matías Benardoni** del plantel de Solo Ascenso; el registro de mercado presenta la variante “Bernardoni”.
+- 45 es un plantel numeroso. Se deja marcado para revisar minutos/convocatorias y no se elimina a suplentes o juveniles sólo por no tener minutos.
+
+Fuentes: [nómina de Atlético Lugano](https://www.soloascenso.com.ar/club/lugano/289), [refuerzo Jonathan García y altas de enero](https://www.soloascenso.com.ar/notas/lugano/lugano-confirmo-la-incorporacion-de-un-arquero/224109), [convocados ante Sacachispas, fecha 1](https://www.soloascenso.com.ar/notas/lugano/lugano-inicia-un-nuevo-campeonato-frente-a-sacachispas/225093), [mercado de pases Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Atlas — 42 cargados
+
+- Los 42 nombres del CSV coinciden con la nómina actual de Solo Ascenso.
+- El equipo titular anunciado para el debut confirma la presencia inicial de Ricardo Grieger, Agustín Polito, Gustavo Alcaraz, Arturo Ordano, Braian Brandán, Daian Vocos, Leonardo Celín, Alexander Meza, Federico González, Nicolás Vidal y Gustavo Britos.
+- **Gustavo Britos** no se reincorpora: fue transferido a Leones FC durante la temporada y está correctamente fuera del CSV de Atlas.
+- **Ignacio Gallo** también salió de Atlas y aparece en Lugano, donde está correctamente incluido.
+- Nicolás Pérez regresó a Atlas en julio y está contemplado en el CSV.
+- El tamaño de 42 se marca para revisión individual de participación; no se recorta sin comprobar primero las convocatorias.
+
+Fuentes: [nómina de Atlas](https://www.soloascenso.com.ar/club/atlas/247), [formación probable del debut 2026](https://www.soloascenso.com.ar/notas/atlas/atlas-comienza-una-nueva-temporada-ante-central-ballester/225092), [regreso de Nicolás Pérez](https://www.universofutbol.com/plantillas/archivos/template_clubes.php?camp=1839&div=4&equ=43), [mercado de pases Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Cañuelas — 31 cargados
+
+- Los 31 nombres únicos del CSV coinciden con la nómina vigente de Solo Ascenso. Esa página repite a **Santino Sapio** en DEF y MED; el CSV lo conserva una sola vez como DEF y MED queda documentado como posición secundaria, sin duplicar al futbolista.
+- Se mantienen las incorporaciones y renovaciones identificadas: Agustín Coali, Diego Aguirre, Gian Laurito, Mateo Tarrío, Tobías Ybarra y Facundo Cipresso.
+- **Gerónimo Patritti** no se reincorpora: la información de mercado previa al inicio registra su transferencia a Gimnasia de Mendoza.
+- Se detectó una discrepancia con otra página de plantel que publica nombres diferentes y más antiguos (incluye jugadores que no aparecen en las convocatorias de cierre). Para no mezclar planteles ni temporadas, se prioriza la nómina actual de Solo Ascenso, que coincide con el CSV, y la otra lista queda como fuente secundaria no confirmada.
+- **Resultado:** se mantiene el plantel de 31; no se duplica a Sapio ni se agregan nombres por una nómina discordante.
+
+Fuentes: [nómina y goleadores de Cañuelas](https://www.soloascenso.com.ar/club/canuelas-fc/256), [plantel alternativo con discrepancias](https://www.datafutbol.app/liga/arg_primera_c/club/canuelas), [mercado de pases Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Centro Español — 29 cargados
+
+- Los 29 nombres del CSV coinciden con la nómina actual de Solo Ascenso.
+- **Tomás Rozic** está correctamente incluido: llegó desde Comunicaciones en junio, debutó con gol y fue el único refuerzo de Centro Español para el segundo semestre.
+- Se mantienen fuera del CSV **William Giménez, Ivo Regules, Rodrigo Suárez y Carlos Di Pietro**, cuyas salidas fueron confirmadas hacia Excursionistas, FC Ezeiza, SAT y Atlético Escobar, respectivamente.
+- **Resultado:** nómina y movimientos de mercado coinciden; no se detectan altas o bajas pendientes.
+
+Fuentes: [nómina de Centro Español](https://www.soloascenso.com.ar/club/centro-espanol/257), [llegada de Tomás Rozic y cuatro bajas](https://www.soloascenso.com.ar/notas/centro-espanol/el-nuevo-refuerzo-de-centro-espanol-debuto-con-un-gol/229747), [mercado de pases Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
+
+### Resultado del bloque
+
+Se auditaron cinco clubes adicionales. Los cinco CSV coinciden nominalmente con las nóminas de cierre consultadas; se validaron movimientos relevantes y se documentó la discrepancia secundaria de Cañuelas. **No se modificaron filas**. J.J. Urquiza (49), Lugano (45) y Atlas (42) quedan como prioridad para una pasada individual de minutos y convocatorias, con el objetivo de depurar sin sobrepoblar y sin borrar suplentes legítimos.
