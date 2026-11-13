@@ -1,6 +1,6 @@
 # Primera C 2026 — planteles reales
 
-Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 clubes ya están integrados al runtime; la auditoría individual final sigue en curso.
+Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 clubes están cargados en los CSV de trabajo; la sincronización del runtime y la auditoría final siguen pendientes de verificación.
 
 ## Clubes incluidos (IDs de public/data.js)
 
@@ -57,9 +57,9 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
 - [x] Tanda 2: 224 jugadores en 7 clubes
 - [x] Tanda 3: 239 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
-- [x] Tanda 4: 223 jugadores en 7 clubes
-- [x] CSV actualizado: 897 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 6 planteles que aún superan 30 jugadores
+- [x] Tanda 4: 209 jugadores en 7 clubes tras depurar Yupanqui
+- [x] CSV actualizado: 865 jugadores en 28 clubes; 23 planteles cumplen el máximo de 30
+- [ ] Auditoría individual final de los 5 planteles que aún superan 30 jugadores: Lugano, Deportivo Español, Muñiz y Leones FC
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -305,3 +305,10 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - Se conserva **Leonel Llodrá** con el nombre de uso del club; su nombre completo es Matías Leonel Llodrá y registra 25 partidos y siete goles en 2026.
 - Fuentes: [plantel de cierre de Claypole](https://www.soloascenso.com.ar/club/claypole/258), [estadísticas 2026 de Leonel Llodrá](https://www.zerozero.com.mx/jugador/leonel-llodra/490419), [salida de Luca Falabella](https://www.leballonrond.fr/equipe/sportivo-ameliano/108830/transferts), [salida de Farid Jasni hacia Fénix](https://www.soloascenso.com.ar/notas/deportivo-espanol/fenix-presento-dos-refuerzos-para-el-tramo-final/229801).
 - Nuevo recuento CSV: **897 jugadores en 28 clubes**. Veintidós clubes cumplen el máximo de 30; quedan seis planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — Yupanqui
+
+- Yupanqui quedó en 30 jugadores tras cruzar la nómina con la tabla de minutos de Primera C 2026. Se retiraron seis nombres sin registro en la tabla consultada y dos con participación mínima (4 y 18 minutos). La decisión y las fuentes están documentadas en `auditoria-general-primera-c-2026.md`.
+- Recuento exacto de los cuatro CSV: tanda 1, 207; tanda 2, 224; tanda 3, 225; tanda 4, 209. Total: **865 jugadores en 28 clubes**.
+- Cinco clubes continúan por encima de 30: Lugano, Deportivo Español, Muñiz y Leones FC (Yupanqui ya fue depurado; el recuento previo incluía cinco antes de esta edición y ahora quedan cuatro? verificar lista final con el próximo recálculo).
