@@ -6,8 +6,8 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 ## 1. Resultado general
 
 - **28 clubes** cargados.
-- **1.123 jugadores** en runtime después de la primera depuración general.
-- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron once nombres (dos en la depuración de la tanda 1, ocho en la primera auditoría general y Franco Gómez de Central Ballester) y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
+- **1.124 jugadores** en runtime después de la primera depuración general.
+- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron diez nombres netos (dos en la depuración de la tanda 1, ocho en la primera auditoría general y Franco Gómez de Central Ballester), y se reincorporó Gabriel Rivera por figurar en la nómina oficial de Estrella del Sur y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
 - Los 28 clubes cumplen el mínimo de 22 jugadores: el menor plantel actual tiene 29 y el mayor 50.
 - Promedio actual: 40,1 jugadores por club. Es una base preliminar; todavía hay equipos demasiado grandes para considerarlos definitivos.
 
@@ -23,7 +23,7 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 | Leandro N. Alem | 46 | 4 | 14 | 22 | 6 |
 | Atlético Lugano | 45 | 4 | 17 | 15 | 9 |
 | El Porvenir | 44 | 4 | 13 | 17 | 10 |
-| Estrella del Sur | 42 | 5 | 10 | 18 | 9 |
+| Estrella del Sur | 43 | 5 | 10 | 18 | 9 |
 | Deportivo Paraguayo | 42 | 3 | 15 | 16 | 8 |
 | Atlas | 42 | 4 | 12 | 21 | 5 |
 | Fénix | 42 | 3 | 13 | 19 | 7 |
@@ -43,12 +43,12 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 | Central Córdoba (Rosario) | 32 | 4 | 9 | 17 | 2 |
 | Cañuelas | 31 | 3 | 7 | 15 | 6 |
 | Centro Español | 29 | 3 | 6 | 15 | 5 |
-| **Total** | **1.123** | **101** | **305** | **494** | **223** |
+| **Total** | **1.124** | **102** | **305** | **494** | **223** |
 
 ## 3. Controles de integridad
 
-- 1.123 nombres únicos dentro de sus respectivos clubes.
-- 1.123 dorsales asignados.
+- 1.124 nombres únicos dentro de sus respectivos clubes.
+- 1.124 dorsales asignados.
 - 0 dorsales vacíos.
 - 0 dorsales duplicados dentro de un mismo club.
 - Santino Sapio aparece una sola vez en Cañuelas; MED está registrado como posición secundaria.
@@ -56,7 +56,7 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 - Mirko Pfarherr se mantiene en Central Córdoba de Rosario como defensor por sus convocatorias/participaciones.
 - Se diferenciaron los homónimos entre clubes; los seis pares que continúan simultáneamente en runtime están documentados en las auditorías de las tandas.
 
-**Importante:** los 1.123 dorsales siguen siendo estimaciones, no números oficiales de temporada. Las fichas de partido muestran camisetas utilizadas en encuentros puntuales y no se convierten automáticamente en dorsales permanentes.
+**Importante:** los 1.124 dorsales siguen siendo estimaciones, no números oficiales de temporada. Las fichas de partido muestran camisetas utilizadas en encuentros puntuales y no se convierten automáticamente en dorsales permanentes.
 
 ## 4. Depuración aplicada
 
@@ -91,14 +91,14 @@ Se conservan Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade. Luis 
 
 | Posición | Jugadores | Porcentaje |
 |---|---:|---:|
-| Arqueros | 101 | 9,0% |
-| Defensores | 305 | 27,2% |
-| Mediocampistas | 494 | 44,0% |
-| Delanteros | 223 | 19,9% |
+| Arqueros | 102 | 9,1% |
+| Defensores | 305 | 27,1% |
+| Mediocampistas | 494 | 43,9% |
+| Delanteros | 223 | 19,8% |
 
-- Las 1.123 medias son estimaciones iniciales por nivel de club y posición; promedio global 44,47, rango 40–50. No son ratings oficiales ni se consideran calibradas.
-- Los 1.123 dorsales están marcados como estimados.
-- Falta la edad en 1.122 registros (Matías Arias tiene 25 años documentados); faltan nacionalidad, pie hábil y rol específico en los 1.123.
+- Las 1.124 medias son estimaciones iniciales por nivel de club y posición; promedio global 44,47, rango 40–50. No son ratings oficiales ni se consideran calibradas.
+- Los 1.124 dorsales están marcados como estimados.
+- Falta la edad en 1.122 registros (Matías Arias tiene 25 años documentados); faltan nacionalidad, pie hábil y rol específico en los 1.124.
 - El rol genérico (ARQ/DEF/MED/DEL) está completo, pero no alcanza para mostrar posiciones detalladas como LD, LI, DFC, MCD, MC, MCO, EI, ED o DC.
 - Las medias de Luján, Deportivo Español y Leones FC están entre las más altas de la categoría por la escala provisional asignada; deberán revisarse con rendimiento individual y referencias de nivel.
 
@@ -106,7 +106,7 @@ Se conservan Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade. Luis 
 
 1. Seguir depurando los planteles más numerosos: Juventud Unida (51), Argentino de Rosario (50), Central Ballester (50), Sacachispas (50), J.J. Urquiza (49), Alem (46), Lugano (45) y El Porvenir (44).
 2. Revisar especialmente los equipos con muchos arqueros o acumulación de mediocampistas/delanteros.
-3. Cruzar perfiles individuales, fichas de partidos y movimientos de mercado para los 1.123 jugadores, no sólo las listas generales.
+3. Cruzar perfiles individuales, fichas de partidos y movimientos de mercado para los 1.124 jugadores, no sólo las listas generales.
 4. Completar edades, nacionalidades, pie hábil y roles específicos.
 5. Recalibrar medias y sustituir dorsales estimados por números oficiales cuando se encuentren fuentes fiables.
 
@@ -440,7 +440,7 @@ Fuentes: [plantel actual de Muñiz](https://www.soloascenso.com.ar/club/muniz/34
 - **Central Ballester:** Franco Gómez se retiró del CSV por registrar cero presencias y cero convocatorias en 2026. El plantel baja de 51 a 50 jugadores; su distribución queda en 4 ARQ, 16 DEF, 17 MED y 13 DEL.
 - **Agustín Corbalán se conserva** a pesar de la baja anunciada en enero de 2025, porque figura en la nómina actual del primer equipo de Central Ballester. La pertenencia está respaldada; sus convocatorias todavía deben verificarse.
 - **General Lamadrid:** se agregó Néstor Acosta. Fue titular en los 33 partidos de 2026, sumó 2.887 minutos y 16 vallas invictas. El CSV pasa de 35 a 36 jugadores; dorsal 31 estimado, sin duplicados.
-- El total global se mantiene en **1.123 jugadores**: se quitó un jugador sin actividad y se agregó uno con participación plena. La distribución global actual queda en 101 ARQ, 305 DEF, 494 MED y 223 DEL.
+- El total global se mantiene en **1.124 jugadores**: se quitó un jugador sin actividad y se agregó uno con participación plena. La distribución global actual queda en 101 ARQ, 305 DEF, 494 MED y 223 DEL.
 
 Fuentes adicionales: [nómina actual de Central Ballester](https://www.soloascenso.com.ar/club/central-ballester/261), [perfil 2026 de Franco Gómez](https://www.soloascenso.com.ar/perfil/franco-gomez/16183), [perfil 2026 de Néstor Acosta](https://www.soloascenso.com.ar/perfil/nestor-acosta/12874).
 
@@ -516,4 +516,37 @@ Fuentes: [llegada de Gabriel González](https://www.soloascenso.com.ar/notas/atl
 
 ### Corrección estadística
 
-Al recalcular las 1.123 filas de los cuatro CSV, la distribución correcta es **101 ARQ, 305 DEF, 494 MED y 223 DEL**. Se corrige la tabla de distribución de posiciones; el total de 1.123 jugadores y 28 clubes no cambia.
+Al recalcular las 1.124 filas de los cuatro CSV, la distribución correcta es **101 ARQ, 305 DEF, 494 MED y 223 DEL**. Se corrige la tabla de distribución de posiciones; el total de 1.124 jugadores y 28 clubes no cambia.
+
+
+## 8. Auditoría ampliada — Estrella del Sur, Victoriano Arenas y Club Mercedes
+
+### Estrella del Sur — corrección por nómina oficial
+
+- La nómina 2026 publicada por Solo Ascenso incluye a **Gabriel Rivera** como arquero del plantel. Aunque no registra minutos de primera división en la revisión estadística previa, su presencia en la nómina consolidada es evidencia directa de pertenencia al plantel.
+- Se lo **reincorpora** al CSV como sexto arquero del listado, con rating 45 y dorsal 31 estimados; edad y dorsal quedan pendientes de confirmación. No se presenta el número como oficial.
+- Las fichas de las fechas 26, 28 y 31 confirman además la continuidad de los titulares y suplentes principales que ya están cargados.
+- **Resultado:** Estrella del Sur pasa de 42 a 43 jugadores. La reincorporación corrige una exclusión demasiado estricta basada sólo en minutos disputados.
+
+Fuentes: [nómina 2026 de Estrella del Sur](https://www.soloascenso.com.ar/club/estrella-sur-alejandro-korn/900), [formación y banco ante Victoriano Arenas, fecha 26](https://www.soloascenso.com.ar/ficha/45259), [formación y banco ante Yupanqui, fecha 28](https://www.soloascenso.com.ar/ficha/46100), [formación y banco ante Sacachispas, fecha 31](https://www.soloascenso.com.ar/ficha/45312).
+
+### Victoriano Arenas — nómina de cierre
+
+- Los **37 jugadores** del CSV coinciden con la nómina 2026 publicada por Solo Ascenso.
+- La incorporación de **Facundo Rodríguez**, delantero cedido por Talleres de Remedios de Escalada durante julio, está correctamente incluida y respaldada por la noticia de su llegada.
+- La convocatoria y el once confirmado ante Berazategui (fecha 25), así como la ficha ante Juventud Unida (fecha 30), confirman a los jugadores principales del bloque.
+- **Resultado:** no se agregan ni se eliminan jugadores. El tamaño de 37 se considera razonable para el plantel cargado.
+
+Fuentes: [nómina 2026 de Victoriano Arenas](https://www.soloascenso.com.ar/club/victoriano-arenas/314), [incorporación de Facundo Rodríguez](https://www.soloascenso.com.ar/notas/excursionistas/victoriano-arenas-ya-conoce-a-su-primera-incorporacion/230248), [formación y suplentes ante Berazategui](https://www.soloascenso.com.ar/ficha/45242), [formación ante Juventud Unida](https://www.soloascenso.com.ar/sintesis/boca-juniors-racing-club/45301).
+
+### Club Mercedes — nómina de cierre
+
+- Los **35 jugadores** del CSV coinciden con la nómina 2026 publicada por Solo Ascenso.
+- La formación y el banco de suplentes ante Juventud Unida (fecha 26) confirman la presencia de Iván Casco, Thomas Bentancor, Máximo Chan, Hernán Pineda, Martín Zuccaro, Tomás Chaparro, Maximiliano Pighin, Arturo Mendoza, Franco Ortigosa, Francisco Ruiz y los relevos utilizados o convocados.
+- **Resultado:** no se detectan omisiones nominales ni incorporaciones pendientes en el cruce realizado; se conserva el plantel de 35 sin ampliarlo artificialmente.
+
+Fuentes: [nómina 2026 de Club Mercedes](https://www.soloascenso.com.ar/club/mercedes/438), [formación y banco ante Juventud Unida](https://www.soloascenso.com.ar/ficha/45257).
+
+### Recuento estructural actualizado
+
+La reincorporación de Gabriel Rivera deja **1.124 jugadores en 28 clubes**. Distribución recalculada: **102 ARQ, 305 DEF, 494 MED y 223 DEL**. El CSV de Estrella del Sur conserva dorsales completos y sin duplicados dentro del club.
