@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **906 jugadores en 28 clubes**.
-- Veinte clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30), Fénix (29), Sportivo Barracas (27) y JJ Urquiza (30).
-- Quedan **8 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **896 jugadores en 28 clubes**.
+- Veintiún clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30), Fénix (29), Sportivo Barracas (27), JJ Urquiza (30) y General Lamadrid (29).
+- Quedan **7 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1140,7 +1140,7 @@ Iván Gorosito se conserva con el nombre de uso del club: la ficha de ZeroZero a
 
 Fuentes: [estadísticas individuales de Fénix](https://www.zerozero.pt/equipa/fenix/26695/jogadores), [perfil de Iván Gorosito](https://www.zerozero.pe/jugador/ivan-gorosito/989369?epoca_id=155), [cierre oficial de temporada](https://clubatleticofenix.com/fenix-2-1-leones-oficial-cierre-de-temporada-y-descenso-en-primera-c/), [presentación de refuerzos 2026](https://www.soloascenso.com.ar/notas/fenix/siguen-llegando-fenix-sumo-una-nueva-incorporacion/224754).
 
-**Recuento vigente:** 906 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente:** 896 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
 
 
 ### Sportivo Barracas — 39 → 27
@@ -1163,3 +1163,14 @@ No se importó el registro incompleto “Brian” que aparece en la tabla estad�
 Fuentes: [estadísticas individuales de JJ Urquiza](https://www.zerozero.pt/equipa/justo-jose-de-urquiza/45579/jogadores?redird=1), [plantel 2026 y transferencias](https://www.zerozero.pt/equipa/justo-jose-de-urquiza/45579?epoca_id=155), [convocatorias de temporada](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html).
 
 **Recuento vigente:** 906 jugadores en 28 clubes; veinte planteles dentro del límite y ocho pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### General Lamadrid — 39 → 29
+
+Se utilizó la tabla de partidos disputados y el plantel de cierre de 2026. Se incorporó Juan Pablo López (defensor, 25 años), líder de presencias con 39 partidos, que faltaba en el CSV. Se retiraron 11 nombres con participación nula o baja y/o fuera de la nómina de cierre. Se conservó a Franco Davalos como arquero suplente junto con Néstor Acosta y Matías Velázquez.
+
+Alejo Roa se mantiene con el nombre del club: la ficha estadística lo abrevia como Agustín Roa, pero su nombre completo es Alejo Agustín Roa; su perfil confirma 30 presencias, 25 titularidades y tres goles. Darío Nami salió de Lamadrid durante la temporada hacia El Porvenir; Ian Lynch también dejó el club y pasó a Deportivo Paraguayo, donde ya está cargado.
+
+Fuentes: [estadísticas individuales de Lamadrid](https://www.zerozero.pt/equipa/general-lamadrid/45578/jogadores), [plantel de cierre 2026](https://www.soloascenso.com.ar/club/gral-lamadrid/278), [perfil de Alejo Roa](https://www.soloascenso.com.ar/perfil/alejo-roa/24038), [fichas de partido](https://devotodelamadrid.blogspot.com/2026/09/).
+
+**Recuento vigente:** 896 jugadores en 28 clubes; veintiún planteles dentro del límite y siete pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
