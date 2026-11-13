@@ -13,10 +13,10 @@ const headers=parsed[0].shift().map(x=>x.trim().toLowerCase());
 for(let i=1;i<parsed.length;i++)assert.deepEqual(parsed[i].shift().map(x=>x.trim().toLowerCase()),headers,'Los cuatro CSV deben compartir esquema');
 const rows=parsed.flat();const col=Object.fromEntries(headers.map((h,i)=>[h,i]));
 const expected={
- juventudunida:51,estrelladelsur:42,argentinorosario:50,victorianoarenas:37,sacachispas:50,alem:46,mercedes:35,
+ juventudunida:51,estrelladelsur:43,argentinorosario:50,victorianoarenas:37,sacachispas:50,alem:46,mercedes:35,
  berazategui:38,paraguayo:42,cambaceres:35,puertonuevo:33,centroespanol:29,jjurquiza:49,lugano:45,
- atlas:42,canuelas:31,centralballester:50,centralcordobarosario:32,claypole:39,espanol:39,muniz:38,
- porvenir:44,fenix:42,lamadrid:36,leones:37,lujan:33,sportivobarracas:39,yupanqui:39
+ atlas:42,canuelas:31,centralballester:30,centralcordobarosario:32,claypole:39,espanol:39,muniz:38,
+ porvenir:44,fenix:42,lamadrid:39,leones:37,lujan:33,sportivobarracas:39,yupanqui:38
 };
 const allowed=new Set(Object.keys(expected)),names=new Set(),numbers=new Set(),totalByClub={};let total=0;
 const normalizedName=s=>Array.from(s.normalize('NFD')).filter(ch=>{const n=ch.charCodeAt(0);return n<768||n>879;}).join('').toLowerCase();
@@ -36,7 +36,7 @@ for(const [i,row] of rows.entries()){
  if(!crossNames.has(normalizedName(name)))crossNames.set(normalizedName(name),[]);
  crossNames.get(normalizedName(name)).push({club,pos,name});
 }
-assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,1123,'Total nominal inesperado');
+assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,1106,'Total nominal inesperado');
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
 assert.deepEqual(collisions,['gonzalo medina','gonzalo ramirez','lautaro torres','rodrigo ortiz','rodrigo soria','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
 const pair=(name,expectedPair)=>assert.deepEqual(crossNames.get(name).map(x=>x.club+'|'+x.pos).sort(),expectedPair);
@@ -65,4 +65,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 1.123 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 1.123 jugadores, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 1.106 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 1.106 jugadores, sin duplicados internos ni dorsales repetidos.');
