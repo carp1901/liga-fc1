@@ -70,7 +70,7 @@ assert(atlasRows.some(row=>row[col.nombre]==='Lucas Uñate'),'Debe conservarse L
 const claypoleRows=rows.filter(row=>row[col.club_id]==='claypole');assert.equal(claypoleRows.length,30,'Claypole debe quedar en 30 jugadores del plantel principal');
 for(const name of ['Juan Ignacio Barretta','Axel Copa','Agustín Maciel','Gustavo Meneces','Lautaro Vallejos','Axel Aguirre','Pablo Almada','Lautaro Cossio','Gastón Maidana'])assert(!claypoleRows.some(row=>row[col.nombre]===name),'Claypole conserva un jugador fuera del corte: '+name);
 assert(claypoleRows.some(row=>row[col.nombre]==='Leonel Llodrá'),'Debe conservarse Leonel Llodrá, Matías Leonel Llodrá, con 25 partidos en 2026');
-const lamadridRows=rows.filter(row=>row[col.club_id]==='lamadrid');assert.equal(lamadridRows.length,28,'General Lamadrid debe quedar con 29 jugadores de la nómina de cierre');
+const lamadridRows=rows.filter(row=>row[col.club_id]==='lamadrid');assert.equal(lamadridRows.length,28,'General Lamadrid debe quedar con 28 jugadores de la nómina de cierre');
 for(const name of ['Tiziano Colla','Lucas Nuesch','Thiago Pittella','Gianluca Francone','Valentino Lozano','Martin Spaccarotella','Tobías Vedovati','Hugo Zarco','Darío Nami','Tomás Moreno','Breyner Mata'])assert(!lamadridRows.some(row=>row[col.nombre]===name),'Lamadrid conserva un jugador fuera del corte de cierre: '+name);
 assert(!lamadridRows.some(row=>row[col.nombre]==='Juan Pablo López'),'Juan Pablo López ya estaba transferido a Puerto Nuevo al inicio de 2026');
 assert(rows.some(row=>row[col.club_id]==='puertonuevo'&&row[col.nombre]==='Juan Pablo López'),'Juan Pablo López debe figurar únicamente en Puerto Nuevo');
@@ -89,7 +89,7 @@ for(const name of ['Diego Freire','Kevin Delgado','Tiago Ifran','Juan Ignacio Sa
 assert(porvenirRows.some(row=>row[col.nombre]==='Luis Andrade'),'Debe conservarse el segundo arquero Luis Andrade');
 assert(porvenirRows.some(row=>row[col.nombre]==='Bruno Schmid'),'Debe conservarse Bruno Schmid por sus tres partidos');
 const cordobaRows=rows.filter(row=>row[col.club_id]==='centralcordobarosario');assert.equal(cordobaRows.length,30,'Central Córdoba Rosario debe quedar en 30 jugadores');
-for(const name of ['Tomás D'Amico','Mirko Pfarherr','Franco Fagúndez','Martín Porta','Santiago Arduino'])assert(!cordobaRows.some(row=>row[col.nombre]===name),'Central Córdoba conserva un jugador fuera del corte: '+name);
+for(const name of ["Tomás D'Amico",'Mirko Pfarherr','Franco Fagúndez','Martín Porta','Santiago Arduino'])assert(!cordobaRows.some(row=>row[col.nombre]===name),'Central Córdoba conserva un jugador fuera del corte: '+name);
 assert(cordobaRows.some(row=>row[col.nombre]==='Santiago Spelzini'),'Debe conservarse Santiago Spelzini por cinco partidos');
 for(const name of ['Brian Otero','Renzo Altamura','Gino Albertengo'])assert(cordobaRows.some(row=>row[col.nombre]===name),'Falta jugador con participación comprobada en Central Córdoba: '+name);
 const paraguayoRows=rows.filter(row=>row[col.club_id]==='paraguayo');assert.equal(paraguayoRows.length,30,'Deportivo Paraguayo debe quedar en 30 jugadores');
