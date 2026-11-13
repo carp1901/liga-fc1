@@ -913,3 +913,16 @@ Fuentes: [estadísticas individuales de Central Ballester 2026 — tabla complet
 - Primera C: 1.126 → **1.106 jugadores** en 28 clubes.
 - El resto de los 27 planteles permanece sin cambios en esta intervención.
 - La validación completa de los cuatro CSV y del runtime queda pendiente de ejecutarse después de completar la depuración de los demás clubes.
+
+
+## 18. Validación estructural posterior a la poda
+
+Después de la reducción de Central Ballester y la corrección de la fila de Gabriel Rivera en la tanda 1, se volvió a recorrer el contenido de los cuatro CSV con el mismo esquema de parseo de la prueba automatizada.
+
+- 1.106 registros en 28 clubes.
+- 31 columnas consistentes en todas las filas; ninguna fila malformada.
+- Cero nombres vacíos, dorsales vacíos, dorsales duplicados o nombres duplicados dentro del mismo club.
+- Se mantienen identificados los seis homónimos entre clubes que ya estaban documentados en la prueba.
+- La prueba `test-primera-c-draft.js` quedó actualizada a los nuevos recuentos y total de 1.106.
+
+**Importante:** esta comprobación replica las validaciones estructurales del script sobre los CSV, pero todavía no equivale a una ejecución confirmada de GitHub Actions ni a la auditoría del runtime. El workflow debe ejecutar la importación de los cuatro CSV y la verificación de `public/squads.json` cuando corra en el PR.
