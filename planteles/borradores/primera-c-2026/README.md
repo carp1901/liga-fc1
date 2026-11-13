@@ -55,11 +55,11 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 ## Estado
 
 - [x] Tanda 1: 240 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida y Estrella del Sur
-- [x] Tanda 2: 268 jugadores en 7 clubes
+- [x] Tanda 2: 263 jugadores en 7 clubes
 - [x] Tanda 3: 250 jugadores en 7 clubes tras las depuraciones de Central Ballester y Cañuelas
 - [x] Tanda 4: 266 jugadores en 7 clubes
-- [x] CSV actualizado: 1.024 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 19 planteles que aún superan 30 jugadores
+- [x] CSV actualizado: 1.019 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 18 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -187,3 +187,12 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - Iván Caravaca y Juan Scarel no se incorporaron: Caravaca comunicó su salida el 30/06/2026 y Scarel fue transferido a Argentino de Quilmes el 18/07/2026. Se tomó una sola ficha de Lautaro Torres, ya que la base de estadísticas lo duplica con edades/posiciones diferentes.
 - Fuentes: [plantel 2026 de ZeroZero](https://www.zerozero.pt/equipa/estrella-del-sur/341204?epoca_id=155), [estadísticas individuales de temporada](https://www.zerozero.pt/equipa/estrella-del-sur/341204/jogadores), [transferencias 2026](https://www.zerozero.pt/equipa/estrella-del-sur/341204/transferencias), [salida de Caravaca](https://www.soloascenso.com.ar/notas/general-lamadrid/estrella-del-sur-sumo-un-refuerzo-y-sufrio-una-baja/229820).
 - Nuevo recuento CSV: **1.024 jugadores en 28 clubes**. Nueve clubes cumplen el máximo de 30; quedan 19 planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Cambaceres
+
+- **Defensores de Cambaceres: 35 → 30 jugadores.** Se ordenó la nómina por partidos disputados en las estadísticas individuales de Primera C 2026 y se mantuvieron los 30 nombres de mayor participación.
+- Se incorporaron nueve futbolistas de uso comprobado que faltaban en el CSV: Esteban Coronel, Bryan Schmidt, Román Zárate, Facundo Odello, Javier Sequeyra, Tomás Baglieri, Tomás Ledesma, Renzo Fernández y Mariano Coletto. Sus edades y puestos se tomaron de las fichas de temporada; dorsales estimados y marcados como tales cuando no había número verificable.
+- Se retiraron 14 nombres que no aparecen en la tabla de participación utilizada o quedaron fuera del corte de 30. Se conservó **Facundo Fajardo** con el nombre de Solo Ascenso: su perfil registra 22 presencias y 21 titularidades; ZeroZero lo muestra como “Agustín Fajardo”, pero su ficha individual confirma el nombre completo Facundo Fajardo González.
+- Fuentes: [estadísticas individuales de Cambaceres](https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576/jogadores), [plantel 2026 de Cambaceres](https://www.zerozero.pt/equipa/defensores-de-cambaceres/45576), [perfil de Facundo Fajardo con 22 presencias](https://www.soloascenso.com.ar/perfil/facundo-fajardo/25469), [síntesis de la fecha 29](https://www.jjurquiza.com.ar/NotasPrimera/Nota4125.html).
+- Nuevo recuento CSV: **1.019 jugadores en 28 clubes**. Diez clubes cumplen el máximo de 30; quedan 18 planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
