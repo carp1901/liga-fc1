@@ -55,11 +55,11 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 ## Estado
 
 - [x] Tanda 1: 275 jugadores en 7 clubes tras depurar Sacachispas y Alem
-- [x] Tanda 2: 271 jugadores en 7 clubes
+- [x] Tanda 2: 268 jugadores en 7 clubes
 - [x] Tanda 3: 250 jugadores en 7 clubes tras las depuraciones de Central Ballester y Cañuelas
 - [x] Tanda 4: 266 jugadores en 7 clubes
-- [x] CSV actualizado: 1.062 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 22 planteles que aún superan 30 jugadores
+- [x] CSV actualizado: 1.059 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 21 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -159,3 +159,12 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - Se ajustaron posiciones según la nómina AFA: Lucas Gómez como DEF, Tomás Dopazo como MED y Franco Pérez como DEL. Nahuel Icazatti se conserva: su ficha individual confirma 29 presencias, 23 titularidades y 6 ingresos desde el banco; su nombre completo es Leandro Nahuel Icazatti.
 - Fuentes: [plantel oficial de AFA](https://www.afa.com.ar/es/posts/lujan-supero-a-berazategui-en-la-final-por-el-ascenso-y-jugara-la-proxima-temporada-en-primera-b), [plantel de cierre de Solo Ascenso](https://www.soloascenso.com.ar/club/lujan/290), [perfil de Nahuel Icazatti](https://www.soloascenso.com.ar/perfil/nahuel-icazatti/22784), [convocatoria de fecha 34](https://www.soloascenso.com.ar/ficha/46167).
 - Nuevo recuento CSV: **1.062 jugadores en 28 clubes**. Seis clubes cumplen el máximo de 30; quedan 22 planteles por revisar. La sincronización de runtime y la prueba automatizada se verificarán en el workflow del PR.
+
+
+## Actualización 13/11/2026 — depuración de Puerto Nuevo
+
+- **Puerto Nuevo: 33 → 30 jugadores.** Se contrastó la nómina de cierre de Solo Ascenso con la presentación profesional inicial y las estadísticas individuales de Primera C 2026.
+- Se retiraron **Benjamín Ferreyra, Federico Aciar y Tomás Schefer**: sus perfiles de temporada registran cero partidos jugados; en las fichas de encuentros aparecen únicamente como suplentes no utilizados. No se retiraron jugadores por tener pocos minutos si sí registraron presencia: por ejemplo, Joaquín Pillwein (5 partidos, 53 minutos), Ezequiel Sánchez (1 partido, 19 minutos) y Lucas Ortiz (1 partido, 1 minuto) se conservan.
+- Se mantiene a Thiago Ricalde como segundo arquero por integrar la nómina profesional inicial, aunque no sumó minutos. La reducción se limita a tres mediocampistas sin participación oficial.
+- Fuentes: [plantel profesional presentado por Puerto Nuevo](https://www.soloascenso.com.ar/notas/puerto-nuevo/puerto-nuevo-tiene-todo-listo-para-competir-en-el-2026/225078), [nómina actualizada de Solo Ascenso](https://www.soloascenso.com.ar/club/puerto-nuevo/297), [estadísticas completas de Puerto Nuevo](https://www.ceroacero.com.co/equipo/puerto-nuevo/45607/jugadores?epoca_stats_id=155), [perfil de Benjamín Ferreyra](https://www.ceroacero.com.co/jugador/benjamin-ferreyra/3555652?epoca_id=155), [perfil de Federico Aciar](https://www.ceroacero.com.co/jugador/federico-aciar/3625947?epoca_id=155), [perfil de Tomás Schefer](https://www.ceroacero.com.co/jugador/tomas-schefer/3558784?epoca_id=155).
+- Nuevo recuento CSV: **1.059 jugadores en 28 clubes**. Siete clubes cumplen el máximo de 30; quedan 21 planteles por revisar. La sincronización runtime y CI siguen pendientes de ejecución confirmada.
