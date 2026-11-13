@@ -16,7 +16,7 @@ const expected={
  juventudunida:30,estrelladelsur:29,argentinorosario:30,victorianoarenas:30,sacachispas:30,alem:29,mercedes:29,
  berazategui:30,paraguayo:30,cambaceres:30,puertonuevo:30,centroespanol:29,jjurquiza:30,lugano:45,
  atlas:28,canuelas:30,centralballester:30,centralcordobarosario:30,claypole:30,espanol:39,muniz:38,
- porvenir:30,fenix:29,lamadrid:29,leones:37,lujan:27,sportivobarracas:27,yupanqui:38
+ porvenir:30,fenix:29,lamadrid:29,leones:37,lujan:27,sportivobarracas:27,yupanqui:30
 };
 const allowed=new Set(Object.keys(expected)),names=new Set(),numbers=new Set(),totalByClub={};let total=0;
 const normalizedName=s=>Array.from(s.normalize('NFD')).filter(ch=>{const n=ch.charCodeAt(0);return n<768||n>879;}).join('').toLowerCase();
@@ -36,7 +36,7 @@ for(const [i,row] of rows.entries()){
  if(!crossNames.has(normalizedName(name)))crossNames.set(normalizedName(name),[]);
  crossNames.get(normalizedName(name)).push({club,pos,name});
 }
-assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,883,'Total nominal inesperado');
+assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,865,'Total nominal inesperado');
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
 assert.deepEqual(collisions,['lautaro torres','rodrigo ortiz','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
 const pair=(name,expectedPair)=>assert.deepEqual(crossNames.get(name).map(x=>x.club+'|'+x.pos).sort(),expectedPair);
@@ -44,6 +44,9 @@ pair('rodrigo soria',['lugano|MED','victorianoarenas|ARQ']);
 pair('lautaro torres',['estrelladelsur|DEL','sacachispas|MED']);
 pair('rodrigo ortiz',['claypole|MED','paraguayo|DEL']);
 pair('santiago diaz',['cambaceres|DEF','lujan|MED']);
+const yupanquiRows=rows.filter(row=>row[col.club_id]==='yupanqui');assert.equal(yupanquiRows.length,30,'Yupanqui debe quedar con 30 jugadores según participación 2026');
+for(const name of ['Alexis González Portillo','Vito Jaime','José Manuel Méndez','Juan Ignacio Varela','Tomás Wandyk','Santiago Cenci','Ignacio Perussia','Tobías Coria'])assert(!yupanquiRows.some(row=>row[col.nombre]===name),'Yupanqui conserva un jugador fuera del corte de participación: '+name);
+assert(yupanquiRows.some(row=>row[col.nombre]==='Nahuel Castro López'),'Debe conservarse Nahuel Castro López, arquero con más minutos de Yupanqui');
 const atlasRows=rows.filter(row=>row[col.club_id]==='atlas');assert.equal(atlasRows.length,28,'Atlas debe quedar con 28 jugadores del plantel principal');
 for(const name of ['Valentino Destéfano','Thiago Rivero','Khalid Ceballos','Leandro Díaz','Lucas Flores','Jonas Palavecino','Tobías Peralta','Rodrigo Alarcón','Francisco Bello','Benjamín Casaux','Luciano Franchelli','Juan Pablo González','Axel Orué','Mariano Ramírez'])assert(!atlasRows.some(row=>row[col.nombre]===name),'Atlas conserva un jugador fuera del corte: '+name);
 assert(atlasRows.some(row=>row[col.nombre]==='Lautaro Fontán'),'Debe conservarse Lautaro Fontán como segundo arquero');
@@ -61,7 +64,7 @@ assert(urquizaRows.some(row=>row[col.nombre]==='Ramiro Cordero'),'Debe conservar
 const barracasRows=rows.filter(row=>row[col.club_id]==='sportivobarracas');assert.equal(barracasRows.length,27,'Sportivo Barracas debe quedar con 27 jugadores del plantel principal');
 for(const name of ['Bautista Nocefore','Brandon Costilla','Facundo Morán','Thiago Rodríguez','Nicolás Boynarian','Federico Gile','Tobías Mas','Ernesto Pontoriero','Enzo Rodrigues','Enzo Soria','Thiago Dini','Luca López'])assert(!barracasRows.some(row=>row[col.nombre]===name),'Sportivo Barracas conserva un jugador fuera del corte: '+name);
 assert(barracasRows.some(row=>row[col.nombre]==='Alen Boschi'),'Debe conservarse Alen Tomás Boschi, futbolista activo en 2026');
-const fenixRows=rows.filter(row=>row[col.club_id]==='fenix');assert.equal(fenixRows.length,30,'Fénix debe quedar en 30 jugadores de mayor participación 2026');
+const fenixRows=rows.filter(row=>row[col.club_id]==='fenix');assert.equal(fenixRows.length,29,'Fénix debe quedar en 30 jugadores de mayor participación 2026');
 for(const name of ['Santiago Erviti','Luca Maidana','Juan Manuel Velásquez','Camilo Cournou Heredia','Ciro Florentin','Joaquín Juárez','Maximiliano María','Gonzalo Medina','Ignacio Romano','Nathan Tito Sosa','Ignacio Vera','Matías Villalba','Santiago Liva','Franco Pérez','Ramiro Breccia'])assert(!fenixRows.some(row=>row[col.nombre]===name),'Fénix conserva un jugador fuera del corte: '+name);
 assert(fenixRows.some(row=>row[col.nombre]==='Francisco Macri'),'Debe conservarse Francisco Macri: fue titular en el cierre de temporada');
 const porvenirRows=rows.filter(row=>row[col.club_id]==='porvenir');assert.equal(porvenirRows.length,30,'El Porvenir debe quedar en 30 jugadores de mayor participación');
@@ -122,4 +125,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 883 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 906 jugadores, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 865 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 865 jugadores, sin duplicados internos ni dorsales repetidos.');
