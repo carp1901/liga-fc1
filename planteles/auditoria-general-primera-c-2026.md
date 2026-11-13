@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **925 jugadores en 28 clubes**.
-- Diecinueve clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30), Fénix (29) y Sportivo Barracas (27).
-- Quedan **9 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **906 jugadores en 28 clubes**.
+- Veinte clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30), Fénix (29), Sportivo Barracas (27) y JJ Urquiza (30).
+- Quedan **8 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1140,7 +1140,7 @@ Iván Gorosito se conserva con el nombre de uso del club: la ficha de ZeroZero a
 
 Fuentes: [estadísticas individuales de Fénix](https://www.zerozero.pt/equipa/fenix/26695/jogadores), [perfil de Iván Gorosito](https://www.zerozero.pe/jugador/ivan-gorosito/989369?epoca_id=155), [cierre oficial de temporada](https://clubatleticofenix.com/fenix-2-1-leones-oficial-cierre-de-temporada-y-descenso-en-primera-c/), [presentación de refuerzos 2026](https://www.soloascenso.com.ar/notas/fenix/siguen-llegando-fenix-sumo-una-nueva-incorporacion/224754).
 
-**Recuento vigente:** 925 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente:** 906 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
 
 
 ### Sportivo Barracas — 39 → 27
@@ -1152,3 +1152,14 @@ Alen Boschi se mantiene con el nombre de uso del club: su nombre completo es Ale
 Fuentes: [plantel 2026 de Sportivo Barracas](https://www.365scores.com/es/football/team/sportivo-barracas-14371/squad), [nómina Copa Argentina](https://www.copaargentina.org/es/equipos/121_sportivo-barracas.html), [estadísticas de Tomás/Alen Boschi](https://es.besoccer.com/jugador/career-path/tomas-boschi-3813516), [nombre completo de Alen Boschi](https://www.transfermarkt.es/alen-boschi/profil/spieler/1462817), [salida de Félix Orode](https://www.sportdigital.com.ar/nota/14553/futbol-gran-refuerzo-de-la-campana-para-el-torneo-clausura).
 
 **Recuento vigente:** 925 jugadores en 28 clubes; diecinueve planteles dentro del límite y nueve pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### JJ Urquiza — 49 → 30
+
+Se priorizó la participación individual en Primera C 2026, tomando como base la tabla de partidos jugados y el plantel de temporada. Se retiraron 19 nombres de baja participación, sin minutos o fuera de la nómina principal de cierre. Se mantuvo a Ramiro Cordero como segundo arquero (1 partido), además del titular Facundo Durán, para conservar cobertura en el puesto.
+
+No se importó el registro incompleto “Brian” que aparece en la tabla estadística, porque no ofrece apellido verificable ni correspondencia inequívoca con un jugador del CSV.
+
+Fuentes: [estadísticas individuales de JJ Urquiza](https://www.zerozero.pt/equipa/justo-jose-de-urquiza/45579/jogadores?redird=1), [plantel 2026 y transferencias](https://www.zerozero.pt/equipa/justo-jose-de-urquiza/45579?epoca_id=155), [convocatorias de temporada](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html).
+
+**Recuento vigente:** 906 jugadores en 28 clubes; veinte planteles dentro del límite y ocho pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
