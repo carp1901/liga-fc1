@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **950 jugadores en 28 clubes**.
-- Diecisiete clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30) y El Porvenir (30).
-- Quedan **11 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **938 jugadores en 28 clubes**.
+- Dieciocho clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30), Victoriano Arenas (30), Berazategui (30), Deportivo Paraguayo (30), Central Córdoba Rosario (30), El Porvenir (30) y Fénix (30).
+- Quedan **10 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1130,3 +1130,14 @@ Dario Nami no se reincorpora: dejó El Porvenir y pasó a Muñiz durante julio d
 Fuentes: [estadísticas individuales de El Porvenir](https://www.zerozero.pt/equipa/el-porvenir/9149/jogadores), [salida de Dario Nami hacia Muñiz](https://www.soloascenso.com.ar/notas/muniz/el-porvenir-sufrio-su-primera-baja-y-ya-tiene-destino/229788), [trayectoria de Gustavo Rodas y retiro](https://www.infobae.com/deportes/2025/01/17/el-jugador-que-era-mejor-que-messi-en-las-inferiores-de-newells-y-termino-odiando-el-futbol-la-historia-de-billy-rodas/).
 
 **Recuento vigente:** 950 jugadores en 28 clubes; diecisiete planteles dentro del límite y once pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Fénix — 42 → 30
+
+Se priorizó el corte de 30 futbolistas con mayor cantidad de partidos disputados en Primera C 2026. Se incorporaron Franco Pérez (8 partidos) y Ramiro Breccia (4), ausentes del CSV. Se retiraron 14 nombres de uso inferior o sin registro suficiente, y se conservaron los dos arqueros con mayor participación (Marcos Jara y Mariano Mittelman).
+
+Iván Gorosito se conserva con el nombre de uso del club: la ficha de ZeroZero aparece como Alan Iván Gorosito y registra 23 partidos/1.929 minutos. La ficha oficial y las síntesis de partidos confirman que se trata del mismo jugador.
+
+Fuentes: [estadísticas individuales de Fénix](https://www.zerozero.pt/equipa/fenix/26695/jogadores), [perfil de Iván Gorosito](https://www.zerozero.pe/jugador/ivan-gorosito/989369?epoca_id=155), [cierre oficial de temporada](https://clubatleticofenix.com/fenix-2-1-leones-oficial-cierre-de-temporada-y-descenso-en-primera-c/), [presentación de refuerzos 2026](https://www.soloascenso.com.ar/notas/fenix/siguen-llegando-fenix-sumo-una-nueva-incorporacion/224754).
+
+**Recuento vigente:** 938 jugadores en 28 clubes; dieciocho planteles dentro del límite y diez pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
