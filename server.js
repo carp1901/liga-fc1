@@ -21,7 +21,7 @@ function offlineRec(b){
  if(!(n>=4&&n<=clubs.length))return'Cantidad de equipos inválida';if(pers&&!((real||custom?n<=40:n<=20&&n%2==0)&&fmt!='copa'))return'Cantidad de equipos inválida';if(arg&&!(fmt=='copa'&&n==64))return'Cantidad de equipos inválida';
  return{tid,club,clubNombre:TM[club].name,dt:String(b.dt||'').replace(/[<>&"]/g,'').slice(0,16)||null,mod:'offline',comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:arg?'Copa Argentina':real?'Clásico realista':custom?(String(b.compNombre||'').trim()&&String(b.compNombre).trim()!='custom'?String(b.compNombre).replace(/[<>&"]/g,'').slice(0,60):'Carrera personalizada'):pers?'Clásico personalizado':'Todas las divisiones',fmt,n,competitivo:n>=(fmt=='copa'?8:10),at:Date.now(),ver:'offline-informado'};
 }
-const MIME={'.html':'text/html;charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.jpg':'image/jpeg','.webp':'image/webp','.js':'text/javascript','.css':'text/css'};
+const MIME={'.html':'text/html;charset=utf-8','.xml':'application/xml;charset=utf-8','.txt':'text/plain;charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.jpg':'image/jpeg','.webp':'image/webp','.js':'text/javascript','.css':'text/css'};
 function body(req,cb){let s='';req.on('data',d=>{s+=d;if(s.length>4096)req.destroy()});req.on('end',()=>{try{cb(JSON.parse(s))}catch(e){cb(null)}})}
 // ---- Cuentas (opcionales). El token viaja en el encabezado Authorization (o en el cuerpo). El uid de un jugador lo pone SOLO el servidor a partir del token: lo que mande el navegador se descarta.
 const tokOf=(req,b)=>{const h=String(req.headers.authorization||'');return h.startsWith('Bearer ')?h.slice(7).trim():String((b&&b.tok)||'')};
