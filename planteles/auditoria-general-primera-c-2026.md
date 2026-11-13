@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **993 jugadores en 28 clubes**.
-- Doce clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29) y Argentino de Rosario (30).
-- Quedan **16 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **986 jugadores en 28 clubes**.
+- Trece clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30), Juventud Unida (30), Estrella del Sur (29), Cambaceres (30), Club Mercedes (29), Argentino de Rosario (30) y Victoriano Arenas (30).
+- Quedan **15 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1077,3 +1077,14 @@ Dago Palencia, Facundo Aronna y Carlos Raga Córdoba no se reincorporan a Argent
 Fuentes: [estadísticas individuales de Argentino](https://www.zerozero.pt/equipa/argentino-de-rosario/43541/jogadores), [plantel y transferencias 2026](https://www.zerozero.pt/equipa/argentino-de-rosario/43541?epoca_id=155), [Rodrigo González: tres ingresos desde el banco](https://www.soloascenso.com.ar/perfil/rodrigo-gonzalez/28301), [Miguel Báez: tres partidos y 35 minutos](https://www.ceroacero.com.co/jugador/miguel-baez/1582947?epoca_id=155).
 
 **Recuento vigente:** 993 jugadores en 28 clubes; doce planteles dentro del límite y 16 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Victoriano Arenas — 37 → 30
+
+Se cruzó el CSV con el plantel de Primera C 2026 y las estadísticas individuales de ZeroZero. Se retiraron Santiago Benvenutti y Rodrigo Soria por no figurar en la nómina de 2026; Ivo Patiño y Lucas Sireiro por no registrar partidos; y Lucas Borras (2 partidos), Rodrigo Richards (1) y Rodrigo Taus (1), los de menor participación restante.
+
+Se conservan los 30 futbolistas de mayor continuidad, con dos arqueros que sí registran presencia (Julián García y Nicolás Baus). La página de plantilla incluye algunos suplentes adicionales sin minutos, pero el corte de 30 prioriza participación real y evita cargar reservas profundas.
+
+Fuentes: [plantel 2026 de Victoriano Arenas](https://www.zerozero.pt/equipa/victoriano-arenas/45608?edicao_id=212447), [estadísticas individuales](https://www.zerozero.pt/equipa/victoriano-arenas/45608/jogadores), [resumen de la temporada](https://www.zerozero.pt/equipa/victoriano-arenas/45608/estatisticas?redirm=1).
+
+**Recuento vigente:** 986 jugadores en 28 clubes; trece planteles dentro del límite y 15 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
