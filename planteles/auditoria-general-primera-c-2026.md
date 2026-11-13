@@ -1184,7 +1184,7 @@ No se agregaron jugadores que ya habían salido antes del cierre: Luca Falabella
 
 Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), [estadísticas de Leonel Llodrá](https://www.zerozero.com.mx/jugador/leonel-llodra/490419), [salida de Luca Falabella](https://www.leballonrond.fr/equipe/sportivo-ameliano/108830/transferts), [salida de Farid Jasni](https://www.soloascenso.com.ar/notas/deportivo-espanol/fenix-presento-dos-refuerzos-para-el-tramo-final/229801).
 
-**Recuento vigente tras depurar Yupanqui:** 865 jugadores en 28 clubes; veinticuatro planteles dentro del límite y cuatro pendientes: Lugano, Deportivo Español, Muñiz y Leones FC. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente tras depurar Yupanqui:** 857 jugadores en 28 clubes; veinticinco planteles dentro del límite y tres pendientes: Lugano, Deportivo Español y Leones FC. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
 
 
 ## Actualización 13/11/2026 — depuración de Yupanqui
@@ -1193,3 +1193,12 @@ Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), 
 - Se conservaron los jugadores con mayor continuidad, entre ellos Nahuel Castro López (arquero con más minutos), Alan Sánchez, Jonathan Smith, Marcos Bale, Lautaro Maside, Agustín Meloño, Pablo Vouga y los principales relevos ofensivos.
 - Fuentes: [tabla de minutos de Yupanqui en Primera C 2026](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_equipa=9309&v1=j&v2=t&v3=5), [plantel 2026 de Yupanqui](https://www.zerozero.pt/equipa/yupanqui/9309).
 - Nuevo recuento CSV: **865 jugadores en 28 clubes**. Veinticuatro planteles cumplen el máximo de 30; quedan cuatro por depurar: Lugano, Deportivo Español, Muñiz y Leones FC. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Deportivo Muñiz
+
+- **Deportivo Muñiz: 38 → 30 jugadores.** Se cruzó el CSV con la tabla individual de ZeroZero para Primera C 2026, que lista 30 futbolistas con participación. Se retiraron 13 nombres fuera de ese corte y se incorporaron cinco que sí figuran en las estadísticas: Felix Orode (16 PJ), Braian González (14), Rodrigo Gómez (8), Felipe Pérez (4) y Nahuel Cáceres (1).
+- Se corrigió la posición de Juan Carabali a delantero. Se conservan los futbolistas de mayor continuidad, incluidos Agustín Gutiérrez, Iván Malmoria e Iván Bazán (28 partidos cada uno), Eric Giménez (27) y Gonzalo Villafañe (26).
+- Los cinco dorsales agregados (43–47) son estimados y están identificados como tales. Las edades y posiciones de los incorporados proceden de la ficha estadística de temporada.
+- Fuentes: [estadísticas individuales de Deportivo Muñiz 2026](https://www.zerozero.pt/equipa/deportivo-muniz/61453/jogadores), [plantel de temporada](https://www.zerozero.pt/equipa/deportivo-muniz/61453?epoca_id=155).
+- Nuevo recuento CSV: **857 jugadores en 28 clubes**. Veinticinco planteles cumplen el máximo de 30; quedan tres por depurar. Runtime y CI siguen pendientes de ejecución confirmada.
