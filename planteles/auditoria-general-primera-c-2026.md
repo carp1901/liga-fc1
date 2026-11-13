@@ -135,7 +135,7 @@ Se revisaron en conjunto Sacachispas, Argentino de Rosario, Juventud Unida y J.J
 ### Sacachispas — 50 cargados
 
 - Las fichas de las fechas 18, 27 y 31 confirman continuidad de Neyder Aragón, Luis Lorenzi, Gonzalo Rocaniere, Alan Buonofiglio, Benjamín Arias, Ricardo Priori, Leandro Ríos, Santiago Gallardo, Gonzalo Vivanco, Alejo Monje, Lautaro Torres, Diego Molina Fariña, Uriel Sosa y Facundo Durso, entre otros.
-- **Valentín Mancuso** aparece en el banco de suplentes en las fechas 18, 27 y 31. No figura en el CSV actual: queda marcado como incorporación pendiente de integrar, con dorsal estimado y sin inventar minutos.
+- **Valentín Mancuso** aparece en el banco de suplentes en las fechas 18, 27 y 31. Ya está incluido en el CSV de la tanda 1 como mediocampista, con dorsal 42 estimado. La nota previa que lo marcaba como pendiente estaba desactualizada; no se debe duplicar ni agregar otra fila.
 - La nómina de Mundo Ascenso muestra una plantilla de menor tamaño y nombres que no coinciden completamente con las convocatorias de septiembre/octubre. Por eso no se toma esa lista aislada como motivo para borrar jugadores.
 - No se retira ningún jugador en esta tanda: primero hay que cotejar los 50 nombres con el historial completo de convocatorias y confirmar si existen otros jugadores del primer equipo ausentes del CSV.
 
@@ -166,7 +166,7 @@ Fuentes: [altas iniciales de enero](https://www.soloascenso.com.ar/notas/argenti
 
 Fuentes: [J.J. Urquiza vs Juventud Unida, fecha 27](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html), [J.J. Urquiza vs Alem, fecha 30](https://jjurquiza.com.ar/NotasPrimera/Nota4127.html), [bajas anunciadas en enero](https://www.soloascenso.com.ar/notas/jj-urquiza/jj-urquiza-inicia-2026-con-cinco-bajas-en-su-plantel/223387).
 
-**Resultado de esta tanda:** se confirmaron dos salidas ya correctamente reflejadas en Juventud Unida y tres salidas de Argentino que no deben reintroducirse. Se detectó un jugador convocado que falta en Sacachispas (Valentín Mancuso). No se hicieron recortes especulativos ni cambios de runtime: la próxima pasada debe resolver esa incorporación y terminar el cruce individual de los planteles que siguen por encima de 40 jugadores.
+**Resultado de esta tanda:** se confirmaron dos salidas ya correctamente reflejadas en Juventud Unida y tres salidas de Argentino que no deben reintroducirse. Se confirmó que Valentín Mancuso ya estaba incluido en el CSV de Sacachispas; se corrige la observación anterior que lo marcaba como faltante. No se hicieron recortes especulativos ni cambios de runtime: la próxima pasada debe resolver esa incorporación y terminar el cruce individual de los planteles que siguen por encima de 40 jugadores.
 
 
 ## 7. Auditoría individual — tercera tanda amplia
