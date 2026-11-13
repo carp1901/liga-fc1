@@ -55,11 +55,11 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 ## Estado
 
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
-- [x] Tanda 2: 263 jugadores en 7 clubes
+- [x] Tanda 2: 255 jugadores en 7 clubes
 - [x] Tanda 3: 250 jugadores en 7 clubes tras las depuraciones de Central Ballester y Cañuelas
 - [x] Tanda 4: 266 jugadores en 7 clubes
-- [x] CSV actualizado: 986 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 15 planteles que aún superan 30 jugadores
+- [x] CSV actualizado: 976 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 14 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -224,3 +224,13 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - Se conservaron los jugadores de mayor continuidad: Julián García, Leonel Duarte, Matías Sosa, Matías Gómez, Fabián Monserrat, Tobías Mercado, Isaías González, Luciano Vargas, Santiago Soria, Leandro Zacarías, Alan Salmantón, Uriel Parejas, Matías Rodríguez, Ramiro Rivarola, Sebastián de Luca, Emanuel Saporito, Román Pizzuti, Joaquín Grane Morrone, Santiago Fernández, Sebastián Benega, Nicolás Mamberti, Juan Cruz López, Facundo Rodríguez, Axel Tisocco, Aaron Rolando, Nicolás Baus, Lucas Pérez, Agustín Serrizuela, Máximo Sánchez y Eneas Gutiérrez.
 - Fuentes: [plantel 2026](https://www.zerozero.pt/equipa/victoriano-arenas/45608?edicao_id=212447), [estadísticas individuales de la temporada](https://www.zerozero.pt/equipa/victoriano-arenas/45608/jogadores), [resumen estadístico del torneo](https://www.zerozero.pt/equipa/victoriano-arenas/45608/estatisticas?redirm=1).
 - Nuevo recuento CSV: **986 jugadores en 28 clubes**. Trece clubes cumplen el máximo de 30; quedan 15 planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Berazategui
+
+- **Berazategui: 38 → 30 jugadores.** Se cruzó el CSV con las estadísticas individuales de Primera C 2026 y se conservó el corte de 30 futbolistas con mayor participación.
+- Se incorporaron dos jugadores de alta participación que faltaban: **Joaquín Pucheta** (19 partidos) y **Braian Benítez** (16 partidos). Ambos se cargan con edad y posición respaldadas por la ficha de temporada; sus dorsales 37 y 38 quedan estimados.
+- Se retiraron diez nombres fuera del corte de participación, incluidos jugadores sin partidos registrados. **Sebastián Villalba** se conserva con ese nombre de uso del club: su nombre completo es Héctor Cayetano Sebastián Villalba y su perfil registra 25 partidos y 2.141 minutos. Juan Pablo Serrizuela también se conserva con el nombre de plantilla, aunque la tabla de ZeroZero lo abrevia como Juan Serrizuela.
+- Se corrigieron posiciones según la ficha individual: Thiago Benítez DEF, Alexis Godoy MED, Bautista Hernández MED y Emiliano Caballero MED.
+- Fuentes: [estadísticas individuales de Berazategui](https://www.zerozero.pt/equipa/berazategui/25748/jogadores), [plantel de Primera C 2026](https://www.zerozero.pt/equipa/berazategui/25748?edicao_id=212447), [perfil de Sebastián Villalba](https://www.soloascenso.com.ar/perfil/hector-villalba/23503), [perfil de Joaquín Bentancor: sin partidos 2026](https://www.zerozero.pe/jugador/joaquin-bentancor/2418102?epoca_id=155).
+- Nuevo recuento CSV: **976 jugadores en 28 clubes**. Catorce clubes cumplen el máximo de 30; quedan 14 planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
