@@ -1,6 +1,6 @@
 # Primera C 2026 — planteles reales
 
-Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 clubes están cargados en los CSV de trabajo; la sincronización del runtime y la auditoría final siguen pendientes de verificación.
+Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 planteles están depurados en CSV y sincronizados en el runtime de esta rama; el workflow de importación y pruebas terminó con éxito. El PR #79 permanece en borrador, sin merge ni despliegue.
 
 ## Clubes incluidos (IDs de public/data.js)
 
@@ -335,12 +335,20 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 ## Actualización 13/11/2026 — Lugano y cierre de la depuración CSV
 
 - Lugano quedó en 30 jugadores tras cruzar nómina 2026, once más utilizado y planillas de partidos. Se corrigieron dos nombres y se retiraron tres nombres fuera de la nómina oficial más doce futbolistas de profundidad no presentes en las planillas consultadas. Se conservaron tres arqueros.
-- Recuento consolidado de las cuatro tandas: **826 jugadores en 28 clubes** (tanda 1: 207; tanda 2: 209; tanda 3: 208; tanda 4: 202). Todos los planteles están en 30 o menos. Juan Pablo López queda solo en Puerto Nuevo (traspaso desde Lamadrid el 01/01/2026) y Simón Martínez solo en Atlas (la temporada 2026 registra apariciones en ambos clubes).
-- La depuración de CSV está cerrada. Quedan pendientes la sincronización de `public/squads.json`, `public/squads.js` y `public/squads-meta.json`, ejecutar el test/CI con resultado confirmado y reconciliar la rama con `main` antes de integrar.
+- Recuento consolidado de las cuatro tandas: **824 jugadores en 28 clubes** (tanda 1: 207; tanda 2: 209; tanda 3: 207; tanda 4: 201). Todos los planteles están en 30 o menos. Juan Pablo López queda solo en Puerto Nuevo (traspaso desde Lamadrid el 01/01/2026) y Simón Martínez solo en Atlas (la temporada 2026 registra apariciones en ambos clubes).
+- La depuración de CSV está cerrada. El runtime quedó sincronizado y las pruebas/CI pasaron; la rama también está reconciliada con `main`. El PR #79 sigue abierto como borrador y no se integró ni desplegó.
 
 
 ## Cierre de traspasos — 13/11/2026
 
 - Juan Pablo López se quitó de Lamadrid y quedó únicamente en Puerto Nuevo: su pase desde Lamadrid fue el 01/01/2026 y el registro de temporada le atribuye 26 partidos con Puerto Nuevo.
 - Simón Martínez se quitó de Español y quedó únicamente en Atlas: el historial 2026 divide sus presencias entre Español y Atlas, con Atlas como club al cierre.
-- Recuento final: **824 jugadores en 28 clubes**, todos con 30 o menos. Falta sincronizar el runtime, ejecutar CI y reconciliar con `main`.
+- Recuento final: **824 jugadores en 28 clubes**, todos con 30 o menos. Runtime, CI y reconciliación con `main` completados. El PR #79 permanece en borrador hasta que se autorice la integración.
+
+
+## Cierre técnico — 13/11/2026
+
+- Recuento final: **824 jugadores en 28 clubes**; tanda 1: 207, tanda 2: 209, tanda 3: 207, tanda 4: 201. Ningún plantel supera 30.
+- Runtime sincronizado en `public/squads.json`, `public/squads.js` y `public/squads-meta.json`.
+- Workflow [43488779167](https://github.com/carp1901/liga-fc1/actions/runs/43488779167) completado con éxito: sintaxis, test CSV, dry-runs, importación y test de runtime.
+- Rama reconciliada con la última `main`. PR #79 abierto y mergeable, pero todavía en borrador; no hay merge ni despliegue a Render.
