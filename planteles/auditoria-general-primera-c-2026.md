@@ -524,7 +524,7 @@ Al recalcular las 1.124 filas de los cuatro CSV, la distribución correcta es **
 ### Estrella del Sur — corrección por nómina oficial
 
 - La nómina 2026 publicada por Solo Ascenso incluye a **Gabriel Rivera** como arquero del plantel. Aunque no registra minutos de primera división en la revisión estadística previa, su presencia en la nómina consolidada es evidencia directa de pertenencia al plantel.
-- Se lo **reincorpora** al CSV como sexto arquero del listado, con rating 45 y dorsal 31 estimados; edad y dorsal quedan pendientes de confirmación. No se presenta el número como oficial.
+- Se lo **reincorpora** al CSV como sexto arquero del listado, con rating 45 y dorsal 32 estimados; edad y dorsal quedan pendientes de confirmación. No se presenta el número como oficial.
 - Las fichas de las fechas 26, 28 y 31 confirman además la continuidad de los titulares y suplentes principales que ya están cargados.
 - **Resultado:** Estrella del Sur pasa de 42 a 43 jugadores. La reincorporación corrige una exclusión demasiado estricta basada sólo en minutos disputados.
 
