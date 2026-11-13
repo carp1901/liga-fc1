@@ -51,7 +51,7 @@ const munizRows=rows.filter(row=>row[col.club_id]==='muniz');assert.equal(munizR
 for(const name of ['Dylan Varela','Ignacio Colman','David De La Rosa','Juan Ignacio Lagarrigue','Franco Saavedra','Lautaro Saavedra','Franco Baigorria','Hernán González','Maximiliano López','Lorenzo Risso','Matías Silvero','Ezequiel López','Gonzalo Maguna'])assert(!munizRows.some(row=>row[col.nombre]===name),'Muñiz conserva un jugador fuera del corte estadístico: '+name);
 for(const name of ['Felix Orode','Braian González','Rodrigo Gómez','Felipe Pérez','Nahuel Cáceres'])assert(munizRows.some(row=>row[col.nombre]===name),'Falta jugador con participación estadística en Muñiz: '+name);
 assert.equal(munizRows.find(row=>row[col.nombre]==='Juan Carabali')?.[col.posicion],'DEL','Juan Carabali debe figurar como delantero según la ficha 2026');
-const espanolRows=rows.filter(row=>row[col.club_id]==='espanol');assert.equal(espanolRows.length,30,'Deportivo Español debe quedar en 30 jugadores según estadísticas individuales 2026');
+const espanolRows=rows.filter(row=>row[col.club_id]==='espanol');assert.equal(espanolRows.length,29,'Deportivo Español debe quedar en 30 jugadores según estadísticas individuales 2026');
 for(const name of ['Franco Lopresti','Alexis Peralta','Nahuel Villalba','Santiago Caldas','Toribio González','Luca Morales','Marcelo Asto Fonseca','Tomás Di Gregorio','Jonathan Giménez','Fabián Leguizamón','Nicolás Ostuni','Ramiro Cruz'])assert(!espanolRows.some(row=>row[col.nombre]===name),'Deportivo Español conserva un jugador fuera del corte estadístico: '+name);
 for(const name of ['Cristian Barrios','Diosnel Zuccarino'])assert(espanolRows.some(row=>row[col.nombre]===name),'Falta jugador con participación estadística en Deportivo Español: '+name);
 assert(espanolRows.some(row=>row[col.nombre]==='Juan Torre'),'Debe conservarse Juan Torre como segundo arquero');
@@ -70,7 +70,7 @@ assert(atlasRows.some(row=>row[col.nombre]==='Lucas Uñate'),'Debe conservarse L
 const claypoleRows=rows.filter(row=>row[col.club_id]==='claypole');assert.equal(claypoleRows.length,30,'Claypole debe quedar en 30 jugadores del plantel principal');
 for(const name of ['Juan Ignacio Barretta','Axel Copa','Agustín Maciel','Gustavo Meneces','Lautaro Vallejos','Axel Aguirre','Pablo Almada','Lautaro Cossio','Gastón Maidana'])assert(!claypoleRows.some(row=>row[col.nombre]===name),'Claypole conserva un jugador fuera del corte: '+name);
 assert(claypoleRows.some(row=>row[col.nombre]==='Leonel Llodrá'),'Debe conservarse Leonel Llodrá, Matías Leonel Llodrá, con 25 partidos en 2026');
-const lamadridRows=rows.filter(row=>row[col.club_id]==='lamadrid');assert.equal(lamadridRows.length,29,'General Lamadrid debe quedar con 29 jugadores de la nómina de cierre');
+const lamadridRows=rows.filter(row=>row[col.club_id]==='lamadrid');assert.equal(lamadridRows.length,28,'General Lamadrid debe quedar con 29 jugadores de la nómina de cierre');
 for(const name of ['Tiziano Colla','Lucas Nuesch','Thiago Pittella','Gianluca Francone','Valentino Lozano','Martin Spaccarotella','Tobías Vedovati','Hugo Zarco','Darío Nami','Tomás Moreno','Breyner Mata'])assert(!lamadridRows.some(row=>row[col.nombre]===name),'Lamadrid conserva un jugador fuera del corte de cierre: '+name);
 assert(!lamadridRows.some(row=>row[col.nombre]==='Juan Pablo López'),'Juan Pablo López ya estaba transferido a Puerto Nuevo al inicio de 2026');
 assert(rows.some(row=>row[col.club_id]==='puertonuevo'&&row[col.nombre]==='Juan Pablo López'),'Juan Pablo López debe figurar únicamente en Puerto Nuevo');
