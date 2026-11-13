@@ -56,9 +56,9 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 
 - [x] Tanda 1: 312 jugadores en 7 clubes
 - [x] Tanda 2: 271 jugadores en 7 clubes
-- [x] Tanda 3: 251 jugadores en 7 clubes tras la depuración de Central Ballester
+- [x] Tanda 3: 250 jugadores en 7 clubes tras las depuraciones de Central Ballester y Cañuelas
 - [x] Tanda 4: 272 jugadores en 7 clubes
-- [ ] Validación final e integración del CSV depurado: 1.106 jugadores en 28 clubes
+- [ ] Validación final e integración del CSV depurado: 1.105 jugadores en 28 clubes
 - [ ] Auditoría individual final del resto de los 27 planteles
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
@@ -131,7 +131,10 @@ Se agregó Matías Arias a Sacachispas: su ficha 2026 confirma 16 partidos y 1.3
 - Se fija un máximo de **30 jugadores por club**, con objetivo habitual de 22–27. Puede haber menos de 22 si el plantel real y la participación lo justifican.
 - La comparación con B Metro (promedio 24,2) y Federal A (23,7) confirma que Primera C estaba sobredimensionada.
 - **Central Ballester:** se depuró de 50 a 30 jugadores usando la tabla completa de minutos de Primera C 2026 y la revisión de convocatorias. Se retiraron 20 registros; el detalle está en la sección 17 del informe general.
-- Recuento de los cuatro CSV después de esta poda: **1.106 jugadores en 28 clubes**. Los otros 27 planteles todavía requieren depuración.
+- Recuento de los cuatro CSV después de esta poda: **1.106 jugadores en 28 clubes**. Los otros 26 planteles todavía requieren depuración.
 - El runtime aún no se considera actualizado: falta terminar la poda, ejecutar las pruebas conjuntas y validar la integración.
 
 Las cifras anteriores de Central Ballester (50/51) y los totales de 1.123/1.126 describen etapas históricas de la carga; el estado vigente es el indicado en esta actualización.
+
+- **Cañuelas:** se depuró de 31 a 30 jugadores. Se retiró Francisco Riscino al no encontrarse participación oficial de Primera C; el informe general documenta el cruce con estadísticas y el boletín de AFA.
+- Estado vigente tras ambas podas: **1.105 jugadores en 28 clubes; Central Ballester y Cañuelas ya están en 30**. Quedan 25 clubes por encima del máximo.
