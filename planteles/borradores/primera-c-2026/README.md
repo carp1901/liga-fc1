@@ -57,9 +57,9 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
 - [x] Tanda 2: 243 jugadores en 7 clubes
 - [x] Tanda 3: 248 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
-- [x] Tanda 4: 239 jugadores en 7 clubes
-- [x] CSV actualizado: 937 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 10 planteles que aún superan 30 jugadores
+- [x] Tanda 4: 233 jugadores en 7 clubes
+- [x] CSV actualizado: 925 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 9 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -268,3 +268,12 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - **Iván Gorosito** se conserva con el nombre usado por el club: la ficha de ZeroZero aparece como Alan Iván Gorosito y registra 23 partidos/1.929 minutos; no es un homónimo ni un jugador diferente.
 - Fuentes: [estadísticas individuales de Fénix](https://www.zerozero.pt/equipa/fenix/26695/jogadores), [perfil de Iván Gorosito con 23 partidos y 1.929 minutos](https://www.zerozero.pe/jugador/ivan-gorosito/989369?epoca_id=155), [cierre oficial de temporada](https://clubatleticofenix.com/fenix-2-1-leones-oficial-cierre-de-temporada-y-descenso-en-primera-c/), [presentación de refuerzos 2026](https://www.soloascenso.com.ar/notas/fenix/siguen-llegando-fenix-sumo-una-nueva-incorporacion/224754).
 - Nuevo recuento CSV: **937 jugadores en 28 clubes**. Dieciocho clubes cumplen el máximo de 30; quedan diez planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Sportivo Barracas
+
+- **Sportivo Barracas: 39 → 27 jugadores.** Se conservaron los futbolistas del núcleo principal con participación comprobada en la temporada y se retiraron 12 nombres con uso nulo o mínimo que no forman parte de la rotación principal.
+- Se mantiene **Alen Boschi**: su nombre completo es Alen Tomás Boschi; algunas bases estadísticas lo muestran como Tomás Boschi y le registran 23 partidos/672 minutos. No se duplica como dos futbolistas.
+- No se reincorporaron Emanuel de Porras ni Julián Bottaro, ausentes del plantel de cierre; Félix Orode dejó Sportivo Barracas y pasó a La Campana/Muñiz durante agosto de 2026.
+- Fuentes: [plantel actual de Sportivo Barracas](https://www.365scores.com/es/football/team/sportivo-barracas-14371/squad), [plantel y nómina de Copa Argentina](https://www.copaargentina.org/es/equipos/121_sportivo-barracas.html), [estadísticas de Tomás/Alen Boschi: 23 partidos y 672 minutos](https://es.besoccer.com/jugador/career-path/tomas-boschi-3813516), [nombre completo Alen Tomás Boschi](https://www.transfermarkt.es/alen-boschi/profil/spieler/1462817), [salida de Félix Orode](https://www.sportdigital.com.ar/nota/14553/futbol-gran-refuerzo-de-la-campana-para-el-torneo-clausura).
+- Nuevo recuento CSV: **925 jugadores en 28 clubes**. Diecinueve clubes cumplen el máximo de 30; quedan nueve planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
