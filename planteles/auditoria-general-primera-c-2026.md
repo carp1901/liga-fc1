@@ -135,7 +135,7 @@ Se revisaron en conjunto Sacachispas, Argentino de Rosario, Juventud Unida y J.J
 ### Sacachispas — 50 cargados
 
 - Las fichas de las fechas 18, 27 y 31 confirman continuidad de Neyder Aragón, Luis Lorenzi, Gonzalo Rocaniere, Alan Buonofiglio, Benjamín Arias, Ricardo Priori, Leandro Ríos, Santiago Gallardo, Gonzalo Vivanco, Alejo Monje, Lautaro Torres, Diego Molina Fariña, Uriel Sosa y Facundo Durso, entre otros.
-- **Valentín Mancuso** aparece en el banco de suplentes en las fechas 18 y 27. Ya figura en el CSV actual; la revisión detectó que estaba mal clasificado como MED y sin edad. Se corrige a **DEF, 21 años**, respaldado por la nómina de temporada de Mundo Ascenso y la ficha actual de TACAZO. No se inventan minutos.
+- **Valentín Mancuso** aparece en el banco de suplentes en las fechas 18 y 27. Ya figura en el CSV actual. Se completa su edad en **21 años** con TACAZO. Sobre la posición hay fuentes discrepantes: Solo Ascenso lo clasifica como **MED** en la nómina 2026, mientras TACAZO y Mundo Ascenso lo listan como defensor; se conserva MED por ahora, siguiendo la ficha de plantel de Solo Ascenso y sin convertir la discrepancia en una corrección definitiva.
 - La nómina de Mundo Ascenso muestra una plantilla de menor tamaño y nombres que no coinciden completamente con las convocatorias de septiembre/octubre. Por eso no se toma esa lista aislada como motivo para borrar jugadores.
 - No se retira ningún jugador en esta tanda: primero hay que cotejar los 50 nombres con el historial completo de convocatorias y confirmar si existen otros jugadores del primer equipo ausentes del CSV.
 
@@ -461,5 +461,11 @@ Fuentes: [Maximiliano Maciel: 21 convocatorias, 11 ingresos y ocho partidos sin 
 
 - El jugador ya estaba incluido en `tanda1-inicial.csv`; la observación anterior que lo marcaba como ausente era incorrecta.
 - TACAZO informa edad 21 y posición defensor para el plantel 2026; Mundo Ascenso también lo lista entre los defensores con dorsal 15. La ficha de partido de la fecha 27 lo muestra como suplente utilizado en el banco.
-- Se actualiza el registro del juego a `DEF`, edad `21`, manteniendo el dorsal 42 como estimación propia (el #15 publicado por Mundo Ascenso se verificará antes de sustituir el dorsal provisional).
+- Se actualiza el registro del juego a edad `21`, conservando `MED` de forma provisional por la clasificación de Solo Ascenso. El dorsal 42 sigue como estimación propia: Mundo Ascenso publica #15, pero antes de reemplazarlo se debe confirmar si ese número es camiseta oficial de temporada y no numeración de lista.
 - Fuentes: https://tacazo.com.ar/equipo.html?id=club-1942 ; https://www.mundoascenso.com.ar/plantel/1942-sacachispas-fc ; https://www.soloascenso.com.ar/ficha/45273 .
+
+
+### Nota de consistencia de fuentes — Valentín Mancuso
+
+- La nómina de Solo Ascenso para Primera C 2026 (https://www.soloascenso.com.ar/club/sacachispas-fc/300) lo clasifica como MED; TACAZO (https://tacazo.com.ar/equipo.html?id=club-1942) y Mundo Ascenso (https://www.mundoascenso.com.ar/plantel/1942-sacachispas-fc) lo clasifican como DEF. Se mantiene MED provisionalmente porque la fuente de plantilla de Solo Ascenso está vinculada al mismo registro de temporada utilizado para el resto del plantel. Revisar rol específico antes de cerrar.
+- TACAZO publica edad 21. El registro ya la incorpora. El dorsal 42 permanece estimado hasta validar el #15 que aparece en la lista de Mundo Ascenso.
