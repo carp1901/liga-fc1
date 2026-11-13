@@ -992,9 +992,9 @@ Después de las podas de Sacachispas y Alem, se sincronizaron `public/squads.jso
 
 ## 6. Estado vigente — 13/11/2026
 
-- CSV: **1.059 jugadores en 28 clubes**.
-- Siete clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27) y Puerto Nuevo (30).
-- Quedan **21 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
+- CSV: **1.038 jugadores en 28 clubes**.
+- Ocho clubes ya cumplen el máximo de 30: Central Ballester (30), Cañuelas (30), Sacachispas (30), Leandro N. Alem (29), Centro Español (29), Luján (27), Puerto Nuevo (30) y Juventud Unida (30).
+- Quedan **20 planteles** por encima de 30; no se harán recortes automáticos sólo para alcanzar un número.
 
 ### Luján — 33 → 27
 
@@ -1017,3 +1017,17 @@ Se retiraron Benjamín Ferreyra, Federico Aciar y Tomás Schefer. Los tres apare
 Fuentes: [plantel profesional inicial de 26 jugadores](https://www.soloascenso.com.ar/notas/puerto-nuevo/puerto-nuevo-tiene-todo-listo-para-competir-en-el-2026/225078), [plantel actualizado](https://www.soloascenso.com.ar/club/puerto-nuevo/297), [estadísticas individuales de Puerto Nuevo](https://www.ceroacero.com.co/equipo/puerto-nuevo/45607/jugadores?epoca_stats_id=155), [Benjamín Ferreyra](https://www.ceroacero.com.co/jugador/benjamin-ferreyra/3555652?epoca_id=155), [Federico Aciar](https://www.ceroacero.com.co/jugador/federico-aciar/3625947?epoca_id=155), [Tomás Schefer](https://www.ceroacero.com.co/jugador/tomas-schefer/3558784?epoca_id=155).
 
 **Recuento vigente:** 1.059 jugadores en 28 clubes; siete planteles dentro del límite y 21 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+
+
+### Juventud Unida — 51 → 30
+
+Se cruzó el CSV con la tabla individual de ZeroZero para Primera C 2026, que registra partidos disputados por futbolista. La tabla contiene 35 jugadores con participación; 33 estaban en el CSV, mientras que Fernando Giménez (10 partidos) y Santino Bevilacqua (2) no estaban cargados.
+
+- Se retiraron 18 nombres del CSV sin apariciones registradas en la tabla individual de temporada.
+- De los jugadores con participación, se retiraron los cuatro de menor uso presentes en el CSV: Mateo Ursi (3 partidos), Joaquín Iglesias (2), Diego López (1) y Santiago Núñez (1). Santino Bevilacqua no se incorporó por quedar también por debajo del corte.
+- Se incorporó Fernando Giménez, mediocampista de 32 años, con 10 partidos. Dorsal 67 estimado porque la fuente estadística no aporta un número individual confirmado.
+- La nómina resultante queda en 30 jugadores, priorizando participación oficial comprobable y evitando completar cupos con reservas sin minutos.
+
+Fuentes: [tabla individual de Juventud Unida 2026](https://www.zerozero.pt/equipa/juventud-unida-san-miguel/45600/jogadores), [plantel y estadísticas de temporada](https://www.zerozero.com.ar/equipo/juventud-unida-san-miguel/45600), [El Porvenir–Juventud Unida: Fernando Giménez titular y goleador](https://www.ceroacero.com.co/partido/2026-05-16-el-porvenir-juventud-unida-san-miguel/12020423).
+
+**Recuento vigente:** 1.038 jugadores en 28 clubes; ocho planteles dentro del límite y 20 pendientes. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
