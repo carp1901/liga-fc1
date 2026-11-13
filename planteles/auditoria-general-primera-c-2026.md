@@ -891,3 +891,25 @@ Hay 27 de los 28 clubes por encima del máximo. Para llevarlos a 30, el exceso a
 5. Actualizar los cuatro CSV, recalcular dorsales y ejecutar la validación estructural al terminar cada bloque.
 
 **Estado:** este apartado fija el criterio y cuantifica la depuración pendiente. No representa todavía una reducción de los CSV: los 1.126 registros corresponden al estado actual de la rama antes de esta poda.
+
+
+## 17. Primera depuración por participación — Central Ballester
+
+Se aplicó por primera vez el criterio definitivo de máximo 30 jugadores, usando la tabla individual completa de minutos de Primera C 2026 de ZeroZero y el plantel de temporada del club.
+
+- El CSV tenía 50 jugadores.
+- La tabla de minutos registra 32 futbolistas con participación en la temporada. El cruce nominal identifica 31 de esos jugadores en el CSV; Guido López León corresponde al registro estadístico de Guido López. Aarón Quijano no se duplica porque su destino de mitad de temporada fue Central Córdoba de Rosario, donde ya está cargado.
+- Se conservaron 30 jugadores: futbolistas con participación y los casos de Santiago Garro, Nicolás Suaya y Agustín Corbalán, mantenidos por su pertenencia/uso de primer equipo ya documentado. 
+- Se retiraron 20 registros: 16 nombres sin minutos en la tabla individual y sin prioridad de convocatoria para el corte final, más cuatro futbolistas con la menor participación registrada: Santiago Peredo (19 minutos), Tomás Echeverría (21), Brian Vittadello (58) y Alexis Galván (78).
+- Los otros nombres sin minutos retirados fueron Axel Arredondo, Alejo Camejo, Enzo D'Angelis, Alan González, Federico Martínez, Braian Mendoza, Jesús Monzón, Luciano Salomón, Pablo Balbuena, Ramiro Franco, Joel Maciel, Tomás Patiño, Kevin Ramayo, Nicolás Caceres, Donato Lanzillotta y Maximo Scalia.
+- **Resultado:** Central Ballester pasa de 50 a **30 jugadores**. Se mantienen 30 dorsales únicos y no se alteran los demás clubes de la tanda 3.
+
+La decisión no se basó en una nómina abreviada: se cruzó el padrón con la tabla individual de minutos y se preservaron los tres casos de primer equipo mencionados. Quijano se mantiene únicamente en Central Córdoba, su club posterior de 2026, para evitar duplicarlo.
+
+Fuentes: [estadísticas individuales de Central Ballester 2026 — tabla completa de minutos](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_equipa=45605&v1=j&v2=t&v3=5), [plantel Central Ballester 2026](https://www.zerozero.pt/equipa/central-ballester/45605?edicao_id=212447), [traspaso y participación de Aarón Quijano](https://www.soloascenso.com.ar/notas/berazategui/central-cordoba-presento-a-un-volante-ofensivo-como-refuerzo/229559).
+
+### Validación del cambio
+- Central Ballester: 50 → 30 (−20).
+- Primera C: 1.126 → **1.106 jugadores** en 28 clubes.
+- El resto de los 27 planteles permanece sin cambios en esta intervención.
+- La validación completa de los cuatro CSV y del runtime queda pendiente de ejecutarse después de completar la depuración de los demás clubes.
