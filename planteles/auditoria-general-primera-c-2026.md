@@ -1,7 +1,7 @@
 # Auditoría general — Primera C 2026
 
 Fecha de actualización: 13/11/2026  
-Estado: depuración individual en curso. Las secciones 1–5 conservan el corte histórico de la primera auditoría (1.124 registros) y no representan el estado actual. El recuento vigente se informa en la última sección.
+Estado: auditoría individual y depuración CSV cerradas; runtime integrado y pruebas automáticas aprobadas en la rama del PR. Las secciones 1–5 conservan el corte histórico de la primera auditoría (1.124 registros) y no representan el estado actual. El recuento vigente se informa en la última sección.
 
 ## 1. Resultado general
 
@@ -1234,4 +1234,12 @@ Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), 
 - **Juan Pablo López** se retiró de General Lamadrid y se conserva solo en Puerto Nuevo. Su perfil de Solo Ascenso y el historial de transferencias confirman el pase de General Lamadrid a Puerto Nuevo el 01/01/2026; el registro 2026 muestra 26 presencias con Puerto Nuevo. Lamadrid queda en 28 jugadores, sin completar cupos artificialmente.
 - **Simón Martínez** se retiró de Deportivo Español y se conserva solo en Atlas. La ficha de ZeroZero divide su temporada 2026 entre Deportivo Español (13 partidos) y Atlas (11), y el perfil de Solo Ascenso lo identifica en Atlas al cierre. Español queda en 29 jugadores.
 - Fuentes: [perfil 2026 de Juan Pablo López en Puerto Nuevo](https://www.soloascenso.com.ar/perfil/juan-pablo-lopez/26082), [historial de traspasos de Juan Pablo López](https://www.flashscore.com.ar/jugador/juan-pablo-lopez/lGyG5JuH/), [perfil 2026 de Simón Martínez](https://www.ceroacero.com.co/jugador/simon-martinez/3525177?edicao_id=212447), [perfil de Simón Martínez en Atlas](https://www.soloascenso.com.ar/perfil/simon-martinez/22131).
-- Recuento final de los cuatro CSV: **824 jugadores en 28 clubes**, todos los planteles con 30 o menos. Tanda 1: 207; tanda 2: 209; tanda 3: 207; tanda 4: 201. Runtime y CI aún pendientes de confirmación.
+- Recuento final de los cuatro CSV: **824 jugadores en 28 clubes**, todos los planteles con 30 o menos. Tanda 1: 207; tanda 2: 209; tanda 3: 207; tanda 4: 201. El workflow [Cargar planteles iniciales Primera C 2026](https://github.com/carp1901/liga-fc1/actions/runs/43488779167) terminó con éxito: pasaron validación CSV, importaciones, runtime y protección del resto de divisiones. La rama se reconcilió con `main`; el PR #79 sigue abierto como borrador y aún no se integró ni desplegó.
+
+
+## Cierre técnico — 13/11/2026
+
+- La rama `primera-c-auditoria-correcciones-finales` se reconcilió con la última `main` mediante un merge commit; comparación actual: sin commits pendientes de incorporar desde `main`.
+- Workflow exitoso: [run 43488779167](https://github.com/carp1901/liga-fc1/actions/runs/43488779167). Pasaron `node --check import-squads.js`, test CSV, cuatro dry-runs, cuatro importaciones, auditoría `--runtime` y protección de las demás divisiones.
+- Runtime actualizado en la rama: `public/squads.json`, `public/squads.js` y `public/squads-meta.json`. Metadata confirma 30 o menos en los 28 clubes y 824 jugadores de Primera C.
+- PR #79 está abierto y mergeable, pero permanece en borrador. No se integró a `main` ni se desplegó a Render; eso queda para la aprobación del usuario.
