@@ -36,8 +36,8 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 ## Criterios
 
 - Temporada 2026. Jugadores reales, sin fotos y sin completar cupos con nombres ficticios.
-- Mínimo de 22 jugadores por club; no es un número exacto. Se incluyen primera plantilla y futbolistas con participación verificable, evitando reservas profundas y planteles inflados.
-- Deben quedar al menos siete alternativas de banco además del XI.
+- Objetivo orientativo: 22–27 jugadores por club; **máximo obligatorio de 30**. Se permiten planteles menores cuando la participación real lo justifique; no se completan cupos artificialmente.
+- Priorizar titulares, relevos y convocados habituales. Evitar reservas profundas y futbolistas sin participación del primer equipo.
 - Prioridad: nóminas oficiales de clubes/AFA; después reportes de temporada y fichas de partidos de Mundo Ascenso y Solo Ascenso. FM26/FM27 se usan sólo como referencia secundaria de medias, edad y posiciones, no como prueba única de pertenencia al plantel 2026. La competencia Primera C de FM26 contiene clubes que no coinciden con la división 2026 del juego (por ejemplo, Camioneros e Ituzaingó), por lo que no se importarán sus planteles sin verificar primero la categoría y el club de cada jugador.
 - No mezclar jugadores que dejaron el club antes de la fecha de corte ni sumar juveniles sin participación/inscripción verificable.
 - Dorsales confirmados cuando exista evidencia. Si no, número estimado libre y coherente con la posición, marcado expresamente como estimación propia. Cero dorsales vacíos y cero duplicados dentro de cada club.
@@ -54,12 +54,12 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 
 ## Estado
 
-- [x] Tanda 1 cargada: 311 jugadores en 7 clubes
-- [x] Tanda 2 cargada: 271 jugadores en 7 clubes
-- [x] Tanda 3 cargada: 272 jugadores en 7 clubes tras primera depuración
-- [x] Tanda 4 cargada: 269 jugadores en 7 clubes tras primera depuración
-- [x] Integración y pruebas de integridad: 1.123 jugadores en 28 clubes
-- [ ] Auditoría individual final: apariciones, bajas, posiciones, edades, roles y medias
+- [x] Tanda 1: 312 jugadores en 7 clubes
+- [x] Tanda 2: 271 jugadores en 7 clubes
+- [x] Tanda 3: 251 jugadores en 7 clubes tras la depuración de Central Ballester
+- [x] Tanda 4: 272 jugadores en 7 clubes
+- [ ] Validación final e integración del CSV depurado: 1.106 jugadores en 28 clubes
+- [ ] Auditoría individual final del resto de los 27 planteles
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -124,3 +124,14 @@ Se agregó Matías Arias a Sacachispas: su ficha 2026 confirma 16 partidos y 1.3
 - General Lamadrid queda con 36 jugadores tras incorporar a Néstor Acosta, titular en los 33 partidos de 2026 (2.887 minutos y 16 vallas invictas). Dorsal 31 estimado.
 - El total se mantiene en 1.123 jugadores y 28 clubes; la distribución global queda en 101 ARQ, 305 DEF, 494 MED y 223 DEL.
 - La auditoría de runtime se ejecutará sobre esta corrección antes de integrar los cambios a main.
+
+
+## Actualización 13/11/2026 — nuevo criterio y primera poda
+
+- Se fija un máximo de **30 jugadores por club**, con objetivo habitual de 22–27. Puede haber menos de 22 si el plantel real y la participación lo justifican.
+- La comparación con B Metro (promedio 24,2) y Federal A (23,7) confirma que Primera C estaba sobredimensionada.
+- **Central Ballester:** se depuró de 50 a 30 jugadores usando la tabla completa de minutos de Primera C 2026 y la revisión de convocatorias. Se retiraron 20 registros; el detalle está en la sección 17 del informe general.
+- Recuento de los cuatro CSV después de esta poda: **1.106 jugadores en 28 clubes**. Los otros 27 planteles todavía requieren depuración.
+- El runtime aún no se considera actualizado: falta terminar la poda, ejecutar las pruebas conjuntas y validar la integración.
+
+Las cifras anteriores de Central Ballester (50/51) y los totales de 1.123/1.126 describen etapas históricas de la carga; el estado vigente es el indicado en esta actualización.
