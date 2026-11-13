@@ -57,9 +57,9 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
 - [x] Tanda 2: 224 jugadores en 7 clubes
 - [x] Tanda 3: 248 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
-- [x] Tanda 4: 233 jugadores en 7 clubes
-- [x] CSV actualizado: 906 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 8 planteles que aún superan 30 jugadores
+- [x] Tanda 4: 223 jugadores en 7 clubes
+- [x] CSV actualizado: 896 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 7 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -286,3 +286,13 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - No se importó el registro incompleto “Brian” que aparece en la tabla estadística: no ofrece apellido verificable ni correspondencia inequívoca con un jugador del CSV.
 - Fuentes: [estadísticas individuales de JJ Urquiza](https://www.zerozero.pt/equipa/justo-jose-de-urquiza/45579/jogadores?redird=1), [plantel 2026 y transferencias](https://www.zerozero.pt/equipa/justo-jose-de-urquiza/45579?epoca_id=155), [convocatorias de temporada](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html).
 - Nuevo recuento CSV: **906 jugadores en 28 clubes**. Veinte clubes cumplen el máximo de 30; quedan ocho planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de General Lamadrid
+
+- **General Lamadrid: 39 → 29 jugadores.** Se utilizó la tabla de partidos disputados y el plantel de cierre de 2026. Se incorporó **Juan Pablo López** (defensor, 25 años), líder de presencias con 39 partidos, que faltaba en el CSV.
+- Se retiraron 11 nombres con participación nula o baja y/o fuera de la nómina de cierre. Se conservó a Franco Davalos como arquero suplente, junto con Néstor Acosta y Matías Velázquez.
+- **Alejo Roa** se conserva con el nombre del club: la ficha estadística lo abrevia como Agustín Roa, pero su nombre completo es Alejo Agustín Roa; su perfil confirma 30 presencias, 25 titularidades y tres goles.
+- Darío Nami no se mantiene en Lamadrid: salió durante la temporada y continuó en El Porvenir. Ian Lynch también salió hacia Deportivo Paraguayo; ya figura en el plantel de ese club.
+- Fuentes: [estadísticas individuales de Lamadrid](https://www.zerozero.pt/equipa/general-lamadrid/45578/jogadores), [plantel de cierre 2026](https://www.soloascenso.com.ar/club/gral-lamadrid/278), [perfil de Alejo Roa y 30 presencias](https://www.soloascenso.com.ar/perfil/alejo-roa/24038), [fichas de partido y convocatorias](https://devotodelamadrid.blogspot.com/2026/09/).
+- Nuevo recuento CSV: **896 jugadores en 28 clubes**. Veintiún clubes cumplen el máximo de 30; quedan siete planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
