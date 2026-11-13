@@ -135,7 +135,7 @@ Se revisaron en conjunto Sacachispas, Argentino de Rosario, Juventud Unida y J.J
 ### Sacachispas — 50 cargados
 
 - Las fichas de las fechas 18, 27 y 31 confirman continuidad de Neyder Aragón, Luis Lorenzi, Gonzalo Rocaniere, Alan Buonofiglio, Benjamín Arias, Ricardo Priori, Leandro Ríos, Santiago Gallardo, Gonzalo Vivanco, Alejo Monje, Lautaro Torres, Diego Molina Fariña, Uriel Sosa y Facundo Durso, entre otros.
-- **Valentín Mancuso** aparece en el banco de suplentes en las fechas 18, 27 y 31. No figura en el CSV actual: queda marcado como incorporación pendiente de integrar, con dorsal estimado y sin inventar minutos.
+- **Valentín Mancuso** aparece en el banco de suplentes en las fechas 18 y 27. Ya figura en el CSV actual; la revisión detectó que estaba mal clasificado como MED y sin edad. Se corrige a **DEF, 21 años**, respaldado por la nómina de temporada de Mundo Ascenso y la ficha actual de TACAZO. No se inventan minutos.
 - La nómina de Mundo Ascenso muestra una plantilla de menor tamaño y nombres que no coinciden completamente con las convocatorias de septiembre/octubre. Por eso no se toma esa lista aislada como motivo para borrar jugadores.
 - No se retira ningún jugador en esta tanda: primero hay que cotejar los 50 nombres con el historial completo de convocatorias y confirmar si existen otros jugadores del primer equipo ausentes del CSV.
 
@@ -166,7 +166,7 @@ Fuentes: [altas iniciales de enero](https://www.soloascenso.com.ar/notas/argenti
 
 Fuentes: [J.J. Urquiza vs Juventud Unida, fecha 27](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html), [J.J. Urquiza vs Alem, fecha 30](https://jjurquiza.com.ar/NotasPrimera/Nota4127.html), [bajas anunciadas en enero](https://www.soloascenso.com.ar/notas/jj-urquiza/jj-urquiza-inicia-2026-con-cinco-bajas-en-su-plantel/223387).
 
-**Resultado de esta tanda:** se confirmaron dos salidas ya correctamente reflejadas en Juventud Unida y tres salidas de Argentino que no deben reintroducirse. Se detectó un jugador convocado que falta en Sacachispas (Valentín Mancuso). No se hicieron recortes especulativos ni cambios de runtime: la próxima pasada debe resolver esa incorporación y terminar el cruce individual de los planteles que siguen por encima de 40 jugadores.
+**Resultado de esta tanda:** se confirmaron dos salidas ya correctamente reflejadas en Juventud Unida y tres salidas de Argentino que no deben reintroducirse. Valentín Mancuso ya estaba cargado en Sacachispas; se corrigieron su posición (DEF) y edad (21), con respaldo de fuentes de temporada. No se hicieron recortes especulativos.
 
 
 ## 7. Auditoría individual — tercera tanda amplia
@@ -455,3 +455,11 @@ Fuentes adicionales: [nómina actual de Central Ballester](https://www.soloascen
 - Los demás nombres sin minutos no se eliminan por ahora: falta completar el cruce de convocatorias y fichas individuales. La regla es no retirar a un integrante del primer equipo sólo por no haber ingresado.
 
 Fuentes: [Maximiliano Maciel: 21 convocatorias, 11 ingresos y ocho partidos sin ingresar](https://www.soloascenso.com.ar/notas/central-ballester/un-referente-de-ballester-se-retiro-del-futbol-profesional/233675), [continuidad de Maciel para 2026](https://www.soloascenso.com.ar/notas/central-ballester/el-delantero-con-experiencia-que-seguira-en-ballester/223881), [presentación de Santiago Garro](https://www.soloascenso.com.ar/notas/puerto-nuevo/central-ballester-incorporo-a-otro-joven-arquero-al-plantel/225381), [presentación de Nicolás Suaya](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-presento-a-tres-jugadores-nuevos-para-el-plantel/223900), [convocatoria de la fecha 31](https://www.soloascenso.com.ar/ficha/45320), [convocatoria de la fecha 13](https://www.ceroacero.es/partido/2026-08-04-paraguayo-central-ballester/12020535).
+
+
+### Corrección de datos individuales — Valentín Mancuso (Sacachispas)
+
+- El jugador ya estaba incluido en `tanda1-inicial.csv`; la observación anterior que lo marcaba como ausente era incorrecta.
+- TACAZO informa edad 21 y posición defensor para el plantel 2026; Mundo Ascenso también lo lista entre los defensores con dorsal 15. La ficha de partido de la fecha 27 lo muestra como suplente utilizado en el banco.
+- Se actualiza el registro del juego a `DEF`, edad `21`, manteniendo el dorsal 42 como estimación propia (el #15 publicado por Mundo Ascenso se verificará antes de sustituir el dorsal provisional).
+- Fuentes: https://tacazo.com.ar/equipo.html?id=club-1942 ; https://www.mundoascenso.com.ar/plantel/1942-sacachispas-fc ; https://www.soloascenso.com.ar/ficha/45273 .
