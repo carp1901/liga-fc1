@@ -38,12 +38,11 @@ for(const [i,row] of rows.entries()){
 }
 assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,937,'Total nominal inesperado');
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
-assert.deepEqual(collisions,['gonzalo medina','lautaro torres','rodrigo ortiz','rodrigo soria','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
+assert.deepEqual(collisions,['lautaro torres','rodrigo ortiz','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
 const pair=(name,expectedPair)=>assert.deepEqual(crossNames.get(name).map(x=>x.club+'|'+x.pos).sort(),expectedPair);
 pair('rodrigo soria',['lugano|MED','victorianoarenas|ARQ']);
 pair('lautaro torres',['estrelladelsur|DEL','sacachispas|MED']);
 pair('rodrigo ortiz',['claypole|MED','paraguayo|DEL']);
-pair('gonzalo medina',['alem|MED','fenix|MED']);
 pair('santiago diaz',['cambaceres|DEF','lujan|MED']);
 const fenixRows=rows.filter(row=>row[col.club_id]==='fenix');assert.equal(fenixRows.length,30,'Fénix debe quedar en 30 jugadores de mayor participación 2026');
 for(const name of ['Santiago Erviti','Luca Maidana','Juan Manuel Velásquez','Camilo Cournou Heredia','Ciro Florentin','Joaquín Juárez','Maximiliano María','Gonzalo Medina','Ignacio Romano','Nathan Tito Sosa','Ignacio Vera','Matías Villalba','Santiago Liva','Franco Pérez','Ramiro Breccia'])assert(!fenixRows.some(row=>row[col.nombre]===name),'Fénix conserva un jugador fuera del corte: '+name);
@@ -106,4 +105,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 937 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 950 jugadores, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 937 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 937 jugadores, sin duplicados internos ni dorsales repetidos.');
