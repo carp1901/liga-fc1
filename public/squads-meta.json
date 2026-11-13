@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-12T23:31:50.196Z",
+  "updatedAt": "2026-11-13T17:19:19.282Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2948 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2911 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -133,8 +133,8 @@
     "estrelladelsur": 42,
     "argentinorosario": 50,
     "victorianoarenas": 37,
-    "sacachispas": 50,
-    "alem": 46,
+    "sacachispas": 30,
+    "alem": 29,
     "mercedes": 35,
     "berazategui": 38,
     "paraguayo": 42,
@@ -3877,9 +3877,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4577,
+    "assigned": 4540,
     "missing": 0,
-    "total": 4577,
+    "total": 4540,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4527,13 +4527,13 @@
         "missing": 0
       },
       "sacachispas": {
-        "total": 50,
-        "assigned": 50,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "alem": {
-        "total": 46,
-        "assigned": 46,
+        "total": 29,
+        "assigned": 29,
         "missing": 0
       },
       "mercedes": {
@@ -4651,9 +4651,9 @@
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3297,
-    "missing": 1280,
+    "missing": 1243,
     "birthDates": 2075,
-    "total": 4577,
+    "total": 4540,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5301,14 +5301,14 @@
         "missing": 37
       },
       "sacachispas": {
-        "total": 50,
+        "total": 30,
         "assigned": 1,
-        "missing": 49
+        "missing": 29
       },
       "alem": {
-        "total": 46,
+        "total": 29,
         "assigned": 0,
-        "missing": 46
+        "missing": 29
       },
       "mercedes": {
         "total": 35,
@@ -5424,8 +5424,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1201,
-    "total": 4577,
+    "missing": 1164,
+    "total": 4540,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5944,11 +5944,11 @@
         "assigned": 0
       },
       "sacachispas": {
-        "total": 50,
+        "total": 30,
         "assigned": 0
       },
       "alem": {
-        "total": 46,
+        "total": 29,
         "assigned": 0
       },
       "mercedes": {
@@ -6043,8 +6043,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1123,
-    "total": 4577,
+    "missing": 1086,
+    "total": 4540,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6563,11 +6563,11 @@
         "specific": 0
       },
       "sacachispas": {
-        "total": 50,
+        "total": 30,
         "specific": 0
       },
       "alem": {
-        "total": 46,
+        "total": 29,
         "specific": 0
       },
       "mercedes": {
@@ -6662,8 +6662,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2948,
-    "total": 4577,
+    "estimated": 2911,
+    "total": 4540,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7441,15 +7441,15 @@
         "provisional": 0
       },
       "sacachispas": {
-        "total": 50,
+        "total": 30,
         "verified": 0,
-        "estimated": 50,
+        "estimated": 30,
         "provisional": 0
       },
       "alem": {
-        "total": 46,
+        "total": 29,
         "verified": 0,
-        "estimated": 46,
+        "estimated": 29,
         "provisional": 0
       },
       "mercedes": {
@@ -7590,22 +7590,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3405,
+    "derivedPlayers": 3368,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 153,
-    "players": 4577,
-    "duplicateNames": 0,
+    "players": 4540,
+    "duplicateNames": 1,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1280,
+    "playersMissingAge": 1243,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2948,
+    "estimatedRatings": 2911,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1201,
-    "playersMissingFoot": 2520,
-    "playersMissingSpecificRole": 1123,
-    "playersWithoutManualAttributes": 3405
+    "playersMissingNationality": 1164,
+    "playersMissingFoot": 2483,
+    "playersMissingSpecificRole": 1086,
+    "playersWithoutManualAttributes": 3368
   }
 }
