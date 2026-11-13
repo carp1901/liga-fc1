@@ -58,8 +58,8 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 2: 243 jugadores en 7 clubes
 - [x] Tanda 3: 248 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
 - [x] Tanda 4: 266 jugadores en 7 clubes
-- [x] CSV actualizado: 950 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 11 planteles que aún superan 30 jugadores
+- [x] CSV actualizado: 938 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 10 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -259,3 +259,12 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - Se retiraron 14 nombres de uso mínimo o sin respaldo suficiente en el registro de temporada. **Dario Nami** no se reincorpora a El Porvenir: dejó el club y pasó a Muñiz en julio de 2026. **Gustavo Rodas** tampoco se incorpora pese a aparecer en una tabla estadística anómala: su carrera profesional terminó en 2018.
 - Fuentes: [estadísticas individuales de El Porvenir](https://www.zerozero.pt/equipa/el-porvenir/9149/jogadores), [salida de Dario Nami hacia Muñiz](https://www.soloascenso.com.ar/notas/muniz/el-porvenir-sufrio-su-primera-baja-y-ya-tiene-destino/229788), [trayectoria y retiro de Gustavo Rodas](https://www.infobae.com/deportes/2025/01/17/el-jugador-que-era-mejor-que-messi-en-las-inferiores-de-newells-y-termino-odiando-el-futbol-la-historia-de-billy-rodas/).
 - Nuevo recuento CSV: **950 jugadores en 28 clubes**. Diecisiete clubes cumplen el máximo de 30; quedan 11 planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Fénix
+
+- **Fénix: 42 → 30 jugadores.** Se priorizó el corte de 30 futbolistas con mayor cantidad de partidos disputados en Primera C 2026. Se incorporaron Franco Pérez (8 partidos) y Ramiro Breccia (4), que faltaban en el CSV.
+- Se retiraron 14 nombres con uso inferior o sin registro suficiente. Se conservaron los dos arqueros con más partidos (Marcos Jara y Mariano Mittelman).
+- **Iván Gorosito** se conserva con el nombre usado por el club: la ficha de ZeroZero aparece como Alan Iván Gorosito y registra 23 partidos/1.929 minutos; no es un homónimo ni un jugador diferente.
+- Fuentes: [estadísticas individuales de Fénix](https://www.zerozero.pt/equipa/fenix/26695/jogadores), [perfil de Iván Gorosito con 23 partidos y 1.929 minutos](https://www.zerozero.pe/jugador/ivan-gorosito/989369?epoca_id=155), [cierre oficial de temporada](https://clubatleticofenix.com/fenix-2-1-leones-oficial-cierre-de-temporada-y-descenso-en-primera-c/), [presentación de refuerzos 2026](https://www.soloascenso.com.ar/notas/fenix/siguen-llegando-fenix-sumo-una-nueva-incorporacion/224754).
+- Nuevo recuento CSV: **938 jugadores en 28 clubes**. Dieciocho clubes cumplen el máximo de 30; quedan diez planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
