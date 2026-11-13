@@ -54,12 +54,12 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 
 ## Estado
 
-- [x] Tanda 1: 275 jugadores en 7 clubes tras depurar Sacachispas y Alem
+- [x] Tanda 1: 254 jugadores en 7 clubes tras depurar Sacachispas, Alem y Juventud Unida
 - [x] Tanda 2: 268 jugadores en 7 clubes
 - [x] Tanda 3: 250 jugadores en 7 clubes tras las depuraciones de Central Ballester y Cañuelas
 - [x] Tanda 4: 266 jugadores en 7 clubes
-- [x] CSV actualizado: 1.059 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
-- [ ] Auditoría individual final de los 21 planteles que aún superan 30 jugadores
+- [x] CSV actualizado: 1.038 jugadores en 28 clubes; runtime se vuelve a integrar mediante GitHub Actions
+- [ ] Auditoría individual final de los 20 planteles que aún superan 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -168,3 +168,13 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 - Se mantiene a Thiago Ricalde como segundo arquero por integrar la nómina profesional inicial, aunque no sumó minutos. La reducción se limita a tres mediocampistas sin participación oficial.
 - Fuentes: [plantel profesional presentado por Puerto Nuevo](https://www.soloascenso.com.ar/notas/puerto-nuevo/puerto-nuevo-tiene-todo-listo-para-competir-en-el-2026/225078), [nómina actualizada de Solo Ascenso](https://www.soloascenso.com.ar/club/puerto-nuevo/297), [estadísticas completas de Puerto Nuevo](https://www.ceroacero.com.co/equipo/puerto-nuevo/45607/jugadores?epoca_stats_id=155), [perfil de Benjamín Ferreyra](https://www.ceroacero.com.co/jugador/benjamin-ferreyra/3555652?epoca_id=155), [perfil de Federico Aciar](https://www.ceroacero.com.co/jugador/federico-aciar/3625947?epoca_id=155), [perfil de Tomás Schefer](https://www.ceroacero.com.co/jugador/tomas-schefer/3558784?epoca_id=155).
 - Nuevo recuento CSV: **1.059 jugadores en 28 clubes**. Siete clubes cumplen el máximo de 30; quedan 21 planteles por revisar. La sincronización runtime y CI siguen pendientes de ejecución confirmada.
+
+
+## Actualización 13/11/2026 — depuración de Juventud Unida
+
+- **Juventud Unida: 51 → 30 jugadores.** Se utilizó la tabla individual de temporada 2026 de ZeroZero, que lista 35 futbolistas con partidos jugados, y se cruzó con los 51 nombres del CSV.
+- Se retiraron 18 nombres sin apariciones registradas en la tabla de temporada y cuatro de los de menor participación: Mateo Ursi (3 partidos), Joaquín Iglesias (2), Diego López (1) y Santiago Núñez (1). La selección final prioriza los 30 jugadores con mayor participación comprobada dentro de la nómina disponible.
+- Se incorporó **Fernando Giménez** (32 años, MED), omitido en el CSV pese a registrar 10 partidos en 2026. El dorsal 67 queda identificado como estimado, porque la ficha estadística no publica un número individual verificable.
+- No se incorporó a Santino Bevilacqua: registra sólo dos partidos y queda por debajo del corte de participación aplicado para mantener el plantel en 30.
+- Fuentes: [tabla individual de temporada de Juventud Unida](https://www.zerozero.pt/equipa/juventud-unida-san-miguel/45600/jogadores), [plantel 2026 y promedio de partidos](https://www.zerozero.com.ar/equipo/juventud-unida-san-miguel/45600), [El Porvenir–Juventud Unida: Giménez titular y autor del gol](https://www.ceroacero.com.co/partido/2026-05-16-el-porvenir-juventud-unida-san-miguel/12020423).
+- Nuevo recuento CSV: **1.038 jugadores en 28 clubes**. Ocho clubes cumplen el máximo de 30; quedan 20 planteles por revisar. Runtime y CI siguen pendientes de ejecución confirmada.
