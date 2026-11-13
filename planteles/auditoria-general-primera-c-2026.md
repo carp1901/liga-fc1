@@ -1184,7 +1184,7 @@ No se agregaron jugadores que ya habían salido antes del cierre: Luca Falabella
 
 Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), [estadísticas de Leonel Llodrá](https://www.zerozero.com.mx/jugador/leonel-llodra/490419), [salida de Luca Falabella](https://www.leballonrond.fr/equipe/sportivo-ameliano/108830/transferts), [salida de Farid Jasni](https://www.soloascenso.com.ar/notas/deportivo-espanol/fenix-presento-dos-refuerzos-para-el-tramo-final/229801).
 
-**Recuento vigente tras depurar Yupanqui:** 865 jugadores en 28 clubes; veintitrés planteles dentro del límite y cinco pendientes (Lugano, Deportivo Español, Muñiz, Leones FC y Yupanqui ya quedó en 30). La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
+**Recuento vigente tras depurar Yupanqui:** 865 jugadores en 28 clubes; veinticuatro planteles dentro del límite y cuatro pendientes: Lugano, Deportivo Español, Muñiz y Leones FC. La integración runtime no se considera completada hasta verificar el workflow y sus archivos generados.
 
 
 ## Actualización 13/11/2026 — depuración de Yupanqui
@@ -1192,4 +1192,4 @@ Fuentes: [plantel de cierre](https://www.soloascenso.com.ar/club/claypole/258), 
 - **Yupanqui: 38 → 30 jugadores.** Se priorizó la tabla de minutos de Primera C 2026 y se retiraron seis futbolistas que no aparecen en el registro individual consultado, más Tobías Coria (2 partidos/18 minutos) e Ignacio Perussia (1 partido/4 minutos). Se mantuvo la cobertura de arqueros, incluido Ramiro Galimidi como alternativa.
 - Se conservaron los jugadores con mayor continuidad, entre ellos Nahuel Castro López (arquero con más minutos), Alan Sánchez, Jonathan Smith, Marcos Bale, Lautaro Maside, Agustín Meloño, Pablo Vouga y los principales relevos ofensivos.
 - Fuentes: [tabla de minutos de Yupanqui en Primera C 2026](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_equipa=9309&v1=j&v2=t&v3=5), [plantel 2026 de Yupanqui](https://www.zerozero.pt/equipa/yupanqui/9309).
-- Nuevo recuento CSV: **865 jugadores en 28 clubes**. Veintitrés planteles cumplen el máximo de 30; quedan cinco por depurar. Runtime y CI siguen pendientes de ejecución confirmada.
+- Nuevo recuento CSV: **865 jugadores en 28 clubes**. Veinticuatro planteles cumplen el máximo de 30; quedan cuatro por depurar: Lugano, Deportivo Español, Muñiz y Leones FC. Runtime y CI siguen pendientes de ejecución confirmada.
