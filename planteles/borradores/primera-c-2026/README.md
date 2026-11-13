@@ -58,8 +58,8 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 - [x] Tanda 2: 224 jugadores en 7 clubes
 - [x] Tanda 3: 239 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
 - [x] Tanda 4: 209 jugadores en 7 clubes tras depurar Yupanqui
-- [x] CSV actualizado: 865 jugadores en 28 clubes; 23 planteles cumplen el máximo de 30
-- [ ] Auditoría individual final de los 5 planteles que aún superan 30 jugadores: Lugano, Deportivo Español, Muñiz y Leones FC
+- [x] CSV actualizado: 865 jugadores en 28 clubes; 24 planteles cumplen el máximo de 30
+- [ ] Auditoría individual final de los 4 planteles que aún superan 30 jugadores: Lugano, Deportivo Español, Muñiz y Leones FC
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -311,4 +311,4 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 
 - Yupanqui quedó en 30 jugadores tras cruzar la nómina con la tabla de minutos de Primera C 2026. Se retiraron seis nombres sin registro en la tabla consultada y dos con participación mínima (4 y 18 minutos). La decisión y las fuentes están documentadas en `auditoria-general-primera-c-2026.md`.
 - Recuento exacto de los cuatro CSV: tanda 1, 207; tanda 2, 224; tanda 3, 225; tanda 4, 209. Total: **865 jugadores en 28 clubes**.
-- Cinco clubes continúan por encima de 30: Lugano, Deportivo Español, Muñiz y Leones FC (Yupanqui ya fue depurado; el recuento previo incluía cinco antes de esta edición y ahora quedan cuatro? verificar lista final con el próximo recálculo).
+- Cuatro clubes continúan por encima de 30: Lugano, Deportivo Español, Muñiz y Leones FC.
