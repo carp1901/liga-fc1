@@ -46,11 +46,12 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 
 ## Relevamiento inicial
 
-- La división del juego contiene 28 clubes y ninguno tiene jugadores cargados en `public/squads-meta.json`.
+- Los 28 clubes de Primera C están integrados en `public/squads-meta.json`; la última auditoría registra 1.123 jugadores. La cantidad es una carga preliminar y no implica que la depuración individual esté terminada.
 - AFA publicó la nómina 2026 de Luján: 26 jugadores (2 arqueros, 7 defensores, 13 volantes y 4 delanteros). El club logró el ascenso a Primera B para 2027; la nómina se conserva como referencia histórica de la temporada 2026.
 - Solo Ascenso publicó la presentación de General Lamadrid para 2026 con 33 futbolistas y enumeró las bajas previas.
 - Mundo Ascenso tiene fichas de plantel 2026 para la categoría, pero algunas muestran sólo una fracción del plantel o ningún jugador (por ejemplo, Luján, Cañuelas y Argentino Rosario). No se aceptarán esas fichas incompletas como nómina total ni se rellenarán sus faltantes por inferencia.
 - La ficha de Claypole lista 25 jugadores, pero se debe cruzar con la nómina y las apariciones 2026 antes de cerrar el club.
+- Corrección de auditoría: Valentín Mancuso ya figura en `tanda1-inicial.csv` de Sacachispas (MED, dorsal estimado 42) y aparece en convocatorias de septiembre/octubre. No debe volver a agregarse.
 
 ## Estado
 
