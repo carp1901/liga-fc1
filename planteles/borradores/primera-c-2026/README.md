@@ -55,11 +55,11 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 ## Estado
 
 - [x] Tanda 1: 207 jugadores en 7 clubes tras depurar Sacachispas, Alem, Juventud Unida, Estrella del Sur, Club Mercedes, Argentino de Rosario y Victoriano Arenas
-- [x] Tanda 2: 224 jugadores en 7 clubes
+- [x] Tanda 2: 209 jugadores en 7 clubes tras depurar Lugano
 - [x] Tanda 3: 239 jugadores en 7 clubes tras las depuraciones de Central Ballester, Cañuelas y Central Córdoba Rosario
 - [x] Tanda 4: 202 jugadores en 7 clubes tras depurar Yupanqui y Leones FC
-- [x] CSV actualizado: 841 jugadores en 28 clubes; 28 planteles cumplen el máximo de 30
-- [ ] Auditoría individual final de el plantel que aún supera 30 jugadores: Lugano
+- [x] CSV actualizado: 826 jugadores en 28 clubes; los 28 planteles cumplen el máximo de 30
+- [ ] Auditoría individual final de los 28 planteles cumplen el máximo de 30 jugadores
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -310,8 +310,8 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 ## Actualización 13/11/2026 — Yupanqui
 
 - Yupanqui quedó en 30 jugadores tras cruzar la nómina con la tabla de minutos de Primera C 2026. Se retiraron seis nombres sin registro en la tabla consultada y dos con participación mínima (4 y 18 minutos). La decisión y las fuentes están documentadas en `auditoria-general-primera-c-2026.md`.
-- Recuento exacto de los cuatro CSV: tanda 1, 207; tanda 2, 224; tanda 3, 208; tanda 4, 202. Total: **841 jugadores en 28 clubes**.
-- Un club continúa por encima de 30: Lugano.
+- Recuento exacto de los cuatro CSV: tanda 1, 207; tanda 2, 209; tanda 3, 208; tanda 4, 202. Total: **826 jugadores en 28 clubes**.
+- Los 28 clubes cumplen el máximo de 30.
 
 
 ## Actualización 13/11/2026 — Deportivo Muñiz
@@ -330,3 +330,10 @@ Detalle de evidencia y nombres retirados: secciones 21–23 de `auditoria-genera
 
 - Leones FC quedó en 30 jugadores. El recorte de siete futbolistas se basó en el plantel publicado, el once más utilizado (mínimo de 10 partidos) y planillas de septiembre; se conservó una cobertura de tres arqueros. Como no se encontró una tabla pública completa de minutos de todo el plantel, el recorte se documenta como selección de profundidad, no como prueba de cero presencias.
 - Recuento consolidado: **841 jugadores en 28 clubes**, 28 dentro del máximo y uno pendiente: Lugano. La sincronización del runtime y la CI todavía deben verificarse.
+
+
+## Actualización 13/11/2026 — Lugano y cierre de la depuración CSV
+
+- Lugano quedó en 30 jugadores tras cruzar nómina 2026, once más utilizado y planillas de partidos. Se corrigieron dos nombres y se retiraron tres nombres fuera de la nómina oficial más doce futbolistas de profundidad no presentes en las planillas consultadas. Se conservaron tres arqueros.
+- Recuento consolidado de las cuatro tandas: **826 jugadores en 28 clubes** (tanda 1: 207; tanda 2: 209; tanda 3: 208; tanda 4: 202). Todos los planteles están en 30 o menos.
+- La depuración de CSV está cerrada. Quedan pendientes la sincronización de `public/squads.json`, `public/squads.js` y `public/squads-meta.json`, ejecutar el test/CI con resultado confirmado y reconciliar la rama con `main` antes de integrar.
