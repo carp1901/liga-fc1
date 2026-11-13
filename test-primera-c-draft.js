@@ -13,7 +13,7 @@ const headers=parsed[0].shift().map(x=>x.trim().toLowerCase());
 for(let i=1;i<parsed.length;i++)assert.deepEqual(parsed[i].shift().map(x=>x.trim().toLowerCase()),headers,'Los cuatro CSV deben compartir esquema');
 const rows=parsed.flat();const col=Object.fromEntries(headers.map((h,i)=>[h,i]));
 const expected={
- juventudunida:30,estrelladelsur:29,argentinorosario:50,victorianoarenas:37,sacachispas:30,alem:29,mercedes:29,
+ juventudunida:30,estrelladelsur:29,argentinorosario:30,victorianoarenas:37,sacachispas:30,alem:29,mercedes:29,
  berazategui:38,paraguayo:42,cambaceres:30,puertonuevo:30,centroespanol:29,jjurquiza:49,lugano:45,
  atlas:42,canuelas:30,centralballester:30,centralcordobarosario:32,claypole:39,espanol:39,muniz:38,
  porvenir:44,fenix:42,lamadrid:39,leones:37,lujan:27,sportivobarracas:39,yupanqui:38
@@ -36,7 +36,7 @@ for(const [i,row] of rows.entries()){
  if(!crossNames.has(normalizedName(name)))crossNames.set(normalizedName(name),[]);
  crossNames.get(normalizedName(name)).push({club,pos,name});
 }
-assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,1013,'Total nominal inesperado');
+assert.deepEqual(totalByClub,expected,'Cambió la cantidad nominal de las cuatro tandas');assert.equal(total,993,'Total nominal inesperado');
 const collisions=[...crossNames.entries()].filter(([,v])=>v.length>1).map(([n])=>n).sort();
 assert.deepEqual(collisions,['gonzalo medina','lautaro torres','rodrigo ortiz','rodrigo soria','santiago diaz'],'Apareció un homónimo entre clubes no auditado');
 const pair=(name,expectedPair)=>assert.deepEqual(crossNames.get(name).map(x=>x.club+'|'+x.pos).sort(),expectedPair);
@@ -45,6 +45,8 @@ pair('lautaro torres',['estrelladelsur|DEL','sacachispas|MED']);
 pair('rodrigo ortiz',['claypole|MED','paraguayo|DEL']);
 pair('gonzalo medina',['alem|MED','fenix|MED']);
 pair('santiago diaz',['cambaceres|DEF','lujan|MED']);
+const argentinoRows=rows.filter(row=>row[col.club_id]==='argentinorosario');assert.equal(argentinoRows.length,30,'Argentino de Rosario debe quedar en 30 futbolistas con mayor participación');
+for(const name of ['Fabricio Manduca','Tomás Ávalos','Brandon Fontana','Jhon Palacin Ramírez','Facundo Cefarelli','Joaquín Duarte','Marcos Ginex','Bismark Gómez','Sebastián Guanter','Miguel Hernández Castillo','Lautaro Pino','Agustín Sánchez Graziadei','Javier Saucedo','Facundo Yess','Facundo Franceschini','Rodrigo González','Nicolás Heiz','Lucas Molina','Franco Peralta Bravo','Mauro Scassa'])assert(!argentinoRows.some(row=>row[col.nombre]===name),'Argentino conserva un jugador fuera del corte de participación: '+name);
 const mercedesRows=rows.filter(row=>row[col.club_id]==='mercedes');assert.equal(mercedesRows.length,29,'Club Mercedes debe quedar con su plantel de cierre de 29 jugadores');
 for(const name of ['Franco Tonatto','Román Cruz','Franco Taborda','Lucas Calderón','Ulises Antonio Dematei','Lautaro Lagos'])assert(!mercedesRows.some(row=>row[col.nombre]===name),'Mercedes conserva un jugador fuera del plantel de cierre: '+name);
 assert.equal(mercedesRows.find(row=>row[col.nombre]==='Franco Ortigosa')?.[col.posicion],'DEL','Franco Ortigosa debe figurar como delantero');
@@ -80,7 +82,7 @@ if(process.argv.includes('--runtime')){
   }
   assert.equal(meta.counts[id],count,'Metadata incorrecta: '+id);
  }
- const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1013*1024}));
+ const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*993*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 1.013 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 1.038 jugadores, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 0.993 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 1.038 jugadores, sin duplicados internos ni dorsales repetidos.');
