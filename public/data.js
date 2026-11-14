@@ -253,12 +253,12 @@ function maxAssignment(score){
  }
  const out=Array(n).fill(-1);for(let j=1;j<=m;j++)if(p[j])out[p[j]-1]=j-1;return out;
 }
-function autoXI(sq,f,ban,st){
+function autoXI(sq,f,ban,st,adj){
  const sl=slots(f),want=exactSlots(f,st),pool=sq.map((_,i)=>i).filter(i=>!(ban&&ban.has(i)));
  if(pool.length<sl.length)return sl.map(()=>-1);
  const weights=sl.map((pos,k)=>pool.map(i=>{
   const x=sq[i],specific=roleOvr(x,pos)*(x.p==pos?1:(pos=='POR'||x.p=='POR')?.3:.8),overall=Number.isFinite(Number(x.r))?Number(x.r):specific;
-  return overall*.7+specific*.3+roleFit(x,want[k]);
+  return overall*.7+specific*.3+roleFit(x,want[k])+(adj?adj[i]||0:0);
  }));
  const assigned=maxAssignment(weights);return assigned?assigned.map(j=>pool[j]):sl.map(()=>-1);
 }
