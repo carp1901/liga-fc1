@@ -399,38 +399,95 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 }
 
 
-/* Centrado óptico de escudos: el wrapper .cw también debe crecer junto con la imagen */
-.kobc .kcs{
+/* Llave simplificada: centrado geométrico real de escudos y marcador */
+.kobc .kcm{
+ box-sizing:border-box!important;
  display:flex!important;
  align-items:center!important;
  justify-content:center!important;
- align-self:center!important;
- line-height:0!important;
- position:relative!important;
- top:-2px!important;
+ gap:3px!important;
+ padding:3px 25px!important;
+ overflow:hidden!important;
 }
-.kobc .kcs .cw{
+.kobc .kcm>.kcs{
+ box-sizing:border-box!important;
  display:flex!important;
  align-items:center!important;
  justify-content:center!important;
- width:33px!important;
- height:33px!important;
- flex:0 0 33px!important;
- line-height:0!important;
+ flex:0 0 30px!important;
+ width:30px!important;
+ min-width:30px!important;
+ height:30px!important;
  margin:0!important;
+ padding:0!important;
+ position:static!important;
+ line-height:0!important;
+ overflow:visible!important;
 }
-.kobc .kcs .cw img{
+.kobc .kcm>.kcs>.cw{
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ flex:0 0 30px!important;
+ width:30px!important;
+ height:30px!important;
+ margin:0!important;
+ padding:0!important;
+ line-height:0!important;
+}
+.kobc .kcm>.kcs>.cw img{
  display:block!important;
- width:33px!important;
- height:33px!important;
- object-fit:contain!important;
+ position:static!important;
+ width:30px!important;
+ height:30px!important;
+ max-width:30px!important;
+ max-height:30px!important;
  margin:0!important;
- vertical-align:middle!important;
+ object-fit:contain!important;
+ filter:none!important;
+}
+.kobc .kcm>b{
+ box-sizing:border-box!important;
+ flex:0 0 14px!important;
+ width:14px!important;
+ min-width:14px!important;
+ margin:0!important;
+ padding:0!important;
+ text-align:center!important;
+ line-height:1!important;
+}
+.kobc .kcm>.kdash{
+ flex:0 0 10px!important;
+ width:10px!important;
+ margin:0!important;
+ padding:0!important;
+ text-align:center!important;
+}
+.kobc .kcm>.eyeb{
+ position:absolute!important;
+ top:50%!important;
+ right:3px!important;
+ transform:translateY(-50%)!important;
+ margin:0!important;
+}
+.kobc .kcm>.klv{
+ position:absolute!important;
+ top:2px!important;
+ right:25px!important;
+ margin:0!important;
+}
+.kobc .kcm>.kp{
+ position:absolute!important;
+ right:25px!important;
+ bottom:1px!important;
+ margin:0!important;
+ line-height:1!important;
 }
 @media(max-width:760px){
- .kobc .kcs{top:-2px!important}
- .kobc .kcs .cw{width:31px!important;height:31px!important;flex-basis:31px!important}
- .kobc .kcs .cw img{width:31px!important;height:31px!important}
+ .kobc .kcm{padding-left:25px!important;padding-right:25px!important}
+ .kobc .kcm>.kcs,.kobc .kcm>.kcs>.cw{flex-basis:28px!important;width:28px!important;height:28px!important;min-width:28px!important}
+ .kobc .kcm>.kcs>.cw img{width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important}
+ .kobc .kcm>b{flex-basis:13px!important;width:13px!important;min-width:13px!important}
 }
 
 </style></head><body><main>
