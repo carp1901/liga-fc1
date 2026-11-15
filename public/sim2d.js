@@ -403,7 +403,7 @@ class Sim{
    else if(!B.own&&sc.t-sc.tk>70){if(!sc.re&&dist(sc.wait,B)>R*2.2){sc.re=1;sc.tk=sc.t-38;S.kickAt(sc.wait,clamp(dist(sc.wait,B)/22,5,8)*S.fs)}else{B.own=sc.wait;sc.wait.hold=0}}}   // si el pase se frenó antes de llegar, se vuelve a tocar hacia el receptor (no se le entrega de golpe)
   else if(sc.k=='fk'||sc.k=='pen'){const T=sc.k=='fk'?[95,36,8]:[95,42,8];
    if(ph=='set'){if(sc.t>=T[0]&&S.reach(sc.taker,sc.tpos,12,T[0],90,sc)&&(!sc.gw||S.reach(sc.gw,sc.gwp,14,T[0],260,sc))){sc.ph='wait';sc.tw=sc.t;S.fx={n:S.n,x:sc.ba.x,y:sc.ba.y};if(sc.wt)sc.wall.forEach((p,j)=>{if(dist(p,sc.wt[j])<30){p.x=sc.wt[j].x;p.y=sc.wt[j].y;p.vx=p.vy=0}})}}
-   else if(ph=='wait'){if(sc.k=='pen'&&sc.x==null&&sc.t-sc.tw>=T[1]){sc.t--;if((sc.hw=(sc.hw||0)+1)>900){sc.x='o';sc.sd=sc.sd||'C';sc.dd=sc.dd||'C'}}else if(sc.t-sc.tw>=T[1]){sc.ph='run';sc.tr=sc.t;S.tg(sc.taker,sc.ba.x,sc.ba.y);if(sc.decoy)S.tg(sc.decoy,sc.ba.x+sc.u.x*50,sc.ba.y+sc.u.y*50)}}
+   else if(ph=='wait'){if(sc.k=='pen'&&sc.x==null&&sc.t-sc.tw>=T[1]){sc.t--;if((sc.hw=(sc.hw||0)+1)>3000){S.endSc();B.free=false;if(!B.own)B.own=S.P.find(p=>!p.off)}}else if(sc.t-sc.tw>=T[1]){sc.ph='run';sc.tr=sc.t;S.tg(sc.taker,sc.ba.x,sc.ba.y);if(sc.decoy)S.tg(sc.decoy,sc.ba.x+sc.u.x*50,sc.ba.y+sc.u.y*50)}}
    else if(ph=='run'){if(sc.t-sc.tr>=T[2]&&S.reach(sc.taker,sc.ba,R+4,sc.tr,45,sc))S.shotSp()}}
   else if(sc.k=='lat'){
    if(ph=='set'||ph=='hold')S.latClear(sc);
