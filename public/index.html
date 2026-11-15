@@ -1391,9 +1391,13 @@ let D2='auto';try{D2=localStorage.d2||'auto'}catch(e){}
 let PENDF=null,PCH=null,PDL=0,PDID=null;
 const pnl=document.getElementById('pdp');
 const penTxt=()=>Math.max(0,Math.ceil((PDL-Date.now()-500)/1000));
-const penUI=pd=>{if(!pd||!pd.pr||pd.done||PCH===String(pd.id)){pnl.hidden=true;return}if(PDID!==String(pd.id)){PDID=String(pd.id);PDL=Date.now()+pd.left}const a=pd.pr=='a';pnl.innerHTML=`<div class=pdb><div class=pdt>${a?'⚽ ¡PENAL! Elegí hacia dónde patear':'🧤 ¡PENAL! Elegí hacia dónde tirarte'}</div><div class=pdc id=pcd>${penTxt()}</div><div class=pdr>${[['L','IZQUIERDA'],['C','CENTRO'],['R','DERECHA']].map(([k,l])=>`<button data-pdec="${k}">${l}</button>`).join('')}</div></div>`;pnl.dataset.id=pd.id;pnl.hidden=false};
+let PDCUR=null,PACK=null;
+const pid2=id=>/^\d+$/.test(String(id))?+id:id,penReady=()=>{const s=SIM.sc;return!!(s&&s.k=='pen'&&s.x==null&&s.ph=='wait'&&PDCUR&&String(s.e.id)===String(PDCUR.id))};
+// el panel aparece recién cuando el pateador ya está en posición en el 2D (no durante la caminata ni la falta); ahí se avisa al servidor y arranca la cuenta de 3 s
+const penShow=()=>{const pd=PDCUR;if(!pd||!pd.pr||pd.done||PCH===String(pd.id)||!penReady()){if(!pnl.hidden)pnl.hidden=true;return}const id=String(pd.id);if(PACK!==id){PACK=id;PDL=Date.now()+3500;post({a:'prdy',id:pid2(id)})}if(pnl.dataset.id!==id||pnl.hidden){const a=pd.pr=='a';pnl.innerHTML=`<div class=pdb><div class=pdt>${a?'⚽ ¡PENAL! Elegí hacia dónde patear':'🧤 ¡PENAL! Elegí hacia dónde tirarte'}</div><div class=pdc id=pcd>${penTxt()}</div><div class=pdr>${[['L','IZQUIERDA'],['C','CENTRO'],['R','DERECHA']].map(([k,l])=>`<button data-pdec="${k}">${l}</button>`).join('')}</div></div>`;pnl.dataset.id=id;pnl.hidden=false}};
+const penUI=pd=>{PDCUR=pd||null;penShow()};
 pnl.addEventListener('click',e=>{const d=e.target.dataset&&e.target.dataset.pdec;if(!d)return;const id=pnl.dataset.id;PCH=id;post({a:'pdec',id:/^\d+$/.test(id)?+id:id,d});pnl.hidden=true});
-setInterval(()=>{const c=document.getElementById('pcd');if(c&&!pnl.hidden){const t=penTxt();c.textContent=t;c.className='pdc'+(t<=1?' lo':'')}},120);
+setInterval(()=>{penShow();const c=document.getElementById('pcd');if(c&&!pnl.hidden){const t=penTxt();c.textContent=t;c.className='pdc'+(t<=1?' lo':'')}},120);
 const D2E=()=>S&&!S.off&&S.code?(S.d2||'auto'):D2,DSP=()=>{const d=D2E();return Math.min(5,(d=='auto'?SPD:+d)||1)};   // velocidad del 2D: por defecto acompaña al marcador, pero se puede fijar aparte
 const spdSel=v=>{const mk=v.off?[[.25,'x0,25'],[.5,'x0,5'],[1,'x1'],[2,'x2'],[5,'x5']]:v.hs?[[.5,'x0,5'],[1,'x1'],[2,'x2'],[3,'x3'],[5,'x5']]:null,opt=(a,cur)=>a.map(([k,l])=>`<option value="${k}" ${String(k)==String(cur)?'selected':''}>${l}</option>`).join('');
  return(mk?`<label class=mu>Marcador <select data-spd=1 title="Velocidad del marcador (el reloj del torneo)">${opt(mk,v.spd)}</select></label>`:'')+(!v.off&&v.code&&!v.hs?'':`<label class=mu>2D <select data-d2=1 title="Velocidad de la animación 2D, aparte de la del marcador">${opt([['auto','= marcador'],[.5,'x0,5'],[1,'x1'],[2,'x2'],[3,'x3'],[5,'x5']],D2E())}</select></label>`)};
