@@ -1,7 +1,10 @@
 // Física 2D tipo Haxball: fichas con aceleración y fricción, pelota con rebotes, pases lógicos (pared, entre líneas) y formación que se mueve en bloque.
 // El servidor decide qué pasa; acá se "actúan" sus jugadas (ataques, tiros libres, penales, córners, faltas) sobre la física.
 (function(){
-const W=720,H=440,X0=20,Y0=20,FW=W-40,FH=H-40,GY0=H/2-48,GY1=H/2+48,R=13,BR=6,rnd=Math.random,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),
+function sdRng(n){let a=(n>>>0)||1;return()=>{a=(a+0x6D2B79F5)>>>0;let t=a;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}}
+let RNG=Math.random;
+const sid=e=>+String(e.id).replace(/\D/g,'')+1;
+const W=720,H=440,X0=20,Y0=20,FW=W-40,FH=H-40,GY0=H/2-48,GY1=H/2+48,R=13,BR=6,rnd=()=>RNG(),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),
 GEO=[[[1,.06,0],[4,.21,.5],[4,.37,.85],[2,.49,1]],[[1,.06,0],[4,.21,.5],[3,.37,.85],[3,.49,1]],[[1,.06,0],[3,.21,.5],[5,.37,.85],[2,.49,1]],[[1,.06,0],[4,.21,.5],[5,.37,.85],[1,.49,1]],[[1,.06,0],[5,.21,.5],[3,.37,.85],[2,.49,1]],
  [[1,.06,0],[4,.21,.5],[2,.32,.7],[3,.43,.9],[1,.49,1]],[[1,.06,0],[4,.21,.5],[2,.32,.7],[2,.43,.9],[2,.49,1]],[[1,.06,0],[3,.21,.5],[4,.37,.85],[3,.49,1]],[[1,.06,0],[5,.21,.5],[4,.37,.85],[1,.49,1]],
  [[1,.06,0],[4,.21,.5],[3,.36,.8],[1,.43,.95],[2,.49,1]],[[1,.06,0],[4,.21,.5],[1,.31,.65],[4,.42,.9],[1,.49,1]],[[1,.06,0],[4,.21,.5],[4,.36,.85],[1,.44,.95],[1,.49,1]],[[1,.06,0],[3,.21,.5],[4,.34,.8],[2,.43,.95],[1,.49,1]],[[1,.06,0],[5,.21,.5],[2,.35,.75],[3,.49,1]]];
@@ -23,7 +26,7 @@ const segD=(a,b,c)=>{const dx=b.x-a.x,dy=b.y-a.y,L=dx*dx+dy*dy||1,t=clamp(((c.x-
 const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 class Sim{
  constructor(){this.P=[];this.B={x:W/2,y:H/2,vx:0,vy:0,own:null,recv:null,free:false};this.poss=0;this.sc=null;this.key=null;this.n=0;this.tr=[];this.passes=0;this.q=[];this.frozen=true;this.T=[[1,0,0],[1,0,0]];this.fx=null;this.goalN=0;this.onGoal=null;this.gap=0;this.fs=1;this.prev=null;this.runner=null;this.freeze=0;this.trail=[];this.ctx={min:0,sc:[0,0]};this.link=null;this.shot=null;this.run=null;this.vs=.9;this.refs=null;this.fbSide=[0,0];this.mkm=[new Map(),new Map()];this.thr=[0,0];this.latLock=null;this.secondHalf=false}
- setup(f0,f1,key){const k=key+'|'+f0+'|'+f1;if(k===this.key)return false;this.key=k;this.gh=[];this.gq=[];this.F=[f0,f1];this.thr=[0,0];this.latLock=null;this.P=[];
+ setup(f0,f1,key){const k=key+'|'+f0+'|'+f1;if(k===this.key)return false;this.key=k;this.koN=0;RNG=sdRng((this.mseed||0)+11);this.gh=[];this.gq=[];this.F=[f0,f1];this.thr=[0,0];this.latLock=null;this.P=[];
   [f0,f1].forEach((f,s)=>{if(f==null)return;for(let i=0;i<11;i++){const h=hom(f,i);this.P.push({s,k:i,l:h.l,wl:h.wl,wide:h.wide,fb:h.fb,piv:h.piv,hy0:h.hy,hx:h.hx,hy:h.hy,x:0,y:0,vx:0,vy:0,fx:s?-1:1,fy:0,off:false,cool:0,hold:0,wait:20,tg:null})}});[0,1].forEach(s=>this.applyRoles(s));this.hardRest();return true}
  setTac(s,t){const o=this.T[s],ch=!o||o[0]!==t[0];this.T[s]=t;if(ch&&this.P.length){this.applyRoles(s);if(this.frozen&&!this.sc)this.P.forEach(p=>{if(p.s==s){const h=this.hp(p);p.x=h.x;p.y=h.y;p.vx=p.vy=0}})}}
  setHalf(second){const v=!!second;if(this.secondHalf===v)return;this.secondHalf=v;[0,1].forEach(s=>this.applyRoles(s))}
@@ -33,7 +36,7 @@ class Sim{
  clr(){this.P.forEach(p=>{p.tg=null;p.vmx=0})}
  rest(){const S=this,B=S.B;S.P.forEach(p=>{p.walk=0;p.pw=null});S.sc=null;S.ko=null;S.rp=null;S.pre=null;S.koP=null;S.fx=null;S.freeze=0;S.runner=null;S.prev=null;S.counter=null;S.build=null;S.third=null;S.sb=null;S.trail=[];S.link=null;S.shot=null;S.run=null;S.clr();S.offs=null;S.mkm=[new Map(),new Map()];S.refs=[{x:W/2,y:H/2+40,role:'ref'},{x:W/2,y:Y0-9,role:'l1'},{x:W/2,y:Y0+FH+9,role:'l2'}];S.P.forEach(p=>{p.hy=p.hy0;p.swpT=0;const h=S.hp(p);p.x=h.x;p.y=h.y;p.vx=p.vy=0;p.cool=0;p.hold=0});B.x=W/2;B.y=H/2;B.vx=B.vy=0;B.free=false;B.own=null;B.recv=null}
  hardRest(){this.q=[];this.gq=[];this.gap=0;this.endScene=null;this.rest()}
- kickoff(side,soft){const S=this,B=S.B,old=soft?S.P.map(p=>[p.x,p.y]):null;S.rest();S.ko=null;const o=S.P.find(p=>p.s==side&&p.k==10&&!p.off)||S.P.find(p=>!p.off);if(!o)return;o.x=W/2+(o.s?14:-14);o.y=H/2;B.own=o;S.poss=o.s;o.hold=0;o.wait=24;S.koP=o;S.koS=o.s;
+ kickoff(side,soft){const S=this,B=S.B,old=soft?S.P.map(p=>[p.x,p.y]):null;RNG=sdRng((S.mseed||0)+131*(S.koN=(S.koN||0)+1));S.rest();S.ko=null;const o=S.P.find(p=>p.s==side&&p.k==10&&!p.off)||S.P.find(p=>!p.off);if(!o)return;o.x=W/2+(o.s?14:-14);o.y=H/2;B.own=o;S.poss=o.s;o.hold=0;o.wait=24;S.koP=o;S.koS=o.s;
   if(old){let md=0;S.P.forEach((p,i)=>{if(p.off)return;const hx=p.x,hy=p.y;p.x=old[i][0];p.y=old[i][1];md=Math.max(md,Math.hypot(hx-p.x,hy-p.y));S.tg(p,hx,hy);p.vmx=4.2});const w=clamp(Math.ceil(md/4.2)+18,30,170);S.P.forEach(p=>{p.cool=w+4});B.own=null;B.x=W/2;B.y=H/2;S.ko={t:S.n+w,o};S.gap=w+10}}   // después de un gol los jugadores vuelven caminando a sus posiciones (no aparecen de golpe) y recién ahí se saca del medio
  
  // jugadores cuya expulsión todavía no se mostró (su falta está en cola o en juego): siguen en cancha hasta que se vea la jugada
@@ -132,12 +135,12 @@ class Sim{
   if(!S.sc&&best.k>0&&S.throughOK(o,best,bl,press)){S.lp={from:o,to:best,n:S.n};S.through(o,best,press);return}
    S.lp={from:o,to:best,n:S.n};const dd2=dist(best,o),sp2=clamp(dd2/30,3.6,5.8)*(cnt?1.2:1)*[.88,1,1.1][tt[0]];if(Math.abs(best.y-o.y)>FH*.42&&dd2>240){S.crossT=S.n;S.crossD=dd2/(sp2*S.vs);S.switchN=(S.switchN||0)+1}
   S.kickAt(best,sp2,S.run&&S.run.p===best&&S.n<S.run.t?1.5:.7)}
- event(e,as){const S=this,n=S.q.length;if(e.x=='g'&&e.k!='pso'&&!S.pso&&(!S.P.length||S.frozen||S.P.length<22)){(S.gq=S.gq||[]).push({e,as});return}if(!S.P.length||S.frozen||(as==1&&S.P.length<22))return;
+ event(e,as){const S=this,n=S.q.length;if(e.id)RNG=sdRng(sid(e)*2654435761+(S.mseed||0));if(e.x=='g'&&e.k!='pso'&&!S.pso&&(!S.P.length||S.frozen||S.P.length<22)){(S.gq=S.gq||[]).push({e,as});return}if(!S.P.length||S.frozen||(as==1&&S.P.length<22))return;
   const dn=S.dropN||1;if(n>=dn&&n<4&&e.k=='att'&&e.x=='l'&&as!=null&&rnd()<.6&&S.n-(S.lastLat||-999)>600){S.lastLat=S.n;S.latQ=(S.latQ||0)+1;S.q.push({e:{k:'lat'},as:1-as});return}   // la pérdida que se iba a descartar se convierte en saque lateral para el rival
   if(!(e.cd=='r'||e.cd=='r2')&&((n>=dn&&e.k=='lat')||(n>=dn&&(e.k=='foul'||(e.k=='att'&&(e.x=='l'||e.x=='f'))))||(n>=dn+2&&e.k=='att'&&e.x=='o')))return;   // las faltas con expulsión nunca se descartan: se tiene que ver el motivo
   if(n>=(S.qMax||7)&&e.x!='g')return;if(e.x=='g'&&e.k!='pso')S.q=S.q.filter(it=>it.e&&(it.e.x=='g'||it.e.k=='pso'||it.e.cd));   // un gol pasa delante de las jugadas pendientes: se ve cuando pasa, no 20 minutos después
   S.q.push({e,as})}
- begin(){const S=this,it=S.q.shift(),e=it.e,as=it.as;S.clr();S.B.free=false;S.poss=as;S.fs=1;
+ begin(){const S=this,it=S.q.shift(),e=it.e,as=it.as;if(e.id)RNG=sdRng(sid(e)*2654435761+(S.mseed||0)+1);S.clr();S.B.free=false;S.poss=as;S.fs=1;
   if(e.k=='att')S.attSc(e,as);else if(e.k=='pso'){S.pso=true;S.psoN=(S.psoN||0)+1;S.penSc(e,as)}else if(e.k=='foul'||e.k=='fk'||e.k=='pen')S.incSc(e,as);else if(e.k=='cor'){if(!S.corPre(e,as))S.corSc(e,as)}else if(e.k=='lat'){if(!S.latPre(e,as))S.latSc(e,as)}}
  psoLine(ex){const S=this;[0,1].forEach(s=>{const L=S.P.filter(p=>p.s==s&&!p.off&&p.k!=0&&p!==ex),n=L.length,sp=Math.min(34,(FH-50)/Math.max(1,n-1));L.forEach((p,j)=>S.tg(p,W/2+(s?22:-22),H/2+(j-(n-1)/2)*sp))})}
  fcel(sc,n){const S=this,e=sc.e,goal=e.x=='g',ws=goal?sc.side:1-sc.side,{gx,dir}=S.geo(sc.side);
