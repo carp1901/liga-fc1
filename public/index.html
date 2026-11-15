@@ -332,7 +332,31 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 #m10 .ranking-results .rkfullwrap{margin-top:12px}
 #m10 .ranking-results .rkfullwrap table{min-width:0}
 @media(max-width:600px){#m10 .ranking-results{padding:9px 7px;margin-bottom:9px}#m10 .ranking-tools>summary{padding:9px 10px}#m10 .ranking-tools-body{padding:7px}#m10 .ranking-tools .ranking-filters{grid-template-columns:1fr 1fr;gap:7px}#m10 .ranking-tools .rkt{grid-template-columns:repeat(3,minmax(0,1fr))}}
- .ranking-country{display:flex;flex-direction:column;gap:6px;margin:10px 0}.country-picker{position:relative;max-width:100%}.country-current,.country-option{display:flex;align-items:center;gap:10px;width:100%;min-height:42px;padding:9px 12px;border:1px solid var(--line,rgba(255,255,255,.18));border-radius:10px;background:var(--panel,#171b22);color:inherit;text-align:left;font:inherit}.country-current{cursor:pointer}.country-chevron{margin-left:auto;opacity:.7}.country-flag{display:inline-flex;align-items:center;justify-content:center;width:30px;height:20px;flex:0 0 30px}.country-flag svg{display:block;width:30px;height:20px;border-radius:2px;overflow:hidden}.country-options{position:relative;z-index:2;width:100%;max-height:240px;overflow:auto;margin-top:5px;padding:5px;background:var(--panel,#171b22);border:1px solid var(--line,rgba(255,255,255,.2));border-radius:10px;box-shadow:0 8px 24px #0008}.country-option{border:0;border-radius:7px;background:transparent;cursor:pointer}.country-option:hover,.country-option.on{background:rgba(255,255,255,.1)}.country-check{margin-left:auto;color:#7ddc9a}</style></head><body><main>
+ .ranking-country{display:flex;flex-direction:column;gap:6px;margin:10px 0}.country-picker{position:relative;max-width:100%}.country-current,.country-option{display:flex;align-items:center;gap:10px;width:100%;min-height:42px;padding:9px 12px;border:1px solid var(--line,rgba(255,255,255,.18));border-radius:10px;background:var(--panel,#171b22);color:inherit;text-align:left;font:inherit}.country-current{cursor:pointer}.country-chevron{margin-left:auto;opacity:.7}.country-flag{display:inline-flex;align-items:center;justify-content:center;width:30px;height:20px;flex:0 0 30px}.country-flag svg{display:block;width:30px;height:20px;border-radius:2px;overflow:hidden}.country-options{position:relative;z-index:2;width:100%;max-height:240px;overflow:auto;margin-top:5px;padding:5px;background:var(--panel,#171b22);border:1px solid var(--line,rgba(255,255,255,.2));border-radius:10px;box-shadow:0 8px 24px #0008}.country-option{border:0;border-radius:7px;background:transparent;cursor:pointer}.country-option:hover,.country-option.on{background:rgba(255,255,255,.1)}.country-check{margin-left:auto;color:#7ddc9a}
+/* Ajuste de llaves simplificadas: tarjetas y conectores con espacio propio */
+.kobc{gap:34px!important}
+.kobc .koc{min-width:142px!important;max-width:148px!important;gap:4px!important}
+.kobc .koround{grid-auto-rows:34px!important;row-gap:7px!important}
+.kobc .kcm{box-sizing:border-box;min-height:32px!important;padding:4px 25px 4px 5px!important;gap:4px!important;font-size:12px!important;overflow:hidden}
+.kobc .kcm b{font-size:13px!important;min-width:10px!important;flex:0 0 auto}
+.kobc .kcs{box-sizing:border-box;flex:0 0 24px!important;width:24px!important;height:24px!important;min-width:24px!important;border-radius:6px!important;overflow:hidden}
+.kobc .kcs img{display:block;width:22px!important;height:22px!important;max-width:100%;max-height:100%;object-fit:contain!important}
+.kobc .kcm .eyeb{right:3px!important;width:19px!important;height:19px!important}
+.kobc .kmatchslot.kconnector::before{left:-34px!important;width:17px!important;z-index:0!important;border-width:2px!important}
+.kobc .kmatchslot.kconnector::after{left:-17px!important;width:17px!important;z-index:0!important;border-top-width:2px!important}
+.kobc .kmatchslot>.kot{z-index:1!important}
+@media(max-width:760px){
+ .kobc{gap:30px!important}
+ .kobc .koc{min-width:132px!important;max-width:138px!important}
+ .kobc .koround{grid-auto-rows:33px!important;row-gap:6px!important}
+ .kobc .kcm{min-height:31px!important;padding:3px 23px 3px 4px!important;gap:3px!important}
+ .kobc .kcs{flex-basis:23px!important;width:23px!important;height:23px!important;min-width:23px!important}
+ .kobc .kcs img{width:21px!important;height:21px!important}
+ .kobc .kmatchslot.kconnector::before{left:-30px!important;width:15px!important}
+ .kobc .kmatchslot.kconnector::after{left:-15px!important;width:15px!important}
+}
+
+</style></head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">CLASH FUTBOL - 2D ONLINE</h1>
 <p class="seo-intro">Simulador de fútbol 2D: jugá online con amigos o disfrutá el modo offline. Elegí clubes, armá torneos y viví tu propia carrera.</p>
