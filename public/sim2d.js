@@ -268,14 +268,16 @@ class Sim{
     else if(sc.k=='lat'){tx=B.x-dA*30;ty=Y0+(B.y<H/2?1:-1)*0+(B.y<H/2?62:FH-62)}
     else if(sc.k=='att'&&sc.ph=='g'&&sc.in){tx=W/2;ty=H/2+48}}
    else if((S.koP&&B.own===S.koP)||S.ko){tx=W/2-(S.koP?(S.koP.s?-1:1)*10:0);ty=H/2+52}
+   for(let k=0;k<2;k++)for(const q of P){if(q.off)continue;const ex=tx-q.x,ey=ty-q.y,ed=Math.hypot(ex,ey);if(ed<R+42){if(ed>.1){tx+=ex/ed*(R+42-ed);ty+=ey/ed*(R+42-ed)}else ty+=R+42}}   // elige un lugar libre, no encima de un jugador
    r.tx=clamp(tx,X0+40,X0+FW-40);r.ty=clamp(ty,Y0+24,Y0+FH-24)}
-  l1.tx=clamp(lm[0],X0+20,W/2+90);l1.ty=Y0-3;l2.tx=clamp(lm[1],W/2-90,X0+FW-20);l2.ty=Y0+FH+3;
-  {r.sx=r.sx==null?r.tx:r.sx+(r.tx-r.sx)*.05;r.sy=r.sy==null?r.ty:r.sy+(r.ty-r.sy)*.05;   // objetivo suavizado + velocidad con inercia: el árbitro fluye en vez de vibrar
-   const dx=r.sx-r.x,dy=r.sy-r.y,d=Math.hypot(dx,dy),s0=clamp((d-10)*.045,0,2.8);let ax=d>.1?dx/d*s0:0,ay=d>.1?dy/d*s0:0;
-   const bd=Math.hypot(r.x-B.x,r.y-B.y);if(bd<75&&bd>.1){const k=(75-bd)/75*2.2;ax+=(r.x-B.x)/bd*k;ay+=(r.y-B.y)/bd*k}
-   for(const q of P){if(q.off)continue;const qd=Math.hypot(r.x-q.x,r.y-q.y);if(qd<R+56&&qd>.1){const k=(R+56-qd)/(R+56)*2.2;ax+=(r.x-q.x)/qd*k;ay+=(r.y-q.y)/qd*k}}
-   r.vx=(r.vx||0)+(ax-(r.vx||0))*.1;r.vy=(r.vy||0)+(ay-(r.vy||0))*.1;r.x+=r.vx;r.y+=r.vy;
-   if(bd<30&&bd>.1){r.x+=(r.x-B.x)/bd*1.6;r.y+=(r.y-B.y)/bd*1.6}
+  l1.tx=clamp(lm[0],X0+20,W/2+90);l1.ty=Y0-3;l2.tx=clamp(lm[1],W/2-90,X0+FW-20);l2.ty=Y0+FH+3;if(S.pso){l1.tx=W/2-90;l2.tx=W/2+90}   // en la tanda los jueces de línea quedan quietos
+  
+  {if(r.gx==null||S.n%40==0||Math.hypot(r.tx-r.gx,r.ty-r.gy)>70||r.sk!==(S.sc?S.sc.k:null)){r.gx=r.tx;r.gy=r.ty;r.sk=S.sc?S.sc.k:null}   // el árbitro se decide cada tanto (no persigue cada micro-movimiento) y, cuando llegó, se queda parado
+   const dx=r.gx-r.x,dy=r.gy-r.y,d=Math.hypot(dx,dy),want=d>24?clamp((d-16)*.035+.4,0,2.1):0,tvx=d>.1?dx/d*want:0,tvy=d>.1?dy/d*want:0;
+   let ax=tvx,ay=tvy;for(const q of P){if(q.off)continue;const qd=Math.hypot(r.x-q.x,r.y-q.y);if(qd<R+40&&qd>.1){const k=(R+40-qd)/(R+40)*1.6;ax+=(r.x-q.x)/qd*k;ay+=(r.y-q.y)/qd*k}}   // se hace a un lado de los jugadores en vez de pasar entre ellos
+   r.vx=(r.vx||0)+(ax-(r.vx||0))*.14;r.vy=(r.vy||0)+(ay-(r.vy||0))*.14;r.x+=r.vx;r.y+=r.vy;
+   const sep=(ox,oy,md)=>{const ddx=r.x-ox,ddy=r.y-oy,dd=Math.hypot(ddx,ddy);if(dd<md){if(dd>.1){r.x+=ddx/dd*(md-dd);r.y+=ddy/dd*(md-dd)}else r.x+=md}};   // separación dura: es una ficha más, no atraviesa a nadie
+   for(const q of P){if(!q.off)sep(q.x,q.y,R+13)}sep(B.x,B.y,34);
    const sp=Math.hypot(r.vx,r.vy);if(sp>.25){const fx=r.fx||1,fy=r.fy||0,nx=fx+(r.vx/sp-fx)*.12,ny=fy+(r.vy/sp-fy)*.12,nn=Math.hypot(nx,ny)||1;r.fx=nx/nn;r.fy=ny/nn}
    r.ph=(r.ph||0)+sp*.5;r.bob=Math.sin(r.ph)*clamp(sp-.3,0,1)*1.3;r.x=clamp(r.x,X0+10,X0+FW-10);r.y=clamp(r.y,Y0+12,Y0+FH-12)}   // el árbitro no corre detrás de la pelota: acompaña desde lejos, en diagonal
   [l1,l2].forEach(w=>{w.x+=clamp((w.tx-w.x)*.08,-1.8,1.8);w.y+=(w.ty-w.y)*.12})}   // árbitro cerca de la jugada; jueces de línea a la altura del último defensor
