@@ -1,21 +1,21 @@
 # Auditoría general — Primera C 2026
 
-Fecha: 12/11/2026  
+Fecha: 16/11/2026  
 Estado: primera auditoría global aplicada; revisión individual de todos los planteles todavía en curso.
 
 ## 1. Resultado general
 
 - **28 clubes** cargados.
-- **1.123 jugadores** en runtime después de la primera depuración general.
-- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron once nombres (dos en la depuración de la tanda 1, ocho en la primera auditoría general y Franco Gómez de Central Ballester) y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
+- **1.121 jugadores** en runtime después de la depuración adicional del 16/11.
+- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron trece nombres (dos en la depuración de la tanda 1, ocho en la primera auditoría general, Franco Gómez de Central Ballester, Román Gauto y Antonio Riveros de Juventud Unida) y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
 - Los 28 clubes cumplen el mínimo de 22 jugadores: el menor plantel actual tiene 29 y el mayor 50.
-- Promedio actual: 40,1 jugadores por club. Es una base preliminar; todavía hay equipos demasiado grandes para considerarlos definitivos.
+- Promedio actual: 40,0 jugadores por club. Es una base preliminar; todavía hay equipos demasiado grandes para considerarlos definitivos.
 
 ## 2. Composición actual por club
 
 | Club | Jugadores | ARQ | DEF | MED | DEL |
 |---|---:|---:|---:|---:|---:|
-| Juventud Unida | 51 | 4 | 15 | 21 | 11 |
+| Juventud Unida | 49 | 4 | 14 | 20 | 11 |
 | Central Ballester | 50 | 4 | 16 | 17 | 13 |
 | Argentino de Rosario | 50 | 3 | 11 | 26 | 10 |
 | Sacachispas | 50 | 4 | 14 | 24 | 8 |
@@ -43,12 +43,12 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 | Central Córdoba (Rosario) | 32 | 4 | 9 | 17 | 2 |
 | Cañuelas | 31 | 3 | 7 | 15 | 6 |
 | Centro Español | 29 | 3 | 6 | 15 | 5 |
-| **Total** | **1.123** | **101** | **305** | **494** | **223** |
+| **Total** | **1.121** | **101** | **304** | **493** | **223** |
 
 ## 3. Controles de integridad
 
-- 1.123 nombres únicos dentro de sus respectivos clubes.
-- 1.123 dorsales asignados.
+- 1.121 nombres únicos dentro de sus respectivos clubes.
+- 1.121 dorsales asignados.
 - 0 dorsales vacíos.
 - 0 dorsales duplicados dentro de un mismo club.
 - Santino Sapio aparece una sola vez en Cañuelas; MED está registrado como posición secundaria.
@@ -149,12 +149,12 @@ Fuentes: [Sacachispas vs Juventud Unida, fecha 18](https://www.soloascenso.com.a
 
 Fuentes: [plantel y goleadores de Argentino de Rosario](https://www.soloascenso.com.ar/club/argentino-de-rosario/243), [bajas de Dago y Raga](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-de-rosario-sufrio-dos-bajas-en-el-mediocampo/229363), [salida de Aronna y rearmado para la segunda mitad](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-afrontara-un-duelo-directo-por-la-permanencia/229684), [Argentino vs Centro Español, fecha 26](https://www.soloascenso.com.ar/ficha/45255), [Juventud vs Argentino, fecha 17](https://www.soloascenso.com.ar/ficha/45158).
 
-### Juventud Unida — 51 cargados
+### Juventud Unida — 49 cargados
 
 - Se comprobó que el CSV no conserva a **Fernando Giménez** ni a **Santino Bevilacqua** como parte del plantel de cierre, correctamente: Giménez se fue a préstamo a Villa Dálmine el 23/07 luego de jugar 10 partidos y marcar cinco goles; Bevilacqua pasó a San Miguel durante la primera mitad del año.
 - Las ocho incorporaciones anunciadas antes del debut y las cinco altas iniciales fueron contrastadas con las fichas de partidos. Los futbolistas que continuaron en el equipo aparecen en las convocatorias y alineaciones de marzo a septiembre.
 - El registro de ZeroZero publica 42 integrantes en su plantilla de temporada y una columna de estadísticas liderada por Maximiliano Paredes (31 partidos), Ian Escobar (28), Mariano Di Franco, Diego Cardozo y Nahuel Aiuto (24 cada uno). Es una referencia de uso, no una lista exhaustiva de todos los convocados; no se recorta el CSV solo por la diferencia de conteo.
-- **No se aplican bajas automáticas**: queda pendiente el cruce nominal completo de los 51 con las convocatorias, especialmente arqueros y jugadores sin minutos.
+- Se retiraron **Román Gauto** y **Antonio Riveros**: sus perfiles individuales de 2026 registran cero presencias, cero titularidades, cero suplencias y cero ingresos; las últimas presencias disponibles son de 2025. No se eliminan los demás nombres sin revisar sus convocatorias, especialmente arqueros y jugadores sin minutos.
 
 Fuentes: [altas iniciales de enero](https://www.soloascenso.com.ar/notas/argentino-de-merlo/inicio-la-pretemporada-con-refuerzos-y-amistosos-confirmados/223842), [ocho incorporaciones previas al debut](https://www.soloascenso.com.ar/notas/juventud-unida/el-lobo-sumo-ocho-caras-nuevas-previo-al-debut-en-el-torneo/224961), [salida de Fernando Giménez y Bevilacqua](https://www.soloascenso.com.ar/notas/sacachispas-fc/salida-sensible-en-juventud-unida-se-fue-su-goleador/230602), [estadísticas de temporada y plantilla](https://www.zerozero.com.ar/equipo/juventud-unida-san-miguel/45600), [Juventud vs Mercedes, fecha 26](https://www.soloascenso.com.ar/ficha/45257).
 
@@ -455,3 +455,15 @@ Fuentes adicionales: [nómina actual de Central Ballester](https://www.soloascen
 - Los demás nombres sin minutos no se eliminan por ahora: falta completar el cruce de convocatorias y fichas individuales. La regla es no retirar a un integrante del primer equipo sólo por no haber ingresado.
 
 Fuentes: [Maximiliano Maciel: 21 convocatorias, 11 ingresos y ocho partidos sin ingresar](https://www.soloascenso.com.ar/notas/central-ballester/un-referente-de-ballester-se-retiro-del-futbol-profesional/233675), [continuidad de Maciel para 2026](https://www.soloascenso.com.ar/notas/central-ballester/el-delantero-con-experiencia-que-seguira-en-ballester/223881), [presentación de Santiago Garro](https://www.soloascenso.com.ar/notas/puerto-nuevo/central-ballester-incorporo-a-otro-joven-arquero-al-plantel/225381), [presentación de Nicolás Suaya](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-presento-a-tres-jugadores-nuevos-para-el-plantel/223900), [convocatoria de la fecha 31](https://www.soloascenso.com.ar/ficha/45320), [convocatoria de la fecha 13](https://www.ceroacero.es/partido/2026-08-04-paraguayo-central-ballester/12020535).
+
+
+## 14. Depuración adicional — Juventud Unida (16/11/2026)
+
+Se cruzaron las 51 filas del CSV con los perfiles individuales y el registro de temporada 2026. Se retiraron dos jugadores con evidencia negativa completa:
+
+- **Román Gauto (DEF):** 0 presencias, 0 titularidades, 0 partidos como suplente y 0 ingresos en 2026. Su ficha sólo muestra participaciones anteriores a la temporada 2026.
+- **Antonio Riveros (MED):** 0 presencias, 0 titularidades, 0 partidos como suplente y 0 ingresos en 2026. Su última presencia registrada corresponde a 2025.
+
+Se conservan los futbolistas con convocatorias documentadas aunque no hayan ingresado, siguiendo el criterio aplicado a otros clubes. El plantel pasa de 51 a **49 jugadores**; su distribución queda en 4 ARQ, 14 DEF, 20 MED y 11 DEL. El total global pasa de 1.123 a **1.121 jugadores**: 101 ARQ, 304 DEF, 493 MED y 223 DEL.
+
+Fuentes: [perfil 2026 de Román Gauto](https://www.soloascenso.com.ar/perfil/roman-gauto/31905), [perfil 2026 de Antonio Riveros](https://www.soloascenso.com.ar/perfil/antonio-riveros/30757).

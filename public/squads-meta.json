@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-14T06:47:34.974Z",
+  "updatedAt": "2026-11-16T06:33:52.002Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2948 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 2946 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -129,7 +129,7 @@
     "kimberley": 30,
     "villamitre": 32,
     "sarmientores": 24,
-    "juventudunida": 51,
+    "juventudunida": 49,
     "estrelladelsur": 42,
     "argentinorosario": 50,
     "victorianoarenas": 37,
@@ -3877,9 +3877,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4577,
+    "assigned": 4575,
     "missing": 0,
-    "total": 4577,
+    "total": 4575,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4507,8 +4507,8 @@
         "missing": 0
       },
       "juventudunida": {
-        "total": 51,
-        "assigned": 51,
+        "total": 49,
+        "assigned": 49,
         "missing": 0
       },
       "estrelladelsur": {
@@ -4651,9 +4651,9 @@
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3297,
-    "missing": 1280,
+    "missing": 1278,
     "birthDates": 2075,
-    "total": 4577,
+    "total": 4575,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5281,9 +5281,9 @@
         "missing": 0
       },
       "juventudunida": {
-        "total": 51,
+        "total": 49,
         "assigned": 0,
-        "missing": 51
+        "missing": 49
       },
       "estrelladelsur": {
         "total": 42,
@@ -5424,8 +5424,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1201,
-    "total": 4577,
+    "missing": 1199,
+    "total": 4575,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5928,7 +5928,7 @@
         "assigned": 24
       },
       "juventudunida": {
-        "total": 51,
+        "total": 49,
         "assigned": 0
       },
       "estrelladelsur": {
@@ -6043,8 +6043,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1123,
-    "total": 4577,
+    "missing": 1121,
+    "total": 4575,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6547,7 +6547,7 @@
         "specific": 24
       },
       "juventudunida": {
-        "total": 51,
+        "total": 49,
         "specific": 0
       },
       "estrelladelsur": {
@@ -6662,8 +6662,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2948,
-    "total": 4577,
+    "estimated": 2946,
+    "total": 4575,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7417,9 +7417,9 @@
         "provisional": 0
       },
       "juventudunida": {
-        "total": 51,
+        "total": 49,
         "verified": 0,
-        "estimated": 51,
+        "estimated": 49,
         "provisional": 0
       },
       "estrelladelsur": {
@@ -7590,22 +7590,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3405,
+    "derivedPlayers": 3403,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 153,
-    "players": 4577,
+    "players": 4575,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1280,
+    "playersMissingAge": 1278,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2948,
+    "estimatedRatings": 2946,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1201,
-    "playersMissingFoot": 2520,
-    "playersMissingSpecificRole": 1123,
-    "playersWithoutManualAttributes": 3405
+    "playersMissingNationality": 1199,
+    "playersMissingFoot": 2518,
+    "playersMissingSpecificRole": 1121,
+    "playersWithoutManualAttributes": 3403
   }
 }
