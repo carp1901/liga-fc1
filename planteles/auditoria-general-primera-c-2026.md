@@ -7,7 +7,7 @@ Estado: **depuración cerrada**; 28 planteles revisados y ninguno supera los 30 
 
 - **28 clubes** cargados.
 - **839 jugadores** en los 28 planteles después del cierre de depuración del 16/11.
-- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron trece nombres (dos en la depuración de la tanda 1, ocho en la primera auditoría general, Franco Gómez de Central Ballester, Román Gauto y Antonio Riveros de Juventud Unida) y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
+- **1.132 registros nominales iniciales** entre las cuatro tandas; antes del cierre se retiraron trece nombres y se agregaron Matías Arias y Néstor Acosta; en esta última pasada se retiraron otros 282 excedentes. La nómina final conserva 839 jugadores.
 - Los 28 clubes quedan entre 29 y 30 jugadores; ningún equipo supera el máximo solicitado.
 - Promedio final: 30,0 jugadores por club.
 
@@ -54,9 +54,9 @@ Estado: **depuración cerrada**; 28 planteles revisados y ninguno supera los 30 
 - Santino Sapio aparece una sola vez en Cañuelas; MED está registrado como posición secundaria.
 - Víctor Gómez se incorporó a Cambaceres por evidencia de 25 presencias, aunque no figuraba en el bloque principal de la nómina.
 - Mirko Pfarherr se mantiene en Central Córdoba de Rosario como defensor por sus convocatorias/participaciones.
-- Se diferenciaron los homónimos entre clubes; los seis pares que continúan simultáneamente en runtime están documentados en las auditorías de las tandas.
+- Se diferenciaron los homónimos entre clubes; los tres pares que continúan simultáneamente en runtime están documentados en las auditorías de las tandas.
 
-**Importante:** los 1.123 dorsales siguen siendo estimaciones, no números oficiales de temporada. Las fichas de partido muestran camisetas utilizadas en encuentros puntuales y no se convierten automáticamente en dorsales permanentes.
+**Importante:** los 839 dorsales siguen siendo estimaciones, no números oficiales de temporada. Las fichas de partido muestran camisetas utilizadas en encuentros puntuales y no se convierten automáticamente en dorsales permanentes.
 
 ## 4. Depuración aplicada
 
