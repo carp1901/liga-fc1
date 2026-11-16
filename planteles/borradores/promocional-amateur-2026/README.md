@@ -30,6 +30,13 @@ Temporada 2026, 17 participantes. Se recopilaron nombres desde nóminas de tempo
 
 El plantel de 28, el de 29, los catorce de 30 y el de 32 cumplen el rango de trabajo acordado. El criterio de validación es **20 como mínimo, 30 como objetivo orientativo y 32 como máximo excepcional** cuando la evidencia del plantel lo justifique. No existe obligación de llevar cada club a 30.
 
+## Altas incluidas tras cotejar apariciones
+- **Lucas Arrabito** y **Sebastián Alcaraz** (Defensores de Glew): aparecen en las formaciones/suplentes de partidos 2026; ambos se incorporaron al plantel de 30.
+- **Enzo González** (Juventud de Bernal): perfil de temporada 2026 con cuatro presencias; se incorporó y el plantel quedó en 29.
+- No se incorporan automáticamente todos los nombres de las nóminas ampliadas. Everton permanece en 28 y Juventud en 29: no se agregan jugadores sólo para alcanzar 30.
+
+Fuentes de apariciones: https://www.soloascenso.com.ar/sintesis/defensores-de-glew-juventud-de-bernal/45776 ; https://www.soloascenso.com.ar/sintesis/defensores-de-glew-deportivo-metalurgico/45789 ; https://www.soloascenso.com.ar/sintesis/defensores-de-glew-provincial-lobos/45806 ; https://www.soloascenso.com.ar/perfil/enzo-gonzalez/32325
+
 ## Fuentes nominales por club
 - Defensores de Glew: https://www.soloascenso.com.ar/club/defensores-de-glew/859
 - Deportivo Metalúrgico: https://www.soloascenso.com.ar/club/deportivo-metalurgico/1073 (plantel 2026); fichas de partidos 2026: https://www.soloascenso.com.ar/ficha/45860 y https://www.soloascenso.com.ar/ficha/46114
