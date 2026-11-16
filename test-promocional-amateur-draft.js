@@ -29,6 +29,13 @@ for(const [i,row] of rows.entries()){
 assert.equal(Object.keys(counts).length,17,'Deben existir exactamente 17 clubes');
 for(const id of expected){const n=counts[id]||0;assert(n>=20&&n<=32,'Plantel fuera del rango acordado (20–32): '+id+' ('+n+')');}
 assert.equal(total,Object.values(counts).reduce((a,b)=>a+b,0),'Total inconsistente');
+const byNameClub=new Map();
+for(const row of rows){const key=norm(row[col.nombre]);if(!byNameClub.has(key))byNameClub.set(key,new Set());byNameClub.get(key).add(row[col.club_id]);}
+const crossDuplicates=[...byNameClub].filter(([,set])=>set.size>1).map(([name])=>name).sort();
+const expectedCrossDuplicates=['franco barraza','franco gonzalez','gonzalo acosta','ivan barraza','matias gomez','santiago segovia'].sort();
+assert.deepEqual(crossDuplicates,expectedCrossDuplicates,'Cambió la lista de homónimos entre clubes; revisar antes de integrar');
+const homonymDoc=norm(fs.readFileSync('planteles/borradores/promocional-amateur-2026/homonimos-pendientes.md','utf8'));
+for(const name of expectedCrossDuplicates)assert(homonymDoc.includes(name),'Homónimo no documentado: '+name);
 const data=fs.readFileSync('public/data.js','utf8');
 for(const id of clubs)assert(data.includes(id+'|'),'ID no encontrado en public/data.js: '+id);
 if(process.argv.includes('--runtime')){
