@@ -37,11 +37,11 @@ Los tres planteles de 28, los trece de 30 y el plantel de 32 cumplen el rango de
 - FC Ezeiza: https://www.soloascenso.com.ar/club/fc-ezeiza/1074
 - Belgrano de Zárate: https://www.soloascenso.com.ar/club/belgrano-zarate/470
 - Uribelarrea: https://www.soloascenso.com.ar/club/uribelarrea-futbol-club/1243
-- Alumni de Los Hornos: https://www.sofascore.com/es/football/team/alumni-los-hornos/401405
-- Atlético Pilar: https://www.sofascore.com/es-la/football/team/club-atletico-pilar/507165
+- Alumni de Los Hornos: https://www.sofascore.com/es/football/team/alumni-los-hornos/401405; fichas 2026: https://www.soloascenso.com.ar/ficha/45857 y https://www.soloascenso.com.ar/notas/general-lamadrid/alumni-de-los-hornos-se-encamina-al-debut-en-la-categoria/227790
+- Atlético Pilar: https://www.sofascore.com/es-la/football/team/club-atletico-pilar/507165; fichas 2026: https://www.soloascenso.com.ar/ficha/45819 y https://www.soloascenso.com.ar/ficha/45859
 - Barrancas FC: https://www.soloascenso.com.ar/club/barrancas-fc/1075
-- Buenos Aires City FC: https://www.sofascore.com/es-la/football/team/buenos-aires-city/1217896
-- Control Orientado: https://www.sofascore.com/es-la/football/team/control-orientado/1217894
+- Buenos Aires City FC: https://www.sofascore.com/es-la/football/team/buenos-aires-city/1217896; fichas 2026: https://www.soloascenso.com.ar/ficha/46105 y https://www.soloascenso.com.ar/ficha/46112
+- Control Orientado: https://www.sofascore.com/es-la/football/team/control-orientado/1217894; ficha 2026: https://www.soloascenso.com.ar/ficha/45857
 - Estrella de Berisso: https://www.soloascenso.com.ar/club/estrella-de-berisso/738
 - Everton de La Plata: https://www.soloascenso.com.ar/club/everton-la-plata/476
 - Juventud de Bernal: https://www.soloascenso.com.ar/club/juventud-de-bernal/759
