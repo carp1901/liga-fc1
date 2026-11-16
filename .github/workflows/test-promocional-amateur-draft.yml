@@ -1,0 +1,52 @@
+name: Cargar planteles Promocional Amateur 2026
+on:
+  push:
+    branches:
+      - 'planteles/promocional-amateur-2026'
+    paths:
+      - 'planteles/borradores/promocional-amateur-2026/**'
+      - 'test-promocional-amateur-draft.js'
+      - 'import-squads.js'
+      - '.github/workflows/test-promocional-amateur-draft.yml'
+  pull_request:
+    paths:
+      - 'planteles/borradores/promocional-amateur-2026/**'
+      - 'test-promocional-amateur-draft.js'
+      - 'import-squads.js'
+      - '.github/workflows/test-promocional-amateur-draft.yml'
+permissions:
+  contents: write
+jobs:
+  validar-e-integrar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar sintaxis
+        run: node --check import-squads.js
+      - name: Validar los 17 clubes
+        run: node test-promocional-amateur-draft.js
+      - name: Validar importación sin publicar
+        run: |
+          node import-squads.js planteles/borradores/promocional-amateur-2026/tanda1-inicial.csv --dry-run
+          node import-squads.js planteles/borradores/promocional-amateur-2026/tanda2-inicial.csv --dry-run
+      - name: Integrar los planteles en runtime de la rama
+        run: |
+          node import-squads.js planteles/borradores/promocional-amateur-2026/tanda1-inicial.csv
+          node import-squads.js planteles/borradores/promocional-amateur-2026/tanda2-inicial.csv
+      - name: Auditar runtime y proteger las demás divisiones
+        run: node test-promocional-amateur-draft.js --runtime
+      - name: Guardar runtime integrado en la rama del PR
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/squads.json public/squads.js public/squads-meta.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Integrar planteles reales Promocional Amateur 2026'
+            git push origin HEAD:${{ github.head_ref || github.ref_name }}
+          fi

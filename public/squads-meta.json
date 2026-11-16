@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-16T06:42:10.341Z",
+  "updatedAt": "2026-11-16T06:59:14.018Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 2664 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 3168 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -156,7 +156,24 @@
     "leones": 30,
     "lujan": 30,
     "sportivobarracas": 30,
-    "yupanqui": 30
+    "yupanqui": 30,
+    "defglew": 28,
+    "metalurgico": 30,
+    "hacoaj": 30,
+    "fcezeiza": 30,
+    "belgranozarate": 30,
+    "uribelarrea": 30,
+    "alumni": 30,
+    "atpilar": 30,
+    "barrancas": 30,
+    "bacity": 30,
+    "controlorientado": 30,
+    "estrellaberisso": 30,
+    "everton": 28,
+    "juventudbernal": 28,
+    "mandarinas": 30,
+    "sat": 30,
+    "udprovincial": 30
   },
   "sources": {
     "sanlorenzo": {
@@ -3870,6 +3887,159 @@
       "ratingSource": "Estimación propia inicial v1; media provisional por nivel de club y puesto, pendiente de auditoría individual. No es OVR oficial.",
       "roleSource": [],
       "natSource": []
+    },
+    "defglew": {
+      "source": "https://www.soloascenso.com.ar/club/defensores-de-glew/859",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "metalurgico": {
+      "source": "https://www.afa.com.ar/en/posts/metalurgico-derroto-1-0-a-f.c.-ezeiza-y-es-el-campeon-del-promocional-amateur",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "hacoaj": {
+      "source": "https://www.soloascenso.com.ar/club/nautico-hacoaj/501",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "fcezeiza": {
+      "source": "https://www.soloascenso.com.ar/club/fc-ezeiza/1074",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "belgranozarate": {
+      "source": "https://www.soloascenso.com.ar/club/belgrano-zarate/470",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "uribelarrea": {
+      "source": "https://www.soloascenso.com.ar/club/uribelarrea-futbol-club/1243",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "alumni": {
+      "source": "https://www.sofascore.com/es/football/team/alumni-los-hornos/401405",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "atpilar": {
+      "source": "https://www.sofascore.com/es-la/football/team/club-atletico-pilar/507165",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "barrancas": {
+      "source": "https://www.soloascenso.com.ar/club/barrancas-fc/1075",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "bacity": {
+      "source": "https://www.sofascore.com/es-la/football/team/buenos-aires-city/1217896",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "controlorientado": {
+      "source": "https://www.sofascore.com/es-la/football/team/control-orientado/1217894",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "estrellaberisso": {
+      "source": "https://www.soloascenso.com.ar/club/estrella-de-berisso/738",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "everton": {
+      "source": "https://www.soloascenso.com.ar/club/everton-la-plata/476",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "juventudbernal": {
+      "source": "https://www.soloascenso.com.ar/club/juventud-de-bernal/759",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "mandarinas": {
+      "source": "https://www.soloascenso.com.ar/club/las-mandarinas-brandsen/908",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "sat": {
+      "source": "https://www.soloascenso.com.ar/club/social-atletico-television/703",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "natSource": []
+    },
+    "udprovincial": {
+      "source": "https://www.soloascenso.com.ar/club/provincial-lobos/1076",
+      "consulted": "2026-11-16",
+      "ageSource": [],
+      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "natSource": []
     }
   },
   "completePrimera": true,
@@ -3877,9 +4047,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4293,
+    "assigned": 4797,
     "missing": 0,
-    "total": 4293,
+    "total": 4797,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4645,15 +4815,100 @@
         "total": 30,
         "assigned": 30,
         "missing": 0
+      },
+      "defglew": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "metalurgico": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "hacoaj": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "fcezeiza": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "belgranozarate": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "uribelarrea": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "alumni": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "atpilar": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "barrancas": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "bacity": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "controlorientado": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "estrellaberisso": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "everton": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "juventudbernal": {
+        "total": 28,
+        "assigned": 28,
+        "missing": 0
+      },
+      "mandarinas": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "sat": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
+      },
+      "udprovincial": {
+        "total": 30,
+        "assigned": 30,
+        "missing": 0
       }
     }
   },
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3297,
-    "missing": 996,
+    "missing": 1500,
     "birthDates": 2075,
-    "total": 4293,
+    "total": 4797,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5419,13 +5674,98 @@
         "total": 30,
         "assigned": 0,
         "missing": 30
+      },
+      "defglew": {
+        "total": 28,
+        "assigned": 0,
+        "missing": 28
+      },
+      "metalurgico": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "hacoaj": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "fcezeiza": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "belgranozarate": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "uribelarrea": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "alumni": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "atpilar": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "barrancas": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "bacity": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "controlorientado": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "estrellaberisso": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "everton": {
+        "total": 28,
+        "assigned": 0,
+        "missing": 28
+      },
+      "juventudbernal": {
+        "total": 28,
+        "assigned": 0,
+        "missing": 28
+      },
+      "mandarinas": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "sat": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
+      },
+      "udprovincial": {
+        "total": 30,
+        "assigned": 0,
+        "missing": 30
       }
     }
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 917,
-    "total": 4293,
+    "missing": 1421,
+    "total": 4797,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6038,13 +6378,81 @@
       "yupanqui": {
         "total": 30,
         "assigned": 0
+      },
+      "defglew": {
+        "total": 28,
+        "assigned": 0
+      },
+      "metalurgico": {
+        "total": 30,
+        "assigned": 0
+      },
+      "hacoaj": {
+        "total": 30,
+        "assigned": 0
+      },
+      "fcezeiza": {
+        "total": 30,
+        "assigned": 0
+      },
+      "belgranozarate": {
+        "total": 30,
+        "assigned": 0
+      },
+      "uribelarrea": {
+        "total": 30,
+        "assigned": 0
+      },
+      "alumni": {
+        "total": 30,
+        "assigned": 0
+      },
+      "atpilar": {
+        "total": 30,
+        "assigned": 0
+      },
+      "barrancas": {
+        "total": 30,
+        "assigned": 0
+      },
+      "bacity": {
+        "total": 30,
+        "assigned": 0
+      },
+      "controlorientado": {
+        "total": 30,
+        "assigned": 0
+      },
+      "estrellaberisso": {
+        "total": 30,
+        "assigned": 0
+      },
+      "everton": {
+        "total": 28,
+        "assigned": 0
+      },
+      "juventudbernal": {
+        "total": 28,
+        "assigned": 0
+      },
+      "mandarinas": {
+        "total": 30,
+        "assigned": 0
+      },
+      "sat": {
+        "total": 30,
+        "assigned": 0
+      },
+      "udprovincial": {
+        "total": 30,
+        "assigned": 0
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 839,
-    "total": 4293,
+    "missing": 1343,
+    "total": 4797,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6657,13 +7065,81 @@
       "yupanqui": {
         "total": 30,
         "specific": 0
+      },
+      "defglew": {
+        "total": 28,
+        "specific": 0
+      },
+      "metalurgico": {
+        "total": 30,
+        "specific": 0
+      },
+      "hacoaj": {
+        "total": 30,
+        "specific": 0
+      },
+      "fcezeiza": {
+        "total": 30,
+        "specific": 0
+      },
+      "belgranozarate": {
+        "total": 30,
+        "specific": 0
+      },
+      "uribelarrea": {
+        "total": 30,
+        "specific": 0
+      },
+      "alumni": {
+        "total": 30,
+        "specific": 0
+      },
+      "atpilar": {
+        "total": 30,
+        "specific": 0
+      },
+      "barrancas": {
+        "total": 30,
+        "specific": 0
+      },
+      "bacity": {
+        "total": 30,
+        "specific": 0
+      },
+      "controlorientado": {
+        "total": 30,
+        "specific": 0
+      },
+      "estrellaberisso": {
+        "total": 30,
+        "specific": 0
+      },
+      "everton": {
+        "total": 28,
+        "specific": 0
+      },
+      "juventudbernal": {
+        "total": 28,
+        "specific": 0
+      },
+      "mandarinas": {
+        "total": 30,
+        "specific": 0
+      },
+      "sat": {
+        "total": 30,
+        "specific": 0
+      },
+      "udprovincial": {
+        "total": 30,
+        "specific": 0
       }
     }
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 2664,
-    "total": 4293,
+    "estimated": 3168,
+    "total": 4797,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -7583,6 +8059,108 @@
         "verified": 0,
         "estimated": 30,
         "provisional": 0
+      },
+      "defglew": {
+        "total": 28,
+        "verified": 0,
+        "estimated": 28,
+        "provisional": 0
+      },
+      "metalurgico": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "hacoaj": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "fcezeiza": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "belgranozarate": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "uribelarrea": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "alumni": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "atpilar": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "barrancas": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "bacity": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "controlorientado": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "estrellaberisso": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "everton": {
+        "total": 28,
+        "verified": 0,
+        "estimated": 28,
+        "provisional": 0
+      },
+      "juventudbernal": {
+        "total": 28,
+        "verified": 0,
+        "estimated": 28,
+        "provisional": 0
+      },
+      "mandarinas": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "sat": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
+      },
+      "udprovincial": {
+        "total": 30,
+        "verified": 0,
+        "estimated": 30,
+        "provisional": 0
       }
     },
     "source": "EA SPORTS FC 27/26 (EA, FCScoutDB, FIFAIndex/FIFACM), Sofascore, Statz.ai, Sportlumy y FotMob; estimaciones propias identificadas por separado.",
@@ -7590,22 +8168,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3121,
+    "derivedPlayers": 3625,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
-    "clubs": 153,
-    "players": 4293,
+    "clubs": 170,
+    "players": 4797,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 996,
+    "playersMissingAge": 1500,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 2664,
+    "estimatedRatings": 3168,
     "provisionalRatings": 0,
-    "playersMissingNationality": 917,
-    "playersMissingFoot": 2236,
-    "playersMissingSpecificRole": 839,
-    "playersWithoutManualAttributes": 3121
+    "playersMissingNationality": 1421,
+    "playersMissingFoot": 2740,
+    "playersMissingSpecificRole": 1343,
+    "playersWithoutManualAttributes": 3625
   }
 }
