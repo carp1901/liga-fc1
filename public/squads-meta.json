@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-16T07:00:26.929Z",
+  "updatedAt": "2026-11-16T14:16:04.814Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "1629 medias con fuente individual + 3168 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -227,7 +227,16 @@
         "https://fcscoutdb.com/clubs/boca-juniors",
         "https://www.bocajuniors.com.ar/futbol-masculino"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/boca-juniors",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/boca-juniors",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/marco-pellegrino/274947",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/tomas-belmonte/241607",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/tomas-aranda/83580",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/williams-alarcon/243684",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/milton-delgado/72006",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/alan-velasco/252238",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/milton-gimenez/261161"
+      ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/club-atletico-boca-juniors/kader/verein/189",
         "posicion habitual"
@@ -247,7 +256,10 @@
       "ageCoverage": "24/27",
       "roleCoverage": "21/27",
       "numberSource": "https://www.riverplate.com/football/professional-football/men/squad",
-      "ratingSource": "https://fcscoutdb.com/clubs/river-plate",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/river-plate",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-silva/85397"
+      ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/club-atletico-river-plate/kader/verein/209",
         "posicion habitual",
@@ -342,9 +354,14 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/estudiantes-de-la-plata",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/fernando-muslera/182494",
         "https://www.fifacm.com/players?nations=52&order=asc&position=CB&sort=likes&teams=101083&vid=435",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/santiago-arzamendia/248053",
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/alexis-castro/228179",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/baltasar-rodriguez/275343",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/brian-aguirre/271512",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/joaquin-correa/215330",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/marcos-rojo/201862"
       ],
       "roleSource": [
@@ -379,7 +396,13 @@
         "https://velez.com.ar/futbol/plantel/perfil/422-simonprima",
         "https://velez.com.ar/futbol/plantel/perfil/423-lautaropiola"
       ],
-      "ratingSource": "https://fcscoutdb.com/clubs/velez-sarsfield",
+      "ratingSource": [
+        "https://fcscoutdb.com/clubs/velez-sarsfield",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-robertone/235008",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/manuel-lanzini/188988",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/rodrigo-aliendro/233029",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/matias-pellegrini/244884"
+      ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-velez-sarsfield/kader/verein/1029",
       "ageConsulted": "2026-11-05",
       "natSource": "https://www.velezsarsfield.com.ar/futbol/plantel"
@@ -500,6 +523,7 @@
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/damian-fernandez/75793",
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/elias-veron/82213",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jaminton-campaz/238230",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-ramos/84516",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lisandro-duarte/85560"
       ],
@@ -572,7 +596,8 @@
       ],
       "ratingSource": [
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
-        "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-la-plata"
+        "https://fcscoutdb.com/clubs/gimnasia-y-esgrima-la-plata",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/ignacio-fernandez/215998"
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/ca-gimnasia-y-esgrima-la-plata/kader/verein/1104",
@@ -635,7 +660,8 @@
         "https://fcscoutdb.com/clubs/argentinos-juniors",
         "https://www.ea.com/es-mx/games/ea-sports-fc/ratings/player-ratings/agustin-mangiaut/75072",
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
-        "https://www.fifacm.com/players?foot=Left&nations=52&order=asc&page=1&sort=overallrating&teams=111019&vid=429"
+        "https://www.fifacm.com/players?foot=Left&nations=52&order=asc&page=1&sort=overallrating&teams=111019&vid=429",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/kevin-gutierrez/241833"
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/argentinos-juniors/kader/verein/1030",
@@ -666,7 +692,8 @@
       "ratingSource": [
         "https://fcscoutdb.com/clubs/belgrano-de-cordoba",
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
-        "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/belgrano/111022"
+        "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/belgrano/111022",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/franco-vazquez/207471"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-belgrano-de-cordoba/kader/verein/1290",
       "ageConsulted": "2026-11-05",
@@ -691,8 +718,10 @@
         "https://www.transfermarkt.com.ar/leonardo-sequeira/profil/spieler/384761"
       ],
       "ratingSource": [
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/alan-aguerre/215123",
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://fcscoutdb.com/clubs/central-cordoba",
-        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial"
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/michael-santos/230964"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-central-cordoba-sde/kader/verein/14761",
       "ageConsulted": "2026-11-05",
@@ -723,7 +752,10 @@
         "https://fcscoutdb.com/clubs/atletico-tucuman",
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lautaro-godoy/74790",
-        "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/facundo-pimienta/75651"
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/leagues-ratings/liga-profesional-de-futbol/353?page=3",
+        "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/facundo-pimienta/75651",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/renzo-tesuri/257338",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/martin-benitez/214989"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-atletico-tucuman/kader/verein/1090",
       "ageConsulted": "2026-11-05",
@@ -748,7 +780,10 @@
         "https://www.transfermarkt.com.ar/francisco-cora/profil/spieler/1404969"
       ],
       "ratingSource": [
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/juan-espinola/254714",
         "https://fcscoutdb.com/clubs/barracas-central",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/rodrigo-insua/272946",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/ivan-tapia/266867",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/alex-juarez/271277",
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial"
       ],
@@ -811,6 +846,7 @@
         "https://fcscoutdb.com/clubs/instituto-de-cordoba",
         "https://www.fifacm.com/26/player/243521",
         "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/agustin-massaccesi/83589",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/diego-sosa/236432",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/manuel-romero/275257"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/instituto-atletico-central-cordoba/kader/verein/11510",
@@ -843,7 +879,8 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/sarmiento",
-        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial"
+        "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/mauricio-martinez/226798"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-sarmiento-de-junin/kader/verein/1073",
       "ageConsulted": "2026-11-05",
@@ -989,8 +1026,9 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/defensa-y-justicia",
-        "https://www.fotmob.com/es/players/1087551/damian-fernandez",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/damian-fernandez/251686",
         "Estimación propia v1 (edad, dorsal, posición y evidencia juvenil disponible); sin OVR oficial",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/david-martinez/241569",
         "https://careers.ea.com/es/games/ea-sports-fc/ratings/player-ratings/juan-pablo-moreno/83312",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/tomas-perez/276605"
       ],
@@ -1121,6 +1159,9 @@
       ],
       "ratingSource": [
         "https://fcscoutdb.com/clubs/independiente-rivadavia",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/sheyko-studer/75117",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/leonel-bucca/269740",
+        "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jose-florentin/253249",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/luciano-sabato/83450"
       ],
       "roleSource": "https://www.transfermarkt.com.ar/ca-independiente-rivadavia/kader/verein/1236",
@@ -8182,7 +8223,7 @@
     "estimatedRatings": 3168,
     "provisionalRatings": 0,
     "playersMissingNationality": 1421,
-    "playersMissingFoot": 2740,
+    "playersMissingFoot": 2760,
     "playersMissingSpecificRole": 1343,
     "playersWithoutManualAttributes": 3625
   }
