@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-16T14:16:04.814Z",
+  "updatedAt": "2026-11-16T18:16:51.973Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "1629 medias con fuente individual + 3168 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -1608,8 +1608,14 @@
       "natSource": "https://canchallena.lanacion.com.ar/equipo/estudiantes-ba-2lhnnnznvg2eqxnsxjw5zk9m7/"
     },
     "gimnasiajujuy": {
-      "source": "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
-      "consulted": "2026-11-07",
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
+        "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/ | verificación: https://www.transfermarkt.com.ar/abel-arganaraz/profil/spieler/757905"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-16"
+      ],
       "ageSource": [
         "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
         "https://www.soloascenso.com.ar/perfil/agustin-alonso/28138"
@@ -1766,8 +1772,14 @@
       "natSource": "https://canchallena.lanacion.com.ar/equipo/mitre-se-8zh96lpf1b10kgg50oqv32tc7/"
     },
     "sanmartinsj": {
-      "source": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/",
-      "consulted": "2026-11-07",
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/",
+        "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/ | verificación: https://www.academiadeapuestaslatam.com/stats/person/argentina/manuel-cocca/DWdYe7Mn2mv51"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-16"
+      ],
       "ageSource": "https://canchallena.lanacion.com.ar/equipo/ca-san-martin-de-san-juan-c4f6hp1oyal1ispkv638ipumk/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
@@ -1879,8 +1891,16 @@
       "natSource": "https://canchallena.lanacion.com.ar/equipo/racing-cordoba-9xktf8lmetaxahzxgafy9yyqk/"
     },
     "ciudadbolivar": {
-      "source": "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/",
-      "consulted": "2026-11-07",
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/",
+        "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/ | verificación: https://www.soloascenso.com.ar/perfil/elias-martinez/27454",
+        "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/ | verificación: https://www.soloascenso.com.ar/perfil/federico-peralta/24704",
+        "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/ | verificación: https://www.soloascenso.com.ar/perfil/khalil-caraballo/24134"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-16"
+      ],
       "ageSource": "https://canchallena.lanacion.com.ar/equipo/ciudad-bolivar-bo2ln6ox4tggdpf5nj4brhmcq/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": [
@@ -1937,10 +1957,12 @@
     "tristansuarez": {
       "source": [
         "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/",
+        "https://canchallena.lanacion.com.ar/equipo/tristan-suarez-ea6yt0v7esnoevkg8e77vbq2m/ | verificación: https://www.soloascenso.com.ar/perfil/alejandro-molina/23759",
         "https://www.transfermarkt.com.ar/sebastian-ramirez/profil/spieler/728245"
       ],
       "consulted": [
         "2026-11-07",
+        "2026-11-16",
         "2026-11-08"
       ],
       "ageSource": [
@@ -2103,8 +2125,15 @@
       ]
     },
     "quilmes": {
-      "source": "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/",
-      "consulted": "2026-11-07",
+      "source": [
+        "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/",
+        "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/ | verificación: https://www.soloascenso.com.ar/notas/brown-adrogue/quilmes-confirmo-sus-primeras-cinco-bajas-del-plantel/234355",
+        "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/ | verificación: https://www.infoquilmes.com.ar/noticias/57155--el-cervecero-acordo-la-salida-de-cinco-futbolistas/"
+      ],
+      "consulted": [
+        "2026-11-07",
+        "2026-11-16"
+      ],
       "ageSource": "https://canchallena.lanacion.com.ar/equipo/quilmes-3ku2hy21f82s071x3m29hvfb8/",
       "numberSource": "Asignado internamente; pendiente de contraste con numeración oficial",
       "ratingSource": "Estimación propia 2026: nivel; rendimiento; trayectoria y rol competitivo; sin OVR EA individual verificado",
@@ -2216,11 +2245,12 @@
     "godoycruz": {
       "source": [
         "https://pelotita.com.ar/equipos/6756",
-        "https://www.soloascenso.com.ar/perfil/fabricio-oviedo/20135"
+        "https://pelotita.com.ar/equipos/6756 | nómina AFA: https://www.afa.com.ar/es/posts/godoy-cruz-se-consagro-campeon-de-la-primera-nacional",
+        "https://www.soloascenso.com.ar/perfil/fabricio-oviedo/20135 | nómina AFA: https://www.afa.com.ar/es/posts/godoy-cruz-se-consagro-campeon-de-la-primera-nacional"
       ],
       "consulted": [
         "2026-11-07",
-        "2026-11-08"
+        "2026-11-16"
       ],
       "ageSource": [
         "https://canchallena.lanacion.com.ar/equipo/godoy-cruz-1we2nqwg18sjn6cevduuapbkf/",
