@@ -48,10 +48,10 @@ if(process.argv.includes('--runtime')){
   const byName=new Map(runtime[id].map(p=>[p.n,p]));
   for(const row of rows){if(row[col.club_id]!==id)continue;const player=byName.get(row[col.nombre]);assert(player,'Jugador no importado: '+id+'/'+row[col.nombre]);const dorsal=row[col.dorsal]===''?null:Number(row[col.dorsal]);assert.equal(player.number??null,dorsal,'Dorsal runtime distinto al CSV: '+id+'/'+row[col.nombre]);}
   assert.equal(meta.numberCoverage.byClub[id].assigned,0,'No deberían quedar dorsales sin verificar en runtime: '+id);
-  assert.equal(meta.numberCoverage.byClub[id].missing,count,'Falta marcar dorsales pendientes en metadata: '+id);
+  assert.equal(meta.numberCoverage.byClub[id].missing,count,'Falta marcar dorsales pendientes en metadata: '+id);\n  assert.equal(meta.nationalityCoverage.byClub[id].assigned,0,'No se deben inventar nacionalidades: '+id);
  }
  const baseSha=require('node:child_process').execFileSync('git',['merge-base','origin/main','HEAD'],{encoding:'utf8'}).trim();
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show',baseSha+':public/squads.json'],{encoding:'utf8',maxBuffer:30*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!clubs.has(id))assert.deepEqual(runtime[id],players,'Se alteró otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: Promocional Amateur validado en runtime; los demás planteles permanecen intactos.':`OK: ${total} registros en 17 clubes; cada plantel tiene entre 20 y 32 jugadores, sin duplicados ni dorsales repetidos.`);
+console.log(process.argv.includes('--runtime')?'OK: Promocional Amateur validado en runtime; los demás planteles permanecen intactos.':`OK: ${total} registros en 17 clubes; planteles entre 20 y 32, homónimos documentados y dorsales no verificados pendientes.`);
