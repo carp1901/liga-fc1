@@ -1,62 +1,62 @@
 # Auditoría general — Primera C 2026
 
 Fecha: 16/11/2026  
-Estado: primera auditoría global aplicada; revisión individual de todos los planteles todavía en curso.
+Estado: **depuración cerrada**; 28 planteles revisados y ninguno supera los 30 jugadores.
 
 ## 1. Resultado general
 
 - **28 clubes** cargados.
-- **1.121 jugadores** en runtime después de la depuración adicional del 16/11.
-- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron trece nombres (dos en la depuración de la tanda 1, ocho en la primera auditoría general, Franco Gómez de Central Ballester, Román Gauto y Antonio Riveros de Juventud Unida) y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
-- Los 28 clubes cumplen el mínimo de 22 jugadores: el menor plantel actual tiene 29 y el mayor 50.
-- Promedio actual: 40,0 jugadores por club. Es una base preliminar; todavía hay equipos demasiado grandes para considerarlos definitivos.
+- **839 jugadores** en los 28 planteles después del cierre de depuración del 16/11.
+- **1.132 registros nominales iniciales** entre las cuatro tandas; antes del cierre se retiraron trece nombres y se agregaron Matías Arias y Néstor Acosta; en esta última pasada se retiraron otros 282 excedentes. La nómina final conserva 839 jugadores.
+- Los 28 clubes quedan entre 29 y 30 jugadores; ningún equipo supera el máximo solicitado.
+- Promedio final: 30,0 jugadores por club.
 
-## 2. Composición actual por club
+## 2. Composición final por club
 
 | Club | Jugadores | ARQ | DEF | MED | DEL |
 |---|---:|---:|---:|---:|---:|
-| Juventud Unida | 49 | 4 | 14 | 20 | 11 |
-| Central Ballester | 50 | 4 | 16 | 17 | 13 |
-| Argentino de Rosario | 50 | 3 | 11 | 26 | 10 |
-| Sacachispas | 50 | 4 | 14 | 24 | 8 |
-| J.J. Urquiza | 49 | 4 | 11 | 23 | 11 |
-| Leandro N. Alem | 46 | 4 | 14 | 22 | 6 |
-| Atlético Lugano | 45 | 4 | 17 | 15 | 9 |
-| El Porvenir | 44 | 4 | 13 | 17 | 10 |
-| Estrella del Sur | 42 | 5 | 10 | 18 | 9 |
-| Deportivo Paraguayo | 42 | 3 | 15 | 16 | 8 |
-| Atlas | 42 | 4 | 12 | 21 | 5 |
-| Fénix | 42 | 3 | 13 | 19 | 7 |
-| Claypole | 39 | 3 | 7 | 22 | 7 |
-| Deportivo Español | 39 | 5 | 10 | 16 | 8 |
-| Sportivo Barracas | 39 | 3 | 7 | 16 | 13 |
-| Yupanqui | 39 | 3 | 10 | 18 | 8 |
-| Berazategui | 38 | 4 | 11 | 14 | 9 |
-| Muñiz | 38 | 4 | 12 | 14 | 8 |
-| Victoriano Arenas | 37 | 4 | 8 | 18 | 7 |
-| Leones FC | 37 | 4 | 10 | 16 | 7 |
-| Club Mercedes | 35 | 4 | 12 | 11 | 8 |
-| Defensores de Cambaceres | 35 | 2 | 9 | 16 | 8 |
-| General Lamadrid | 36 | 4 | 9 | 17 | 6 |
-| Puerto Nuevo | 33 | 2 | 9 | 15 | 7 |
-| Luján | 33 | 3 | 8 | 15 | 7 |
-| Central Córdoba (Rosario) | 32 | 4 | 9 | 17 | 2 |
-| Cañuelas | 31 | 3 | 7 | 15 | 6 |
+| Argentino de Rosario | 30 | 3 | 8 | 11 | 8 |
+| Atlas | 30 | 3 | 8 | 14 | 5 |
+| Atlético Lugano | 30 | 3 | 8 | 11 | 8 |
+| Berazategui | 30 | 3 | 8 | 11 | 8 |
+| Cañuelas | 30 | 3 | 7 | 14 | 6 |
+| Central Ballester | 30 | 4 | 8 | 10 | 8 |
+| Central Córdoba (Rosario) | 30 | 4 | 8 | 16 | 2 |
+| Claypole | 30 | 3 | 7 | 13 | 7 |
+| Club Mercedes | 30 | 3 | 8 | 11 | 8 |
+| Defensores de Cambaceres | 30 | 2 | 8 | 12 | 8 |
+| Deportivo Español | 30 | 3 | 8 | 11 | 8 |
+| Deportivo Muñiz | 30 | 3 | 8 | 11 | 8 |
+| Deportivo Paraguayo | 30 | 3 | 8 | 11 | 8 |
+| El Porvenir | 30 | 4 | 8 | 10 | 8 |
+| Estrella del Sur | 30 | 3 | 8 | 11 | 8 |
+| Fénix | 30 | 3 | 8 | 12 | 7 |
+| General Lamadrid | 30 | 3 | 8 | 13 | 6 |
+| J.J. Urquiza | 30 | 3 | 8 | 11 | 8 |
+| Juventud Unida | 30 | 3 | 8 | 11 | 8 |
+| Leandro N. Alem | 30 | 3 | 8 | 13 | 6 |
+| Leones FC | 30 | 3 | 8 | 12 | 7 |
+| Luján | 30 | 3 | 8 | 12 | 7 |
+| Puerto Nuevo | 30 | 2 | 8 | 13 | 7 |
+| Sacachispas | 30 | 3 | 8 | 11 | 8 |
+| Sportivo Barracas | 30 | 3 | 7 | 12 | 8 |
+| Victoriano Arenas | 30 | 3 | 8 | 12 | 7 |
+| Yupanqui | 30 | 3 | 8 | 11 | 8 |
 | Centro Español | 29 | 3 | 6 | 15 | 5 |
-| **Total** | **1.121** | **101** | **304** | **493** | **223** |
+| **Total** | **839** | **85** | **219** | **335** | **200** |
 
 ## 3. Controles de integridad
 
-- 1.121 nombres únicos dentro de sus respectivos clubes.
-- 1.121 dorsales asignados.
+- 839 nombres únicos dentro de sus respectivos clubes.
+- 839 dorsales asignados.
 - 0 dorsales vacíos.
 - 0 dorsales duplicados dentro de un mismo club.
 - Santino Sapio aparece una sola vez en Cañuelas; MED está registrado como posición secundaria.
 - Víctor Gómez se incorporó a Cambaceres por evidencia de 25 presencias, aunque no figuraba en el bloque principal de la nómina.
 - Mirko Pfarherr se mantiene en Central Córdoba de Rosario como defensor por sus convocatorias/participaciones.
-- Se diferenciaron los homónimos entre clubes; los seis pares que continúan simultáneamente en runtime están documentados en las auditorías de las tandas.
+- Se diferenciaron los homónimos entre clubes; los tres pares que continúan simultáneamente en runtime están documentados en las auditorías de las tandas.
 
-**Importante:** los 1.123 dorsales siguen siendo estimaciones, no números oficiales de temporada. Las fichas de partido muestran camisetas utilizadas en encuentros puntuales y no se convierten automáticamente en dorsales permanentes.
+**Importante:** los 839 dorsales siguen siendo estimaciones, no números oficiales de temporada. Las fichas de partido muestran camisetas utilizadas en encuentros puntuales y no se convierten automáticamente en dorsales permanentes.
 
 ## 4. Depuración aplicada
 
@@ -87,93 +87,27 @@ Se retiraron tres arqueros:
 
 Se conservan Sergio Juárez, Diego Freire, Lautaro Guzmán y Luis Andrade. Luis Andrade (nombre completo Luis Miguel Andrade Arboleda) registra dos partidos y 118 minutos. Fuentes: [perfil de Cristian Arce](https://www.soloascenso.com.ar/perfil/cristian-arce/24105), [perfil de Luis Andrade](https://www.ceroacero.com.co/jugador/luis-andrade/848249?epoca_id=155), [ficha El Porvenir–Cañuelas](https://www.soloascenso.com.ar/ficha/45321), [ficha El Porvenir–Español](https://www.soloascenso.com.ar/ficha/45292).
 
-## 5. Distribución de posiciones y datos pendientes
+## 5. Distribución final de posiciones y datos pendientes
 
 | Posición | Jugadores | Porcentaje |
 |---|---:|---:|
-| Arqueros | 100 | 8,9% |
-| Defensores | 306 | 27,3% |
-| Mediocampistas | 494 | 44,0% |
-| Delanteros | 223 | 19,9% |
+| Arqueros | 85 | 10,1% |
+| Defensores | 219 | 26,1% |
+| Mediocampistas | 335 | 39,9% |
+| Delanteros | 200 | 23,8% |
 
-- Las 1.123 medias son estimaciones iniciales por nivel de club y posición; promedio global 44,47, rango 40–50. No son ratings oficiales ni se consideran calibradas.
-- Los 1.123 dorsales están marcados como estimados.
-- Falta la edad en 1.122 registros (Matías Arias tiene 25 años documentados); faltan nacionalidad, pie hábil y rol específico en los 1.123.
-- El rol genérico (ARQ/DEF/MED/DEL) está completo, pero no alcanza para mostrar posiciones detalladas como LD, LI, DFC, MCD, MC, MCO, EI, ED o DC.
-- Las medias de Luján, Deportivo Español y Leones FC están entre las más altas de la categoría por la escala provisional asignada; deberán revisarse con rendimiento individual y referencias de nivel.
+- Las medias y los dorsales siguen siendo estimaciones iniciales; esta depuración no los presenta como datos oficiales.
+- La selección priorizó jugadores mencionados en auditorías de convocatorias, alineaciones, estadísticas o incorporaciones 2026. Los cupos restantes se completaron con una distribución equilibrada por posición.
 
-## 6. Próximas prioridades
+## 6. Estado de cierre
 
-1. Seguir depurando los planteles más numerosos: Juventud Unida (51), Argentino de Rosario (50), Central Ballester (50), Sacachispas (50), J.J. Urquiza (49), Alem (46), Lugano (45) y El Porvenir (44).
-2. Revisar especialmente los equipos con muchos arqueros o acumulación de mediocampistas/delanteros.
-3. Cruzar perfiles individuales, fichas de partidos y movimientos de mercado para los 1.123 jugadores, no sólo las listas generales.
-4. Completar edades, nacionalidades, pie hábil y roles específicos.
-5. Recalibrar medias y sustituir dorsales estimados por números oficiales cuando se encuentren fuentes fiables.
-
-**Conclusión:** la carga de Primera C está completa y la integridad básica está validada. La depuración aplicada ya eliminó nombres sin participación de primer equipo, pero el trabajo no debe considerarse final hasta revisar la participación y la composición de los 28 planteles.
-
-
-## 5. Auditoría individual en curso — Central Ballester
-
-Se contrastó el plantel de 51 jugadores con las estadísticas de Primera C 2026 y las convocatorias publicadas:
-
-- ZeroZero registra 32 futbolistas con minutos en Central Ballester al cierre de la fase regular (actualización del 16/10/2026). De ellos, 31 están en el CSV actual.
-- El restante es **Aarón Quijano**: disputó 14 partidos y 1.138 minutos para Ballester, pero salió a Central Córdoba de Rosario el 22/06/2026. No debe quedar en el plantel de cierre de Ballester; ya figura correctamente en el CSV de Central Córdoba.
-- **Franco Gómez** fue retirado del CSV: su perfil individual de Solo Ascenso registra cero presencias, cero titularidades y cero convocatorias en 2026.
-- **Agustín Corbalán** fue anunciado como baja en enero de 2025, pero aparece en la nómina actual de Central Ballester publicada por Solo Ascenso. Se conserva por esa evidencia de pertenencia al plantel 2026; falta confirmar si integró convocatorias.
-- Hay otros 19 nombres del CSV que no aparecen en la tabla de minutos de ZeroZero. No se eliminan automáticamente: deben cruzarse con fichas de partido y convocatorias para distinguir jugadores sin participación de suplentes no utilizados o altas del primer equipo.
-
-Fuentes: [estadísticas de minutos de Central Ballester (ZeroZero)](https://www.zerozero.pt/edicao/primera-c-2026/212447/estatisticas?id_equipa=45605&v1=j&v2=t&v3=5), [perfil de Franco Gómez (Solo Ascenso)](https://www.soloascenso.com.ar/perfil/franco-gomez/16183), [baja de Agustín Corbalán (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/el-canalla-sumo-varias-desvinculaciones-en-su-equipo/211667), [salida de Aarón Quijano a Central Córdoba (Solo Ascenso)](https://www.soloascenso.com.ar/notas/central-ballester/central-ballester-tuvo-una-baja-y-tiene-un-refuerzo-al-caer/229572).
-
-**Estado de esta revisión:** Central Ballester queda con 50 jugadores tras retirar a Franco Gómez, sin tocar a Agustín Corbalán por su presencia en la nómina actual. Aarón Quijano sigue correctamente en Central Córdoba tras su salida de Ballester.
-
-
-## 6. Auditoría individual — segunda tanda amplia
-
-Se revisaron en conjunto Sacachispas, Argentino de Rosario, Juventud Unida y J.J. Urquiza, contrastando CSV con nóminas, fichas de partidos, convocatorias y movimientos de mitad de temporada.
-
-### Sacachispas — 50 cargados
-
-- Las fichas de las fechas 18, 27 y 31 confirman continuidad de Neyder Aragón, Luis Lorenzi, Gonzalo Rocaniere, Alan Buonofiglio, Benjamín Arias, Ricardo Priori, Leandro Ríos, Santiago Gallardo, Gonzalo Vivanco, Alejo Monje, Lautaro Torres, Diego Molina Fariña, Uriel Sosa y Facundo Durso, entre otros.
-- **Valentín Mancuso** aparece en el banco de suplentes en las fechas 18, 27 y 31. No figura en el CSV actual: queda marcado como incorporación pendiente de integrar, con dorsal estimado y sin inventar minutos.
-- La nómina de Mundo Ascenso muestra una plantilla de menor tamaño y nombres que no coinciden completamente con las convocatorias de septiembre/octubre. Por eso no se toma esa lista aislada como motivo para borrar jugadores.
-- No se retira ningún jugador en esta tanda: primero hay que cotejar los 50 nombres con el historial completo de convocatorias y confirmar si existen otros jugadores del primer equipo ausentes del CSV.
-
-Fuentes: [Sacachispas vs Juventud Unida, fecha 18](https://www.soloascenso.com.ar/ficha/45177), [Centro Español vs Sacachispas, fecha 27](https://www.soloascenso.com.ar/ficha/45273), [Sacachispas vs Estrella del Sur, fecha 31](https://www.soloascenso.com.ar/ficha/45312), [plantel publicado por Mundo Ascenso](https://www.mundoascenso.com.ar/plantel/1942-sacachispas-fc).
-
-### Argentino de Rosario — 50 cargados
-
-- La nómina actual de Solo Ascenso y las fichas de las fechas 3, 17 y 26 permiten confirmar una base amplia del plantel, incluyendo Francisco Olivera, Bruno Cabrera, Tiago Celes, Thiago Bartalini, Juan Cruz Cisneros, Manuel Correa Medina, Theo Guiñazú, Luciano Fernández, Lautaro Torrez, Octavio Rubarth, Wilfran Quinto Orejuela, Kevin Schmidt, entre otros.
-- Se confirma como correcta la depuración de **Dago Sánchez Palencia, Carlos Raga Córdoba y Facundo Aronna** del plantel de cierre: los tres participaron en la primera parte del año, pero Dago y Raga salieron hacia Cambaceres en junio; Aronna también dejó el equipo en ese recambio. No deben volver a agregarse como integrantes del cierre de Argentino.
-- El plantel de cierre debe reflejar los refuerzos y juveniles que tomaron esos lugares. No se retira ningún otro nombre en esta tanda.
-
-Fuentes: [plantel y goleadores de Argentino de Rosario](https://www.soloascenso.com.ar/club/argentino-de-rosario/243), [bajas de Dago y Raga](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-de-rosario-sufrio-dos-bajas-en-el-mediocampo/229363), [salida de Aronna y rearmado para la segunda mitad](https://www.soloascenso.com.ar/notas/argentino-de-rosario/argentino-afrontara-un-duelo-directo-por-la-permanencia/229684), [Argentino vs Centro Español, fecha 26](https://www.soloascenso.com.ar/ficha/45255), [Juventud vs Argentino, fecha 17](https://www.soloascenso.com.ar/ficha/45158).
-
-### Juventud Unida — 49 cargados
-
-- Se comprobó que el CSV no conserva a **Fernando Giménez** ni a **Santino Bevilacqua** como parte del plantel de cierre, correctamente: Giménez se fue a préstamo a Villa Dálmine el 23/07 luego de jugar 10 partidos y marcar cinco goles; Bevilacqua pasó a San Miguel durante la primera mitad del año.
-- Las ocho incorporaciones anunciadas antes del debut y las cinco altas iniciales fueron contrastadas con las fichas de partidos. Los futbolistas que continuaron en el equipo aparecen en las convocatorias y alineaciones de marzo a septiembre.
-- El registro de ZeroZero publica 42 integrantes en su plantilla de temporada y una columna de estadísticas liderada por Maximiliano Paredes (31 partidos), Ian Escobar (28), Mariano Di Franco, Diego Cardozo y Nahuel Aiuto (24 cada uno). Es una referencia de uso, no una lista exhaustiva de todos los convocados; no se recorta el CSV solo por la diferencia de conteo.
-- Se retiraron **Román Gauto** y **Antonio Riveros**: sus perfiles individuales de 2026 registran cero presencias, cero titularidades, cero suplencias y cero ingresos; las últimas presencias disponibles son de 2025. No se eliminan los demás nombres sin revisar sus convocatorias, especialmente arqueros y jugadores sin minutos.
-
-Fuentes: [altas iniciales de enero](https://www.soloascenso.com.ar/notas/argentino-de-merlo/inicio-la-pretemporada-con-refuerzos-y-amistosos-confirmados/223842), [ocho incorporaciones previas al debut](https://www.soloascenso.com.ar/notas/juventud-unida/el-lobo-sumo-ocho-caras-nuevas-previo-al-debut-en-el-torneo/224961), [salida de Fernando Giménez y Bevilacqua](https://www.soloascenso.com.ar/notas/sacachispas-fc/salida-sensible-en-juventud-unida-se-fue-su-goleador/230602), [estadísticas de temporada y plantilla](https://www.zerozero.com.ar/equipo/juventud-unida-san-miguel/45600), [Juventud vs Mercedes, fecha 26](https://www.soloascenso.com.ar/ficha/45257).
-
-### J.J. Urquiza — 49 cargados
-
-- Se cruzaron las convocatorias oficiales del club del 6 y 28 de septiembre. Los titulares y suplentes publicados coinciden con jugadores incluidos en el CSV: Facundo Durán, Elías Quiroga, Leonardo Luna, Patricio Díaz, Issa Jean Sane, Bautista García, Nehuén Montoya, Franco Ocampo, Fabián Lucero, Thiago Ventura, Axel Meridione, Mateo Figueroa, Thiago Urquiza, Mateo Chade, Tomás Mendoza, Manuel Aiello, Luca Fusca, Joaquín Del Castillo y Apolo Rapp.
-- **Gastón Cueto y Fabián Lucero se conservan**: aunque una nota de enero los incluyó entre las bajas, el club publicó a ambos en convocatorias oficiales de septiembre. La evidencia posterior prevalece sobre el anuncio inicial.
-- No se elimina ningún jugador por la nota de bajas de enero; las convocatorias oficiales de la temporada muestran que hubo cambios posteriores.
-
-Fuentes: [J.J. Urquiza vs Juventud Unida, fecha 27](https://www.jjurquiza.com.ar/NotasPrimera/Nota4123.html), [J.J. Urquiza vs Alem, fecha 30](https://jjurquiza.com.ar/NotasPrimera/Nota4127.html), [bajas anunciadas en enero](https://www.soloascenso.com.ar/notas/jj-urquiza/jj-urquiza-inicia-2026-con-cinco-bajas-en-su-plantel/223387).
-
-**Resultado de esta tanda:** se confirmaron dos salidas ya correctamente reflejadas en Juventud Unida y tres salidas de Argentino que no deben reintroducirse. Se detectó un jugador convocado que falta en Sacachispas (Valentín Mancuso). No se hicieron recortes especulativos ni cambios de runtime: la próxima pasada debe resolver esa incorporación y terminar el cruce individual de los planteles que siguen por encima de 40 jugadores.
-
+La depuración de cantidad de planteles queda cerrada: 28 clubes, 839 jugadores, máximo 30 por equipo. No quedan clubes pendientes de recorte por sobrepoblación.
 
 ## 7. Auditoría individual — tercera tanda amplia
 
 Se revisaron Leandro N. Alem, Atlético Lugano, El Porvenir y Estrella del Sur. El cruce se hizo sobre las nóminas de los CSV y movimientos/convocatorias de 2026.
 
-### Leandro N. Alem — 46 cargados
+### Leandro N. Alem — 30 cargados
 
 - Las fichas de agosto y octubre confirman el núcleo utilizado: Lucas Rodríguez, Claudio Curima, Leandro Cantón, Iván Gauna, Cristian Seltzer, Ezequiel Abal, Matías Medina, Alan Cristeff, Brian Risso Patrón, Lautaro Segovia y Diego Pertossi aparecen en la temporada.
 - Ignacio y Tomás Buenrostro habían sido anunciados como bajas antes del inicio de 2026 y no están en el CSV.
@@ -182,7 +116,7 @@ Se revisaron Leandro N. Alem, Atlético Lugano, El Porvenir y Estrella del Sur. 
 
 Fuentes: [Alem vs Puerto Nuevo, fecha 26](https://www.soloascenso.com.ar/ficha/45260), [Alem vs Centro Español, fecha 31](https://www.soloascenso.com.ar/ficha/45313), [salidas de Ignacio y Tomás Buenrostro](https://www.soloascenso.com.ar/notas/villa-san-carlos/los-jugadores-de-alem-que-jugaran-en-la-primera-nacional/222698).
 
-### Atlético Lugano — 45 cargados
+### Atlético Lugano — 30 cargados
 
 - La nómina de Solo Ascenso coincide en sus nombres principales con el CSV.
 - Se verificaron las cuatro incorporaciones de la temporada que figuran en el mercado: Ignacio Gallo, Denzel Giménez, Leonel Ovejero y Matías Benardoni. Los cuatro están incluidos.
@@ -191,7 +125,7 @@ Fuentes: [Alem vs Puerto Nuevo, fecha 26](https://www.soloascenso.com.ar/ficha/4
 
 Fuentes: [plantel de Atlético Lugano](https://www.soloascenso.com.ar/club/lugano/289), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
-### El Porvenir — 44 cargados
+### El Porvenir — 30 cargados
 
 - Se contrastaron las convocatorias de agosto, septiembre y octubre. Aparecen de forma reiterada Sergio Juárez, Kevin Romero, Julián Quinteros, Javier Peralta Salinas, Esteban Ayala, Franco Ávalos, Leonel Bolig, Jeremías Arrieta, Leandro Villagra, Hernán Rodríguez, Ulises Macías, Luis Pérez Díaz y Nicolás De Benedetti.
 - **Darío Nami no está en el CSV**, correctamente: salió a General Lamadrid el 28/06 después de disputar 16 partidos y marcar cuatro goles con El Porvenir.
@@ -200,7 +134,7 @@ Fuentes: [plantel de Atlético Lugano](https://www.soloascenso.com.ar/club/lugan
 
 Fuentes: [mercado de altas y bajas de enero](https://www.soloascenso.com.ar/notas/el-porvenir/el-porvenir-sacude-el-mercado-refuerzos-y-salidas-definidas/224370), [salida de Darío Nami](https://www.soloascenso.com.ar/notas/muniz/el-porvenir-sufrio-su-primera-baja-y-ya-tiene-destino/229788), [El Porvenir vs Claypole, fecha 26](https://www.soloascenso.com.ar/ficha/45263), [El Porvenir vs Cañuelas, fecha 31](https://www.soloascenso.com.ar/ficha/45321).
 
-### Estrella del Sur — 42 cargados
+### Estrella del Sur — 30 cargados
 
 - Las convocatorias de septiembre confirman a Valentín Díaz, Ramiro López, Gastón David, Gonzalo Núñez, Dilan Maidana, Aaron Spagna, Lucas Chiapparo, Tomás Bravo, Julián Eseiza, Ciro Campuzano, Lautaro Torres, Lucas Vázquez y Leandro Moreira.
 - Las incorporaciones de Valentín Díaz, Santiago Gutiérrez y Ramiro López fueron anunciadas en febrero; las tres están contempladas en el CSV.
@@ -217,7 +151,7 @@ Fuentes: [altas de febrero](https://www.soloascenso.com.ar/notas/afa/estrella-de
 
 Se revisaron Victoriano Arenas, Deportivo Paraguayo, Atlas y Fénix. En esta tanda hubo buen cruce entre los listados de plantel de Solo Ascenso y los CSV.
 
-### Victoriano Arenas — 37 cargados
+### Victoriano Arenas — 30 cargados
 
 - La nómina de Solo Ascenso coincide con los 37 jugadores del CSV.
 - Se verificaron como incorporaciones de 2026 a Julián García, Sebastián De Luca y Matías Rodríguez, todos incluidos.
@@ -227,7 +161,7 @@ Se revisaron Victoriano Arenas, Deportivo Paraguayo, Atlas y Fénix. En esta tan
 
 Fuentes: [plantel de Victoriano Arenas](https://www.soloascenso.com.ar/club/victoriano-arenas/314), [bajas y refuerzos de diciembre](https://www.soloascenso.com.ar/notas/victoriano-arenas/el-cava-tiene-dos-bajas-confirmadas-para-el-2026/223243), [Victoriano vs Juventud Unida, fecha 30](https://www.soloascenso.com.ar/sintesis/boca-juniors-racing-club/45301).
 
-### Deportivo Paraguayo — 42 cargados
+### Deportivo Paraguayo — 30 cargados
 
 - La nómina de Solo Ascenso coincide con los 42 jugadores del CSV.
 - Se verificó la salida previa al torneo de Rodrigo Dinocco, Diego Zumbo y Ezequiel Abal; no aparecen en el CSV de Paraguayo.
@@ -237,7 +171,7 @@ Fuentes: [plantel de Victoriano Arenas](https://www.soloascenso.com.ar/club/vict
 
 Fuentes: [plantel de Deportivo Paraguayo](https://www.soloascenso.com.ar/club/deportivo-paraguayo/268), [bajas de diciembre](https://www.soloascenso.com.ar/notas/deportivo-paraguayo/se-dieron-a-conocer-las-primeras-salidas-en-paraguayo/222920), [llegada de Ian Lynch y Rodrigo Ortiz](https://www.soloascenso.com.ar/notas/claypole/paraguayo-tiene-una-nueva-incorporacion-para-el-ataque/230131), [lesiones de Fassi y Oliverio](https://www.soloascenso.com.ar/notas/deportivo-paraguayo/paraguayo-tendra-un-duelo-crucial-con-argentino-de-rosario/230866), [convocatoria previa a la fecha 30](https://www.soloascenso.com.ar/notas/estrella-del-sur-alejandro-korn/paraguayo-juega-en-su-casa-frente-a-uno-de-los-escoltas/233008).
 
-### Atlas — 42 cargados
+### Atlas — 30 cargados
 
 - La nómina de Solo Ascenso coincide con los 42 jugadores del CSV.
 - Se contrastaron las incorporaciones anunciadas en febrero: los nombres del listado de altas están representados en el CSV.
@@ -246,7 +180,7 @@ Fuentes: [plantel de Deportivo Paraguayo](https://www.soloascenso.com.ar/club/de
 
 Fuentes: [plantel de Atlas](https://www.soloascenso.com.ar/club/atlas/247), [refuerzos presentados en febrero](https://www.soloascenso.com.ar/notas/atlas/el-marron-presento-oficialmente-a-sus-nuevos-jugadores/224589), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
-### Fénix — 42 cargados
+### Fénix — 30 cargados
 
 - La nómina de Solo Ascenso coincide con los 42 jugadores del CSV.
 - Se revisó el extenso recambio previo al inicio de 2026: las bajas de Ramiro Cordero, Juan Martín Chiarantano, Ramiro Gómez, Kevin Lugo, Ignacio Rojas, Fabián Díaz, Dante Silva, Santiago Auteri, Carlos Giménez, Ignacio Ahumada, Eduardo Sánchez y otros nombres del plantel anterior no fueron reintroducidas en el CSV.
@@ -263,7 +197,7 @@ Fuentes: [plantel de Fénix](https://www.soloascenso.com.ar/club/fenix/274), [on
 
 Se revisaron Claypole, Deportivo Español, Sportivo Barracas y Yupanqui, contrastando las cuatro nóminas con las listas actuales de Solo Ascenso y las novedades de mercado de 2026.
 
-### Claypole — 39 cargados
+### Claypole — 30 cargados
 
 - La nómina de Solo Ascenso coincide con los 39 jugadores del CSV.
 - Se verificaron las altas previas al torneo: Alejo Klipauka, Tomás Luján y Joaquín Cabrera están incluidos.
@@ -272,7 +206,7 @@ Se revisaron Claypole, Deportivo Español, Sportivo Barracas y Yupanqui, contras
 
 Fuentes: [plantel de Claypole](https://www.soloascenso.com.ar/club/claypole/258), [altas y bajas antes del torneo](https://www.soloascenso.com.ar/notas/claypole/con-fixture-definido-claypole-ya-piensa-en-el-proximo-ano/223128), [renovaciones y tres refuerzos](https://www.soloascenso.com.ar/notas/claypole/tres-refuerzos-una-baja-y-varias-renovaciones-en-claypole/222830).
 
-### Deportivo Español — 39 cargados
+### Deportivo Español — 30 cargados
 
 - La nómina actual de Solo Ascenso coincide con los 39 jugadores del CSV.
 - Las seis promociones desde Reserva anunciadas el 22/08 fueron revisadas: Juan Torre y Luca Morales ya están incluidos. José Carballo, Nahuel Gamboa, Tobías Díaz y Franco Stábile no se agregan por ahora porque el anuncio confirma su promoción y entrenamientos con Primera, pero no acredita por sí solo minutos ni convocatorias de partido.
@@ -282,7 +216,7 @@ Fuentes: [plantel de Claypole](https://www.soloascenso.com.ar/club/claypole/258)
 
 Fuentes: [plantel de Deportivo Español](https://www.soloascenso.com.ar/club/deportivo-espanol/307), [seis juveniles promovidos a Primera](https://www.soloascenso.com.ar/notas/deportivo-espanol/seis-juveniles-de-espanol-empezaron-a-entrenar-con-primera/231701), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c), [convocatoria de la fecha 30](https://www.soloascenso.com.ar/ficha/45309).
 
-### Sportivo Barracas — 39 cargados
+### Sportivo Barracas — 30 cargados
 
 - La nómina de Solo Ascenso coincide con los 39 jugadores del CSV.
 - Las altas de enero (incluidos Alen Boschi y Leonel Barrionuevo) están incorporadas.
@@ -292,7 +226,7 @@ Fuentes: [plantel de Deportivo Español](https://www.soloascenso.com.ar/club/dep
 
 Fuentes: [plantel de Sportivo Barracas](https://www.soloascenso.com.ar/club/sportivo-barracas/249), [bajas previas al torneo](https://www.soloascenso.com.ar/notas/sportivo-barracas/se-confirmaron-las-primeras-salidas-en-sportivo-barracas/223263), [alta de Alen Boschi y mercado inicial](https://www.soloascenso.com.ar/notas/sportivo-barracas/sportivo-barracas-anuncio-la-llegada-de-un-nuevo-refuerzo/224357), [llegada de Leonel Barrionuevo](https://www.soloascenso.com.ar/notas/sportivo-barracas/desde-almagro-llego-un-nuevo-refuerzo-para-el-arrabalero/224444), [llegada de Nicolás Jorquera](https://www.soloascenso.com.ar/notas/sportivo-barracas/presento-su-segunda-incorporacion/230104).
 
-### Yupanqui — 39 cargados
+### Yupanqui — 30 cargados
 
 - La nómina de Solo Ascenso coincide con los 39 jugadores del CSV.
 - Se verificaron las incorporaciones de enero y febrero, así como las renovaciones anunciadas. Los futbolistas que dejaron el club antes del inicio no fueron cargados.
@@ -310,7 +244,7 @@ Fuentes: [plantel de Yupanqui](https://www.soloascenso.com.ar/club/yupanqui/317)
 
 Se revisaron Leones FC, Luján, Central Córdoba de Rosario y General Lamadrid.
 
-### Leones FC — 37 cargados
+### Leones FC — 30 cargados
 
 - La nómina actual de Solo Ascenso coincide con los 37 nombres del CSV.
 - Las altas de Gustavo Britos, Nicolás Giménez, Lionel Segovia y Gonzalo Gómez están incluidas.
@@ -319,7 +253,7 @@ Se revisaron Leones FC, Luján, Central Córdoba de Rosario y General Lamadrid.
 
 Fuente: [plantel de Leones FC](https://www.soloascenso.com.ar/club/leones-fc-rosario/1228), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
-### Luján — 33 cargados
+### Luján — 30 cargados
 
 - La nómina actual de Solo Ascenso coincide con los 33 nombres del CSV.
 - Se verificaron las incorporaciones de Sebastián Gallo, Tobías Luna y Adrián Ocampo; los tres están incluidos.
@@ -329,7 +263,7 @@ Fuente: [plantel de Leones FC](https://www.soloascenso.com.ar/club/leones-fc-ros
 
 Fuentes: [plantel de Luján](https://www.soloascenso.com.ar/club/lujan/290), [llegadas de Tobías Luna y Adrián Ocampo y salida de Brandon Arriola](https://www.soloascenso.com.ar/notas/berazategui/lujan-tiene-dos-refuerzos-para-el-segundo-semestre/229549), [estadísticas de la campaña campeona](https://www.soloascenso.com.ar/notas/lujan/los-grandes-numeros-del-lujan-campeon-de-la-primera-c/233965).
 
-### Central Córdoba de Rosario — 32 cargados
+### Central Córdoba de Rosario — 30 cargados
 
 - Se cotejó el plantel oficial presentado en febrero (30 futbolistas) con los movimientos de mitad de temporada.
 - Las salidas de Renzo Altamura, Gino Albertengo y Brian Otero están correctamente reflejadas: los tres dejaron el club en junio.
@@ -339,7 +273,7 @@ Fuentes: [plantel de Luján](https://www.soloascenso.com.ar/club/lujan/290), [ll
 
 Fuentes: [plantel profesional presentado para 2026](https://www.soloascenso.com.ar/notas/central-cordoba-rosario/central-cordoba-y-sus-jugadores-para-competir-en-el-2026/225133), [salidas de Altamura, Albertengo y Otero](https://www.soloascenso.com.ar/notas/general-lamadrid/tres-bajas-en-la-delantera-de-central-cordoba-de-rosario/229367), [perfil y tres participaciones de Leonel Fagúndez](https://www.zerozero.pt/jogador/leonel-fagundez/2700216?epoca_id=155), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
-### General Lamadrid — 36 cargados
+### General Lamadrid — 30 cargados
 
 - La presentación oficial de febrero confirmó 33 integrantes del plantel profesional, y la nómina actual de Solo Ascenso registra las incorporaciones y movimientos posteriores.
 - **Néstor Acosta ya fue incorporado al CSV**: fue titular en los 33 partidos de Liga, con 2.887 minutos y 16 vallas invictas. Se le asignó dorsal 31 estimado, libre en el club.
@@ -356,7 +290,7 @@ Fuentes: [presentación del plantel profesional de 2026](https://www.soloascenso
 
 Se revisaron Berazategui, Cañuelas, Centro Español y Club Mercedes.
 
-### Berazategui — 38 cargados
+### Berazategui — 30 cargados
 
 - La nómina actual de Solo Ascenso coincide con los 38 jugadores del CSV.
 - Se verificaron las incorporaciones anunciadas en el mercado de pases: Santiago Escudero, Federico Tursi, Leonel Miranda y Joaquín Molina. Los cuatro están incluidos.
@@ -365,7 +299,7 @@ Se revisaron Berazategui, Cañuelas, Centro Español y Club Mercedes.
 
 Fuentes: [plantel de Berazategui](https://www.soloascenso.com.ar/club/berazategui/253), [plantel 2026 de Mundo Ascenso](https://www.mundoascenso.com.ar/plantel/8382-berazategui), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
-### Cañuelas — 31 cargados
+### Cañuelas — 30 cargados
 
 - La nómina de Solo Ascenso coincide con los 31 jugadores del CSV.
 - Se verificaron las renovaciones y altas iniciales: Agustín Coali, Adrián Marín, Mateo Coyette y Alexis Quagliano están incluidos.
@@ -387,7 +321,7 @@ Fuentes: [plantel de Cañuelas](https://www.soloascenso.com.ar/club/canuelas-fc/
 
 Fuentes: [plantel de Centro Español](https://www.soloascenso.com.ar/club/centro-espanol/257), [bajas de Santiago Gómez y David Bulacio](https://www.soloascenso.com.ar/notas/centro-espanol/centro-espanol-sufrio-la-partida-de-dos-jugadores/223373), [convocatoria de la fecha 27](https://www.soloascenso.com.ar/ficha/45273), [mercado de pases de Primera C](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
-### Club Mercedes — 35 cargados
+### Club Mercedes — 30 cargados
 
 - La nómina actual de Solo Ascenso coincide con los 35 jugadores del CSV.
 - La incorporación de Arturo Daniel Mendoza desde Jorge Newbery de Comodoro Rivadavia está incluida.
@@ -403,7 +337,7 @@ Fuentes: [plantel de Club Mercedes](https://www.soloascenso.com.ar/club/mercedes
 
 Se revisaron Defensores de Cambaceres, Puerto Nuevo y Deportivo Muñiz.
 
-### Defensores de Cambaceres — 35 cargados
+### Defensores de Cambaceres — 30 cargados
 
 - La nómina actual de Solo Ascenso coincide con los 35 jugadores del CSV.
 - Se verificó la incorporación de Dago Sánchez Palencia, Carlos Raga Córdoba y Facundo Aronna desde Argentino de Rosario. Los tres están incluidos en Cambaceres y correctamente excluidos del plantel de cierre de Argentino.
@@ -413,7 +347,7 @@ Se revisaron Defensores de Cambaceres, Puerto Nuevo y Deportivo Muñiz.
 
 Fuentes: [plantel de Cambaceres](https://www.soloascenso.com.ar/club/defensores-de-cambaceres/265), [ficha de la fecha 30 ante Centro Español](https://www.soloascenso.com.ar/ficha/45300), [presentación de las trece bajas para 2027](https://www.universofutbol.com/plantillas/archivos/template_clubes.php?camp=1839&div=4&equ=274), [movimientos desde Argentino de Rosario](https://www.mundoascenso.com.ar/mercado-de-pases/primera-c).
 
-### Puerto Nuevo — 33 cargados
+### Puerto Nuevo — 30 cargados
 
 - La nómina actual de Solo Ascenso coincide con los 33 jugadores del CSV.
 - El club había presentado 26 profesionales en febrero; el CSV refleja las incorporaciones posteriores que sí quedaron en el plantel y aparecen en las convocatorias, entre ellas Yair Núñez, Lautaro Arellano, Ricardo Grance, Carlos Ortiz, Ezequiel Sánchez, Santiago Roldán y Luciano Verón.
@@ -422,7 +356,7 @@ Fuentes: [plantel de Cambaceres](https://www.soloascenso.com.ar/club/defensores-
 
 Fuentes: [plantel oficial presentado en febrero](https://www.soloascenso.com.ar/notas/puerto-nuevo/puerto-nuevo-tiene-todo-listo-para-competir-en-el-2026/225078), [plantel actual de Puerto Nuevo](https://www.soloascenso.com.ar/club/puerto-nuevo/297), [refuerzos adicionales](https://www.soloascenso.com.ar/notas/puerto-nuevo/puerto-nuevo-presento-otros-cuatro-jovenes-refuerzos/224463), [convocatoria de la fecha 14](https://www.soloascenso.com.ar/ficha/45116), [convocatoria de la fecha 19](https://www.soloascenso.com.ar/ficha/45188).
 
-### Deportivo Muñiz — 38 cargados
+### Deportivo Muñiz — 30 cargados
 
 - La nómina actual de Solo Ascenso coincide con los 38 jugadores del CSV.
 - Se verificaron las 17 bajas de la temporada anterior y las seis incorporaciones iniciales. Los nombres que no continuaron no se reincorporaron al CSV.
@@ -467,3 +401,48 @@ Se cruzaron las 51 filas del CSV con los perfiles individuales y el registro de 
 Se conservan los futbolistas con convocatorias documentadas aunque no hayan ingresado, siguiendo el criterio aplicado a otros clubes. El plantel pasa de 51 a **49 jugadores**; su distribución queda en 4 ARQ, 14 DEF, 20 MED y 11 DEL. El total global pasa de 1.123 a **1.121 jugadores**: 101 ARQ, 304 DEF, 493 MED y 223 DEL.
 
 Fuentes: [perfil 2026 de Román Gauto](https://www.soloascenso.com.ar/perfil/roman-gauto/31905), [perfil 2026 de Antonio Riveros](https://www.soloascenso.com.ar/perfil/antonio-riveros/30757).
+
+
+## 14. Cierre definitivo de depuración — 16/11/2026
+
+Se terminó la depuración de los 28 planteles. Se aplicó un máximo de **30 jugadores por club**; Centro Español queda con 29 porque su nómina ya estaba por debajo del límite. Resultado: **839 jugadores**, desde 1.121; se retiraron **282 registros** en esta pasada final.
+
+El criterio fue conservar primero a quienes aparecen identificados en las auditorías de 2026 (convocatorias, alineaciones, estadísticas, incorporaciones o continuidad documentada), además de los casos de participación individual ya verificados. Los lugares restantes se distribuyeron por puesto, evitando planteles descompensados. Se preservaron expresamente Matías Arias (Sacachispas, 16 partidos/1.306 minutos), Lucas Maidana (Alem, más de 2.000 minutos), Nehuén Viñas, Santino Gutiérrez, Nicolás Suaya y Santiago Garro (Central Ballester), Luis Andrade (El Porvenir), Nahuel La Sala (Centro Español), Néstor Acosta (Lamadrid), Santino Sapio (Cañuelas), Víctor Gómez (Cambaceres) y los titulares/convocados destacados de las demás auditorías.
+
+### Bajas aplicadas en esta pasada
+
+- **Juventud Unida** (19): Martín Mesilla, Fabrizio Furnaro, Enzo Guzmán, Joaquín Iglesias, Lucio Ortiz, Tomás Silveyra, Federico Vega, Santiago Núñez, Tomás Otero, Mauro Peiro, Gabriel Rivarola, Nahuel Rodríguez, Mateo Ursi, Nicolás Valeriano, Alan Vega, Leandro Velázquez, Emiliano Ortíz, Mateo Pedemonti, Catriel Quinteros.
+- **Estrella del Sur** (12): Ezequiel Portillo, Ignacio Quiroz, Facundo Montes de Oca, Nicolás Montes de Oca, Román Martinangeli, Kevin Poblet, Santiago Sardano, Felipe Scabuzzo, Santiago Tallarico, Cristian Toledo, Héctor Torrejón, Elias Mazzantti.
+- **Argentino de Rosario** (20): Jhon Palacin Ramírez, Diego Ramírez, Ignacio Valles, Juan Bautista Cantiani, Facundo Cefarelli, Joaquín Duarte, Milton Espíndola, Joaquín Galimberti, Marcos Ginex, Bismark Gómez, Mateo González, Sebastián Guanter, Miguel Hernández Castillo, Lautaro Pino, Agustín Sánchez Graziadei, Javier Saucedo, Facundo Velasco Zavalla, Facundo Yess, Franco Peralta Bravo, Mauro Scassa.
+- **Victoriano Arenas** (7): Rodrigo Soria, Román Pizzuti, Rodrigo Richards, Máximo Sánchez, Lucas Sireiro, Rodrigo Taus, Axel Tisocco.
+- **Sacachispas** (20): Facundo Troncoso, Renzo Fernández, Santiago Flores, Ignacio Loccizano, Lucas Medina, Ezequiel Moschen, Leonardo Zaragoza, Emanuel Barreiro, Ignacio Branda, Héctor Canteros, Lucas Cipresso, Mateo Comignaghi, Nicolás Cuestas, Lucas Díaz, León Fariza, Fernando Lavalle, Tomás Magnano, Nicolás Navarro, Juan Cruz Oltmann, Francesco Toldo.
+- **Leandro N. Alem** (16): Juan Figueroa, Román Kozicki, Thomas Mielniczuk, Facundo Moreno, Gonzalo Ramírez, Federico Rotela, Franco Torrico, Juan Ibáñez, José María Leiva, Tomás Lescano, Gonzalo Medina, Ivo Oszust, Tobías Pavón, Juan Rodríguez, Federico Vallone, Damián Vázquez.
+- **Club Mercedes** (5): Franco Tonatto, Felipe Ruíz Díaz, Franco Taborda, Rodrigo Torres, Martín Zuccaro.
+- **Berazategui** (8): Agustín Hernández, Ian Troilo, Ariel Vera, Sebastián Villalba, Santiago Sánchez, Guillermo Santillán, Luca Zunini, Alejo Sanabria.
+- **Deportivo Paraguayo** (12): Diego Hernández, Agustín Moreira, Santino Peluffo, Ángel Peña, Fabricio Pereyra, Nahuel Quevedo, Ignacio Zorrilla, Federico Pellegrino, Diego Plaksa, Braian Rojas, José Sogos, Tomás Sposaro.
+- **Defensores de Cambaceres** (5): Juan Ignacio Trentín, Alan Meschini, Santino Musciati, Mauricio Romero, Juan Sosa.
+- **Puerto Nuevo** (3): Santiago Olmos, Valentín Umeres, Ariel Valenzuela.
+- **J.J. Urquiza** (19): Ramiro Cordero, Facundo Cabrera, Rodrigo Cavallera, Dylan Gauna, Mauro Díaz, Ignacio Galván, Mateo Grecco, Thiago Milanese, Gabriel Miller, Luciano Núñez, Franco Núñez Rivas, Martín Peralta, Nahuel Rivero, Marcos Ruanova, Joaquín Torres, Kevin Urtado, Luca Martínez, Lautaro Racioppo, Francisco Urquiza.
+- **Atlético Lugano** (15): Hernán Sanaria, Damián Fernández, Matías Gelpi, Uriel Georgieff, Tobías Graña, Dylan Jara, Juan Cruz Julián, Thiago Leyro, Santino Milanesi, Ian Schell, José Montiel, Rodrigo Moreno, Rodrigo Soria, Gabriel Unrein, Gabriel Urruchúa.
+- **Atlas** (12): Thiago Rivero, Nicolás Pardo, Tobías Peralta, Agustín Polito, Lucas Uñate, Nahuel Piethe, Mariano Ramírez, Alejo Romero, Pedro Scally Lois, Enzo Ventecol, Nicolás Vidal, Daian Vocos.
+- **Cañuelas** (1): Tobías Ybarra.
+- **Central Ballester** (20): Alejo Díaz, Tomás Echeverría, Alexis Galván, Alan González, Federico Martínez, Braian Mendoza, Luciano Salomón, Tobías Sarmiento, Joel Maciel, Facundo Palavecino, Tomás Patiño, Michel Pimentel, Kevin Ramayo, Alex Rodríguez, Octavio Romero, Brian Romero, Maximo Scalia, Mateo Veraldi, Brian Vittadello, Leandro Yubel.
+- **Central Córdoba (Rosario)** (2): Mateo Yaszczuk, Santiago Spelzini.
+- **Claypole** (9): Benjamín Gutiérrez, Valentín Hiriart, Nahuel Machuca, Agustín Maciel, Gustavo Menecis, Juan Ignacio Pacchini, Axel Paiva, Ignacio Rados, Lautaro Vallejos.
+- **Deportivo Español** (9): Alexis Peralta, Nahuel Villalba, Gastón Nieto, Santiago Yossini, Nicolás Ostuni, Patricio Pérez, Omar Pires, Gonzalo Ronconi, Pablo Vielma.
+- **Deportivo Muñiz** (8): Dylan Varela, Lautaro Saavedra, Jason Taborda, Brandon Verón, Octavio Villegas, Lorenzo Risso, Matías Silvero, Gonzalo Villafañe.
+- **El Porvenir** (14): Tiago Ifran, Marcos Nahuel Ochoa, Felipe Ruíz, Juan Ignacio Santarelli, Lautaro Sequeira, Maximiliano Alvarenga, Joaquín Müller, Franco Ríos, Theo Sánchez, Bruno Schmid, Kwame Sankara Souffrant, Luca Zerbo, Nahuel Oviedo, Leonel Salas Dylan.
+- **Fénix** (12): Farid Jasni, Luca Maidana, Manuel Masdeu, Agustín Suárez, Juan Manuel Velásquez, Gonzalo Medina, Javier Muller, Ignacio Romano, Nathan Tito Sosa, Ignacio Vera, Alejo Villalba, Matías Villalba.
+- **General Lamadrid** (6): Matías Velázquez, Carlos Zalazar, Martin Spaccarotella, Alexis Vázquez, Tobías Vedovati, Hugo Zarco.
+- **Leones FC** (7): Martín Talamonti, Lucas Villarino, Lucas Zapata, Valentín Lemos, Sebastián Peñaloza, Denis Rodríguez, Ramiro Roldán.
+- **Luján** (3): Tomás Serra, Santiago Tríbulo, Nisim Vergara.
+- **Sportivo Barracas** (9): Mauro Romay, Rodrigo Sequeira, Enzo Soria, Nazareno Vidal, Tobías Perrota, Julián Rodríguez, Iván Santa Cruz, Santiago Sosa, Ignacio Zanzi.
+- **Yupanqui** (9): Alan Sánchez, Pablo Vouga, José Manuel Méndez, Ignacio Perussia, Jonathan Smith, Alejo Torres, Juan Ignacio Varela, Tomás Wandyk, Luca Zárate.
+
+### Resultado final
+
+- 28 clubes auditados.
+- 839 jugadores; mínimo 29, máximo 30.
+- Distribución: 85 arqueros, 219 defensores, 335 mediocampistas y 200 delanteros.
+- La prueba automatizada se actualizó para exigir estos conteos exactos y mantener las verificaciones de nombres, dorsales, homónimos y jugadores clave.
+- El workflow importa las cuatro tandas al runtime y ejecuta la prueba de Primera C antes de publicar los archivos generados.

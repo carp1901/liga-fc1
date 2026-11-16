@@ -1,6 +1,6 @@
 # Primera C 2026 — planteles reales
 
-Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 clubes ya están integrados al runtime; la auditoría individual final sigue en curso.
+Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 clubes ya están integrados al runtime y la depuración de cantidad quedó cerrada: 839 jugadores, máximo 30 por club.
 
 ## Clubes incluidos (IDs de public/data.js)
 
@@ -36,7 +36,7 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 ## Criterios
 
 - Temporada 2026. Jugadores reales, sin fotos y sin completar cupos con nombres ficticios.
-- Mínimo de 22 jugadores por club; no es un número exacto. Se incluyen primera plantilla y futbolistas con participación verificable, evitando reservas profundas y planteles inflados.
+- Planteles finales de 29 a 30 jugadores por club. Se priorizan primera plantilla y futbolistas con participación o convocatorias documentadas; se recortan excedentes para evitar sobrepoblación.
 - Deben quedar al menos siete alternativas de banco además del XI.
 - Prioridad: nóminas oficiales de clubes/AFA; después reportes de temporada y fichas de partidos de Mundo Ascenso y Solo Ascenso. FM26/FM27 se usan sólo como referencia secundaria de medias, edad y posiciones, no como prueba única de pertenencia al plantel 2026. La competencia Primera C de FM26 contiene clubes que no coinciden con la división 2026 del juego (por ejemplo, Camioneros e Ituzaingó), por lo que no se importarán sus planteles sin verificar primero la categoría y el club de cada jugador.
 - No mezclar jugadores que dejaron el club antes de la fecha de corte ni sumar juveniles sin participación/inscripción verificable.
@@ -54,12 +54,13 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 
 ## Estado
 
-- [x] Tanda 1 cargada: 309 jugadores en 7 clubes
-- [x] Tanda 2 cargada: 271 jugadores en 7 clubes
-- [x] Tanda 3 cargada: 272 jugadores en 7 clubes tras primera depuración
-- [x] Tanda 4 cargada: 269 jugadores en 7 clubes tras primera depuración
-- [x] Integración y pruebas de integridad: 1.121 jugadores en 28 clubes
-- [ ] Auditoría individual final: apariciones, bajas, posiciones, edades, roles y medias
+- [x] Tanda 1: 210 jugadores en 7 clubes.
+- [x] Tanda 2: 209 jugadores en 7 clubes.
+- [x] Tanda 3: 210 jugadores en 7 clubes.
+- [x] Tanda 4: 210 jugadores en 7 clubes.
+- [x] Depuración completa: **839 jugadores en 28 clubes; ningún plantel supera 30**.
+- [x] Prueba de integridad y publicación de runtime configuradas.
+
 
 La integración conservó los planteles de Primera, Primera Nacional, B Metropolitana y Federal A. No se modificó la lista de equipos ni el motor.
 
@@ -134,3 +135,8 @@ Se agregó Matías Arias a Sacachispas: su ficha 2026 confirma 16 partidos y 1.3
 - El total de Primera C queda en **1.121 jugadores en 28 clubes**. El runtime se regenera y se vuelve a auditar automáticamente en el PR antes de integrar a main.
 
 Fuentes: [perfil 2026 de Román Gauto](https://www.soloascenso.com.ar/perfil/roman-gauto/31905), [perfil 2026 de Antonio Riveros](https://www.soloascenso.com.ar/perfil/antonio-riveros/30757).
+
+
+## Cierre definitivo — 16/11/2026
+
+La depuración de Primera C queda terminada en **839 jugadores distribuidos en 28 clubes**. Los 27 clubes que superaban o igualaban el umbral quedan con 30; Centro Español conserva 29. Se priorizaron los jugadores documentados en convocatorias, alineaciones, estadísticas y movimientos de 2026. Se retiraron 282 registros para eliminar la sobrepoblación y equilibrar las posiciones. El detalle nominal de bajas y el recuento por club están en `auditoria-general-primera-c-2026.md`.
