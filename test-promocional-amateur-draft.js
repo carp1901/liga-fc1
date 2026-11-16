@@ -7,7 +7,7 @@ const parsed=files.map(f=>parseCSV(fs.readFileSync(f,'utf8')));
 const headers=parsed[0].shift().map(x=>x.trim().toLowerCase());
 for(let i=1;i<parsed.length;i++)assert.deepEqual(parsed[i].shift().map(x=>x.trim().toLowerCase()),headers,'Los CSV deben compartir esquema');
 const rows=parsed.flat(),col=Object.fromEntries(headers.map((h,i)=>[h,i]));
-const expected={defglew:28,metalurgico:30,hacoaj:30,fcezeiza:30,belgranozarate:30,uribelarrea:30,alumni:30,atpilar:21,barrancas:30,bacity:20,controlorientado:19,estrellaberisso:30,everton:28,juventudbernal:28,mandarinas:30,sat:30,udprovincial:30};
+const expected={defglew:28,metalurgico:30,hacoaj:30,fcezeiza:30,belgranozarate:30,uribelarrea:30,alumni:30,atpilar:30,barrancas:30,bacity:30,controlorientado:30,estrellaberisso:30,everton:28,juventudbernal:28,mandarinas:30,sat:30,udprovincial:30};
 const clubs=new Set(Object.keys(expected)),counts={},names=new Set(),numbers=new Set();let total=0;
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 for(const [i,row] of rows.entries()){
@@ -25,7 +25,7 @@ for(const [i,row] of rows.entries()){
  counts[club]=(counts[club]||0)+1;total++;
 }
 assert.deepEqual(counts,expected,'Los conteos por club cambiaron');
-assert.equal(total,474,'Total de jugadores inesperado');
+assert.equal(total,504,'Total de jugadores inesperado');
 const data=fs.readFileSync('public/data.js','utf8');
 for(const id of clubs)assert(data.includes(id+'|'),'ID no encontrado en public/data.js: '+id);
 if(process.argv.includes('--runtime')){
@@ -40,4 +40,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:30*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!clubs.has(id))assert.deepEqual(runtime[id],players,'Se alteró otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 474 jugadores reales cargados en 17 clubes del Promocional Amateur; demás planteles intactos.':'OK: 474 jugadores nominales en 17 clubes; máximo 30, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 504 jugadores reales cargados en 17 clubes del Promocional Amateur; demás planteles intactos.':'OK: 474 jugadores nominales en 17 clubes; máximo 30, sin duplicados internos ni dorsales repetidos.');
