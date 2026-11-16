@@ -189,10 +189,10 @@ class Sim{
   if(!b)return;ch.unshift(b,o);S.runner={p:o,t:S.n+150,ov:!!(o.fb||(o.l==2&&b.l==3))};S.socN=(S.socN||0)+1;if(S.runner.ov)S.ovN=(S.ovN||0)+1}   // sociedad al inicio de la jugada: pared / sobrepaso con el socio de banda y recién después sigue
  rollStep(){const S=this,B=S.B,r=S.sc.rt,dx=r.x-B.x,dy=r.y-B.y,d=Math.hypot(dx,dy);B.own=null;B.recv=null;if(d<=r.v){B.x=r.x;B.y=r.y;S.sc.rt=null}else{B.x+=dx/d*r.v;B.y+=dy/d*r.v}B.vx=B.vy=0}   // la pelota que se pidió reponer rueda hasta el lugar en lugar de aparecer ahí
  // Repetición de goles: se graba cada cuadro (últimos ~5 s) y, tras el festejo, se reproduce la jugada del gol más lenta antes del saque del medio (solo a velocidad normal)
- recF(){const S=this,P=S.P,NF=300,N=P.length*6+4;if(!S.rb||S.rb.length!==NF*N){S.rb=new Float32Array(NF*N);S.rbn=new Int32Array(NF).fill(-1)}const i=S.n%NF,o=i*N,B=S.B;S.rbn[i]=S.n;let k=o;for(const p of P){S.rb[k++]=p.x;S.rb[k++]=p.y;S.rb[k++]=p.vx;S.rb[k++]=p.vy;S.rb[k++]=p.fx||0;S.rb[k++]=p.fy||0}S.rb[k++]=B.x;S.rb[k++]=B.y;S.rb[k++]=B.vx;S.rb[k++]=B.vy}
- startReplay(sc){const S=this,B=S.B,NF=300,f2=S.n-1,f1=Math.max(f2-270,S.n-NF+2);if(f2-f1<60){S.kickoff(1-sc.side,true);return}
+ recF(){const S=this,P=S.P,NF=700,N=P.length*6+4;if(!S.rb||S.rb.length!==NF*N){S.rb=new Float32Array(NF*N);S.rbn=new Int32Array(NF).fill(-1)}const i=S.n%NF,o=i*N,B=S.B;S.rbn[i]=S.n;let k=o;for(const p of P){S.rb[k++]=p.x;S.rb[k++]=p.y;S.rb[k++]=p.vx;S.rb[k++]=p.vy;S.rb[k++]=p.fx||0;S.rb[k++]=p.fy||0}S.rb[k++]=B.x;S.rb[k++]=B.y;S.rb[k++]=B.vx;S.rb[k++]=B.vy}
+ startReplay(sc){const S=this,B=S.B,NF=700,f2=Math.min(S.n-1,(sc.t2||S.n)+45),f1=Math.max(f2-290,S.n-NF+2);if(f2-f1<60){S.kickoff(1-sc.side,true);return}
   S.rp={f1,f2,pos:f1,save:{P:S.P.map(p=>[p.x,p.y,p.vx,p.vy,p.fx,p.fy]),B:{x:B.x,y:B.y,vx:B.vx,vy:B.vy,own:B.own,recv:B.recv,free:B.free}}};S.rpN=(S.rpN||0)+1;S.fx=null;S.trail=[]}
- rpStep(){const S=this,r=S.rp,P=S.P,B=S.B,NF=300,N=P.length*6+4;r.pos+=.9;const f=Math.floor(r.pos);
+ rpStep(){const S=this,r=S.rp,P=S.P,B=S.B,NF=700,N=P.length*6+4;r.pos+=.9;const f=Math.floor(r.pos);
   if(f>r.f2){P.forEach((p,i)=>{const a=r.save.P[i];p.x=a[0];p.y=a[1];p.vx=a[2];p.vy=a[3];p.fx=a[4];p.fy=a[5]});Object.assign(B,r.save.B);S.rp=null;return}
   const i=f%NF;if(S.rbn[i]!==f)return;let k=i*N;for(const p of P){p.x=S.rb[k++];p.y=S.rb[k++];p.vx=S.rb[k++];p.vy=S.rb[k++];p.fx=S.rb[k++];p.fy=S.rb[k++]}B.x=S.rb[k++];B.y=S.rb[k++];B.vx=S.rb[k++];B.vy=S.rb[k++];B.own=null;B.recv=null;S.trail=[]}
  corPre(e,as){const S=this,B=S.B;if(S.pso||B.own&&B.own.s===as&&0)return false;const {gx,dir,ds}=S.geo(as),top=rnd()<.5,ty=top?Y0+(GY0-Y0)*.5:GY1+(Y0+FH-GY1)*.5,tx=gx+dir*34;
