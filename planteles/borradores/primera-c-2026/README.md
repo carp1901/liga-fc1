@@ -1,6 +1,6 @@
 # Primera C 2026 — planteles reales
 
-Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 clubes ya están integrados al runtime; la auditoría individual final sigue en curso.
+Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente de carga y los informes documentan las verificaciones. Los 28 clubes ya están integrados al runtime y la depuración de cantidad quedó cerrada: 839 jugadores, máximo 30 por club.
 
 ## Clubes incluidos (IDs de public/data.js)
 
@@ -36,7 +36,7 @@ Trabajo de recopilación y auditoría por cuatro tandas. Los CSV son la fuente d
 ## Criterios
 
 - Temporada 2026. Jugadores reales, sin fotos y sin completar cupos con nombres ficticios.
-- Mínimo de 22 jugadores por club; no es un número exacto. Se incluyen primera plantilla y futbolistas con participación verificable, evitando reservas profundas y planteles inflados.
+- Planteles finales de 29 a 30 jugadores por club. Se priorizan primera plantilla y futbolistas con participación o convocatorias documentadas; se recortan excedentes para evitar sobrepoblación.
 - Deben quedar al menos siete alternativas de banco además del XI.
 - Prioridad: nóminas oficiales de clubes/AFA; después reportes de temporada y fichas de partidos de Mundo Ascenso y Solo Ascenso. FM26/FM27 se usan sólo como referencia secundaria de medias, edad y posiciones, no como prueba única de pertenencia al plantel 2026. La competencia Primera C de FM26 contiene clubes que no coinciden con la división 2026 del juego (por ejemplo, Camioneros e Ituzaingó), por lo que no se importarán sus planteles sin verificar primero la categoría y el club de cada jugador.
 - No mezclar jugadores que dejaron el club antes de la fecha de corte ni sumar juveniles sin participación/inscripción verificable.
