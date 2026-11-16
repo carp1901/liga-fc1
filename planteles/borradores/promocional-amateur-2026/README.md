@@ -1,6 +1,6 @@
 # Promocional Amateur 2026 — planteles
 
-Estado: **primera carga nominal de los 17 clubes preparada; auditoría individual pendiente**. Esta documentación no declara todavía cerrada la verificación de vigencia, identidad ni dorsales oficiales.
+Estado: **auditoría estructural de los 17 planteles cerrada**. Los nombres se respaldan con nóminas y fichas 2026; quedan tres homónimos sin resolver, y los dorsales no confirmados permanecen pendientes. No se presenta como oficial ningún dato que no esté respaldado.
 
 ## Alcance
 Temporada 2026, 17 participantes. Se recopilaron nombres desde nóminas de temporada y planillas de partidos. No se completan cupos con futbolistas ficticios ni se recortan planteles para igualarlos.
@@ -65,7 +65,7 @@ Fuentes de apariciones: https://www.soloascenso.com.ar/sintesis/defensores-de-gl
 - El test estructural valida 17 clubes, entre 20 y 32 jugadores por plantel, ausencia de duplicados nominales y que los dorsales no verificados permanezcan vacíos y marcados como pendientes.
 
 ## Nacionalidades — siguiente etapa
-La revisión completa de nacionalidades se hará después de cerrar esta auditoría del Promocional y antes de cargar Uruguay. En el runtime actual hay 4.799 jugadores: 3.376 tienen nacionalidad asignada y 1.423 siguen pendientes. El faltante se concentra en Federal A (78), Primera C (839) y Promocional Amateur (509). No se debe inferir nacionalidad por el país del club.
+La revisión completa de nacionalidades comienza después de cerrar la auditoría estructural del Promocional y antes de cargar Uruguay. En el runtime actual hay 4.799 jugadores: 3.376 tienen nacionalidad asignada y 1.423 siguen pendientes. El faltante se concentra en Federal A (78), Primera C (839) y Promocional Amateur (509). No se debe inferir nacionalidad por el país del club.
 Las 26 formas de nacionalidad que ya aparecen en el runtime (nombres y códigos) tienen banderas SVG generadas por código; se probaron 40 variantes de nombre/código. Esto prepara la presentación, pero no reemplaza la verificación individual de las nacionalidades pendientes ni la revisión de las ya cargadas.
 
 ## Control de homónimos
