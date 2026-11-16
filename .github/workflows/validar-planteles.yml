@@ -5,6 +5,8 @@ on:
     paths:
       - 'planteles/*.csv'
       - 'planteles/**/*.csv'
+      - 'planteles/borradores/primera-c-2026/**'
+      - 'test-primera-c-draft.js'
       - 'import-squads.js'
       - 'public/data.js'
       - 'test-squads.js'
@@ -53,6 +55,14 @@ jobs:
         run: node import-squads.js /tmp/planteles/planteles-2026.csv --dry-run --require-both-divisions
       - name: Generar archivos que consume el juego
         run: node import-squads.js /tmp/planteles/planteles-2026.csv --require-both-divisions
+      - name: Integrar los veintiocho planteles de Primera C
+        run: |
+          node import-squads.js planteles/borradores/primera-c-2026/tanda1-inicial.csv
+          node import-squads.js planteles/borradores/primera-c-2026/tanda2-inicial.csv
+          node import-squads.js planteles/borradores/primera-c-2026/tanda3-inicial.csv
+          node import-squads.js planteles/borradores/primera-c-2026/tanda4-inicial.csv
+      - name: Auditar los planteles de Primera C en runtime
+        run: node test-primera-c-draft.js --runtime
       - name: Auditar Primera y Primera Nacional publicadas
         run: node test-squads.js
       - name: Guardar planteles publicados en GitHub
