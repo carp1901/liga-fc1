@@ -14,7 +14,7 @@ const clubs=new Set(expected),counts={},names=new Set(),numbers=new Set();let to
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 for(const [i,row] of rows.entries()){
  if(!row.some(x=>x.trim()))continue;
- const get=k=>row[col[k]]||'',club=get('club_id'),name=get('nombre'),pos=get('posicion'),rating=Number(get('rating')),dorsal=Number(get('dorsal'));
+ const get=k=>row[col[k]]||'',club=get('club_id'),name=get('nombre'),pos=get('posicion'),rating=Number(get('rating')),dorsalRaw=get('dorsal'),dorsal=dorsalRaw===''?null:Number(dorsalRaw);
  assert(clubs.has(club),'Club no previsto: '+club);assert(name,'Nombre vacío en fila '+(i+2));
  assert(['ARQ','DEF','MED','DEL'].includes(pos),'Posición inválida: '+name);
  assert(Number.isInteger(rating)&&rating>=38&&rating<=53,'Media fuera de rango: '+name);
@@ -23,7 +23,7 @@ for(const [i,row] of rows.entries()){
  assert(get('dorsal_source').toLowerCase().includes('estimado'),'Dorsal no identificado como estimado: '+name);
  assert(get('fuente')&&get('consultado'),'Falta fuente o fecha: '+name);
  const key=club+'|'+norm(name);assert(!names.has(key),'Nombre duplicado: '+key);names.add(key);
- const nk=club+'|'+dorsal;assert(!numbers.has(nk),'Dorsal duplicado: '+nk);numbers.add(nk);
+ if(dorsal!==null){const nk=club+'|'+dorsal;assert(!numbers.has(nk),'Dorsal duplicado: '+nk);numbers.add(nk);}
  counts[club]=(counts[club]||0)+1;total++;
 }
 assert.equal(Object.keys(counts).length,17,'Deben existir exactamente 17 clubes');
