@@ -143,7 +143,7 @@ function developRound(r){if(!r.offline||!r.cfg||!r.cfg.real||!DEV)return;r.dev=r
 function startRound(r){const pairs=r.cfg.fmt=='copa'?copaPairs(r):r.fx[r.round];r.byes=[];r.ms=[];r.award=null;
  pairs.forEach(([x,y])=>{if(!x||!y)r.byes.push(x||y);else r.ms.push(newMatch(byTeam(r,x),byTeam(r,y),(r.round+.5)/Math.max(1,r.total||1)))});
  r.order.forEach(p=>{r.pl[p].ready=!!r.pl[p].bot;r.pl[p].skip=false;fixSus(r.pl[p])});r.phase='cer';r.min=0;r.t=18;if(r.offline)botTune(r,0)}
-function maybeStart(r){if(r.order.length==r.cfg.n&&r.order.every(p=>r.pl[p].team)){r.order.forEach(p=>r.table[r.pl[p].team]={pj:0,gf:0,ga:0,pts:0,g:0,e:0,p:0});mkFixtures(r);r.part=r.order.filter(p=>!r.pl[p].bot).map(p=>r.pl[p].uid||p);r.phase='pre';r.t=180}}
+function maybeStart(r){if(r.order.length==r.cfg.n&&r.order.every(p=>r.pl[p].team)){r.order.forEach(p=>r.table[r.pl[p].team]={pj:0,gf:0,ga:0,pts:0,g:0,e:0,p:0});mkFixtures(r);r.part=r.order.filter(p=>!r.pl[p].bot).map(p=>r.pl[p].uid||p);r.phase='pre';r.t=120}}
 function begin1(r){r.phase='m1';r.t=0;r.ad=0;r.sx=0;r.stp=false;r.hb=2;r.ms.forEach(m=>{m.h0=[0,0,0,0]});r.order.forEach(p=>{const P=r.pl[p];P.skip=false;if(!P.bot&&P.tac)P.base=cl(P.tac)})}
 const tally=(r,m)=>{r.sc=r.sc||{};[0,1].forEach(s=>{const t=r.pl[s?m.b:m.a].team,sq=squad(t);[['g',m.pg[s]],['a',m.pas[s]]].forEach(([k,o])=>Object.keys(o||{}).forEach(i=>{if(!o[i]||!sq[i])return;const e=r.sc[t+':'+i]||(r.sc[t+':'+i]={t,n:sq[i].n,g:0,a:0});e[k]+=o[i]}))})},
  topSc=(r,k,o)=>Object.values(r.sc||{}).filter(e=>e[k]>0).sort((x,y)=>y[k]-x[k]||y[o]-x[o]||x.n.localeCompare(y.n)).slice(0,10).map(e=>({t:e.t,n:e.n,v:e[k]}));
@@ -155,9 +155,9 @@ function endRound(r){if(r.cfg.fmt=='copa'&&!r.psoOK){const need=psoNeed(r);if(ne
  if(r.cfg.seg){let c=0;if(r.cfg.seg.some(x=>(c+=x)==r.round))(r.segT=r.segT||[]).push(JSON.parse(JSON.stringify(r.table)))}
  if(r.cfg.uy||r.cfg.uy2)uyStep(r,res);
  if(r.cfg.fmt=='copa'){const fin=koResolve(r,res);r.psoItems=null;r.psoOK=false;r.pw=null;if(fin){r.phase='end';r.champ=r.alive[0];regTitle(r);recCareer(r);return}}
- else if(r.cfg.fmt=='mixto'&&r.round>=r.total){const ranked=Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT),q=Math.max(2,Math.min(ranked.length,r.cfg.playoff||4));r.cfg.displayFmt='mixto';r.cfg.fmt='copa';r.seedOrder=ranked.slice(0,q).map(x=>x.id);r.alive=r.seedOrder.slice();r.rd=0;r.leg=0;r.round=0;koBuild(r);r.phase='lobby';r.t=90;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot);return}
+ else if(r.cfg.fmt=='mixto'&&r.round>=r.total){const ranked=Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT),q=Math.max(2,Math.min(ranked.length,r.cfg.playoff||4));r.cfg.displayFmt='mixto';r.cfg.fmt='copa';r.seedOrder=ranked.slice(0,q).map(x=>x.id);r.alive=r.seedOrder.slice();r.rd=0;r.leg=0;r.round=0;koBuild(r);r.phase='lobby';r.t=60;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot);return}
  else if(r.round>=r.total){r.phase='end';{const mt=(r.order.map(p=>r.pl[p]).find(P=>!P.bot)||{}).team,zz=r.cfg.zone&&r.cfg.zones&&(r.cfg.zones.find(a=>a.includes(mt))||r.cfg.zones[0]);r.champ=Object.entries(r.table).filter(([id])=>!zz||zz.includes(id)).map(([id,q])=>({id,...q})).sort(cmpT)[0].id;if(r.cfg.uy&&r.segT&&r.segT[1])r.champ=uyEnd(r)}regTitle(r);recCareer(r);return}
- r.phase='lobby';r.t=r.cfg.fmt=='copa'&&r.alive&&r.order.every(p=>r.pl[p].bot||!r.alive.includes(r.pl[p].team))?6:90;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot);applyClaims(r)}
+ r.phase='lobby';r.t=r.cfg.fmt=='copa'&&r.alive&&r.order.every(p=>r.pl[p].bot||!r.alive.includes(r.pl[p].team))?6:60;r.ms=[];r.order.forEach(p=>r.pl[p].ready=!!r.pl[p].bot);applyClaims(r)}
 // Equipo de la fecha: más goles; si empatan, mejor diferencia; si siguen igualados, mejores estadísticas (posesión, remates, a puerta, córners, menos faltas y tarjetas)
 const cmpT=(a,b)=>b.pts-a.pts||b.g-a.g||b.gf-a.gf||(b.gf-b.ga)-(a.gf-a.ga);
 const rankOf=r=>{const o={};Object.entries(r.table).map(([id,q])=>({id,...q})).sort(cmpT).forEach((q,i)=>o[q.id]=i+1);return o};
