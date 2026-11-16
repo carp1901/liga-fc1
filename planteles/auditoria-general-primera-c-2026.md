@@ -7,7 +7,7 @@ Estado: primera auditoría global aplicada; revisión individual de todos los pl
 
 - **28 clubes** cargados.
 - **1.121 jugadores** en runtime después de la depuración adicional del 16/11.
-- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron once nombres (dos en la depuración de la tanda 1, ocho en la primera auditoría general, Franco Gómez de Central Ballester, Román Gauto y Antonio Riveros de Juventud Unida) y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
+- **1.132 registros nominales iniciales** entre las cuatro tandas; se retiraron trece nombres (dos en la depuración de la tanda 1, ocho en la primera auditoría general, Franco Gómez de Central Ballester, Román Gauto y Antonio Riveros de Juventud Unida) y se agregaron Matías Arias y Néstor Acosta por evidencia de participación en 2026.
 - Los 28 clubes cumplen el mínimo de 22 jugadores: el menor plantel actual tiene 29 y el mayor 50.
 - Promedio actual: 40,0 jugadores por club. Es una base preliminar; todavía hay equipos demasiado grandes para considerarlos definitivos.
 
