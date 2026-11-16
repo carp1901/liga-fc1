@@ -431,7 +431,7 @@ El criterio fue conservar primero a quienes aparecen identificados en las audito
 - **Claypole** (9): Benjamín Gutiérrez, Valentín Hiriart, Nahuel Machuca, Agustín Maciel, Gustavo Menecis, Juan Ignacio Pacchini, Axel Paiva, Ignacio Rados, Lautaro Vallejos.
 - **Deportivo Español** (9): Alexis Peralta, Nahuel Villalba, Gastón Nieto, Santiago Yossini, Nicolás Ostuni, Patricio Pérez, Omar Pires, Gonzalo Ronconi, Pablo Vielma.
 - **Deportivo Muñiz** (8): Dylan Varela, Lautaro Saavedra, Jason Taborda, Brandon Verón, Octavio Villegas, Lorenzo Risso, Matías Silvero, Gonzalo Villafañe.
-- **El Porvenir** (14): Tiago Ifran, Marcos Nahuel Ochoa, Felipe Ruíz, Juan Ignacio Santarelli, Lautaro Sequeira, Agustín Monteleone, Joaquín Müller, Franco Ríos, Theo Sánchez, Bruno Schmid, Kwame Sankara Souffrant, Luca Zerbo, Nahuel Oviedo, Leonel Salas Dylan.
+- **El Porvenir** (14): Tiago Ifran, Marcos Nahuel Ochoa, Felipe Ruíz, Juan Ignacio Santarelli, Lautaro Sequeira, Maximiliano Alvarenga, Joaquín Müller, Franco Ríos, Theo Sánchez, Bruno Schmid, Kwame Sankara Souffrant, Luca Zerbo, Nahuel Oviedo, Leonel Salas Dylan.
 - **Fénix** (12): Farid Jasni, Luca Maidana, Manuel Masdeu, Agustín Suárez, Juan Manuel Velásquez, Gonzalo Medina, Javier Muller, Ignacio Romano, Nathan Tito Sosa, Ignacio Vera, Alejo Villalba, Matías Villalba.
 - **General Lamadrid** (6): Matías Velázquez, Carlos Zalazar, Martin Spaccarotella, Alexis Vázquez, Tobías Vedovati, Hugo Zarco.
 - **Leones FC** (7): Martín Talamonti, Lucas Villarino, Lucas Zapata, Valentín Lemos, Sebastián Peñaloza, Denis Rodríguez, Ramiro Roldán.
