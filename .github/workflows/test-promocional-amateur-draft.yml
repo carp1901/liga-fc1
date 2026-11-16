@@ -50,7 +50,7 @@ jobs:
       - name: Guardar runtime integrado en la rama del PR
         run: |
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+users.noreply.github.com'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/squads.json public/squads.js public/squads-meta.json
           if ! git diff --cached --quiet; then
             git commit -m 'Integrar planteles reales Promocional Amateur 2026'
