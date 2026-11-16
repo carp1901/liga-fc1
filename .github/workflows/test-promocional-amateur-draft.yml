@@ -1,5 +1,13 @@
 name: Cargar planteles Promocional Amateur 2026
 on:
+  push:
+    branches:
+      - 'planteles/promocional-amateur-2026'
+    paths:
+      - 'planteles/borradores/promocional-amateur-2026/**'
+      - 'test-promocional-amateur-draft.js'
+      - 'import-squads.js'
+      - '.github/workflows/test-promocional-amateur-draft.yml'
   pull_request:
     paths:
       - 'planteles/borradores/promocional-amateur-2026/**'
