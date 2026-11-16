@@ -95,7 +95,7 @@ Central Ballester y Deportivo Español quedan señalados para revisar tamaño y 
 
 La cuarta tanda incorporó 7 clubes y 272 jugadores nominales: El Porvenir (47 antes de depuración), Fénix (42), General Lamadrid (35), Leones FC (37), Luján (33), Sportivo Barracas (39) y Yupanqui (39). Tras retirar tres arqueros sin participación de primer equipo, El Porvenir queda con 44. El runtime completo queda en **1.121 jugadores en 28 clubes**.
 
-La auditoría general final debe revisar especialmente Central Ballester (51), Juventud Unida (51), Argentino de Rosario (50), Sacachispas (50), J.J. Urquiza (49) y Sportivo Barracas (trece delanteros), además de las edades, posiciones específicas, apariciones, bajas y medias de los 28 planteles.
+La auditoría general final debe revisar especialmente Central Ballester (51), Juventud Unida (49), Argentino de Rosario (50), Sacachispas (50), J.J. Urquiza (49) y Sportivo Barracas (trece delanteros), además de las edades, posiciones específicas, apariciones, bajas y medias de los 28 planteles.
 
 
 ## Primera depuración general — 12/11/2026
