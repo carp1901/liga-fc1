@@ -19,8 +19,8 @@ for(const [i,row] of rows.entries()){
  assert(['ARQ','DEF','MED','DEL'].includes(pos),'Posición inválida: '+name);
  assert(Number.isInteger(rating)&&rating>=38&&rating<=53,'Media fuera de rango: '+name);
  assert(get('rating_source').startsWith('Estimación propia inicial v1'),'Media no identificada como estimación: '+name);
- assert(Number.isInteger(dorsal)&&dorsal>=1&&dorsal<=99,'Dorsal inválido: '+name);
- assert(get('dorsal_source').toLowerCase().includes('estimado'),'Dorsal no identificado como estimado: '+name);
+ if(dorsal!==null){assert(Number.isInteger(dorsal)&&dorsal>=1&&dorsal<=99,'Dorsal inválido: '+name);assert(get('dorsal_source').toLowerCase().includes('verificado'),'Dorsal asignado sin verificación: '+name);}
+ else assert(get('dorsal_source').toLowerCase().includes('pendiente'),'Dorsal vacío sin marcar como pendiente: '+name);
  assert(get('fuente')&&get('consultado'),'Falta fuente o fecha: '+name);
  const key=club+'|'+norm(name);assert(!names.has(key),'Nombre duplicado: '+key);names.add(key);
  if(dorsal!==null){const nk=club+'|'+dorsal;assert(!numbers.has(nk),'Dorsal duplicado: '+nk);numbers.add(nk);}
