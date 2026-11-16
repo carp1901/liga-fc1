@@ -10,7 +10,7 @@ Temporada 2026, 17 participantes. Se recopilaron nombres desde nóminas de tempo
 | Club | ID | Jugadores |
 |---|---|---:|
 | Defensores de Glew | `defglew` | 28 |
-| Deportivo Metalúrgico | `metalurgico` | 30 |
+| Deportivo Metalúrgico | `metalurgico` | 32 |
 | Náutico Hacoaj | `hacoaj` | 30 |
 | FC Ezeiza | `fcezeiza` | 30 |
 | Belgrano de Zárate | `belgranozarate` | 30 |
@@ -26,13 +26,13 @@ Temporada 2026, 17 participantes. Se recopilaron nombres desde nóminas de tempo
 | Las Mandarinas | `mandarinas` | 30 |
 | Social Atlético Televisión (SAT) | `sat` | 30 |
 | Provincial de Lobos | `udprovincial` | 30 |
-| **Total** | **17 clubes** | **504** |
+| **Total** | **17 clubes** | **506** |
 
 Los tres planteles de 28 y los catorce de 30 cumplen el rango de trabajo acordado. El criterio de validación es **20 como mínimo, 30 como objetivo orientativo y 32 como máximo excepcional** cuando la evidencia del plantel lo justifique. No existe obligación de llevar cada club a 30.
 
 ## Fuentes nominales por club
 - Defensores de Glew: https://www.soloascenso.com.ar/club/defensores-de-glew/859
-- Deportivo Metalúrgico: https://www.afa.com.ar/en/posts/metalurgico-derroto-1-0-a-f.c.-ezeiza-y-es-el-campeon-del-promocional-amateur
+- Deportivo Metalúrgico: https://www.soloascenso.com.ar/club/deportivo-metalurgico/1073 (plantel 2026); fichas de partidos 2026: https://www.soloascenso.com.ar/ficha/45860 y https://www.soloascenso.com.ar/ficha/46114
 - Náutico Hacoaj: https://www.soloascenso.com.ar/club/nautico-hacoaj/501
 - FC Ezeiza: https://www.soloascenso.com.ar/club/fc-ezeiza/1074
 - Belgrano de Zárate: https://www.soloascenso.com.ar/club/belgrano-zarate/470
@@ -51,13 +51,13 @@ Los tres planteles de 28 y los catorce de 30 cumplen el rango de trabajo acordad
 
 ## Calidad de datos y pendientes
 - Las medias de esta primera carga son estimaciones propias identificadas como tales; no son OVR oficiales.
-- Los dorsales de los CSV son **internos/estimados para el juego**, no dorsales oficiales de temporada. Deben sustituirse por números respaldados cuando haya fuentes; no se inventarán dorsales oficiales.
+- Los dorsales quedaron **sin asignar** en los CSV porque las fuentes de nómina no confirman números de camiseta. Las cifras que estaban cargadas eran secuenciales y no se deben presentar como reales. Sólo se incorporarán dorsales cuando una planilla o ficha fiable identifique el número de camiseta.
 - Edad, nacionalidad, pie hábil y roles específicos sólo se completan con evidencia individual fiable. Los datos no confirmados deben permanecer pendientes.
 - Falta terminar la revisión de vigencia al cierre de 2026, homónimos, apariciones y correspondencia individual con las fuentes.
 - No se agregan jugadores únicamente para alcanzar 30. Cualquier alta requiere evidencia nominal de 2026.
-- El test estructural valida 17 clubes, entre 20 y 32 jugadores por plantel, ausencia de duplicados nominales y de dorsales internos repetidos.
+- El test estructural valida 17 clubes, entre 20 y 32 jugadores por plantel, ausencia de duplicados nominales y que los dorsales no verificados permanezcan vacíos y marcados como pendientes.
 
 ## Archivos
-- `tanda1-inicial.csv`: 6 clubes / 178 registros.
+- `tanda1-inicial.csv`: 6 clubes / 180 registros.
 - `tanda2-inicial.csv`: 11 clubes / 326 registros.
 - `test-promocional-amateur-draft.js`: controles estructurales y de runtime.
