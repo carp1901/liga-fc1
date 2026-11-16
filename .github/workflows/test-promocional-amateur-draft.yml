@@ -5,13 +5,17 @@ on:
       - 'planteles/promocional-amateur-2026'
     paths:
       - 'planteles/borradores/promocional-amateur-2026/**'
-      - 'test-promocional-amateur-draft.js'\n      - 'test-nationality-flags.js'\n      - 'public/index.html'
+      - 'test-promocional-amateur-draft.js'
+      - 'test-nationality-flags.js'
+      - 'public/index.html'
       - 'import-squads.js'
       - '.github/workflows/test-promocional-amateur-draft.yml'
   pull_request:
     paths:
       - 'planteles/borradores/promocional-amateur-2026/**'
       - 'test-promocional-amateur-draft.js'
+      - 'test-nationality-flags.js'
+      - 'public/index.html'
       - 'import-squads.js'
       - '.github/workflows/test-promocional-amateur-draft.yml'
 permissions:
@@ -31,6 +35,8 @@ jobs:
         run: node --check import-squads.js
       - name: Validar los 17 clubes
         run: node test-promocional-amateur-draft.js
+      - name: Validar banderas SVG de nacionalidad
+        run: node test-nationality-flags.js
       - name: Validar importación sin publicar
         run: |
           node import-squads.js planteles/borradores/promocional-amateur-2026/tanda1-inicial.csv --dry-run
@@ -44,7 +50,7 @@ jobs:
       - name: Guardar runtime integrado en la rama del PR
         run: |
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.email '41898282+users.noreply.github.com'
           git add public/squads.json public/squads.js public/squads-meta.json
           if ! git diff --cached --quiet; then
             git commit -m 'Integrar planteles reales Promocional Amateur 2026'
