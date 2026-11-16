@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-16T06:56:35.308Z",
+  "updatedAt": "2026-11-16T06:59:14.018Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 3138 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 3168 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -164,10 +164,10 @@
     "belgranozarate": 30,
     "uribelarrea": 30,
     "alumni": 30,
-    "atpilar": 21,
+    "atpilar": 30,
     "barrancas": 30,
-    "bacity": 20,
-    "controlorientado": 19,
+    "bacity": 30,
+    "controlorientado": 30,
     "estrellaberisso": 30,
     "everton": 28,
     "juventudbernal": 28,
@@ -3952,12 +3952,12 @@
       "natSource": []
     },
     "atpilar": {
-      "source": "https://www.soloascenso.com.ar/ficha/45859",
+      "source": "https://www.sofascore.com/es-la/football/team/club-atletico-pilar/507165",
       "consulted": "2026-11-16",
       "ageSource": [],
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
       "natSource": []
     },
     "barrancas": {
@@ -3970,21 +3970,21 @@
       "natSource": []
     },
     "bacity": {
-      "source": "https://www.soloascenso.com.ar/ficha/46105",
+      "source": "https://www.sofascore.com/es-la/football/team/buenos-aires-city/1217896",
       "consulted": "2026-11-16",
       "ageSource": [],
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
       "natSource": []
     },
     "controlorientado": {
-      "source": "https://www.soloascenso.com.ar/ficha/45857",
+      "source": "https://www.sofascore.com/es-la/football/team/control-orientado/1217894",
       "consulted": "2026-11-16",
       "ageSource": [],
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
       "natSource": []
     },
     "estrellaberisso": {
@@ -4047,9 +4047,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4767,
+    "assigned": 4797,
     "missing": 0,
-    "total": 4767,
+    "total": 4797,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4852,8 +4852,8 @@
         "missing": 0
       },
       "atpilar": {
-        "total": 21,
-        "assigned": 21,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "barrancas": {
@@ -4862,13 +4862,13 @@
         "missing": 0
       },
       "bacity": {
-        "total": 20,
-        "assigned": 20,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "controlorientado": {
-        "total": 19,
-        "assigned": 19,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "estrellaberisso": {
@@ -4906,9 +4906,9 @@
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3297,
-    "missing": 1470,
+    "missing": 1500,
     "birthDates": 2075,
-    "total": 4767,
+    "total": 4797,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5711,9 +5711,9 @@
         "missing": 30
       },
       "atpilar": {
-        "total": 21,
+        "total": 30,
         "assigned": 0,
-        "missing": 21
+        "missing": 30
       },
       "barrancas": {
         "total": 30,
@@ -5721,14 +5721,14 @@
         "missing": 30
       },
       "bacity": {
-        "total": 20,
+        "total": 30,
         "assigned": 0,
-        "missing": 20
+        "missing": 30
       },
       "controlorientado": {
-        "total": 19,
+        "total": 30,
         "assigned": 0,
-        "missing": 19
+        "missing": 30
       },
       "estrellaberisso": {
         "total": 30,
@@ -5764,8 +5764,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1391,
-    "total": 4767,
+    "missing": 1421,
+    "total": 4797,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6408,7 +6408,7 @@
         "assigned": 0
       },
       "atpilar": {
-        "total": 21,
+        "total": 30,
         "assigned": 0
       },
       "barrancas": {
@@ -6416,11 +6416,11 @@
         "assigned": 0
       },
       "bacity": {
-        "total": 20,
+        "total": 30,
         "assigned": 0
       },
       "controlorientado": {
-        "total": 19,
+        "total": 30,
         "assigned": 0
       },
       "estrellaberisso": {
@@ -6451,8 +6451,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1313,
-    "total": 4767,
+    "missing": 1343,
+    "total": 4797,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -7095,7 +7095,7 @@
         "specific": 0
       },
       "atpilar": {
-        "total": 21,
+        "total": 30,
         "specific": 0
       },
       "barrancas": {
@@ -7103,11 +7103,11 @@
         "specific": 0
       },
       "bacity": {
-        "total": 20,
+        "total": 30,
         "specific": 0
       },
       "controlorientado": {
-        "total": 19,
+        "total": 30,
         "specific": 0
       },
       "estrellaberisso": {
@@ -7138,8 +7138,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 3138,
-    "total": 4767,
+    "estimated": 3168,
+    "total": 4797,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -8103,9 +8103,9 @@
         "provisional": 0
       },
       "atpilar": {
-        "total": 21,
+        "total": 30,
         "verified": 0,
-        "estimated": 21,
+        "estimated": 30,
         "provisional": 0
       },
       "barrancas": {
@@ -8115,15 +8115,15 @@
         "provisional": 0
       },
       "bacity": {
-        "total": 20,
+        "total": 30,
         "verified": 0,
-        "estimated": 20,
+        "estimated": 30,
         "provisional": 0
       },
       "controlorientado": {
-        "total": 19,
+        "total": 30,
         "verified": 0,
-        "estimated": 19,
+        "estimated": 30,
         "provisional": 0
       },
       "estrellaberisso": {
@@ -8168,22 +8168,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3595,
+    "derivedPlayers": 3625,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 170,
-    "players": 4767,
+    "players": 4797,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1470,
+    "playersMissingAge": 1500,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 3138,
+    "estimatedRatings": 3168,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1391,
-    "playersMissingFoot": 2710,
-    "playersMissingSpecificRole": 1313,
-    "playersWithoutManualAttributes": 3595
+    "playersMissingNationality": 1421,
+    "playersMissingFoot": 2740,
+    "playersMissingSpecificRole": 1343,
+    "playersWithoutManualAttributes": 3625
   }
 }
