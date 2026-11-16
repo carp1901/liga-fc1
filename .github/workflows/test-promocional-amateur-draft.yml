@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'planteles/promocional-amateur-2026'
+      - 'planteles/promocional-amateur-auditoria-2026'
     paths:
       - 'planteles/borradores/promocional-amateur-2026/**'
       - 'test-promocional-amateur-draft.js'
