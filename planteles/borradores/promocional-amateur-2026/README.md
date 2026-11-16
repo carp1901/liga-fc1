@@ -1,15 +1,15 @@
 # Promocional Amateur 2026 — planteles reales
 
-Estado: **primera carga nominal de los 17 clubes preparada; pendiente de validación automatizada e integración al runtime**.
+Estado: **planteles ampliados a 30 futbolistas por club; pendiente de validación automatizada e integración al runtime**.
 
 ## Alcance
 La temporada 2026 tuvo 17 participantes divididos en dos zonas. Se cargan futbolistas reales identificados en nóminas de temporada y planillas de partidos. No se completan cupos con nombres ficticios. Máximo operativo: 30 jugadores por club.
 
-## Primera carga — 504 jugadores
+## Planteles ampliados — 510 jugadores
 
 | Club | ID | Jugadores |
 |---|---|---:|
-| Defensores de Glew | `defglew` | 28 |
+| Defensores de Glew | `defglew` | 30 |
 | Deportivo Metalúrgico | `metalurgico` | 30 |
 | Náutico Hacoaj | `hacoaj` | 30 |
 | FC Ezeiza | `fcezeiza` | 30 |
@@ -21,14 +21,14 @@ La temporada 2026 tuvo 17 participantes divididos en dos zonas. Se cargan futbol
 | Buenos Aires City FC | `bacity` | 30 |
 | Control Orientado | `controlorientado` | 30 |
 | Estrella de Berisso | `estrellaberisso` | 30 |
-| Everton de La Plata | `everton` | 28 |
-| Juventud de Bernal | `juventudbernal` | 28 |
+| Everton de La Plata | `everton` | 30 |
+| Juventud de Bernal | `juventudbernal` | 30 |
 | Las Mandarinas | `mandarinas` | 30 |
 | Social Atlético Televisión (SAT) | `sat` | 30 |
 | Provincial de Lobos | `udprovincial` | 30 |
-| **Total** | **17 clubes** | **474** |
+| **Total** | **17 clubes** | **510** |
 
-Los clubes con menos de 30 jugadores quedan así porque la evidencia nominal reunida en esta primera pasada no justifica agregar más futbolistas. Se ampliarán al encontrar nóminas, planillas o estadísticas adicionales.
+La ampliación de los tres planteles se realizó con nombres y posiciones publicados en las nóminas de temporada de Solo Ascenso (Defensores de Glew y Everton) y la plantilla de Sofascore de Juventud de Bernal. Los seis nuevos registros conservan medias y dorsales estimados; no se presentan como ratings ni dorsales oficiales.
 
 ## Fuentes por club
 - Defensores de Glew: https://www.soloascenso.com.ar/club/defensores-de-glew/859
