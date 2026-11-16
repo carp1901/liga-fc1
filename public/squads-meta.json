@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-16T18:05:00.000Z",
+  "updatedAt": "2026-11-16T18:15:00.000Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 3170 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 3173 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -157,7 +157,7 @@
     "lujan": 30,
     "sportivobarracas": 30,
     "yupanqui": 30,
-    "defglew": 28,
+    "defglew": 30,
     "metalurgico": 32,
     "hacoaj": 30,
     "fcezeiza": 30,
@@ -170,7 +170,7 @@
     "controlorientado": 30,
     "estrellaberisso": 30,
     "everton": 28,
-    "juventudbernal": 28,
+    "juventudbernal": 29,
     "mandarinas": 30,
     "sat": 30,
     "udprovincial": 30
@@ -3894,7 +3894,10 @@
       "ageSource": [],
       "numberSource": "Pendiente de verificar en planilla oficial 2026; no se asigna dorsal estimado.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+      "roleSource": [
+        "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+        "https://www.soloascenso.com.ar/club/defensores-de-glew/859"
+      ],
       "natSource": []
     },
     "metalurgico": {
@@ -4006,12 +4009,18 @@
       "natSource": []
     },
     "juventudbernal": {
-      "source": "https://www.soloascenso.com.ar/club/juventud-de-bernal/759",
+      "source": [
+        "https://www.soloascenso.com.ar/club/juventud-de-bernal/759",
+        "https://www.soloascenso.com.ar/perfil/enzo-gonzalez/32325"
+      ],
       "consulted": "2026-11-16",
       "ageSource": [],
       "numberSource": "Pendiente de verificar en planilla oficial 2026; no se asigna dorsal estimado.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "roleSource": [
+        "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+        "https://www.soloascenso.com.ar/perfil/enzo-gonzalez/32325"
+      ],
       "natSource": []
     },
     "mandarinas": {
@@ -4048,8 +4057,8 @@
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
     "assigned": 4293,
-    "missing": 506,
-    "total": 4799,
+    "missing": 509,
+    "total": 4802,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4817,9 +4826,9 @@
         "missing": 0
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "assigned": 0,
-        "missing": 28
+        "missing": 30
       },
       "metalurgico": {
         "total": 32,
@@ -4882,9 +4891,9 @@
         "missing": 28
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 29,
         "assigned": 0,
-        "missing": 28
+        "missing": 29
       },
       "mandarinas": {
         "total": 30,
@@ -4906,9 +4915,9 @@
   "dorsalsComplete": false,
   "ageCoverage": {
     "assigned": 3297,
-    "missing": 1502,
+    "missing": 1505,
     "birthDates": 2075,
-    "total": 4799,
+    "total": 4802,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5676,9 +5685,9 @@
         "missing": 30
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "assigned": 0,
-        "missing": 28
+        "missing": 30
       },
       "metalurgico": {
         "total": 32,
@@ -5741,9 +5750,9 @@
         "missing": 28
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 29,
         "assigned": 0,
-        "missing": 28
+        "missing": 29
       },
       "mandarinas": {
         "total": 30,
@@ -5764,8 +5773,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1423,
-    "total": 4799,
+    "missing": 1426,
+    "total": 4802,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6380,7 +6389,7 @@
         "assigned": 0
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "assigned": 0
       },
       "metalurgico": {
@@ -6432,7 +6441,7 @@
         "assigned": 0
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 29,
         "assigned": 0
       },
       "mandarinas": {
@@ -6451,8 +6460,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1345,
-    "total": 4799,
+    "missing": 1348,
+    "total": 4802,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -7067,7 +7076,7 @@
         "specific": 0
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "specific": 0
       },
       "metalurgico": {
@@ -7119,7 +7128,7 @@
         "specific": 0
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 29,
         "specific": 0
       },
       "mandarinas": {
@@ -7138,8 +7147,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 3170,
-    "total": 4799,
+    "estimated": 3173,
+    "total": 4802,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -8061,9 +8070,9 @@
         "provisional": 0
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "verified": 0,
-        "estimated": 28,
+        "estimated": 30,
         "provisional": 0
       },
       "metalurgico": {
@@ -8139,9 +8148,9 @@
         "provisional": 0
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 29,
         "verified": 0,
-        "estimated": 28,
+        "estimated": 29,
         "provisional": 0
       },
       "mandarinas": {
@@ -8168,22 +8177,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3627,
+    "derivedPlayers": 3630,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 170,
-    "players": 4799,
+    "players": 4802,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1502,
-    "playersMissingDorsal": 506,
+    "playersMissingAge": 1505,
+    "playersMissingDorsal": 509,
     "verifiedRatings": 1629,
-    "estimatedRatings": 3170,
+    "estimatedRatings": 3173,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1423,
-    "playersMissingFoot": 2742,
-    "playersMissingSpecificRole": 1345,
-    "playersWithoutManualAttributes": 3627
+    "playersMissingNationality": 1426,
+    "playersMissingFoot": 2745,
+    "playersMissingSpecificRole": 1348,
+    "playersWithoutManualAttributes": 3630
   }
 }
