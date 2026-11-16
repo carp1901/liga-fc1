@@ -81,7 +81,7 @@ if(process.argv.includes('--runtime')){
   }
   assert.equal(meta.counts[id],count,'Metadata incorrecta: '+id);
  }
- const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
+ const baselinePath=process.env.SQUADS_BASELINE_PATH;const baseline=JSON.parse(baselinePath?fs.readFileSync(baselinePath,'utf8'):require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:20*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!allowed.has(id))assert.deepEqual(runtime[id],players,'Se alteró accidentalmente otro plantel: '+id);
 }
 console.log(process.argv.includes('--runtime')?'OK: 839 jugadores cargados en 28 clubes; homónimos identificados y los demás planteles intactos.':'OK: CSV de Primera C — 28 clubes, 839 jugadores, sin duplicados internos ni dorsales repetidos.');

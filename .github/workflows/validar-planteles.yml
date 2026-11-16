@@ -55,6 +55,8 @@ jobs:
         run: node import-squads.js /tmp/planteles/planteles-2026.csv --dry-run --require-both-divisions
       - name: Generar archivos que consume el juego
         run: node import-squads.js /tmp/planteles/planteles-2026.csv --require-both-divisions
+      - name: Guardar baseline de Primera y Primera Nacional
+        run: cp public/squads.json /tmp/planteles/squads-before-primera-c.json
       - name: Integrar los veintiocho planteles de Primera C
         run: |
           node import-squads.js planteles/borradores/primera-c-2026/tanda1-inicial.csv
@@ -62,6 +64,8 @@ jobs:
           node import-squads.js planteles/borradores/primera-c-2026/tanda3-inicial.csv
           node import-squads.js planteles/borradores/primera-c-2026/tanda4-inicial.csv
       - name: Auditar los planteles de Primera C en runtime
+        env:
+          SQUADS_BASELINE_PATH: /tmp/planteles/squads-before-primera-c.json
         run: node test-primera-c-draft.js --runtime
       - name: Auditar Primera y Primera Nacional publicadas
         run: node test-squads.js
