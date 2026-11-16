@@ -5,11 +5,11 @@ Estado: **primera carga nominal de los 17 clubes preparada; auditoría individua
 ## Alcance
 Temporada 2026, 17 participantes. Se recopilaron nombres desde nóminas de temporada y planillas de partidos. No se completan cupos con futbolistas ficticios ni se recortan planteles para igualarlos.
 
-## Primera carga — 506 registros nominales
+## Primera carga — 509 registros nominales
 
 | Club | ID | Jugadores |
 |---|---|---:|
-| Defensores de Glew | `defglew` | 28 |
+| Defensores de Glew | `defglew` | 30 |
 | Deportivo Metalúrgico | `metalurgico` | 32 |
 | Náutico Hacoaj | `hacoaj` | 30 |
 | FC Ezeiza | `fcezeiza` | 30 |
@@ -22,13 +22,13 @@ Temporada 2026, 17 participantes. Se recopilaron nombres desde nóminas de tempo
 | Control Orientado | `controlorientado` | 30 |
 | Estrella de Berisso | `estrellaberisso` | 30 |
 | Everton de La Plata | `everton` | 28 |
-| Juventud de Bernal | `juventudbernal` | 28 |
+| Juventud de Bernal | `juventudbernal` | 29 |
 | Las Mandarinas | `mandarinas` | 30 |
 | Social Atlético Televisión (SAT) | `sat` | 30 |
 | Provincial de Lobos | `udprovincial` | 30 |
-| **Total** | **17 clubes** | **506** |
+| **Total** | **17 clubes** | **509** |
 
-Los tres planteles de 28, los trece de 30 y el plantel de 32 cumplen el rango de trabajo acordado. El criterio de validación es **20 como mínimo, 30 como objetivo orientativo y 32 como máximo excepcional** cuando la evidencia del plantel lo justifique. No existe obligación de llevar cada club a 30.
+El plantel de 28, el de 29, los catorce de 30 y el de 32 cumplen el rango de trabajo acordado. El criterio de validación es **20 como mínimo, 30 como objetivo orientativo y 32 como máximo excepcional** cuando la evidencia del plantel lo justifique. No existe obligación de llevar cada club a 30.
 
 ## Fuentes nominales por club
 - Defensores de Glew: https://www.soloascenso.com.ar/club/defensores-de-glew/859
@@ -58,13 +58,13 @@ Los tres planteles de 28, los trece de 30 y el plantel de 32 cumplen el rango de
 - El test estructural valida 17 clubes, entre 20 y 32 jugadores por plantel, ausencia de duplicados nominales y que los dorsales no verificados permanezcan vacíos y marcados como pendientes.
 
 ## Nacionalidades — siguiente etapa
-La revisión completa de nacionalidades se hará después de cerrar esta auditoría del Promocional y antes de cargar Uruguay. En el runtime actual hay 4.799 jugadores: 3.376 tienen nacionalidad asignada y 1.423 siguen pendientes. El faltante se concentra en Federal A (78), Primera C (839) y Promocional Amateur (506). No se debe inferir nacionalidad por el país del club.
+La revisión completa de nacionalidades se hará después de cerrar esta auditoría del Promocional y antes de cargar Uruguay. En el runtime actual hay 4.799 jugadores: 3.376 tienen nacionalidad asignada y 1.423 siguen pendientes. El faltante se concentra en Federal A (78), Primera C (839) y Promocional Amateur (509). No se debe inferir nacionalidad por el país del club.
 Las 26 formas de nacionalidad que ya aparecen en el runtime (nombres y códigos) tienen banderas SVG generadas por código; se probaron 40 variantes de nombre/código. Esto prepara la presentación, pero no reemplaza la verificación individual de las nacionalidades pendientes ni la revisión de las ya cargadas.
 
 ## Control de homónimos
 Los seis nombres repetidos entre clubes están documentados en [homonimos-pendientes.md](homonimos-pendientes.md): cuatro casos se diferenciaron con edad, posición o presencia en partidos; dos siguen pendientes y no se eliminarán ni fusionarán sin evidencia.
 
 ## Archivos
-- `tanda1-inicial.csv`: 6 clubes / 180 registros.
-- `tanda2-inicial.csv`: 11 clubes / 326 registros.
+- `tanda1-inicial.csv`: 6 clubes / 182 registros.
+- `tanda2-inicial.csv`: 11 clubes / 327 registros.
 - `test-promocional-amateur-draft.js`: controles estructurales y de runtime.
