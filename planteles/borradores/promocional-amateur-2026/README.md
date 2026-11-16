@@ -61,6 +61,9 @@ Los tres planteles de 28, los trece de 30 y el plantel de 32 cumplen el rango de
 La revisión completa de nacionalidades se hará después de cerrar esta auditoría del Promocional y antes de cargar Uruguay. En el runtime actual hay 4.799 jugadores: 3.376 tienen nacionalidad asignada y 1.423 siguen pendientes. El faltante se concentra en Federal A (78), Primera C (839) y Promocional Amateur (506). No se debe inferir nacionalidad por el país del club.
 Las 26 formas de nacionalidad que ya aparecen en el runtime (nombres y códigos) tienen banderas SVG generadas por código; se probaron 40 variantes de nombre/código. Esto prepara la presentación, pero no reemplaza la verificación individual de las nacionalidades pendientes ni la revisión de las ya cargadas.
 
+## Control de homónimos
+Los seis nombres repetidos entre clubes están documentados en [homonimos-pendientes.md](homonimos-pendientes.md): cuatro casos se diferenciaron con edad, posición o presencia en partidos; dos siguen pendientes y no se eliminarán ni fusionarán sin evidencia.
+
 ## Archivos
 - `tanda1-inicial.csv`: 6 clubes / 180 registros.
 - `tanda2-inicial.csv`: 11 clubes / 326 registros.
