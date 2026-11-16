@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-16T07:00:26.929Z",
+  "updatedAt": "2026-11-16T07:06:13.655Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1629 medias con fuente individual + 3168 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1629 medias con fuente individual + 3174 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -157,7 +157,7 @@
     "lujan": 30,
     "sportivobarracas": 30,
     "yupanqui": 30,
-    "defglew": 28,
+    "defglew": 30,
     "metalurgico": 30,
     "hacoaj": 30,
     "fcezeiza": 30,
@@ -169,8 +169,8 @@
     "bacity": 30,
     "controlorientado": 30,
     "estrellaberisso": 30,
-    "everton": 28,
-    "juventudbernal": 28,
+    "everton": 30,
+    "juventudbernal": 30,
     "mandarinas": 30,
     "sat": 30,
     "udprovincial": 30
@@ -3894,7 +3894,10 @@
       "ageSource": [],
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+      "roleSource": [
+        "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
+        "Posición general confirmada en nómina de plantel 2026; rol específico pendiente de verificación."
+      ],
       "natSource": []
     },
     "metalurgico": {
@@ -4002,16 +4005,25 @@
       "ageSource": [],
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "roleSource": [
+        "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+        "Posición general confirmada en nómina de plantel 2026; rol específico pendiente de verificación."
+      ],
       "natSource": []
     },
     "juventudbernal": {
-      "source": "https://www.soloascenso.com.ar/club/juventud-de-bernal/759",
+      "source": [
+        "https://www.soloascenso.com.ar/club/juventud-de-bernal/759",
+        "https://www.sofascore.com/es-la/football/team/csd-juventud-de-bernal/507163"
+      ],
       "consulted": "2026-11-16",
       "ageSource": [],
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "roleSource": [
+        "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+        "Posición general confirmada en nómina de plantel 2026; rol específico pendiente de verificación."
+      ],
       "natSource": []
     },
     "mandarinas": {
@@ -4047,9 +4059,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4797,
+    "assigned": 4803,
     "missing": 0,
-    "total": 4797,
+    "total": 4803,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -4817,8 +4829,8 @@
         "missing": 0
       },
       "defglew": {
-        "total": 28,
-        "assigned": 28,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "metalurgico": {
@@ -4877,13 +4889,13 @@
         "missing": 0
       },
       "everton": {
-        "total": 28,
-        "assigned": 28,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "juventudbernal": {
-        "total": 28,
-        "assigned": 28,
+        "total": 30,
+        "assigned": 30,
         "missing": 0
       },
       "mandarinas": {
@@ -4906,9 +4918,9 @@
   "dorsalsComplete": true,
   "ageCoverage": {
     "assigned": 3297,
-    "missing": 1500,
+    "missing": 1506,
     "birthDates": 2075,
-    "total": 4797,
+    "total": 4803,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5676,9 +5688,9 @@
         "missing": 30
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "assigned": 0,
-        "missing": 28
+        "missing": 30
       },
       "metalurgico": {
         "total": 30,
@@ -5736,14 +5748,14 @@
         "missing": 30
       },
       "everton": {
-        "total": 28,
+        "total": 30,
         "assigned": 0,
-        "missing": 28
+        "missing": 30
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 30,
         "assigned": 0,
-        "missing": 28
+        "missing": 30
       },
       "mandarinas": {
         "total": 30,
@@ -5764,8 +5776,8 @@
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1421,
-    "total": 4797,
+    "missing": 1427,
+    "total": 4803,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6380,7 +6392,7 @@
         "assigned": 0
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "assigned": 0
       },
       "metalurgico": {
@@ -6428,11 +6440,11 @@
         "assigned": 0
       },
       "everton": {
-        "total": 28,
+        "total": 30,
         "assigned": 0
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 30,
         "assigned": 0
       },
       "mandarinas": {
@@ -6451,8 +6463,8 @@
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1343,
-    "total": 4797,
+    "missing": 1349,
+    "total": 4803,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -7067,7 +7079,7 @@
         "specific": 0
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "specific": 0
       },
       "metalurgico": {
@@ -7115,11 +7127,11 @@
         "specific": 0
       },
       "everton": {
-        "total": 28,
+        "total": 30,
         "specific": 0
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 30,
         "specific": 0
       },
       "mandarinas": {
@@ -7138,8 +7150,8 @@
   },
   "ratingCoverage": {
     "rated": 1629,
-    "estimated": 3168,
-    "total": 4797,
+    "estimated": 3174,
+    "total": 4803,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -8061,9 +8073,9 @@
         "provisional": 0
       },
       "defglew": {
-        "total": 28,
+        "total": 30,
         "verified": 0,
-        "estimated": 28,
+        "estimated": 30,
         "provisional": 0
       },
       "metalurgico": {
@@ -8133,15 +8145,15 @@
         "provisional": 0
       },
       "everton": {
-        "total": 28,
+        "total": 30,
         "verified": 0,
-        "estimated": 28,
+        "estimated": 30,
         "provisional": 0
       },
       "juventudbernal": {
-        "total": 28,
+        "total": 30,
         "verified": 0,
-        "estimated": 28,
+        "estimated": 30,
         "provisional": 0
       },
       "mandarinas": {
@@ -8168,22 +8180,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3625,
+    "derivedPlayers": 3631,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 170,
-    "players": 4797,
+    "players": 4803,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1500,
+    "playersMissingAge": 1506,
     "playersMissingDorsal": 0,
     "verifiedRatings": 1629,
-    "estimatedRatings": 3168,
+    "estimatedRatings": 3174,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1421,
-    "playersMissingFoot": 2740,
-    "playersMissingSpecificRole": 1343,
-    "playersWithoutManualAttributes": 3625
+    "playersMissingNationality": 1427,
+    "playersMissingFoot": 2746,
+    "playersMissingSpecificRole": 1349,
+    "playersWithoutManualAttributes": 3631
   }
 }
