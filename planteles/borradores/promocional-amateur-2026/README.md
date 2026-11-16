@@ -5,7 +5,7 @@ Estado: **primera carga nominal de los 17 clubes preparada; pendiente de validac
 ## Alcance
 La temporada 2026 tuvo 17 participantes divididos en dos zonas. Se cargan futbolistas reales identificados en nóminas de temporada y planillas de partidos. No se completan cupos con nombres ficticios. Máximo operativo: 30 jugadores por club.
 
-## Primera carga — 474 jugadores
+## Primera carga — 504 jugadores
 
 | Club | ID | Jugadores |
 |---|---|---:|
@@ -16,10 +16,10 @@ La temporada 2026 tuvo 17 participantes divididos en dos zonas. Se cargan futbol
 | Belgrano de Zárate | `belgranozarate` | 30 |
 | Uribelarrea | `uribelarrea` | 30 |
 | Alumni de Los Hornos | `alumni` | 30 |
-| Atlético Pilar | `atpilar` | 21 |
+| Atlético Pilar | `atpilar` | 30 |
 | Barrancas FC | `barrancas` | 30 |
-| Buenos Aires City FC | `bacity` | 20 |
-| Control Orientado | `controlorientado` | 19 |
+| Buenos Aires City FC | `bacity` | 30 |
+| Control Orientado | `controlorientado` | 30 |
 | Estrella de Berisso | `estrellaberisso` | 30 |
 | Everton de La Plata | `everton` | 28 |
 | Juventud de Bernal | `juventudbernal` | 28 |
@@ -38,10 +38,10 @@ Los clubes con menos de 30 jugadores quedan así porque la evidencia nominal reu
 - Belgrano de Zárate: https://www.soloascenso.com.ar/club/belgrano-zarate/470
 - Uribelarrea: https://www.soloascenso.com.ar/club/uribelarrea-futbol-club/1243
 - Alumni de Los Hornos: https://www.sofascore.com/es/football/team/alumni-los-hornos/401405
-- Atlético Pilar: planillas 2026 https://www.soloascenso.com.ar/ficha/45859 y https://www.soloascenso.com.ar/ficha/45819
+- Atlético Pilar: nómina 2026 https://www.sofascore.com/es-la/football/team/club-atletico-pilar/507165
 - Barrancas FC: https://www.soloascenso.com.ar/club/barrancas-fc/1075
-- Buenos Aires City FC: planillas 2026 https://www.soloascenso.com.ar/ficha/46105 y https://www.soloascenso.com.ar/ficha/46112
-- Control Orientado: planilla 2026 https://www.soloascenso.com.ar/ficha/45857
+- Buenos Aires City FC: nómina 2026 https://www.sofascore.com/es-la/football/team/buenos-aires-city/1217896
+- Control Orientado: nómina 2026 https://www.sofascore.com/es-la/football/team/control-orientado/1217894
 - Estrella de Berisso: https://www.soloascenso.com.ar/club/estrella-de-berisso/738
 - Everton de La Plata: https://www.soloascenso.com.ar/club/everton-la-plata/476
 - Juventud de Bernal: https://www.soloascenso.com.ar/club/juventud-de-bernal/759
@@ -60,5 +60,5 @@ Los clubes con menos de 30 jugadores quedan así porque la evidencia nominal reu
 
 ## Archivos
 - `tanda1-inicial.csv`: 6 clubes / 178 jugadores.
-- `tanda2-inicial.csv`: 11 clubes / 296 jugadores.
+- `tanda2-inicial.csv`: 11 clubes / 326 jugadores.
 - `test-promocional-amateur-draft.js`: controles de estructura, cupos, duplicados y runtime.
