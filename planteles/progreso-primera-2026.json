@@ -910,7 +910,7 @@
       "dorsales2D": "Revisada la ruta de datos: la alineación usa índices del plantel y el render 2D obtiene el dorsal desde el jugador correspondiente.",
       "atributosArquero": "Los jugadores de campo no reciben atributos exclusivos de arquero; validación incluida en test-squads.js",
       "planteles": "30/30 clubes estructurados; discrepancia pendiente en Independiente: nómina oficial 36, CSV 35, falta Imanol Machuca. No se amplió el CSV por sobrepoblación; requiere depuración.",
-      "runtime": "Pendiente de la ejecución del workflow de publicación disparada por este commit."
+      "runtime": "GitHub Actions #43883906753 finalizó en success; public/squads.json, public/squads.js y public/squads-meta.json regenerados. Runtime: 170 clubes, 4.797 jugadores y suma por club 4.797; Primera: 30 clubes y 1.012 jugadores."
     },
     "pendientesNoBloqueantes": [
       "Pie dominante: 20 sin dato; se retiraron valores predeterminados y quedan vacíos hasta encontrar evidencia individual.",
@@ -932,7 +932,7 @@
     "minimo_actual": 60,
     "maximo_actual": 92,
     "trazabilidad": "Cada fila vigente conserva rating_base y ajuste_rating=10; las 33 medias contrastadas se ajustaron a OVR oficial EA FC27 y se conservó el +10 como ajuste de juego.",
-    "integracion": "GitHub Actions #939 finalizó en success: se generaron y publicaron public/squads.json, public/squads.js y public/squads-meta.json. Runtime validado: 66 clubes y 2.038 jugadores; Primera 1.012 y Primera Nacional 1.026 (sin cambios en los CSV de Nacional)."
+    "integracion": "GitHub Actions #43883906753 finalizó en success: se generaron y publicaron public/squads.json, public/squads.js y public/squads-meta.json. Runtime validado: 170 clubes y 4.797 jugadores; suma por club 4.797; Primera 1.012. No se modificó el CSV de Primera Nacional."
   },
   "dorsales_con_fuente": 1009,
   "dorsales_asignados_internamente": 3,
@@ -1059,17 +1059,17 @@
     "criterio": "No inferir por posición ni perfil. Se retiraron 20 valores predeterminados que no tenían evidencia individual suficiente y se dejan vacíos hasta encontrar una fuente fiable."
   },
   "ultima_publicacion": {
-    "fecha": "2026-11-09",
+    "fecha": "2026-11-16",
     "workflow": "Validar y publicar planteles",
-    "run": 939,
+    "run": 43883906753,
     "resultado": "success",
-    "url": "https://github.com/carp1901/liga-fc1/actions/runs/42636690873",
+    "url": "https://github.com/carp1901/liga-fc1/actions/runs/43883906753",
     "archivos": [
       "public/squads.json",
       "public/squads.js",
       "public/squads-meta.json"
     ],
-    "control_runtime": "66 clubes y 2.038 jugadores; suma por club 2.038; 0 nombres duplicados, 0 dorsales duplicados, 0 edades faltantes, 0 dorsales faltantes y 0 roles específicos faltantes."
+    "control_runtime": "170 clubes y 4.797 jugadores; suma por club 4.797; Primera 30 clubes y 1.012 jugadores. 0 nombres duplicados, 0 dorsales duplicados, 0 edades faltantes, 0 dorsales faltantes y 0 roles específicos faltantes. La publicación incorporó las fuentes vigentes de Primera; no se modificó el CSV de Primera Nacional."
   },
   "ultima_revision_edades": {
     "fecha": "2026-11-16",
