@@ -1307,3 +1307,9 @@ El usuario autorizó asignar un pie predeterminado cuando no se encuentre una fu
 - POR, DFC, LIB, MCD, MC, MO, MP, DC, SD: Derecho como valor predeterminado.
 
 Primera División: se completaron los 20 registros que quedaban vacíos (18 predeterminados derechos y 2 izquierdos). Resultado: 1.012/1.012 con valor cargado. Las asignaciones previas respaldadas por fichas individuales se preservaron.
+
+## Rectificación — 16/11/2026
+
+Se retiraron del CSV los 20 pies dominantes que se habían completado por valor predeterminado sin una fuente individual verificable. La regla vigente es dejar el dato pendiente cuando no exista evidencia suficiente; no se infiere por posición ni perfil. Los 20 registros quedan vacíos y el progreso vuelve a reflejar 992 pies asignados y 20 pendientes.
+
+Registros pendientes: Juan Centurión (independiente); Martín Díaz (lanus); Mateo Ramírez (lanus); Lisandro Musso (centralcba); Ignacio Santillan (centralcba); Bruno Valdez (barracas); Lucas Olivera (instituto); Augusto Coronel (instituto); Pedro Baster (instituto); Tomás Peralta (instituto); Lautaro Monza (sarmiento); Santiago Filippini (aldosivi); Simón Sammarone (aldosivi); Pablo Argoytia (aldosivi); León Lambardi (aldosivi); Santino Cambiasso (platense); Lucas Gabriel Molas (tigre); Jordan Andrusisen (tigre); Facundo Saavedra (gimnasiamza); Matías Úbeda (gimnasiamza).

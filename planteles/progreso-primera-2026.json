@@ -1,7 +1,7 @@
 {
   "temporada": 2026,
   "division": "Primera División",
-  "estado": "Primera División 2026 en mantenimiento: 30/30 clubes y 1.012/1.012 jugadores completos en datos esenciales; 138 estimaciones propias identificadas. Mantener el foco en Primera División.",
+  "estado": "Primera División 2026 en mantenimiento: 30/30 clubes y 1.012 jugadores en CSV; 874 medias con fuente y 138 estimaciones identificadas. Edades recalculadas al 16/11/2026. Pendiente una discrepancia de nómina en Independiente (plantel oficial 36 vs CSV 35; falta Imanol Machuca), sin ampliar automáticamente un plantel ya sobrepoblado.",
   "criterio": "Medias oficiales EA FC27/FC26 cuando existen; 138 estimaciones propias identificadas para jugadores sin OVR oficial. No se inventan jugadores ni nacionalidades: cada nacionalidad completada conserva su fuente en nat_source.",
   "clubes": {
     "boca": {
@@ -457,47 +457,425 @@
   "medias_provisionales": 0,
   "dorsales_asignados": 1012,
   "dorsales_faltantes": 0,
-  "actualizado": "2026-11-09",
+  "actualizado": "2026-11-16",
   "ultima_revision_medias": {
-    "fecha": "2026-11-06",
+    "fecha": "2026-11-16",
     "jugadores": [
-      "Damián Fernández (Defensa y Justicia)",
-      "Damián Fernández (Rosario Central)",
-      "Santiago Dalmasso",
-      "Ignacio Peluffo",
-      "Matías Hernández",
-      "Lucas Palavecino",
-      "Tomás Pérez",
-      "Juan Pablo Moreno",
-      "Luciano Sábato",
-      "Tomás Parmo (EA FC26)",
-      "Francisco Gómez (EA FC26)",
-      "Iván Erquiaga (EA FC26)",
-      "Alex Juárez (EA FC26)",
-      "Agustín Mangiaut (EA FC26)",
-      "Jeremías Gallard (EA FC26)",
-      "Fernando Closter (EA FC26)",
-      "Felipe Anso (EA FC26)",
-      "Augusto Fernández (EA FC27)",
-      "Martín García (EA FC27)",
-      "Juan Bautista Dadín (EA FC27)",
-      "Luka Fuster (EA FC27)",
-      "Juan Manuel Villalba (EA FC27)",
-      "Mariano Gerez (EA FC27)",
-      "Gastón Bouhier (EA FC27/FIFACM)",
-      "Máximo Desábato (EA FC27/FIFACM)",
-      "Marcos Rojo (EA FC27)"
+      "Fernando Muslera (estudiantes)",
+      "Manuel Lanzini (velez)",
+      "Jaminton Campaz (rosario)",
+      "Rodrigo Aliendro (velez)",
+      "Alexis Castro (estudiantes)",
+      "Lucas Robertone (velez)",
+      "José Florentín (rivadavia)",
+      "Ignacio Fernández (gimnasia)",
+      "Matías Pellegrini (velez)",
+      "Milton Delgado (boca)",
+      "Joaquín Correa (estudiantes)",
+      "Brian Aguirre (estudiantes)",
+      "Sheyko Studer (rivadavia)",
+      "Tomás Belmonte (boca)",
+      "Santiago Arzamendia (estudiantes)",
+      "Rodrigo Insua (barracas)",
+      "Alan Velasco (boca)",
+      "Martín Benítez (atletico)",
+      "Kevin Ortiz (atletico)",
+      "Iván Tapia (barracas)",
+      "Michael Santos (centralcba)",
+      "Mauricio Martínez (sarmiento)",
+      "Juan Espínola (barracas)",
+      "Lucas Silva (river)",
+      "Damián Fernández (defensa)",
+      "Renzo Tesuri (atletico)",
+      "Milton Giménez (boca)",
+      "Marco Pellegrino (boca)",
+      "Leonel Bucca (rivadavia)",
+      "Williams Alarcón (boca)",
+      "Tomás Aranda (boca)",
+      "Diego Sosa (instituto)",
+      "Alan Aguerre (centralcba)",
+      "Kevin Gutiérrez (argentinos)",
+      "David Martínez (defensa)",
+      "Franco Vázquez (belgrano)"
     ],
-    "criterio": "OVR individual contrastado con fichas o tablas oficiales EA SPORTS FC 27",
-    "resultado": "Se sustituyeron medias provisionales por OVR publicados cuando correspondía; las medias 60 se conservaron solo cuando EA las confirma.; respaldo FC26 aplicado a Tomás Parmo 64, Francisco Gómez 52 e Iván Erquiaga 67.; Alex Juárez 59 y Agustín Mangiaut 61 contrastados con EA FC26.; Jeremías Gallard 61 (EA FC26).; Fernando Closter 57 (EA FC26).; Felipe Anso 53 (EA FC26, Futship).; Augusto Fernández 55, Martín García 60 y Bautista Dadín 64 (EA FC27).; Luka Fuster 58 y Juan Manuel Villalba 61 (EA FC27).; Mariano Gerez 56 (EA FC27).; Gastón Bouhier 54 y Máximo Desábato 63 (EA FC27, FIFACM). Marcos Rojo: media 73 y atributos individuales actualizados desde EA FC27; transferido de Racing a Estudiantes con ficha oficial del club."
+    "criterio": "Comparación con las tablas y fichas oficiales EA SPORTS FC 27 de Liga Profesional, páginas 1–3. Se conserva el ajuste del juego +10 por separado del OVR base. Para Kevin Ortiz se usa la tabla oficial de Liga Profesional FC27 porque su ficha individual accesible muestra FC26.",
+    "resultado": "Se corrigieron 33 OVR base discrepantes y se reemplazaron 36 fuentes por referencias EA FC27. Las medias actuales siguen siendo rating_base + 10; no se asignaron valores por defecto ni se elevó a 60 a ningún jugador.",
+    "cambios": [
+      {
+        "club": "estudiantes",
+        "nombre": "Fernando Muslera",
+        "antes": 77,
+        "despues": 78,
+        "media_vigente_antes": 87,
+        "media_vigente_despues": 88,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/fernando-muslera/182494",
+        "soloFuente": false
+      },
+      {
+        "club": "velez",
+        "nombre": "Manuel Lanzini",
+        "antes": 77,
+        "despues": 76,
+        "media_vigente_antes": 87,
+        "media_vigente_despues": 86,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/manuel-lanzini/188988",
+        "soloFuente": false
+      },
+      {
+        "club": "rosario",
+        "nombre": "Jaminton Campaz",
+        "antes": 75,
+        "despues": 76,
+        "media_vigente_antes": 85,
+        "media_vigente_despues": 86,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jaminton-campaz/238230",
+        "soloFuente": false
+      },
+      {
+        "club": "velez",
+        "nombre": "Rodrigo Aliendro",
+        "antes": 74,
+        "despues": 73,
+        "media_vigente_antes": 84,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/rodrigo-aliendro/233029",
+        "soloFuente": false
+      },
+      {
+        "club": "estudiantes",
+        "nombre": "Alexis Castro",
+        "antes": 74,
+        "despues": 73,
+        "media_vigente_antes": 84,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/alexis-castro/228179",
+        "soloFuente": false
+      },
+      {
+        "club": "velez",
+        "nombre": "Lucas Robertone",
+        "antes": 74,
+        "despues": 73,
+        "media_vigente_antes": 84,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-robertone/235008",
+        "soloFuente": false
+      },
+      {
+        "club": "rivadavia",
+        "nombre": "José Florentín",
+        "antes": 74,
+        "despues": 73,
+        "media_vigente_antes": 84,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/jose-florentin/253249",
+        "soloFuente": false
+      },
+      {
+        "club": "gimnasia",
+        "nombre": "Ignacio Fernández",
+        "antes": 74,
+        "despues": 73,
+        "media_vigente_antes": 84,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/ignacio-fernandez/215998",
+        "soloFuente": false
+      },
+      {
+        "club": "velez",
+        "nombre": "Matías Pellegrini",
+        "antes": 72,
+        "despues": 73,
+        "media_vigente_antes": 82,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/matias-pellegrini/244884",
+        "soloFuente": false
+      },
+      {
+        "club": "boca",
+        "nombre": "Milton Delgado",
+        "antes": 74,
+        "despues": 73,
+        "media_vigente_antes": 84,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/milton-delgado/72006",
+        "soloFuente": false
+      },
+      {
+        "club": "estudiantes",
+        "nombre": "Joaquín Correa",
+        "antes": 74,
+        "despues": 73,
+        "media_vigente_antes": 84,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/joaquin-correa/215330",
+        "soloFuente": false
+      },
+      {
+        "club": "estudiantes",
+        "nombre": "Brian Aguirre",
+        "antes": 72,
+        "despues": 73,
+        "media_vigente_antes": 82,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/brian-aguirre/271512",
+        "soloFuente": false
+      },
+      {
+        "club": "rivadavia",
+        "nombre": "Sheyko Studer",
+        "antes": 74,
+        "despues": 73,
+        "media_vigente_antes": 84,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/sheyko-studer/75117",
+        "soloFuente": false
+      },
+      {
+        "club": "boca",
+        "nombre": "Tomás Belmonte",
+        "antes": 71,
+        "despues": 72,
+        "media_vigente_antes": 81,
+        "media_vigente_despues": 82,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/tomas-belmonte/241607",
+        "soloFuente": false
+      },
+      {
+        "club": "estudiantes",
+        "nombre": "Santiago Arzamendia",
+        "antes": 71,
+        "despues": 72,
+        "media_vigente_antes": 81,
+        "media_vigente_despues": 82,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/santiago-arzamendia/248053",
+        "soloFuente": false
+      },
+      {
+        "club": "barracas",
+        "nombre": "Rodrigo Insua",
+        "antes": 71,
+        "despues": 72,
+        "media_vigente_antes": 81,
+        "media_vigente_despues": 82,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/rodrigo-insua/272946",
+        "soloFuente": false
+      },
+      {
+        "club": "boca",
+        "nombre": "Alan Velasco",
+        "antes": 73,
+        "despues": 72,
+        "media_vigente_antes": 83,
+        "media_vigente_despues": 82,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/alan-velasco/252238",
+        "soloFuente": false
+      },
+      {
+        "club": "atletico",
+        "nombre": "Martín Benítez",
+        "antes": 71,
+        "despues": 72,
+        "media_vigente_antes": 81,
+        "media_vigente_despues": 82,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/martin-benitez/214989",
+        "soloFuente": false
+      },
+      {
+        "club": "atletico",
+        "nombre": "Kevin Ortiz",
+        "antes": 70,
+        "despues": 71,
+        "media_vigente_antes": 80,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/leagues-ratings/liga-profesional-de-futbol/353?page=3",
+        "soloFuente": false
+      },
+      {
+        "club": "barracas",
+        "nombre": "Iván Tapia",
+        "antes": 70,
+        "despues": 71,
+        "media_vigente_antes": 80,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/ivan-tapia/266867",
+        "soloFuente": false
+      },
+      {
+        "club": "centralcba",
+        "nombre": "Michael Santos",
+        "antes": 73,
+        "despues": 71,
+        "media_vigente_antes": 83,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/michael-santos/230964",
+        "soloFuente": false
+      },
+      {
+        "club": "sarmiento",
+        "nombre": "Mauricio Martínez",
+        "antes": 72,
+        "despues": 71,
+        "media_vigente_antes": 82,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/mauricio-martinez/226798",
+        "soloFuente": false
+      },
+      {
+        "club": "barracas",
+        "nombre": "Juan Espínola",
+        "antes": 70,
+        "despues": 71,
+        "media_vigente_antes": 80,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/juan-espinola/254714",
+        "soloFuente": false
+      },
+      {
+        "club": "river",
+        "nombre": "Lucas Silva",
+        "antes": 70,
+        "despues": 71,
+        "media_vigente_antes": 80,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-silva/85397",
+        "soloFuente": false
+      },
+      {
+        "club": "defensa",
+        "nombre": "Damián Fernández",
+        "antes": 60,
+        "despues": 71,
+        "media_vigente_antes": 70,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/damian-fernandez/251686",
+        "soloFuente": false
+      },
+      {
+        "club": "atletico",
+        "nombre": "Renzo Tesuri",
+        "antes": 70,
+        "despues": 71,
+        "media_vigente_antes": 80,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/renzo-tesuri/257338",
+        "soloFuente": false
+      },
+      {
+        "club": "boca",
+        "nombre": "Milton Giménez",
+        "antes": 70,
+        "despues": 71,
+        "media_vigente_antes": 80,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/milton-gimenez/261161",
+        "soloFuente": false
+      },
+      {
+        "club": "boca",
+        "nombre": "Marco Pellegrino",
+        "antes": 72,
+        "despues": 71,
+        "media_vigente_antes": 82,
+        "media_vigente_despues": 81,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/marco-pellegrino/274947",
+        "soloFuente": false
+      },
+      {
+        "club": "rivadavia",
+        "nombre": "Leonel Bucca",
+        "antes": 71,
+        "despues": 70,
+        "media_vigente_antes": 81,
+        "media_vigente_despues": 80,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/leonel-bucca/269740",
+        "soloFuente": false
+      },
+      {
+        "club": "boca",
+        "nombre": "Williams Alarcón",
+        "antes": 68,
+        "despues": 70,
+        "media_vigente_antes": 78,
+        "media_vigente_despues": 80,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/williams-alarcon/243684",
+        "soloFuente": false
+      },
+      {
+        "club": "boca",
+        "nombre": "Tomás Aranda",
+        "antes": 72,
+        "despues": 70,
+        "media_vigente_antes": 82,
+        "media_vigente_despues": 80,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/tomas-aranda/83580",
+        "soloFuente": false
+      },
+      {
+        "club": "instituto",
+        "nombre": "Diego Sosa",
+        "antes": 71,
+        "despues": 70,
+        "media_vigente_antes": 81,
+        "media_vigente_despues": 80,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/diego-sosa/236432",
+        "soloFuente": false
+      },
+      {
+        "club": "centralcba",
+        "nombre": "Alan Aguerre",
+        "antes": 71,
+        "despues": 70,
+        "media_vigente_antes": 81,
+        "media_vigente_despues": 80,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/alan-aguerre/215123",
+        "soloFuente": false
+      },
+      {
+        "club": "argentinos",
+        "nombre": "Kevin Gutiérrez",
+        "antes": 70,
+        "despues": 70,
+        "media_vigente_antes": 80,
+        "media_vigente_despues": 80,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/kevin-gutierrez/241833",
+        "soloFuente": true
+      },
+      {
+        "club": "defensa",
+        "nombre": "David Martínez",
+        "antes": 73,
+        "despues": 73,
+        "media_vigente_antes": 83,
+        "media_vigente_despues": 83,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/david-martinez/241569",
+        "soloFuente": true
+      },
+      {
+        "club": "belgrano",
+        "nombre": "Franco Vázquez",
+        "antes": 75,
+        "despues": 75,
+        "media_vigente_antes": 85,
+        "media_vigente_despues": 85,
+        "fuente": "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/franco-vazquez/207471",
+        "soloFuente": true
+      }
+    ]
   },
   "ultima_revision_planteles": {
-    "fecha": "2026-11-06",
-    "cambios": [
-      "Mauro Villar retirado de Huracán: transferencia a Cerro confirmada en septiembre de 2026, tras dejar Huracán en enero.",
-      "Bruno Andrada corregido a Brian Andrada; posición específica EI verificada con FotMob.",
-      "Marcos Rojo trasladado de Racing a Estudiantes: incorporación oficial del 09/10/2026; dorsal 5 y ficha técnica confirmados por Estudiantes."
-    ]
+    "fecha": "2026-11-16",
+    "cambios": [],
+    "verificaciones": [
+      "Independiente: se cotejó el plantel profesional oficial. El club lista 36 futbolistas; el CSV contiene 35 y no incluye a Imanol Machuca.",
+      "Juan Arrayago sí está incluido en el CSV y figura en la nómina oficial; no debe duplicarse.",
+      "Imanol Machuca figura en el plantel profesional oficial, pero queda pendiente de incorporación porque Independiente ya tiene 35 registros y el criterio de depuración evita seguir ampliando planteles sobrepoblados."
+    ],
+    "fuentes": [
+      "https://clubaindependiente.com.ar/futbol/plantel",
+      "https://clubaindependiente.com.ar/futbol/noticias/1789595527_la-firma-vino-con-gol"
+    ],
+    "alcance": "Verificación puntual de la nómina oficial de Independiente; las otras 29 nóminas conservan la última fecha de consulta registrada (05–06/11/2026) y requieren reconfirmación individual en próximas tandas."
   },
   "medias_estimadas": 138,
   "nacionalidades_asignadas": 1012,
@@ -514,77 +892,171 @@
   "pies_faltantes": 20,
   "pie_dominante_opcional": true,
   "revision_final": {
-    "fecha": "2026-11-09",
-    "resultado": "APROBADA",
+    "fecha": "2026-11-16",
+    "resultado": "APROBADA CON PENDIENTES",
     "criterio": "No se exige exactitud absoluta; las medias estimadas son aceptables si mantienen una escala coherente con el nivel del jugador y del club.",
     "controles": {
       "clubes": "30/30",
       "jugadores": "1.012/1.012",
-      "dorsales": "1.012 asignados; 0 faltantes y 0 duplicados; 1.009 con fuente y 3 asignados internamente",
-      "edades": "1.012 asignadas; 0 faltantes; todas coinciden con fecha_nacimiento a referencia 06/11/2026",
-      "nacionalidades": "1.012 asignadas; 0 faltantes",
-      "rolesEspecificos": "1.012 asignados; 0 faltantes",
-      "atributos": "21 atributos por jugador; 1.012 completos en runtime (146 con al menos un atributo manual y 866 derivados por el motor)",
+      "dorsales": "1012 asignados; 0 faltantes; 1009 con fuente y 3 asignados internamente",
+      "edades": "1012 asignadas; 0 faltantes; recalculadas al 16/11/2026 desde fecha_nacimiento",
+      "nacionalidades": "1012 asignadas; 0 faltantes",
+      "rolesEspecificos": "1012 asignados; 0 faltantes",
+      "atributos": "21 atributos por jugador; 1012 completos en runtime (146 con al menos un atributo manual y 866 derivados por el motor)",
       "medias": "874 con fuente individual y 138 estimaciones propias identificadas; 0 medias provisionales sin fuente",
-      "medias60": "1 jugador con media vigente 60; 40 con rating_base 60 que, tras el ajuste +10, figuran actualmente con 70",
-      "equilibrio": "Promedios actuales por plantel entre 72,9 y 82,8; se conserva la escala relativa tras el ajuste global +10",
+      "medias60": "1 jugadores con media vigente 60; 39 con rating_base 60 que, tras el ajuste +10, figuran actualmente con 70",
+      "equilibrio": "Promedios actuales por plantel entre 72.9 y 82.8; se conserva la escala relativa tras el ajuste global +10",
       "pies": "992 asignados; 20 faltantes. Campo opcional, sin imputaciones.",
       "dorsales2D": "Revisada la ruta de datos: la alineación usa índices del plantel y el render 2D obtiene el dorsal desde el jugador correspondiente.",
-      "atributosArquero": "Los jugadores de campo no reciben atributos exclusivos de arquero; validación incluida en test-squads.js"
+      "atributosArquero": "Los jugadores de campo no reciben atributos exclusivos de arquero; validación incluida en test-squads.js",
+      "planteles": "30/30 clubes estructurados; discrepancia pendiente en Independiente: nómina oficial 36, CSV 35, falta Imanol Machuca. No se amplió el CSV por sobrepoblación; requiere depuración.",
+      "runtime": "Pendiente de la ejecución del workflow de publicación disparada por este commit."
     },
     "pendientesNoBloqueantes": [
-      "Pie dominante: 20 sin dato; campo opcional, no se infiere y no afecta la carga ni el funcionamiento de los planteles.",
+      "Pie dominante: 20 sin dato; se retiraron valores predeterminados y quedan vacíos hasta encontrar evidencia individual.",
       "Tres dorsales siguen asignados internamente (Agustín Perez, Branco Salinardi y Lautaro Monza); sustituirlos solo si aparece confirmación oficial.",
-      "Las 138 medias estimadas pueden refinarse si aparece información individual mejor."
+      "Las 138 medias estimadas pueden refinarse si aparece información individual mejor.",
+      "Independiente: Imanol Machuca figura en el plantel profesional oficial y falta en el CSV; resolver al depurar el plantel que ya tiene 35 jugadores.",
+      "Reconfirmar individualmente la vigencia de las otras 29 nóminas; no se encontró evidencia reciente suficiente para modificarlas en esta ejecución."
     ],
-    "alcance": "Revisión estática de los 30 planteles de Primera: conteos, nombres únicos, dorsales únicos, edades frente a fecha de nacimiento, nacionalidades, roles específicos, fuentes de dorsales y cobertura de atributos manuales/derivados. Se contrastaron transferencias confirmadas del cierre de mercado. GitHub Actions #939 validó los 66 clubes, generó y publicó los archivos de runtime y terminó en success; Primera Nacional se mantuvo sin modificaciones."
+    "alcance": "Auditoría estructural de los 30 planteles; recálculo de edades por fecha de nacimiento; cotejo de OVR oficiales EA FC27 en páginas 1–3 de la Liga Profesional; control de nómina oficial de Independiente y búsqueda de movimientos de mercado. No se modificó Primera Nacional ni otros CSV de divisiones."
   },
   "ajuste_escala_medias": {
-    "fecha": "2026-11-08",
+    "fecha": "2026-11-16",
     "puntos": 10,
     "jugadores": 1012,
-    "promedio_base": 65.71,
-    "promedio_actual": 75.71,
+    "promedio_base": 65.72,
+    "promedio_actual": 75.72,
     "minimo_base": 50,
     "maximo_base": 82,
     "minimo_actual": 60,
     "maximo_actual": 92,
-    "trazabilidad": "Cada fila vigente conserva rating_base y ajuste_rating=10; las fuentes individuales no se sobrescriben. El jugador transferido fuera de Primera fue retirado del corte actual.",
+    "trazabilidad": "Cada fila vigente conserva rating_base y ajuste_rating=10; las 33 medias contrastadas se ajustaron a OVR oficial EA FC27 y se conservó el +10 como ajuste de juego.",
     "integracion": "GitHub Actions #939 finalizó en success: se generaron y publicaron public/squads.json, public/squads.js y public/squads-meta.json. Runtime validado: 66 clubes y 2.038 jugadores; Primera 1.012 y Primera Nacional 1.026 (sin cambios en los CSV de Nacional)."
   },
   "dorsales_con_fuente": 1009,
   "dorsales_asignados_internamente": 3,
   "ultima_revision_transferencias": {
-    "fecha": "2026-11-09",
-    "cambios": [
-      "Maximiliano Gutiérrez eliminado de Independiente: el club confirmó su transferencia definitiva al Dinamo Moscú el 16/09/2026."
-    ],
+    "fecha": "2026-11-16",
+    "cambios": [],
     "verificaciones": [
-      "Jalil Elías figura solo en Estudiantes; alta oficial del 03/09/2026 tras su salida de Tigre.",
-      "Bruno Sepúlveda figura solo en Platense; salida de Banfield confirmada el 02/09/2026.",
-      "Santiago Solari figura solo en Newell's; préstamo desde Racing confirmado en el cierre del mercado.",
-      "Kevin Lomónaco, Gabriel Ávalos y los jugadores de River/Boca citados en el cierre de mercado no permanecen en los planteles argentinos de origen."
+      "No se encontró una transferencia nueva de Primera División confirmada entre el 09/11 y el 16/11/2026 en las fuentes consultadas. El cierre general del mercado de pases argentino 2026 fue el 02/09/2026; no se reasignó ningún jugador sin evidencia posterior."
     ],
     "fuentes": [
-      "https://clubaindependiente.com.ar/futbol/noticias/1789594937_exitos-guty",
-      "https://estudiantesdelaplata.com/jalil-elias-el-cuarto-refuerzo/",
-      "https://www.tycsports.com/liga-profesional-de-futbol/jugo-en-san-lorenzo-fue-pretendido-por-independiente-pero-jalil-elias-jugara-en-estudiantes-id758627.html",
-      "https://www.tycsports.com/liga-profesional-de-futbol/cambio-de-9-en-banfield-sepulveda-se-va-a-platense-y-llega-una-ex-racing-id758628.html",
-      "https://deportv.gob.ar/futbol/movimientos-mercado-pases-futbol-argentino-nid:16633"
+      "https://www.elgrafico.com.ar/articulo/primera-division/101222/mercado-de-pases-invierno-2026",
+      "https://deportv.gob.ar/futbol/movimientos-mercado-pases-futbol-argentino-nid%3A16633"
     ],
-    "alcance": "Control puntual de movimientos confirmados del cierre del mercado y de las bajas posteriores publicadas oficialmente. No se modificó ningún otro jugador sin evidencia suficiente."
+    "alcance": "Control de novedades públicas de mercado posteriores a la revisión anterior; sin cambios de pertenencia aplicados."
   },
   "ultima_revision_pies": {
-    "fecha": "2026-11-09",
-    "tanda": "Undécima tanda complementaria",
-    "nuevos": [
-      "Lucas Lamella (Ambidiestro)",
-      "Jabes Saralegui (Derecho)"
+    "fecha": "2026-11-16",
+    "tanda": "Rectificación de datos sin fuente individual",
+    "nuevos": [],
+    "revertidos": [
+      {
+        "club": "independiente",
+        "nombre": "Juan Centurión",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "lanus",
+        "nombre": "Martín Díaz",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "lanus",
+        "nombre": "Mateo Ramírez",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "centralcba",
+        "nombre": "Lisandro Musso",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "centralcba",
+        "nombre": "Ignacio Santillan",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "barracas",
+        "nombre": "Bruno Valdez",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "instituto",
+        "nombre": "Lucas Olivera",
+        "pieAnterior": "Izquierdo"
+      },
+      {
+        "club": "instituto",
+        "nombre": "Augusto Coronel",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "instituto",
+        "nombre": "Pedro Baster",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "instituto",
+        "nombre": "Tomás Peralta",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "sarmiento",
+        "nombre": "Lautaro Monza",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "aldosivi",
+        "nombre": "Santiago Filippini",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "aldosivi",
+        "nombre": "Simón Sammarone",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "aldosivi",
+        "nombre": "Pablo Argoytia",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "aldosivi",
+        "nombre": "León Lambardi",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "platense",
+        "nombre": "Santino Cambiasso",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "tigre",
+        "nombre": "Lucas Gabriel Molas",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "tigre",
+        "nombre": "Jordan Andrusisen",
+        "pieAnterior": "Derecho"
+      },
+      {
+        "club": "gimnasiamza",
+        "nombre": "Facundo Saavedra",
+        "pieAnterior": "Izquierdo"
+      },
+      {
+        "club": "gimnasiamza",
+        "nombre": "Matías Úbeda",
+        "pieAnterior": "Derecho"
+      }
     ],
-    "fuente": "planteles/pies-dominantes-2026.md",
     "pies_asignados": 992,
     "pies_faltantes": 20,
-    "criterio": "No inferir por posición ni perfil; mantener vacío cuando no exista evidencia individual fiable."
+    "criterio": "No inferir por posición ni perfil. Se retiraron 20 valores predeterminados que no tenían evidencia individual suficiente y se dejan vacíos hasta encontrar una fuente fiable."
   },
   "ultima_publicacion": {
     "fecha": "2026-11-09",
@@ -598,5 +1070,110 @@
       "public/squads-meta.json"
     ],
     "control_runtime": "66 clubes y 2.038 jugadores; suma por club 2.038; 0 nombres duplicados, 0 dorsales duplicados, 0 edades faltantes, 0 dorsales faltantes y 0 roles específicos faltantes."
+  },
+  "ultima_revision_edades": {
+    "fecha": "2026-11-16",
+    "criterio": "Edad calculada desde fecha_nacimiento a fecha local 16/11/2026; no se estimaron fechas de nacimiento.",
+    "resultado": "Se actualizaron 14 edades por cumpleaños ocurridos desde la última referencia 06/11/2026. Cobertura final: 1.012/1.012, 0 faltantes.",
+    "jugadores": [
+      {
+        "club": "sanlorenzo",
+        "nombre": "Matías Reali",
+        "antes": 28,
+        "despues": 29,
+        "fecha_nacimiento": "1997-11-14"
+      },
+      {
+        "club": "river",
+        "nombre": "Tobías Ramírez",
+        "antes": 19,
+        "despues": 20,
+        "fecha_nacimiento": "2006-11-11"
+      },
+      {
+        "club": "newells",
+        "nombre": "Lautaro Giannetti",
+        "antes": 32,
+        "despues": 33,
+        "fecha_nacimiento": "1993-11-13"
+      },
+      {
+        "club": "newells",
+        "nombre": "Matías Cóccaro",
+        "antes": 28,
+        "despues": 29,
+        "fecha_nacimiento": "1997-11-15"
+      },
+      {
+        "club": "rosario",
+        "nombre": "Leonardo Ríos",
+        "antes": 19,
+        "despues": 20,
+        "fecha_nacimiento": "2006-11-09"
+      },
+      {
+        "club": "gimnasia",
+        "nombre": "Agustín Colazo",
+        "antes": 25,
+        "despues": 26,
+        "fecha_nacimiento": "2000-11-15"
+      },
+      {
+        "club": "belgrano",
+        "nombre": "Ramiro Hernandes",
+        "antes": 21,
+        "despues": 22,
+        "fecha_nacimiento": "2004-11-12"
+      },
+      {
+        "club": "riestra",
+        "nombre": "Yeison Murillo",
+        "antes": 32,
+        "despues": 33,
+        "fecha_nacimiento": "1993-11-15"
+      },
+      {
+        "club": "aldosivi",
+        "nombre": "Joaquín Salinas",
+        "antes": 19,
+        "despues": 20,
+        "fecha_nacimiento": "2006-11-15"
+      },
+      {
+        "club": "banfield",
+        "nombre": "Nicolás Meriano",
+        "antes": 25,
+        "despues": 26,
+        "fecha_nacimiento": "2000-11-09"
+      },
+      {
+        "club": "rivadavia",
+        "nombre": "Matías Salvo",
+        "antes": 21,
+        "despues": 22,
+        "fecha_nacimiento": "2004-11-11"
+      },
+      {
+        "club": "rivadavia",
+        "nombre": "Sheyko Studer",
+        "antes": 23,
+        "despues": 24,
+        "fecha_nacimiento": "2002-11-12"
+      },
+      {
+        "club": "gimnasiamza",
+        "nombre": "Diego Mondino",
+        "antes": 31,
+        "despues": 32,
+        "fecha_nacimiento": "1994-11-14"
+      },
+      {
+        "club": "estudiantesrc",
+        "nombre": "Ibrahim Hesar",
+        "antes": 32,
+        "despues": 33,
+        "fecha_nacimiento": "1993-11-15"
+      }
+    ]
   }
 }
