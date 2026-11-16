@@ -5,7 +5,7 @@ Estado: **primera carga nominal de los 17 clubes preparada; auditoría individua
 ## Alcance
 Temporada 2026, 17 participantes. Se recopilaron nombres desde nóminas de temporada y planillas de partidos. No se completan cupos con futbolistas ficticios ni se recortan planteles para igualarlos.
 
-## Primera carga — 504 registros nominales
+## Primera carga — 506 registros nominales
 
 | Club | ID | Jugadores |
 |---|---|---:|
@@ -28,7 +28,7 @@ Temporada 2026, 17 participantes. Se recopilaron nombres desde nóminas de tempo
 | Provincial de Lobos | `udprovincial` | 30 |
 | **Total** | **17 clubes** | **506** |
 
-Los tres planteles de 28 y los catorce de 30 cumplen el rango de trabajo acordado. El criterio de validación es **20 como mínimo, 30 como objetivo orientativo y 32 como máximo excepcional** cuando la evidencia del plantel lo justifique. No existe obligación de llevar cada club a 30.
+Los tres planteles de 28, los trece de 30 y el plantel de 32 cumplen el rango de trabajo acordado. El criterio de validación es **20 como mínimo, 30 como objetivo orientativo y 32 como máximo excepcional** cuando la evidencia del plantel lo justifique. No existe obligación de llevar cada club a 30.
 
 ## Fuentes nominales por club
 - Defensores de Glew: https://www.soloascenso.com.ar/club/defensores-de-glew/859
