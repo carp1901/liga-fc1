@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
-function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c==='"'&&s[i+1]==='"'){v+='"';i++;}else if(c==='"')q=false;else v+=c;}else if(c==='"')q=true;else if(c===','){row.push(v);v='';}else if(c==='\\n'){row.push(v.endsWith('\\r')?v.slice(0,-1):v);rows.push(row);row=[];v='';}else v+=c;}if(v.length||row.length){row.push(v.endsWith('\\r')?v.slice(0,-1):v);rows.push(row);}return rows;}
+function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c==='"'&&s[i+1]==='"'){v+='"';i++;}else if(c==='"')q=false;else v+=c;}else if(c==='"')q=true;else if(c===','){row.push(v);v='';}else if(c==='\n'){row.push(v.endsWith('\r')?v.slice(0,-1):v);rows.push(row);row=[];v='';}else v+=c;}if(v.length||row.length){row.push(v.endsWith('\r')?v.slice(0,-1):v);rows.push(row);}return rows;}
 const files=['planteles/borradores/promocional-amateur-2026/tanda1-inicial.csv','planteles/borradores/promocional-amateur-2026/tanda2-inicial.csv'];
 const parsed=files.map(f=>parseCSV(fs.readFileSync(f,'utf8')));
 const headers=parsed[0].shift().map(x=>x.trim().toLowerCase());
@@ -9,7 +9,7 @@ for(let i=1;i<parsed.length;i++)assert.deepEqual(parsed[i].shift().map(x=>x.trim
 const rows=parsed.flat(),col=Object.fromEntries(headers.map((h,i)=>[h,i]));
 const expected={defglew:28,metalurgico:30,hacoaj:30,fcezeiza:30,belgranozarate:30,uribelarrea:30,alumni:30,atpilar:21,barrancas:30,bacity:20,controlorientado:19,estrellaberisso:30,everton:28,juventudbernal:28,mandarinas:30,sat:30,udprovincial:30};
 const clubs=new Set(Object.keys(expected)),counts={},names=new Set(),numbers=new Set();let total=0;
-const norm=s=>s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 for(const [i,row] of rows.entries()){
  if(!row.some(x=>x.trim()))continue;
  const get=k=>row[col[k]]||'',club=get('club_id'),name=get('nombre'),pos=get('posicion'),rating=Number(get('rating')),dorsal=Number(get('dorsal'));
