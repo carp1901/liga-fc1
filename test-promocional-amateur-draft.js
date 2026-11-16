@@ -1,4 +1,5 @@
 'use strict';
+// Primera carga auditada: 504 jugadores nominales en los 17 clubes del Promocional Amateur 2026.
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
 function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c==='"'&&s[i+1]==='"'){v+='"';i++;}else if(c==='"')q=false;else v+=c;}else if(c==='"')q=true;else if(c===','){row.push(v);v='';}else if(c==='\n'){row.push(v.endsWith('\r')?v.slice(0,-1):v);rows.push(row);row=[];v='';}else v+=c;}if(v.length||row.length){row.push(v.endsWith('\r')?v.slice(0,-1):v);rows.push(row);}return rows;}
