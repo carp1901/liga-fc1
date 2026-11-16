@@ -62,7 +62,7 @@ La revisión completa de nacionalidades se hará después de cerrar esta auditor
 Las 26 formas de nacionalidad que ya aparecen en el runtime (nombres y códigos) tienen banderas SVG generadas por código; se probaron 40 variantes de nombre/código. Esto prepara la presentación, pero no reemplaza la verificación individual de las nacionalidades pendientes ni la revisión de las ya cargadas.
 
 ## Control de homónimos
-Los seis nombres repetidos entre clubes están documentados en [homonimos-pendientes.md](homonimos-pendientes.md): cuatro casos se diferenciaron con edad, posición o presencia en partidos; dos siguen pendientes y no se eliminarán ni fusionarán sin evidencia.
+Los seis nombres repetidos entre clubes están documentados en [homonimos-pendientes.md](homonimos-pendientes.md): tres pares se diferenciaron con edad o presencia en partidos; tres siguen pendientes y no se eliminarán ni fusionarán sin evidencia.
 
 ## Archivos
 - `tanda1-inicial.csv`: 6 clubes / 182 registros.
