@@ -36,11 +36,32 @@ Fuentes:
 
 ### Defensores de Glew — prioridad alta
 
-La página de plantilla 2026 publica un plantel mucho más amplio que los 28 registros cargados. Además, hay dos posiciones generales que no coinciden con la clasificación publicada: Leandro Colque figura como MED y Gustavo Romero como DEL, mientras que el CSV los clasifica como DEF. Deben corregirse después de confirmar que se trata de los mismos futbolistas.
+La página de plantilla 2026 publica un plantel mucho más amplio que los 28 registros cargados. Las planillas 2026 muestran a Leandro Colque como mediocampista (aparece en el sector central, con dorsal 5) y a Gustavo Romero como defensor. Se corrigió a Leandro Colque de DEF a MED; Gustavo Romero se mantiene como DEF. La selección completa de los 28 jugadores todavía requiere contraste con apariciones y minutos.
 
 Fuentes:
 - https://www.soloascenso.com.ar/club/defensores-de-glew/859
 - https://www.soloascenso.com.ar/ficha/45845
+
+### Juventud de Bernal — primera depuración por planillas
+
+Se contrastaron planillas del 30/05, 28/07 y 22/08 de 2026. La lista inicial de 28 contenía varios nombres sin participación comprobada en esas fichas y omitía jugadores que sí fueron titulares o suplentes. Se reemplazaron nueve registros sin evidencia suficiente por futbolistas que sí aparecen en las planillas:
+- Matías Gómez → Juan Salinas (arquero)
+- Marcos Albet → Abimelec Santiago Vera Núñez
+- Leonel Conidi → Juan Pérez Tello
+- Sebastián Díaz → Lautaro Cáceres
+- Pedro Amarilla → Iván Nieto
+- Santiago Benavidez → Lucas Rastelli
+- Kevin Thomas Báez → Ulises Velázquez
+- Ángel Hernández Ramírez → Leandro Martínez
+- Miguel Leguizamón → Elián Muñoz
+
+Se mantienen 28 jugadores, sin completar cupos. Las posiciones generales de los nuevos registros son provisionales y deberán afinarse con fichas individuales o más planillas. La depuración se basa en apariciones confirmadas, no en que la nómina publicada tenga un máximo determinado.
+
+Fuentes:
+- https://www.soloascenso.com.ar/sintesis/defensores-de-glew-juventud-de-bernal/45776
+- https://www.soloascenso.com.ar/ficha/45828
+- https://www.soloascenso.com.ar/ficha/45860
+- https://www.soloascenso.com.ar/club/juventud-de-bernal/759
 
 ### Everton de La Plata — prioridad alta
 
