@@ -1,6 +1,6 @@
 # Promocional Amateur 2026 — planteles reales
 
-Estado: **primera carga nominal de los 17 clubes preparada; pendiente de validación automatizada e integración al runtime**.
+Estado: **504 registros nominales integrados en los 17 clubes; auditoría de vigencia, pertenencia, posiciones y participación 2026 en curso**.
 
 ## Alcance
 La temporada 2026 tuvo 17 participantes divididos en dos zonas. Se cargan futbolistas reales identificados en nóminas de temporada y planillas de partidos. No se completan cupos con nombres ficticios. Máximo operativo: 30 jugadores por club.
@@ -26,7 +26,7 @@ La temporada 2026 tuvo 17 participantes divididos en dos zonas. Se cargan futbol
 | Las Mandarinas | `mandarinas` | 30 |
 | Social Atlético Televisión (SAT) | `sat` | 30 |
 | Provincial de Lobos | `udprovincial` | 30 |
-| **Total** | **17 clubes** | **474** |
+| **Total** | **17 clubes** | **504** |
 
 Los clubes con menos de 30 jugadores quedan así porque la evidencia nominal reunida en esta primera pasada no justifica agregar más futbolistas. Se ampliarán al encontrar nóminas, planillas o estadísticas adicionales.
 
