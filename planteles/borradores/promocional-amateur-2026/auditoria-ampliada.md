@@ -17,20 +17,22 @@ Estado: **parcial; no cerrar la división todavía**.
 
 ## 2. Hallazgos de contenido ya confirmados
 
-### Deportivo Metalúrgico — prioridad crítica
+### Deportivo Metalúrgico — revisión de identidad y temporada
 
-La fuente citada en el CSV es una publicación de AFA de octubre de 2025, no una nómina de la temporada 2026. La plantilla 2026 publicada por Solo Ascenso (club/deportivo-metalurgico/1073) contiene 36 nombres y difiere sustancialmente de los 30 cargados.
+La primera auditoría interpretó incorrectamente la fuente AFA como una lista de 2025. La página de AFA es el resumen del campeón del Promocional Amateur 2026 y contiene un plantel de cierre de temporada. La página de Solo Ascenso también presenta una plantilla 2026, pero parece ser una nómina actualizada en otra fecha: las listas no son idénticas y deben leerse junto con las planillas de partidos, no como una única nómina inmutable.
 
-Entre los nombres del CSV que no aparecen en esa plantilla 2026 están Ramiro López, Diego Zacarías, Franco Belatti, Manuel Masdeu, Jonas Palavecino, Hector Villagra, Maximiliano Ballester, Juan Cruz Díaz, Agustín Fernández, Bruno López, David Paparello, Mauro Rapa, Lucas Sires, Thiago Torrez, Ariel Valenzuela, Eric Giménez, Néstor González, Ezequiel Marassa y Dylan Montecinos. Esto no prueba por sí solo que ninguno haya jugado en la primera parte de 2026, pero sí que el CSV no puede considerarse una nómina final 2026 sin contrastar apariciones y altas/bajas.
+En la revisión se comprobó que Lucas Zamorano tuvo participación real y relevante en 2026: fue titular ante Juventud de Bernal (22/08), convirtió ante Provincial (05/08) y entró ante SAT (29/09). Se sustituyó en el CSV a Eric Giménez por Lucas Zamorano. Eric Giménez aparece en la lista del plantel campeón de AFA/Pilar Diario como defensor, pero no figura en las planillas de los partidos revisados ni en el plantel actualizado de Solo Ascenso; no debe mantenerse como delantero sin nueva evidencia.
 
-La plantilla 2026 y las síntesis de partidos de agosto-septiembre muestran jugadores importantes que no figuran en el CSV, entre ellos Rodrigo Acosta Barrios, Brian Rodríguez, Jerónimo Higuaín, Gabriel Luque, Thiago Domínguez, Franco Migueles, Tobías Sotelo y Agustín Varela. Hay que rehacer la selección con planillas de 2026 y minutos/apariciones, manteniendo el criterio de titulares y suplentes importantes.
+Las planillas del 22/08, 29/08, 14/09 y 29/09 confirman la participación de varios jugadores que sí deben estar considerados en el grupo principal o en el banco: Rodrigo Acosta Barrios, Brian Rodríguez, Jerónimo Higuaín, Gabriel Luque, Thiago Domínguez, Franco Migueles, Tobías Sotelo, Agustín Varela, Leandro De Robertis, Carlos Ispizua, Mario Mendieta Benítez, Román Duarte, Tiziano Morales, Lucas Izaguirre, Tobías Schmit, Alexis Dalul, Lautaro Robin, Aaron Ibañez, Franco Morales y Lucas Zamorano. La lista cargada sigue necesitando revisión completa de altas y bajas; no se deben agregar todos automáticamente: aplicar el criterio de titulares y suplentes importantes, priorizando apariciones y minutos. No se encontró aún una fuente pública consistente de minutos individuales para todos.
 
 Fuentes:
+- https://www.afa.com.ar/en/posts/metalurgico-derroto-1-0-a-f.c.-ezeiza-y-es-el-campeon-del-promocional-amateur
+- https://www.pilaradiario.com/la-liga/metalurgico-vuelo-campeon-puerto-nuevo-n5465020
 - https://www.soloascenso.com.ar/club/deportivo-metalurgico/1073
+- https://www.soloascenso.com.ar/ficha/45860
+- https://www.soloascenso.com.ar/ficha/45845
 - https://www.soloascenso.com.ar/ficha/46106
 - https://www.soloascenso.com.ar/ficha/46114
-- https://www.soloascenso.com.ar/ficha/45860
-- https://www.afa.com.ar/en/posts/metalurgico-derroto-1-0-a-f.c.-ezeiza-y-es-el-campeon-del-promocional-amateur
 
 ### Defensores de Glew — prioridad alta
 
