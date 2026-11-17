@@ -41,4 +41,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:30*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!clubs.has(id))assert.deepEqual(runtime[id],players,'Se alteró otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 504 jugadores reales cargados en 17 clubes del Promocional Amateur; demás planteles intactos.':'OK: 474 jugadores nominales en 17 clubes; máximo 30, sin duplicados internos ni dorsales repetidos.');
+console.log(process.argv.includes('--runtime')?'OK: 504 jugadores reales cargados en 17 clubes del Promocional Amateur; demás planteles intactos.':'OK: 504 jugadores nominales en 17 clubes; máximo 30, sin duplicados internos ni dorsales repetidos.');
