@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-18T07:01:05.727Z",
+  "updatedAt": "2026-11-18T07:01:59.954Z",
   "source": "Planteles recopilados y verificados manualmente",
-  "ratings": "1646 medias con fuente individual + 3163 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
+  "ratings": "1648 medias con fuente individual + 3163 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
     "sanlorenzo": 40,
     "boca": 31,
@@ -173,7 +173,7 @@
     "juventudbernal": 29,
     "mandarinas": 30,
     "sat": 32,
-    "udprovincial": 30
+    "udprovincial": 32
   },
   "sources": {
     "sanlorenzo": {
@@ -4180,11 +4180,23 @@
     },
     "udprovincial": {
       "source": "https://www.soloascenso.com.ar/club/provincial-lobos/1076",
-      "consulted": "2026-11-16",
+      "consulted": [
+        "2026-11-16",
+        "2026-11-18"
+      ],
       "ageSource": [],
-      "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
-      "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
-      "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+      "numberSource": [
+        "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
+        "Dorsal interno provisional secuencial; no confirmado como dorsal oficial."
+      ],
+      "ratingSource": [
+        "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
+        "Estimación provisional por participación goleadora y posición; no es OVR oficial."
+      ],
+      "roleSource": [
+        "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
+        "Plantel 2026: MED; aparece entre los goleadores del equipo."
+      ],
       "natSource": []
     }
   },
@@ -4193,9 +4205,9 @@
   "dataQualityComplete": false,
   "ageReferenceDate": "2026-11-06",
   "numberCoverage": {
-    "assigned": 4747,
+    "assigned": 4749,
     "missing": 62,
-    "total": 4809,
+    "total": 4811,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5043,8 +5055,8 @@
         "missing": 0
       },
       "udprovincial": {
-        "total": 30,
-        "assigned": 30,
+        "total": 32,
+        "assigned": 32,
         "missing": 0
       }
     }
@@ -5052,9 +5064,9 @@
   "dorsalsComplete": false,
   "ageCoverage": {
     "assigned": 3297,
-    "missing": 1512,
+    "missing": 1514,
     "birthDates": 2075,
-    "total": 4809,
+    "total": 4811,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -5902,16 +5914,16 @@
         "missing": 32
       },
       "udprovincial": {
-        "total": 30,
+        "total": 32,
         "assigned": 0,
-        "missing": 30
+        "missing": 32
       }
     }
   },
   "nationalityCoverage": {
     "assigned": 3376,
-    "missing": 1433,
-    "total": 4809,
+    "missing": 1435,
+    "total": 4811,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -6590,15 +6602,15 @@
         "assigned": 0
       },
       "udprovincial": {
-        "total": 30,
+        "total": 32,
         "assigned": 0
       }
     }
   },
   "specificRoleCoverage": {
     "assigned": 3454,
-    "missing": 1355,
-    "total": 4809,
+    "missing": 1357,
+    "total": 4811,
     "byClub": {
       "sanlorenzo": {
         "total": 40,
@@ -7277,15 +7289,15 @@
         "specific": 0
       },
       "udprovincial": {
-        "total": 30,
+        "total": 32,
         "specific": 0
       }
     }
   },
   "ratingCoverage": {
-    "rated": 1646,
+    "rated": 1648,
     "estimated": 3163,
-    "total": 4809,
+    "total": 4811,
     "provisional": 0,
     "byClub": {
       "sanlorenzo": {
@@ -8303,8 +8315,8 @@
         "provisional": 0
       },
       "udprovincial": {
-        "total": 30,
-        "verified": 0,
+        "total": 32,
+        "verified": 2,
         "estimated": 30,
         "provisional": 0
       }
@@ -8314,22 +8326,22 @@
   },
   "attributeCoverage": {
     "manualPlayers": 1172,
-    "derivedPlayers": 3637,
+    "derivedPlayers": 3639,
     "method": "public/data.js deriva atributos por rol específico, posición y media."
   },
   "qualityAudit": {
     "clubs": 170,
-    "players": 4809,
+    "players": 4811,
     "duplicateNames": 0,
     "duplicateNumbers": 0,
-    "playersMissingAge": 1512,
+    "playersMissingAge": 1514,
     "playersMissingDorsal": 62,
-    "verifiedRatings": 1646,
+    "verifiedRatings": 1648,
     "estimatedRatings": 3163,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1433,
-    "playersMissingFoot": 2772,
-    "playersMissingSpecificRole": 1355,
-    "playersWithoutManualAttributes": 3637
+    "playersMissingNationality": 1435,
+    "playersMissingFoot": 2774,
+    "playersMissingSpecificRole": 1357,
+    "playersWithoutManualAttributes": 3639
   }
 }
