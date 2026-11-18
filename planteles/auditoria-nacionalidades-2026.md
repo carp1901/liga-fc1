@@ -10,9 +10,9 @@ La auditoría cubre los planteles argentinos desde Primera División hasta Promo
 | Primera Nacional | 1.039 | 1.039 | 0 |
 | B Metropolitana | 533 | 533 | 0 |
 | Federal A | 883 | 879 | 4 |
-| Primera C | 839 | 252 | 587 |
+| Primera C | 839 | 254 | 585 |
 | Promocional Amateur | 518 | 0 | 518 |
-| **Total de filas fuente** | **4.824** | **3.715** | **1.109** |
+| **Total de filas fuente** | **4.824** | **3.717** | **1.107** |
 
 **Nota sobre Primera Nacional:** los seis CSV contienen 1.039 jugadores, mientras que el runtime publicado registra 1.026. Hay 13 registros presentes en los CSV pero no en el runtime; esta auditoría no los importa ni modifica el plantel publicado.
 
@@ -39,8 +39,8 @@ También se corrigió el nombre de **Máximo Ramos** (figuraba como “Maximilia
 ## Pendientes
 
 1. Federal A: resolver los cuatro casos restantes con evidencia individual.
-2. Primera C: quedan 587 jugadores sin nacionalidad asignada; 252 ya tienen una asignación registrada.
+2. Primera C: quedan 585 jugadores sin nacionalidad asignada; 254 ya tienen una asignación registrada.
 3. Promocional Amateur: revisar y asignar nacionalidades a 518 jugadores.
 4. Verificar las asignaciones preexistentes en las tres divisiones superiores con fuentes individuales cuando haya discrepancias.
 
-En Primera C se verificaron ocho nacionalidades adicionales de Juventud Unida mediante fichas individuales: Alessandro López, Matías Ayala, Franco Cardozo, Julián Carnelos, Juan Chiarantano, Mariano Di Franco, Ian Escobar y Maximiliano Paredes, Enzo Arreguín, Kevin Barrionuevo, Duncan Hughes, Rodrigo Lastra, Tiago Luna, Ángel Luna, Esteban Fernández, Nahuel Aiuto, Luciano Brandán y Alexis Albistur, Braian Maidana, Andrés Molinas, Diego Cardozo y Lautaro Candia, Agustín Burlón, Ezequiel Figueroa, Valentín Díaz, Tomás Lingua Bender, Lucas Cabrera, Gastón David, Sebastián Feletto y Ramiro López, Tomás Bravo, Lucas Chiapparo, Gonzalo Nuñez y Julián Eseiza, Guillermo Hauche, Leandro Moreira, Kevin Aquino, Lucas Vázquez, Dilan Maidana, Kevin Araujo, Ciro Campuzano, Santiago Gutiérrez, Nahuel Gómez y Marcos Del Río. El test `test-nationality-audit.js` controla códigos válidos, fuentes presentes, duplicados internos y cantidades por división.
+En Primera C se verificaron ocho nacionalidades adicionales de Juventud Unida mediante fichas individuales: Alessandro López, Matías Ayala, Franco Cardozo, Julián Carnelos, Juan Chiarantano, Mariano Di Franco, Ian Escobar y Maximiliano Paredes, Enzo Arreguín, Kevin Barrionuevo, Duncan Hughes, Rodrigo Lastra, Tiago Luna, Ángel Luna, Esteban Fernández, Nahuel Aiuto, Luciano Brandán y Alexis Albistur, Braian Maidana, Andrés Molinas, Diego Cardozo y Lautaro Candia, Agustín Burlón, Ezequiel Figueroa, Valentín Díaz, Tomás Lingua Bender, Lucas Cabrera, Gastón David, Sebastián Feletto y Ramiro López, Tomás Bravo, Lucas Chiapparo, Gonzalo Nuñez y Julián Eseiza, Guillermo Hauche, Leandro Moreira, Kevin Aquino, Lucas Vázquez, Dilan Maidana, Kevin Araujo, Ciro Campuzano, Santiago Gutiérrez, Nahuel Gómez, Marcos Del Río, Santino Barletta y Diego López. El test `test-nationality-audit.js` controla códigos válidos, fuentes presentes, duplicados internos y cantidades por división.
