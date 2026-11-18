@@ -10,9 +10,9 @@ La auditoría cubre los planteles argentinos desde Primera División hasta Promo
 | Primera Nacional | 1.039 | 1.039 | 0 |
 | B Metropolitana | 533 | 533 | 0 |
 | Federal A | 883 | 879 | 4 |
-| Primera C | 839 | 232 | 607 |
+| Primera C | 839 | 234 | 605 |
 | Promocional Amateur | 518 | 0 | 518 |
-| **Total de filas fuente** | **4.824** | **3.695** | **1.129** |
+| **Total de filas fuente** | **4.824** | **3.697** | **1.127** |
 
 **Nota sobre Primera Nacional:** los seis CSV contienen 1.039 jugadores, mientras que el runtime publicado registra 1.026. Hay 13 registros presentes en los CSV pero no en el runtime; esta auditoría no los importa ni modifica el plantel publicado.
 
@@ -39,7 +39,7 @@ También se corrigió el nombre de **Máximo Ramos** (figuraba como “Maximilia
 ## Pendientes
 
 1. Federal A: resolver los cuatro casos restantes con evidencia individual.
-2. Primera C: quedan 607 jugadores sin nacionalidad asignada; 232 ya tienen una asignación registrada.
+2. Primera C: quedan 605 jugadores sin nacionalidad asignada; 234 ya tienen una asignación registrada.
 3. Promocional Amateur: revisar y asignar nacionalidades a 518 jugadores.
 4. Verificar las asignaciones preexistentes en las tres divisiones superiores con fuentes individuales cuando haya discrepancias.
 
