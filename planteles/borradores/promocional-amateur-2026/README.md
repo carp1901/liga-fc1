@@ -1,6 +1,6 @@
 # Promocional Amateur 2026 — planteles en auditoría
 
-Estado: **516 jugadores en 17 clubes; revisión deportiva y de identidad en curso.** Esta rama actualiza dos planteles con evidencia de temporada 2026 y corrige una posición comprobada. No se declara cerrada la división hasta terminar los contrastes restantes.
+Estado: **518 jugadores en 17 clubes; revisión deportiva y de identidad en curso.** Esta rama actualiza dos planteles con evidencia de temporada 2026 y corrige una posición comprobada. No se declara cerrada la división hasta terminar los contrastes restantes.
 
 ## Alcance y criterio
 
@@ -11,7 +11,7 @@ Estado: **516 jugadores en 17 clubes; revisión deportiva y de identidad en curs
 - Las medias son estimaciones propias, no OVR oficiales ni valoraciones de EA FC.
 - Los dorsales secuenciales se consideran internos/provisionales, nunca oficiales. Si no hay respaldo fiable, el dorsal queda vacío y pendiente.
 
-## Distribución actual — 516 jugadores
+## Distribución actual — 518 jugadores
 
 | Club | ID | Jugadores |
 |---|---|---:|
@@ -31,8 +31,8 @@ Estado: **516 jugadores en 17 clubes; revisión deportiva y de identidad en curs
 | Juventud de Bernal | `juventudbernal` | 29 |
 | Las Mandarinas | `mandarinas` | 30 |
 | Social Atlético Televisión (SAT) | `sat` | 32 |
-| Provincial de Lobos | `udprovincial` | 30 |
-| **Total** | **17 clubes** | **516** |
+| Provincial de Lobos | `udprovincial` | 32 |
+| **Total** | **17 clubes** | **518** |
 
 ## Cambios de esta tanda
 
@@ -47,7 +47,7 @@ Estado: **516 jugadores en 17 clubes; revisión deportiva y de identidad en curs
 - Estrella de Berisso: se incorporan Martín Videla (5) y Thiago Villoldo (4).
 - SAT: se incorporan Lucas Rastelli (4 goles tras su llegada desde Juventud) y Valentín Vidal (2).
 - Barrancas: se incorpora Rodrigo Villamayor (3 goles); Iván Leguizamón ya estaba incluido.
-- Provincial: Diego Bustos ya estaba incluido; no se duplicó.
+- Provincial: Diego Bustos ya estaba incluido; se incorporan también Lautaro Sapaya y Lukas González, que figuran entre sus goleadores.
 
 ### Deportivo Metalúrgico
 - Se reemplaza la lista inicial, basada en parte en una nómina de cierre que no representaba por sí sola toda la temporada, por una selección de 32 futbolistas del plantel 2026 y las planillas de partidos.
@@ -63,8 +63,8 @@ Estado: **516 jugadores en 17 clubes; revisión deportiva y de identidad en curs
 
 ## Calidad de datos pendiente
 
-- **Ratings:** 516 estimaciones propias; rango actual 41–45. Falta diferenciación individual más sólida a partir de rendimiento, apariciones y nivel observado. No son medias oficiales.
-- **Dorsales:** 454 asignaciones internas secuenciales estimadas y 62 pendientes de confirmar. Ninguna estimación debe mostrarse como dorsal oficial.
+- **Ratings:** 518 estimaciones propias; rango actual 41–45. Falta diferenciación individual más sólida a partir de rendimiento, apariciones y nivel observado. No son medias oficiales.
+- **Dorsales:** 456 asignaciones internas secuenciales estimadas y 62 pendientes de confirmar. Ninguna estimación debe mostrarse como dorsal oficial.
 - **Edades:** faltan fuentes individuales consistentes; no se inventan.
 - **Roles específicos:** la mayoría de los registros sólo tiene posición general ARQ/DEF/MED/DEL. Completar LD, central, volante, extremo, etc. con evidencia individual.
 - **Identidad/homónimos:** hay cinco nombres repetidos entre clubes; tres pares están diferenciados por edad/ficha y dos siguen pendientes. Ver `homonimos-pendientes.md`; no fusionar registros sin evidencia individual.
@@ -93,5 +93,5 @@ Estado: **516 jugadores en 17 clubes; revisión deportiva y de identidad en curs
 ## Archivos
 
 - `tanda1-inicial.csv`: 6 clubes / 184 jugadores.
-- `tanda2-inicial.csv`: 11 clubes / 332 jugadores.
+- `tanda2-inicial.csv`: 11 clubes / 334 jugadores.
 - `test-promocional-amateur-draft.js`: valida estructura, cantidades, duplicados, fuentes, dorsales provisionales y runtime.
