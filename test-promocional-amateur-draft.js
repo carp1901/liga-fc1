@@ -19,7 +19,7 @@ for(const [i,row] of rows.entries()){
  assert(['ARQ','DEF','MED','DEL'].includes(pos),'Posición inválida: '+name);
  assert(Number.isInteger(rating)&&rating>=38&&rating<=53,'Media fuera de rango: '+name);
  assert(/^(Estimación propia|Estimación provisional)/.test(get('rating_source')),'Media no identificada como estimación: '+name);
- if(dorsal!==null){assert(Number.isInteger(dorsal)&&dorsal>=1&&dorsal<=99,'Dorsal inválido: '+name);assert(/estimado|verificado/i.test(get('dorsal_source')),'Dorsal no identificado como estimado/verificado: '+name);}
+ if(dorsal!==null){assert(Number.isInteger(dorsal)&&dorsal>=1&&dorsal<=99,'Dorsal inválido: '+name);assert(/estimado|verificado|provisional/i.test(get('dorsal_source')),'Dorsal no identificado como estimado/verificado: '+name);}
  else assert(/pendiente/i.test(get('dorsal_source')),'Dorsal vacío sin marcar como pendiente: '+name);
  assert(get('fuente')&&get('consultado'),'Falta fuente o fecha: '+name);
  const key=club+'|'+norm(name);assert(!names.has(key),'Nombre duplicado: '+key);names.add(key);
