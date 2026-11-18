@@ -58,7 +58,7 @@ Estado: **508 jugadores en 17 clubes; revisión deportiva y de identidad en curs
 - **Dorsales:** 446 asignaciones internas secuenciales estimadas y 62 pendientes de confirmar. Ninguna estimación debe mostrarse como dorsal oficial.
 - **Edades:** faltan fuentes individuales consistentes; no se inventan.
 - **Roles específicos:** la mayoría de los registros sólo tiene posición general ARQ/DEF/MED/DEL. Completar LD, central, volante, extremo, etc. con evidencia individual.
-- **Identidad/homónimos:** mantener separados los jugadores con nombres repetidos hasta resolverlos por edad, ficha o planilla.
+- **Identidad/homónimos:** hay cinco nombres repetidos entre clubes; tres pares están diferenciados por edad/ficha y dos siguen pendientes. Ver `homonimos-pendientes.md`; no fusionar registros sin evidencia individual.
 - **Vigencia:** revisar altas, bajas y apariciones de todos los clubes al cierre de la temporada 2026.
 
 ## Fuentes principales por club
