@@ -21,7 +21,12 @@ const aliases={
  GUA:'GUA',GUATEMALA:'GUA',ARM:'ARM',ARMENIA:'ARM',CHE:'CHE',SUI:'CHE',SUIZA:'CHE'
 };
 const normalize=value=>aliases[String(value||'').trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase()]||null;
-function parseCSV(input){const rows=[];let row=[],value='',quoted=false;for(let i=0;i<input.length;i++){const ch=input[i];if(quoted){if(ch==='"'&&input[i+1]==='"'){value+='"';i++;}else if(ch==='"')quoted=false;else value+=ch;}else if(ch==='"')quoted=true;else if(ch===','){row.push(value);value='';}else if(ch==='\n'){row.push(value.replace(/\r$/,''));rows.push(row);row=[];value='';}else value+=ch;}if(value||row.length){row.push(value.replace(/\r$/,''));rows.push(row);}const header=rows.shift().map(x=>x.trim().toLowerCase());return rows.filter(r=>r.some(v=>v.trim())).map(r=>Object.fromEntries(header.map((h,i)=>[h,r[i]??''])));}
+function parseCSV(input){
+ const lines=input.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n').filter(Boolean);
+ function parseLine(line){const out=[];let value='',quoted=false;for(let i=0;i<line.length;i++){const ch=line[i];if(quoted){if(ch==='"'&&line[i+1]==='"'){value+='"';i++;}else if(ch==='"')quoted=false;else value+=ch;}else if(ch==='"')quoted=true;else if(ch===','){out.push(value);value='';}else value+=ch;}out.push(value);return out;}
+ const header=parseLine(lines.shift()).map(x=>x.trim().toLowerCase());
+ return lines.map(line=>parseLine(line)).filter(row=>row.some(v=>v.trim())).map(row=>Object.fromEntries(header.map((h,i)=>[h,row[i]??''])));
+}
 const expected={
  Primera:{total:1012,assigned:1012},
  Nacional:{total:1039,assigned:1039},
