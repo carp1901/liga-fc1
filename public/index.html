@@ -1497,7 +1497,7 @@ let DRAGGED=0,CHANGE_MODE=false,CHANGE_FROM=null,FILLM=false;
 const shortPlayerName=x=>{const n=String(typeof x==='string'?x:(x&&x.n)||'').trim(),a=n.split(/\s+/);return x&&typeof x==='object'&&x.short?x.short:a.length>1?a[0].charAt(0)+'. '+a.slice(1).join(' '):n};
 const NAT_NAMES={ARG:'Argentina',URU:'Uruguay',PAR:'Paraguay',CHL:'Chile',BRA:'Brasil',COL:'Colombia',ECU:'Ecuador',PER:'Perú',BOL:'Bolivia',VEN:'Venezuela',SYR:'Siria',MEX:'México',USA:'Estados Unidos',ESP:'España',PRT:'Portugal',FRA:'Francia',ITA:'Italia',DEU:'Alemania',HUN:'Hungría',IRL:'Irlanda',MYS:'Malasia',JPN:'Japón',PRI:'Puerto Rico',SVN:'Eslovenia',GUA:'Guatemala',ARM:'Armenia',CHE:'Suiza'};
 const NAT_ALIASES={ARGENTINA:'ARG',URUGUAY:'URU',PARAGUAY:'PAR',CHILE:'CHL',BRASIL:'BRA',COLOMBIA:'COL',ECUADOR:'ECU',PERU:'PER',BOLIVIA:'BOL',VENEZUELA:'VEN',SIRIA:'SYR',MEXICO:'MEX','ESTADOS UNIDOS':'USA','ESPAÑA':'ESP',PORTUGAL:'PRT',FRANCIA:'FRA',ITALIA:'ITA',ALEMANIA:'DEU',HUNGRIA:'HUN',IRLANDA:'IRL',MALASIA:'MYS',JAPON:'JPN','PUERTO RICO':'PRI',ESLOVENIA:'SVN',GUATEMALA:'GUA',ARMENIA:'ARM',SUIZA:'CHE',SUI:'CHE'};
-const natCode=value=>{const k=String(value||'').trim().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toUpperCase();return NAT_NAMES[k]?k:NAT_ALIASES[k]||null};
+const natCode=value=>{const k=String(value||'').trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();return NAT_NAMES[k]?k:NAT_ALIASES[k]||null};
 const natFlagSvg=value=>{const c=natCode(value);if(!c)return'';const r=(x,y,w,h,fill)=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+fill+'"/>';
 const p=(points,fill)=>'<polygon points="'+points+'" fill="'+fill+'"/>';
 const circ=(cx,cy,rad,fill)=>'<circle cx="'+cx+'" cy="'+cy+'" r="'+rad+'" fill="'+fill+'"/>';
