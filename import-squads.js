@@ -22,7 +22,7 @@ const NAT_ALIASES={
  JPN:'JPN','JAPON':'JPN',PRI:'PRI','PUERTO RICO':'PRI',SVN:'SVN',ESLOVENIA:'SVN',
  GUA:'GUA',GUATEMALA:'GUA',ARM:'ARM',ARMENIA:'ARM',CHE:'CHE',SUI:'CHE',SUIZA:'CHE'
 };
-const normalizeNat=value=>{const key=String(value||'').trim().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toUpperCase();return NAT_ALIASES[key]||null;};
+const normalizeNat=value=>{const key=String(value||'').trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();return NAT_ALIASES[key]||null;};
 const PRIMERA=['boca','river','racing','independiente','sanlorenzo','estudiantes','velez','talleres','lanus','rosario','huracan','belgrano','argentinos','defensa','newells','union','tigre','platense','banfield','gimnasia','centralcba','rivadavia','instituto','atletico','barracas','riestra','sarmiento','aldosivi','gimnasiamza','estudiantesrc'];
 const NACIONAL=['agropecuario','allboys','almirantebrown','almagro','atlanta','centralnorte','chaco','chacarita','colegiales','colon','defensoresbelgrano','madryn','maipu','moron','estudiantesba','ferro','gimnasiajujuy','gimnasiatiro','guemes','losandes','mitre','nuevachicago','patronato','quilmes','racingcba','sanmartintuc','sanmiguel','santelmo','temperley','tristansuarez','midland','rafaela','godoycruz','sanmartinsj','ciudadbolivar','acassuso'];
 const ageAt=(birth,reference)=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(birth||'');if(!m)return null;const [y,mo,d]=m.slice(1).map(Number),[ry,rm,rd]=reference.split('-').map(Number);let age=ry-y;if(rm<mo||(rm===mo&&rd<d))age--;return age};
