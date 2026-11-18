@@ -28,6 +28,13 @@ for(const [i,row] of rows.entries()){
 }
 assert.deepEqual(counts,expected,'Los conteos por club cambiaron');
 assert.equal(total,508,'Total de jugadores inesperado');
+const byName=new Map();
+for(const row of rows){const name=norm(row[col.nombre]);if(!byName.has(name))byName.set(name,new Set());byName.get(name).add(row[col.club_id]);}
+const crossDuplicates=[...byName].filter(([,ids])=>ids.size>1).map(([name])=>name).sort();
+const expectedCrossDuplicates=['franco barraza','franco gonzalez','gonzalo acosta','ivan barraza','santiago segovia'].sort();
+assert.deepEqual(crossDuplicates,expectedCrossDuplicates,'Cambió la lista de homónimos entre clubes; revisar antes de integrar');
+const homonymDoc=norm(fs.readFileSync('planteles/borradores/promocional-amateur-2026/homonimos-pendientes.md','utf8'));
+for(const name of expectedCrossDuplicates)assert(homonymDoc.includes(name),'Homónimo no documentado: '+name);
 const data=fs.readFileSync('public/data.js','utf8');
 for(const id of clubs)assert(data.includes(id+'|'),'ID no encontrado en public/data.js: '+id);
 if(process.argv.includes('--runtime')){
