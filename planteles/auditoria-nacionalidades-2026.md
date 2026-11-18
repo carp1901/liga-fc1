@@ -10,9 +10,9 @@ La auditoría cubre los planteles argentinos desde Primera División hasta Promo
 | Primera Nacional | 1.039 | 1.039 | 0 |
 | B Metropolitana | 533 | 533 | 0 |
 | Federal A | 883 | 879 | 4 |
-| Primera C | 839 | 216 | 623 |
+| Primera C | 839 | 222 | 617 |
 | Promocional Amateur | 518 | 0 | 518 |
-| **Total de filas fuente** | **4.824** | **3.679** | **1.145** |
+| **Total de filas fuente** | **4.824** | **3.685** | **1.139** |
 
 **Nota sobre Primera Nacional:** los seis CSV contienen 1.039 jugadores, mientras que el runtime publicado registra 1.026. Hay 13 registros presentes en los CSV pero no en el runtime; esta auditoría no los importa ni modifica el plantel publicado.
 
@@ -39,8 +39,8 @@ También se corrigió el nombre de **Máximo Ramos** (figuraba como “Maximilia
 ## Pendientes
 
 1. Federal A: resolver los cuatro casos restantes con evidencia individual.
-2. Primera C: quedan 623 jugadores sin nacionalidad asignada; 216 ya tienen una asignación registrada.
+2. Primera C: quedan 617 jugadores sin nacionalidad asignada; 222 ya tienen una asignación registrada.
 3. Promocional Amateur: revisar y asignar nacionalidades a 518 jugadores.
 4. Verificar las asignaciones preexistentes en las tres divisiones superiores con fuentes individuales cuando haya discrepancias.
 
-En Primera C se verificaron ocho nacionalidades adicionales de Juventud Unida mediante fichas individuales: Alessandro López, Matías Ayala, Franco Cardozo, Julián Carnelos, Juan Chiarantano, Mariano Di Franco, Ian Escobar y Maximiliano Paredes. El test `test-nationality-audit.js` controla códigos válidos, fuentes presentes, duplicados internos y cantidades por división.
+En Primera C se verificaron ocho nacionalidades adicionales de Juventud Unida mediante fichas individuales: Alessandro López, Matías Ayala, Franco Cardozo, Julián Carnelos, Juan Chiarantano, Mariano Di Franco, Ian Escobar y Maximiliano Paredes, Enzo Arreguín, Kevin Barrionuevo, Duncan Hughes, Rodrigo Lastra, Tiago Luna y Ángel Luna. El test `test-nationality-audit.js` controla códigos válidos, fuentes presentes, duplicados internos y cantidades por división.
