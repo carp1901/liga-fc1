@@ -45,7 +45,7 @@ Estado: **518 jugadores en 17 clubes; revisión deportiva y de identidad en curs
 ### Goleadores y altas/bajas verificadas en otros clubes
 - Uribelarrea: se incorporan Axel Núñez (4 goles) y Stéfano Gigena (2).
 - Estrella de Berisso: se incorporan Martín Videla (5) y Thiago Villoldo (4).
-- SAT: se incorporan Lucas Rastelli (4 goles tras su llegada desde Juventud) y Valentín Vidal (2).
+- SAT: se incorporan Lucas Rastelli (4 goles tras su llegada desde Juventud) y Valentín Vidal (2). La transferencia desde Juventud está documentada en https://mail.mundoascenso.com.ar/noticia/169523-rastelli-es-la-nueva-incorporacion-de-la-tele.
 - Barrancas: se incorpora Rodrigo Villamayor (3 goles); Iván Leguizamón ya estaba incluido.
 - Provincial: Diego Bustos ya estaba incluido; se incorporan también Lautaro Sapaya y Lukas González, que figuran entre sus goleadores.
 
@@ -56,7 +56,7 @@ Estado: **518 jugadores en 17 clubes; revisión deportiva y de identidad en curs
 - No se agregan automáticamente todos los nombres de la nómina extendida.
 
 ### Juventud de Bernal
-- Se conserva la depuración anterior basada en planillas 2026: Juan Salinas, Abimelec Santiago Vera Núñez, Juan Pérez Tello, Lautaro Cáceres, Iván Nieto, Lucas Rastelli, Ulises Velázquez, Leandro Martínez y Elián Muñoz sustituyen registros sin evidencia suficiente en las fichas cotejadas.
+- Se conserva la depuración anterior basada en planillas 2026: Juan Salinas, Abimelec Santiago Vera Núñez, Juan Pérez Tello, Lautaro Cáceres, Iván Nieto, Ulises Velázquez, Leandro Martínez y Elián Muñoz sustituyen registros sin evidencia suficiente en las fichas cotejadas.
 - Se incorpora a José Martínez y Tomás Ventresca por su aparición entre los goleadores del equipo.
 - Lucas Rastelli sale del plantel de Juventud: fue anunciado como incorporación de SAT en julio de 2026.
 - Se mantienen 29 jugadores; no se completa artificialmente el cupo.
