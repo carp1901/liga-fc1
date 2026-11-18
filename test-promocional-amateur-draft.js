@@ -9,7 +9,7 @@ const parsed=files.map(f=>parseCSV(fs.readFileSync(f,'utf8')));
 const headers=parsed[0].shift().map(x=>x.trim().toLowerCase());
 for(let i=1;i<parsed.length;i++)assert.deepEqual(parsed[i].shift().map(x=>x.trim().toLowerCase()),headers,'Los CSV deben compartir esquema');
 const rows=parsed.flat(),col=Object.fromEntries(headers.map((h,i)=>[h,i]));
-const expected={defglew:30,metalurgico:32,hacoaj:30,fcezeiza:30,belgranozarate:30,uribelarrea:32,alumni:30,atpilar:30,barrancas:31,bacity:30,controlorientado:30,estrellaberisso:32,everton:28,juventudbernal:29,mandarinas:30,sat:32,udprovincial:30};
+const expected={defglew:30,metalurgico:32,hacoaj:30,fcezeiza:30,belgranozarate:30,uribelarrea:32,alumni:30,atpilar:30,barrancas:31,bacity:30,controlorientado:30,estrellaberisso:32,everton:28,juventudbernal:29,mandarinas:30,sat:32,udprovincial:32};
 const clubs=new Set(Object.keys(expected)),counts={},names=new Set(),numbers=new Set();let total=0;
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 for(const [i,row] of rows.entries()){
@@ -27,7 +27,7 @@ for(const [i,row] of rows.entries()){
  counts[club]=(counts[club]||0)+1;total++;
 }
 assert.deepEqual(counts,expected,'Los conteos por club cambiaron');
-assert.equal(total,516,'Total de jugadores inesperado');
+assert.equal(total,518,'Total de jugadores inesperado');
 const byName=new Map();
 for(const row of rows){const name=norm(row[col.nombre]);if(!byName.has(name))byName.set(name,new Set());byName.get(name).add(row[col.club_id]);}
 const crossDuplicates=[...byName].filter(([,ids])=>ids.size>1).map(([name])=>name).sort();
@@ -49,4 +49,4 @@ if(process.argv.includes('--runtime')){
  const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:30*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!clubs.has(id))assert.deepEqual(runtime[id],players,'Se alteró otro plantel: '+id);
 }
-console.log(process.argv.includes('--runtime')?'OK: 516 jugadores cargados en 17 clubes; las demás divisiones permanecen intactas.':'OK: 508 jugadores en 17 clubes; sin duplicados internos ni dorsales falsamente presentados como oficiales.');
+console.log(process.argv.includes('--runtime')?'OK: 518 jugadores cargados en 17 clubes; las demás divisiones permanecen intactas.':'OK: 508 jugadores en 17 clubes; sin duplicados internos ni dorsales falsamente presentados como oficiales.');
