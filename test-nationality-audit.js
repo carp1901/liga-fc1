@@ -20,8 +20,8 @@ const aliases={
  JPN:'JPN',JAPON:'JPN',PRI:'PRI','PUERTO RICO':'PRI',SVN:'SVN',ESLOVENIA:'SVN',
  GUA:'GUA',GUATEMALA:'GUA',ARM:'ARM',ARMENIA:'ARM',CHE:'CHE',SUI:'CHE',SUIZA:'CHE'
 };
-const normalize=value=>aliases[String(value||'').trim().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toUpperCase()]||null;
-function parseCSV(input){const rows=[];let row=[],value='',quoted=false;for(let i=0;i<input.length;i++){const ch=input[i];if(quoted){if(ch==='"'&&input[i+1]==='"'){value+='"';i++;}else if(ch==='"')quoted=false;else value+=ch;}else if(ch==='"')quoted=true;else if(ch===','){row.push(value);value='';}else if(ch==='\\n'){row.push(value.replace(/\\r$/,''));rows.push(row);row=[];value='';}else value+=ch;}if(value||row.length){row.push(value.replace(/\\r$/,''));rows.push(row);}const header=rows.shift().map(x=>x.trim().toLowerCase());return rows.filter(r=>r.some(v=>v.trim())).map(r=>Object.fromEntries(header.map((h,i)=>[h,r[i]??''])));}
+const normalize=value=>aliases[String(value||'').trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase()]||null;
+function parseCSV(input){const rows=[];let row=[],value='',quoted=false;for(let i=0;i<input.length;i++){const ch=input[i];if(quoted){if(ch==='"'&&input[i+1]==='"'){value+='"';i++;}else if(ch==='"')quoted=false;else value+=ch;}else if(ch==='"')quoted=true;else if(ch===','){row.push(value);value='';}else if(ch==='\n'){row.push(value.replace(/\r$/,''));rows.push(row);row=[];value='';}else value+=ch;}if(value||row.length){row.push(value.replace(/\r$/,''));rows.push(row);}const header=rows.shift().map(x=>x.trim().toLowerCase());return rows.filter(r=>r.some(v=>v.trim())).map(r=>Object.fromEntries(header.map((h,i)=>[h,r[i]??''])));}
 const expected={
  Primera:{total:1012,assigned:1012},
  Nacional:{total:1039,assigned:1039},
@@ -35,7 +35,7 @@ for(const [division,paths] of Object.entries(files)){
  const seen=new Set();let count=0,withNat=0;
  for(const path of paths)for(const player of parseCSV(fs.readFileSync(path,'utf8'))){
   count++;
-  const key=player.club_id+'|'+player.nombre.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();
+  const key=player.club_id+'|'+player.nombre.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   assert(!seen.has(key),'Jugador duplicado en '+division+': '+key);seen.add(key);
   if(player.nat){const code=normalize(player.nat);assert(code,'Código de nacionalidad no reconocido en '+path+': '+player.nombre+' ('+player.nat+')');assert(player.nat_source,'Falta fuente de nacionalidad: '+player.nombre);withNat++;}
  }
