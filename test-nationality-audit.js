@@ -32,7 +32,7 @@ const expected={
  Nacional:{total:1039,assigned:1039},
  'B Metropolitana':{total:533,assigned:533},
  'Federal A':{total:883,assigned:879},
- 'Primera C':{total:839,assigned:230},
+ 'Primera C':{total:839,assigned:232},
  'Promocional Amateur':{total:518,assigned:0}
 };
 const summary={};let total=0,assigned=0;
