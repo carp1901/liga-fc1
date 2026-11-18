@@ -11,6 +11,18 @@ if(!file){console.error('Uso: node import-squads.js archivo.csv [--dry-run] [--r
 function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c=='"'&&s[i+1]=='"'){v+='"';i++}else if(c=='"')q=false;else v+=c}else if(c=='"')q=true;else if(c==','){row.push(v);v=''}else if(c=='\n'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v=''}else v+=c}if(v.length||row.length){row.push(v.replace(/\r$/,''));rows.push(row)}return rows}
 const POS={POR:'POR',ARQ:'POR',GK:'POR',GOALKEEPER:'POR',DEF:'DEF',DF:'DEF',DEFENDER:'DEF',MED:'MED',MC:'MED',MCD:'MED',MO:'MED',MID:'MED',MF:'MED',MIDFIELDER:'MED',DEL:'DEL',FW:'DEL',ATA:'DEL',ATTACKER:'DEL'};
 const ATTR=['pas','ctl','reg','rem','des','mar','ant','ref'];
+const NAT_ALIASES={
+ ARG:'ARG',ARGENTINA:'ARG',URU:'URU',URUGUAY:'URU',PAR:'PAR',PARAGUAY:'PAR',
+ CHL:'CHL',CHILE:'CHL',BRA:'BRA',BRASIL:'BRA',COL:'COL',COLOMBIA:'COL',
+ ECU:'ECU',ECUADOR:'ECU',PER:'PER',PERU:'PER',BOL:'BOL',BOLIVIA:'BOL',
+ VEN:'VEN',VENEZUELA:'VEN',SYR:'SYR',SIRIA:'SYR',MEX:'MEX',MEXICO:'MEX',
+ USA:'USA','ESTADOS UNIDOS':'USA',ESP:'ESP','ESPAÑA':'ESP',PRT:'PRT',PORTUGAL:'PRT',
+ FRA:'FRA',FRANCIA:'FRA',ITA:'ITA',ITALIA:'ITA',DEU:'DEU',ALEMANIA:'DEU',
+ HUN:'HUN',HUNGRIA:'HUN',IRL:'IRL',IRLANDA:'IRL',MYS:'MYS',MALASIA:'MYS',
+ JPN:'JPN','JAPON':'JPN',PRI:'PRI','PUERTO RICO':'PRI',SVN:'SVN',ESLOVENIA:'SVN',
+ GUA:'GUA',GUATEMALA:'GUA',ARM:'ARM',ARMENIA:'ARM',CHE:'CHE',SUI:'CHE',SUIZA:'CHE'
+};
+const normalizeNat=value=>{const key=String(value||'').trim().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toUpperCase();return NAT_ALIASES[key]||null;};
 const PRIMERA=['boca','river','racing','independiente','sanlorenzo','estudiantes','velez','talleres','lanus','rosario','huracan','belgrano','argentinos','defensa','newells','union','tigre','platense','banfield','gimnasia','centralcba','rivadavia','instituto','atletico','barracas','riestra','sarmiento','aldosivi','gimnasiamza','estudiantesrc'];
 const NACIONAL=['agropecuario','allboys','almirantebrown','almagro','atlanta','centralnorte','chaco','chacarita','colegiales','colon','defensoresbelgrano','madryn','maipu','moron','estudiantesba','ferro','gimnasiajujuy','gimnasiatiro','guemes','losandes','mitre','nuevachicago','patronato','quilmes','racingcba','sanmartintuc','sanmiguel','santelmo','temperley','tristansuarez','midland','rafaela','godoycruz','sanmartinsj','ciudadbolivar','acassuso'];
 const ageAt=(birth,reference)=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(birth||'');if(!m)return null;const [y,mo,d]=m.slice(1).map(Number),[ry,rm,rd]=reference.split('-').map(Number);let age=ry-y;if(rm<mo||(rm===mo&&rd<d))age--;return age};
@@ -20,18 +32,19 @@ for(const h of ['club_id','nombre','posicion'])if(col[h]==null)throw Error('Falt
 const out={},errors=[],sources={},seen={},seenNumbers={};
 rows.forEach((r,i)=>{
  if(!r.some(x=>x.trim()))return;
- const get=k=>col[k]==null?'':(r[col[k]]||'').trim(),club=get('club_id'),name=get('nombre'),raw=get('posicion').toUpperCase(),pos=POS[raw],rating=Number(get('rating')),birth=get('fecha_nacimiento'),age=get('edad')!==''?Number(get('edad')):ageAt(birth,AGE_REFERENCE_DATE),number=get('dorsal')!==''?Number(get('dorsal')):null;
+ const get=k=>col[k]==null?'':(r[col[k]]||'').trim(),club=get('club_id'),name=get('nombre'),raw=get('posicion').toUpperCase(),pos=POS[raw],rating=Number(get('rating')),birth=get('fecha_nacimiento'),age=get('edad')!==''?Number(get('edad')):ageAt(birth,AGE_REFERENCE_DATE),number=get('dorsal')!==''?Number(get('dorsal')):null,nat=normalizeNat(get('nat'));
  if(!club||!name||!pos||get('rating')===''||!Number.isFinite(rating)||rating<1||rating>99){errors.push('Fila '+(i+2)+': club, nombre, posición o rating inválido');return}
  if(age!=null&&(!Number.isInteger(age)||age<15||age>50)){errors.push('Fila '+(i+2)+': edad inválida');return}
  if(birth&&!/^\d{4}-\d{2}-\d{2}$/.test(birth)){errors.push('Fila '+(i+2)+': fecha_nacimiento inválida');return}
  if(number!=null&&(!Number.isInteger(number)||number<1||number>99)){errors.push('Fila '+(i+2)+': dorsal inválido');return}
  if(get('ref')&&!Number.isFinite(Number(get('ref')))){errors.push('Fila '+(i+2)+': valor no numérico en ref; revisar nacionalidad mal ubicada');return}
+ if(get('nat')&&!nat){errors.push('Fila '+(i+2)+': nacionalidad no reconocida: '+get('nat'));return}
  if(!get('rating_source')){errors.push('Fila '+(i+2)+': falta rating_source; usar OVR oficial o una estimación propia identificada, no dejar 60 por defecto');return}
  const key=club+'|'+name.toLowerCase();if(seen[key]){errors.push('Fila '+(i+2)+': jugador duplicado en '+club+': '+name);return}seen[key]=1;
  if(number!=null){const nk=club+'|'+number;if(seenNumbers[nk]){errors.push('Fila '+(i+2)+': dorsal duplicado en '+club+': '+number);return}seenNumbers[nk]=1}
  const player={n:name,p:pos,r:Math.round(rating),role:get('rol')||raw};
  if(get('abreviatura')&&!/^[A-Z]{3}$/.test(get('abreviatura'))&&get('abreviatura')!==get('nat'))player.short=get('abreviatura');   // 'ARG' (código de país copiado por error) no es un nombre corto: se ignora y se deriva del nombre
- if(get('nat'))player.nat=get('nat');if(get('nat_source'))player.natSource=get('nat_source');if(get('id'))player.id=get('id');
+ if(nat)player.nat=nat;if(get('nat_source'))player.natSource=get('nat_source');if(get('id'))player.id=get('id');
  if(age!=null)player.age=age;if(birth)player.birthDate=birth;if(get('fuente_edad'))player.ageSource=get('fuente_edad');
  if(number!=null)player.number=number;if(get('dorsal_source'))player.numberSource=get('dorsal_source');
  if(get('pie'))player.foot=get('pie');
