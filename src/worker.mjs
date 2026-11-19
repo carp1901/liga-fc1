@@ -570,16 +570,21 @@ export class LobbyCoordinator {
     return this.env.ROOMS.get(id).fetch(new Request("https://room.internal/room/" + code + "/" + action + query, init));
   }
   async listRooms() {
-    const codes = await this.roomCodes(), keep = [], rooms = [];
-    for (const code of codes) {
+    const codes = await this.roomCodes();
+    const results = await Promise.all(codes.map(async code => {
       try {
         const response = await this.roomFetch(code, "public-list");
         const found = await response.json();
-        if (response.ok && Array.isArray(found) && found.length) { keep.push(code); rooms.push(...found); }
-      } catch (error) { console.error("Public room index cleanup failed:", error?.message || error); }
-    }
+        return response.ok && Array.isArray(found) && found.length ? { code, rooms: found } : null;
+      } catch (error) {
+        console.error("Public room index cleanup failed:", error?.message || error);
+        return null;
+      }
+    }));
+    const active = results.filter(Boolean);
+    const keep = active.map(item => item.code);
     if (keep.length !== codes.length) await this.state.storage.put("public-room-codes", keep);
-    return rooms.sort((a,b)=>(b.vac>0)-(a.vac>0)||b.h-a.h);
+    return active.flatMap(item => item.rooms).sort((a,b)=>(b.vac>0)-(a.vac>0)||b.h-a.h);
   }
   async abandon(uid) {
     if (!Number.isSafeInteger(Number(uid)) || Number(uid)<1) return;
