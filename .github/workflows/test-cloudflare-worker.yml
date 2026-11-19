@@ -8,6 +8,7 @@ on:
       - 'src/auth.mjs'
       - 'src/db.mjs'
       - 'src/social.mjs'
+      - 'src/social.mjs'
       - 'public/engine.js'
       - 'CLOUDFLARE-WORKER-MIGRATION.md'
       - 'tests/cloudflare-worker.test.mjs'
