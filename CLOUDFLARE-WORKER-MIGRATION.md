@@ -9,7 +9,7 @@ La integración avanzó de transporte experimental a **runtime de salas integrad
 - El Durable Object carga y guarda el estado completo del motor, incluidos los conjuntos usados por el partido.
 - El reloj del motor dejó de crear temporizadores globales en este modo; cada Durable Object lo avanza mediante su alarma.
 - Las conexiones SSE se vuelven a asociar al jugador cuando se reconecta.
-- Los IDs de cuenta enviados por el navegador se descartan. Aunque el registro/login ya tiene una primera implementación en el Worker, todavía no se valida la sesión al ejecutar acciones del motor; por eso no se atribuyen cuentas a partidos ni se deben usar para rankings o sanciones vinculadas a usuarios.
+- Los IDs de cuenta enviados por el navegador se descartan. Para POST /act, el Worker valida el token contra Neon y pasa al Durable Object únicamente el UID verificado mediante un encabezado interno que el cliente no puede imponer. Sin token válido, la partida queda como invitado.
 
 **Todavía no es un backend listo para producción ni para cambiar el frontend.** Ya se agregó una primera migración de registro, login, sesiones y validación de token a través del driver HTTP de Neon. Los perfiles, amigos, chat, moderación, rankings, palmarés y demás endpoints de datos todavía dependen de server.js y store.js. La ruta de juego y la autenticación en Cloudflare deben probarse antes de cualquier corte.
 
@@ -28,7 +28,7 @@ El endpoint `GET /api/db/health` permite comprobar la conexión real sin exponer
 ## Fases pendientes
 
 1. **Pruebas de equivalencia:** comparar el mismo flujo de partida en Node y Cloudflare; validar 8 y 10 jugadores, espectadores, penales, pelotas paradas, desconexión/reconexión y abandono.
-2. **Autenticación:** registro, login, cierre de sesión y validación de token ya están portados a `src/auth.mjs`; usan `PBKDF2-SHA256` con sal y guardan únicamente el hash SHA-256 del token de sesión. Se agregaron límites básicos por IP/usuario en memoria del Worker. Falta probarlos contra Neon real, revisar el costo de CPU del hash y agregar rate limiting distribuido antes del lanzamiento.
+2. **Autenticación:** registro, login, cierre de sesión y validación de token ya están portados a `src/auth.mjs`; usan `PBKDF2-SHA256` con sal y guardan únicamente el hash SHA-256 del token de sesión. Se agregaron límites básicos por IP/usuario en memoria del Worker. Falta probarlos contra Neon real, revisar el costo de CPU del hash y agregar rate limiting distribuido antes del lanzamiento. La identidad verificada ya se conecta a las acciones online del motor; falta conectar los eventos de fin de torneo con la persistencia de carreras y títulos.
 3. **Datos de cuenta:** el driver `@neondatabase/serverless` está integrado en `src/db.mjs`. Falta portar perfiles, amigos, chat, moderación, carreras, rankings y palmarés conservando las reglas de `store.js`. Los datos de usuarios y sesiones en el proyecto Neon están actualmente vacíos; no hay hashes scrypt previos que deban migrarse.
 4. **Frontend y CORS:** probar Android, EventSource, reconexiones y errores de red contra el Worker sin cambiar todavía el dominio público.
 5. **Carga y límites:** probar múltiples salas simultáneas, CPU, alarmas, requests y consumo de Durable Objects.
