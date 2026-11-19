@@ -293,3 +293,19 @@ test("account registration, login, token validation and logout use Neon-backed a
   }), env);
   assert.equal(invalid.status, 401);
 });
+
+
+test("Neon health endpoint checks the configured database adapter", async () => {
+  const calls = [];
+  const env = {
+    __DB_QUERY__: async (statement, params) => {
+      calls.push({ statement, params });
+      return { rows: [{ ok: 1 }], rowCount: 1 };
+    }
+  };
+  const response = await worker.fetch(new Request("https://game.test/api/db/health"), env);
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { ok: true, database: "connected", value: 1 });
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].statement, "SELECT 1 AS ok");
+});
