@@ -26,7 +26,7 @@ export function offlineTitleRecord(b,D) {
   if(!(n>=4&&n<=clubs.length))return "Cantidad de equipos inválida";
   if(pers&&!((real||custom?n<=40:n<=20&&n%2===0)&&fmt!=="copa"))return "Cantidad de equipos inválida";
   if(arg&&!(fmt==="copa"&&n===64))return "Cantidad de equipos inválida";
-  return {tid,club,clubNombre:D.TM[club].name,dt:String(b.dt||"").replace(/[<>&"]/g,"").slice(0,16)||null,mod:"offline",comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:arg?"Copa Argentina":real?"Clásico realista":custom?(String(b.compNombre||"").trim()&&String(b.compNombre).trim()!=="custom"?String(b.compNombre).replace(/[<>&"]/g,"").slice(0,60):"Carrera personalizada"):pers?"Clásico personalizado":"Todas las divisiones",fmt,n,at:Date.now(),ver:"offline-informado"};
+  return {tid,club,clubNombre:D.TM[club].name,dt:String(b.dt||"").replace(/[<>&"]/g,"").slice(0,16)||null,mod:"offline",comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:arg?"Copa Argentina":real?"Clásico realista":custom?(String(b.compNombre||"").trim()&&String(b.compNombre).trim()!=="custom"?String(b.compNombre).replace(/[<>&"]/g,"").slice(0,60):"Carrera personalizada"):pers?"Clásico personalizado":"Todas las divisiones",fmt,n,competitivo:n>=8,at:Date.now(),ver:"offline-informado"};
 }
 function country(r){const c=String(r.competicion||"").toLowerCase(),club=String(r.club||"").toLowerCase();if(club.startsWith("uy_"))return "Uruguay";if(club.startsWith("br_"))return "Brasil";if(c==="uy"||c.startsWith("uy1")||c.startsWith("uy2"))return "Uruguay";if(c==="br"||c.startsWith("br1")||c.startsWith("br2"))return "Brasil";return "Argentina";}
 export function rankRows(rows,f={}) {
