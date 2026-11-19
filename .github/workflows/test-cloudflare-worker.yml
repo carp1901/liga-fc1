@@ -5,6 +5,8 @@ on:
     branches: [cloudflare-workers-backend]
     paths:
       - 'src/worker.mjs'
+      - 'public/engine.js'
+      - 'CLOUDFLARE-WORKER-MIGRATION.md'
       - 'tests/cloudflare-worker.test.mjs'
       - 'wrangler.jsonc'
       - 'package.json'
