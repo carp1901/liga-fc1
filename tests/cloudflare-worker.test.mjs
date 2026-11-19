@@ -975,3 +975,18 @@ test("public lobby creates, lists, joins and closes rooms through Durable Object
   const afterClose = await worker.fetch(new Request("https://game.test/api/salas"), env);
   assert.deepEqual(await afterClose.json(), []);
 });
+
+
+test("public lobby persists abandonment blocks for account users", async () => {
+  const { env } = mockEnv();
+  const lobby = env.LOBBY.get("global");
+  for (let i = 0; i < 3; i++) {
+    const reported = await lobby.fetch(post("https://lobby.internal/abandon", { uid: 77, room: "pub12345" }));
+    assert.equal(reported.status, 200);
+  }
+  const blocked = await lobby.fetch(post("https://lobby.internal/api", {
+    op: "create", uid: 77, pid: "blocked-player", div: "ar1", fmt: "liga1", n: 10
+  }));
+  assert.equal(blocked.status, 403);
+  assert.match((await blocked.json()).error, /bloqueado por abandonos/);
+});
