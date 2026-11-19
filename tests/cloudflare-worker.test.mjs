@@ -585,10 +585,12 @@ test("public technician profile is available without authentication", async () =
 });
 
 
+let nextChatMockBase = 1000;
 function mockChatDatabase() {
   const users = [], sessions = [], profiles = new Map(), messages = [], reactions = [];
   const sanctions = new Map(), moderators = new Set(), events = [];
-  let nextUserId = 1, nextMessageId = 1;
+  let nextUserId = nextChatMockBase, nextMessageId = 1;
+  nextChatMockBase += 100;
   const env = {
     CHAT_OWNER_USERNAME: "Propietario",
     CHAT: {
@@ -720,9 +722,9 @@ function mockChatDatabase() {
 }
 
 test("public chat history, authenticated sending, profanity filter and live event", async () => {
-  const { env, profiles, messages, events } = mockChatDatabase();
+  const { env, users, profiles, messages, events } = mockChatDatabase();
   const account = await createAccount(env, "ChatUser");
-  profiles.set(1, { club_favorito: "boca" });
+  profiles.set(users[0].id, { club_favorito: "boca" });
   const headers = { authorization: "Bearer " + account.token, "content-type": "application/json" };
   const sent = await worker.fetch(new Request("https://game.test/api/chat", {
     method: "POST", headers, body: JSON.stringify({ mensaje: "Hola poronga" })
@@ -754,13 +756,13 @@ test("chat requires login to write and favorite club to post", async () => {
 });
 
 test("chat reactions, owner moderation permissions and sanctions are enforced", async () => {
-  const { env, profiles, messages, reactions, sanctions, moderators } = mockChatDatabase();
+  const { env, users, profiles, messages, reactions, sanctions, moderators } = mockChatDatabase();
   const author = await createAccount(env, "ChatAutor");
   const user = await createAccount(env, "ChatOtro");
   const owner = await createAccount(env, "Propietario");
-  profiles.set(1, { club_favorito: "boca" });
-  profiles.set(2, { club_favorito: "river" });
-  profiles.set(3, { club_favorito: "independiente" });
+  profiles.set(users[0].id, { club_favorito: "boca" });
+  profiles.set(users[1].id, { club_favorito: "river" });
+  profiles.set(users[2].id, { club_favorito: "independiente" });
   const auth = token => ({ authorization: "Bearer " + token, "content-type": "application/json" });
 
   const sent = await worker.fetch(new Request("https://game.test/api/chat", {
@@ -784,11 +786,11 @@ test("chat reactions, owner moderation permissions and sanctions are enforced", 
     method: "POST", headers: auth(owner.token), body: JSON.stringify({ usuario: "ChatAutor", accion: "silenciar", minutos: 5, razon: "spam" })
   }), env);
   assert.equal(mute.status, 200);
-  assert.equal(sanctions.get(1).tipo, "mute");
+  assert.equal(sanctions.get(users[0].id).tipo, "mute");
 
   const suspended = await createAccount(env, "ChatSuspendido");
-  profiles.set(4, { club_favorito: "racing" });
-  sanctions.set(4, { tipo: "suspension", hasta: null });
+  profiles.set(users[3].id, { club_favorito: "racing" });
+  sanctions.set(users[3].id, { tipo: "suspension", hasta: null });
   const suspendedPost = await worker.fetch(new Request("https://game.test/api/chat", {
     method: "POST", headers: auth(suspended.token), body: JSON.stringify({ mensaje: "No debería pasar" })
   }), env);
@@ -800,7 +802,7 @@ test("chat reactions, owner moderation permissions and sanctions are enforced", 
     method: "POST", headers: auth(owner.token), body: JSON.stringify({ usuario: "ChatOtro", accion: "moderar" })
   }), env);
   assert.equal(promote.status, 200);
-  assert.ok(moderators.has(2));
+  assert.ok(moderators.has(users[1].id));
 });
 
 test("ChatHub broadcasts live SSE events to connected clients", async () => {
