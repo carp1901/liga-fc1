@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import worker, { RoomCoordinator, ChatHub } from "../src/worker.mjs";
 import Data from "../public/data.js";
+import { addCareers, addTitle, offlineTitleRecord, rankRows, pointsForCareer, rankingCoaches, rankingFans } from "../src/careers.mjs";
 
 class MemoryStorage {
   data = new Map();
@@ -819,4 +820,61 @@ test("ChatHub broadcasts live SSE events to connected clients", async () => {
   assert.match(new TextDecoder().decode(event.value), /event: mensaje/);
   assert.match(new TextDecoder().decode(event.value), /"id":7/);
   await reader.cancel();
+});
+
+
+test("club palmares ranking preserves modality, season and tie rules", () => {
+  const rows = [
+    { club: "ar_boca", club_nombre: "Boca", modalidad: "clasico", competicion: "ar1", formato: "liga1", finalizado: "2026-01-01T00:00:00Z" },
+    { club: "ar_boca", club_nombre: "Boca", modalidad: "offline", competicion: "custom", formato: "copa", finalizado: "2026-02-01T00:00:00Z" },
+    { club: "ar_river", club_nombre: "River", modalidad: "clasico", competicion: "ar1", formato: "liga1", finalizado: "2026-03-01T00:00:00Z" }
+  ];
+  assert.equal(rankRows(rows, { mod: "online" }).rows[0].club, "ar_boca");
+  assert.equal(rankRows(rows, { mod: "offline" }).rows[0].club, "ar_boca");
+  assert.equal(rankRows(rows, { mod: "online", year: 2026 }).total, 2);
+});
+
+test("offline title validation keeps the existing club, format and participant constraints", () => {
+  const validClub = Data.DIVS.find(div => div.id === "ar1").teams[0].id;
+  const valid = offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: validClub, fmt: "liga1", n: 8 }, Data);
+  assert.equal(typeof valid, "object");
+  assert.equal(valid.mod, "offline");
+  assert.equal(offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: "no-existe", fmt: "liga1", n: 8 }, Data), "El club no pertenece a esa competición");
+  assert.equal(offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: validClub, fmt: "liga1", n: 3 }, Data), "Cantidad de equipos inválida");
+});
+
+test("career writes are idempotent and bind the authenticated account ID", async () => {
+  const calls = [];
+  const env = { __DB_QUERY__: async (sql, params) => { calls.push({ sql, params }); return { rows: [], rowCount: 1 }; } };
+  await addCareers(env, [{ uid: 7, tid: "career-1", club: "ar_boca", mod: "offline", humanos: 1, campeon: true }]);
+  assert.equal(calls.length, 1);
+  assert.match(calls[0].sql, /ON CONFLICT\(usuario_id,torneo_id\) DO NOTHING/);
+  assert.equal(calls[0].params[0], 7);
+  assert.equal(calls[0].params[1], "career-1");
+});
+
+test("club title inserts are idempotent", async () => {
+  let sqlSeen = "";
+  const env = { __DB_QUERY__: async (sql) => { sqlSeen = sql; return { rows: [], rowCount: 0 }; } };
+  const result = await addTitle(env, { tid: "torneo123456", club: "ar_boca", clubNombre: "Boca", mod: "clasico", comp: "ar1", compNombre: "Primera", fmt: "liga1", n: 8 });
+  assert.deepEqual(result, { status: "duplicate" });
+  assert.match(sqlSeen, /ON CONFLICT\(torneo_id\) DO NOTHING/);
+});
+
+test("technician ranking keeps the established points and eight-player eligibility", async () => {
+  assert.equal(pointsForCareer({ participantes: 8, formato: "liga1", posicion: 1 }), 8);
+  assert.equal(pointsForCareer({ participantes: 8, formato: "copa", resultado: "Campeón" }), 8);
+  let query = "";
+  const env = { __DB_QUERY__: async (sql) => { query = sql; return { rows: [], rowCount: 0 }; } };
+  const result = await rankingCoaches(env, "historico");
+  assert.equal(result.enabled, true);
+  assert.match(query, /ELSE 8 END/);
+});
+
+test("fan ranking groups accounts by their one-time favorite club", async () => {
+  const env = { __DB_QUERY__: async () => ({ rows: [{ club: "ar_boca", puntos: 3 }, { club: "ar_river", puntos: 1 }], rowCount: 2 }) };
+  const result = await rankingFans(env);
+  assert.equal(result.totalCuentas, 4);
+  assert.equal(result.rows[0].club, "ar_boca");
+  assert.equal(result.rows[0].hinchas, 3);
 });
