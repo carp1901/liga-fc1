@@ -42,7 +42,7 @@ function deltaSender(controller) {
   return value => {
     const snapshot = JSON.parse(JSON.stringify(value));
     if (!previous || ++sent % 30 === 0) {
-      controller.enqueue(encoder.encode("data:" + JSON.stringify({ __cf: "full", v: snapshot }) + "\\n\\n"));
+      controller.enqueue(encoder.encode("data:" + JSON.stringify({ __cf: "full", v: snapshot }) + "\n\n"));
       previous = snapshot;
       return;
     }
@@ -52,7 +52,7 @@ function deltaSender(controller) {
     if (sets.length || deletes.length) {
       const patch = JSON.stringify({ __cf: "patch", u: sets, d: deletes });
       const full = JSON.stringify({ __cf: "full", v: snapshot });
-      controller.enqueue(encoder.encode("data:" + (patch.length < full.length ? patch : full) + "\\n\\n"));
+      controller.enqueue(encoder.encode("data:" + (patch.length < full.length ? patch : full) + "\n\n"));
     }
     previous = snapshot;
   };
@@ -142,7 +142,7 @@ export class RoomCoordinator {
 
   async handle(request) {
     const url = new URL(request.url);
-    const match = url.pathname.match(/^\/room\/([a-z0-9]{3,12})\/(act|ev|state)$/i);
+    const match = url.pathname.match(/^\/room\/([a-z0-9]{3,12})\/(act|ev|state|session)$/i);
     if (!match) return json({ error: "Ruta no disponible" }, 404);
     const code = match[1].toLowerCase();
     const action = match[2];
@@ -186,8 +186,10 @@ export class RoomCoordinator {
         start: controller => {
           client = { controller };
           this.clients.set(pid, client);
+          const send = deltaSender(controller);
+          controller.enqueue(new TextEncoder().encode("retry:2000\n\n"));
           const connected = Engine.listen(code, pid, value => {
-            try { controller.enqueue(new TextEncoder().encode("data:" + JSON.stringify(value) + "\n\n")); }
+            try { send(value); }
             catch { this.clients.delete(pid); }
           });
           if (!connected) {
