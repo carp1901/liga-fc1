@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "clash-futbol-edge",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-11-19",
+  "workers_dev": true,
+  "durable_objects": {
+    "bindings": [
+      { "name": "ROOMS", "class_name": "RoomCoordinator" }
+    ]
+  },
+  "exports": {
+    "RoomCoordinator": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  }
+}
