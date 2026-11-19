@@ -342,6 +342,31 @@ async function routeRequest(request, env) {
       catch (error) { console.error("Fan ranking failed:", error?.message || error); return json({ error: "Ranking de hinchas no disponible" }, 503); }
     }
 
+    if (request.method === "GET" && url.pathname === "/api/salas") {
+      const id = env.LOBBY.idFromName("global");
+      return env.LOBBY.get(id).fetch(new Request("https://lobby.internal/list"));
+    }
+    if (request.method === "POST" && url.pathname === "/api/pub") {
+      const body = await readJson(request.clone());
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      const ip = request.headers.get("cf-connecting-ip") || "unknown";
+      if (!allowAuthAttempt("public-lobby:" + ip, 120)) return json({ error: "Demasiados intentos; probá más tarde" }, 429);
+      try {
+        let user = null;
+        const token = Auth.tokenFromRequest(request, body);
+        if (token) user = await Auth.userByToken(env, token);
+        const { uid: clientUid, tok: clientToken, ...safeBody } = body;
+        if (user) safeBody.uid = user.id;
+        const id = env.LOBBY.idFromName("global");
+        return env.LOBBY.get(id).fetch(new Request("https://lobby.internal/api", {
+          method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(safeBody)
+        }));
+      } catch (error) {
+        console.error("Public lobby request failed:", error?.message || error);
+        return json({ error: "No se pudo completar la operación de sala" }, 503);
+      }
+    }
+
     if (url.pathname.startsWith("/api/chat")) {
       const chatPath = url.pathname;
       if (chatPath === "/api/chat/stream" && request.method === "GET") {
@@ -526,6 +551,91 @@ async function routeRequest(request, env) {
 
 export { ChatHub };
 
+
+export class LobbyCoordinator {
+  constructor(state, env) {
+    this.state = state;
+    this.env = env;
+    this.queue = Promise.resolve();
+  }
+  fetch(request) {
+    const run = this.queue.then(() => this.handle(request));
+    this.queue = run.catch(() => {});
+    return run;
+  }
+  async roomCodes() { return (await this.state.storage.get("public-room-codes")) || []; }
+  async roomFetch(code, action, method = "GET", body = null, query = "") {
+    const id = this.env.ROOMS.idFromName(code);
+    const init = method === "POST" ? { method, headers: { "content-type": "application/json" }, body: JSON.stringify(body || {}) } : { method };
+    return this.env.ROOMS.get(id).fetch(new Request("https://room.internal/room/" + code + "/" + action + query, init));
+  }
+  async listRooms() {
+    const codes = await this.roomCodes(), keep = [], rooms = [];
+    for (const code of codes) {
+      try {
+        const response = await this.roomFetch(code, "public-list");
+        const found = await response.json();
+        if (response.ok && Array.isArray(found) && found.length) { keep.push(code); rooms.push(...found); }
+      } catch (error) { console.error("Public room index cleanup failed:", error?.message || error); }
+    }
+    if (keep.length !== codes.length) await this.state.storage.put("public-room-codes", keep);
+    return rooms.sort((a,b)=>(b.vac>0)-(a.vac>0)||b.h-a.h);
+  }
+  async abandon(uid) {
+    if (!Number.isSafeInteger(Number(uid)) || Number(uid)<1) return;
+    const all=(await this.state.storage.get("abandonments"))||{},key=String(uid),now=Date.now();
+    const entry=all[key]||{times:[],until:0};
+    entry.times=(entry.times||[]).filter(time=>now-time<864e5);entry.times.push(now);
+    if(entry.times.length>=3){entry.until=now+30*60*1000;entry.times=[];}
+    all[key]=entry;await this.state.storage.put("abandonments",all);
+  }
+  async handle(request) {
+    const url=new URL(request.url);
+    if(request.method==="GET"&&url.pathname==="/list")return json(await this.listRooms());
+    if(request.method==="POST"&&url.pathname==="/abandon"){
+      const body=await readJson(request);if(!body)return json({error:"Pedido inválido"},400);
+      await this.abandon(body.uid);return json({ok:true});
+    }
+    if(request.method!=="POST"||url.pathname!=="/api")return json({error:"Ruta no disponible"},404);
+    const body=await readJson(request);if(!body||typeof body!=="object")return json({error:"Pedido inválido"},400);
+    const op=String(body.op||""),pid=String(body.pid||"").slice(0,40),uid=Number(body.uid);
+    if(!pid)return json({error:"Falta id"},400);
+    const account=Number.isSafeInteger(uid)&&uid>0?String(uid):"";
+    const all=(await this.state.storage.get("abandonments"))||{};
+    const penalty=account?(all[account]||{times:[],until:0}):{times:[],until:0};
+    penalty.times=(penalty.times||[]).filter(time=>Date.now()-time<864e5);
+    if(["create","play","take"].includes(op)&&penalty.until>Date.now()){
+      const until=new Date(penalty.until).toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",timeZone:"America/Argentina/Buenos_Aires"});
+      return json({error:"Estás bloqueado por abandonos reiterados hasta las "+until+". Podés volver a jugar entonces."},403);
+    }
+    const codes=await this.roomCodes();
+    if(["create","play"].includes(op)){
+      for(const code of codes){
+        const existing=await this.roomFetch(code,"public-player","GET",null,"?pid="+encodeURIComponent(pid));
+        if((await existing.json()).ok)return json({room:code});
+      }
+    }
+    let code=String(body.room||"").toLowerCase();
+    if(op==="create"){
+      if(codes.length>=60)return json({error:"Servidor lleno"},400);
+      const bytes=new Uint8Array(4);crypto.getRandomValues(bytes);
+      code="pub"+Array.from(bytes,value=>value.toString(36)).join("").slice(0,5);
+      while(codes.includes(code)){crypto.getRandomValues(bytes);code="pub"+Array.from(bytes,value=>value.toString(36)).join("").slice(0,5);}
+    }else if(!/^[a-z0-9]{3,12}$/.test(code)||!codes.includes(code)){
+      return json({error:"Esa sala ya no existe o se cerró"},404);
+    }
+    const response=await this.roomFetch(code,"public","POST",{...body,pid,room:code});
+    const result=await response.json();
+    if(op==="create"&&response.ok&&result.room){
+      const latest=await this.roomCodes();if(!latest.includes(code))await this.state.storage.put("public-room-codes",[...latest,code]);
+    }
+    if(result.room&&response.ok&&account&&penalty.times.length===2&&["create","play","take"].includes(op)){
+      result.aviso="Aviso: ya abandonaste 2 partidas en las últimas 24 h. Al tercer abandono no vas a poder entrar a salas públicas ni a partida aleatoria durante 30 minutos.";
+    }
+    return json(result,response.status);
+  }
+}
+
 export class RoomCoordinator {
   constructor(state, env) {
     this.state = state;
@@ -538,6 +648,16 @@ export class RoomCoordinator {
       return pending;
     };
     Engine.CFG.onTitle = record => Careers.addTitle(this.env, record);
+    Engine.CFG.onAbandon = (uid, room) => {
+      if (!this.env.LOBBY) return;
+      const id = this.env.LOBBY.idFromName("global");
+      const pending = this.env.LOBBY.get(id).fetch(new Request("https://lobby.internal/abandon", {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ uid, room })
+      }));
+      if (this.state.waitUntil) this.state.waitUntil(pending);
+      return pending;
+    };
     this.loadedCode = null;
     this.clients = new Map();
     this.queue = Promise.resolve();
@@ -570,11 +690,30 @@ export class RoomCoordinator {
 
   async handle(request) {
     const url = new URL(request.url);
-    const match = url.pathname.match(/^\/room\/([a-z0-9]{3,12})\/(act|ev|state|session)$/i);
+    const match = url.pathname.match(/^\/room\/([a-z0-9]{3,12})\/(act|ev|state|session|public|public-list|public-player)$/i);
     if (!match) return json({ error: "Ruta no disponible" }, 404);
     const code = match[1].toLowerCase();
     const action = match[2];
     await this.load(code);
+
+    if (action === "public-list" && request.method === "GET") {
+      return json(Engine.pubList().filter(room => room.code === code));
+    }
+    if (action === "public-player" && request.method === "GET") {
+      const pid = String(url.searchParams.get("pid") || "").slice(0, 40);
+      const room = Engine.rooms[code];
+      const active = room && room.pub && !room.closed && room.phase !== "end"
+        && (room.phase !== "pick" || Date.now() < room.pub.closeAt);
+      return json({ ok: !!active && !!room.pl[pid] && !room.pl[pid].ai });
+    }
+    if (action === "public" && request.method === "POST") {
+      const body = await readJson(request);
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      if (String(body.room || "").toLowerCase() !== code) return json({ error: "La sala no coincide" }, 400);
+      const result = Engine.pubApi(body);
+      await this.persist(code);
+      return json(result, result.error ? 400 : 200);
+    }
 
     if (action === "act" && request.method === "POST") {
       const body = await readJson(request);
