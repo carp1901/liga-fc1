@@ -627,7 +627,7 @@ export class LobbyCoordinator {
     }
     const response=await this.roomFetch(code,"public","POST",{...body,pid,room:code});
     const result=await response.json();
-    if(op==="create"&&response.ok&&result.room){
+    if(op==="create"&&response.ok&&result.room===code){
       const latest=await this.roomCodes();if(!latest.includes(code))await this.state.storage.put("public-room-codes",[...latest,code]);
     }
     if(result.room&&response.ok&&account&&penalty.times.length===2&&["create","play","take"].includes(op)){
