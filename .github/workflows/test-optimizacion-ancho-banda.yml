@@ -41,7 +41,7 @@ jobs:
         run: npm install
       - name: Iniciar servidor para las pruebas
         run: |
-          TICK_MS=50 PORT=3000 node server.js > /tmp/clash-futbol-server.log 2>&1 &
+          FAST_WAITS=1 TICK_MS=50 PORT=3000 node server.js > /tmp/clash-futbol-server.log 2>&1 &
           echo $! > /tmp/clash-futbol-server.pid
           for i in {1..30}; do
             if curl -fsS http://localhost:3000/teams.json > /dev/null; then
