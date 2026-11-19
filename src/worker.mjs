@@ -64,7 +64,7 @@ export class RoomCoordinator {
     this.env = env;
     this.loadedCode = null;
     this.clients = new Map();
-    this.ready = Promise.resolve();
+    this.queue = Promise.resolve();
   }
 
   async load(code) {
@@ -86,7 +86,13 @@ export class RoomCoordinator {
     }
   }
 
-  async fetch(request) {
+  fetch(request) {
+    const run = this.queue.then(() => this.handle(request));
+    this.queue = run.catch(() => {});
+    return run;
+  }
+
+  async handle(request) {
     const url = new URL(request.url);
     const match = url.pathname.match(/^\/room\/([a-z0-9]{3,12})\/(act|ev|state)$/i);
     if (!match) return json({ error: "Ruta no disponible" }, 404);
@@ -98,7 +104,9 @@ export class RoomCoordinator {
       const body = await readJson(request);
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
       if (String(body.room || "").toLowerCase() !== code) return json({ error: "La sala no coincide" }, 400);
-      const error = Engine.act({ ...body, room: code });
+      // Until the auth endpoints are migrated, never trust a client-supplied account ID.
+      const { uid, ...safeBody } = body;
+      const error = Engine.act({ ...safeBody, room: code });
       if (error) return json({ error }, 400);
       await this.persist(code);
       return json({ ok: true });
@@ -145,7 +153,13 @@ export class RoomCoordinator {
     return json({ error: "Método no disponible" }, 405);
   }
 
-  async alarm() {
+  alarm() {
+    const run = this.queue.then(() => this.handleAlarm());
+    this.queue = run.catch(() => {});
+    return run;
+  }
+
+  async handleAlarm() {
     const code = await this.state.storage.get("room-code");
     if (!code) return;
     await this.load(code);
