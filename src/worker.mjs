@@ -57,12 +57,34 @@ function deltaSender(controller) {
     previous = snapshot;
   };
 }
+function addCors(response, origin) {
+  if (!origin) return response;
+  const headers = new Headers(response.headers);
+  headers.set("access-control-allow-origin", origin);
+  headers.set("access-control-allow-methods", "GET,POST,OPTIONS");
+  headers.set("access-control-allow-headers", "Content-Type,Authorization");
+  headers.set("access-control-max-age", "86400");
+  headers.append("vary", "Origin");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers
+  });
+}
 async function readJson(request) {
   try { return await request.json(); } catch { return null; }
 }
 
 export default {
   async fetch(request, env) {
+    const origin = request.headers.get("origin") || "";
+    const allowed = String(env.FRONTEND_ORIGINS || "").split(",").map(value => value.trim()).filter(Boolean);
+    if (origin && !allowed.includes(origin)) return json({ error: "Origen no autorizado" }, 403);
+    if (request.method === "OPTIONS") return addCors(new Response(null, { status: 204 }), origin);
+    return addCors(await this.route(request, env), origin);
+  },
+
+  async route(request, env) {
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/health") {
       return json({
