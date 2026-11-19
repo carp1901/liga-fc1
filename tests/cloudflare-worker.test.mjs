@@ -317,6 +317,7 @@ test("Neon health endpoint checks the configured database adapter", async () => 
 
 test("only a validated Neon session can attribute an account to an online player", async () => {
   const { env } = mockAuthDatabase();
+  env.ROOMS = mockEnv().env.ROOMS;
   const registerResponse = await worker.fetch(post("https://game.test/api/auth/registro", {
     usuario: "CuentaReal", clave: "clave-segura-456"
   }), env);
