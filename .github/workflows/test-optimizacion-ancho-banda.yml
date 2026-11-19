@@ -8,6 +8,8 @@ on:
       - 'server.js'
       - 'public/index.html'
       - 'test.js'
+      - 'test-auto-xi.js'
+      - 'test-sim2d-orientation.js'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/test-optimizacion-ancho-banda.yml'
