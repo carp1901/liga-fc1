@@ -110,9 +110,13 @@ test("room state survives recreation of the Durable Object instance", async () =
 
 test("client-supplied account IDs are stripped before the engine receives actions", async () => {
   const { env } = mockEnv();
-  const response = await worker.fetch(post("https://game.test/act", {
-    a: "create", room: "secure1", pid: "player1", uid: 999999, name: "DT",
-    cfg: { div: "ar1", fmt: "liga1", n: 8 }
+  const response = await worker.fetch(new Request("https://game.test/act", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-clash-auth-user-id": "999999" },
+    body: JSON.stringify({
+      a: "create", room: "secure1", pid: "player1", uid: 999999, name: "DT",
+      cfg: { div: "ar1", fmt: "liga1", n: 8 }
+    })
   }), env);
   assert.equal(response.status, 200);
 
