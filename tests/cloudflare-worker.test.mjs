@@ -852,6 +852,7 @@ test("offline title validation keeps the existing club, format and participant c
   const valid = offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: validClub, fmt: "liga1", n: 8 }, Data);
   assert.equal(typeof valid, "object");
   assert.equal(valid.mod, "offline");
+  assert.equal(valid.competitivo, true);
   assert.equal(offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: "no-existe", fmt: "liga1", n: 8 }, Data), "El club no pertenece a esa competición");
   assert.equal(offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: validClub, fmt: "liga1", n: 3 }, Data), "Cantidad de equipos inválida");
 });
