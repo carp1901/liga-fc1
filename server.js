@@ -36,7 +36,7 @@ function chatFilter(raw){
 function sseStream(res){const gzip=zlib.createGzip({flush:zlib.constants.Z_SYNC_FLUSH});gzip.pipe(res);return{write(data){if(!gzip.destroyed&&!gzip.writableEnded){gzip.write(data);gzip.flush(zlib.constants.Z_SYNC_FLUSH)}},end(){if(!gzip.writableEnded)gzip.end()}}}
 function sseDeltaSender(stream,fullEvery=30){
  let previous=null,sent=0;
- const isObj=v=>v!==null&&typeof v==='object';
+ const clone=v=>JSON.parse(JSON.stringify(v)),isObj=v=>v!==null&&typeof v==='object';
  function diff(a,b,path,sets,deletes){
   if(Object.is(a,b))return;
   if(Array.isArray(a)&&Array.isArray(b)&&a.length===b.length){for(let i=0;i<b.length;i++)diff(a[i],b[i],path.concat(i),sets,deletes);return}
@@ -48,10 +48,10 @@ function sseDeltaSender(stream,fullEvery=30){
   sets.push([path,b]);
  }
  return value=>{
-  if(!previous||++sent%fullEvery===0){stream.write('data:'+JSON.stringify({__cf:'full',v:value})+'\n\n');previous=value;return}
+  if(!previous||++sent%fullEvery===0){stream.write('data:'+JSON.stringify({__cf:'full',v:value})+'\n\n');previous=clone(value);return}
   const sets=[],deletes=[];diff(previous,value,[],sets,deletes);
   if(sets.length||deletes.length)stream.write('data:'+JSON.stringify({__cf:'patch',u:sets,d:deletes})+'\n\n');
-  previous=value;
+  previous=clone(value);
  }
 }
 function chatBroadcast(m,tipo='mensaje'){
