@@ -81,10 +81,11 @@ export default {
     const allowed = String(env.FRONTEND_ORIGINS || "").split(",").map(value => value.trim()).filter(Boolean);
     if (origin && !allowed.includes(origin)) return json({ error: "Origen no autorizado" }, 403);
     if (request.method === "OPTIONS") return addCors(new Response(null, { status: 204 }), origin);
-    return addCors(await this.route(request, env), origin);
-  },
+    return addCors(await routeRequest(request, env), origin);
+  }
+};
 
-  async route(request, env) {
+async function routeRequest(request, env) {
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/health") {
       return json({
@@ -125,8 +126,7 @@ export default {
     const stub = env.ROOMS.get(id);
     const forwarded = new Request(new URL(path, url.origin), request);
     return stub.fetch(forwarded);
-  }
-};
+}
 
 export class RoomCoordinator {
   constructor(state, env) {
