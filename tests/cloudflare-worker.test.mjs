@@ -929,11 +929,14 @@ test("public lobby creates, lists, joins and closes rooms through Durable Object
   const entry = Data.catalog().find(item => item.clubs >= 10 && item.sizes.liga1.includes(10));
   assert.ok(entry);
   const create = await worker.fetch(post("https://game.test/api/pub", {
-    op: "create", pid: "host-player", name: "Anfitrion", div: entry.key, fmt: "liga1", n: 10, title: "Sala de prueba"
+    op: "create", pid: "host-player", uid: 999999, name: "Anfitrion", div: entry.key, fmt: "liga1", n: 10, title: "Sala de prueba"
   }), env);
   assert.equal(create.status, 200);
   const created = await create.json();
   assert.match(created.room, /^pub[a-z0-9]{5}$/);
+  const createdState = await worker.fetch(new Request("https://game.test/__cf/rooms/state?room=" + created.room), env);
+  const createdSnapshot = (await createdState.json()).snapshot;
+  assert.equal(createdSnapshot.pl["host-player"].uid, undefined);
 
   const list = await worker.fetch(new Request("https://game.test/api/salas"), env);
   assert.equal(list.status, 200);
@@ -965,6 +968,10 @@ test("public lobby creates, lists, joins and closes rooms through Durable Object
   const withSpectator = await worker.fetch(new Request("https://game.test/api/salas"), env);
   rooms = await withSpectator.json();
   assert.equal(rooms[0].spec, 1);
+  const spectatorControl = await worker.fetch(post("https://game.test/act", {
+    a: "ready", room: created.room, pid: "spectator-1", ready: true
+  }), env);
+  assert.notEqual(spectatorControl.status, 200);
 
   const close = await worker.fetch(post("https://game.test/api/pub", {
     op: "close", room: created.room, pid: "host-player", name: "Anfitrion"
