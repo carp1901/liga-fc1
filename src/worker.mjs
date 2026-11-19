@@ -520,7 +520,13 @@ export class RoomCoordinator {
   constructor(state, env) {
     this.state = state;
     this.env = env;
-    Engine.CFG.onCareer = records => Careers.addCareers(this.env, records);
+    Engine.CFG.onCareer = records => {
+      const pending = Careers.addCareers(this.env, records).catch(error => {
+        console.error("Career persistence failed:", error?.message || error);
+      });
+      if (this.state.waitUntil) this.state.waitUntil(pending);
+      return pending;
+    };
     Engine.CFG.onTitle = record => Careers.addTitle(this.env, record);
     this.loadedCode = null;
     this.clients = new Map();
