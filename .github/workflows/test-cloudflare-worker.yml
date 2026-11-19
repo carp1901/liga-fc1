@@ -14,7 +14,7 @@ on:
       - 'package.json'
       - '.github/workflows/test-cloudflare-worker.yml'
   pull_request:
-    branches: [cloudflare-workers-backend]
+    branches: [migracion-cloudflare-neon]
     paths:
       - 'src/worker.mjs'
       - 'src/auth.mjs'
