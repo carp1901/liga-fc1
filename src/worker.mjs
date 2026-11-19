@@ -1,4 +1,5 @@
 import Engine from "../public/engine.js";
+import Data from "../public/data.js";
 
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -14,6 +15,47 @@ function json(data, status = 200) {
 }
 function validRoomId(value) {
   return ROOM_RE.test(value || "");
+}
+function deltaSender(controller) {
+  let previous = null;
+  let sent = 0;
+  const encoder = new TextEncoder();
+  const isObject = value => value !== null && typeof value === "object";
+  function diff(a, b, path, sets, deletes) {
+    if (Object.is(a, b)) return;
+    if (Array.isArray(a) && Array.isArray(b) && a.length === b.length) {
+      for (let i = 0; i < b.length; i++) diff(a[i], b[i], path.concat(i), sets, deletes);
+      return;
+    }
+    if (isObject(a) && isObject(b) && !Array.isArray(a) && !Array.isArray(b)) {
+      for (const key of Object.keys(a)) {
+        if (!Object.prototype.hasOwnProperty.call(b, key)) deletes.push(path.concat(key));
+      }
+      for (const key of Object.keys(b)) {
+        if (!Object.prototype.hasOwnProperty.call(a, key)) sets.push([path.concat(key), b[key]]);
+        else diff(a[key], b[key], path.concat(key), sets, deletes);
+      }
+      return;
+    }
+    sets.push([path, b]);
+  }
+  return value => {
+    const snapshot = JSON.parse(JSON.stringify(value));
+    if (!previous || ++sent % 30 === 0) {
+      controller.enqueue(encoder.encode("data:" + JSON.stringify({ __cf: "full", v: snapshot }) + "\\n\\n"));
+      previous = snapshot;
+      return;
+    }
+    const sets = [];
+    const deletes = [];
+    diff(previous, snapshot, [], sets, deletes);
+    if (sets.length || deletes.length) {
+      const patch = JSON.stringify({ __cf: "patch", u: sets, d: deletes });
+      const full = JSON.stringify({ __cf: "full", v: snapshot });
+      controller.enqueue(encoder.encode("data:" + (patch.length < full.length ? patch : full) + "\\n\\n"));
+    }
+    previous = snapshot;
+  };
 }
 async function readJson(request) {
   try { return await request.json(); } catch { return null; }
@@ -43,6 +85,12 @@ export default {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
       path = "/room/" + roomId + "/ev?pid=" + encodeURIComponent(url.searchParams.get("pid") || "");
+    } else if (request.method === "GET" && url.pathname === "/api/sesion") {
+      roomId = String(url.searchParams.get("room") || "").toLowerCase();
+      if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
+      path = "/room/" + roomId + "/session?pid=" + encodeURIComponent(url.searchParams.get("pid") || "");
+    } else if (request.method === "GET" && url.pathname === "/teams.json") {
+      return json(Data.DIVS);
     } else if (request.method === "GET" && url.pathname === "/__cf/rooms/state") {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
@@ -113,6 +161,14 @@ export class RoomCoordinator {
       }
       await this.persist(code);
       return json({ ok: true });
+    }
+
+    if (action === "session" && request.method === "GET") {
+      const pid = String(url.searchParams.get("pid") || "").slice(0, 40);
+      const room = Engine.rooms[code];
+      const player = room && !room.offline && !room.closed && pid
+        && (room.pl[pid] || (room.spec && room.spec[pid]));
+      return json({ ok: !!player && !(player.ai && !player.nm0) });
     }
 
     if (action === "state" && request.method === "GET") {
