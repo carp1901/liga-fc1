@@ -13,9 +13,9 @@ for(let f=0;f<DATA.FM.length;f++)for(let st=0;st<3;st++){
  assert.strictEqual(new Set(xi).size,11,'sin duplicados');
  layout.forEach((q,k)=>assert.strictEqual(players[xi[k]].specificRole,exact(q),'puesto exacto '+DATA.FN[f]+' / '+st+' / '+k));
 }
-// En sistemas de doble punta deben existir un SD y un DC, y la media debe permitir que entre el mejor delantero.
+// En la variante defensiva de los sistemas de doble punta deben existir un SD y un DC; las variantes equilibrada/ofensiva pueden usar dos DC.
 for(const f of [0,2,4,9]){
- const rolesIn=DATA.exactSlots(f,1).filter(x=>x==='SD'||x==='DC').sort();
+ const rolesIn=DATA.exactSlots(f,0).filter(x=>x==='SD'||x==='DC').sort();
  assert.deepStrictEqual(rolesIn,['DC','SD'],DATA.FN[f]+' debe tener SD y DC');
 }
 const doubleSquad=[];

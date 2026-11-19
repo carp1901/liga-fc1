@@ -1,6 +1,6 @@
 // Servidor sin dependencias: HTTP + Server-Sent Events. Uso: node server.js (PORT opcional)
-const http=require('http'),fs=require('fs'),path=require('path'),E=require('./public/engine'),{DIVS}=require('./public/data'),store=require('./store');
-const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),rooms=E.rooms;E.CFG.tick=+process.env.TICK_MS||1000;
+const http=require('http'),fs=require('fs'),path=require('path'),zlib=require('zlib'),E=require('./public/engine'),{DIVS}=require('./public/data'),store=require('./store');
+const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),rooms=E.rooms;E.CFG.tick=+process.env.TICK_MS||1000;E.CFG.fastWaits=process.env.FAST_WAITS==='1';
 store.init();E.CFG.onTitle=rec=>store.register(rec);
 // Abandonos reiterados (solo con cuenta): 3 abandonos en 24 h = bloqueo de 30 min para salas públicas y partida aleatoria; al 2.º se avisa. En memoria; si hay base de datos también se registran.
 const AB=new Map(),abOf=u=>{let a=AB.get(u);if(!a){a={t:[],until:0};AB.set(u,a)}a.t=a.t.filter(x=>Date.now()-x<864e5);return a};
@@ -32,6 +32,31 @@ function chatFilter(raw){
  let msg=String(raw||'').replace(/[\u0000-\u001f]/g,' ').trim().slice(0,300);
  const re=new RegExp('(^|[^\\p{L}\\p{N}])('+CHAT_BAD.join('|')+')(?=$|[^\\p{L}\\p{N}])','giu');
  return msg.replace(re,(all,left,word)=>left+'•'.repeat(word.length));
+}
+function sseStream(res){const gzip=zlib.createGzip({flush:zlib.constants.Z_SYNC_FLUSH});gzip.pipe(res);return{write(data){if(!gzip.destroyed&&!gzip.writableEnded){gzip.write(data);gzip.flush(zlib.constants.Z_SYNC_FLUSH)}},end(){if(!gzip.writableEnded)gzip.end()}}}
+function sseDeltaSender(stream,fullEvery=30){
+ let previous=null,sent=0;
+ const clone=v=>JSON.parse(JSON.stringify(v)),isObj=v=>v!==null&&typeof v==='object';
+ function diff(a,b,path,sets,deletes){
+  if(Object.is(a,b))return;
+  if(Array.isArray(a)&&Array.isArray(b)&&a.length===b.length){for(let i=0;i<b.length;i++)diff(a[i],b[i],path.concat(i),sets,deletes);return}
+  if(isObj(a)&&isObj(b)&&!Array.isArray(a)&&!Array.isArray(b)){
+   for(const k of Object.keys(a))if(!Object.prototype.hasOwnProperty.call(b,k))deletes.push(path.concat(k));
+   for(const k of Object.keys(b)){if(!Object.prototype.hasOwnProperty.call(a,k))sets.push([path.concat(k),b[k]]);else diff(a[k],b[k],path.concat(k),sets,deletes)}
+   return;
+  }
+  sets.push([path,b]);
+ }
+ return value=>{
+  const snapshot=clone(value);
+  if(!previous||++sent%fullEvery===0){stream.write('data:'+JSON.stringify({__cf:'full',v:snapshot})+'\n\n');previous=snapshot;return}
+  const sets=[],deletes=[];diff(previous,snapshot,[],sets,deletes);
+  if(sets.length||deletes.length){
+   const patch=JSON.stringify({__cf:'patch',u:sets,d:deletes}),full=JSON.stringify({__cf:'full',v:snapshot});
+   stream.write('data:'+(patch.length<full.length?patch:full)+'\n\n');
+  }
+  previous=snapshot;
+ }
 }
 function chatBroadcast(m,tipo='mensaje'){
  const packet='event: '+tipo+'\ndata:'+JSON.stringify(m)+'\n\n';
@@ -86,7 +111,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
   res.writeHead(d.error?400:200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d));
  }).catch(()=>{res.writeHead(503);res.end(JSON.stringify({error:'Chat no disponible'}))});
  if(u.pathname=='/api/chat/stream'&&req.method=='GET'){
-  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});res.write('retry:3000\nevent: conectado\ndata:{}\n\n');CHAT_CLIENTS.add(res);req.on('close',()=>CHAT_CLIENTS.delete(res));return;
+  res.writeHead(200,{'Content-Type':'text/event-stream','Content-Encoding':'gzip','Vary':'Accept-Encoding','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});const stream=sseStream(res);stream.write('retry:3000\nevent: conectado\ndata:{}\n\n');CHAT_CLIENTS.add(stream);req.on('close',()=>{CHAT_CLIENTS.delete(stream);stream.end()});return;
  }
  if(u.pathname=='/api/chat'&&req.method=='POST')return body(req,b=>{if(!b)return jnChat(400,{error:'Pedido inválido'});store.userByToken(tokOf(req,b)).then(async us=>{if(!us)return jnChat(401,{error:'Iniciá sesión para escribir en el chat'});const owner=String(us.usuario||'').trim().toLowerCase()===(process.env.CHAT_OWNER_USERNAME||'Burzaco').trim().toLowerCase(),moderador=owner||await store.chatEsModerador(us.id),intervalo=moderador?10000:20000,now=Date.now(),last=CHAT_LAST_SEND.get(us.id)||0,wait=intervalo-(now-last);if(!owner&&wait>0)return jnChat(429,{error:'Para evitar spam, esperá '+Math.ceil(wait/1000)+' segundos antes de enviar otro mensaje.',espera:Math.ceil(wait/1000)});if(!owner)CHAT_LAST_SEND.set(us.id,now);return store.chatEnviar(us.id,chatFilter(b.mensaje)).then(d=>{if(d.error){if(!owner)CHAT_LAST_SEND.delete(us.id);return jnChat(403,d)}chatBroadcast(d.mensaje);return jnChat(200,d)}).catch(e=>{if(!owner)CHAT_LAST_SEND.delete(us.id);throw e})}).catch(()=>jnChat(503,{error:'Chat no disponible'}));function jnChat(code,data){res.writeHead(code,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(data))}});
  if(u.pathname=='/api/chat/permisos'&&req.method=='GET')return store.userByToken(tokOf(req)).then(async us=>{if(!us){res.writeHead(401,{'Content-Type':'application/json'});return res.end(JSON.stringify({error:'Iniciá sesión'}))}const owner=us.usuario.toLowerCase()===(process.env.CHAT_OWNER_USERNAME||'Burzaco').trim().toLowerCase(),moderador=owner||await store.chatEsModerador(us.id);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({owner,moderador}))}).catch(()=>{res.writeHead(503);res.end()});
@@ -97,7 +122,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
  if(req.method=='POST'&&u.pathname=='/act')return body(req,b=>withUser(req,b,()=>{const e=b?E.act(b):'Pedido inválido';res.writeHead(e?400:200,{'Content-Type':'application/json'});res.end(JSON.stringify({error:e}))}));
  if(u.pathname=='/api/sesion'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),P=r&&!r.offline&&!r.closed&&pid&&(r.pl[pid]||(r.spec&&r.spec[pid]));const ok=!!P&&!(P.ai&&!P.nm0);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});return res.end(JSON.stringify({ok}))}   // ¿sigue existiendo mi sala? (para volver a entrar al recargar la página)
  if(u.pathname=='/ev'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),rc=r&&pid&&E.reclaim(r.code,pid),c=r&&((r.pl[pid]&&!r.pl[pid].ai)?r.pl[pid]:(r.spec&&r.spec[pid]));if(!c){res.writeHead(404);return res.end()}
-  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});c.res=res;res.write('retry:2000\n\n');E.listen(r.code,pid,v=>res.write('data:'+JSON.stringify(v)+'\n\n'));req.on('close',()=>{if(c.res===res){c.res=null;E.listen(r.code,pid,null)}});return}
+  res.writeHead(200,{'Content-Type':'text/event-stream','Content-Encoding':'gzip','Vary':'Accept-Encoding','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});const stream=sseStream(res),send=u.searchParams.get('v')==='2'?sseDeltaSender(stream,30):v=>stream.write('data:'+JSON.stringify(v)+'\n\n');c.res=stream;stream.write('retry:2000\n\n');E.listen(r.code,pid,v=>send(v));req.on('close',()=>{if(c.res===stream){c.res=null;E.listen(r.code,pid,null)}stream.end()});return}
  if(u.pathname=='/teams.json'){res.writeHead(200,{'Content-Type':'application/json'});return res.end(JSON.stringify(DIVS))}
  if(u.pathname=='/api/ranking'){const g=k=>u.searchParams.get(k)||'',year=/^20\d{2}$/.test(g('year'))?Number(g('year')):0,f={mod:['online','clasico','barrial','offline'].includes(g('mod'))?g('mod'):'online',comp:/^[a-z0-9]{1,30}$/.test(g('comp'))?g('comp'):'',fmt:['liga','copa','mixto'].includes(g('fmt'))?g('fmt'):'',country:/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,30}$/.test(g('country'))?g('country'):'',year};
   return store.ranking(f).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({...d,filtros:f}))},e=>{console.error('[api/ranking clubes]',e&&e.stack||e);res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Base de datos no disponible'}))})}
