@@ -442,7 +442,9 @@ async function routeRequest(request, env) {
     return stub.fetch(forwarded);
 }
 
-export { ChatHub };\n\nexport class RoomCoordinator {
+export { ChatHub };
+
+export class RoomCoordinator {
   constructor(state, env) {
     this.state = state;
     this.env = env;
