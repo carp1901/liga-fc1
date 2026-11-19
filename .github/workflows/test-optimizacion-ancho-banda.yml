@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - optimizacion-ancho-banda
+      - migracion-cloudflare-neon
     paths:
       - 'server.js'
       - 'public/index.html'
+      - 'public/api-config.js'
       - 'test.js'
       - 'test-auto-xi.js'
       - 'test-sim2d-orientation.js'
