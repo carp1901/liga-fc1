@@ -9,7 +9,7 @@ La integración avanzó de transporte experimental a **runtime de salas integrad
 - El Durable Object carga y guarda el estado completo del motor, incluidos los conjuntos usados por el partido.
 - El reloj del motor dejó de crear temporizadores globales en este modo; cada Durable Object lo avanza mediante su alarma.
 - Las conexiones SSE se vuelven a asociar al jugador cuando se reconecta.
-- Los IDs de cuenta enviados por el navegador se descartan. Hasta migrar autenticación, las acciones no atribuyen una cuenta ni deben usarse para ranking o sanciones vinculadas a usuarios.
+- Los IDs de cuenta enviados por el navegador se descartan. Aunque el registro/login ya tiene una primera implementación en el Worker, todavía no se valida la sesión al ejecutar acciones del motor; por eso no se atribuyen cuentas a partidos ni se deben usar para rankings o sanciones vinculadas a usuarios.
 
 **Todavía no es un backend listo para producción ni para cambiar el frontend.** Ya se agregó una primera migración de registro, login, sesiones y validación de token a través del driver HTTP de Neon. Los perfiles, amigos, chat, moderación, rankings, palmarés y demás endpoints de datos todavía dependen de server.js y store.js. La ruta de juego y la autenticación en Cloudflare deben probarse antes de cualquier corte.
 
@@ -23,7 +23,7 @@ La integración avanzó de transporte experimental a **runtime de salas integrad
 
 ## Configuración previa al frontend
 
-Antes de probar las rutas de autenticación contra Neon, configurar `DATABASE_URL` como secreto del Worker (no pegarlo en el repositorio ni en el chat). Antes de conectar Pages, configurar la variable de entorno no secreta `FRONTEND_ORIGINS` en el Worker con el origen exacto del sitio, por ejemplo `https://clash-futbol.pages.dev`. Se aceptan varios orígenes separados por comas. El Worker rechaza otros orígenes y atiende OPTIONS para las peticiones del navegador.
+El endpoint `GET /api/db/health` permite comprobar la conexión real sin exponer credenciales. Antes de probarlo y usar las rutas de autenticación contra Neon, configurar `DATABASE_URL` como secreto del Worker (no pegarlo en el repositorio ni en el chat). Antes de conectar Pages, configurar la variable de entorno no secreta `FRONTEND_ORIGINS` en el Worker con el origen exacto del sitio, por ejemplo `https://clash-futbol.pages.dev`. Se aceptan varios orígenes separados por comas. El Worker rechaza otros orígenes y atiende OPTIONS para las peticiones del navegador.
 
 ## Fases pendientes
 
