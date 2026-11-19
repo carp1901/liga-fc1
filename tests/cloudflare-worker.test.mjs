@@ -259,7 +259,7 @@ test("account registration, login, token validation and logout use Neon-backed a
   assert.equal(registered.usuario, "Tecnico01");
   assert.equal(typeof registered.token, "string");
   assert.equal(users.length, 1);
-  assert.match(users[0].pass_hash, /^pbkdf2\\$120000\\$/);
+  assert.match(users[0].pass_hash, /^pbkdf2\$120000\$/);
   assert.notEqual(users[0].pass_hash, "clave-segura-123");
   assert.equal(sessions.length, 1);
 
