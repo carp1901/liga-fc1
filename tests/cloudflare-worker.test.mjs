@@ -165,6 +165,28 @@ test("teams.json remains available from the bundled game data", async () => {
   assert.ok(divisions.some(div => div.id === "ar1"));
 });
 
+
+test("CORS allows only the configured Pages origin", async () => {
+  const { env } = mockEnv();
+  env.FRONTEND_ORIGINS = "https://clash-futbol.pages.dev";
+  const allowed = await worker.fetch(new Request("https://game.test/health", {
+    headers: { origin: "https://clash-futbol.pages.dev" }
+  }), env);
+  assert.equal(allowed.status, 200);
+  assert.equal(allowed.headers.get("access-control-allow-origin"), "https://clash-futbol.pages.dev");
+
+  const preflight = await worker.fetch(new Request("https://game.test/act", {
+    method: "OPTIONS", headers: { origin: "https://clash-futbol.pages.dev" }
+  }), env);
+  assert.equal(preflight.status, 204);
+  assert.match(preflight.headers.get("access-control-allow-headers"), /Authorization/);
+
+  const blocked = await worker.fetch(new Request("https://game.test/health", {
+    headers: { origin: "https://evil.example" }
+  }), env);
+  assert.equal(blocked.status, 403);
+});
+
 test("invalid room IDs are rejected before reaching Durable Objects", async () => {
   const { env } = mockEnv();
   const response = await worker.fetch(post("https://game.test/act", {
