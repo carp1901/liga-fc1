@@ -107,7 +107,10 @@ export class RoomCoordinator {
       // Until the auth endpoints are migrated, never trust a client-supplied account ID.
       const { uid, ...safeBody } = body;
       const error = Engine.act({ ...safeBody, room: code });
-      if (error) return json({ error }, 400);
+      if (error) {
+        await this.persist(code);
+        return json({ error }, 400);
+      }
       await this.persist(code);
       return json({ ok: true });
     }
@@ -137,8 +140,10 @@ export class RoomCoordinator {
           }
         },
         cancel: () => {
-          if (this.clients.get(pid) === client) this.clients.delete(pid);
-          Engine.listen(code, pid, null);
+          if (this.clients.get(pid) === client) {
+            this.clients.delete(pid);
+            Engine.listen(code, pid, null);
+          }
         }
       });
       return new Response(stream, {
