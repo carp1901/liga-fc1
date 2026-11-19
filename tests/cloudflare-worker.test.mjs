@@ -998,3 +998,22 @@ test("public lobby persists abandonment blocks for account users", async () => {
   assert.equal(blocked.status, 403);
   assert.match((await blocked.json()).error, /bloqueado por abandonos/);
 });
+
+
+test("public lobby handles simultaneous room creation without duplicate IDs", async () => {
+  const { env } = mockEnv();
+  const entry = Data.catalog().find(item => item.clubs >= 10 && item.sizes.liga1.includes(10));
+  const requests = Array.from({ length: 8 }, (_, index) => worker.fetch(post("https://game.test/api/pub", {
+    op: "create", pid: "parallel-host-" + index, name: "DT " + index,
+    div: entry.key, fmt: "liga1", n: 10
+  }), env));
+  const responses = await Promise.all(requests);
+  assert.ok(responses.every(response => response.status === 200));
+  const created = await Promise.all(responses.map(response => response.json()));
+  const codes = created.map(item => item.room);
+  assert.equal(new Set(codes).size, 8);
+  const listing = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  const rooms = await listing.json();
+  assert.equal(rooms.length, 8);
+  assert.deepEqual(new Set(rooms.map(room => room.code)), new Set(codes));
+});
