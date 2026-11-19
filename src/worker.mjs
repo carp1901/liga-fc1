@@ -618,9 +618,10 @@ export class LobbyCoordinator {
     let code=String(body.room||"").toLowerCase();
     if(op==="create"){
       if(codes.length>=60)return json({error:"Servidor lleno"},400);
-      const bytes=new Uint8Array(4);crypto.getRandomValues(bytes);
-      code="pub"+Array.from(bytes,value=>value.toString(36)).join("").slice(0,5);
-      while(codes.includes(code)){crypto.getRandomValues(bytes);code="pub"+Array.from(bytes,value=>value.toString(36)).join("").slice(0,5);}
+      const alphabet="0123456789abcdefghijklmnopqrstuvwxyz";
+      const bytes=new Uint8Array(5);crypto.getRandomValues(bytes);
+      code="pub"+Array.from(bytes,value=>alphabet[value%alphabet.length]).join("");
+      while(codes.includes(code)){crypto.getRandomValues(bytes);code="pub"+Array.from(bytes,value=>alphabet[value%alphabet.length]).join("");}
     }else if(!/^[a-z0-9]{3,12}$/.test(code)||!codes.includes(code)){
       return json({error:"Esa sala ya no existe o se cerró"},404);
     }
