@@ -62,7 +62,17 @@ function chatBroadcast(m,tipo='mensaje'){
  const packet='event: '+tipo+'\ndata:'+JSON.stringify(m)+'\n\n';
  for(const c of CHAT_CLIENTS){try{c.write(packet)}catch(e){CHAT_CLIENTS.delete(c)}}
 }
-http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
+http.createServer((req,res)=>{try{
+ const origin=String(req.headers.origin||'');
+ const allowed=(process.env.FRONTEND_ORIGINS||'').split(',').map(x=>x.trim()).filter(Boolean);
+ if(origin){
+  if(!allowed.includes(origin)){res.writeHead(403,{'Content-Type':'application/json','Vary':'Origin'});return res.end(JSON.stringify({error:'Origen no autorizado'}))}
+  res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');
+  res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
+ }
+ if(req.method==='OPTIONS'){res.writeHead(204);return res.end()}
+ const u=new URL(req.url,'http://x');
  if(req.method=='POST'&&u.pathname=='/api/titulo-offline')return body(req,b=>{const send=(c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
   if(!b)return send(400,{error:'Pedido inválido'});const rec=offlineRec(b);if(typeof rec=='string')return send(400,{error:rec});
   if(!rlOk('ip:'+ipOf(req),30)||!rlOk('pid:'+String(b.pid||'').slice(0,40),30))return send(429,{error:'Demasiados títulos informados; probá más tarde'});
@@ -132,7 +142,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
   return store.club(id).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({id,nombre:TM[id].name,...d}))},e=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Base de datos no disponible'}))})}
  if(u.pathname=='/api/titulos'){return store.list(+u.searchParams.get('limit')||100).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d))},e=>{res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Base de datos no disponible'}))})}
  if(u.pathname=='/health'){res.writeHead(200);return res.end('ok '+Object.keys(rooms).length+' db='+store.status())}
- let f=path.normalize(path.join(PUB,u.pathname=='/'?'index.html':decodeURIComponent(u.pathname)));
+ if(process.env.SERVE_STATIC==='0'){res.writeHead(404,{'Content-Type':'text/plain'});return res.end('Frontend alojado por separado')}\n let f=path.normalize(path.join(PUB,u.pathname=='/'?'index.html':decodeURIComponent(u.pathname)));
  if(!f.startsWith(PUB)||!fs.existsSync(f)||fs.statSync(f).isDirectory()){res.writeHead(404);return res.end('404')}
  const entry=u.pathname=='/'||u.pathname=='/index.html';res.writeHead(200,{'Content-Type':MIME[path.extname(f)]||'application/octet-stream','Cache-Control':entry?'no-store, no-cache, must-revalidate':'public,max-age=300'});fs.createReadStream(f).pipe(res)}catch(e){try{res.writeHead(500);res.end()}catch(_){}}}).listen(PORT,()=>console.log('Liga FC en http://localhost:'+PORT));
 setInterval(()=>{const now=Date.now();for(const c of CHAT_CLIENTS)try{c.write(':ping\n\n')}catch(e){CHAT_CLIENTS.delete(c)}for(const k in rooms){const r=rooms[k];r.order.forEach(p=>{const c=r.pl[p].res;if(c)try{c.write(':ping\n\n')}catch(e){}});Object.values(r.spec||{}).forEach(c=>{if(c.res)try{c.res.write(':ping\n\n')}catch(e){}});if(now-r.touched>36e5&&!r.order.some(p=>r.pl[p].res)){clearInterval(r.timer);delete rooms[k]}}},15000);
