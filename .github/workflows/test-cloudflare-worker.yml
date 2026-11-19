@@ -4,7 +4,9 @@ on:
   push:
     branches: [cloudflare-workers-backend]
     paths:
-      - 'src/worker.mjs'\n      - 'src/auth.mjs'\n      - 'src/db.mjs'\n      - 'src/auth.mjs'\n      - 'src/db.mjs'
+      - 'src/worker.mjs'
+      - 'src/auth.mjs'
+      - 'src/db.mjs'
       - 'public/engine.js'
       - 'CLOUDFLARE-WORKER-MIGRATION.md'
       - 'tests/cloudflare-worker.test.mjs'
