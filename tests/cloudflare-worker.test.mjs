@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import worker, { RoomCoordinator } from "../src/worker.mjs";
+import worker, { RoomCoordinator, ChatHub } from "../src/worker.mjs";
 import Data from "../public/data.js";
 
 class MemoryStorage {
@@ -582,4 +582,235 @@ test("public technician profile is available without authentication", async () =
   assert.equal(profile.clubFavorito, "river");
   assert.equal(profile.resumen.puntos, 0);
   assert.deepEqual(profile.historial, []);
+});
+
+
+function mockChatDatabase() {
+  const users = [], sessions = [], profiles = new Map(), messages = [], reactions = [];
+  const sanctions = new Map(), moderators = new Set(), events = [];
+  let nextUserId = 1, nextMessageId = 1;
+  const env = {
+    CHAT_OWNER_USERNAME: "Propietario",
+    CHAT: {
+      idFromName: name => name,
+      get: () => ({ fetch: async request => {
+        const url = new URL(request.url);
+        if (url.pathname === "/broadcast") {
+          const body = await request.json();
+          events.push(body);
+          return new Response(JSON.stringify({ ok: true }));
+        }
+        if (url.pathname === "/stream") return new Response("stream");
+        return new Response("not found", { status: 404 });
+      }})
+    },
+    __DB_QUERY__: async (sql, params) => {
+      if (sql.startsWith("INSERT INTO usuarios")) {
+        const [usuario, usuario_lc, pass_hash] = params;
+        const user = { id: nextUserId++, usuario, usuario_lc, pass_hash, creado: "2026-01-01T00:00:00Z" };
+        users.push(user);
+        return { rows: [{ id: user.id, usuario }], rowCount: 1 };
+      }
+      if (sql.startsWith("INSERT INTO sesiones")) {
+        sessions.push({ token_hash: params[0], usuario_id: params[1], vence: params[2] });
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT id, usuario, pass_hash FROM usuarios")) {
+        const user = users.find(row => row.usuario_lc === params[0]);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario, pass_hash: user.pass_hash }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("SELECT u.id, u.usuario FROM sesiones")) {
+        const session = sessions.find(row => row.token_hash === params[0] && Date.parse(row.vence) > Date.now());
+        const user = session && users.find(row => row.id === session.usuario_id);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("UPDATE usuarios SET ultimo_ingreso") || sql.startsWith("DELETE FROM sesiones WHERE vence<now()")) return { rows: [], rowCount: 1 };
+      if (sql.startsWith("SELECT 1 FROM chat_moderadores")) return { rows: moderators.has(Number(params[0])) ? [{ "?column?": 1 }] : [], rowCount: moderators.has(Number(params[0])) ? 1 : 0 };
+      if (sql.startsWith("SELECT tipo,hasta FROM chat_sanciones")) {
+        const row = sanctions.get(Number(params[0]));
+        const active = row && (row.tipo === "suspension" || !row.hasta || Date.parse(row.hasta) > Date.now());
+        return { rows: active ? [{ tipo: row.tipo, hasta: row.hasta }] : [], rowCount: active ? 1 : 0 };
+      }
+      if (sql.startsWith("SELECT u.usuario,p.club_favorito FROM usuarios")) {
+        const user = users.find(row => row.id === Number(params[0]));
+        const profile = profiles.get(Number(params[0]));
+        return { rows: user ? [{ usuario: user.usuario, club_favorito: profile?.club_favorito || null }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("INSERT INTO chat_mensajes")) {
+        const row = { id: nextMessageId++, usuario_id: Number(params[0]), usuario: params[1], mensaje: params[2], creado: "2026-01-02T00:00:00Z", eliminado: false };
+        messages.push(row);
+        return { rows: [{ id: row.id, usuario: row.usuario, mensaje: row.mensaje, creado: row.creado }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT m.id,m.usuario,m.mensaje")) {
+        const uid = params[1] == null ? null : Number(params[1]);
+        const rows = messages.filter(row => !row.eliminado).slice(-Number(params[0])).map(row => ({
+          id: row.id, usuario: row.usuario, mensaje: row.mensaje, creado: row.creado,
+          club_favorito: profiles.get(row.usuario_id)?.club_favorito || null,
+          likes: reactions.filter(v => v.mensaje_id === row.id && v.valor === 1).length,
+          dislikes: reactions.filter(v => v.mensaje_id === row.id && v.valor === -1).length,
+          mi_voto: reactions.find(v => v.mensaje_id === row.id && v.usuario_id === uid)?.valor || 0,
+          mio: row.usuario_id === uid, es_owner: row.usuario.toLowerCase() === String(params[2]).toLowerCase()
+        }));
+        return { rows, rowCount: rows.length };
+      }
+      if (sql.startsWith("SELECT usuario_id,lower(usuario)=lower($2)")) {
+        const row = messages.find(item => item.id === Number(params[0]) && !item.eliminado);
+        return { rows: row ? [{ usuario_id: row.usuario_id, es_owner: row.usuario.toLowerCase() === String(params[1]).toLowerCase() }] : [], rowCount: row ? 1 : 0 };
+      }
+      if (sql.startsWith("UPDATE chat_mensajes SET eliminado=true")) {
+        const row = messages.find(item => item.id === Number(params[0]));
+        if (row) row.eliminado = true;
+        return { rows: [], rowCount: row ? 1 : 0 };
+      }
+      if (sql.startsWith("DELETE FROM chat_reacciones WHERE mensaje_id=")) {
+        const before = reactions.length;
+        for (let i = reactions.length - 1; i >= 0; i--) if (reactions[i].mensaje_id === Number(params[0])) reactions.splice(i, 1);
+        return { rows: [], rowCount: before - reactions.length };
+      }
+      if (sql.startsWith("SELECT usuario_id FROM chat_mensajes")) {
+        const row = messages.find(item => item.id === Number(params[0]) && !item.eliminado);
+        return { rows: row ? [{ usuario_id: row.usuario_id }] : [], rowCount: row ? 1 : 0 };
+      }
+      if (sql.startsWith("DELETE FROM chat_reacciones WHERE mensaje_id=$1 AND usuario_id=$2 AND valor=$3")) {
+        const index = reactions.findIndex(row => row.mensaje_id === Number(params[0]) && row.usuario_id === Number(params[1]) && row.valor === Number(params[2]));
+        if (index < 0) return { rows: [], rowCount: 0 };
+        const [row] = reactions.splice(index, 1);
+        return { rows: [{ mensaje_id: row.mensaje_id }], rowCount: 1 };
+      }
+      if (sql.startsWith("INSERT INTO chat_reacciones")) {
+        const [mensaje_id, usuario_id, valor] = params.map(Number);
+        const old = reactions.find(row => row.mensaje_id === mensaje_id && row.usuario_id === usuario_id);
+        if (old) old.valor = valor;
+        else reactions.push({ mensaje_id, usuario_id, valor });
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT COUNT(*) FILTER(WHERE valor=1)")) {
+        const rows = reactions.filter(row => row.mensaje_id === Number(params[0]));
+        return { rows: [{ likes: rows.filter(row => row.valor === 1).length, dislikes: rows.filter(row => row.valor === -1).length, mi_voto: rows.find(row => row.usuario_id === Number(params[1]))?.valor || 0 }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT u.usuario FROM chat_reacciones")) {
+        const rows = reactions.filter(row => row.mensaje_id === Number(params[0]) && row.valor === Number(params[1])).map(row => ({ usuario: users.find(user => user.id === row.usuario_id)?.usuario }));
+        return { rows, rowCount: rows.length };
+      }
+      if (sql.startsWith("SELECT id,usuario FROM usuarios WHERE usuario_lc=")) {
+        const user = users.find(row => row.usuario_lc === params[0]);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("INSERT INTO chat_sanciones")) {
+        const [uid, tipo, hasta, razon, por_id] = sql.includes("'mute'") ? [params[0], "mute", params[1], params[2], params[3]] : [params[0], "suspension", null, params[1], params[2]];
+        sanctions.set(Number(uid), { tipo, hasta, razon, por_id });
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("DELETE FROM chat_sanciones")) {
+        const deleted = sanctions.delete(Number(params[0]));
+        return { rows: deleted ? [{ usuario_id: Number(params[0]) }] : [], rowCount: deleted ? 1 : 0 };
+      }
+      if (sql.startsWith("INSERT INTO chat_moderadores")) {
+        moderators.add(Number(params[0]));
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("DELETE FROM chat_moderadores")) {
+        const deleted = moderators.delete(Number(params[0]));
+        return { rows: deleted ? [{ usuario_id: Number(params[0]) }] : [], rowCount: deleted ? 1 : 0 };
+      }
+      throw new Error("Unexpected chat SQL: " + sql);
+    }
+  };
+  return { env, users, profiles, messages, reactions, sanctions, moderators, events };
+}
+
+test("public chat history, authenticated sending, profanity filter and live event", async () => {
+  const { env, profiles, messages, events } = mockChatDatabase();
+  const account = await createAccount(env, "ChatUser");
+  profiles.set(1, { club_favorito: "boca" });
+  const headers = { authorization: "Bearer " + account.token, "content-type": "application/json" };
+  const sent = await worker.fetch(new Request("https://game.test/api/chat", {
+    method: "POST", headers, body: JSON.stringify({ mensaje: "Hola poronga" })
+  }), env);
+  assert.equal(sent.status, 200);
+  const payload = await sent.json();
+  assert.equal(payload.mensaje.mensaje, "Hola •••••••");
+  assert.equal(messages.length, 1);
+  assert.equal(events.at(-1).tipo, "mensaje");
+
+  const history = await worker.fetch(new Request("https://game.test/api/chat?limit=20"), env);
+  assert.equal(history.status, 200);
+  const list = await history.json();
+  assert.equal(list.enabled, true);
+  assert.equal(list.mensajes.length, 1);
+  assert.equal(list.mensajes[0].club_favorito, "boca");
+});
+
+test("chat requires login to write and favorite club to post", async () => {
+  const { env } = mockChatDatabase();
+  const account = await createAccount(env, "ChatNoClub");
+  const headers = { authorization: "Bearer " + account.token, "content-type": "application/json" };
+  const denied = await worker.fetch(new Request("https://game.test/api/chat", {
+    method: "POST", headers, body: JSON.stringify({ mensaje: "Hola" })
+  }), env);
+  assert.equal(denied.status, 403);
+  const anonymous = await worker.fetch(post("https://game.test/api/chat", { mensaje: "Hola" }), env);
+  assert.equal(anonymous.status, 401);
+});
+
+test("chat reactions, owner moderation permissions and sanctions are enforced", async () => {
+  const { env, profiles, messages, reactions, sanctions, moderators } = mockChatDatabase();
+  const author = await createAccount(env, "ChatAutor");
+  const user = await createAccount(env, "ChatOtro");
+  const owner = await createAccount(env, "Propietario");
+  profiles.set(1, { club_favorito: "boca" });
+  profiles.set(2, { club_favorito: "river" });
+  profiles.set(3, { club_favorito: "independiente" });
+  const auth = token => ({ authorization: "Bearer " + token, "content-type": "application/json" });
+
+  const sent = await worker.fetch(new Request("https://game.test/api/chat", {
+    method: "POST", headers: auth(author.token), body: JSON.stringify({ mensaje: "Buenas" })
+  }), env);
+  assert.equal(sent.status, 200);
+  const messageId = (await sent.json()).mensaje.id;
+  const voted = await worker.fetch(new Request("https://game.test/api/chat/reaccion", {
+    method: "POST", headers: auth(user.token), body: JSON.stringify({ id: messageId, valor: 1 })
+  }), env);
+  assert.equal(voted.status, 200);
+  assert.equal((await voted.json()).reaccion.likes, 1);
+  assert.equal(reactions.length, 1);
+
+  const unauthorizedMod = await worker.fetch(new Request("https://game.test/api/chat/moderar", {
+    method: "POST", headers: auth(user.token), body: JSON.stringify({ usuario: "ChatAutor", accion: "suspender" })
+  }), env);
+  assert.equal(unauthorizedMod.status, 403);
+
+  const mute = await worker.fetch(new Request("https://game.test/api/chat/moderar", {
+    method: "POST", headers: auth(owner.token), body: JSON.stringify({ usuario: "ChatAutor", accion: "silenciar", minutos: 5, razon: "spam" })
+  }), env);
+  assert.equal(mute.status, 200);
+  assert.equal(sanctions.get(1).tipo, "mute");
+
+  const suspendedPost = await worker.fetch(new Request("https://game.test/api/chat", {
+    method: "POST", headers: auth(author.token), body: JSON.stringify({ mensaje: "No debería pasar" })
+  }), env);
+  assert.equal(suspendedPost.status, 403);
+  assert.equal(messages.length, 1);
+
+  const promote = await worker.fetch(new Request("https://game.test/api/chat/moderar", {
+    method: "POST", headers: auth(owner.token), body: JSON.stringify({ usuario: "ChatOtro", accion: "moderar" })
+  }), env);
+  assert.equal(promote.status, 200);
+  assert.ok(moderators.has(2));
+});
+
+test("ChatHub broadcasts live SSE events to connected clients", async () => {
+  const hub = new ChatHub({ storage: {} });
+  const streamResponse = await hub.fetch(new Request("https://chat.test/stream"));
+  const reader = streamResponse.body.getReader();
+  const first = await reader.read();
+  assert.match(new TextDecoder().decode(first.value), /event: conectado/);
+  await hub.fetch(new Request("https://chat.test/broadcast", {
+    method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ tipo: "mensaje", data: { id: 7, mensaje: "hola" } })
+  }));
+  const event = await reader.read();
+  assert.match(new TextDecoder().decode(event.value), /event: mensaje/);
+  assert.match(new TextDecoder().decode(event.value), /"id":7/);
+  await reader.cancel();
 });
