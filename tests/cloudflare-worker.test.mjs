@@ -878,3 +878,34 @@ test("fan ranking groups accounts by their one-time favorite club", async () => 
   assert.equal(result.rows[0].club, "ar_boca");
   assert.equal(result.rows[0].hinchas, 3);
 });
+
+
+test("authenticated career endpoint accepts only validated offline career records", async () => {
+  const token = "career-token-test-unique";
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(token));
+  const tokenHash = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, "0")).join("");
+  const inserts = [];
+  const env = {
+    __DB_QUERY__: async (sql, params) => {
+      if (sql.startsWith("SELECT u.id,u.usuario FROM sesiones")) {
+        return { rows: params[0] === tokenHash ? [{ id: 42, usuario: "CarreraTest" }] : [], rowCount: 1 };
+      }
+      if (sql.startsWith("INSERT INTO carreras")) {
+        inserts.push({ sql, params });
+        return { rows: [], rowCount: 1 };
+      }
+      throw new Error("Unexpected career SQL: " + sql);
+    }
+  };
+  const club = Data.DIVS.find(div => div.id === "ar1").teams[0].id;
+  const response = await worker.fetch(post("https://game.test/api/auth/carrera", {
+    tok: token, tid: "career001", comp: "ar1", club, fmt: "liga1", n: 8,
+    pos: 1, resultado: "Campeón", campeon: true, origen: "clasico", mod: "clasico"
+  }), env);
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { ok: 1 });
+  assert.equal(inserts.length, 1);
+  assert.equal(inserts[0].params[0], 42);
+  assert.equal(inserts[0].params[4], "offline");
+  assert.equal(inserts[0].params[5], "offline");
+});
