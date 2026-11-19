@@ -218,6 +218,9 @@ async function routeRequest(request, env) {
     if (request.method === "POST" && forwardedBody) {
       const headers = new Headers(request.headers);
       headers.delete("x-clash-auth-user-id");
+      headers.delete("authorization");
+      headers.delete("content-length");
+      headers.delete("content-encoding");
       headers.set("content-type", "application/json");
       if (verifiedUid !== null && Number.isSafeInteger(Number(verifiedUid)) && Number(verifiedUid) > 0) {
         headers.set("x-clash-auth-user-id", String(verifiedUid));
