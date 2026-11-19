@@ -34,7 +34,7 @@ export default {
     let roomId = "";
     let path = "";
     if (request.method === "POST" && url.pathname === "/act") {
-      const body = await readJson(request);
+      const body = await readJson(request.clone());
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
       roomId = String(body.room || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
