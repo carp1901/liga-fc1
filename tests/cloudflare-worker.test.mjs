@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import worker, { RoomCoordinator } from "../src/worker.mjs";
+import Data from "../public/data.js";
 
 class MemoryStorage {
   data = new Map();
@@ -65,6 +66,31 @@ test("online engine creates a room inside its Durable Object and persists it", a
   assert.equal(data.snapshot.code, "testroom");
   assert.equal(data.snapshot.phase, "pick");
   assert.deepEqual(data.snapshot.order, ["player1"]);
+});
+
+
+test("player actions use the original engine and survive persistence", async () => {
+  const { env } = mockEnv();
+  const room = "pickroom";
+  const team = Data.DIVS.find(div => div.id === "ar1").teams[0].id;
+
+  const create = await worker.fetch(post("https://game.test/act", {
+    a: "create", room, pid: "player1", name: "DT",
+    cfg: { div: "ar1", fmt: "liga1", n: 8 }
+  }), env);
+  assert.equal(create.status, 200);
+
+  const pick = await worker.fetch(post("https://game.test/act", {
+    a: "pick", room, pid: "player1", team
+  }), env);
+  assert.equal(pick.status, 200);
+
+  const state = await worker.fetch(new Request(
+    "https://game.test/__cf/rooms/state?room=" + room
+  ), env);
+  const data = await state.json();
+  assert.equal(data.snapshot.pl.player1.team, team);
+  assert.equal(data.snapshot.phase, "pick");
 });
 
 test("room state survives recreation of the Durable Object instance", async () => {
