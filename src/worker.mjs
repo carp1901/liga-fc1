@@ -4,6 +4,7 @@ import * as Auth from "./auth.mjs";
 import { dbQuery } from "./db.mjs";
 import * as Social from "./social.mjs";
 import * as Chat from "./chat.mjs";
+import * as Careers from "./careers.mjs";
 import { ChatHub } from "./chat-hub.mjs";
 
 const JSON_HEADERS = {
@@ -260,6 +261,77 @@ async function routeRequest(request, env) {
       }
     }
 
+    if (request.method === "POST" && url.pathname === "/api/auth/carrera") {
+      const body = await readJson(request.clone());
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      try {
+        const user = await Auth.userByToken(env, Auth.tokenFromRequest(request, body));
+        if (!user) return json({ error: "Sesión inválida o vencida" }, 401);
+        if (!allowAuthAttempt("career:" + user.id, 120)) return json({ error: "Demasiados registros; probá más tarde" }, 429);
+        const clean = { ...body, uid: user.id };
+        delete clean.tok;
+        await Careers.addCareers(env, [clean]);
+        return json({ ok: 1 });
+      } catch (error) {
+        console.error("Career save failed:", error?.message || error);
+        return json({ error: "No se pudo guardar la carrera" }, 503);
+      }
+    }
+    if (request.method === "POST" && url.pathname === "/api/titulo-offline") {
+      const body = await readJson(request.clone());
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      const ip = request.headers.get("cf-connecting-ip") || "unknown";
+      const pid = String(body.pid || "").slice(0, 40);
+      if (!allowAuthAttempt("offline-title-ip:" + ip, 30) || !allowAuthAttempt("offline-title-pid:" + pid, 30)) {
+        return json({ error: "Demasiados títulos informados; probá más tarde" }, 429);
+      }
+      const record = Careers.offlineTitleRecord(body, Data);
+      if (typeof record === "string") return json({ error: record }, 400);
+      try { return json(await Careers.addTitle(env, record)); }
+      catch (error) {
+        console.error("Offline title save failed:", error?.message || error);
+        return json({ error: "Base de datos no disponible" }, 503);
+      }
+    }
+    if (request.method === "GET" && url.pathname === "/api/ranking") {
+      const get = key => url.searchParams.get(key) || "";
+      const year = /^20\\d{2}$/.test(get("year")) ? Number(get("year")) : 0;
+      const filters = {
+        mod: ["online","clasico","barrial","offline"].includes(get("mod")) ? get("mod") : "online",
+        comp: /^[a-z0-9]{1,30}$/.test(get("comp")) ? get("comp") : "",
+        fmt: ["liga","copa","mixto"].includes(get("fmt")) ? get("fmt") : "",
+        country: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,30}$/.test(get("country")) ? get("country") : "",
+        year
+      };
+      try { return json({ ...(await Careers.rankingClubs(env, filters)), filtros: filters }); }
+      catch (error) { console.error("Club ranking failed:", error?.message || error); return json({ error: "Base de datos no disponible" }, 503); }
+    }
+    if (request.method === "GET" && url.pathname === "/api/titulo") {
+      const id = url.searchParams.get("id") || "";
+      if (!/^[a-z0-9]{8,60}$/.test(id)) return json({ error: "ID inválido" }, 400);
+      try { const result = await Careers.titleInfo(env, id); return json(result, result.error ? 404 : 200); }
+      catch (error) { console.error("Title lookup failed:", error?.message || error); return json({ error: "Base de datos no disponible" }, 503); }
+    }
+    if (request.method === "GET" && url.pathname === "/api/club") {
+      const id = url.searchParams.get("id") || "";
+      if (!/^[a-z0-9]{1,40}$/.test(id) || !Object.prototype.hasOwnProperty.call(Data.TM || {}, id)) return json({ error: "Club inexistente" }, 404);
+      try { return json({ id, nombre: Data.TM[id].name, ...(await Careers.club(env, id)) }); }
+      catch (error) { console.error("Club palmares failed:", error?.message || error); return json({ error: "Base de datos no disponible" }, 503); }
+    }
+    if (request.method === "GET" && url.pathname === "/api/titulos") {
+      try { return json(await Careers.listTitles(env, url.searchParams.get("limit"))); }
+      catch (error) { console.error("Titles list failed:", error?.message || error); return json({ error: "Base de datos no disponible" }, 503); }
+    }
+    if (request.method === "GET" && url.pathname === "/api/ranking-tecnicos") {
+      const period = url.searchParams.get("periodo") === "temporada" ? "temporada" : "historico";
+      try { return json(await Careers.rankingCoaches(env, period)); }
+      catch (error) { console.error("Coach ranking failed:", error?.message || error); return json({ error: "Ranking no disponible" }, 503); }
+    }
+    if (request.method === "GET" && url.pathname === "/api/ranking-hinchas") {
+      try { return json(await Careers.rankingFans(env)); }
+      catch (error) { console.error("Fan ranking failed:", error?.message || error); return json({ error: "Ranking de hinchas no disponible" }, 503); }
+    }
+
     if (url.pathname.startsWith("/api/chat")) {
       const chatPath = url.pathname;
       if (chatPath === "/api/chat/stream" && request.method === "GET") {
@@ -448,6 +520,8 @@ export class RoomCoordinator {
   constructor(state, env) {
     this.state = state;
     this.env = env;
+    Engine.CFG.onCareer = records => Careers.addCareers(this.env, records);
+    Engine.CFG.onTitle = record => Careers.addTitle(this.env, record);
     this.loadedCode = null;
     this.clients = new Map();
     this.queue = Promise.resolve();
