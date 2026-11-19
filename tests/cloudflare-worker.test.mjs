@@ -786,10 +786,14 @@ test("chat reactions, owner moderation permissions and sanctions are enforced", 
   assert.equal(mute.status, 200);
   assert.equal(sanctions.get(1).tipo, "mute");
 
+  const suspended = await createAccount(env, "ChatSuspendido");
+  profiles.set(4, { club_favorito: "racing" });
+  sanctions.set(4, { tipo: "suspension", hasta: null });
   const suspendedPost = await worker.fetch(new Request("https://game.test/api/chat", {
-    method: "POST", headers: auth(author.token), body: JSON.stringify({ mensaje: "No debería pasar" })
+    method: "POST", headers: auth(suspended.token), body: JSON.stringify({ mensaje: "No debería pasar" })
   }), env);
   assert.equal(suspendedPost.status, 403);
+  assert.match((await suspendedPost.json()).error, /suspendida/);
   assert.equal(messages.length, 1);
 
   const promote = await worker.fetch(new Request("https://game.test/api/chat/moderar", {
