@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import worker, { RoomCoordinator, ChatHub } from "../src/worker.mjs";
+import worker, { RoomCoordinator, ChatHub, LobbyCoordinator } from "../src/worker.mjs";
 import Data from "../public/data.js";
 import { addCareers, addTitle, offlineTitleRecord, rankRows, pointsForCareer, rankingCoaches, rankingFans } from "../src/careers.mjs";
 
@@ -16,21 +16,34 @@ class MemoryStorage {
 function mockEnv() {
   const objects = new Map();
   const storages = new Map();
-  const env = {
-    ROOMS: {
-      idFromName: name => name,
-      get: id => {
-        if (!objects.has(id)) {
-          const storage = new MemoryStorage();
-          storages.set(id, storage);
-          const instance = new RoomCoordinator({ storage }, {});
-          objects.set(id, { fetch: req => instance.fetch(req), instance });
-        }
-        return objects.get(id);
+  const lobbyObjects = new Map();
+  const lobbyStorages = new Map();
+  const env = {};
+  env.ROOMS = {
+    idFromName: name => name,
+    get: id => {
+      if (!objects.has(id)) {
+        const storage = new MemoryStorage();
+        storages.set(id, storage);
+        const instance = new RoomCoordinator({ storage }, env);
+        objects.set(id, { fetch: req => instance.fetch(req), instance });
       }
+      return objects.get(id);
     }
   };
-  return { env, storages };
+  env.LOBBY = {
+    idFromName: name => name,
+    get: id => {
+      if (!lobbyObjects.has(id)) {
+        const storage = new MemoryStorage();
+        lobbyStorages.set(id, storage);
+        const instance = new LobbyCoordinator({ storage }, env);
+        lobbyObjects.set(id, { fetch: req => instance.fetch(req), instance });
+      }
+      return lobbyObjects.get(id);
+    }
+  };
+  return { env, storages, lobbyStorages };
 }
 
 const post = (url, body) => new Request(url, {
@@ -908,4 +921,43 @@ test("authenticated career endpoint accepts only validated offline career record
   assert.equal(inserts[0].params[0], 42);
   assert.equal(inserts[0].params[4], "offline");
   assert.equal(inserts[0].params[5], "offline");
+});
+
+
+test("public lobby creates, lists, joins and closes rooms through Durable Objects", async () => {
+  const { env } = mockEnv();
+  const entry = Data.catalog().find(item => item.clubs >= 10 && item.sizes.liga1.includes(10));
+  assert.ok(entry);
+  const create = await worker.fetch(post("https://game.test/api/pub", {
+    op: "create", pid: "host-player", name: "Anfitrion", div: entry.key, fmt: "liga1", n: 10, title: "Sala de prueba"
+  }), env);
+  assert.equal(create.status, 200);
+  const created = await create.json();
+  assert.match(created.room, /^pub[a-z0-9]{5}$/);
+
+  const list = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  assert.equal(list.status, 200);
+  let rooms = await list.json();
+  assert.equal(rooms.length, 1);
+  assert.equal(rooms[0].code, created.room);
+  assert.equal(rooms[0].h, 1);
+
+  const join = await worker.fetch(post("https://game.test/api/pub", {
+    op: "play", room: created.room, pid: "second-player", name: "DT 2"
+  }), env);
+  assert.equal(join.status, 200);
+  assert.deepEqual(await join.json(), { room: created.room });
+
+  const afterJoin = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  rooms = await afterJoin.json();
+  assert.equal(rooms[0].h, 2);
+
+  const close = await worker.fetch(post("https://game.test/api/pub", {
+    op: "close", room: created.room, pid: "host-player", name: "Anfitrion"
+  }), env);
+  assert.equal(close.status, 200);
+  assert.deepEqual(await close.json(), { ok: 1 });
+
+  const afterClose = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  assert.deepEqual(await afterClose.json(), []);
 });
