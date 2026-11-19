@@ -84,7 +84,7 @@ export default {
     } else if (request.method === "GET" && url.pathname === "/ev") {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
-      path = "/room/" + roomId + "/ev?pid=" + encodeURIComponent(url.searchParams.get("pid") || "");
+      path = "/room/" + roomId + "/ev?pid=" + encodeURIComponent(url.searchParams.get("pid") || "") + "&v=" + encodeURIComponent(url.searchParams.get("v") || "");
     } else if (request.method === "GET" && url.pathname === "/api/sesion") {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
@@ -186,7 +186,9 @@ export class RoomCoordinator {
         start: controller => {
           client = { controller };
           this.clients.set(pid, client);
-          const send = deltaSender(controller);
+          const send = url.searchParams.get("v") === "2"
+            ? deltaSender(controller)
+            : value => controller.enqueue(new TextEncoder().encode("data:" + JSON.stringify(value) + "\n\n"));
           controller.enqueue(new TextEncoder().encode("retry:2000\n\n"));
           const connected = Engine.listen(code, pid, value => {
             try { send(value); }
