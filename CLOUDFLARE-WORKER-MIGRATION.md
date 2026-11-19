@@ -11,7 +11,7 @@ La integración avanzó de transporte experimental a **runtime de salas integrad
 - Las conexiones SSE se vuelven a asociar al jugador cuando se reconecta.
 - Los IDs de cuenta enviados por el navegador se descartan. Hasta migrar autenticación, las acciones no atribuyen una cuenta ni deben usarse para ranking o sanciones vinculadas a usuarios.
 
-**Todavía no es un backend listo para producción ni para cambiar el frontend.** No se migraron autenticación, sesiones, perfiles, amigos, chat, moderación, rankings, palmarés ni los endpoints de datos. Esos servicios siguen dependiendo de server.js y store.js. La ruta de juego en Cloudflare debe probarse en local y con varios clientes antes de cualquier corte.
+**Todavía no es un backend listo para producción ni para cambiar el frontend.** Ya se agregó una primera migración de registro, login, sesiones y validación de token a través del driver HTTP de Neon. Los perfiles, amigos, chat, moderación, rankings, palmarés y demás endpoints de datos todavía dependen de server.js y store.js. La ruta de juego y la autenticación en Cloudflare deben probarse antes de cualquier corte.
 
 ## Arquitectura del runtime de salas
 
@@ -23,13 +23,13 @@ La integración avanzó de transporte experimental a **runtime de salas integrad
 
 ## Configuración previa al frontend
 
-Antes de conectar Pages, configurar la variable de entorno no secreta `FRONTEND_ORIGINS` en el Worker con el origen exacto del sitio, por ejemplo `https://clash-futbol.pages.dev`. Se aceptan varios orígenes separados por comas. El Worker rechaza otros orígenes y atiende OPTIONS para las peticiones del navegador.
+Antes de probar las rutas de autenticación contra Neon, configurar `DATABASE_URL` como secreto del Worker (no pegarlo en el repositorio ni en el chat). Antes de conectar Pages, configurar la variable de entorno no secreta `FRONTEND_ORIGINS` en el Worker con el origen exacto del sitio, por ejemplo `https://clash-futbol.pages.dev`. Se aceptan varios orígenes separados por comas. El Worker rechaza otros orígenes y atiende OPTIONS para las peticiones del navegador.
 
 ## Fases pendientes
 
 1. **Pruebas de equivalencia:** comparar el mismo flujo de partida en Node y Cloudflare; validar 8 y 10 jugadores, espectadores, penales, pelotas paradas, desconexión/reconexión y abandono.
-2. **Autenticación:** migrar registro/login/sesiones y resolver el UID en el servidor antes de atribuir carreras, sanciones o actividad de cuenta.
-3. **Datos:** reemplazar pg/pool TCP de store.js por el driver HTTP compatible con Workers de Neon; conservar las reglas existentes de cuentas, amigos, chat, moderación y rankings.
+2. **Autenticación:** registro, login, cierre de sesión y validación de token ya están portados a `src/auth.mjs`; usan `PBKDF2-SHA256` con sal y guardan únicamente el hash SHA-256 del token de sesión. Se agregaron límites básicos por IP/usuario en memoria del Worker. Falta probarlos contra Neon real, revisar el costo de CPU del hash y agregar rate limiting distribuido antes del lanzamiento.
+3. **Datos de cuenta:** el driver `@neondatabase/serverless` está integrado en `src/db.mjs`. Falta portar perfiles, amigos, chat, moderación, carreras, rankings y palmarés conservando las reglas de `store.js`. Los datos de usuarios y sesiones en el proyecto Neon están actualmente vacíos; no hay hashes scrypt previos que deban migrarse.
 4. **Frontend y CORS:** probar Android, EventSource, reconexiones y errores de red contra el Worker sin cambiar todavía el dominio público.
 5. **Carga y límites:** probar múltiples salas simultáneas, CPU, alarmas, requests y consumo de Durable Objects.
 6. **Corte:** publicar Pages, configurar bindings y secretos, y cambiar el frontend únicamente después de aprobar las pruebas.
