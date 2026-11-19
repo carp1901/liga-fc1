@@ -31,7 +31,7 @@ function pointsForCareer(c) {
   return Math.max(1, Math.ceil(n / Math.pow(2, stage)));
 }
 function eligibleCareerSql(alias = "c") {
-  return `((${alias}.competitivo=true AND ${alias}.modalidad IN ('clasico','barrial') AND ${alias}.origen<>'offline') OR (${alias}.modalidad='offline' AND ${alias}.participantes >= CASE WHEN ${alias}.formato='copa' THEN 8 ELSE 10 END))`;
+  return `((${alias}.competitivo=true AND ${alias}.modalidad IN ('clasico','barrial') AND ${alias}.origen<>'offline') OR (${alias}.modalidad='offline' AND ${alias}.participantes >= CASE WHEN ${alias}.formato='copa' THEN 8 ELSE 8 END))`;
 }
 
 export async function profile(env, uid) {
