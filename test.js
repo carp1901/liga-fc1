@@ -55,7 +55,7 @@ const t0 = Date.now();
           if (done) break;
           buffer += decoder.decode(value, { stream: true });
           let boundary;
-          while ((boundary = buffer.indexOf('\\n\\n')) >= 0) {
+          while ((boundary = buffer.indexOf('\n\n')) >= 0) {
             const packet = buffer.slice(0, boundary);
             buffer = buffer.slice(boundary + 2);
             if (!packet.startsWith('data:')) continue;
