@@ -41,7 +41,7 @@ jobs:
         run: npm install
       - name: Iniciar servidor para las pruebas
         run: |
-          TICK_MS=15 PORT=3000 node server.js > /tmp/clash-futbol-server.log 2>&1 &
+          TICK_MS=50 PORT=3000 node server.js > /tmp/clash-futbol-server.log 2>&1 &
           echo $! > /tmp/clash-futbol-server.pid
           for i in {1..30}; do
             if curl -fsS http://localhost:3000/teams.json > /dev/null; then
@@ -53,7 +53,7 @@ jobs:
           cat /tmp/clash-futbol-server.log
           exit 1
       - name: Ejecutar suite de pruebas
-        run: npm test
+        run: node test.js 10 liga1 && node test-auto-xi.js && node test-sim2d-orientation.js
       - name: Mostrar log del servidor si falla
         if: failure()
         run: cat /tmp/clash-futbol-server.log || true
