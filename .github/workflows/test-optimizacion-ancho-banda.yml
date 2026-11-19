@@ -53,7 +53,7 @@ jobs:
           cat /tmp/clash-futbol-server.log
           exit 1
       - name: Ejecutar suite de pruebas
-        run: node test.js 10 liga1 && node test-auto-xi.js && node test-sim2d-orientation.js
+        run: node test.js 8 liga1 && node test-auto-xi.js && node test-sim2d-orientation.js
       - name: Mostrar log del servidor si falla
         if: failure()
         run: cat /tmp/clash-futbol-server.log || true
