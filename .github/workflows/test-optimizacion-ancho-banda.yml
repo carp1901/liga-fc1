@@ -39,5 +39,27 @@ jobs:
           node-version: 20
       - name: Instalar dependencias
         run: npm install
+      - name: Iniciar servidor para las pruebas
+        run: |
+          TICK_MS=15 PORT=3000 node server.js > /tmp/clash-futbol-server.log 2>&1 &
+          echo $! > /tmp/clash-futbol-server.pid
+          for i in {1..30}; do
+            if curl -fsS http://localhost:3000/teams.json > /dev/null; then
+              echo "Servidor listo"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/clash-futbol-server.log
+          exit 1
       - name: Ejecutar suite de pruebas
         run: npm test
+      - name: Mostrar log del servidor si falla
+        if: failure()
+        run: cat /tmp/clash-futbol-server.log || true
+      - name: Detener servidor
+        if: always()
+        run: |
+          if [ -f /tmp/clash-futbol-server.pid ]; then
+            kill "$(cat /tmp/clash-futbol-server.pid)" || true
+          fi
