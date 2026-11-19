@@ -34,6 +34,26 @@ function chatFilter(raw){
  return msg.replace(re,(all,left,word)=>left+'•'.repeat(word.length));
 }
 function sseStream(res){const gzip=zlib.createGzip({flush:zlib.constants.Z_SYNC_FLUSH});gzip.pipe(res);return{write(data){if(!gzip.destroyed&&!gzip.writableEnded){gzip.write(data);gzip.flush(zlib.constants.Z_SYNC_FLUSH)}},end(){if(!gzip.writableEnded)gzip.end()}}}
+function sseDeltaSender(stream,fullEvery=30){
+ let previous=null,sent=0;
+ const isObj=v=>v!==null&&typeof v==='object';
+ function diff(a,b,path,sets,deletes){
+  if(Object.is(a,b))return;
+  if(Array.isArray(a)&&Array.isArray(b)&&a.length===b.length){for(let i=0;i<b.length;i++)diff(a[i],b[i],path.concat(i),sets,deletes);return}
+  if(isObj(a)&&isObj(b)&&!Array.isArray(a)&&!Array.isArray(b)){
+   for(const k of Object.keys(a))if(!Object.prototype.hasOwnProperty.call(b,k))deletes.push(path.concat(k));
+   for(const k of Object.keys(b)){if(!Object.prototype.hasOwnProperty.call(a,k))sets.push([path.concat(k),b[k]]);else diff(a[k],b[k],path.concat(k),sets,deletes)}
+   return;
+  }
+  sets.push([path,b]);
+ }
+ return value=>{
+  if(!previous||++sent%fullEvery===0){stream.write('data:'+JSON.stringify({__cf:'full',v:value})+'\n\n');previous=value;return}
+  const sets=[],deletes=[];diff(previous,value,[],sets,deletes);
+  if(sets.length||deletes.length)stream.write('data:'+JSON.stringify({__cf:'patch',u:sets,d:deletes})+'\n\n');
+  previous=value;
+ }
+}
 function chatBroadcast(m,tipo='mensaje'){
  const packet='event: '+tipo+'\ndata:'+JSON.stringify(m)+'\n\n';
  for(const c of CHAT_CLIENTS){try{c.write(packet)}catch(e){CHAT_CLIENTS.delete(c)}}
@@ -98,7 +118,7 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
  if(req.method=='POST'&&u.pathname=='/act')return body(req,b=>withUser(req,b,()=>{const e=b?E.act(b):'Pedido inválido';res.writeHead(e?400:200,{'Content-Type':'application/json'});res.end(JSON.stringify({error:e}))}));
  if(u.pathname=='/api/sesion'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),P=r&&!r.offline&&!r.closed&&pid&&(r.pl[pid]||(r.spec&&r.spec[pid]));const ok=!!P&&!(P.ai&&!P.nm0);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});return res.end(JSON.stringify({ok}))}   // ¿sigue existiendo mi sala? (para volver a entrar al recargar la página)
  if(u.pathname=='/ev'){const r=rooms[(u.searchParams.get('room')||'').toLowerCase()],pid=u.searchParams.get('pid'),rc=r&&pid&&E.reclaim(r.code,pid),c=r&&((r.pl[pid]&&!r.pl[pid].ai)?r.pl[pid]:(r.spec&&r.spec[pid]));if(!c){res.writeHead(404);return res.end()}
-  res.writeHead(200,{'Content-Type':'text/event-stream','Content-Encoding':'gzip','Vary':'Accept-Encoding','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});const stream=sseStream(res);c.res=stream;stream.write('retry:2000\n\n');E.listen(r.code,pid,v=>stream.write('data:'+JSON.stringify(v)+'\n\n'));req.on('close',()=>{if(c.res===stream){c.res=null;E.listen(r.code,pid,null)}stream.end()});return}
+  res.writeHead(200,{'Content-Type':'text/event-stream','Content-Encoding':'gzip','Vary':'Accept-Encoding','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});const stream=sseStream(res),send=sseDeltaSender(stream,30);c.res=stream;stream.write('retry:2000\n\n');E.listen(r.code,pid,v=>send(v));req.on('close',()=>{if(c.res===stream){c.res=null;E.listen(r.code,pid,null)}stream.end()});return}
  if(u.pathname=='/teams.json'){res.writeHead(200,{'Content-Type':'application/json'});return res.end(JSON.stringify(DIVS))}
  if(u.pathname=='/api/ranking'){const g=k=>u.searchParams.get(k)||'',year=/^20\d{2}$/.test(g('year'))?Number(g('year')):0,f={mod:['online','clasico','barrial','offline'].includes(g('mod'))?g('mod'):'online',comp:/^[a-z0-9]{1,30}$/.test(g('comp'))?g('comp'):'',fmt:['liga','copa','mixto'].includes(g('fmt'))?g('fmt'):'',country:/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,30}$/.test(g('country'))?g('country'):'',year};
   return store.ranking(f).then(d=>{res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({...d,filtros:f}))},e=>{console.error('[api/ranking clubes]',e&&e.stack||e);res.writeHead(503,{'Content-Type':'application/json'});res.end(JSON.stringify({error:'Base de datos no disponible'}))})}
