@@ -9,6 +9,10 @@
       {
         "name": "ROOMS",
         "class_name": "RoomCoordinator"
+      },
+      {
+        "name": "CHAT",
+        "class_name": "ChatHub"
       }
     ]
   },
@@ -17,6 +21,12 @@
       "tag": "v1",
       "new_sqlite_classes": [
         "RoomCoordinator"
+      ]
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": [
+        "ChatHub"
       ]
     }
   ]
