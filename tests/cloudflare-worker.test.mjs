@@ -207,3 +207,89 @@ test("malformed actions and missing rooms return controlled errors", async () =>
   ), env);
   assert.equal(missing.status, 404);
 });
+
+
+function mockAuthDatabase() {
+  const users = [];
+  const sessions = [];
+  let nextId = 1;
+  const env = {
+    __DB_QUERY__: async (statement, params) => {
+      if (statement.startsWith("INSERT INTO usuarios")) {
+        const [usuario, usuario_lc, pass_hash] = params;
+        if (users.some(user => user.usuario_lc === usuario_lc)) return { rows: [], rowCount: 0 };
+        const user = { id: nextId++, usuario, usuario_lc, pass_hash };
+        users.push(user);
+        return { rows: [{ id: user.id, usuario: user.usuario }], rowCount: 1 };
+      }
+      if (statement.startsWith("INSERT INTO sesiones")) {
+        const [token_hash, usuario_id, vence] = params;
+        sessions.push({ token_hash, usuario_id, vence });
+        return { rows: [], rowCount: 1 };
+      }
+      if (statement.startsWith("SELECT id, usuario, pass_hash FROM usuarios")) {
+        const user = users.find(item => item.usuario_lc === params[0]);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario, pass_hash: user.pass_hash }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (statement.startsWith("UPDATE usuarios SET ultimo_ingreso")) return { rows: [], rowCount: 1 };
+      if (statement.startsWith("DELETE FROM sesiones WHERE vence<now()")) return { rows: [], rowCount: 0 };
+      if (statement.startsWith("SELECT u.id, u.usuario FROM sesiones")) {
+        const session = sessions.find(item => item.token_hash === params[0] && Date.parse(item.vence) > Date.now());
+        const user = session && users.find(item => item.id === session.usuario_id);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (statement.startsWith("DELETE FROM sesiones WHERE token_hash")) {
+        const index = sessions.findIndex(item => item.token_hash === params[0]);
+        if (index >= 0) sessions.splice(index, 1);
+        return { rows: [], rowCount: index >= 0 ? 1 : 0 };
+      }
+      throw new Error("Unexpected SQL in auth test: " + statement);
+    }
+  };
+  return { env, users, sessions };
+}
+
+test("account registration, login, token validation and logout use Neon-backed auth", async () => {
+  const { env, users, sessions } = mockAuthDatabase();
+  const registerResponse = await worker.fetch(post("https://game.test/api/auth/registro", {
+    usuario: "Tecnico01", clave: "clave-segura-123"
+  }), env);
+  assert.equal(registerResponse.status, 200);
+  const registered = await registerResponse.json();
+  assert.equal(registered.usuario, "Tecnico01");
+  assert.equal(typeof registered.token, "string");
+  assert.equal(users.length, 1);
+  assert.match(users[0].pass_hash, /^pbkdf2\\$120000\\$/);
+  assert.notEqual(users[0].pass_hash, "clave-segura-123");
+  assert.equal(sessions.length, 1);
+
+  const duplicate = await worker.fetch(post("https://game.test/api/auth/registro", {
+    usuario: "tecnico01", clave: "otra-clave-123"
+  }), env);
+  assert.equal(duplicate.status, 400);
+
+  const me = await worker.fetch(new Request("https://game.test/api/auth/yo", {
+    headers: { authorization: "Bearer " + registered.token }
+  }), env);
+  assert.equal(me.status, 200);
+  assert.deepEqual(await me.json(), { usuario: "Tecnico01" });
+
+  const loginResponse = await worker.fetch(post("https://game.test/api/auth/login", {
+    usuario: "TECNICO01", clave: "clave-segura-123"
+  }), env);
+  assert.equal(loginResponse.status, 200);
+  const loggedIn = await loginResponse.json();
+  assert.equal(loggedIn.usuario, "Tecnico01");
+  assert.notEqual(loggedIn.token, registered.token);
+
+  const logout = await worker.fetch(post("https://game.test/api/auth/logout", {
+    tok: loggedIn.token
+  }), env);
+  assert.equal(logout.status, 200);
+  assert.deepEqual(await logout.json(), { ok: 1 });
+
+  const invalid = await worker.fetch(new Request("https://game.test/api/auth/yo", {
+    headers: { authorization: "Bearer " + loggedIn.token }
+  }), env);
+  assert.equal(invalid.status, 401);
+});
