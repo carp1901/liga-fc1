@@ -641,6 +641,12 @@ export class RoomCoordinator {
   constructor(state, env) {
     this.state = state;
     this.env = env;
+    this.loadedCode = null;
+    this.clients = new Map();
+    this.queue = Promise.resolve();
+  }
+
+  installCallbacks() {
     Engine.CFG.onCareer = records => {
       const pending = Careers.addCareers(this.env, records).catch(error => {
         console.error("Career persistence failed:", error?.message || error);
@@ -659,9 +665,6 @@ export class RoomCoordinator {
       if (this.state.waitUntil) this.state.waitUntil(pending);
       return pending;
     };
-    this.loadedCode = null;
-    this.clients = new Map();
-    this.queue = Promise.resolve();
   }
 
   async load(code) {
@@ -696,6 +699,7 @@ export class RoomCoordinator {
     const code = match[1].toLowerCase();
     const action = match[2];
     await this.load(code);
+    this.installCallbacks();
 
     if (action === "public-list" && request.method === "GET") {
       return json(Engine.pubList().filter(room => room.code === code));
@@ -799,6 +803,7 @@ export class RoomCoordinator {
     const code = await this.state.storage.get("room-code");
     if (!code) return;
     await this.load(code);
+    this.installCallbacks();
     const room = Engine.rooms[code];
     if (!room) {
       await this.state.storage.delete("game-room");
