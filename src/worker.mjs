@@ -1,6 +1,7 @@
 import Engine from "../public/engine.js";
 import Data from "../public/data.js";
 import * as Auth from "./auth.mjs";
+import { dbQuery } from "./db.mjs";
 
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -116,6 +117,16 @@ async function routeRequest(request, env) {
         phase: "single-room-runtime",
         engine: "integrated"
       });
+    }
+
+    if (request.method === "GET" && url.pathname === "/api/db/health") {
+      try {
+        const result = await dbQuery(env, "SELECT 1 AS ok", []);
+        return json({ ok: true, database: "connected", value: result.rows[0]?.ok ?? null });
+      } catch (error) {
+        console.error("Neon health check failed:", error?.message || error);
+        return json({ ok: false, database: "unavailable" }, 503);
+      }
     }
 
     const authPath = url.pathname;
