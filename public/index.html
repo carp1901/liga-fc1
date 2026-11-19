@@ -2,18 +2,18 @@
 <meta name="description" content="Jugá CLASH FUTBOL, un simulador de fútbol 2D con partidas online y offline, clubes, ligas y torneos personalizados. Armá tu equipo y competí con amigos.">
 <meta name="google-site-verification" content="-mGD3vYeFvX_UGtN6WQpf3n5rEDKBTq7YnFPu5LSe04">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://clash-futbol-2d-online.onrender.com/">
+
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="theme-color" content="#12281c">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CLASH FUTBOL">
 <meta property="og:title" content="CLASH FUTBOL | Simulador de fútbol 2D">
 <meta property="og:description" content="Simulador de fútbol 2D con partidas online y offline, clubes y torneos personalizados. Jugá y competí con amigos.">
-<meta property="og:url" content="https://clash-futbol-2d-online.onrender.com/">
+
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CLASH FUTBOL | Simulador de fútbol 2D">
 <meta name="twitter:description" content="Partidas online y offline, clubes y torneos personalizados.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"CLASH FUTBOL","url":"https://clash-futbol-2d-online.onrender.com/","description":"Simulador de fútbol 2D con partidas online y offline, clubes y torneos personalizados.","genre":["Sports","Soccer simulation"],"gamePlatform":["Web browser"],"applicationCategory":"Game","inLanguage":"es","playMode":["SinglePlayer","MultiPlayer"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"CLASH FUTBOL","description":"Simulador de fútbol 2D con partidas online y offline, clubes y torneos personalizados.","genre":["Sports","Soccer simulation"],"gamePlatform":["Web browser"],"applicationCategory":"Game","inLanguage":"es","playMode":["SinglePlayer","MultiPlayer"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Barlow:wght@300;400;600&family=Lilita+One&display=swap" rel="stylesheet">
 <style>
 :root{--bd:#12281c;--pz:#1b3a29;--pz2:#244a35;--tz:#f2efe3;--mu:#9db3a4;--ce:#75aadb;--so:#f2b705;--ro:#e0584f;--ln:#ffffff26}
@@ -491,7 +491,8 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
  .kobc .kcm>b{flex-basis:13px!important;width:13px!important;min-width:13px!important}
 }
 
-</style></head><body><main>
+</style><script src="/api-config.js"></script>
+</head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">CLASH FUTBOL - 2D ONLINE</h1>
 <p class="seo-intro">Simulador de fútbol 2D: jugá online con amigos o disfrutá el modo offline. Elegí clubes, armá torneos y viví tu propia carrera.</p>
@@ -672,12 +673,12 @@ const mmss=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0'),sur=n=>n.split('
  $('#np').innerHTML=DATA.LIGA_SIZES.concat(32).map(n=>`<option value="${n}">${n} jugadores</option>`).join('')})(DATA.DIVS);
 function customSizes(){const d=$('#odv').value,div=DATA.DIVS.find(x=>x.id==d),max=d=='all'?DATA.DIVS.reduce((a,x)=>a+x.teams.length,0):(div?div.teams.length:0),fmt=$('#ofm').value,old=+$('#onp').value,src=fmt=='copa'?DATA.CUSTOM_KO_SIZES:DATA.CUSTOM_LIGA_SIZES,ns=src.filter(n=>n<=max);$('#onp').innerHTML=ns.map(n=>`<option value="${n}">${n} equipos</option>`).join('');$('#onp').value=String(ns.includes(old)?old:(ns.includes(20)?20:ns[ns.length-1]));const n=+$('#onp').value,def=Math.min(n,n>=22?16:n>=10?8:4),keep=+$('#opo').value,opts=Array.from({length:Math.max(0,n-1)},(_,i)=>i+2);$('#opo').innerHTML=opts.map(v=>`<option value="${v}">${v} clasificados</option>`).join('');$('#opo').value=String(opts.includes(keep)?keep:def);const mx=fmt=='mixto';$('#omrwrap').hidden=!mx;$('#opowrap').hidden=!mx;$('#mixhelp').hidden=!mx}
 $('#odv').onchange=customSizes;$('#ofm').onchange=customSizes;$('#onp').onchange=customSizes;customSizes();
-async function post(b){const m={pid,room,name:$('#nm').value.trim(),...b};if(OFF)return ENG.act(m);try{const r=await fetch('/act',{method:'POST',headers:authH(),body:JSON.stringify(m)});return(await r.json()).error}catch(e){return'No hay servidor. Para jugar online abrí el link del servidor; para probar usá el modo offline.'}}
+async function post(b){const m={pid,room,name:$('#nm').value.trim(),...b};if(OFF)return ENG.act(m);try{const r=await apiFetch('/act',{method:'POST',headers:authH(),body:JSON.stringify(m)});return(await r.json()).error}catch(e){return'No hay servidor. Para jugar online abrí el link del servidor; para probar usá el modo offline.'}}
 async function enter(a){room=(a=='create'?$('#cdc'):$('#cd')).value.trim().toLowerCase();try{localStorage.nm=$('#nm').value}catch(e){}
  if(!$('#nm').value.trim())return $('#er').textContent='Poné tu nombre';const cfg=a=='create'?{div:$('#dv').value,fmt:$('#fm').value,...koCfg('fm'),n:+$('#np').value}:{};
  const e=await post({a,cfg,phil:PHL});if(e){if(a=='join'&&/ya empez/.test(e)){try{const v=await pubApi({op:'vacinfo',room});if(v.vac){$('#er').textContent='';pubVac(v.vac,'#er');return}}catch(x){}}return $('#er').textContent=e}start()}
 // ---- Partida aleatoria (Bloque 2)
-const RQP=['queue','vote1','vote2'],rndCall=async b=>(await fetch('/api/random',{method:'POST',headers:authH(),body:JSON.stringify({pid,name:$('#nm').value.trim(),phil:PHL,...b})})).json();
+const RQP=['queue','vote1','vote2'],rndCall=async b=>(await apiFetch('/api/random',{method:'POST',headers:authH(),body:JSON.stringify({pid,name:$('#nm').value.trim(),phil:PHL,...b})})).json();
 function randUI(v){$('#gm').classList.add('rq');const q=v.rq,ph=v.phase,ex='<div class=row><button onclick="leaveRoom()" style="margin-left:auto">Salir</button></div>';let h;
  if(ph=='queue')h='<h2>Partida aleatoria</h2><h2 style="color:var(--so)">Buscando jugadores… '+q.n+'/'+q.need+'</h2><p class=mu>Cuando se junten '+q.need+' personas empieza la votación. En sala: '+q.names.map(esc).join(', ')+'</p>'+(q.vac?'<p class=mu>Hay una partida con '+q.vac.libres+' lugar(es) libre(s) ('+esc(q.vac.fase)+(q.vac.comp?' · '+esc(q.vac.comp)+' · liga':'')+').</p><button class="go" data-vj="'+esc(q.vac.room)+'">Unirme a esa partida</button>':'')+ex;
  else{const c1=ph=='vote1';h='<h2>'+(c1?'Votá la categoría':'Votá la competición')+' · '+q.t+'s</h2>'+(c1?'':'<p class=mu>Categoría elegida: '+(q.cat=='clasico'?'Clásico':'Barrial / Regional')+'</p>')+q.opts.map(o=>'<button class="'+(q.mine==o.id?'go':'')+'" data-rv="'+esc(o.id)+'"><b>'+esc(o.label)+'</b> · '+(q.cnt[o.id]||0)+' voto(s)<br><small>'+esc(o.sub)+'</small></button>').join('')+'<p class=mu>Si hay empate se elige al azar. Formato: liga de 1 rueda. En sala: '+q.n+'/'+q.need+'</p>'+ex}
@@ -689,8 +690,8 @@ $('#brnd').onclick=async()=>{if(!$('#nm').value.trim())return $('#er').textConte
 // ---- Salas públicas (Bloque 3)
 const PFMT={liga1:'Liga (1 rueda)',liga2:'Liga (2 ruedas)',copa:'Mata-mata'},PUBST={esperando:'Esperando jugadores',juego:'En juego',completa:'Completas (solo espectadores)'},mmss2=ms=>{const s=Math.ceil(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
 let PUBL=[];
-const pubApi=async b=>(await fetch('/api/pub',{method:'POST',headers:authH(),body:JSON.stringify({pid,name:$('#nm').value.trim(),phil:PHL,...b})})).json();
-async function pubLoad(){try{const j=await(await fetch('/api/salas')).json();PUBL=Array.isArray(j)?j:null}catch(e){PUBL=null}pubDraw()}
+const pubApi=async b=>(await apiFetch('/api/pub',{method:'POST',headers:authH(),body:JSON.stringify({pid,name:$('#nm').value.trim(),phil:PHL,...b})})).json();
+async function pubLoad(){try{const j=await(await apiFetch('/api/salas')).json();PUBL=Array.isArray(j)?j:null}catch(e){PUBL=null}pubDraw()}
 const pubInfo=s=>'«'+s.name+'»\n'+s.comp+(s.region?' · '+s.region:'')+'\nFormato: '+PFMT[s.fmt]+'\nJugadores: '+s.h+'/'+s.n+(s.status=='esperando'?' (faltan '+s.free+')':'');
 function pubDraw(){const L=$('#psl');if(!L)return;if(!PUBL){L.innerHTML='<p class=lb>No hay servidor. Para ver las salas públicas abrí el link del servidor.</p>';return}
  const fc=$('#pfc').value,fs=$('#pfs').value,ff=$('#pff').value,q=$('#pq').value.trim().toLowerCase();
@@ -952,7 +953,7 @@ function seasonUI(v){const L=CAR.last,m=L.me,nm=i=>esc(CAR.cats[i].name),res=m.r
 document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-rs-exit]')){leaveRoom();return}const t=e.target.closest&&e.target.closest('[data-cs],[data-cd]');if(!t)return;if(t.dataset.cs)cxClose();else if(CAR&&CAR.last){CAR.last=null;post({a:'pause',v:0});careerSave();if(S)render()}});
 let rq=0;let lastR=0;const sched=()=>{if(rq)return;rq=1;const go=()=>requestAnimationFrame(()=>{rq=0;lastR=performance.now();if(S)render()}),w=SPD>=3?Math.max(0,220-(performance.now()-lastR)):0;if(w>0)setTimeout(go,w);else go()};   /* con marcador rápido llegan 5+ actualizaciones por segundo: se redibuja como mucho cada ~220 ms para no alargar los cuadros y frenar el 2D */
 const SESK='lfcSes',leaveRoom=()=>{try{localStorage.removeItem(SESK)}catch(e){}location.reload()},saveSes=()=>{try{if(!OFF&&room)localStorage[SESK]=JSON.stringify({room,pid,at:Date.now()})}catch(e){}};   // al recargar la página en una sala online se vuelve a entrar a esa sala (no al menú)
-function start(){$('#menu').hidden=true;$('#gm').hidden=false;applyOrd();saveSes();if(OFF)ENG.listen(room,pid,v=>{S=v;sched()});else{if(window.ES)ES.close();const es=window.ES=new EventSource(`/ev?room=${room}&pid=${pid}&v=2`);es.onmessage=m=>{try{const q=JSON.parse(m.data);if(q.__cf==='full')S=q.v;else if(q.__cf==='patch'&&S){for(const p of q.d||[]){let o=S;for(let i=0;i<p.length-1;i++)o=o[p[i]];if(o!=null)delete o[p[p.length-1]]}for(const [p,v] of q.u||[]){let o=S;for(let i=0;i<p.length-1;i++)o=o[p[i]];if(o!=null)o[p[p.length-1]]=v}}else return;sched()}catch(e){console.error('Estado en vivo inválido:',e)}}}}
+function start(){$('#menu').hidden=true;$('#gm').hidden=false;applyOrd();saveSes();if(OFF)ENG.listen(room,pid,v=>{S=v;sched()});else{if(window.ES)ES.close();const es=window.ES=new EventSource(apiUrl(`/ev?room=${room}&pid=${pid}&v=2`));es.onmessage=m=>{try{const q=JSON.parse(m.data);if(q.__cf==='full')S=q.v;else if(q.__cf==='patch'&&S){for(const p of q.d||[]){let o=S;for(let i=0;i<p.length-1;i++)o=o[p[i]];if(o!=null)delete o[p[p.length-1]]}for(const [p,v] of q.u||[]){let o=S;for(let i=0;i<p.length-1;i++)o=o[p[i]];if(o!=null)o[p[p.length-1]]=v}}else return;sched()}catch(e){console.error('Estado en vivo inválido:',e)}}}}
 async function offline(){OFF=true;SPD=+$('#osp').value||1;room='cpu'+Math.random().toString(36).slice(2,7);if(!$('#nm').value.trim())$('#nm').value='DT';const e=await post({a:'create',off:1,speed:+$('#osp').value,cfg:{div:$('#odv').value,fmt:$('#ofm').value,...koCfg('ofm'),n:+$('#onp').value}});if(e){OFF=false;return $('#er').textContent=e}start()}
 $('#bj').onclick=()=>enter('join');$('#bc2').onclick=()=>enter('create');$('#bo2').onclick=offline;const MENU_SCREENS=['m0','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12','m13','m14','m15','m16','m17','m18','m19','m20','m21','m22','m23','m24','m25','m26','m27','m28','m29','m30','m31'];let MENU_HISTORY=['m0'];const currentMenu=()=>MENU_SCREENS.find(i=>!$('#'+i).hidden)||null;const syncMenuBack=()=>{const current=currentMenu(),canBack=!!current&&current!=='m0'&&MENU_HISTORY.some(i=>i&&i!==current);document.querySelectorAll('#menu .sc .bk').forEach(b=>{b.hidden=!canBack||b.closest('.sc')?.id!==current})};const showMenu=n=>{MENU_SCREENS.forEach(i=>$('#'+i).hidden=i!==n);syncMenuBack()};const goM=n=>{if(!MENU_SCREENS.includes(n))return;const current=currentMenu();if(current&&current!==n)MENU_HISTORY.push(current);showMenu(n)};const goBack=()=>{const current=currentMenu();while(MENU_HISTORY.length){const previous=MENU_HISTORY.pop();if(previous&&previous!==current&&MENU_SCREENS.includes(previous)){showMenu(previous);return}}showMenu('m0')};const KO=id=>{const sel=$('#'+id),lb=sel&&sel.closest('label');if(!lb)return null;let w=lb.nextElementSibling;if(!w||!w.classList.contains('koopts')){w=document.createElement('span');w.className='koopts';w.hidden=true;w.innerHTML='<label class="lb">cada ronda<select data-ko="legs"><option value="1">Solo ida (1 partido)</option><option value="2">Ida y vuelta (global)</option></select></label><label class="lb">cruces<select data-ko="seed"><option value="rand">Al azar</option><option value="pick">Los elijo yo</option></select></label>';lb.insertAdjacentElement('afterend',w)}return{sel,w}},
  koCfg=id=>{const k=KO(id);if(!k||k.sel.value!='copa')return{};return{legs:+k.w.querySelector('[data-ko=legs]').value,seed:k.w.querySelector('[data-ko=seed]').value}};
@@ -997,7 +998,7 @@ $('#np').onchange=()=>rkHint('#np','#rk1');$('#bnp').onchange=()=>rkHint('#bnp',
 $('#cl7').onclick=e=>{const b=e.target.closest('[data-bcup]');if(b)openBCup(b.dataset.bcup)};$('#bc9').onclick=()=>enterB('create');
 /* ===== Títulos offline: se informan al servidor (ranking offline aparte, no verificable). Si falla la conexión se guardan y se reenvían al abrir el juego. ===== */
 const PT_K='pendTit',ptGet=()=>{try{return JSON.parse(localStorage[PT_K]||'[]')}catch(e){return[]}},ptSet=a=>{try{localStorage[PT_K]=JSON.stringify(a.slice(-20))}catch(e){}};
-const sendOff=rec=>fetch('/api/titulo-offline',{method:'POST',body:JSON.stringify({...rec,pid})}).then(r=>r.json().then(j=>({s:r.status,j}))).then(({s,j})=>{if(s==200)return j;const e=new Error(j.error||'error '+s);e.perm=s==400;throw e});
+const sendOff=rec=>apiFetch('/api/titulo-offline',{method:'POST',body:JSON.stringify({...rec,pid})}).then(r=>r.json().then(j=>({s:r.status,j}))).then(({s,j})=>{if(s==200)return j;const e=new Error(j.error||'error '+s);e.perm=s==400;throw e});
 ENG.CFG.onTitle=rec=>sendOff(rec).catch(e=>{if(!e.perm)ptSet([...ptGet().filter(x=>x.tid!=rec.tid),rec]);throw e});
 const flushPT=()=>{const a=ptGet();if(!a.length)return;Promise.all(a.map(rec=>sendOff(rec).then(()=>rec.tid,e=>e.perm?rec.tid:null))).then(done=>ptSet(ptGet().filter(x=>!done.includes(x.tid))))};flushPT();
 /* ===== Rankings: los datos vienen del servidor (/api/ranking); nada se calcula ni se guarda en el navegador. ===== */
@@ -1037,7 +1038,7 @@ function rkSetup(t){
 const fdate=s=>{const d=new Date(s);return isNaN(d)?'':d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'2-digit'})};
 async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Cargando…</span>';
  const p=new URLSearchParams({mod:$('#rkm').value,comp:$('#rkc').value,fmt:$('#rkf').value,country:window.RK_COUNTRY||''});if($('#rkperiod').value=='temporada')p.set('year',String(new Date().getFullYear()));
- try{const r=await fetch('/api/ranking?'+p),d=await r.json();if(n!=RKN)return;
+ try{const r=await apiFetch('/api/ranking?'+p),d=await r.json();if(n!=RKN)return;
   if(!r.ok||d.error){o.textContent=d.error||'No se pudo cargar el ranking. Probá de nuevo en un rato.';return}
   if(!d.enabled){o.innerHTML='<span class=mu>El ranking no está disponible: este servidor no tiene base de datos conectada.</span>';return}
   const note=RKT=='offline'?'<div class=nt>⚠️ Ranking offline: los títulos los informa cada dispositivo y no se pueden verificar. Se muestra siempre aparte del online.</div>':'<div class=nt>Solo cuentan torneos online terminados con 10 personas o más.</div>';
@@ -1059,7 +1060,7 @@ document.addEventListener('click',e=>{if(!$('#rkcountryPicker').contains(e.targe
 const MODL={clasico:'clásico online',barrial:'barrial online',offline:'offline'},FMTL=f=>f=='copa'?'Copa':'Liga',posTxt=p=>p?p.pos+'º'+(p.empate?'=':'')+' de '+p.de:'—';
 let CLUB=null,CLUBHTML='';
 const clubOpts=()=>CLUBHTML||(CLUBHTML=(()=>{const seen=new Set();return DV.map(d=>{const o=d.teams.filter(t=>!seen.has(t.id)&&seen.add(t.id)).sort((a,b)=>a.name.localeCompare(b.name,'es')).map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('');return o?`<optgroup label="${esc(d.name)}">${o}</optgroup>`:''}).join('')})());
-const clubGet=async id=>{const r=await fetch('/api/club?id='+encodeURIComponent(id)),d=await r.json();if(!r.ok||d.error)throw new Error(d.error||'error');return d};
+const clubGet=async id=>{const r=await apiFetch('/api/club?id='+encodeURIComponent(id)),d=await r.json();if(!r.ok||d.error)throw new Error(d.error||'error');return d};
 const rkErr=(o,e)=>{o.innerHTML='<span class=mu>No se pudo cargar (sin conexión con el servidor o base de datos no disponible).</span>'};
 async function openClub(id){CLUB=id;goM('m11');const o=$('#fcb');o.innerHTML='<span class=mu>Cargando…</span>';$('#fcc').innerHTML=clubOpts();$('#fcc').value=id==$('#fcc').options[0].value?$('#fcc').options[1].value:$('#fcc').options[0].value;
  try{const d=await clubGet(id);if(CLUB!=id)return;if(!d.enabled){o.innerHTML='<span class=mu>El palmarés no está disponible: este servidor no tiene base de datos conectada.</span>';return}
@@ -1122,7 +1123,7 @@ const shMsg=t=>{$('#shi').innerHTML='<span class=mu>'+t+'</span>'};
 const loadCrestImg=id=>new Promise(res=>{const ex=['png','svg','webp'],tm=setTimeout(()=>res(null),2500);let k=0;const go=()=>{if(k>=ex.length){clearTimeout(tm);return res(null)}const im=new Image(),e=ex[k];im.onload=()=>{clearTimeout(tm);res(im.naturalWidth?im:null)};im.onerror=()=>{k++;go()};im.src='/crests/'+id+'.'+e};go()});
 async function shareTitle(tid){
  $('#shm').hidden=false;SHB=null;$('#shs').hidden=$('#shd').hidden=true;$('#shn').textContent='';shMsg('Generando tarjeta…');
- try{const r=await fetch('/api/titulo?id='+encodeURIComponent(tid)),i=await r.json();if(!r.ok||i.error||!i.enabled)throw new Error(i.error||'no disponible');
+ try{const r=await apiFetch('/api/titulo?id='+encodeURIComponent(tid)),i=await r.json();if(!r.ok||i.error||!i.enabled)throw new Error(i.error||'no disponible');
   const T=TM[i.club]||{c1:'#1f5f2a',c2:'#0e3a18'};try{if(document.fonts&&document.fonts.load)await Promise.race([document.fonts.load('40px "Lilita One"'),new Promise(r=>setTimeout(r,800))])}catch(e){}
   const cv=document.createElement('canvas');cv.width=1080;cv.height=1350;drawCard(cv.getContext('2d'),i,await loadCrestImg(i.club),T.c1,T.c2);
   SHB=await new Promise((ok,no)=>cv.toBlob(b=>b?ok(b):no(new Error('toBlob')),'image/png'));SHN='clash-futbol-'+i.club+'-titulo-'+i.numero+'.png';
@@ -1142,19 +1143,19 @@ function applyAuth(){const nm=$('#nm'),b=$('#bacc');
 const setAuth=a=>{AUTH=a;try{if(a)localStorage.lfcAuth=JSON.stringify(a);else localStorage.removeItem('lfcAuth')}catch(e){}applyAuth()};
 async function authGo(kind){const u=$('#au').value.trim(),c=$('#ap').value;$('#aer').textContent='';if(!u||!c){$('#aer').textContent='Escribí usuario y contraseña';return}
  $('#alg').disabled=$('#arg').disabled=true;
- try{const r=await fetch('/api/auth/'+kind,{method:'POST',body:JSON.stringify({usuario:u,clave:c})}),j=await r.json();
+ try{const r=await apiFetch('/api/auth/'+kind,{method:'POST',body:JSON.stringify({usuario:u,clave:c})}),j=await r.json();
   if(!r.ok||j.error){$('#aer').textContent=j.error||'No se pudo completar';return}
-  $('#ap').value='';setAuth({tok:j.token,usuario:j.usuario});flushPC();const pr=await fetch('/api/auth/perfil',{headers:authH()}).then(x=>x.ok?x.json():null).catch(()=>null);if(pr&&pr.enabled&&!pr.perfilCompleto){goM('m20');perfilLoad()}else goM('m0')}
+  $('#ap').value='';setAuth({tok:j.token,usuario:j.usuario});flushPC();const pr=await apiFetch('/api/auth/perfil',{headers:authH()}).then(x=>x.ok?x.json():null).catch(()=>null);if(pr&&pr.enabled&&!pr.perfilCompleto){goM('m20');perfilLoad()}else goM('m0')}
  catch(e){$('#aer').textContent='No hay conexión con el servidor. Podés jugar como invitado.'}
  finally{$('#alg').disabled=$('#arg').disabled=false}}
 async function perfilLoad(){const o=$('#pfb');$('#pfn').textContent=AUTH?AUTH.usuario:'Mi perfil';o.innerHTML='<span class=mu>Cargando…</span>';
- try{const r=await fetch('/api/auth/perfil',{headers:authH()}),d=await r.json();
+ try{const r=await apiFetch('/api/auth/perfil',{headers:authH()}),d=await r.json();
   if(r.status==401){setAuth(null);goM('m19');$('#aer').textContent='Tu sesión venció: ingresá de nuevo.';return}
   if(!r.ok||d.error){o.innerHTML='<span class=mu>No se pudo cargar el perfil.</span>';return}
   if(!d.enabled){o.innerHTML='<span class=mu>Las cuentas no están disponibles: este servidor no tiene base de datos conectada.</span>';return}
   const fav=$('#pffav'),back=$('#pfback');back.hidden=!d.perfilCompleto;
   if(d.perfilCompleto){const id=d.clubFavorito;fav.innerHTML=`<div class=box style="display:flex;align-items:center;gap:12px">${TM[id]?cr(id,48):''}<div><b>Club favorito</b><div>${esc(TM[id]?.name||id)}</div><small class=mu>Elección fija de esta cuenta</small></div></div>`}
-  else{const ids=Object.keys(TM).filter(id=>TM[id]&&TM[id].name).sort((a,b)=>TM[a].name.localeCompare(TM[b].name,'es'));fav.innerHTML=`<div class=box><h3>Elegí tu club favorito</h3><p class=lb>Este escudo será tu avatar en el perfil. La elección se realiza una sola vez y después no se puede cambiar.</p><select id=pfclub class=in>${ids.map(id=>`<option value="${id}">${esc(TM[id].name)}</option>`).join('')}</select><button class="bt ok" id=pfsave>Confirmar club favorito</button><p class=lb id=pferr></p></div>`;$('#pfsave').onclick=async()=>{const b=$('#pfsave'),err=$('#pferr');b.disabled=true;err.textContent='Guardando…';try{const rr=await fetch('/api/auth/favorito',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({club:$('#pfclub').value})}),jj=await rr.json();if(!rr.ok||jj.error){err.textContent=jj.error||'No se pudo guardar';b.disabled=false;return}perfilLoad()}catch(e){err.textContent='No hay conexión con el servidor';b.disabled=false}}}
+  else{const ids=Object.keys(TM).filter(id=>TM[id]&&TM[id].name).sort((a,b)=>TM[a].name.localeCompare(TM[b].name,'es'));fav.innerHTML=`<div class=box><h3>Elegí tu club favorito</h3><p class=lb>Este escudo será tu avatar en el perfil. La elección se realiza una sola vez y después no se puede cambiar.</p><select id=pfclub class=in>${ids.map(id=>`<option value="${id}">${esc(TM[id].name)}</option>`).join('')}</select><button class="bt ok" id=pfsave>Confirmar club favorito</button><p class=lb id=pferr></p></div>`;$('#pfsave').onclick=async()=>{const b=$('#pfsave'),err=$('#pferr');b.disabled=true;err.textContent='Guardando…';try{const rr=await apiFetch('/api/auth/favorito',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({club:$('#pfclub').value})}),jj=await rr.json();if(!rr.ok||jj.error){err.textContent=jj.error||'No se pudo guardar';b.disabled=false;return}perfilLoad()}catch(e){err.textContent='No hay conexión con el servidor';b.disabled=false}}}
   const R=d.resumen,tile=(n,l)=>`<div><b>${n}</b>${l}</div>`;
   o.innerHTML=`<div class=fct>${tile(R.carreras,'carreras jugadas')}${tile(R.campeonatos,'campeonatos')}${tile(R.online,'online')}${tile(R.offline,'offline')}</div><h3>Historial de carreras</h3>`+
    (d.historial.length?`<table><tr><th>Fecha</th><th>Club</th><th>Competición</th><th>Resultado</th></tr>${d.historial.map(h=>`<tr><td class=mu>${fdate(h.finalizado)}</td><td>${TM[h.club]?cr(h.club,18)+' ':''}${esc(h.club_nombre||h.club)}</td><td>${esc(h.competicion_nombre||'')} <span class=mu>· ${h.formato=='copa'?'Copa':'Liga'} · ${h.modalidad=='offline'?'Offline':'Online'}</span></td><td class="${h.campeon?'pt':''}">${h.campeon?'🏆 ':''}${esc(h.resultado||'')}</td></tr>`).join('')}</table>${R.carreras>d.historial.length?`<div class=nt>Se muestran las últimas ${d.historial.length} de ${R.carreras}.</div>`:''}`:'<span class=mu>Todavía no jugaste ninguna carrera con esta cuenta. Las que termines con la sesión iniciada se guardan acá.</span>')+
@@ -1162,21 +1163,21 @@ async function perfilLoad(){const o=$('#pfb');$('#pfn').textContent=AUTH?AUTH.us
  catch(e){o.innerHTML='<span class=mu>No se pudo cargar el perfil (sin conexión con el servidor).</span>'}}
 // Carreras offline: se juegan en el celular; al terminar, si hay sesión, se informan al servidor. Si no hay conexión quedan pendientes (en este dispositivo, ligadas a esa cuenta) y se reenvían después.
 const PC_K='pendCar',pcGet=()=>{try{return JSON.parse(localStorage[PC_K]||'[]')}catch(e){return[]}},pcSet=a=>{try{localStorage[PC_K]=JSON.stringify(a.slice(-30))}catch(e){}};
-const sendCar=rec=>fetch('/api/auth/carrera',{method:'POST',headers:authH(),body:JSON.stringify(rec)}).then(r=>r.json().then(j=>({s:r.status,j}))).then(({s,j})=>{if(s==200)return j;const e=new Error(j.error||'error '+s);e.perm=s==400||s==401;throw e});
+const sendCar=rec=>apiFetch('/api/auth/carrera',{method:'POST',headers:authH(),body:JSON.stringify(rec)}).then(r=>r.json().then(j=>({s:r.status,j}))).then(({s,j})=>{if(s==200)return j;const e=new Error(j.error||'error '+s);e.perm=s==400||s==401;throw e});
 ENG.CFG.onCareer=recs=>{if(!AUTH)return;const u=AUTH.usuario;recs.forEach(rec=>{delete rec.uid;sendCar(rec).catch(e=>{if(!e.perm)pcSet([...pcGet().filter(x=>x.tid!=rec.tid),{...rec,u}])})})};
 function flushPC(){if(!AUTH)return;const u=AUTH.usuario,a=pcGet().filter(x=>x.u==u);if(!a.length)return;Promise.all(a.map(x=>{const{u:_,...rec}=x;return sendCar(rec).then(()=>x.tid,e=>e.perm?x.tid:null)})).then(done=>pcSet(pcGet().filter(x=>!(x.u==u&&done.includes(x.tid)))))}
 $('#bacc').onclick=()=>{if(AUTH){goM('m20');perfilLoad()}else{$('#aer').textContent='';goM('m19')}};
 $('#alg').onclick=()=>authGo('login');$('#arg').onclick=()=>authGo('registro');$('#ap').onkeydown=e=>{if(e.key=='Enter')authGo('login')};
-$('#pfx').onclick=async()=>{const t=AUTH&&AUTH.tok;setAuth(null);goM('m0');if(t)try{await fetch('/api/auth/logout',{method:'POST',headers:{Authorization:'Bearer '+t},body:'{}'})}catch(e){}};
+$('#pfx').onclick=async()=>{const t=AUTH&&AUTH.tok;setAuth(null);goM('m0');if(t)try{await apiFetch('/api/auth/logout',{method:'POST',headers:{Authorization:'Bearer '+t},body:'{}'})}catch(e){}};
 document.addEventListener('click',async e=>{const b=e.target.closest&&e.target.closest('[data-pclose]');if(!b)return;e.stopImmediatePropagation();
  if(!confirm('¿Cerrar la sala? Se saca a todos los que están esperando.'))return;
  try{const r=await pubApi({op:'close',room});if(r.error)alert(r.error)}catch(x){alert('No hay conexión con el servidor.')}},true);
-applyAuth();flushPC();if(AUTH){fetch('/api/auth/yo',{headers:authH()}).then(r=>{if(r.status==401)setAuth(null)},()=>{});fetch('/api/auth/perfil',{headers:authH()}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.enabled&&!d.perfilCompleto){goM('m20');perfilLoad()}}).catch(()=>{})}
+applyAuth();flushPC();if(AUTH){apiFetch('/api/auth/yo',{headers:authH()}).then(r=>{if(r.status==401)setAuth(null)},()=>{});apiFetch('/api/auth/perfil',{headers:authH()}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.enabled&&!d.perfilCompleto){goM('m20');perfilLoad()}}).catch(()=>{})}
 /* ===== Amigos (solo con cuenta): se agrega por nombre de usuario y el otro tiene que aceptar. Lista y solicitudes; lo demás (perfil, invitar, en línea) viene después. ===== */
 var AMG=null;   // {amigos:[],recibidas:[],enviadas:[]} del servidor; null = sin cargar o sin sesión
 function amgBadge(){const n=AMG&&AMG.recibidas?AMG.recibidas.length:0;$('#bamg').textContent='👥 Amigos'+(n?' ('+n+')':'')}
 function amgSync(){if(!AUTH){AMG=null;amgBadge();return}amgLoad()}
-async function amgApi(path,body){const r=await fetch('/api/amigos'+path,{method:body?'POST':'GET',headers:authH(),body:body?JSON.stringify(body):undefined}),j=await r.json();
+async function amgApi(path,body){const r=await apiFetch('/api/amigos'+path,{method:body?'POST':'GET',headers:authH(),body:body?JSON.stringify(body):undefined}),j=await r.json();
  if(r.status==401){setAuth(null);throw Object.assign(new Error('sesión'),{auth:1})}return{ok:r.ok,j}}
 async function amgLoad(){if(!AUTH)return;
  try{const r=await amgApi('');if(!AUTH)return;AMG=r.ok?(r.j.enabled===false?{off:1}:r.j):AMG;amgBadge();if(/^Sin conexión/.test($('#ame').textContent))$('#ame').textContent='';if(!$('#m21').hidden)amgDraw()}
@@ -1231,16 +1232,16 @@ async function chatLoad(){
  $('#chaterr').textContent='';$('#chatmsgs').innerHTML='<span class=mu>Cargando mensajes…</span>';
  let historyError='';
  try{
-  const r=await fetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();
+  const r=await apiFetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();
   if(!r.ok||d.enabled===false){historyError=d.error||'El chat no está disponible en este momento.';$('#chatmsgs').textContent=historyError}
   else{$('#chatmsgs').innerHTML='';CHAT_IDS.clear();CHAT_DATA.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>'}
  }catch(e){historyError='No se pudo conectar con el chat.';$('#chatmsgs').textContent=historyError}
  // Aunque falle el historial, siempre mostrar el acceso correspondiente y conectar el flujo en vivo.
  $('#chatwrite').hidden=!AUTH;$('#chatguest').hidden=!!AUTH;$('#chatguest').dataset.open='0';
- if(AUTH){try{const r=await fetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadminToggle').hidden=!CHAT_PERMS.moderador;$('#chatadmin').hidden=true;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true}}
+ if(AUTH){try{const r=await apiFetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadminToggle').hidden=!CHAT_PERMS.moderador;$('#chatadmin').hidden=true;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true}}
  else{$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true;CHAT_PERMS={owner:false,moderador:false}}
  if(CHAT_PERMS.moderador)Array.from(CHAT_DATA.values()).forEach(chatAppend);
- if(!CHAT_STREAM){CHAT_STREAM=new EventSource('/api/chat/stream');CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.addEventListener('reaccion',e=>{try{const q=JSON.parse(e.data);chatReactionUpdate(q.id,q)}catch(x){}});CHAT_STREAM.addEventListener('eliminado',e=>{try{chatRemove(JSON.parse(e.data).id)}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
+ if(!CHAT_STREAM){CHAT_STREAM=new EventSource(apiUrl('/api/chat/stream'));CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.addEventListener('reaccion',e=>{try{const q=JSON.parse(e.data);chatReactionUpdate(q.id,q)}catch(x){}});CHAT_STREAM.addEventListener('eliminado',e=>{try{chatRemove(JSON.parse(e.data).id)}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
  if(historyError)$('#chaterr').textContent=historyError;
 }
 $('#bchat').onclick=()=>{goM('m29');chatLoad()};
@@ -1252,21 +1253,21 @@ $('#chatadminToggle').onclick=()=>{$('#chatadmin').hidden=!$('#chatadmin').hidde
 async function chatSend(){
  const input=$('#chatinput'),msg=input.value.trim();if(!msg)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para escribir.';return}
  $('#chatsend').disabled=true;$('#chaterr').textContent='';
- try{const r=await fetch('/api/chat',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({mensaje:msg})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo enviar';return}input.value='';chatAppend(d.mensaje)}
+ try{const r=await apiFetch('/api/chat',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({mensaje:msg})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo enviar';return}input.value='';chatAppend(d.mensaje)}
  catch(e){$('#chaterr').textContent='No hay conexión con el servidor.'}
  finally{$('#chatsend').disabled=false}
 }
 $('#chatsend').onclick=chatSend;$('#chatinput').onkeydown=e=>{if(e.key=='Enter')chatSend()};
-$('#chatmsgs').addEventListener('click',async e=>{const del=e.target.closest&&e.target.closest('[data-chat-delete]');if(del){const id=+del.dataset.chatDelete;if(!confirm('¿Eliminar este comentario del chat?'))return;del.disabled=true;try{const r=await fetch('/api/chat/eliminar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo eliminar';del.disabled=false;return}chatRemove(id)}catch(x){$('#chaterr').textContent='No hay conexión con el servidor.';del.disabled=false}return}const who=e.target.closest&&e.target.closest('[data-chat-who]');if(who){if(!CHAT_PERMS.moderador)return;const holder=who.closest('.chmsg').querySelector('[data-chat-who-list]'),id=who.dataset.id,valor=who.dataset.chatWho;holder.textContent='Cargando…';try{const r=await fetch('/api/chat/reaccionarios?id='+encodeURIComponent(id)+'&valor='+encodeURIComponent(valor),{headers:authH()}),d=await r.json();holder.textContent=r.ok?(d.usuarios.length?((valor==='1'?'👍 ':'👎 ')+d.usuarios.join(' · ')):'Todavía nadie reaccionó.'):(d.error||'No se pudo consultar')}catch(x){holder.textContent='No hay conexión con el servidor.'}return}
+$('#chatmsgs').addEventListener('click',async e=>{const del=e.target.closest&&e.target.closest('[data-chat-delete]');if(del){const id=+del.dataset.chatDelete;if(!confirm('¿Eliminar este comentario del chat?'))return;del.disabled=true;try{const r=await apiFetch('/api/chat/eliminar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo eliminar';del.disabled=false;return}chatRemove(id)}catch(x){$('#chaterr').textContent='No hay conexión con el servidor.';del.disabled=false}return}const who=e.target.closest&&e.target.closest('[data-chat-who]');if(who){if(!CHAT_PERMS.moderador)return;const holder=who.closest('.chmsg').querySelector('[data-chat-who-list]'),id=who.dataset.id,valor=who.dataset.chatWho;holder.textContent='Cargando…';try{const r=await apiFetch('/api/chat/reaccionarios?id='+encodeURIComponent(id)+'&valor='+encodeURIComponent(valor),{headers:authH()}),d=await r.json();holder.textContent=r.ok?(d.usuarios.length?((valor==='1'?'👍 ':'👎 ')+d.usuarios.join(' · ')):'Todavía nadie reaccionó.'):(d.error||'No se pudo consultar')}catch(x){holder.textContent='No hay conexión con el servidor.'}return}
  const b=e.target.closest&&e.target.closest('[data-chat-vote]');if(!b)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para reaccionar.';return}
  const id=+b.dataset.chatVote,valor=+b.dataset.v;b.disabled=true;
- try{const r=await fetch('/api/chat/reaccion',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id,valor})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo registrar la reacción';return}chatReactionUpdate(id,d.reaccion)}
+ try{const r=await apiFetch('/api/chat/reaccion',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id,valor})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo registrar la reacción';return}chatReactionUpdate(id,d.reaccion)}
  catch(x){$('#chaterr').textContent='No hay conexión con el servidor.'}finally{b.disabled=false}
 });
 async function chatModAction(accion){
  const usuario=$('#chattarget').value.trim();if(!usuario){$('#chatmodmsg').textContent='Escribí el usuario que querés moderar.';return}
  $('#chatmodmsg').textContent='Procesando…';
- try{const r=await fetch('/api/chat/moderar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({usuario,accion,minutos:+$('#chatminutes').value,razon:$('#chatreason').value})}),d=await r.json();$('#chatmodmsg').textContent=r.ok?(accion=='silenciar'?'Participante silenciado.':accion=='suspender'?'Participante suspendido.':accion=='reactivar'?'Sanción levantada.':accion=='moderar'?'Moderador habilitado.':'Permiso de moderador retirado.'):(d.error||'No se pudo completar')}
+ try{const r=await apiFetch('/api/chat/moderar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({usuario,accion,minutos:+$('#chatminutes').value,razon:$('#chatreason').value})}),d=await r.json();$('#chatmodmsg').textContent=r.ok?(accion=='silenciar'?'Participante silenciado.':accion=='suspender'?'Participante suspendido.':accion=='reactivar'?'Sanción levantada.':accion=='moderar'?'Moderador habilitado.':'Permiso de moderador retirado.'):(d.error||'No se pudo completar')}
  catch(e){$('#chatmodmsg').textContent='No hay conexión con el servidor.'}
 }
 $('#chatmute').onclick=()=>chatModAction('silenciar');$('#chatunmute').onclick=()=>chatModAction('reactivar');$('#chatsuspend').onclick=()=>chatModAction('suspender');$('#chatmod').onclick=()=>chatModAction('moderar');$('#chatunmod').onclick=()=>chatModAction('desmoderar');
@@ -1297,7 +1298,7 @@ function renderFans(){
 }
 async function hinchasRankLoad(){
  $('#fanlist').innerHTML='<span class=mu>Cargando ranking…</span>';
- try{const r=await fetch('/api/ranking-hinchas'),d=await r.json();if(!r.ok||!d.enabled){$('#fanlist').textContent=d.error||'El ranking de hinchas no está disponible.';return}
+ try{const r=await apiFetch('/api/ranking-hinchas'),d=await r.json();if(!r.ok||!d.enabled){$('#fanlist').textContent=d.error||'El ranking de hinchas no está disponible.';return}
   FAN_ROWS=d.rows||[];FAN_ROWS.total=d.totalCuentas||0;
   $('#faninfo').textContent='Cada cuenta registrada con un club favorito suma exactamente 1 hincha. Total de cuentas con club elegido: '+FAN_ROWS.total+'. El club favorito queda fijo.';
   renderFans();
@@ -1320,7 +1321,7 @@ function renderTech(){
 }
 async function tecnicoRankLoad(periodo){
  TR_PERIODO=periodo;$('#trseason').classList.toggle('on',periodo=='temporada');$('#trhistory').classList.toggle('on',periodo=='historico');$('#trlist').innerHTML='<span class=mu>Cargando ranking…</span>';
- try{const r=await fetch('/api/ranking-tecnicos?periodo='+periodo),d=await r.json();if(!r.ok||!d.enabled){$('#trlist').textContent=d.error||'El ranking no está disponible en este momento.';return}
+ try{const r=await apiFetch('/api/ranking-tecnicos?periodo='+periodo),d=await r.json();if(!r.ok||!d.enabled){$('#trlist').textContent=d.error||'El ranking no está disponible en este momento.';return}
   TECH_ROWS=d.rows||[];
   $('#trinfo').textContent=(periodo=='temporada'?'Temporada '+d.temporada+'. ':'Histórico desde que se registran resultados competitivos. ')+'Cuentan torneos online elegibles y carreras offline con cuenta. Online: mínimo 10 participantes humanos; ligas de 10 o más equipos y copas de 8 o más. Offline: ligas y mixtos desde 10 equipos, copas desde 8. La puntuación actual pondera la posición final y las rondas alcanzadas.';
   renderTech();
@@ -1332,7 +1333,7 @@ $('#trhistory').onclick=()=>tecnicoRankLoad('historico');
 $('#trsearch').oninput=renderTech;
 async function tecnicoProfileLoad(usuario){
  goM('m31');$('#pubtitle').textContent='Perfil de '+usuario;$('#pubprofile').innerHTML='<span class=mu>Cargando perfil…</span>';
- try{const r=await fetch('/api/tecnico?usuario='+encodeURIComponent(usuario)),d=await r.json();if(!r.ok||!d.enabled){$('#pubprofile').innerHTML='<span class=mu>'+(d.error||'No se pudo cargar el perfil.')+'</span>';return}
+ try{const r=await apiFetch('/api/tecnico?usuario='+encodeURIComponent(usuario)),d=await r.json();if(!r.ok||!d.enabled){$('#pubprofile').innerHTML='<span class=mu>'+(d.error||'No se pudo cargar el perfil.')+'</span>';return}
   const R=d.resumen||{},hist=d.historial||[];
   $('#pubprofile').innerHTML='<div class=box style="display:flex;align-items:center;gap:12px">'+(d.clubFavorito&&TM[d.clubFavorito]?cr(d.clubFavorito,52):'')+'<div><b style="font-size:18px">'+esc(d.usuario)+'</b><div class=mu>Técnico desde '+fdate(d.creado)+'</div><div class=mu>Club favorito: '+esc(d.clubFavorito&&TM[d.clubFavorito]?TM[d.clubFavorito].name:'Sin elegir')+'</div></div></div><div class=fct><div><b>'+(R.puntos||0)+'</b>puntos históricos</div><div><b>'+(R.torneos||0)+'</b>torneos competitivos</div><div><b>'+(R.campeonatos||0)+'</b>campeonatos</div><div><b>'+(R.podios||0)+'</b>podios</div></div><h3>Resultados competitivos recientes</h3>'+(hist.length?'<table><tr><th>Fecha</th><th>Club</th><th>Competición</th><th>Resultado</th></tr>'+hist.map(h=>'<tr><td class=mu>'+fdate(h.finalizado)+'</td><td>'+(TM[h.club]?cr(h.club,18)+' ':'')+esc(h.club_nombre||h.club)+'</td><td>'+esc(h.competicion_nombre||'')+'</td><td class="'+(h.campeon?'pt':'')+'">'+(h.campeon?'🏆 ':'')+esc(h.resultado||'')+'</td></tr>').join('')+'</table>':'<span class=mu>Todavía no tiene resultados competitivos registrados.</span>')+'<div class=nt>Este perfil público muestra resultados online elegibles y carreras offline que cumplen los mínimos de equipos.</div>';
  }catch(e){$('#pubprofile').innerHTML='<span class=mu>No hay conexión con el servidor.</span>'}
@@ -1839,6 +1840,6 @@ if(GBQ.length&&(!GT||t-GT.t>=2000)){const g=GBQ.shift();GT={side:g.side,name:g.n
   else if(ph=='fin'&&m){const so=home?m.ga:m.gb,sr=home?m.gb:m.ga,rs=spec?['FINAL','#cfd8d0']:so>sr?['¡VICTORIA!','#3ddc84']:so<sr?['DERROTA','#ff6b61']:['EMPATE','#f2b705'];ovSet(`<div class=gl><div class=gt style="font-size:20px">FINAL DEL PARTIDO</div><div class=gn style="display:flex;align-items:center;gap:8px">${cr(own,22)}<span>${esc(TM[own].name)}</span><b style="font:700 22px 'Barlow Condensed',sans-serif">${so} - ${sr}</b><span>${esc(TM[oppId].name)}</span>${cr(oppId,22)}</div><div class=gs style="color:${rs[1]};font-weight:700">${rs[0]}</div></div>`)}
  else if(ph=='ht'&&m)ovSet(`<div class=gl><div class=gt>ENTRETIEMPO</div><div class=gn>${esc(TM[own].name)} ${SH[0]} - ${SH[1]} ${esc(TM[oppId].name)}</div><div class=gs>Quedan ${S.t}s${spec?'':' · cambiá tu táctica ahora'}</div></div>`);
  else ovSet('')}
-(async()=>{try{const s=JSON.parse(localStorage[SESK]||'null');if(!s||s.pid!==pid||OFF||Date.now()-s.at>6*36e5)return;const r=await(await fetch('/api/sesion?room='+encodeURIComponent(s.room)+'&pid='+encodeURIComponent(pid))).json();if(r.ok){room=s.room;start()}else localStorage.removeItem(SESK)}catch(e){}})();   // recargar en una sala online: se vuelve a la sala
+(async()=>{try{const s=JSON.parse(localStorage[SESK]||'null');if(!s||s.pid!==pid||OFF||Date.now()-s.at>6*36e5)return;const r=await(await apiFetch('/api/sesion?room='+encodeURIComponent(s.room)+'&pid='+encodeURIComponent(pid))).json();if(r.ok){room=s.room;start()}else localStorage.removeItem(SESK)}catch(e){}})();   // recargar en una sala online: se vuelve a la sala
 frame();document.addEventListener('visibilitychange',()=>{if(document.hidden&&OFF&&S&&!S.paused&&S.phase!='end')post({a:'pause',v:1})});
 </script></body></html>
