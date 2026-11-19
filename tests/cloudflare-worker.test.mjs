@@ -887,7 +887,7 @@ test("authenticated career endpoint accepts only validated offline career record
   const inserts = [];
   const env = {
     __DB_QUERY__: async (sql, params) => {
-      if (sql.startsWith("SELECT u.id,u.usuario FROM sesiones")) {
+      if (sql.startsWith("SELECT u.id, u.usuario FROM sesiones")) {
         return { rows: params[0] === tokenHash ? [{ id: 42, usuario: "CarreraTest" }] : [], rowCount: 1 };
       }
       if (sql.startsWith("INSERT INTO carreras")) {
