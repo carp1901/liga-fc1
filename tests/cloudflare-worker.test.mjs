@@ -309,3 +309,35 @@ test("Neon health endpoint checks the configured database adapter", async () => 
   assert.equal(calls.length, 1);
   assert.equal(calls[0].statement, "SELECT 1 AS ok");
 });
+
+
+test("only a validated Neon session can attribute an account to an online player", async () => {
+  const { env } = mockAuthDatabase();
+  const registerResponse = await worker.fetch(post("https://game.test/api/auth/registro", {
+    usuario: "CuentaReal", clave: "clave-segura-456"
+  }), env);
+  assert.equal(registerResponse.status, 200);
+  const account = await registerResponse.json();
+
+  const response = await worker.fetch(new Request("https://game.test/act", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: "Bearer " + account.token,
+      "x-clash-auth-user-id": "999999"
+    },
+    body: JSON.stringify({
+      a: "create", room: "authroom", pid: "player1", uid: 888888,
+      name: "DT", cfg: { div: "ar1", fmt: "liga1", n: 8 }
+    })
+  }), env);
+  assert.equal(response.status, 200);
+
+  const state = await worker.fetch(new Request(
+    "https://game.test/__cf/rooms/state?room=authroom"
+  ), env);
+  const snapshot = (await state.json()).snapshot;
+  assert.equal(snapshot.pl.player1.uid, 1);
+  assert.notEqual(snapshot.pl.player1.uid, 888888);
+  assert.notEqual(snapshot.pl.player1.uid, 999999);
+});
