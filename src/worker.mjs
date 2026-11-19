@@ -295,7 +295,7 @@ async function routeRequest(request, env) {
     }
     if (request.method === "GET" && url.pathname === "/api/ranking") {
       const get = key => url.searchParams.get(key) || "";
-      const year = /^20\\d{2}$/.test(get("year")) ? Number(get("year")) : 0;
+      const year = /^20\d{2}$/.test(get("year")) ? Number(get("year")) : 0;
       const filters = {
         mod: ["online","clasico","barrial","offline"].includes(get("mod")) ? get("mod") : "online",
         comp: /^[a-z0-9]{1,30}$/.test(get("comp")) ? get("comp") : "",
