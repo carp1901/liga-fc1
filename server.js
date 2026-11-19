@@ -48,10 +48,14 @@ function sseDeltaSender(stream,fullEvery=30){
   sets.push([path,b]);
  }
  return value=>{
-  if(!previous||++sent%fullEvery===0){stream.write('data:'+JSON.stringify({__cf:'full',v:value})+'\n\n');previous=clone(value);return}
-  const sets=[],deletes=[];diff(previous,value,[],sets,deletes);
-  if(sets.length||deletes.length)stream.write('data:'+JSON.stringify({__cf:'patch',u:sets,d:deletes})+'\n\n');
-  previous=clone(value);
+  const snapshot=clone(value);
+  if(!previous||++sent%fullEvery===0){stream.write('data:'+JSON.stringify({__cf:'full',v:snapshot})+'\n\n');previous=snapshot;return}
+  const sets=[],deletes=[];diff(previous,snapshot,[],sets,deletes);
+  if(sets.length||deletes.length){
+   const patch=JSON.stringify({__cf:'patch',u:sets,d:deletes}),full=JSON.stringify({__cf:'full',v:snapshot});
+   stream.write('data:'+(patch.length<full.length?patch:full)+'\n\n');
+  }
+  previous=snapshot;
  }
 }
 function chatBroadcast(m,tipo='mensaje'){
