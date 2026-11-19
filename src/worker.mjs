@@ -174,11 +174,25 @@ async function routeRequest(request, env) {
 
     let roomId = "";
     let path = "";
+    let verifiedUid = null;
+    let forwardedBody = null;
     if (request.method === "POST" && url.pathname === "/act") {
       const body = await readJson(request.clone());
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
       roomId = String(body.room || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
+      const token = Auth.tokenFromRequest(request, body);
+      if (token) {
+        try {
+          const user = await Auth.userByToken(env, token);
+          verifiedUid = user ? user.id : null;
+        } catch (error) {
+          console.error("Game action auth check failed:", error?.message || error);
+          return json({ error: "No se pudo validar la sesión" }, 503);
+        }
+      }
+      const { uid: clientUid, tok: clientToken, ...safeBody } = body;
+      forwardedBody = safeBody;
       path = "/room/" + roomId + "/act";
     } else if (request.method === "GET" && url.pathname === "/ev") {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
@@ -200,7 +214,22 @@ async function routeRequest(request, env) {
 
     const id = env.ROOMS.idFromName(roomId);
     const stub = env.ROOMS.get(id);
-    const forwarded = new Request(new URL(path, url.origin), request);
+    let forwarded;
+    if (request.method === "POST" && forwardedBody) {
+      const headers = new Headers(request.headers);
+      headers.delete("x-clash-auth-user-id");
+      headers.set("content-type", "application/json");
+      if (verifiedUid !== null && Number.isSafeInteger(Number(verifiedUid)) && Number(verifiedUid) > 0) {
+        headers.set("x-clash-auth-user-id", String(verifiedUid));
+      }
+      forwarded = new Request(new URL(path, url.origin), {
+        method: "POST",
+        headers,
+        body: JSON.stringify(forwardedBody)
+      });
+    } else {
+      forwarded = new Request(new URL(path, url.origin), request);
+    }
     return stub.fetch(forwarded);
 }
 
@@ -250,9 +279,12 @@ export class RoomCoordinator {
       const body = await readJson(request);
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
       if (String(body.room || "").toLowerCase() !== code) return json({ error: "La sala no coincide" }, 400);
-      // Until the auth endpoints are migrated, never trust a client-supplied account ID.
-      const { uid, ...safeBody } = body;
-      const error = Engine.act({ ...safeBody, room: code });
+      // Only the outer Worker can set this internal header after validating a session in Neon.
+      const { uid: clientUid, tok: clientToken, ...safeBody } = body;
+      const trustedUid = Number(request.headers.get("x-clash-auth-user-id"));
+      const action = { ...safeBody, room: code };
+      if (Number.isSafeInteger(trustedUid) && trustedUid > 0) action.uid = trustedUid;
+      const error = Engine.act(action);
       if (error) {
         await this.persist(code);
         return json({ error }, 400);
