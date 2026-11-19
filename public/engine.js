@@ -373,7 +373,7 @@ function pubApi0(b){const pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if(!
  if(b.op=='create'){const e=D.catalog().find(x=>x.key==b.div),fmt=b.fmt,n=Math.floor(+b.n);
   if(!e||!e.fmts.includes(fmt)||!(e.sizes[fmt]||[]).includes(n)||n<10)return{error:'Configuración inválida: las salas públicas son de 10 jugadores o más'};
   if(Object.keys(rooms).length>=60)return{error:'Servidor lleno'};
-  let code;do code='pub'+rnd().toString(36).slice(2,7);while(rooms[code]||code.length<8);
+  let code=txt(b.room,12).toLowerCase();if(code){if(rooms[code])return{error:'Código de sala ocupado'}}else{do code='pub'+rnd().toString(36).slice(2,7);while(rooms[code]||code.length<8)}
   const er=act({a:'create',pid,name,room:code,phil:b.phil,uid:b.uid,cfg:{div:e.key,fmt,n}});if(er)return{error:er};
   rooms[code].pub={title:txt(b.title,28),host:name,closeAt:Date.now()+CFG.pubWait*1000,created:Date.now()};return{room:code}}
  const r=rooms[txt(b.room,12).toLowerCase()];if(!r||!pubAlive(r))return{error:'Esa sala ya no existe o se cerró'};
