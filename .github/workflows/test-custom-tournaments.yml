@@ -1,11 +1,12 @@
 name: Validate custom tournaments
 on:
   push:
-    branches: [feature/custom-tournaments-fan-ranking-ready]
+    branches: [feature/custom-tournaments-fan-ranking-ready, migracion-cloudflare-neon]
     paths:
       - 'public/data.js'
       - 'public/engine.js'
       - 'public/index.html'
+      - 'public/api-config.js'
       - 'server.js'
       - 'store.js'
       - 'test-custom-tournaments.js'
