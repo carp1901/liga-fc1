@@ -1,37 +1,59 @@
+import Engine from "../public/engine.js";
+
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
   "cache-control": "no-store"
 };
+const ROOM_RE = /^[a-z0-9]{3,12}$/i;
+
+Engine.CFG.externalClock = true;
+Engine.CFG.offline = false;
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), { status, headers: JSON_HEADERS });
 }
-
 function validRoomId(value) {
-  return /^[a-z0-9-]{3,40}$/i.test(value || "");
+  return ROOM_RE.test(value || "");
+}
+async function readJson(request) {
+  try { return await request.json(); } catch { return null; }
 }
 
-/**
- * Edge entrypoint. Existing game routes intentionally remain unavailable here
- * until their engine handlers are migrated; this prevents a false-green launch.
- */
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-
     if (request.method === "GET" && url.pathname === "/health") {
-      return json({ ok: true, platform: "cloudflare-workers", phase: "transport-foundation" });
+      return json({
+        ok: true,
+        platform: "cloudflare-workers",
+        phase: "single-room-runtime",
+        engine: "integrated"
+      });
     }
 
-    const match = url.pathname.match(/^\/__cf\/rooms\/([^/]+)(?:\/(state|stream))?$/);
-    if (!match || !validRoomId(match[1])) {
-      return json({ error: "Ruta no disponible en esta etapa" }, 404);
+    let roomId = "";
+    let path = "";
+    if (request.method === "POST" && url.pathname === "/act") {
+      const body = await readJson(request);
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      roomId = String(body.room || "").toLowerCase();
+      if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
+      path = "/room/" + roomId + "/act";
+    } else if (request.method === "GET" && url.pathname === "/ev") {
+      roomId = String(url.searchParams.get("room") || "").toLowerCase();
+      if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
+      path = "/room/" + roomId + "/ev?pid=" + encodeURIComponent(url.searchParams.get("pid") || "");
+    } else if (request.method === "GET" && url.pathname === "/__cf/rooms/state") {
+      roomId = String(url.searchParams.get("room") || "").toLowerCase();
+      if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
+      path = "/room/" + roomId + "/state";
+    } else {
+      return json({ error: "Ruta no disponible" }, 404);
     }
 
-    const roomId = match[1].toLowerCase();
-    const objectId = env.ROOMS.idFromName(roomId);
-    const stub = env.ROOMS.get(objectId);
-    const forwarded = new Request(new URL(url.pathname.replace(/^\/__cf\/rooms\//, "/") + url.search, url.origin), request);
+    const id = env.ROOMS.idFromName(roomId);
+    const stub = env.ROOMS.get(id);
+    const forwarded = new Request(new URL(path, url.origin), request);
     return stub.fetch(forwarded);
   }
 };
@@ -40,40 +62,76 @@ export class RoomCoordinator {
   constructor(state, env) {
     this.state = state;
     this.env = env;
-    this.clients = new Set();
+    this.loadedCode = null;
+    this.clients = new Map();
+    this.ready = Promise.resolve();
+  }
+
+  async load(code) {
+    if (this.loadedCode === code) return;
+    const saved = await this.state.storage.get("game-room");
+    if (saved) Engine.loadRoom(code, saved);
+    this.loadedCode = code;
+  }
+
+  async persist(code) {
+    const snapshot = Engine.saveRoom(code);
+    if (snapshot) {
+      await this.state.storage.put("game-room", snapshot);
+      await this.state.storage.put("room-code", code);
+      if (this.state.storage.setAlarm) await this.state.storage.setAlarm(Date.now() + 1000);
+    } else {
+      await this.state.storage.delete("game-room");
+      await this.state.storage.delete("room-code");
+    }
   }
 
   async fetch(request) {
     const url = new URL(request.url);
+    const match = url.pathname.match(/^\/room\/([a-z0-9]{3,12})\/(act|ev|state)$/i);
+    if (!match) return json({ error: "Ruta no disponible" }, 404);
+    const code = match[1].toLowerCase();
+    const action = match[2];
+    await this.load(code);
 
-    if (request.method === "GET" && url.pathname.endsWith("/state")) {
-      const snapshot = await this.state.storage.get("snapshot");
-      return snapshot === undefined
-        ? json({ error: "Sala inexistente" }, 404)
-        : json({ snapshot });
-    }
-
-    if (request.method === "PUT" && url.pathname.endsWith("/state")) {
-      let body;
-      try { body = await request.json(); } catch { return json({ error: "JSON inválido" }, 400); }
-      if (!body || typeof body !== "object" || !Object.prototype.hasOwnProperty.call(body, "snapshot")) {
-        return json({ error: "Falta snapshot" }, 400);
-      }
-      await this.state.storage.put("snapshot", body.snapshot);
-      this.broadcast({ type: "snapshot", snapshot: body.snapshot });
+    if (action === "act" && request.method === "POST") {
+      const body = await readJson(request);
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      if (String(body.room || "").toLowerCase() !== code) return json({ error: "La sala no coincide" }, 400);
+      const error = Engine.act({ ...body, room: code });
+      if (error) return json({ error }, 400);
+      await this.persist(code);
       return json({ ok: true });
     }
 
-    if (request.method === "GET" && url.pathname.endsWith("/stream")) {
-      const encoder = new TextEncoder();
+    if (action === "state" && request.method === "GET") {
+      const snapshot = Engine.saveRoom(code);
+      return snapshot ? json({ snapshot }) : json({ error: "Sala inexistente" }, 404);
+    }
+
+    if (action === "ev" && request.method === "GET") {
+      const pid = String(url.searchParams.get("pid") || "").slice(0, 40);
+      if (!pid) return json({ error: "Falta id de jugador" }, 400);
+      if (!Engine.rooms[code]) return json({ error: "Sala inexistente" }, 404);
+
       let client;
       const stream = new ReadableStream({
         start: controller => {
-          client = { controller, encoder };
-          this.clients.add(client);
-          controller.enqueue(encoder.encode("retry:3000\n\nevent: connected\ndata:{}\n\n"));
+          client = { controller };
+          this.clients.set(pid, client);
+          const connected = Engine.listen(code, pid, value => {
+            try { controller.enqueue(new TextEncoder().encode("data:" + JSON.stringify(value) + "\n\n")); }
+            catch { this.clients.delete(pid); }
+          });
+          if (!connected) {
+            this.clients.delete(pid);
+            controller.close();
+          }
         },
-        cancel: () => { if (client) this.clients.delete(client); }
+        cancel: () => {
+          if (this.clients.get(pid) === client) this.clients.delete(pid);
+          Engine.listen(code, pid, null);
+        }
       });
       return new Response(stream, {
         headers: {
@@ -84,14 +142,35 @@ export class RoomCoordinator {
       });
     }
 
-    return json({ error: "Ruta no disponible" }, 404);
+    return json({ error: "Método no disponible" }, 405);
   }
 
-  broadcast(payload) {
-    const frame = new TextEncoder().encode("data:" + JSON.stringify(payload) + "\n\n");
-    for (const client of this.clients) {
-      try { client.controller.enqueue(frame); }
-      catch { this.clients.delete(client); }
+  async alarm() {
+    const code = await this.state.storage.get("room-code");
+    if (!code) return;
+    await this.load(code);
+    const room = Engine.rooms[code];
+    if (!room) {
+      await this.state.storage.delete("game-room");
+      await this.state.storage.delete("room-code");
+      return;
+    }
+
+    const idle = Date.now() - (room.touched || Date.now()) > 60 * 60 * 1000;
+    const connected = room.order.some(pid => room.pl[pid] && room.pl[pid].cb)
+      || Object.values(room.spec || {}).some(player => player.cb);
+    if (idle && !connected) {
+      Engine.removeRoom(code);
+      await this.state.storage.delete("game-room");
+      await this.state.storage.delete("room-code");
+      return;
+    }
+
+    Engine.tickRoom(code);
+    await this.persist(code);
+    for (const client of this.clients.values()) {
+      try { client.controller.enqueue(new TextEncoder().encode(":ping\n\n")); }
+      catch { /* A canceled stream is removed by its cancel handler. */ }
     }
   }
 }
