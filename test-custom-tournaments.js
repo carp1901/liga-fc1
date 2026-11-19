@@ -29,8 +29,8 @@ assert.equal(cfg.playoff, 3);
 assert.equal(cfg.mixLegs, 2);
 
 const html = fs.readFileSync('public/index.html', 'utf8');
-const scripts = [...html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)]
-  .filter(([, attrs, source]) => !/\\btype=["']application\\/ld\\+json["']/i.test(attrs) && source.trim())
+const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
+  .filter(([, attrs, source]) => !/\btype=["']application\/ld\+json["']/i.test(attrs) && source.trim())
   .map(([, , source]) => source);
 assert.ok(scripts.length);
 scripts.forEach((source, i) => new vm.Script(source, { filename: 'public/index.html:inline-' + i }));
