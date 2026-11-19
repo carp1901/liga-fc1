@@ -10,6 +10,7 @@ on:
       - 'src/social.mjs'
       - 'src/chat-hub.mjs'
       - 'src/chat.mjs'
+      - 'src/careers.mjs'
       - 'public/engine.js'
       - 'CLOUDFLARE-WORKER-MIGRATION.md'
       - 'tests/cloudflare-worker.test.mjs'
