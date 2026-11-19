@@ -150,7 +150,7 @@ test("session recovery and SSE preserve the frontend delta protocol", async () =
     assert.equal(part.done, false);
     wire += new TextDecoder().decode(part.value);
   }
-  const payload = wire.slice(wire.indexOf("data:") + 5).split("\\n")[0];
+  const payload = wire.slice(wire.indexOf("data:") + 5).split("\n")[0];
   const event = JSON.parse(payload);
   assert.equal(event.__cf, "full");
   assert.equal(event.v.code, room);
