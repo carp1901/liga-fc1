@@ -2,6 +2,7 @@ import Engine from "../public/engine.js";
 import Data from "../public/data.js";
 import * as Auth from "./auth.mjs";
 import { dbQuery } from "./db.mjs";
+import * as Social from "./social.mjs";
 
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -169,6 +170,80 @@ async function routeRequest(request, env) {
       } catch (error) {
         console.error("Auth database error:", error?.message || error);
         return json({ error: "Base de datos no disponible" }, 503);
+      }
+    }
+
+    if (request.method === "GET" && authPath === "/api/auth/perfil") {
+      try {
+        const user = await Auth.userByToken(env, Auth.tokenFromRequest(request));
+        if (!user) return json({ error: "Sesión inválida o vencida" }, 401);
+        return json(await Social.profile(env, user.id));
+      } catch (error) {
+        console.error("Profile lookup failed:", error?.message || error);
+        return json({ error: "Perfil no disponible" }, 503);
+      }
+    }
+    if (request.method === "POST" && authPath === "/api/auth/favorito") {
+      const body = await readJson(request.clone());
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      try {
+        const user = await Auth.userByToken(env, Auth.tokenFromRequest(request, body));
+        if (!user) return json({ error: "Iniciá sesión para elegir tu club favorito" }, 401);
+        const club = String(body.club || "").trim();
+        if (!Object.prototype.hasOwnProperty.call(Data.TM || {}, club)) {
+          return json({ error: "Elegí un club válido" }, 400);
+        }
+        const result = await Social.setFavorite(env, user.id, club);
+        return json(result, result.error ? 409 : 200);
+      } catch (error) {
+        console.error("Favorite club update failed:", error?.message || error);
+        return json({ error: "No se pudo guardar el club favorito" }, 503);
+      }
+    }
+    if (url.pathname === "/api/amigos" || url.pathname.startsWith("/api/amigos/")) {
+      const route = url.pathname.slice(12);
+      const body = request.method === "POST" ? await readJson(request.clone()) : null;
+      if (request.method === "POST" && (!body || typeof body !== "object")) {
+        return json({ error: "Pedido inválido" }, 400);
+      }
+      try {
+        const user = await Auth.userByToken(env, Auth.tokenFromRequest(request, body));
+        if (!user) return json({ error: "Iniciá sesión para usar Amigos" }, 401);
+        if (request.method === "GET" && route === "") {
+          return json(await Social.friends(env, user.id));
+        }
+        if (request.method !== "POST") return json({ error: "No existe" }, 404);
+        if (!allowAuthAttempt("friends:" + user.id, 200)) {
+          return json({ error: "Demasiadas acciones; probá más tarde" }, 429);
+        }
+        let result;
+        if (route === "solicitar") {
+          if (!allowAuthAttempt("friend-requests:" + user.id, 40)) {
+            return json({ error: "Enviaste muchas solicitudes; probá más tarde" }, 429);
+          }
+          result = await Social.requestFriend(env, user.id, body.usuario);
+        } else if (route === "responder") {
+          result = await Social.respondFriend(env, user.id, body.id, body.accion);
+        } else if (route === "cancelar") {
+          result = await Social.cancelFriendRequest(env, user.id, body.id);
+        } else if (route === "quitar") {
+          result = await Social.removeFriend(env, user.id, body.id);
+        } else {
+          return json({ error: "No existe" }, 404);
+        }
+        return json(result, result.error ? 400 : 200);
+      } catch (error) {
+        console.error("Friends request failed:", error?.message || error);
+        return json({ error: "No se pudo completar la operación de amigos" }, 503);
+      }
+    }
+    if (request.method === "GET" && url.pathname === "/api/tecnico") {
+      try {
+        const result = await Social.publicProfile(env, url.searchParams.get("usuario") || "");
+        return json(result, result.error ? 404 : 200);
+      } catch (error) {
+        console.error("Public profile lookup failed:", error?.message || error);
+        return json({ error: "Perfil no disponible" }, 503);
       }
     }
 
