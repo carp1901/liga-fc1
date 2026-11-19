@@ -12,8 +12,16 @@ Engine.CFG.externalClock = true;
 Engine.CFG.offline = false;
 
 const AUTH_ATTEMPTS = new Map();
+let authSweepCount = 0;
 function allowAuthAttempt(key, limit, windowMs = 60 * 60 * 1000) {
   const now = Date.now();
+  if (++authSweepCount % 256 === 0) {
+    for (const [storedKey, values] of AUTH_ATTEMPTS) {
+      const active = values.filter(time => now - time < windowMs);
+      if (active.length) AUTH_ATTEMPTS.set(storedKey, active);
+      else AUTH_ATTEMPTS.delete(storedKey);
+    }
+  }
   const recent = (AUTH_ATTEMPTS.get(key) || []).filter(time => now - time < windowMs);
   if (recent.length >= limit) {
     AUTH_ATTEMPTS.set(key, recent);
