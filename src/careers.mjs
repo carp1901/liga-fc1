@@ -4,15 +4,15 @@ export async function addCareers(env, records) {
   if (!Array.isArray(records)) return;
   for (const c of records) {
     if (!c || !Number.isSafeInteger(Number(c.uid)) || Number(c.uid)<1 || !c.tid) continue;
-    await dbQuery(env,\`INSERT INTO carreras(usuario_id,torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,competitivo,participantes_reales,finalizado)
+    await dbQuery(env,`INSERT INTO carreras(usuario_id,torneo_id,club,club_nombre,modalidad,origen,competicion,competicion_nombre,formato,participantes,posicion,resultado,campeon,pj,g,e,p,gf,gc,pts,competitivo,participantes_reales,finalizado)
       VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23)
-      ON CONFLICT(usuario_id,torneo_id) DO NOTHING\`,
+      ON CONFLICT(usuario_id,torneo_id) DO NOTHING`,
       [Number(c.uid),String(c.tid),String(c.club||""),c.clubNombre??null,String(c.mod||""),c.origen??null,c.comp??null,c.compNombre??null,c.fmt??null,c.n??null,c.pos??null,c.resultado??null,!!c.campeon,c.pj??null,c.g??null,c.e??null,c.p??null,c.gf??null,c.gc??null,c.pts??null,!!c.competitivo,Math.max(0,Math.floor(Number(c.humanos)||0)),new Date(c.at||Date.now()).toISOString()]);
   }
 }
 export async function addTitle(env,r) {
-  const q=await dbQuery(env,\`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado,verificacion)
-    VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) ON CONFLICT(torneo_id) DO NOTHING RETURNING id\`,
+  const q=await dbQuery(env,`INSERT INTO titulos(torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,finalizado,verificacion)
+    VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) ON CONFLICT(torneo_id) DO NOTHING RETURNING id`,
     [r.tid,r.club,r.clubNombre,r.dt||null,r.mod,r.comp,r.compNombre,r.fmt,r.n,new Date(r.at||Date.now()).toISOString(),r.ver||"pid-navegador"]);
   return {status:q.rows.length?"inserted":"duplicate"};
 }
