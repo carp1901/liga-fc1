@@ -1,5 +1,6 @@
 import Engine from "../public/engine.js";
 import Data from "../public/data.js";
+import * as Auth from "./auth.mjs";
 
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -94,6 +95,40 @@ async function routeRequest(request, env) {
         phase: "single-room-runtime",
         engine: "integrated"
       });
+    }
+
+    const authPath = url.pathname;
+    if (request.method === "POST" && (authPath === "/api/auth/registro" || authPath === "/api/auth/login")) {
+      const body = await readJson(request.clone());
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      try {
+        const result = authPath.endsWith("/registro")
+          ? await Auth.register(env, body.usuario, body.clave)
+          : await Auth.login(env, body.usuario, body.clave);
+        return json(result, result.error ? (authPath.endsWith("/login") ? 401 : 400) : 200);
+      } catch (error) {
+        console.error("Auth database error:", error?.message || error);
+        return json({ error: "Base de datos no disponible" }, 503);
+      }
+    }
+    if (request.method === "GET" && authPath === "/api/auth/yo") {
+      try {
+        const user = await Auth.userByToken(env, Auth.tokenFromRequest(request));
+        return user ? json({ usuario: user.usuario }) : json({ error: "Sesión inválida o vencida" }, 401);
+      } catch (error) {
+        console.error("Auth database error:", error?.message || error);
+        return json({ error: "Base de datos no disponible" }, 503);
+      }
+    }
+    if (request.method === "POST" && authPath === "/api/auth/logout") {
+      const body = await readJson(request.clone());
+      try {
+        await Auth.logout(env, Auth.tokenFromRequest(request, body));
+        return json({ ok: 1 });
+      } catch (error) {
+        console.error("Auth database error:", error?.message || error);
+        return json({ error: "Base de datos no disponible" }, 503);
+      }
     }
 
     let roomId = "";
