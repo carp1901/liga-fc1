@@ -952,6 +952,20 @@ test("public lobby creates, lists, joins and closes rooms through Durable Object
   rooms = await afterJoin.json();
   assert.equal(rooms[0].h, 2);
 
+  const duplicateCreate = await worker.fetch(post("https://game.test/api/pub", {
+    op: "create", pid: "host-player", name: "Anfitrion", div: entry.key, fmt: "liga1", n: 10
+  }), env);
+  assert.deepEqual(await duplicateCreate.json(), { room: created.room });
+
+  const watch = await worker.fetch(post("https://game.test/api/pub", {
+    op: "watch", room: created.room, pid: "spectator-1", name: "Espectador"
+  }), env);
+  assert.equal(watch.status, 200);
+  assert.deepEqual(await watch.json(), { room: created.room });
+  const withSpectator = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  rooms = await withSpectator.json();
+  assert.equal(rooms[0].spec, 1);
+
   const close = await worker.fetch(post("https://game.test/api/pub", {
     op: "close", room: created.room, pid: "host-player", name: "Anfitrion"
   }), env);
