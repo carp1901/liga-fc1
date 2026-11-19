@@ -17,6 +17,8 @@ on:
     branches: [cloudflare-workers-backend]
     paths:
       - 'src/worker.mjs'
+      - 'src/auth.mjs'
+      - 'src/db.mjs'
       - 'tests/cloudflare-worker.test.mjs'
       - 'wrangler.jsonc'
       - 'package.json'
