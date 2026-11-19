@@ -3,6 +3,8 @@ import Data from "../public/data.js";
 import * as Auth from "./auth.mjs";
 import { dbQuery } from "./db.mjs";
 import * as Social from "./social.mjs";
+import * as Chat from "./chat.mjs";
+import { ChatHub } from "./chat-hub.mjs";
 
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -14,6 +16,7 @@ Engine.CFG.externalClock = true;
 Engine.CFG.offline = false;
 
 const AUTH_ATTEMPTS = new Map();
+const CHAT_SEND_TIMES = new Map();
 let authSweepCount = 0;
 function allowAuthAttempt(key, limit, windowMs = 60 * 60 * 1000) {
   const now = Date.now();
@@ -108,6 +111,16 @@ export default {
     return addCors(await routeRequest(request, env), origin);
   }
 };
+
+async function publishChat(env, tipo, data) {
+  const id = env.CHAT.idFromName("global");
+  const stub = env.CHAT.get(id);
+  await stub.fetch(new Request("https://chat.internal/broadcast", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ tipo, data })
+  }));
+}
 
 async function routeRequest(request, env) {
     const url = new URL(request.url);
@@ -247,6 +260,124 @@ async function routeRequest(request, env) {
       }
     }
 
+    if (url.pathname.startsWith("/api/chat")) {
+      const chatPath = url.pathname;
+      if (chatPath === "/api/chat/stream" && request.method === "GET") {
+        const id = env.CHAT.idFromName("global");
+        return env.CHAT.get(id).fetch(new Request("https://chat.internal/stream"));
+      }
+      if (chatPath === "/api/chat" && request.method === "GET") {
+        try {
+          let user = null;
+          const token = Auth.tokenFromRequest(request);
+          if (token) user = await Auth.userByToken(env, token);
+          return json(await Chat.history(env, url.searchParams.get("limit"), user?.id || null));
+        } catch (error) {
+          console.error("Chat history failed:", error?.message || error);
+          return json({ error: "Chat no disponible" }, 503);
+        }
+      }
+      const needsBody = request.method === "POST";
+      const body = needsBody ? await readJson(request.clone()) : null;
+      if (needsBody && (!body || typeof body !== "object")) return json({ error: "Pedido inválido" }, 400);
+      if (chatPath === "/api/chat" && request.method === "POST") {
+        try {
+          const user = await Auth.userByToken(env, Auth.tokenFromRequest(request, body));
+          if (!user) return json({ error: "Iniciá sesión para escribir en el chat" }, 401);
+          const perms = await Chat.permissions(env, user);
+          const interval = perms.owner ? 0 : perms.moderador ? 10000 : 20000;
+          const last = CHAT_SEND_TIMES.get(user.id) || 0;
+          const wait = interval - (Date.now() - last);
+          if (wait > 0) return json({
+            error: "Para evitar spam, esperá " + Math.ceil(wait / 1000) + " segundos antes de enviar otro mensaje.",
+            espera: Math.ceil(wait / 1000)
+          }, 429);
+          const badWords = ["poronga","pija","verga","concha","cogida","cogido","coger","putita","putito","puta","puto","mierda"];
+          const filter = new RegExp("(^|[^\\p{L}\\p{N}])(" + badWords.join("|") + ")(?=$|[^\\p{L}\\p{N}])", "giu");
+          const filtered = String(body.mensaje || "").replace(filter, (all, left, word) => left + "•".repeat(word.length));
+          const result = await Chat.sendMessage(env, user.id, filtered);
+          if (result.error) return json(result, 403);
+          if (!perms.owner) CHAT_SEND_TIMES.set(user.id, Date.now());
+          await publishChat(env, "mensaje", result.mensaje);
+          return json(result);
+        } catch (error) {
+          console.error("Chat send failed:", error?.message || error);
+          return json({ error: "Chat no disponible" }, 503);
+        }
+      }
+      if (chatPath === "/api/chat/permisos" && request.method === "GET") {
+        try {
+          const user = await Auth.userByToken(env, Auth.tokenFromRequest(request));
+          if (!user) return json({ error: "Iniciá sesión" }, 401);
+          return json(await Chat.permissions(env, user));
+        } catch (error) {
+          console.error("Chat permissions failed:", error?.message || error);
+          return json({ error: "Chat no disponible" }, 503);
+        }
+      }
+      if (chatPath === "/api/chat/reaccion" && request.method === "POST") {
+        try {
+          const user = await Auth.userByToken(env, Auth.tokenFromRequest(request, body));
+          if (!user) return json({ error: "Iniciá sesión para reaccionar" }, 401);
+          if (!allowAuthAttempt("chatvote:" + user.id, 180)) return json({ error: "Demasiadas reacciones; probá más tarde" }, 429);
+          const result = await Chat.vote(env, user.id, body.id, body.valor);
+          if (result.error) return json(result, 400);
+          await publishChat(env, "reaccion", {
+            id: result.reaccion.id, likes: result.reaccion.likes, dislikes: result.reaccion.dislikes
+          });
+          return json(result);
+        } catch (error) {
+          console.error("Chat reaction failed:", error?.message || error);
+          return json({ error: "Chat no disponible" }, 503);
+        }
+      }
+      if (chatPath === "/api/chat/reaccionarios" && request.method === "GET") {
+        try {
+          const user = await Auth.userByToken(env, Auth.tokenFromRequest(request));
+          if (!user) return json({ error: "Iniciá sesión" }, 401);
+          const perms = await Chat.permissions(env, user);
+          if (!perms.moderador) return json({ error: "No tenés permisos para ver quién reaccionó" }, 403);
+          const result = await Chat.reactionUsers(env, url.searchParams.get("id"), url.searchParams.get("valor"));
+          return json(result, result.error ? 400 : 200);
+        } catch (error) {
+          console.error("Chat reaction users failed:", error?.message || error);
+          return json({ error: "Chat no disponible" }, 503);
+        }
+      }
+      if (chatPath === "/api/chat/eliminar" && request.method === "POST") {
+        try {
+          const user = await Auth.userByToken(env, Auth.tokenFromRequest(request, body));
+          if (!user) return json({ error: "Iniciá sesión" }, 401);
+          const perms = await Chat.permissions(env, user);
+          const result = await Chat.deleteMessage(env, user.id, body.id, perms.owner, perms.moderador);
+          if (result.error) return json(result, 403);
+          await publishChat(env, "eliminado", { id: result.id });
+          return json(result);
+        } catch (error) {
+          console.error("Chat delete failed:", error?.message || error);
+          return json({ error: "No se pudo eliminar el comentario" }, 503);
+        }
+      }
+      if (chatPath === "/api/chat/moderar" && request.method === "POST") {
+        try {
+          const user = await Auth.userByToken(env, Auth.tokenFromRequest(request, body));
+          if (!user) return json({ error: "Iniciá sesión" }, 401);
+          const perms = await Chat.permissions(env, user);
+          if (!perms.moderador) return json({ error: "No tenés permisos de moderación" }, 403);
+          const action = String(body.accion || "");
+          if (["suspender", "moderar", "desmoderar"].includes(action) && !perms.owner) {
+            return json({ error: "Esta acción está reservada al propietario del chat" }, 403);
+          }
+          const result = await Chat.moderate(env, user.id, body.usuario, action, body.minutos, body.razon);
+          return json(result, result.error ? 400 : 200);
+        } catch (error) {
+          console.error("Chat moderation failed:", error?.message || error);
+          return json({ error: "Chat no disponible" }, 503);
+        }
+      }
+      return json({ error: "Ruta no disponible" }, 404);
+    }
+
     let roomId = "";
     let path = "";
     let verifiedUid = null;
@@ -311,7 +442,7 @@ async function routeRequest(request, env) {
     return stub.fetch(forwarded);
 }
 
-export class RoomCoordinator {
+export { ChatHub };\n\nexport class RoomCoordinator {
   constructor(state, env) {
     this.state = state;
     this.env = env;
