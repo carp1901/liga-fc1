@@ -21,6 +21,10 @@ La integración avanzó de transporte experimental a **runtime de salas integrad
 4. Una alarma por sala avanza el reloj y persiste el estado. No hay un setInterval global que recorra todas las salas.
 5. Los callbacks SSE son efímeros y se vuelven a registrar al reconectar; no se guardan en PostgreSQL ni en el snapshot.
 
+## Configuración previa al frontend
+
+Antes de conectar Pages, configurar la variable de entorno no secreta `FRONTEND_ORIGINS` en el Worker con el origen exacto del sitio, por ejemplo `https://clash-futbol.pages.dev`. Se aceptan varios orígenes separados por comas. El Worker rechaza otros orígenes y atiende OPTIONS para las peticiones del navegador.
+
 ## Fases pendientes
 
 1. **Pruebas de equivalencia:** comparar el mismo flujo de partida en Node y Cloudflare; validar 8 y 10 jugadores, espectadores, penales, pelotas paradas, desconexión/reconexión y abandono.
