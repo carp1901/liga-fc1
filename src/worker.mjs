@@ -268,9 +268,19 @@ async function routeRequest(request, env) {
         const user = await Auth.userByToken(env, Auth.tokenFromRequest(request, body));
         if (!user) return json({ error: "Sesión inválida o vencida" }, 401);
         if (!allowAuthAttempt("career:" + user.id, 120)) return json({ error: "Demasiados registros; probá más tarde" }, 429);
-        const clean = { ...body, uid: user.id };
-        delete clean.tok;
-        await Careers.addCareers(env, [clean]);
+        // This public-facing endpoint only accepts offline careers, as in the legacy server.
+        // Online career records are generated and persisted by the authoritative Durable Object engine.
+        const record = Careers.offlineTitleRecord(body, Data);
+        if (typeof record === "string") return json({ error: record }, 400);
+        const pos = body.pos == null ? null : Math.floor(Number(body.pos));
+        if (pos != null && !(pos >= 1 && pos <= record.n)) return json({ error: "Posición inválida" }, 400);
+        const num = value => value == null ? null : Math.max(0, Math.min(999, Math.floor(Number(value) || 0)));
+        await Careers.addCareers(env, [{
+          ...record, uid: user.id, origen: "offline", pos,
+          resultado: String(body.resultado || "").replace(/[<>&"]/g, "").slice(0, 40) || null,
+          campeon: !!body.campeon, pj: num(body.pj), g: num(body.g), e: num(body.e),
+          p: num(body.p), gf: num(body.gf), gc: num(body.gc), pts: num(body.pts)
+        }]);
         return json({ ok: 1 });
       } catch (error) {
         console.error("Career save failed:", error?.message || error);
