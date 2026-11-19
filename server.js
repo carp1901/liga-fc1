@@ -1,6 +1,6 @@
 // Servidor sin dependencias: HTTP + Server-Sent Events. Uso: node server.js (PORT opcional)
 const http=require('http'),fs=require('fs'),path=require('path'),zlib=require('zlib'),E=require('./public/engine'),{DIVS}=require('./public/data'),store=require('./store');
-const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),rooms=E.rooms;E.CFG.tick=+process.env.TICK_MS||1000;
+const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),rooms=E.rooms;E.CFG.tick=+process.env.TICK_MS||1000;E.CFG.fastWaits=process.env.FAST_WAITS==='1';
 store.init();E.CFG.onTitle=rec=>store.register(rec);
 // Abandonos reiterados (solo con cuenta): 3 abandonos en 24 h = bloqueo de 30 min para salas públicas y partida aleatoria; al 2.º se avisa. En memoria; si hay base de datos también se registran.
 const AB=new Map(),abOf=u=>{let a=AB.get(u);if(!a){a={t:[],until:0};AB.set(u,a)}a.t=a.t.filter(x=>Date.now()-x<864e5);return a};
