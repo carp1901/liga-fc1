@@ -23,7 +23,7 @@ export default {
       return json({ ok: true, platform: "cloudflare-workers", phase: "transport-foundation" });
     }
 
-    const match = url.pathname.match(/^\\/__cf\\/rooms\\/([^/]+)(?:\\/(state|stream))?$/);
+    const match = url.pathname.match(/^\/__cf\/rooms\/([^/]+)(?:\/(state|stream))?$/);
     if (!match || !validRoomId(match[1])) {
       return json({ error: "Ruta no disponible en esta etapa" }, 404);
     }
@@ -31,7 +31,7 @@ export default {
     const roomId = match[1].toLowerCase();
     const objectId = env.ROOMS.idFromName(roomId);
     const stub = env.ROOMS.get(objectId);
-    const forwarded = new Request(new URL(url.pathname.replace(/^\\/__cf\\/rooms\\//, "/") + url.search, url.origin), request);
+    const forwarded = new Request(new URL(url.pathname.replace(/^\/__cf\/rooms\//, "/") + url.search, url.origin), request);
     return stub.fetch(forwarded);
   }
 };
