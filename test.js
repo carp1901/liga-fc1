@@ -6,9 +6,7 @@ const post=b=>fetch(B+'/act',{method:'POST',body:JSON.stringify(b)}).then(r=>r.j
 const S=[];let msgs=0,maxG=0,goals=0,games=0,t0=Date.now();
 (async()=>{const dv=await (await fetch(B+'/teams.json')).json(),T=dv[0].teams.map(t=>t.id);
  for(let i=0;i<N;i++){const pid='p'+i,name='Jug'+i;let e=await post({a:i?'join':'create',room:code,pid,name,cfg:{div:'ar1',fmt:FMT,n:N}});if(e.error)throw e.error;
-  const st={pid,v:null};S.push(st);fetch(B+'/ev?room='+code+'&pid='+pid+'&v=2').then(async r=>{const rd=r.body.getReader(),dc=new TextDecoder();let buf='';for(;;){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value);let k;while((k=buf.indexOf('
-
-'))>=0){const m=buf.slice(0,k);buf=buf.slice(k+2);if(m.startsWith('data:')){const q=JSON.parse(m.slice(5));if(q.__cf==='full')st.v=q.v;else if(q.__cf==='patch'&&st.v){for(const p of q.d||[]){let o=st.v;for(let i=0;i<p.length-1;i++)o=o[p[i]];if(o!=null)delete o[p[p.length-1]]}for(const [p,v] of q.u||[]){let o=st.v;for(let i=0;i<p.length-1;i++)o=o[p[i]];if(o!=null)o[p[p.length-1]]=v}}msgs++}}}})}
+  const st={pid,v:null};S.push(st);fetch(B+'/ev?room='+code+'&pid='+pid+'&v=2').then(async r=>{const rd=r.body.getReader(),dc=new TextDecoder();let buf='';for(;;){const{done,value}=await rd.read();if(done)break;buf+=dc.decode(value);let k;while((k=buf.indexOf('\\n\\n'))>=0){const m=buf.slice(0,k);buf=buf.slice(k+2);if(m.startsWith('data:')){const q=JSON.parse(m.slice(5));if(q.__cf==='full')st.v=q.v;else if(q.__cf==='patch'&&st.v){for(const p of q.d||[]){let o=st.v;for(let i=0;i<p.length-1;i++)o=o[p[i]];if(o!=null)delete o[p[p.length-1]]}for(const [p,v] of q.u||[]){let o=st.v;for(let i=0;i<p.length-1;i++)o=o[p[i]];if(o!=null)o[p[p.length-1]]=v}}msgs++}}}})}
  for(let i=0;i<N;i++)await post({a:'pick',room:code,pid:'p'+i,team:T[i]});
  const lag=[];let last=Date.now();const iv=setInterval(()=>{const n=Date.now();lag.push(n-last-20);last=n},20);
  let round=-1;const seen=new Set();
