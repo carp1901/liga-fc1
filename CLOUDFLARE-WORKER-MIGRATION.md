@@ -2,29 +2,33 @@
 
 ## Estado de esta rama
 
-Esta etapa incorpora únicamente la base de transporte de Cloudflare:
+La integración avanzó de transporte experimental a **runtime de salas integrado**:
 
-- Worker con endpoint `/health`.
-- Binding de Durable Objects con almacenamiento SQLite.
-- Coordinador por identificador de sala, con persistencia de snapshot y canal SSE experimental.
-- Pruebas unitarias locales para el contrato básico.
+- El Worker recibe las rutas de juego POST /act y GET /ev.
+- Cada código de sala se enruta a su propio Durable Object.
+- El Durable Object carga y guarda el estado completo del motor, incluidos los conjuntos usados por el partido.
+- El reloj del motor dejó de crear temporizadores globales en este modo; cada Durable Object lo avanza mediante su alarma.
+- Las conexiones SSE se vuelven a asociar al jugador cuando se reconecta.
+- Los IDs de cuenta enviados por el navegador se descartan. Hasta migrar autenticación, las acciones no atribuyen una cuenta ni deben usarse para ranking o sanciones vinculadas a usuarios.
 
-**No es todavía el backend del juego.** Las rutas existentes (`/act`, `/ev`, salas públicas, autenticación, chat, rankings y moderación) no están conectadas a este Worker. El frontend debe seguir apuntando al backend actual hasta completar y probar cada migración. No configurar Pages ni cambiar el dominio en esta fase.
+**Todavía no es un backend listo para producción ni para cambiar el frontend.** No se migraron autenticación, sesiones, perfiles, amigos, chat, moderación, rankings, palmarés ni los endpoints de datos. Esos servicios siguen dependiendo de server.js y store.js. La ruta de juego en Cloudflare debe probarse en local y con varios clientes antes de cualquier corte.
 
-## Por qué no se copia server.js directamente
+## Arquitectura del runtime de salas
 
-El backend actual inicia un servidor HTTP Node, ejecuta un temporizador global que avanza todas las salas, mantiene `E.rooms` en memoria y entrega estados por SSE. Un Worker no ofrece un proceso Node persistente ni garantiza que una instancia permanezca viva. Durable Objects deben asumir la propiedad de cada sala, sus conexiones y su reloj mediante almacenamiento/alarms o WebSockets.
+1. El Worker valida el código de sala y enruta /act o /ev al Durable Object identificado por ese código.
+2. El Durable Object restaura el snapshot del motor al recibir la primera solicitud.
+3. Las acciones se ejecutan con el motor original (public/engine.js), no con una simulación nueva ni una reimplementación de sus reglas.
+4. Una alarma por sala avanza el reloj y persiste el estado. No hay un setInterval global que recorra todas las salas.
+5. Los callbacks SSE son efímeros y se vuelven a registrar al reconectar; no se guardan en PostgreSQL ni en el snapshot.
 
-El motor actual (`public/engine.js`) también comparte un registro global `rooms`. Antes de integrarlo hay que extraer una instancia de motor por sala y eliminar la dependencia del registro global, sin alterar el comportamiento de las simulaciones.
+## Fases pendientes
 
-## Fases obligatorias
-
-1. **Transporte (actual):** Worker, Durable Object SQLite, health y pruebas.
-2. **Motor:** aislar el estado y ciclo de vida de una sala; migrar `act`, `listen`, `snapshot`, `restore`, reconexión y abandono. Comparar resultados contra Node.
-3. **Tiempo real:** sustituir el tick global por alarmas por sala y conservar SSE o migrar el cliente a WebSocket; validar Android, espectadores y reconexiones.
-4. **Datos:** reemplazar `pg`/pool TCP de `store.js` por el driver HTTP compatible con Workers de Neon; mantener las mismas reglas de cuentas, sesiones, amigos, chat, moderación y rankings.
-5. **Pruebas de carga:** 8 y 10 jugadores por sala, varias salas simultáneas, desconexiones, reinicios, límites de CPU/requests y consumo de Durable Objects.
-6. **Corte:** solo después de las pruebas, publicar Pages, configurar secretos/bindings y cambiar el frontend.
+1. **Pruebas de equivalencia:** comparar el mismo flujo de partida en Node y Cloudflare; validar 8 y 10 jugadores, espectadores, penales, pelotas paradas, desconexión/reconexión y abandono.
+2. **Autenticación:** migrar registro/login/sesiones y resolver el UID en el servidor antes de atribuir carreras, sanciones o actividad de cuenta.
+3. **Datos:** reemplazar pg/pool TCP de store.js por el driver HTTP compatible con Workers de Neon; conservar las reglas existentes de cuentas, amigos, chat, moderación y rankings.
+4. **Frontend y CORS:** probar Android, EventSource, reconexiones y errores de red contra el Worker sin cambiar todavía el dominio público.
+5. **Carga y límites:** probar múltiples salas simultáneas, CPU, alarmas, requests y consumo de Durable Objects.
+6. **Corte:** publicar Pages, configurar bindings y secretos, y cambiar el frontend únicamente después de aprobar las pruebas.
 
 ## Comandos locales
 
@@ -34,4 +38,4 @@ npm run test:cloudflare
 npm run cf:dev
 ```
 
-No ejecutar `npm run cf:deploy` hasta que la integración del motor y los endpoints esté terminada y aprobada.
+No ejecutar npm run cf:deploy ni cambiar el backend público hasta terminar las fases pendientes.
