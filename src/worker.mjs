@@ -11,6 +11,19 @@ const ROOM_RE = /^[a-z0-9]{3,12}$/i;
 Engine.CFG.externalClock = true;
 Engine.CFG.offline = false;
 
+const AUTH_ATTEMPTS = new Map();
+function allowAuthAttempt(key, limit, windowMs = 60 * 60 * 1000) {
+  const now = Date.now();
+  const recent = (AUTH_ATTEMPTS.get(key) || []).filter(time => now - time < windowMs);
+  if (recent.length >= limit) {
+    AUTH_ATTEMPTS.set(key, recent);
+    return false;
+  }
+  recent.push(now);
+  AUTH_ATTEMPTS.set(key, recent);
+  return true;
+}
+
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), { status, headers: JSON_HEADERS });
 }
@@ -101,6 +114,15 @@ async function routeRequest(request, env) {
     if (request.method === "POST" && (authPath === "/api/auth/registro" || authPath === "/api/auth/login")) {
       const body = await readJson(request.clone());
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      const ip = request.headers.get("cf-connecting-ip") || "unknown";
+      const usernameKey = String(body.usuario || "").trim().toLowerCase().slice(0, 16);
+      if (authPath.endsWith("/registro") && !allowAuthAttempt("register:" + ip, 30)) {
+        return json({ error: "Demasiados intentos; probá más tarde" }, 429);
+      }
+      if (authPath.endsWith("/login") &&
+          (!allowAuthAttempt("login-ip:" + ip, 150) || !allowAuthAttempt("login-user:" + usernameKey, 20))) {
+        return json({ error: "Demasiados intentos; probá más tarde" }, 429);
+      }
       try {
         const result = authPath.endsWith("/registro")
           ? await Auth.register(env, body.usuario, body.clave)
