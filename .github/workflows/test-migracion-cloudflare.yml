@@ -1,0 +1,56 @@
+name: Validate migracion Cloudflare + Node
+on:
+  push:
+    branches: [migracion-cloudflare-neon]
+    paths:
+      - 'server.js'
+      - 'public/api-config.js'
+      - 'public/index.html'
+      - '.github/workflows/test-migracion-cloudflare.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'server.js'
+      - 'public/api-config.js'
+      - 'public/index.html'
+      - '.github/workflows/test-migracion-cloudflare.yml'
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Instalar dependencias
+        run: npm install
+      - name: Iniciar backend sin frontend
+        run: |
+          SERVE_STATIC=0 FRONTEND_ORIGINS=https://test.pages.dev PORT=3000 node server.js > /tmp/clash-migration.log 2>&1 &
+          echo $! > /tmp/clash-migration.pid
+          for i in {1..30}; do
+            if curl -fsS http://localhost:3000/health >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/clash-migration.log
+          exit 1
+      - name: Verificar CORS y separación del frontend
+        run: |
+          allowed=$(curl -sS -o /tmp/health.json -w "%{http_code}" -H "Origin: https://test.pages.dev" http://localhost:3000/health)
+          test "$allowed" = "200"
+          grep -qi "Access-Control-Allow-Origin: https://test.pages.dev" <(curl -sSI -H "Origin: https://test.pages.dev" http://localhost:3000/health)
+          preflight=$(curl -sS -o /dev/null -w "%{http_code}" -X OPTIONS -H "Origin: https://test.pages.dev" -H "Access-Control-Request-Method: POST" -H "Access-Control-Request-Headers: authorization,content-type" http://localhost:3000/api/auth/login)
+          test "$preflight" = "204"
+          denied=$(curl -sS -o /dev/null -w "%{http_code}" -H "Origin: https://evil.example" http://localhost:3000/health)
+          test "$denied" = "403"
+          static=$(curl -sS -o /dev/null -w "%{http_code}" http://localhost:3000/)
+          test "$static" = "404"
+      - name: Mostrar log si falla
+        if: failure()
+        run: cat /tmp/clash-migration.log || true
+      - name: Detener backend
+        if: always()
+        run: |
+          if [ -f /tmp/clash-migration.pid ]; then kill "$(cat /tmp/clash-migration.pid)" || true; fi
