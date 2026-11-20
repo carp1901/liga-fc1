@@ -623,6 +623,19 @@ export class LobbyCoordinator {
       const body=await readJson(request);if(!body)return json({error:"Pedido inválido"},400);
       await this.abandon(body.uid);return json({ok:true});
     }
+    if(request.method==="POST"&&url.pathname==="/check"){
+      const body=await readJson(request);if(!body)return json({error:"Pedido inválido"},400);
+      const uid=Number(body.uid);
+      if(!Number.isSafeInteger(uid)||uid<1)return json({blocked:false,aviso:""});
+      const all=(await this.state.storage.get("abandonments"))||{},entry=all[String(uid)]||{times:[],until:0},now=Date.now();
+      entry.times=(entry.times||[]).filter(time=>now-time<864e5);
+      if(entry.until>now){
+        const until=new Date(entry.until).toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",timeZone:"America/Argentina/Buenos_Aires"});
+        return json({blocked:true,error:"Estás bloqueado por abandonos reiterados hasta las "+until+". Podés volver a jugar entonces."});
+      }
+      await this.state.storage.put("abandonments",all);
+      return json({blocked:false,aviso:entry.times.length>=2?"Aviso: ya abandonaste 2 partidas en las últimas 24 h. Al tercer abandono no vas a poder entrar a salas públicas ni a partida aleatoria durante 30 minutos.":""});
+    }
     if(request.method!=="POST"||url.pathname!=="/api")return json({error:"Ruta no disponible"},404);
     const body=await readJson(request);if(!body||typeof body!=="object")return json({error:"Pedido inválido"},400);
     const op=String(body.op||""),pid=String(body.pid||"").slice(0,40),uid=Number(body.uid);
@@ -927,8 +940,21 @@ export class RandomCoordinator {
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
       const trustedUid = Number(request.headers.get("x-clash-auth-user-id"));
       const { uid: ignoredUid, tok: ignoredToken, ...safeBody } = body;
-      if (Number.isSafeInteger(trustedUid) && trustedUid > 0) safeBody.uid = trustedUid;
+      if (Number.isSafeInteger(trustedUid) && trustedUid > 0) {
+        const lobby = this.env.LOBBY && this.env.LOBBY.get(this.env.LOBBY.idFromName("global"));
+        if (lobby) {
+          const checked = await lobby.fetch(new Request("https://lobby.internal/check", {
+            method: "POST", headers: { "content-type": "application/json" },
+            body: JSON.stringify({ uid: trustedUid })
+          }));
+          const status = await checked.json();
+          if (status.blocked) return json({ error: status.error }, 403);
+          if (status.aviso) safeBody.aviso = status.aviso;
+        }
+        safeBody.uid = trustedUid;
+      }
       const result = Engine.rJoin(safeBody);
+      if (safeBody.aviso && !result.error) result.aviso = safeBody.aviso;
       await this.persistAll();
       return json(result, result.error ? 400 : 200);
     }
