@@ -1256,6 +1256,84 @@ test("online 8-player room starts its original match clock and streams phase cha
 });
 
 
+
+test("online match completes first half, second half, final whistle and records the round", async () => {
+  const { env } = mockEnv();
+  const room = "fullmatchflow";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "full-match-" + i);
+  const previousFastWaits = Engine.CFG.fastWaits;
+  Engine.removeRoom(room);
+  Engine.CFG.fastWaits = true;
+  try {
+    for (let i = 0; i < players.length; i++) {
+      const response = await worker.fetch(post("https://game.test/act", {
+        a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+        ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+        ...(i === 0 ? {} : { team: division.teams[i].id })
+      }), env);
+      assert.equal(response.status, 200);
+    }
+    const creatorPick = await worker.fetch(post("https://game.test/act", {
+      a: "pick", room, pid: players[0], team: division.teams[0].id
+    }), env);
+    assert.equal(creatorPick.status, 200);
+
+    for (const pid of players) {
+      const response = await worker.fetch(post("https://game.test/act", {
+        a: "ready", room, pid, v: true
+      }), env);
+      assert.equal(response.status, 200);
+    }
+    const state = Engine.rooms[room];
+    assert.equal(state.phase, "cer");
+    assert.equal(state.ms.length, 4);
+
+    // Begin the first half, then finish all four fixtures at their 45-minute limits.
+    state.t = 1;
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "m1");
+    state.ms.forEach(match => {
+      match.clock = 45;
+      match.limit = 45;
+      match.halfDone = false;
+    });
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "ht");
+    assert.ok(state.ms.every(match => match.halfDone));
+
+    // The halftime countdown starts the second half at minute 45.
+    state.t = 1;
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "m2");
+    assert.ok(state.ms.every(match => match.clock === 45 && !match.finished));
+
+    // Finish the second half at each match's 90-minute limit.
+    state.ms.forEach(match => {
+      match.clock = 90;
+      match.limit = 90;
+      match.finished = false;
+    });
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "fin");
+    assert.ok(state.ms.every(match => match.finished));
+
+    // The final whistle awards the date, then endRound records results and standings.
+    state.t = 1;
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "awd");
+    state.t = 1;
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "lobby");
+    assert.equal(state.round, 1);
+    assert.equal(state.hist.length, 1);
+    assert.ok(Object.values(state.table).every(team => team.pj === 1));
+  } finally {
+    Engine.CFG.fastWaits = previousFastWaits;
+    Engine.removeRoom(room);
+  }
+});
+
 test("spectators keep read-only access and receive the live room stream after reconnecting", async () => {
   const { env, storages } = mockEnv();
   const entry = Data.catalog().find(item => item.clubs >= 10 && item.sizes.liga1.includes(10));
