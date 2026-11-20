@@ -1231,6 +1231,8 @@ test("online 8-player room starts its original match clock and streams phase cha
   }
   assert.equal(Engine.rooms[room].phase, "cer");
   assert.equal(Engine.rooms[room].ms.length, 4);
+  // Each ready action broadcasts a state update to the connected SSE client.
+  for (let i = 0; i < players.length; i++) await reader.read();
 
   Engine.rooms[room].t = 1;
   const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
