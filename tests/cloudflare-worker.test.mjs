@@ -1259,7 +1259,7 @@ test("online 8-player room starts its original match clock and streams phase cha
 
 test("online match completes first half, second half, final whistle and records the round", async () => {
   const { env } = mockEnv();
-  const room = "fullmatchflow";
+  const room = "fullflow8";
   const division = Data.DIVS.find(item => item.id === "ar1");
   const players = Array.from({ length: 8 }, (_, i) => "full-match-" + i);
   const previousFastWaits = Engine.CFG.fastWaits;
