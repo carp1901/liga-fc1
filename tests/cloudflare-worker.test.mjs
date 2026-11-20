@@ -1056,6 +1056,7 @@ test("random matchmaking creates one durable 10-player queue and serves it over 
   ), env);
   assert.equal(events.status, 200);
   const reader = events.body.getReader();
+  await reader.read(); // SSE retry directive precedes the initial state event.
   const first = await reader.read();
   const payload = new TextDecoder().decode(first.value);
   assert.match(payload, /"phase":"vote1"/);
