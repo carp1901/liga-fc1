@@ -7,9 +7,6 @@ on:
       - 'functions/**'
       - 'public/api-config.js'
       - 'public/_routes.json'
-      - 'functions/**'
-      - 'public/api-config.js'
-      - 'public/_routes.json'
       - 'src/worker.mjs'
       - 'src/auth.mjs'
       - 'src/db.mjs'
@@ -27,6 +24,9 @@ on:
   pull_request:
     branches: [migracion-cloudflare-neon]
     paths:
+      - 'functions/**'
+      - 'public/api-config.js'
+      - 'public/_routes.json'
       - 'src/worker.mjs'
       - 'src/auth.mjs'
       - 'src/db.mjs'
@@ -34,6 +34,7 @@ on:
       - 'src/chat.mjs'
       - 'src/chat-hub.mjs'
       - 'tests/cloudflare-worker.test.mjs'
+      - 'tests/pages-proxy.test.mjs'
       - 'wrangler.jsonc'
       - 'package.json'
       - '.github/workflows/test-cloudflare-worker.yml'
