@@ -1235,6 +1235,7 @@ test("online 8-player room starts its original match clock and streams phase cha
   for (let i = 0; i < players.length; i++) await reader.read();
 
   Engine.rooms[room].t = 1;
+  await env.ROOMS.get(room).instance.persist(room);
   const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
   await restarted.alarm();
   assert.equal(Engine.rooms[room].phase, "m1");
