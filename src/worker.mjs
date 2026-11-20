@@ -489,7 +489,27 @@ async function routeRequest(request, env) {
     let path = "";
     let verifiedUid = null;
     let forwardedBody = null;
-    if (request.method === "POST" && url.pathname === "/act") {
+    let randomRequest = false;
+    if (request.method === "POST" && url.pathname === "/api/random") {
+      const body = await readJson(request.clone());
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      const token = Auth.tokenFromRequest(request, body);
+      if (token) {
+        try {
+          const user = await Auth.userByToken(env, token);
+          verifiedUid = user ? user.id : null;
+        } catch (error) {
+          console.error("Random matchmaking auth check failed:", error?.message || error);
+          return json({ error: "No se pudo validar la sesión" }, 503);
+        }
+      }
+      const { uid: clientUid, tok: clientToken, ...safeBody } = body;
+      forwardedBody = safeBody;
+      roomId = "rnd-global";
+      path = "/join";
+      randomRequest = true;
+    }
+    if (!randomRequest && request.method === "POST" && url.pathname === "/act") {
       const body = await readJson(request.clone());
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
       roomId = String(body.room || "").toLowerCase();
@@ -507,17 +527,17 @@ async function routeRequest(request, env) {
       const { uid: clientUid, tok: clientToken, ...safeBody } = body;
       forwardedBody = safeBody;
       path = "/room/" + roomId + "/act";
-    } else if (request.method === "GET" && url.pathname === "/ev") {
+    } else if (!randomRequest && request.method === "GET" && url.pathname === "/ev") {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
       path = "/room/" + roomId + "/ev?pid=" + encodeURIComponent(url.searchParams.get("pid") || "") + "&v=" + encodeURIComponent(url.searchParams.get("v") || "");
-    } else if (request.method === "GET" && url.pathname === "/api/sesion") {
+    } else if (!randomRequest && request.method === "GET" && url.pathname === "/api/sesion") {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
       path = "/room/" + roomId + "/session?pid=" + encodeURIComponent(url.searchParams.get("pid") || "");
-    } else if (request.method === "GET" && url.pathname === "/teams.json") {
+    } else if (!randomRequest && request.method === "GET" && url.pathname === "/teams.json") {
       return json(Data.DIVS);
-    } else if (request.method === "GET" && url.pathname === "/__cf/rooms/state") {
+    } else if (!randomRequest && request.method === "GET" && url.pathname === "/__cf/rooms/state") {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
       path = "/room/" + roomId + "/state";
@@ -525,8 +545,10 @@ async function routeRequest(request, env) {
       return json({ error: "Ruta no disponible" }, 404);
     }
 
-    const id = env.ROOMS.idFromName(roomId);
-    const stub = env.ROOMS.get(id);
+    const coordinator = randomRequest || roomId.startsWith("rnd") ? env.RANDOM : env.ROOMS;
+    if (!coordinator) return json({ error: "Partida rápida no disponible" }, 503);
+    const id = coordinator.idFromName(randomRequest ? "global" : roomId.startsWith("rnd") ? "global" : roomId);
+    const stub = coordinator.get(id);
     let forwarded;
     if (request.method === "POST" && forwardedBody) {
       const headers = new Headers(request.headers);
@@ -831,6 +853,167 @@ export class RoomCoordinator {
     for (const client of this.clients.values()) {
       try { client.controller.enqueue(new TextEncoder().encode(":ping\n\n")); }
       catch { /* A canceled stream is removed by its cancel handler. */ }
+    }
+  }
+}
+
+
+export class RandomCoordinator {
+  constructor(state, env) {
+    this.state = state;
+    this.env = env;
+    this.loaded = false;
+    this.clients = new Map();
+    this.queue = Promise.resolve();
+  }
+
+  installCallbacks() {
+    Engine.CFG.onCareer = records => {
+      const pending = Careers.addCareers(this.env, records).catch(error => console.error("Career persistence failed:", error?.message || error));
+      if (this.state.waitUntil) this.state.waitUntil(pending);
+      return pending;
+    };
+    Engine.CFG.onTitle = record => Careers.addTitle(this.env, record);
+    Engine.CFG.onAbandon = (uid, room) => {
+      if (!this.env.LOBBY) return;
+      const pending = this.env.LOBBY.get(this.env.LOBBY.idFromName("global")).fetch(new Request("https://lobby.internal/abandon", {
+        method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ uid, room })
+      }));
+      if (this.state.waitUntil) this.state.waitUntil(pending);
+      return pending;
+    };
+  }
+
+  fetch(request) {
+    const run = this.queue.then(() => this.handle(request));
+    this.queue = run.catch(() => {});
+    return run;
+  }
+
+  async loadAll() {
+    if (this.loaded) return;
+    const entries = await this.state.storage.list({ prefix: "random-room:" });
+    for (const [key, snapshot] of entries) {
+      const code = key.slice("random-room:".length);
+      if (snapshot) Engine.loadRoom(code, snapshot);
+    }
+    Engine.setRandomQueueCode(await this.state.storage.get("random-queue-code"));
+    this.loaded = true;
+  }
+
+  async persistAll() {
+    const codes = Object.values(Engine.rooms).filter(room => room.rand).map(room => room.code);
+    const keep = new Set(codes);
+    const entries = await this.state.storage.list({ prefix: "random-room:" });
+    for (const key of entries.keys()) {
+      const code = key.slice("random-room:".length);
+      if (!keep.has(code)) await this.state.storage.delete(key);
+    }
+    for (const code of codes) {
+      const snapshot = Engine.saveRoom(code);
+      if (snapshot) await this.state.storage.put("random-room:" + code, snapshot);
+    }
+    await this.state.storage.put("random-queue-code", Engine.randomQueueCode());
+    if (this.state.storage.setAlarm && codes.length) await this.state.storage.setAlarm(Date.now() + 1000);
+    else if (!codes.length && this.state.storage.deleteAlarm) await this.state.storage.deleteAlarm();
+  }
+
+  async handle(request) {
+    await this.loadAll();
+    this.installCallbacks();
+    const url = new URL(request.url);
+    if (request.method === "POST" && url.pathname === "/join") {
+      const body = await readJson(request);
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      const trustedUid = Number(request.headers.get("x-clash-auth-user-id"));
+      const { uid: ignoredUid, tok: ignoredToken, ...safeBody } = body;
+      if (Number.isSafeInteger(trustedUid) && trustedUid > 0) safeBody.uid = trustedUid;
+      const result = Engine.rJoin(safeBody);
+      await this.persistAll();
+      return json(result, result.error ? 400 : 200);
+    }
+
+    const match = url.pathname.match(/^\/room\/(rnd[a-z0-9]{5,9})\/(act|ev|session)$/i);
+    if (!match) return json({ error: "Ruta no disponible" }, 404);
+    const code = match[1].toLowerCase();
+    const action = match[2];
+    if (!Engine.rooms[code]) return json({ error: "Sala inexistente" }, 404);
+
+    if (action === "act" && request.method === "POST") {
+      const body = await readJson(request);
+      if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      if (String(body.room || "").toLowerCase() !== code) return json({ error: "La sala no coincide" }, 400);
+      const { uid: ignoredUid, tok: ignoredToken, ...safeBody } = body;
+      const trustedUid = Number(request.headers.get("x-clash-auth-user-id"));
+      const actionBody = { ...safeBody, room: code };
+      if (Number.isSafeInteger(trustedUid) && trustedUid > 0) actionBody.uid = trustedUid;
+      const error = Engine.act(actionBody);
+      await this.persistAll();
+      return error ? json({ error }, 400) : json({ ok: true });
+    }
+
+    if (action === "session" && request.method === "GET") {
+      const pid = String(url.searchParams.get("pid") || "").slice(0, 40);
+      const room = Engine.rooms[code];
+      const player = room && !room.offline && pid && (room.pl[pid] || (room.spec && room.spec[pid]));
+      return json({ ok: !!player && !(player.ai && !player.nm0) });
+    }
+
+    if (action === "ev" && request.method === "GET') {
+      const pid = String(url.searchParams.get("pid") || "").slice(0, 40);
+      if (!pid) return json({ error: "Falta id de jugador" }, 400);
+      let client;
+      const stream = new ReadableStream({
+        start: controller => {
+          client = { controller };
+          const key = code + ":" + pid;
+          this.clients.set(key, client);
+          const send = url.searchParams.get("v") === "2"
+            ? deltaSender(controller)
+            : value => controller.enqueue(new TextEncoder().encode("data:" + JSON.stringify(value) + "\n\n"));
+          controller.enqueue(new TextEncoder().encode("retry:2000\n\n"));
+          const connected = Engine.listen(code, pid, value => {
+            try { send(value); } catch { this.clients.delete(key); }
+          });
+          if (!connected) { this.clients.delete(key); controller.close(); }
+        },
+        cancel: () => {
+          const key = code + ":" + pid;
+          if (this.clients.get(key) === client) {
+            this.clients.delete(key);
+            Engine.listen(code, pid, null);
+          }
+        }
+      });
+      return new Response(stream, { headers: {
+        "content-type": "text/event-stream; charset=utf-8",
+        "cache-control": "no-cache, no-transform",
+        "x-accel-buffering": "no"
+      }});
+    }
+    return json({ error: "Método no disponible" }, 405);
+  }
+
+  alarm() {
+    const run = this.queue.then(() => this.handleAlarm());
+    this.queue = run.catch(() => {});
+    return run;
+  }
+
+  async handleAlarm() {
+    await this.loadAll();
+    this.installCallbacks();
+    const codes = Object.values(Engine.rooms).filter(room => room.rand).map(room => room.code);
+    for (const code of codes) {
+      const room = Engine.rooms[code];
+      const idle = Date.now() - (room.touched || Date.now()) > 60 * 60 * 1000;
+      const connected = room.order.some(pid => room.pl[pid] && room.pl[pid].cb);
+      if (idle && !connected) Engine.removeRoom(code);
+      else Engine.tickRoom(code);
+    }
+    await this.persistAll();
+    for (const client of this.clients.values()) {
+      try { client.controller.enqueue(new TextEncoder().encode(":ping\n\n")); } catch {}
     }
   }
 }
