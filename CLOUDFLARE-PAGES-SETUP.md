@@ -33,8 +33,9 @@ Las funciones eliminan el encabezado Origin en el salto interno. El navegador us
 - Confirmar que el binding CLASH_API existe en Production y Preview.
 - Probar registro/login, perfil, amistades, chat, rankings y palmarés.
 - Probar salas públicas, espectadores, SSE, reconexión y acciones.
+- Probar partidas aleatorias con 10 jugadores, votaciones, elección de clubes, inicio de partidos, reconexión y límites por IP.
 - Probar Android y reconexiones de EventSource.
-- Resolver la partida aleatoria: `POST /api/random` todavía no está portada al runtime Durable Objects. No habilitar el cambio del dominio público mientras falte.
+- Probar Partida Rápida de punta a punta: cola de 10 jugadores, dos votaciones de 15 segundos, elección de clubes, inicio de la competición, reconexión, SSE y bloqueos por abandonos.
 - Ejecutar las pruebas de equivalencia del motor y revisar límites/costos.
 
 El dominio público anterior no se modifica durante estas pruebas. No desplegar el Worker públicamente ni habilitar `workers.dev`, rutas o dominios hasta aprobar las pruebas y autorizar el corte.
