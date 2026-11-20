@@ -3,6 +3,19 @@ import { neon } from "@neondatabase/serverless";
 import worker, { ChatHub, LobbyCoordinator, RoomCoordinator } from "../src/worker.mjs";
 import Data from "../public/data.js";
 
+class MemoryStorage {
+  constructor() { this.data = new Map(); this.alarm = null; }
+  async get(key) { return this.data.get(key); }
+  async put(key, value) { this.data.set(key, structuredClone(value)); }
+  async delete(key) { return this.data.delete(key); }
+  async list(options = {}) {
+    return new Map([...this.data.entries()].filter(([key]) => !options.prefix || key.startsWith(options.prefix)));
+  }
+  async setAlarm(value) { this.alarm = value; }
+  async deleteAlarm() { this.alarm = null; }
+}
+
+
 const databaseUrl = process.env.NEON_TEST_DATABASE_URL;
 if (!databaseUrl) throw new Error("Falta NEON_TEST_DATABASE_URL");
 const sql = neon(databaseUrl, { fullResults: true });
@@ -153,16 +166,4 @@ try {
     await sql.query("DELETE FROM usuarios WHERE id=$1", [userId]);
     console.log("CLEANUP_OK");
   }
-}
-
-class MemoryStorage {
-  constructor() { this.data = new Map(); this.alarm = null; }
-  async get(key) { return this.data.get(key); }
-  async put(key, value) { this.data.set(key, structuredClone(value)); }
-  async delete(key) { return this.data.delete(key); }
-  async list(options = {}) {
-    return new Map([...this.data.entries()].filter(([key]) => !options.prefix || key.startsWith(options.prefix)));
-  }
-  async setAlarm(value) { this.alarm = value; }
-  async deleteAlarm() { this.alarm = null; }
 }
