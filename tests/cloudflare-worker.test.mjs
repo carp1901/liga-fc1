@@ -1236,11 +1236,21 @@ test("online 8-player room starts its original match clock and streams phase cha
 
   Engine.rooms[room].t = 1;
   await env.ROOMS.get(room).instance.persist(room);
+  // A Durable Object restart closes its old SSE stream; the browser reconnects.
+  await reader.cancel();
   const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+  const reconnected = await restarted.fetch(new Request(
+    "https://game.test/room/" + room + "/ev?pid=" + players[0]
+  ));
+  assert.equal(reconnected.status, 200);
+  const resumedReader = reconnected.body.getReader();
+  await resumedReader.read(); // retry directive
+  const resumed = new TextDecoder().decode((await resumedReader.read()).value);
+  assert.match(resumed, /"phase":"cer"/);
   await restarted.alarm();
   assert.equal(Engine.rooms[room].phase, "m1");
   assert.equal(Engine.rooms[room].ms.length, 4);
-  const update = new TextDecoder().decode((await reader.read()).value);
+  const update = new TextDecoder().decode((await resumedReader.read()).value);
   assert.match(update, /"phase":"m1"/);
-  await reader.cancel();
+  await resumedReader.cancel();
 });
