@@ -1306,3 +1306,48 @@ test("spectators keep read-only access and receive the live room stream after re
   assert.equal(resumedEvent.v.sp, true);
   await resumedReader.cancel();
 });
+
+
+test("AI takeover after 120 seconds survives a Durable Object restart and the original player can reclaim", async () => {
+  const { env, storages } = mockEnv();
+  const room = "abandon1";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "abandon-player-" + i);
+
+  for (let i = 0; i < players.length; i++) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+      ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+      ...(i === 0 ? {} : { team: division.teams[i].id })
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  const creatorPick = await worker.fetch(post("https://game.test/act", {
+    a: "pick", room, pid: players[0], team: division.teams[0].id
+  }), env);
+  assert.equal(creatorPick.status, 200);
+  assert.equal(Engine.rooms[room].phase, "pre");
+
+  // Model a player who connected, then lost their connection.
+  assert.equal(Engine.listen(room, players[0], () => {}), true);
+  assert.equal(Engine.listen(room, players[0], null), true);
+  Engine.rooms[room].pl[players[0]].lost = Date.now() - 121_000;
+  await env.ROOMS.get(room).instance.persist(room);
+
+  // Reconstruct the DO: the disconnect timestamp must be part of the snapshot.
+  const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+  await restarted.alarm();
+  assert.equal(Engine.rooms[room].pl[players[0]].ai, 1);
+  assert.equal(Engine.rooms[room].pl[players[0]].bot, true);
+  assert.equal(Engine.rooms[room].pl[players[0]].name, "IA (DT 0)");
+
+  // Reconnecting the same pid invokes the engine's reclaim path.
+  const stream = await restarted.fetch(new Request(
+    "https://game.test/room/" + room + "/ev?pid=" + players[0]
+  ));
+  assert.equal(stream.status, 200);
+  assert.equal(Engine.rooms[room].pl[players[0]].ai, undefined);
+  assert.equal(Engine.rooms[room].pl[players[0]].bot, false);
+  assert.equal(Engine.rooms[room].pl[players[0]].name, "DT 0");
+  await stream.body.cancel();
+});
