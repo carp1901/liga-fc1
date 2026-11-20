@@ -1,0 +1,37 @@
+name: Deploy CLASH FUTBOL Worker to Cloudflare
+
+on:
+  push:
+    branches: [cloudflare-workers-backend]
+    paths:
+      - 'src/**'
+      - 'public/engine.js'
+      - 'public/data.js'
+      - 'wrangler.jsonc'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/deploy-cloudflare-worker.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate Worker tests
+        run: npm run test:cloudflare
+      - name: Deploy Worker
+        run: npx wrangler deploy --config wrangler.jsonc
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 68cc70a61c35c35a0c70def08f202ca6
