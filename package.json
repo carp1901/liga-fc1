@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "node test.js && node test-auto-xi.js && node test-sim2d-orientation.js",
-    "test:cloudflare": "node --test tests/cloudflare-worker.test.mjs",
+    "test:cloudflare": "node --test tests/cloudflare-worker.test.mjs tests/pages-proxy.test.mjs",
     "cf:dev": "wrangler dev",
     "cf:deploy": "wrangler deploy"
   },
