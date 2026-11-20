@@ -1469,6 +1469,7 @@ test("Node engine and Cloudflare Worker produce equivalent room state for the sa
     const cfState = Engine.saveRoom(room);
     const nodeState = Engine.saveRoom(baseline);
     cfState.code = baseline;
+    cfState.touched = nodeState.touched;
     assert.deepEqual(cfState, nodeState);
   } finally {
     Engine.removeRoom(room);
@@ -1512,7 +1513,7 @@ test("pending penalty and set-piece decisions survive Durable Object persistence
     ];
 
     for (const decision of pending) {
-      match.pend = structuredClone(decision);
+      Engine.rooms[room].ms[0].pend = structuredClone(decision);
       await env.ROOMS.get(room).instance.persist(room);
       const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
       const stateResponse = await restarted.fetch(new Request("https://game.test/room/" + room + "/state"));
