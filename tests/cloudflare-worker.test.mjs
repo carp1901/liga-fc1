@@ -1192,3 +1192,52 @@ test("random matchmaking blocks new matches but allows reconnecting to the same 
   }));
   assert.equal(newMatch.status, 403);
 });
+
+
+test("online 8-player room starts its original match clock and streams phase changes", async () => {
+  const { env, storages } = mockEnv();
+  const room = "onlineflow8";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "online-flow-" + i);
+  for (let i = 0; i < players.length; i++) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+      ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+      ...(i === 0 ? {} : { team: division.teams[i].id })
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  // The creator also selects a club after creating the room.
+  const creatorPick = await worker.fetch(post("https://game.test/act", {
+    a: "pick", room, pid: players[0], team: division.teams[0].id
+  }), env);
+  assert.equal(creatorPick.status, 200);
+  assert.equal(Engine.rooms[room].phase, "pre");
+
+  const events = await worker.fetch(new Request(
+    "https://game.test/ev?room=" + room + "&pid=" + players[0]
+  ), env);
+  assert.equal(events.status, 200);
+  const reader = events.body.getReader();
+  await reader.read(); // retry directive
+  const initial = new TextDecoder().decode((await reader.read()).value);
+  assert.match(initial, /"phase":"pre"/);
+
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "ready", room, pid, v: true
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  assert.equal(Engine.rooms[room].phase, "cer");
+  assert.equal(Engine.rooms[room].ms.length, 4);
+
+  Engine.rooms[room].t = 1;
+  const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+  await restarted.alarm();
+  assert.equal(Engine.rooms[room].phase, "m1");
+  assert.equal(Engine.rooms[room].ms.length, 4);
+  const update = new TextDecoder().decode((await reader.read()).value);
+  assert.match(update, /"phase":"m1"/);
+  await reader.cancel();
+});
