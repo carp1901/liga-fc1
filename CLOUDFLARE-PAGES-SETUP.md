@@ -2,7 +2,7 @@
 
 ## Estado
 
-El frontend estático se genera directamente desde `public/`. Las Pages Functions de `functions/` reenvían únicamente las rutas dinámicas del juego al Worker `clash-futbol-edge` mediante un Service binding llamado `CLASH_API`.
+El frontend estático se genera directamente desde `public/`. Las Pages Functions de `functions/` reenvían únicamente las rutas dinámicas del juego al Worker `clash-futbol-edge` mediante un Service binding llamado `CLASH_API`. El archivo `public/_routes.json` limita las invocaciones de Functions a esas rutas, dejando los archivos estáticos servidos directamente por Pages.
 
 El Worker no necesita una URL pública `workers.dev`, rutas ni dominio propio: el Service binding permite que Pages lo invoque internamente.
 
