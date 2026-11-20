@@ -493,6 +493,10 @@ async function routeRequest(request, env) {
     if (request.method === "POST" && url.pathname === "/api/random") {
       const body = await readJson(request.clone());
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
+      const ip = request.headers.get("cf-connecting-ip") || "unknown";
+      if (!allowAuthAttempt("random:" + ip, 120)) {
+        return json({ error: "Demasiados intentos; probá más tarde" }, 429);
+      }
       const token = Auth.tokenFromRequest(request, body);
       if (token) {
         try {
@@ -941,15 +945,23 @@ export class RandomCoordinator {
       const trustedUid = Number(request.headers.get("x-clash-auth-user-id"));
       const { uid: ignoredUid, tok: ignoredToken, ...safeBody } = body;
       if (Number.isSafeInteger(trustedUid) && trustedUid > 0) {
-        const lobby = this.env.LOBBY && this.env.LOBBY.get(this.env.LOBBY.idFromName("global"));
-        if (lobby) {
-          const checked = await lobby.fetch(new Request("https://lobby.internal/check", {
-            method: "POST", headers: { "content-type": "application/json" },
-            body: JSON.stringify({ uid: trustedUid })
-          }));
-          const status = await checked.json();
-          if (status.blocked) return json({ error: status.error }, 403);
-          if (status.aviso) safeBody.aviso = status.aviso;
+        const pid = String(safeBody.pid || "").slice(0, 40);
+        const alreadyInThisRandomMatch = Object.values(Engine.rooms).some(room =>
+          room.rand && room.phase !== "end" && !!room.pl[pid]
+        );
+        // A block prevents entering another match, but never prevents reconnecting
+        // to the player's own active random match (legacy server behavior).
+        if (!alreadyInThisRandomMatch) {
+          const lobby = this.env.LOBBY && this.env.LOBBY.get(this.env.LOBBY.idFromName("global"));
+          if (lobby) {
+            const checked = await lobby.fetch(new Request("https://lobby.internal/check", {
+              method: "POST", headers: { "content-type": "application/json" },
+              body: JSON.stringify({ uid: trustedUid })
+            }));
+            const status = await checked.json();
+            if (status.blocked) return json({ error: status.error }, 403);
+            if (status.aviso) safeBody.aviso = status.aviso;
+          }
         }
         safeBody.uid = trustedUid;
       }
