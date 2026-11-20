@@ -1429,3 +1429,102 @@ test("AI takeover after 120 seconds survives a Durable Object restart and the or
   assert.equal(Engine.rooms[room].pl[players[0]].name, "DT 0");
   await stream.body.cancel();
 });
+
+
+test("Node engine and Cloudflare Worker produce equivalent room state for the same actions", async () => {
+  const { env, storages } = mockEnv();
+  const room = "paritycf8";
+  const baseline = "paritynd8";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "parity-player-" + i);
+  Engine.removeRoom(room);
+  Engine.removeRoom(baseline);
+
+  try {
+    for (let i = 0; i < players.length; i++) {
+      const response = await worker.fetch(post("https://game.test/act", {
+        a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+        ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+        ...(i === 0 ? {} : { team: division.teams[i].id })
+      }), env);
+      assert.equal(response.status, 200);
+    }
+    assert.equal((await worker.fetch(post("https://game.test/act", {
+      a: "pick", room, pid: players[0], team: division.teams[0].id
+    }), env)).status, 200);
+
+    const baselineSnapshot = Engine.saveRoom(room);
+    assert.ok(Engine.loadRoom(baseline, baselineSnapshot));
+
+    const actions = [
+      ...players.map(pid => ({ a: "ready", room, pid, v: true })),
+      { a: "tac", room, pid: players[0], p: { st: 1, pr: 2, wing: 1 } },
+      { a: "tac", room, pid: players[3], p: { st: 2, pr: 1, wing: 0 } }
+    ];
+
+    for (const action of actions) {
+      const cf = await worker.fetch(post("https://game.test/act", action), env);
+      assert.equal(cf.status, 200);
+      const nodeResult = Engine.act({ ...action, room: baseline });
+      assert.equal(nodeResult, null);
+    }
+
+    const cfState = Engine.saveRoom(room);
+    const nodeState = Engine.saveRoom(baseline);
+    cfState.code = baseline;
+    assert.deepEqual(cfState, nodeState);
+  } finally {
+    Engine.removeRoom(room);
+    Engine.removeRoom(baseline);
+  }
+});
+
+test("pending penalty and set-piece decisions survive Durable Object persistence and restart", async () => {
+  const { env, storages } = mockEnv();
+  const room = "setpiece8";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "setpiece-player-" + i);
+  const previousFastWaits = Engine.CFG.fastWaits;
+  Engine.removeRoom(room);
+  Engine.CFG.fastWaits = true;
+
+  try {
+    for (let i = 0; i < players.length; i++) {
+      const response = await worker.fetch(post("https://game.test/act", {
+        a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+        ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+        ...(i === 0 ? {} : { team: division.teams[i].id })
+      }), env);
+      assert.equal(response.status, 200);
+    }
+    await worker.fetch(post("https://game.test/act", {
+      a: "pick", room, pid: players[0], team: division.teams[0].id
+    }), env);
+    for (const pid of players) {
+      await worker.fetch(post("https://game.test/act", { a: "ready", room, pid, v: true }), env);
+    }
+
+    const match = Engine.rooms[room].ms[0];
+    const pending = [
+      { id: "pending-penalty", kind: undefined, o: 0, tk: 1, gk: 0, rm: 75, rf: 80,
+        ev: { id: "pen-event", k: "pen", m: 12, t: 0, n: "Delantero" },
+        sh: "L", dv: null, dl: Date.now() + 60000, rdy: 0 },
+      { id: "pending-free-kick", kind: "fkd", o: 1, tk: 2, gk: 0,
+        ev: { id: "fk-event", k: "fk", m: 23, t: 1, n: "Volante", dm: 24 },
+        sh: "R", dv: null, dl: Date.now() + 20000, rdy: 0 }
+    ];
+
+    for (const decision of pending) {
+      match.pend = structuredClone(decision);
+      await env.ROOMS.get(room).instance.persist(room);
+      const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+      const stateResponse = await restarted.fetch(new Request("https://game.test/room/" + room + "/state"));
+      assert.equal(stateResponse.status, 200);
+      const restored = await stateResponse.json();
+      assert.deepEqual(restored.snapshot.ms[0].pend, decision);
+    }
+  } finally {
+    Engine.CFG.fastWaits = previousFastWaits;
+    Engine.removeRoom(room);
+  }
+});
