@@ -2,6 +2,13 @@ name: Neon Worker integration (isolated branch)
 
 on:
   workflow_dispatch:
+  push:
+    branches: [cloudflare-workers-backend]
+    paths:
+      - 'tests/neon-worker-integration.mjs'
+      - 'src/**'
+      - 'public/data.js'
+      - '.github/workflows/neon-worker-integration.yml'
 
 permissions:
   contents: read
