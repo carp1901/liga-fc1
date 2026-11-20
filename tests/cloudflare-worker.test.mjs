@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import worker, { RoomCoordinator, ChatHub, LobbyCoordinator, RandomCoordinator } from "../src/worker.mjs";
 import Data from "../public/data.js";
+import Engine from "../public/engine.js";
 import { addCareers, addTitle, offlineTitleRecord, rankRows, pointsForCareer, rankingCoaches, rankingFans } from "../src/careers.mjs";
 
 class MemoryStorage {
@@ -1077,4 +1078,117 @@ test("random matchmaking queue survives Durable Object reconstruction", async ()
   const second = await worker.fetch(post("https://game.test/api/random", { pid: "persist-b", name: "B" }), env);
   assert.equal((await second.json()).room, room);
   assert.equal(storage.data.get("random-room:" + room).order.length, 2);
+});
+
+
+function clearRandomEngineState() {
+  for (const [code, room] of Object.entries(Engine.rooms)) {
+    if (room.rand) Engine.removeRoom(code);
+  }
+  Engine.setRandomQueueCode(null);
+}
+
+test("random matchmaking completes both 15-second votes and reaches team selection", async () => {
+  clearRandomEngineState();
+  const { env } = mockEnv();
+  const players = Array.from({ length: 10 }, (_, i) => "flow-" + i);
+  let roomCode = "";
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/api/random", { pid, name: pid }), env);
+    assert.equal(response.status, 200);
+    const result = await response.json();
+    roomCode ||= result.room;
+    assert.equal(result.room, roomCode);
+  }
+  assert.equal(Engine.rooms[roomCode].phase, "vote1");
+
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "rv", room: roomCode, pid, v: "clasico"
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  Engine.rooms[roomCode].t = 1;
+  await env.RANDOM.get("global").instance.alarm();
+  assert.equal(Engine.rooms[roomCode].phase, "vote2");
+  assert.equal(Engine.rooms[roomCode].rand.cat, "clasico");
+
+  const competition = Data.catalog().find(item => item.cat === "clasico" && item.random);
+  assert.ok(competition);
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "rv", room: roomCode, pid, v: competition.key
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  Engine.rooms[roomCode].t = 1;
+  await env.RANDOM.get("global").instance.alarm();
+  assert.equal(Engine.rooms[roomCode].phase, "pick");
+  assert.equal(Engine.rooms[roomCode].cfg.div, competition.key);
+
+  const division = Data.DIVS.find(item => item.id === competition.key);
+  assert.ok(division);
+  for (let i = 0; i < players.length; i++) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "pick", room: roomCode, pid: players[i], team: division.teams[i].id
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  assert.equal(Engine.rooms[roomCode].phase, "pre");
+
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "ready", room: roomCode, pid, v: true
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  assert.equal(Engine.rooms[roomCode].phase, "cer");
+  const stored = await env.RANDOM.get("global").instance.state.storage.get("random-room:" + roomCode);
+  assert.equal(stored.phase, "cer");
+});
+
+test("random matchmaking keeps legacy request throttling", async () => {
+  clearRandomEngineState();
+  const { env } = mockEnv();
+  let last;
+  for (let i = 0; i < 121; i++) {
+    last = await worker.fetch(new Request("https://game.test/api/random", {
+      method: "POST",
+      headers: { "content-type": "application/json", "cf-connecting-ip": "198.51.100.77" },
+      body: JSON.stringify({ pid: "rate-limited-player", name: "Jugador" })
+    }), env);
+    if (i < 120) assert.equal(last.status, 200);
+  }
+  assert.equal(last.status, 429);
+  assert.match((await last.json()).error, /Demasiados intentos/);
+});
+
+test("random matchmaking blocks new matches but allows reconnecting to the same active room", async () => {
+  clearRandomEngineState();
+  const { env } = mockEnv();
+  const random = env.RANDOM.get("global");
+  const joined = await random.fetch(new Request("https://random.internal/join", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-clash-auth-user-id": "77" },
+    body: JSON.stringify({ pid: "returning-account", name: "Cuenta" })
+  }));
+  const room = (await joined.json()).room;
+  const lobby = env.LOBBY.get("global");
+  for (let i = 0; i < 3; i++) {
+    await lobby.fetch(post("https://lobby.internal/abandon", { uid: 77, room }));
+  }
+  const reconnect = await random.fetch(new Request("https://random.internal/join", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-clash-auth-user-id": "77" },
+    body: JSON.stringify({ pid: "returning-account", name: "Cuenta" })
+  }));
+  assert.equal(reconnect.status, 200);
+  assert.equal((await reconnect.json()).room, room);
+
+  const newMatch = await random.fetch(new Request("https://random.internal/join", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-clash-auth-user-id": "77" },
+    body: JSON.stringify({ pid: "new-device-player", name: "Cuenta" })
+  }));
+  assert.equal(newMatch.status, 403);
 });
