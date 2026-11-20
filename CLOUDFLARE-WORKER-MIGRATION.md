@@ -23,6 +23,8 @@ La integración avanzó de transporte experimental a **runtime de salas integrad
 
 ## Configuración previa al frontend
 
+En Cloudflare, el Worker `clash-futbol-edge` está conectado a la rama `cloudflare-workers-backend`. La compilación inicial se dispara con un commit en esa rama. El comando de despliegue configurado es `npx wrangler versions upload`: carga una versión para revisión, pero no debe activarse ni promoverse a producción durante estas pruebas. Las variables `DATABASE_URL` (secreto) y `CHAT_OWNER_USERNAME` (variable) se configuran en el entorno Production; el origen `FRONTEND_ORIGINS` se agregará cuando exista el dominio de Pages.
+
 El endpoint `GET /api/db/health` permite comprobar la conexión real sin exponer credenciales. Antes de probarlo y usar las rutas de autenticación contra Neon, configurar `DATABASE_URL` como secreto del Worker (no pegarlo en el repositorio ni en el chat). Antes de conectar Pages, configurar la variable de entorno no secreta `FRONTEND_ORIGINS` en el Worker con el origen exacto del sitio, por ejemplo `https://clash-futbol.pages.dev`. Configurar también `CHAT_OWNER_USERNAME` con el nombre exacto de la cuenta propietaria; hoy el código usa `Burzaco` como valor predeterminado y no debe asumirse que ese sea el usuario correcto. Se aceptan varios orígenes separados por comas. El Worker rechaza otros orígenes y atiende OPTIONS para las peticiones del navegador.
 
 ## Fases pendientes
