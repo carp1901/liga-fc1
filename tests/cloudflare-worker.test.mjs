@@ -1254,3 +1254,55 @@ test("online 8-player room starts its original match clock and streams phase cha
   assert.match(update, /"phase":"m1"/);
   await resumedReader.cancel();
 });
+
+
+test("spectators keep read-only access and receive the live room stream after reconnecting", async () => {
+  const { env, storages } = mockEnv();
+  const entry = Data.catalog().find(item => item.clubs >= 10 && item.sizes.liga1.includes(10));
+  const created = await worker.fetch(post("https://game.test/api/pub", {
+    op: "create", pid: "spectator-host", name: "Anfitrion",
+    div: entry.key, fmt: "liga1", n: 10
+  }), env);
+  assert.equal(created.status, 200);
+  const { room } = await created.json();
+
+  const watched = await worker.fetch(post("https://game.test/api/pub", {
+    op: "watch", room, pid: "watch-only", name: "Espectador"
+  }), env);
+  assert.equal(watched.status, 200);
+
+  const session = await worker.fetch(new Request(
+    "https://game.test/api/sesion?room=" + room + "&pid=watch-only"
+  ), env);
+  assert.deepEqual(await session.json(), { ok: true });
+
+  const events = await worker.fetch(new Request(
+    "https://game.test/ev?room=" + room + "&pid=watch-only&v=2"
+  ), env);
+  assert.equal(events.status, 200);
+  const reader = events.body.getReader();
+  await reader.read(); // retry directive
+  const first = JSON.parse(new TextDecoder().decode((await reader.read()).value).replace(/^data:/, "").trim());
+  assert.equal(first.__cf, "full");
+  assert.equal(first.v.sp, true);
+  assert.equal(first.v.ns, 1);
+
+  const forbidden = await worker.fetch(post("https://game.test/act", {
+    a: "ready", room, pid: "watch-only", ready: true
+  }), env);
+  assert.equal(forbidden.status, 400);
+  assert.match((await forbidden.json()).error, /mirando esta sala/);
+  await reader.cancel();
+
+  const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+  const resumed = await restarted.fetch(new Request(
+    "https://game.test/room/" + room + "/ev?pid=watch-only&v=2"
+  ));
+  assert.equal(resumed.status, 200);
+  const resumedReader = resumed.body.getReader();
+  await resumedReader.read(); // retry directive
+  const resumedEvent = JSON.parse(new TextDecoder().decode((await resumedReader.read()).value).replace(/^data:/, "").trim());
+  assert.equal(resumedEvent.__cf, "full");
+  assert.equal(resumedEvent.v.sp, true);
+  await resumedReader.cancel();
+});
