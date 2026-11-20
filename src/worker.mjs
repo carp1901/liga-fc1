@@ -541,7 +541,7 @@ async function routeRequest(request, env) {
       roomId = String(url.searchParams.get("room") || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
       path = "/room/" + roomId + "/state";
-    } else {
+    } else if (!randomRequest) {
       return json({ error: "Ruta no disponible" }, 404);
     }
 
@@ -959,7 +959,7 @@ export class RandomCoordinator {
       return json({ ok: !!player && !(player.ai && !player.nm0) });
     }
 
-    if (action === "ev" && request.method === "GET') {
+    if (action === "ev" && request.method === "GET") {
       const pid = String(url.searchParams.get("pid") || "").slice(0, 40);
       if (!pid) return json({ error: "Falta id de jugador" }, 400);
       let client;
