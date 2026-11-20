@@ -1013,6 +1013,9 @@ test("public lobby persists abandonment blocks for account users", async () => {
   }));
   assert.equal(blocked.status, 403);
   assert.match((await blocked.json()).error, /bloqueado por abandonos/);
+  const randomCheck = await lobby.fetch(post("https://lobby.internal/check", { uid: 77 }));
+  assert.equal(randomCheck.status, 200);
+  assert.equal((await randomCheck.json()).blocked, true);
 });
 
 
