@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import worker, { RoomCoordinator, ChatHub, LobbyCoordinator } from "../src/worker.mjs";
+import worker, { RoomCoordinator, ChatHub, LobbyCoordinator, RandomCoordinator } from "../src/worker.mjs";
 import Data from "../public/data.js";
 import { addCareers, addTitle, offlineTitleRecord, rankRows, pointsForCareer, rankingCoaches, rankingFans } from "../src/careers.mjs";
 
@@ -10,7 +10,9 @@ class MemoryStorage {
   async get(key) { return this.data.get(key); }
   async put(key, value) { this.data.set(key, structuredClone(value)); }
   async delete(key) { return this.data.delete(key); }
+  async list(options = {}) { return new Map([...this.data.entries()].filter(([key]) => !options.prefix || key.startsWith(options.prefix))); }
   async setAlarm(value) { this.alarm = value; }
+  async deleteAlarm() { this.alarm = null; }
 }
 
 function mockEnv() {
@@ -18,6 +20,8 @@ function mockEnv() {
   const storages = new Map();
   const lobbyObjects = new Map();
   const lobbyStorages = new Map();
+  const randomObjects = new Map();
+  const randomStorages = new Map();
   const env = {};
   env.ROOMS = {
     idFromName: name => name,
@@ -29,6 +33,18 @@ function mockEnv() {
         objects.set(id, { fetch: req => instance.fetch(req), instance });
       }
       return objects.get(id);
+    }
+  };
+  env.RANDOM = {
+    idFromName: name => name,
+    get: id => {
+      if (!randomObjects.has(id)) {
+        const storage = new MemoryStorage();
+        randomStorages.set(id, storage);
+        const instance = new RandomCoordinator({ storage }, env);
+        randomObjects.set(id, { fetch: req => instance.fetch(req), instance });
+      }
+      return randomObjects.get(id);
     }
   };
   env.LOBBY = {
@@ -43,7 +59,7 @@ function mockEnv() {
       return lobbyObjects.get(id);
     }
   };
-  return { env, storages, lobbyStorages };
+  return { env, storages, lobbyStorages, randomStorages };
 }
 
 const post = (url, body) => new Request(url, {
@@ -1016,4 +1032,45 @@ test("public lobby handles simultaneous room creation without duplicate IDs", as
   const rooms = await listing.json();
   assert.equal(rooms.length, 8);
   assert.deepEqual(new Set(rooms.map(room => room.code)), new Set(codes));
+});
+
+
+test("random matchmaking creates one durable 10-player queue and serves it over SSE", async () => {
+  const { env, randomStorages } = mockEnv();
+  let room = "";
+  for (let i = 0; i < 10; i++) {
+    const joined = await worker.fetch(post("https://game.test/api/random", {
+      pid: "quick-" + i, name: "DT " + i
+    }), env);
+    assert.equal(joined.status, 200);
+    const result = await joined.json();
+    assert.match(result.room, /^rnd[a-z0-9]{5,9}$/);
+    if (!room) room = result.room;
+    assert.equal(result.room, room);
+  }
+  const stored = randomStorages.get("global").data;
+  assert.ok(stored.has("random-room:" + room));
+  assert.equal(stored.get("random-room:" + room).phase, "vote1");
+  const events = await worker.fetch(new Request(
+    "https://game.test/ev?room=" + room + "&pid=quick-0"
+  ), env);
+  assert.equal(events.status, 200);
+  const reader = events.body.getReader();
+  const first = await reader.read();
+  const payload = new TextDecoder().decode(first.value);
+  assert.match(payload, /"phase":"vote1"/);
+  assert.match(payload, /"need":10/);
+  await reader.cancel();
+});
+
+test("random matchmaking queue survives Durable Object reconstruction", async () => {
+  const { env, randomStorages } = mockEnv();
+  const first = await worker.fetch(post("https://game.test/api/random", { pid: "persist-a", name: "A" }), env);
+  const room = (await first.json()).room;
+  const storage = randomStorages.get("global");
+  const restarted = new RandomCoordinator({ storage }, env);
+  env.RANDOM.get = () => ({ fetch: request => restarted.fetch(request), instance: restarted });
+  const second = await worker.fetch(post("https://game.test/api/random", { pid: "persist-b", name: "B" }), env);
+  assert.equal((await second.json()).room, room);
+  assert.equal(storage.data.get("random-room:" + room).order.length, 2);
 });
