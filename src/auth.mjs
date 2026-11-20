@@ -3,7 +3,7 @@ import { dbQuery } from "./db.mjs";
 const USER_RE = /^[A-Za-z0-9_.-]{3,16}$/;
 const RESERVED = /^(admin|administrador|invitado|guest|cpu|anonimo|sistema|ligafc)$/i;
 const SESSION_DAYS = 90;
-const PBKDF2_ITERATIONS = 120000;
+const PBKDF2_ITERATIONS = 100000;
 const encoder = new TextEncoder();
 const USER_CACHE = new Map();
 
@@ -45,7 +45,7 @@ async function hashPassword(password) {
 async function verifyPassword(password, encoded) {
   const [algorithm, roundsText, saltText, hashText] = String(encoded || "").split("$");
   const rounds = Number(roundsText);
-  if (algorithm !== "pbkdf2" || !Number.isInteger(rounds) || rounds < 100000 || rounds > 500000
+  if (algorithm !== "pbkdf2" || !Number.isInteger(rounds) || rounds < 100000 || rounds > 100000
       || !saltText || !hashText) {
     // Same-cost dummy derivation for unknown users or malformed stored hashes.
     const dummy = await derivePassword(password, new Uint8Array(16));
