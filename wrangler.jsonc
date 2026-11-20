@@ -5,6 +5,10 @@
   "compatibility_date": "2026-11-19",
   "workers_dev": false,
   "preview_urls": false,
+  "vars": {
+    "FRONTEND_ORIGINS": "https://clash-futbol-2d-online.onrender.com",
+    "CHAT_OWNER_USERNAME": "Burzaco"
+  },
   "durable_objects": {
     "bindings": [
       {
