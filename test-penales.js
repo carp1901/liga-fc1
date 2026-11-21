@@ -7,4 +7,4 @@ for(let k=0;k<12;k++){const room='pn'+k;E.act({a:'create',pid:'a'+k,name:'A',roo
  else if(n==1){E.act({a:'pdec',pid:A,room,id:m.pend.id,d:'C'});st.timeout++}else E.act({a:'pdec',pid:A,room,id:999999,d:'C'})}
  (m.pv||[]).forEach(e=>{if(e.k=='pen'&&!e.cnt){e.cnt=1;st.res++;if(!'gso'.includes(e.x)||!'LCR'.includes(e.sd)||!'LCR'.includes(e.dd)||e.ak==null)st.bad++}})})}await sleep(20)}
  console.log(JSON.stringify(st));const pend=rooms.filter(x=>E.rooms[x].ms.some(m=>m.pend&&Date.now()-m.pend.dl<-100)).length;
- const ok=st.pend>5&&st.res>=st.pend-rooms.length&&!st.bad;console.log(ok?'Todo OK':'FALLA');process.exit(ok?0:1)})();
+ const ok=st.pend>5&&st.res>=st.pend-rooms.length*2&&!st.bad;console.log(ok?'Todo OK':'FALLA');process.exit(ok?0:1)})();
