@@ -1,0 +1,58 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "clash-futbol-edge",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-11-19",
+  "workers_dev": false,
+  "preview_urls": false,
+  "vars": {
+    "FRONTEND_ORIGINS": "",
+    "CHAT_OWNER_USERNAME": "Burzaco"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ROOMS",
+        "class_name": "RoomCoordinator"
+      },
+      {
+        "name": "CHAT",
+        "class_name": "ChatHub"
+      },
+      {
+        "name": "LOBBY",
+        "class_name": "LobbyCoordinator"
+      },
+      {
+        "name": "RANDOM",
+        "class_name": "RandomCoordinator"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "RoomCoordinator"
+      ]
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": [
+        "ChatHub"
+      ]
+    },
+    {
+      "tag": "v3",
+      "new_sqlite_classes": [
+        "LobbyCoordinator"
+      ]
+    },
+    {
+      "tag": "v4",
+      "new_sqlite_classes": [
+        "RandomCoordinator"
+      ]
+    }
+  ]
+}

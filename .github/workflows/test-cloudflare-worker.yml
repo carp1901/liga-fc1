@@ -1,0 +1,53 @@
+name: Cloudflare Worker foundation
+
+on:
+  push:
+    branches: [cloudflare-workers-backend]
+    paths:
+      - 'functions/**'
+      - 'public/api-config.js'
+      - 'public/_routes.json'
+      - 'src/worker.mjs'
+      - 'src/auth.mjs'
+      - 'src/db.mjs'
+      - 'src/social.mjs'
+      - 'src/chat-hub.mjs'
+      - 'src/chat.mjs'
+      - 'src/careers.mjs'
+      - 'public/engine.js'
+      - 'CLOUDFLARE-WORKER-MIGRATION.md'
+      - 'tests/cloudflare-worker.test.mjs'
+      - 'tests/pages-proxy.test.mjs'
+      - 'wrangler.jsonc'
+      - 'package.json'
+      - '.github/workflows/test-cloudflare-worker.yml'
+  pull_request:
+    branches: [migracion-cloudflare-neon]
+    paths:
+      - 'functions/**'
+      - 'public/api-config.js'
+      - 'public/_routes.json'
+      - 'src/worker.mjs'
+      - 'src/auth.mjs'
+      - 'src/db.mjs'
+      - 'src/social.mjs'
+      - 'src/chat.mjs'
+      - 'src/chat-hub.mjs'
+      - 'tests/cloudflare-worker.test.mjs'
+      - 'tests/pages-proxy.test.mjs'
+      - 'wrangler.jsonc'
+      - 'package.json'
+      - '.github/workflows/test-cloudflare-worker.yml'
+
+jobs:
+  worker-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npm run test:cloudflare
+      - run: node --check src/worker.mjs
+      - run: npx wrangler deploy --dry-run

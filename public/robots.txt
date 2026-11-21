@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /act
+Disallow: /ev
 
-Sitemap: https://clash-futbol-2d-online.onrender.com/sitemap.xml
+Sitemap: https://clash-futbol.pages.dev/sitemap.xml
+

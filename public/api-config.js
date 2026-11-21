@@ -1,6 +1,6 @@
-// Configuración del backend separado (Cloudflare Pages -> servidor Node).
-// Al desplegar, reemplazá el valor por la URL HTTPS pública del backend.
-// En desarrollo local dejalo vacío para usar el mismo origen.
+// La web usa rutas del mismo origen. Cloudflare Pages Functions las reenvía
+// al Worker privado mediante el Service binding CLASH_API.
+// Mantener vacío: no apuntar a Render ni publicar una URL workers.dev.
 window.CF_API_BASE = window.CF_API_BASE || '';
 const apiUrl = path => {
   const value = String(path || '');
