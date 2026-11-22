@@ -45,4 +45,7 @@ for(const as of[0,1])for(const[sd,dd,x]of[['L','R','g'],['R','L','g'],['L','L','
 {const D=require('./public/data');let pares=0,refN=0,nn=0;for(let f=0;f<D.FM.length;f+=3)for(const as of[0,1]){const T=new Sim();T.setup(f,(f*3+1)%D.FM.length,'c'+f);T.frozen=false;T.kickoff(0);for(let i=0;i<40;i++)T.step();const e={k:'cor',id:id++,ask:1,t:as,n:'T',ch:[]};T.event({...e},as);let g=0;while(!(T.sc&&T.sc.ph=='wait'&&T.sc.e&&T.sc.e.id==e.id)&&g<4000){T.step();g++}for(let i=0;i<220;i++)T.step();
  const P=T.P.filter(p=>!p.off&&p.k>0);for(let a=0;a<P.length;a++)for(let b=a+1;b<P.length;b++)if(Math.hypot(P[a].x-P[b].x,P[a].y-P[b].y)<22)pares++;const r=T.refs[0];if(Math.min(...P.map(p=>Math.hypot(p.x-r.x,p.y-r.y)))<45)refN++;nn++}
  ck(pares<=nn*1.2,'córner amontonado: '+pares+' pares de jugadores casi superpuestos en '+nn+' córners');ck(refN==0,'el árbitro quedó metido entre los jugadores en '+refN+' córners')}
+// el marcador no suma un gol antes de su animación: el 2D sabe si todavía tiene el gol en cola o en escena
+{S.kickoff(0);for(let i=0;i<40;i++)S.step();const gid=id++;S.event({k:'att',id:gid,t:0,x:'g',n:'T',ch:[6,8],si:9,dm:12},0);ck(S.holds(gid),'holds: el gol recién recibido debe figurar en el 2D');let w=0;while((S.sc||S.q.length||S.pre)&&w<3000){S.step();w++;if(w>5&&w%50==0&&!S.holds(gid)&&(S.sc||S.q.length))break}
+ for(let i=0;i<400;i++)S.step();ck(!S.holds(gid),'holds: tras la animación el gol ya no figura')}
 console.log(fail?'FALLA ('+fail+')':'Todo OK',n+' córners');process.exit(fail?1:0);
