@@ -475,6 +475,7 @@ class Sim{
      else S.kick(gx-dir*(150+rnd()*40),H/2+(rnd()-.5)*160,3.6*S.fs,null,0);
      S.endSc()}}
     else if(!B.own&&sc.t-sc.tk>70){B.own=sc.tgt;sc.tgt.hold=0}}}}
+ holds(id){const S=this,m=e=>!!e&&(e.id==id||(e.cor&&e.cor.id==id));return m(S.sc&&S.sc.e)||(S.q||[]).some(it=>m(it.e))||m(S.pre&&S.pre.e)}
  step(){const S=this,B=S.B,P=S.P;S.n++;if(!P.length)return;if(S.endScene){S.endWalkStep();return}if(S.frozen)return;if(S.gq&&S.gq.length&&P.length>=22)S.q.push(S.gq.shift());S.walkStep();S.headTick();if(S.rp){S.rpStep();return}S.recF();if(S.sc&&S.sc.rt)S.rollStep();if(S.ko&&S.n>=S.ko.t){const o=S.ko.o;S.ko=null;S.clr();o.x=W/2+(o.s?14:-14);o.y=H/2;o.cool=0;B.own=o;S.poss=o.s;o.hold=0;o.wait=24;S.koP=o}if(S.pso&&!S.sc&&!S.q.length)return;   // tanda de penales: entre un penal y otro la cancha queda quieta
  
   if(S.pre&&!S.sc&&((B.own&&!S.pre.lead)||S.n-S.pre.t>(S.pre.lead?320:150))&&B.x>X0+2&&B.x<X0+FW-2&&B.y>Y0+2&&B.y<Y0+FH-2){const q=S.pre;S.pre=null;if(q.e&&(q.e.x=='g'||q.e.ask)&&!q.lat)S.corSc(q.e,q.as)}   // si la pelota la agarra alguien o se frena dentro de la cancha, no hay córner ni lateral
