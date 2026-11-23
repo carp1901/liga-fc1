@@ -457,7 +457,7 @@
   "medias_provisionales": 0,
   "dorsales_asignados": 1012,
   "dorsales_faltantes": 0,
-  "actualizado": "2026-11-16",
+  "actualizado": "2026-11-23",
   "ultima_revision_medias": {
     "fecha": "2026-11-16",
     "jugadores": [
@@ -864,7 +864,7 @@
     ]
   },
   "ultima_revision_planteles": {
-    "fecha": "2026-11-16",
+    "fecha": "2026-11-23",
     "cambios": [],
     "verificaciones": [
       "Independiente: se cotejó el plantel profesional oficial. El club lista 36 futbolistas; el CSV contiene 35 y no incluye a Imanol Machuca.",
@@ -875,7 +875,7 @@
       "https://clubaindependiente.com.ar/futbol/plantel",
       "https://clubaindependiente.com.ar/futbol/noticias/1789595527_la-firma-vino-con-gol"
     ],
-    "alcance": "Verificación puntual de la nómina oficial de Independiente; las otras 29 nóminas conservan la última fecha de consulta registrada (05–06/11/2026) y requieren reconfirmación individual en próximas tandas."
+    "alcance": "Auditoría estructural semanal de Primera División; se revisaron integridad, edades derivadas de fecha_nacimiento y señales públicas recientes de mercado. No se avanzó a Primera Nacional."
   },
   "medias_estimadas": 138,
   "nacionalidades_asignadas": 1012,
@@ -1072,107 +1072,121 @@
     "control_runtime": "170 clubes y 4.797 jugadores; suma por club 4.797; Primera 30 clubes y 1.012 jugadores. 0 nombres duplicados, 0 dorsales duplicados, 0 edades faltantes, 0 dorsales faltantes y 0 roles específicos faltantes. La publicación incorporó las fuentes vigentes de Primera; no se modificó el CSV de Primera Nacional."
   },
   "ultima_revision_edades": {
-    "fecha": "2026-11-16",
-    "criterio": "Edad calculada desde fecha_nacimiento a fecha local 16/11/2026; no se estimaron fechas de nacimiento.",
-    "resultado": "Se actualizaron 14 edades por cumpleaños ocurridos desde la última referencia 06/11/2026. Cobertura final: 1.012/1.012, 0 faltantes.",
+    "fecha": "2026-11-23",
+    "criterio": "Edad calculada desde fecha_nacimiento a fecha local 23/11/2026; se actualizaron únicamente cumpleaños verificables dentro del repositorio.",
+    "resultado": "Se actualizaron 16 edades por cumpleaños ocurridos desde la revisión anterior del 16/11/2026. Cobertura final: 1.012/1.012, 0 faltantes.",
     "jugadores": [
       {
-        "club": "sanlorenzo",
-        "nombre": "Matías Reali",
+        "club": "independiente",
+        "nombre": "Juan Arrayago",
+        "antes": 17,
+        "despues": 18,
+        "fecha_nacimiento": "2008-11-17"
+      },
+      {
+        "club": "independiente",
+        "nombre": "Santiago Montiel",
+        "antes": 25,
+        "despues": 26,
+        "fecha_nacimiento": "2000-11-22"
+      },
+      {
+        "club": "talleres",
+        "nombre": "Matías Gómez",
+        "antes": 20,
+        "despues": 21,
+        "fecha_nacimiento": "2005-11-23"
+      },
+      {
+        "club": "huracan",
+        "nombre": "Jordy Caicedo",
         "antes": 28,
         "despues": 29,
-        "fecha_nacimiento": "1997-11-14"
-      },
-      {
-        "club": "river",
-        "nombre": "Tobías Ramírez",
-        "antes": 19,
-        "despues": 20,
-        "fecha_nacimiento": "2006-11-11"
-      },
-      {
-        "club": "newells",
-        "nombre": "Lautaro Giannetti",
-        "antes": 32,
-        "despues": 33,
-        "fecha_nacimiento": "1993-11-13"
-      },
-      {
-        "club": "newells",
-        "nombre": "Matías Cóccaro",
-        "antes": 28,
-        "despues": 29,
-        "fecha_nacimiento": "1997-11-15"
-      },
-      {
-        "club": "rosario",
-        "nombre": "Leonardo Ríos",
-        "antes": 19,
-        "despues": 20,
-        "fecha_nacimiento": "2006-11-09"
+        "fecha_nacimiento": "1997-11-18"
       },
       {
         "club": "gimnasia",
-        "nombre": "Agustín Colazo",
-        "antes": 25,
-        "despues": 26,
-        "fecha_nacimiento": "2000-11-15"
+        "nombre": "Jeremías Langa",
+        "antes": 20,
+        "despues": 21,
+        "fecha_nacimiento": "2005-11-21"
+      },
+      {
+        "club": "gimnasia",
+        "nombre": "Santiago Villarreal",
+        "antes": 20,
+        "despues": 21,
+        "fecha_nacimiento": "2005-11-20"
+      },
+      {
+        "club": "argentinos",
+        "nombre": "Mateo Mendoza",
+        "antes": 21,
+        "despues": 22,
+        "fecha_nacimiento": "2004-11-21"
       },
       {
         "club": "belgrano",
-        "nombre": "Ramiro Hernandes",
+        "nombre": "Juan Martín Velázquez",
         "antes": 21,
         "despues": 22,
-        "fecha_nacimiento": "2004-11-12"
+        "fecha_nacimiento": "2004-11-19"
       },
       {
-        "club": "riestra",
-        "nombre": "Yeison Murillo",
-        "antes": 32,
-        "despues": 33,
-        "fecha_nacimiento": "1993-11-15"
+        "club": "centralcba",
+        "nombre": "Matías Vera",
+        "antes": 30,
+        "despues": 31,
+        "fecha_nacimiento": "1995-11-20"
+      },
+      {
+        "club": "barracas",
+        "nombre": "Iván Tapia",
+        "antes": 27,
+        "despues": 28,
+        "fecha_nacimiento": "1998-11-23"
+      },
+      {
+        "club": "instituto",
+        "nombre": "Matías Gallardo",
+        "antes": 22,
+        "despues": 23,
+        "fecha_nacimiento": "2003-11-23"
       },
       {
         "club": "aldosivi",
-        "nombre": "Joaquín Salinas",
-        "antes": 19,
-        "despues": 20,
-        "fecha_nacimiento": "2006-11-15"
+        "nombre": "Andrés Vombergar",
+        "antes": 31,
+        "despues": 32,
+        "fecha_nacimiento": "1994-11-20"
+      },
+      {
+        "club": "platense",
+        "nombre": "Nicolás Sumavil",
+        "antes": 26,
+        "despues": 27,
+        "fecha_nacimiento": "1999-11-20"
+      },
+      {
+        "club": "platense",
+        "nombre": "Víctor Cuesta",
+        "antes": 37,
+        "despues": 38,
+        "fecha_nacimiento": "1988-11-19"
+      },
+      {
+        "club": "defensa",
+        "nombre": "Fernando Román Villalba",
+        "antes": 27,
+        "despues": 28,
+        "fecha_nacimiento": "1998-11-20"
       },
       {
         "club": "banfield",
-        "nombre": "Nicolás Meriano",
-        "antes": 25,
-        "despues": 26,
-        "fecha_nacimiento": "2000-11-09"
-      },
-      {
-        "club": "rivadavia",
-        "nombre": "Matías Salvo",
-        "antes": 21,
-        "despues": 22,
-        "fecha_nacimiento": "2004-11-11"
-      },
-      {
-        "club": "rivadavia",
-        "nombre": "Sheyko Studer",
-        "antes": 23,
-        "despues": 24,
-        "fecha_nacimiento": "2002-11-12"
-      },
-      {
-        "club": "gimnasiamza",
-        "nombre": "Diego Mondino",
-        "antes": 31,
-        "despues": 32,
-        "fecha_nacimiento": "1994-11-14"
-      },
-      {
-        "club": "estudiantesrc",
-        "nombre": "Ibrahim Hesar",
-        "antes": 32,
-        "despues": 33,
-        "fecha_nacimiento": "1993-11-15"
+        "nombre": "Santiago Daniele",
+        "antes": 20,
+        "despues": 21,
+        "fecha_nacimiento": "2005-11-22"
       }
     ]
   }

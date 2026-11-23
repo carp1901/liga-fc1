@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-18T07:04:58.104Z",
+  "updatedAt": "2026-11-23T19:23:40.600Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "1629 medias con fuente individual + 3182 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -2974,6 +2974,7 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
+        "https://www.fichajes.com/jugador/fabricio-henricot/",
         "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/1962-alvarado"
       ]
     },
@@ -3004,7 +3005,9 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
-        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/21043-atenas"
+        "https://csybatenas.com/jugador/mateo-ledesma/",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/21043-atenas",
+        "https://www.zerozero.pt/jogador/enzo-godoy/1544887"
       ]
     },
     "atsanmartinmza": {
@@ -3029,7 +3032,10 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
-        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/49-san-martin-mza"
+        "https://www.365scores.com/es/football/player/felipe-rivarola-140883",
+        "https://www.ceroacero.es/jugador/juan-manuel-mazzolo/3569806",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/49-san-martin-mza",
+        "https://www.ceroacero.es/jugador/franco-saucedo/3573594"
       ]
     },
     "bmitre": {
@@ -3075,7 +3081,8 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
-        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/467-boca-unidos"
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/467-boca-unidos",
+        "https://www.365scores.com/es/football/player/esteban-orfano-40839"
       ]
     },
     "cipolletti": {
@@ -3097,7 +3104,10 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
-        "Nacionalidad individual no publicada en la ficha consultada; no asignada"
+        "Nacionalidad individual no publicada en la ficha consultada; no asignada",
+        "https://es.besoccer.com/jugador/nehuen-garcia-3140045",
+        "https://www.ceroacero.es/jugador/sebastian-jeldres/849728",
+        "https://www.sofascore.com/football/player/enzo-vallejos/2159883"
       ]
     },
     "defbelgranovr": {
@@ -3304,7 +3314,8 @@
       ],
       "natSource": [
         "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
-        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/283-germinal-rawson"
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/283-germinal-rawson",
+        "https://www.transfermarkt.com.ar/ca-germinal/startseite/verein/14316"
       ]
     },
     "gbrown": {
@@ -5921,8 +5932,8 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 3376,
-    "missing": 1435,
+    "assigned": 3388,
+    "missing": 1423,
     "total": 4811,
     "byClub": {
       "sanlorenzo": {
@@ -6279,7 +6290,7 @@
       },
       "alvarado": {
         "total": 22,
-        "assigned": 20
+        "assigned": 21
       },
       "nuevejulio": {
         "total": 25,
@@ -6287,11 +6298,11 @@
       },
       "atenas": {
         "total": 22,
-        "assigned": 19
+        "assigned": 21
       },
       "atsanmartinmza": {
         "total": 22,
-        "assigned": 18
+        "assigned": 21
       },
       "bmitre": {
         "total": 27,
@@ -6299,11 +6310,11 @@
       },
       "bocaunidos": {
         "total": 22,
-        "assigned": 19
+        "assigned": 20
       },
       "cipolletti": {
         "total": 26,
-        "assigned": 18
+        "assigned": 21
       },
       "defbelgranovr": {
         "total": 22,
@@ -6339,7 +6350,7 @@
       },
       "germinal": {
         "total": 22,
-        "assigned": 18
+        "assigned": 20
       },
       "gbrown": {
         "total": 22,
@@ -8339,7 +8350,7 @@
     "verifiedRatings": 1629,
     "estimatedRatings": 3182,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1435,
+    "playersMissingNationality": 1423,
     "playersMissingFoot": 2774,
     "playersMissingSpecificRole": 1357,
     "playersWithoutManualAttributes": 3639

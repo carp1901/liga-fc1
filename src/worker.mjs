@@ -723,7 +723,10 @@ export class RoomCoordinator {
     if (snapshot) {
       await this.state.storage.put("game-room", snapshot);
       await this.state.storage.put("room-code", code);
-      if (this.state.storage.setAlarm) await this.state.storage.setAlarm(Date.now() + 1000);
+      if (this.state.storage.setAlarm) {
+        const spd = Math.max(0.5, Math.min(5, Number(Engine.rooms[code] && Engine.rooms[code].spd) || 1));
+        await this.state.storage.setAlarm(Date.now() + Math.max(250, Math.round(1000 / spd)));
+      }
     } else {
       await this.state.storage.delete("game-room");
       await this.state.storage.delete("room-code");
@@ -865,7 +868,14 @@ export class RoomCoordinator {
       return;
     }
 
-    Engine.tickRoom(code);
+    // La velocidad del marcador (x0.5..x5) la fija el anfitrión: el reloj corre `spd` ticks por segundo real.
+    const spd = Math.max(0.5, Math.min(5, Number(room.spd) || 1)), now = Date.now();
+    const elapsed = Math.max(0, Math.min(5000, now - (room.lastTickAt || now - 1000)));
+    room.lastTickAt = now;
+    room.tickAcc = (room.tickAcc || 0) + elapsed * spd / 1000;
+    const nTicks = Math.max(1, Math.min(8, Math.floor(room.tickAcc + 1e-6)));
+    room.tickAcc = Math.max(0, room.tickAcc - nTicks);
+    for (let i = 0; i < nTicks; i++) Engine.tickRoom(code);
     await this.persist(code);
     for (const client of this.clients.values()) {
       try { client.controller.enqueue(new TextEncoder().encode(":ping\n\n")); }
