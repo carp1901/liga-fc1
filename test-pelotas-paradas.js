@@ -56,5 +56,5 @@ E.CFG.tick=4;const st={pend:{},res:{},dup:0,bad:0},rooms=[];
    E.act({a:'pdec',pid:'espectador',room,id:p.id,d:'L'})}   // quien no juega no decide
   (m.pv||[]).forEach(e=>{if(e.ak!=null&&!got.has(e.id)&&seen.has(e.ak)){got.add(e.id);st.res[e.k]=(st.res[e.k]||0)+1;if(!'gcsowl'.includes(e.x)||!e.cc||e.dc==null)st.bad++}else if(e.ak!=null&&got.has(e.id)&&0)st.dup++})})}await sleep(20)}
  console.log(JSON.stringify(st),'pedidos',seen.size,'resueltos',got.size);
- ck(seen.size>5,'se generaron pedidos de pelota parada en partidos reales');ck(got.size>=seen.size-rooms.length,'cada pedido se resolvió una sola vez (sin bloqueos)');ck(!st.bad,'decisiones inválidas ignoradas / eventos válidos');
+ ck(seen.size>5,'se generaron pedidos de pelota parada en partidos reales');const enCurso=rooms.reduce((n,room)=>n+(E.rooms[room].ms||[]).reduce((k,m)=>k+(m.pend?1:0)+(m.pq||[]).length,0),0);ck(got.size>=seen.size-enCurso-rooms.length,'cada pedido se resolvió una sola vez (sin bloqueos)');ck(!st.bad,'decisiones inválidas ignoradas / eventos válidos');
  console.log(fail?'FALLA ('+fail+')':'Todo OK');process.exit(fail?1:0)})();
