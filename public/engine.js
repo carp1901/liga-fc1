@@ -254,13 +254,8 @@ function act(b){const a=b.a,pid=txt(b.pid,40),name=txt(b.name,16)||'Invitado';if
  else if(a=='skipend'){if(r.offline){if(b.auto!==undefined)r.skipEnd=!!b.auto;if(b.now){if(r.phase=='fin'){awardOf(r);endRound(r)}else if(r.phase=='awd')endRound(r)}}}
  else if(a=='skip'){if(!playing(r,pid))return'No estás jugando este partido';const all=()=>r.order.every(p=>r.pl[p].bot||r.pl[p].skip||!playing(r,p));if(r.phase=='cer'){me.skip=true;if(all())begin1(r)}else if(r.phase=='ht'){me.skip=true;if(all())startSecondHalf(r)}}
  else if(a=='phil'){if(!r.offline&&['pick','pre'].includes(r.phase))me.phil=validPhil(b.v)}
-<<<<<<< HEAD
  else if(a=='speed'){if(r.offline){r.spd=clamp(+b.v||1,.25,100);clearInterval(r.timer);if(!CFG.externalClock)r.timer=setInterval(()=>tick(r),1000/r.spd)}
-  else if(!r.rand&&r.order[0]==pid){const x=+b.v;if([.5,1,2,3,5].includes(x)&&x!==r.spd){r.spd=x;clearInterval(r.timer);if(!CFG.externalClock)r.timer=setInterval(()=>tick(r),CFG.tick/r.spd)}}else err='Solo el anfitrión cambia la velocidad del marcador'}   // velocidad del marcador (reloj del torneo): offline la elige el jugador y online solo el anfitrión; la del 2D es de cada uno
-=======
- else if(a=='speed'){if(r.offline){r.spd=clamp(+b.v||1,.25,100);clearInterval(r.timer);r.timer=setInterval(()=>tick(r),1000/r.spd)}
-  else if(!r.rand&&r.order[0]==pid){const x=+b.v;if([.5,1,1.5,2,3,5].includes(x)&&x!==r.spd){r.spd=x;clearInterval(r.timer);r.timer=setInterval(()=>tick(r),CFG.tick/r.spd)}}else err='Solo el anfitrión cambia la velocidad del marcador'}   // velocidad del marcador (reloj del torneo): offline la elige el jugador y online solo el anfitrión; la del 2D es de cada uno
->>>>>>> main
+  else if(!r.rand&&r.order[0]==pid){const x=+b.v;if([.5,1,1.5,2,3,5].includes(x)&&x!==r.spd){r.spd=x;clearInterval(r.timer);if(!CFG.externalClock)r.timer=setInterval(()=>tick(r),CFG.tick/r.spd)}}else err='Solo el anfitrión cambia la velocidad del marcador'}   // velocidad del marcador (reloj del torneo): offline la elige el jugador y online solo el anfitrión; la del 2D es de cada uno
  else if(a=='d2'){if(!r.rand&&!r.offline&&r.order[0]==pid){const x=b.v=='auto'?'auto':+b.v;if(x=='auto'||[.5,1,2,3,5].includes(x))r.d2=x}else err='Solo el anfitrión cambia la velocidad del 2D'}
  else if(a=='prdy'){const it=r.phase=='pso'&&r.ps?psoMine(r,pid):null,m=it?null:(r.ms||[]).find(x=>x.a==pid||x.b==pid),p=it?it.pend:m&&m.pend;if(p&&!p.rdy&&(it?'ps'+p.n:p.id)==b.id){p.rdy=1;p.dl=Date.now()+(p.win||3000)}}   // el 2D avisa que el pateador ya está en posición: recién ahí empieza la cuenta de 3 s
  else if(a=='pdec'&&r.phase=='pso'&&r.ps){const it=psoMine(r,pid),p=it&&it.pend;if(p&&('ps'+p.n)==b.id&&PDIR.includes(b.d)){if(pid==(p.s?it.pb:it.pa)){if(p.sh==null)p.sh=b.d}else if(p.dv==null)p.dv=mir(b.d);if(p.sh&&p.dv)psoRes(r,it)}}
