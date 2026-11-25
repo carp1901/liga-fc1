@@ -61,6 +61,7 @@ class Sim{
   
   {const kp=B.own||(S.sc&&S.sc.taker)||null;if(kp)kp.kk=S.n}if(B.own){B.own.cool=14;S.prev=B.own;if(!S.sc){const ko=B.own;S.P.forEach(z=>{if(z.s!==ko.s&&!z.off&&z.k!==0&&dist(z,ko)<R*2.6)z.cool=Math.max(z.cool||0,8)})}   // la pelota se va del pie: el rival pegado no la corta en el mismo instante
   const off0=Math.min(R+BR+1,d*.4);B.x+=dx/d*off0;B.y+=dy/d*off0}const c=cv===undefined?(d>90?(rnd()<.5?-1:1)*(.006+rnd()*.01):0):cv,ang=datan2(dy,dx)-c*(d/sp)/2+S.passErr(B.own,recv,d)+S.wkErr(B.own,dx,dy);B.vx=dcos(ang)*sp;B.vy=dsin(ang)*sp;B.cv=c;B.cs=sp;B.own=null;B.recv=recv||null}
+ bounce(p){const S=this,B=S.B,dx=B.x-p.x,dy=B.y-p.y,d=dhyp(dx,dy)||1,nx=dx/d,ny=dy/d,vn=(B.vx-(p.vx||0))*nx+(B.vy-(p.vy||0))*ny;if(vn<0){B.vx-=1.5*vn*nx;B.vy-=1.5*vn*ny;B.vx+=(p.vx||0)*.3;B.vy+=(p.vy||0)*.3}const rr=R+BR+1.5;B.x=p.x+nx*rr;B.y=p.y+ny*rr;p.cool=Math.max(p.cool||0,5);B.recv=null;S.bnN=(S.bnN||0)+1}   // choque estilo haxball: la pelota rebota contra la ficha según el ángulo de contacto y la velocidad de ambos
  kickAt(q,sp,lead,cv){const B=this.B,d=dist(q,B),t=d/sp,l=lead||.7;this.kick(clamp(q.x+q.vx*t*l,X0+BR+4,X0+FW-BR-4),clamp(q.y+q.vy*t*l,Y0+BR+6,Y0+FH-BR-6),sp,q,cv)}   // el pase se adelanta al receptor, pero nunca hacia afuera de la cancha (antes pegaba en la línea como en una pared)
  setWx(w){this.wx=w||null}
  setCtx(min,sc){this.ctx={min,sc}}
@@ -297,7 +298,7 @@ class Sim{
     if(sc.k=='pen'&&gAt){tx=gAt.gx-gAt.dir*150;ty=H/2+(r.sd||1)*120}
     else if(sc.k=='fk'){tx=B.x-dA*95;ty=B.y+r.sd*90}
     else if(sc.k=='gk'){const gx0=sc.side?X0+FW:X0,dg=sc.side?-1:1;tx=gx0+dg*135;ty=H/2+(sc.sp.y<H/2?1:-1)*80}
-    else if(sc.k=='cor'&&gAt){tx=gAt.gx-gAt.dir*250;ty=H/2+(B.y<H/2?1:-1)*(FH*.33)}   // como en la cancha real: en el borde del área, fuera del racimo, del lado opuesto al que se cobra
+    else if(sc.k=='cor'&&gAt){tx=gAt.gx-gAt.dir*250;ty=H/2+(B.y<H/2?1:-1)*(FH*.41)}   // como en la cancha real: en el borde del área, fuera del racimo, del lado opuesto al que se cobra
     else if(sc.k=='inc'&&gAt&&sc.e&&sc.e.k=='pen'){tx=gAt.gx-gAt.dir*100;ty=H/2+(sc.spot.y<H/2?1:-1)*90}
     else if(sc.k=='inc'){const sp=sc.spot||B;tx=sp.x-dA*42;ty=sp.y+(sp.y<H/2?1:-1)*44}
     else if(sc.k=='card'&&sc.cp){const cp=sc.cp,ax=r.x-cp.x,ay=r.y-cp.y,ad=dhyp(ax,ay)||1;tx=cp.x+ax/ad*38;ty=cp.y+ay/ad*38}
@@ -310,10 +311,10 @@ class Sim{
   
   {if(r.gx==null||S.n%40==0||dhyp(r.tx-r.gx,r.ty-r.gy)>70||r.sk!==(S.sc?S.sc.k:null)){r.gx=r.tx;r.gy=r.ty;r.sk=S.sc?S.sc.k:null}   // el árbitro se decide cada tanto (no persigue cada micro-movimiento) y, cuando llegó, se queda parado
    const dx=r.gx-r.x,dy=r.gy-r.y,d=dhyp(dx,dy),want=d>24?clamp((d-16)*.035+.4,0,2.1):0,tvx=d>.1?dx/d*want:0,tvy=d>.1?dy/d*want:0;
-   let ax=tvx,ay=tvy;for(const q of P){if(q.off||(S.sc&&S.sc.k=='card'&&q===S.sc.cp))continue;const qd=dhyp(r.x-q.x,r.y-q.y);if(qd<R+40&&qd>.1){const k=(R+40-qd)/(R+40)*1.6;ax+=(r.x-q.x)/qd*k;ay+=(r.y-q.y)/qd*k}}   // se hace a un lado de los jugadores en vez de pasar entre ellos
+   let ax=tvx,ay=tvy;for(const q of P){if(q.off||(S.sc&&S.sc.k=='card'&&q===S.sc.cp))continue;const qd=dhyp(r.x-q.x,r.y-q.y);if(qd<R+52&&qd>.1){const k=(R+52-qd)/(R+52)*2.4;ax+=(r.x-q.x)/qd*k;ay+=(r.y-q.y)/qd*k}}   // se hace a un lado de los jugadores en vez de pasar entre ellos
    r.vx=(r.vx||0)+(ax-(r.vx||0))*.14;r.vy=(r.vy||0)+(ay-(r.vy||0))*.14;r.x+=r.vx;r.y+=r.vy;
    const sep=(ox,oy,md)=>{const ddx=r.x-ox,ddy=r.y-oy,dd=dhyp(ddx,ddy);if(dd<md){if(dd>.1){r.x+=ddx/dd*(md-dd);r.y+=ddy/dd*(md-dd)}else r.x+=md}};   // separación dura: es una ficha más, no atraviesa a nadie
-   for(const q of P){if(!q.off)sep(q.x,q.y,R+13)}sep(B.x,B.y,34);
+   for(const q of P){if(!q.off)sep(q.x,q.y,S.sc&&S.sc.k=='cor'?48:R+13)}sep(B.x,B.y,34);
    const sp=dhyp(r.vx,r.vy);if(sp>.25){const fx=r.fx||1,fy=r.fy||0,nx=fx+(r.vx/sp-fx)*.12,ny=fy+(r.vy/sp-fy)*.12,nn=dhyp(nx,ny)||1;r.fx=nx/nn;r.fy=ny/nn}
    r.ph=(r.ph||0)+sp*.5;r.bob=dsin(r.ph)*clamp(sp-.3,0,1)*1.3;r.x=clamp(r.x,X0+10,X0+FW-10);r.y=clamp(r.y,Y0+12,Y0+FH-12)}   // el árbitro no corre detrás de la pelota: acompaña desde lejos, en diagonal
   [l1,l2].forEach(w=>{w.x+=clamp((w.tx-w.x)*.08,-1.8,1.8);w.y+=(w.ty-w.y)*.12})}   // árbitro cerca de la jugada; jueces de línea a la altura del último defensor
@@ -331,11 +332,11 @@ class Sim{
  swapRoles(){const S=this;return;[0,1].forEach(s=>{if(rnd()<.5)return;const c=S.P.filter(p=>p.s==s&&!p.off&&p.l>=2&&!p.tg&&!(p.swpT>S.n));if(c.length<2)return;const a=c[Math.floor(rnd()*c.length)],cd=c.filter(q=>q!==a&&q.l===a.l&&Math.abs(q.hy0-a.hy0)>.3);if(!cd.length)return;const b=cd[Math.floor(rnd()*cd.length)],ta=a.hy0,tb=b.hy0;a.hy=tb;b.hy=ta;a.swpT=b.swpT=S.n+300;a.wide=Math.abs(a.hy-.5)>.22;b.wide=Math.abs(b.hy-.5)>.22;S.swapN=(S.swapN||0)+1})}   // intercambio de posiciones
  // incidente previo a una falta: el que la recibe lleva la pelota hasta el lugar y el rival lo derriba (la jugada detenida siempre tiene una causa visible)
  // Jugada de ataque que nace del juego: si un equipo llega con la pelota al último tercio, hay una probabilidad (según la fuerza relativa que informa el motor) de que se arme una jugada de remate; el motor elige quién la termina y cómo.
- attackCheck(){const S=this,B=S.B,o=B.own;if(!o||o.k==0||S.sc||S.pre||S.rp||S.pso||S.q.length||S.n<(S.atkC||0))return;const as=o.s,u=as?1-(o.x-X0)/FW:(o.x-X0)/FW;if(u<(S.atkU||.5)||Math.abs(o.y-H/2)>FH*.45)return;if(rnd()>=(S.atkP||.14)*((S.atkMul&&S.atkMul[as])||1))return;S.atkC=S.n+(S.atkCd||26);const L=S.onAttack(as);if(L)L.forEach(x=>S.event(x.e,x.side))}
+ attackCheck(){const S=this,B=S.B,o=B.own;if(!o||o.k==0||S.sc||S.pre||S.rp||S.pso||S.q.length||S.n<(S.atkC||0))return;const as=o.s,u=as?1-(o.x-X0)/FW:(o.x-X0)/FW;if(u<(S.atkU||.4)||Math.abs(o.y-H/2)>FH*.45)return;if(rnd()>=(S.atkP||.3)*((S.atkMul&&S.atkMul[as])||1))return;S.atkC=S.n+(S.atkCd||20);const L=S.onAttack(as);if(L)L.forEach(x=>S.event(x.e,x.side))}
 // Reloj del partido (modo auto): el 2D es quien lleva el tiempo. Corre mientras se juega y se detiene en repeticiones y mientras se espera una decisión de pelota parada.
  clockStep(){const S=this,c=S.sc;if(S.rp||(c&&c.ph=='wait'&&(c.k=='pen'||(c.e&&c.e.ask))))return;if(S.clkMax!=null&&S.clk>=S.clkMax)return;S.clk=(S.clk||0)+1;S.mn=Math.floor(S.clk/(S.spm||95))}
 // Falta que nace de un duelo real en juego libre (modo auto): el lugar, los protagonistas y el tipo (penal / tiro libre peligroso / lejano / simple) salen de lo que pasa en el 2D
- foulProb(dd,o){const S=this,t2=S.T[dd.s];return(S.foulBase||.014)*(.55+S.sv(dd,'agr')/100)*[.8,1,1.3][t2[1]]*[.9,1,1.1][t2[0]]*clamp(1+(S.sv(dd,'mar')-S.sv(o,'reg'))/220,.7,1.3)*(dd.yel?.6:1)*S.zoneK(dd,o)}
+ foulProb(dd,o){const S=this,t2=S.T[dd.s];return(S.foulBase||.02)*(.55+S.sv(dd,'agr')/100)*[.8,1,1.3][t2[1]]*[.9,1,1.1][t2[0]]*clamp(1+(S.sv(dd,'mar')-S.sv(o,'reg'))/220,.7,1.3)*(dd.yel?.6:1)*S.zoneK(dd,o)}
  zoneK(dd,o){const S=this,B=S.B,{gx}=S.geo(o.s),dg=Math.abs(B.x-gx),dy=Math.abs(B.y-H/2);const dm=dhyp(dg,dy)/6.5;return dg<108&&dy<135?.12:dm<=31?3:dm<=52?1.8:.75}   // en el área los defensores se cuidan más: el penal es raro
  duelFoul(dd,o){const S=this,B=S.B,as=o.s,{gx,dir}=S.geo(as),dg=Math.abs(B.x-gx),dy=Math.abs(B.y-H/2);S.foulC=S.n+240;
   const dmt=dhyp(dg,dy)/6.5,zone=dg<108&&dy<135?'pen':dmt<=31?'fkd':dmt<=52?'fkl':'plain',n1=(S.fouls=S.fouls||{})[dd.s+':'+dd.k]=((S.fouls||{})[dd.s+':'+dd.k]||0)+1;
@@ -349,7 +350,7 @@ class Sim{
   vic=S.near(e.k=='foul'||!fw.length?at:fw,B),fo=S.near(df,spot);
   if(!vic||!fo){S.afterInc(e,as);return}
   if(e.k=='fk')e.spot=spot;S.sc={k:'inc',e,side:as,t:0,ph:'get',vic,fo,spot,tk:0};S.poss=as}
- cardStep(){const S=this,sc=S.sc,cp=sc.cp,r=S.refs[0];cp.tg=null;cp.vx=cp.vy=0;if(sc.ph=='call'){if(dist(r,cp)<46||sc.t>150){sc.ph='show';sc.ts=sc.t;r.card={c:sc.e.cd=='y'?'y':'r',n:S.n,dur:84};const a=datan2(r.y-cp.y,r.x-cp.x);cp.fx=dcos(a);cp.fy=dsin(a);cp.hd=a}}else if(sc.t-sc.ts>=84){r.card=null;S.afterInc(sc.e,sc.side,null,true)}}
+ cardStep(){const S=this,sc=S.sc,cp=sc.cp,r=S.refs[0];cp.tg=null;cp.vx=cp.vy=0;if(sc.ph=='call'){if(dist(r,cp)<46||sc.t>150){sc.ph='show';sc.ts=sc.t;r.card={c:sc.e.cd=='y'?'y':'r',n:S.n,dur:96};const a=datan2(r.y-cp.y,r.x-cp.x);cp.fx=dcos(a);cp.fy=dsin(a);cp.hd=a}}else{S.P.forEach(q=>{if(!q.off&&q!==r){q.vx*=.45;q.vy*=.45}});if(sc.t-sc.ts>=96){r.card=null;S.afterInc(sc.e,sc.side,null,true)}}}   // micropausa: mientras el árbitro muestra la tarjeta la cancha se frena
  afterInc(e,as,fo,noCard){const S=this;S.sc=null;S.clr();const cp=e.cd&&!noCard?(S.P.find(p=>p.s===e.cs&&p.k===e.ck&&!p.off)||(fo&&!fo.off?fo:null)):null;if(cp&&S.refs&&S.refs[0]){S.sc={k:'card',e,side:as,t:0,ph:'call',cp};S.poss=as;return}if(e.k=='fk'&&!e.ft)S.fkSc(e,as);else if(e.k=='pen')S.penSc(e,as);else S.foulSc(e,as)}
  incStep(){const S=this,sc=S.sc,B=S.B,vic=sc.vic,fo=sc.fo;
   if(sc.ph=='get'){if(dist(vic,B)>40&&!sc.k1){sc.k1=1;sc.tk=sc.t;sc.wait=vic;S.kickAt(vic,5)}
@@ -582,7 +583,7 @@ class Sim{
    if(p.sl){if(B.own&&B.own.s!==p.s&&!S.sc){tx=B.x+B.own.fx*10;ty=B.y+B.own.fy*10;vm=4.3}else p.sl=0}
    if(S.offL&&p.s===S.offL.as&&p.k>0&&B.own!==p&&!(S.sc&&S.sc.ch&&S.sc.ch.includes(p))){const u=p.s?W-p.x:p.x;if(u>S.offL.l-3){const nx=S.offL.l-8;tx=p.s?W-nx:nx}}
    if(S.pso&&p.k==0&&!p.dv&&p.pw&&(!S.sc||S.sc.k!='pen'||S.sc.side===p.s)){const dd=dist(p,p.pw);if(dd<2){p.x=p.pw.x;p.y=p.pw.y;p.vx=p.vy=0;return}tx=p.pw.x;ty=p.pw.y;vm=2}   // el arquero que espera se queda quieto a un costado del arco
-   const dx=tx-p.x,dy=ty-p.y,d=dhyp(dx,dy)||1,sp=Math.min(vm*S.fq(p),d*.1);p.vx+=(dx/d*sp-p.vx)*.2;p.vy+=(dy/d*sp-p.vy)*.2;
+   const dx=tx-p.x,dy=ty-p.y,d=dhyp(dx,dy)||1,sp=Math.min(vm*S.fq(p),d*.1);p.vx+=(dx/d*sp-p.vx)*.17;p.vy+=(dy/d*sp-p.vy)*.17;
    {const ob=p.tg&&p.tg.out;p.x=clamp(p.x+p.vx,ob?X0-16:Math.min(X0+R,p.x),ob?X0+FW+16:Math.max(X0+FW-R,p.x));p.y=clamp(p.y+p.vy,ob?Y0-16:Math.min(Y0+R,p.y),ob?Y0+FH+16:Math.max(Y0+FH-R,p.y))}if(p.cool>0)p.cool--;
    if(B.own===p){const gx=p.s?X0:X0+FW,dr0=p.s?-1:1,db0=dr0*(gx-p.x),wb=clamp((78-db0)/48,0,1),ax=gx-dr0*110*wb-p.x,ay=(H/2-p.y)*(.6+.3*wb);let da=datan2(ay,ax);   // cerca de la línea de fondo no se conduce pegado a ella: gira hacia adentro (a buscar el área) en vez de arrastrar la pelota hasta sacarla
       // conducción fluida: el rumbo gira de a poco, zigzaguea suave y esquiva al que lo marca de frente
@@ -592,8 +593,8 @@ class Sim{
    else{const v=dhyp(p.vx,p.vy);if(v>.3){p.fx=p.vx/v;p.fy=p.vy/v}}});
   for(let i=0;i<P.length;i++){const a=P[i];if(a.off)continue;for(let j=i+1;j<P.length;j++){const b=P[j];if(b.off)continue;const dx=b.x-a.x,dy=b.y-a.y,d=dhyp(dx,dy);
    const wl=S.sc&&S.sc.k=='fk'&&S.sc.wall,lim=a.s===b.s?(wl&&wl.includes(a)&&wl.includes(b)?R*2.02:R*2.9):R*1.8;if(d<lim&&d>.01){const f=(lim-d)/2/d;a.x-=dx*f*.5;a.y-=dy*f*.5;b.x+=dx*f*.5;b.y+=dy*f*.5}}}
-  if(S.pend){const pd=S.pend,o=pd.o;if(B.own!==o||S.sc||o.off)S.pend=null;else{let df=pd.ang-o.hd;if(pd.wind>0){pd.wind--;let w=pd.hd0-pd.sg*.3-o.hd;w=datan2(dsin(w),dcos(w));o.hd+=clamp(w,-.1,.1);o.fx=dcos(o.hd);o.fy=dsin(o.hd);o.vx=o.vy=0;o.x=clamp(pd.bx-o.fx*(R+BR),X0+R,X0+FW-R);o.y=clamp(pd.by-o.fy*(R+BR),Y0+R,Y0+FH-R)}else{df=datan2(dsin(df),dcos(df));o.hd+=clamp(df,-.3,.3);o.fx=dcos(o.hd);o.fy=dsin(o.hd);o.vx=o.vy=0;o.x=clamp(pd.bx-o.fx*(R+BR),X0+R,X0+FW-R);o.y=clamp(pd.by-o.fy*(R+BR),Y0+R,Y0+FH-R);
-    if(Math.abs(df)<.13||S.n-pd.t>24){S.pend=null;const a=pd.args;if(pd.r0&&a[3]){a[0]+=a[3].x-pd.r0.x;a[1]+=a[3].y-pd.r0.y}S.cap=o;o.xk=1;try{S.kick(a[0],a[1],a[2]/S.vs,a[3],a[4])}finally{o.xk=0;S.cap=null}}}}}
+  if(S.pend){const pd=S.pend,o=pd.o;if(B.own!==o||S.sc||o.off)S.pend=null;else{let df=pd.ang-o.hd;if(pd.wind>0){pd.wind--;let w=pd.hd0-pd.sg*.3-o.hd;w=datan2(dsin(w),dcos(w));o.hd+=clamp(w,-.16,.16);o.fx=dcos(o.hd);o.fy=dsin(o.hd);o.vx=o.vy=0;o.x=clamp(pd.bx-o.fx*(R+BR),X0+R,X0+FW-R);o.y=clamp(pd.by-o.fy*(R+BR),Y0+R,Y0+FH-R)}else{df=datan2(dsin(df),dcos(df));o.hd+=clamp(df,-.5,.5);o.fx=dcos(o.hd);o.fy=dsin(o.hd);o.vx=o.vy=0;o.x=clamp(pd.bx-o.fx*(R+BR),X0+R,X0+FW-R);o.y=clamp(pd.by-o.fy*(R+BR),Y0+R,Y0+FH-R);
+    if(Math.abs(df)<.4||S.n-pd.t>11){S.pend=null;const a=pd.args;if(pd.r0&&a[3]){a[0]+=a[3].x-pd.r0.x;a[1]+=a[3].y-pd.r0.y}S.cap=o;o.xk=1;try{S.kick(a[0],a[1],a[2]/S.vs,a[3],a[4])}finally{o.xk=0;S.cap=null}}}}}
   if(B.own){const o=B.own;if(o.off)B.own=null;else{const pv=S.pend&&S.pend.o===o?S.pend:null,spd=dhyp(o.vx||0,o.vy||0),tch=!pv&&!S.sc&&!S.rp&&spd>.6&&o.hold>=8;if(spd>.3&&!S.sc)o.td=(o.td||0)+spd;const L0=R+BR;if(o.L==null||o.hold<8)o.L=L0,o.bv=0;let tc;if(tch){o.bv=o.bv*.9-.06*spd;o.L+=o.bv;if(o.L<=L0+1){o.L=L0+1;if(o.bv<0)o.bv=1.2+.3*spd}if(o.L>L0+9){o.L=L0+9;o.bv=Math.min(o.bv,0)}tc=o.L-L0}else{o.L+=(L0-o.L)*.25;tc=dsin(S.n/11+o.k)*.9+(o.L-L0)}const _u=0,ts=tch?dsin((o.td||0)/60*DPI)*2.5:dsin(S.n/16+o.k)*1.2,tx0=pv?pv.bx:o.x+o.fx*(R+BR+tc)-o.fy*ts,ty0=pv?pv.by:o.y+o.fy*(R+BR+tc)+o.fx*ts,kk=pv?1:o.hold<8?.4:tch?.4:.55;   // conducción con toques: la pelota se separa del pie y el jugador la alcanza (no va pegada como con guante)
 const lt=S.sc&&S.sc.k=='lat'&&o===S.sc.taker,bx0=lt?o.x:tx0,by0=lt?o.y:ty0;{let ddx=(bx0-B.x)*kk,ddy=(by0-B.y)*kk;const mm=dhyp(ddx,ddy),cp=Math.max(3.2,spd*1.5+2.2);if(!pv&&!S.sc&&mm>cp){ddx*=cp/mm;ddy*=cp/mm}B.x+=ddx;B.y+=ddy}B.vx=B.vy=0;B.cv=0;   // la pelota acompaña al jugador sin saltar de un lado al otro cuando él gira
   S.poss=o.s;o.hold++;if(!S.sc){const dd=S.near(P.filter(z=>z.s!==o.s&&!z.off&&z.k>0&&z.cool<=0),o),fixB=(S.T[o.s][3]||0)==0&&S.build&&S.build.s===o.s&&o.l<=2;if(o.drb){const q=S.n-o.drb.t;if(q>=18||!dd)o.drb=null;else{const sd=o.drb.s;o.x=clamp(o.x-o.fy*sd*1.5,X0+R,X0+FW-R);o.y=clamp(o.y+o.fx*sd*1.5,Y0+R,Y0+FH-R);B.x+=-o.fy*sd*dsin(q/18*DPI)*7;B.y+=o.fx*sd*dsin(q/18*DPI)*7;if(q==9){if(o.drb.ok){if(o.drb.g)o.hd=datan2(H/2-o.y,(o.s?X0:X0+FW)-o.x);o.spr=S.n+36;S.sprN=(S.sprN||0)+1;dd.cool=26;dd.x-=o.fx*-10*0+(-o.fy*-sd)*10;S.dribN=(S.dribN||0)+1;o.hold=0;o.wait=Math.max(o.wait,20)}else{S.won(dd,o);o.drb=null;return}}}}
@@ -616,7 +617,7 @@ const lt=S.sc&&S.sc.k=='lat'&&o===S.sc.taker,bx0=lt?o.x:tx0,by0=lt?o.y:ty0;{let 
    
     if(S.sc&&S.sc.wait!==p)continue;if(S.sc&&S.sc.ph=='g')continue;
     if(B.recv===p&&!S.sc&&S.sk&&dhyp(B.vx,B.vy)>1.8&&S.n-(S.lastBad||-999)>140&&rnd()<clamp(.06+(62-S.sv(p,'ctl'))*.003,.01,.18)){S.lastBad=S.n;p.cool=16;B.vx*=.4;B.vy=B.vy*.4+(rnd()-.5)*1.4;B.recv=null;(S.ctlF||(S.ctlF=[0,0]))[p.s]++;continue}   // mal control: la pelota se le escapa
-    if(B.recv!==p&&p.k!==0&&!S.sc&&dhyp(B.vx,B.vy)>4.8&&rnd()<clamp(.35+(62-S.sv(p,'ant'))/220,.2,.5))continue;   // anticipación: el que lee mejor la jugada la corta más
+    if(B.recv!==p&&p.k!==0&&!S.sc&&dhyp(B.vx,B.vy)>4.8&&rnd()<clamp(.35+(62-S.sv(p,'ant'))/220,.2,.5)){S.bounce(p);continue}   // anticipación: el que lee mejor la jugada la corta más
     if(!S.sc&&S.prev&&S.prev!==p&&S.prev.s===p.s&&S.prev.k>0)S.runner=(S.runner&&S.runner.p===S.prev&&S.n<S.runner.t)?S.runner:{p:S.prev,t:S.n+60};
     if(B.recv&&B.recv!==p&&S.prev&&p.s!==S.prev.s&&!S.sc){S.icp=(S.icp||0)+1;(S.icS||(S.icS=[0,0]))[p.s]++}if(S.latLock&&!S.sc){if(p===S.latLock.p){S.latFoul(p);break}S.latLock=null}
     const was=S.poss;B.own=p;B.recv=null;B.free=false;p.hold=0;p.wait=S.hold(p);if(was!==p.s&&!S.sc)p.wait=Math.max(p.wait,30+Math.floor(rnd()*14));if(S.sb&&S.n-S.sb.n0>8){S.sbT=(S.sbT||0)+1;if(p.s===S.sb.s)S.sbW=(S.sbW||0)+1;S.sb=null}if(was!==p.s&&!S.sc)S.checkCounter(p);break}}
