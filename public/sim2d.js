@@ -330,11 +330,11 @@ class Sim{
  clockStep(){const S=this,c=S.sc;if(S.rp||(c&&c.ph=='wait'&&(c.k=='pen'||(c.e&&c.e.ask))))return;if(S.clkMax!=null&&S.clk>=S.clkMax)return;S.clk=(S.clk||0)+1;S.mn=Math.floor(S.clk/(S.spm||95))}
 // Falta que nace de un duelo real en juego libre (modo auto): el lugar, los protagonistas y el tipo (penal / tiro libre peligroso / lejano / simple) salen de lo que pasa en el 2D
  foulProb(dd,o){const S=this,t2=S.T[dd.s];return(S.foulBase||.014)*(.55+S.sv(dd,'agr')/100)*[.8,1,1.3][t2[1]]*[.9,1,1.1][t2[0]]*clamp(1+(S.sv(dd,'mar')-S.sv(o,'reg'))/220,.7,1.3)*(dd.yel?.6:1)*S.zoneK(dd,o)}
- zoneK(dd,o){const S=this,B=S.B,{gx}=S.geo(o.s),dg=Math.abs(B.x-gx),dy=Math.abs(B.y-H/2);return dg<108&&dy<135?.12:dg<270&&dy<175?.65:dg<350?.9:2.3}   // en el área los defensores se cuidan más: el penal es raro
+ zoneK(dd,o){const S=this,B=S.B,{gx}=S.geo(o.s),dg=Math.abs(B.x-gx),dy=Math.abs(B.y-H/2);const dm=dhyp(dg,dy)/6.5;return dg<108&&dy<135?.12:dm<=31?1:dm<=52?.9:2.3}   // en el área los defensores se cuidan más: el penal es raro
  duelFoul(dd,o){const S=this,B=S.B,as=o.s,{gx,dir}=S.geo(as),dg=Math.abs(B.x-gx),dy=Math.abs(B.y-H/2);S.foulC=S.n+240;
-  const zone=dg<108&&dy<135?'pen':dg<270&&dy<175?'fkd':dg<350?'fkl':'plain',n1=(S.fouls=S.fouls||{})[dd.s+':'+dd.k]=((S.fouls||{})[dd.s+':'+dd.k]||0)+1;
+  const dmt=dhyp(dg,dy)/6.5,zone=dg<108&&dy<135?'pen':dmt<=31?'fkd':dmt<=52?'fkl':'plain',n1=(S.fouls=S.fouls||{})[dd.s+':'+dd.k]=((S.fouls||{})[dd.s+':'+dd.k]||0)+1;
   let cd=null;if(!S.onFact&&rnd()<(.14+(zone=='pen'?.15:0)+(n1>=2?.18:0))*(dd.yel?1.6:1)){cd=dd.yel||rnd()<.04?'r':'y';if(dd.yel&&cd=='r')cd='r2'}
-  const e={id:'d'+S.n,k:zone=='pen'?'pen':zone=='plain'?'foul':'fk',m:S.mn||0,t:as,spot:{x:B.x,y:B.y},auto:1};if(zone=='fkl')e.ft='l';if(zone=='fkd')e.dm=Math.round(dg/6.5);if(cd){e.cd=cd;e.cs=dd.s;e.ck=dd.k}
+  const e={id:'d'+S.n,k:zone=='pen'?'pen':zone=='plain'?'foul':'fk',m:S.mn||0,t:as,spot:{x:B.x,y:B.y},auto:1};if(zone=='fkl')e.ft='l';if(zone=='fkd')e.dm=Math.round(dmt);if(cd){e.cd=cd;e.cs=dd.s;e.ck=dd.k}
   const fct={k:'foul',z:zone,t:as,fs:dd.s,n:S.n,x:B.x,y:B.y,fo:dd.k,vic:o.k,cd};(S.facts=S.facts||[]).push(fct);if(S.onFact)S.onFact(fct,e);   // el anfitrión (motor) completa el evento: quién, tarjeta, decisión
   
   S.clr();B.own=null;B.vx=B.vy=0;B.recv=null;S.sc={k:'inc',e,side:as,t:0,ph:'hit',vic:o,fo:dd,spot:{x:B.x,y:B.y},tk:0,th:0};S.poss=as;if(S.snd)S.snd('foul')}
@@ -367,7 +367,7 @@ class Sim{
  fkSc(e,as){const S=this,{gx,dir,ds}=S.geo(as),P=S.P,B=S.B,ba=e.spot||{x:clamp(gx-dir*(110+rnd()*60),X0+40,X0+FW-40),y:H/2+(rnd()-.5)*200},
   at=P.filter(p=>p.s==as&&!p.off&&p.k>=4),taker=S.dsg(e,as)||S.near(at.length?at:P.filter(p=>p.s==as&&!p.off),ba),u={x:gx-ba.x,y:H/2-ba.y},ul=dhyp(u.x,u.y)||1;u.x/=ul;u.y/=ul;
   // Barrera: a 9,15 m de la pelota, en línea recta perpendicular a la dirección del tiro (apuntando al palo más cercano) y con los jugadores hombro con hombro. Cuantos más metros al arco, menos hombres: 5 / 4 / 3 / 2 / 1 / ninguno.
-  const dgm=dhyp(gx-ba.x,H/2-ba.y)/6.5,nw=Math.max(dgm<20?5:dgm<24?4:dgm<28?3:dgm<32?2:dgm<36?1:0,e.x=='w'?2:0),sgn=ba.y>=H/2?1:-1,
+  const dgm=dhyp(gx-ba.x,H/2-ba.y)/6.5,nfd=P.filter(p=>p.s==ds&&!p.off&&p.k>=1).length,nw=Math.min(Math.max(dgm<20?5:dgm<24?4:dgm<28?3:dgm<31?2:dgm<34?1:0,e.x=='w'?2:0),Math.max(0,nfd-5)),sgn=ba.y>=H/2?1:-1,
    aim={x:gx,y:H/2+sgn*Math.min(24,Math.abs(ba.y-H/2)*.3)},v={x:aim.x-ba.x,y:aim.y-ba.y},vl=dhyp(v.x,v.y)||1;v.x/=vl;v.y/=vl;
   const wc={x:ba.x+v.x*62,y:ba.y+v.y*62},pp={x:-v.y,y:v.x},gp=2*R+1,pr=p=>(p.x-wc.x)*pp.x+(p.y-wc.y)*pp.y,
    wall=P.filter(p=>p.s==ds&&!p.off&&p.k>=1&&p.k<=7).sort((a,b)=>dist(a,wc)-dist(b,wc)).slice(0,nw).sort((a,b)=>pr(a)-pr(b));
@@ -377,7 +377,11 @@ class Sim{
   // El resto se ubica sin pisar la barrera, a la pelota ni a los demás: si el lugar está ocupado se corre a un costado.
   const placed=[...wt,{x:ba.x-u.x*26,y:ba.y-u.y*26},ba];if(edge){const q=edge.tg;if(q)placed.push(q)}
   const put=(p,x,y)=>{const y0=y;for(let a=0;a<14;a++){const yy=y0+(a%2?1:-1)*Math.ceil(a/2)*30,xx=x-dir*(a>=8?26:0);if(placed.every(q=>dhyp(q.x-xx,q.y-yy)>=2.3*R)){x=xx;y=yy;break}}placed.push({x,y});S.tg(p,x,y)};
-  let i=0;P.forEach(p=>{if(p===taker||wall.includes(p)||p===edge||p.off||p.k==0)return;const j=i++;if(p.s==as&&p.k>=4)put(p,gx-dir*(90+(j%2)*20),H/2+((j%5)-2)*34);else if(p.s==ds)put(p,gx-dir*(55+(j%3)*14),H/2+((j%5)-2)*30);else put(p,W/2-dir*40,H/2+((j%5)-2)*40)});
+  // Puestos: los atacantes más adelantados entran al área (1er palo, punto penal, 2do palo, rebote); cada defensor que no está en la barrera marca a uno (del lado del arco); los demás se ubican según su posición de formación, corridos hacia la pelota.
+  {const nA=dgm<31?3:2,atk=P.filter(p=>p.s==as&&!p.off&&p.k>=4&&p!==taker&&p!==edge).sort((a,b)=>b.k-a.k).slice(0,nA),aq=[[74,sgn*24],[102,-sgn*12],[86,-sgn*54],[128,sgn*44]].map(q=>({x:gx-dir*q[0],y:H/2+q[1]})),free=P.filter(p=>p.s==ds&&!p.off&&p.k>=1&&!wall.includes(p)),mine=[];
+   atk.forEach((p,j)=>{put(p,aq[j].x,aq[j].y);mine.push(p)});
+   atk.forEach((p,j)=>{if(!free.length)return;const q=aq[j],d=free.sort((a,b)=>dist(a,q)-dist(b,q)).shift();put(d,q.x+dir*15,q.y+(H/2-q.y)*.18)});
+   P.forEach(p=>{if(p===taker||wall.includes(p)||p===edge||p.off||p.k==0||mine.includes(p)||!(p.s==as||free.includes(p)))return;const h=S.hp(p),k=p.s==as?.6:.45;put(p,clamp(h.x+(ba.x-W/2)*k,X0+R,X0+FW-R),clamp(h.y+(ba.y-H/2)*.3,Y0+R,Y0+FH-R))})}
   const gk=P.find(p=>p.s==ds&&p.k==0&&!p.off);S.tg(gk,gx-dir*10,H/2-(wall.length>=2?sgn*Math.min(24,Math.abs(ba.y-H/2)*.3):0)+(wall.length<2?clamp((ba.y-H/2)*.25,-30,30):0));
   const dcs=P.filter(p=>p.s==as&&!p.off&&p.k>=4&&p!==taker),decoy=dcs.length&&rnd()<.35?S.near(dcs,ba):null;if(decoy)S.tg(decoy,ba.x-u.x*8-u.y*32,ba.y-u.y*8+u.x*32);
   B.x=ba.x;B.y=ba.y;B.vx=B.vy=0;B.own=null;B.recv=null;S.sc={k:'fk',e,side:as,ph:'set',t:0,x:e.x,ba,taker,wall,wt,gk,u,decoy,tpos:{x:ba.x-u.x*26,y:ba.y-u.y*26},label:decoy?'TIRO LIBRE ENSAYADO':'TIRO LIBRE'};S.fx={n:S.n,x:ba.x,y:ba.y}}
@@ -610,5 +614,7 @@ const lt=S.sc&&S.sc.k=='lat'&&o===S.sc.taker,bx0=lt?o.x:tx0,by0=lt?o.y:ty0;{let 
     const was=S.poss;B.own=p;B.recv=null;B.free=false;p.hold=0;p.wait=S.hold(p);if(was!==p.s&&!S.sc)p.wait=Math.max(p.wait,30+Math.floor(rnd()*14));if(S.sb&&S.n-S.sb.n0>8){S.sbT=(S.sbT||0)+1;if(p.s===S.sb.s)S.sbW=(S.sbW||0)+1;S.sb=null}if(was!==p.s&&!S.sc)S.checkCounter(p);break}}
   {const dx=B.x-(S.lbx===undefined?B.x:S.lbx),dy=B.y-(S.lby===undefined?B.y:S.lby),dd=dhyp(dx,dy);B.rot=(B.rot||0)+dd/BR;S.lbx=B.x;S.lby=B.y;if(dd>.6)S.trail.push({x:B.x,y:B.y,n:S.n});while(S.trail.length&&S.n-S.trail[0].n>22)S.trail.shift()}}
 }
+// Azar propio de cada partido: varios 2D conviven (servidor con varios partidos) sin pisarse la semilla. Cada entrada pública usa el azar de su instancia y lo guarda al salir.
+['setup','kickoff','step','event','penRes','setHalf'].forEach(n=>{const f=Sim.prototype[n];if(!f)return;Sim.prototype[n]=function(...a){const sv=RNG;RNG=this._rg||RNG;try{return f.apply(this,a)}finally{this._rg=RNG;RNG=sv}}});
 const wideSlots=f=>{const o=[];for(let k=1;k<11;k++){const h=hom(f,k);if(h&&(h.wide||h.fb))o.push(k)}return o},API={roleLayout,wideSlots,Sim,W,H,X0,Y0,FW,FH,GY0,GY1,R,BR};if(typeof module!=='undefined')module.exports=API;else window.SIM2D=API;
 })();
