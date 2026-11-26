@@ -11,7 +11,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'OK  ':'FALLA ')+m);if(!c)fails++},s
   (R.ms||[]).forEach(m=>{if(m.hosted&&m.headless)headSeen++;if(v.ms&&v.ms[0]&&v.ms[0].hs)maxHs=true});
   const mm=(v.ms||[])[0];if(mm&&mm.evs)mm.evs.forEach(x=>{const k=x.k+(x.x?'.'+x.x:'');evs[k]=(evs[k]||0)+1});
   // decisiones: la primera persona resuelve rápido
-  ['p1','p2'].forEach(pid=>{const vv=pid=='p1'?v1:v2;if(vv&&vv.pend&&vv.pend.id!=null)E.act({a:'pdec',room,pid,id:vv.pend.id,v:0})})},15);
+  (R.ms||[]).forEach(m=>{const p=m.pend;if(p&&p.id!=null)['C','L','R'].forEach(d=>{[m.a,m.b].forEach(pid=>E.act({a:'pdec',room,pid,id:p.id,d}))})})},15);
  const fin=await until(()=>R.ms&&R.ms[0]&&R.ms[0].clock>=+(process.env.MIN||45),+process.env.TMO||100000);clearInterval(iv);
  const m0=R.ms&&R.ms[0];
  console.log(JSON.stringify({fase:v1&&v1.phase,min:R.ms&&R.ms[0]&&R.ms[0].clock,score:m0&&[m0.ga,m0.gb],st:m0&&m0.st,headSeen,hsEnVista:maxHs,evs}));

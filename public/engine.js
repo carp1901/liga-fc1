@@ -83,7 +83,7 @@ function hostSyncSrv(r,m){const S=m.sim,A=r.pl[m.a],B=r.pl[m.b],sqA=squad(A.team
  if(m.skk!==key){m.skk=key;S.setSk(0,ia.x.map((i,k)=>D.phApply(sqA[i].at,sa[k],A.phil||'equilibrada')));S.setSk(1,ib.x.map((i,k)=>D.phApply(sqB[i].at,sb[k],B.phil||'equilibrada')));S.setFoot(0,ia.x.map(i=>sqA[i]&&sqA[i].foot));S.setFoot(1,ib.x.map(i=>sqB[i]&&sqB[i].foot))}
  S.setOff(0,offKs(m,0,A));S.setOff(1,offKs(m,1,B));S.setYel(0,ia.y);S.setYel(1,ib.y);S.setCtx(m.clock||0,[m.ga,m.gb]);S.setWx(m.w||null);S.setHalf((m.clock||0)>45)}
 function hostHeadless(r,m){const A=r.pl[m.a],B=r.pl[m.b],S=new CFG.Sim(),key=m.a+m.b+(r.round||0);let h=0;for(const c of key)h=(h*31+c.charCodeAt(0))>>>0;
- S.mseed=h;S.noRp=1;hostDef(m,'sim',S);hostDef(m,'hq',[]);hostDef(m,'skk',null);m.hosted=true;m.headless=true;m.simHome=true;
+ S.mseed=h;S.noRp=1;S.atkCd=CFG.srvAtkCd||14;hostDef(m,'sim',S);hostDef(m,'hq',[]);hostDef(m,'skk',null);m.hosted=true;m.headless=true;m.simHome=true;
  const base=(m.clock||0)>45?45:0;S.setup(A.tac.f,B.tac.f,key);S.frozen=false;hostSyncSrv(r,m);S.kickoff(base?1:0);S.auto=1;S.hosted=1;S.spm=CFG.spm;S.onFact=(f,ev)=>hostFact(r,m,f,ev);S.onAttack=sd=>hostAttack(r,m,sd);S.onShot=(e,c)=>hostShot(r,m,e,c);
  S.clk=Math.max(0,(m.clock||0)-base)*CFG.spm;S.mn=Math.floor(S.clk/CFG.spm);m.hh=base?2:1;return S}
 function hostedAdvance(r,m,half,force){const S=m.sim,base=half==2?45:0;hostFlush(m);if(m.hp)for(const id in m.hp){if((m.clock||0)-m.hp[id].at<1)continue;const live=(S.sc&&S.sc.e&&S.sc.e.id==id)||S.q.some(z=>z.e&&z.e.id==id)||(S.pre&&S.pre.e&&S.pre.e.id==id);if(!live)delete m.hp[id]}   // la jugada se cortó antes del remate (pérdida, falta, etc.): no hubo remate
@@ -132,7 +132,7 @@ function resSp(r,m,p){const{kind,o,tk,gk,ev}=p,s=1-o,P=r.pl[o?m.b:m.a],sq=sqOf(r
   // el arquero solo ataja si se tiró hacia donde fue el remate (la pelota siempre va al lado elegido); si adivinó mal y no es gol, el remate se va (palo/afuera)
   x=y<pW?'w':y<pW+pO?'o':y<pW+pO+pg?'g':guess?'s':'o';m.st[o][1]++;m.xg[o]+=pg;if(x=='g')hd=tk;else if(x=='s'){m.st[o][2]++;rate(m,s,gk,.3)}}
  else if(kind=='fkl'){const dfn=(tAv(r,m,s,'cab',4)+tAv(r,m,s,'mar',4))/2,y=rnd();
-  if(cc=='C'){const rc=tAv(r,m,o,'cab',4);pg=clamp(.024*(1+(A('cen')-60)/120)*clamp(1+(rc-dfn)/100,.6,1.6)*ph,.005,.12);x=y<pg?'g':y<pg+.10?'s':y<pg+.2?'o':'c'}
+  if(cc=='C'){const rc=tAv(r,m,o,'cab',4);pg=clamp(.032*(1+(A('cen')-60)/120)*clamp(1+(rc-dfn)/100,.6,1.6)*ph,.005,.12);x=y<pg?'g':y<pg+.10?'s':y<pg+.2?'o':'c'}
   else{const pl=clamp(.30-((A('pas')+A('des'))/2-60)/200,.12,.45);pg=clamp(.018*(1+(A('pas')-60)/120)*clamp(1+(tAv(r,m,o,'rem',4)-dfn)/140,.7,1.4)*ph,.004,.1);x=y<pl?'l':y<pl+pg?'g':y<pl+pg+.06?'s':y<pl+pg+.12?'o':'c'}
   if(x=='g'||x=='s'||x=='o'){m.st[o][1]++;m.xg[o]+=pg;if(x=='s'){m.st[o][2]++;rate(m,s,gk,.3)}}if(x=='g')hd=cc=='C'?spHead(r,m,o,ev.m):tk}
  else{const dfn=(tAv(r,m,s,'cab',4)+tAv(r,m,s,'mar',4))/2,rc=tAv(r,m,o,'cab',4),y=rnd();let adv=1,pl=0;
