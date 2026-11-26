@@ -1,5 +1,6 @@
 import Engine from "../public/engine.js";
 import Data from "../public/data.js";
+import Sim2D from "../public/sim2d.js";
 import * as Auth from "./auth.mjs";
 import { dbQuery } from "./db.mjs";
 import * as Social from "./social.mjs";
@@ -15,6 +16,10 @@ const ROOM_RE = /^[a-z0-9]{3,12}$/i;
 
 Engine.CFG.externalClock = true;
 Engine.CFG.offline = false;
+// 2D sin pantalla en el servidor: faltas, corners, ataques y remates salen de ahí (salas online con humanos). Poner en false para volver al motor clásico.
+const SERVER_2D = true;
+Engine.CFG.Sim = Sim2D.Sim;
+Engine.CFG.auth2dServer = SERVER_2D;
 
 const AUTH_ATTEMPTS = new Map();
 const CHAT_SEND_TIMES = new Map();
