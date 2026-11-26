@@ -1,0 +1,67 @@
+name: Test optimizacion de ancho de banda
+
+on:
+  push:
+    branches:
+      - optimizacion-ancho-banda
+    paths:
+      - 'server.js'
+      - 'public/index.html'
+      - 'test.js'
+      - 'test-auto-xi.js'
+      - 'test-sim2d-orientation.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/test-optimizacion-ancho-banda.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'server.js'
+      - 'public/index.html'
+      - 'test.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/test-optimizacion-ancho-banda.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Instalar dependencias
+        run: npm install
+      - name: Iniciar servidor para las pruebas
+        run: |
+          FAST_WAITS=1 TICK_MS=50 PORT=3000 node server.js > /tmp/clash-futbol-server.log 2>&1 &
+          echo $! > /tmp/clash-futbol-server.pid
+          for i in {1..30}; do
+            if curl -fsS http://localhost:3000/teams.json > /dev/null; then
+              echo "Servidor listo"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/clash-futbol-server.log
+          exit 1
+      - name: Ejecutar suite de pruebas
+        run: node test.js 8 liga1 && node test-auto-xi.js && node test-sim2d-orientation.js
+      - name: Mostrar log del servidor si falla
+        if: failure()
+        run: cat /tmp/clash-futbol-server.log || true
+      - name: Detener servidor
+        if: always()
+        run: |
+          if [ -f /tmp/clash-futbol-server.pid ]; then
+            kill "$(cat /tmp/clash-futbol-server.pid)" || true
+          fi
