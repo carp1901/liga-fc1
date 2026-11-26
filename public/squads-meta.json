@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "updatedAt": "2026-11-18T07:04:58.104Z",
+  "updatedAt": "2026-11-26T20:20:59.653Z",
   "source": "Planteles recopilados y verificados manualmente",
   "ratings": "1629 medias con fuente individual + 3182 estimaciones propias identificadas + 0 provisionales sin fuente. Las estimaciones no se presentan como OVR oficial; los atributos no observados se derivan por puesto, rol específico y media.",
   "counts": {
@@ -2974,6 +2974,7 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14004603-alvarado",
+        "https://www.fichajes.com/jugador/fabricio-henricot/",
         "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/1962-alvarado"
       ]
     },
@@ -3004,7 +3005,9 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14031218-atenas-rio-cuarto",
-        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/21043-atenas"
+        "https://csybatenas.com/jugador/mateo-ledesma/",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/21043-atenas",
+        "https://www.zerozero.pt/jogador/enzo-godoy/1544887"
       ]
     },
     "atsanmartinmza": {
@@ -3029,7 +3032,10 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/108545-san-martin-mza",
-        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/49-san-martin-mza"
+        "https://www.365scores.com/es/football/player/felipe-rivarola-140883",
+        "https://www.ceroacero.es/jugador/juan-manuel-mazzolo/3569806",
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/49-san-martin-mza",
+        "https://www.ceroacero.es/jugador/franco-saucedo/3573594"
       ]
     },
     "bmitre": {
@@ -3075,7 +3081,8 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/14006366-boca-unidos",
-        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/467-boca-unidos"
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/467-boca-unidos",
+        "https://www.365scores.com/es/football/player/esteban-orfano-40839"
       ]
     },
     "cipolletti": {
@@ -3097,7 +3104,10 @@
       ],
       "natSource": [
         "https://www.footballmanagerblog.org/database/fm27/clubs/108524-cipolletti",
-        "Nacionalidad individual no publicada en la ficha consultada; no asignada"
+        "Nacionalidad individual no publicada en la ficha consultada; no asignada",
+        "https://es.besoccer.com/jugador/nehuen-garcia-3140045",
+        "https://www.ceroacero.es/jugador/sebastian-jeldres/849728",
+        "https://www.sofascore.com/football/player/enzo-vallejos/2159883"
       ]
     },
     "defbelgranovr": {
@@ -3304,7 +3314,8 @@
       ],
       "natSource": [
         "https://sortitoutsi.net/football-manager-2027/team/14028695/club-atletico-germinal-de-rawson",
-        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/283-germinal-rawson"
+        "Nacionalidad individual no verificada; no se asigna. Fuente de identificación: https://www.mundoascenso.com.ar/plantel/283-germinal-rawson",
+        "https://www.transfermarkt.com.ar/ca-germinal/startseite/verein/14316"
       ]
     },
     "gbrown": {
@@ -3970,7 +3981,17 @@
         "Solo Ascenso 2026 lo clasifica como delantero en la plantilla de Defensores de Glew.",
         "https://www.soloascenso.com.ar/club/defensores-de-glew/859"
       ],
-      "natSource": []
+      "natSource": [
+        "BDFA, plantel 2026 de defglew: nacionalidad individual publicada en la ficha del jugador. https://www.bdfa.com.ar/plantel-Defensores-de-Glew-6646.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=12",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=2",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=1",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6"
+      ]
     },
     "metalurgico": {
       "source": "https://www.soloascenso.com.ar/club/deportivo-metalurgico/1073",
@@ -3979,7 +4000,13 @@
       "numberSource": "Pendiente de verificar en planilla oficial 2026; no se asigna dorsal estimado.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "https://www.soloascenso.com.ar/club/deportivo-metalurgico/1073",
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "BDFA, plantel 2026 de metalurgico: nacionalidad individual publicada en la ficha del jugador. https://www.bdfa.com.ar/plantel-Deportivo-Metalurgico-6960.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=1",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4"
+      ]
     },
     "hacoaj": {
       "source": "https://www.soloascenso.com.ar/club/nautico-hacoaj/501",
@@ -3988,7 +4015,20 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en Náutico Hacoaj en la temporada actual. https://www.bdfa.com.ar/jugadores-ENRIQUE-NICOLAS-COHEN-65048.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en Náutico Hacoaj en la temporada actual. https://www.bdfa.com.ar/jugadores-NOAH-GOLDFARB-92690.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en Náutico Hacoaj en la temporada actual. https://www.bdfa.com.ar/jugadores-FRANCO-EDUARDO-BUSSO-65028.html",
+        "BDFA ficha individual: Federico Goldstein, argentino, volante; registra Náutico Hacoaj. https://www.bdfa.com.ar/jugadores-FEDERICO-GOLDSTEIN-55523.html",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en Náutico Hacoaj en la temporada actual. https://www.bdfa.com.ar/jugadores-JACK-LEON-GUELMAN-98526.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "BDFA ficha individual: Manuel Isersky, argentino, delantero de Náutico Hacoaj en 2026. https://www.bdfa.com.ar/jugadores-MANUEL-ISERSKY-65027.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=2",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7"
+      ]
     },
     "fcezeiza": {
       "source": "https://www.soloascenso.com.ar/club/fc-ezeiza/1074",
@@ -3997,7 +4037,24 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=10",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en FC Ezeiza en la temporada actual. https://www.bdfa.com.ar/jugadores-NAHUEL-ALEJANDRO-SANTILLAN-71083.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en FC Ezeiza en la temporada actual. https://www.bdfa.com.ar/jugadores-MANUEL-ALEJANDRO-ALEGRE-65082.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en FC Ezeiza en la temporada actual. https://www.bdfa.com.ar/jugadores-THIAGO-GONZALEZ-78520.html",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en FC Ezeiza en la temporada actual. https://www.bdfa.com.ar/jugadores-HORACIO-EMANUEL-MACCIO-85653.html",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en FC Ezeiza en la temporada actual. https://www.bdfa.com.ar/jugadores-MAXIMILIANO-MONTENEGRO-88835.html",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en FC Ezeiza en la temporada actual. https://www.bdfa.com.ar/jugadores-JOAQUIN-ALEXANDER-VILLORDO-59640.html",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en FC Ezeiza en la temporada actual. https://www.bdfa.com.ar/jugadores-SEBASTIAN-KAJGANICH-147424.html",
+        "BDFA, ficha individual del jugador: nacionalidad Argentina y registro en FC Ezeiza en la temporada actual. https://www.bdfa.com.ar/jugadores-LUCIANO-NICOLAS-LIZONDO-89231.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7"
+      ]
     },
     "belgranozarate": {
       "source": "https://www.soloascenso.com.ar/club/belgrano-zarate/470",
@@ -4006,7 +4063,26 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general tomada de la nómina publicada; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "BDFA ficha individual: Ezequiel Roberto Álvarez, argentino, defensor de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-EZEQUIEL-ROBERTO-ALVAREZ-56819.html",
+        "BDFA ficha individual: Natanael Abraham Castaño, argentino, jugador de Belgrano de Zárate. https://www.bdfa.com.ar/jugadores-NATANAEL-ABRAHAM-CASTANO-93200.html",
+        "BDFA ficha individual: Mateo Agustín Cejas, argentino, defensor de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-MATEO-AGUSTIN-CEJAS-135634.html",
+        "BDFA ficha individual: Rodrigo Daniel Garanton, argentino, defensor de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-RODRIGO-DANIEL-GARANTON-63393.html",
+        "BDFA ficha individual: Roberto José Jausoro, argentino, defensor de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-ROBERTO-JOSE-JAUSORO-59440.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=2",
+        "BDFA ficha individual: Santiago Ojuez, argentino, defensor; registra pasos por Belgrano de Zárate (2025) y La Josefa (2025-2026). https://www.bdfa.com.ar/jugadores-SANTIAGO-OJUEZ-93192.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "BDFA ficha individual: Gonzalo Sebastián Acosta, argentino, volante de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-GONZALO-SEBASTIAN-ACOSTA-52170.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "BDFA ficha individual: Giovani Chorchilo, argentino, volante de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-GIOVANI-CHORCHILO-49196.html",
+        "BDFA ficha individual: Mateo Domaine, argentino, volante de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-MATEO-DOMAINE-52885.html",
+        "BDFA ficha individual: Isaías Valentín Giménez, argentino, volante de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-ISAIAS-VALENTIN-GIMENEZ-150195.html",
+        "BDFA ficha individual: Tiago Valentín Larrosa, argentino, volante de Belgrano de Zárate en 2026. https://www.bdfa.com.ar/jugadores-TIAGO-VALENTIN-LARROSA-52882.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7"
+      ]
     },
     "uribelarrea": {
       "source": "https://www.soloascenso.com.ar/club/uribelarrea-futbol-club/1243",
@@ -4028,7 +4104,24 @@
         "Plantel 2026: MED; máximo goleador del equipo con 4 tantos.",
         "Plantel 2026: MED; goleador del equipo con 2 tantos."
       ],
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "BDFA, plantel actual de Uribelarrea FC incluye al arquero MARCO ANTONIO SANCHEZ, argentino (nacido 15/07/2007). La planilla añade el apellido intermedio Maidana; se identifica por nombre de uso, club y posición. https://www.bdfa.com.ar/plantel-Uribelarrea-FC-8545.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=12",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=2",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "BDFA, plantel 2026 de uribelarrea: nacionalidad individual publicada en la ficha del jugador. https://www.bdfa.com.ar/plantel-Uribelarrea-FC-8545.html",
+        "BDFA, plantel actual de Uribelarrea FC: ALMAGRO, RAMIRO NICOLAS, volante, con bandera Argentina. https://www.bdfa.com.ar/plantel-Uribelarrea-FC-8545.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "BDFA, plantel actual de Uribelarrea FC: FRANCO, NICOLAS NAHUEL, volante, con bandera Argentina. https://www.bdfa.com.ar/plantel-Uribelarrea-FC-8545.html",
+        "BDFA, plantel actual de Uribelarrea FC: CORBALAN, DANTE JOAQUIN, delantero, con bandera Argentina. https://www.bdfa.com.ar/plantel-Uribelarrea-FC-8545.html",
+        "BDFA, plantel 2026 de uribelarrea: nacionalidad individual publicada en la ficha del jugador. https://www.bdfa.com.ar/plantel-Uribelarrea-FC-8545.html | El Ciudadano confirma que Samuel Jacky Chris Ntomba Niken es camerunés y delantero de Uribelarrea, y que representó a Camerún Sub-17. https://elciudadano.com.ar/contenido/23013/uribelarrea-fc-da-pelea-de-la-mano-de-samuel-ntbomba-el-camerunes-que-toma-mate-",
+        "BDFA, plantel actual de Uribelarrea FC: SALAS, FRANCISCO ROBERTO, delantero, con bandera Argentina. https://www.bdfa.com.ar/plantel-Uribelarrea-FC-8545.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=1"
+      ]
     },
     "alumni": {
       "source": "https://www.sofascore.com/es/football/team/alumni-los-hornos/401405",
@@ -4037,7 +4130,30 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "BDFA ficha individual: Lionel Díaz Gómez, argentino, arquero de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-LIONEL-DIAZ-GOMEZ-77579.html",
+        "BDFA ficha individual: Leonel Omar Nieva, argentino, arquero de Alumni (Los Hornos), 2026. La planilla agrega una s final al apellido. https://www.bdfa.com.ar/jugadores-LEONEL-OMAR-NIEVA-150187.html",
+        "BDFA ficha individual: Gino Anania, argentino, defensor de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-GINO-ANANIA-52873.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=1",
+        "BDFA ficha individual: Carlos Adrián Maciel, argentino, defensor de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-CARLOS-ADRIAN-MACIEL-77577.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "BDFA ficha individual: Rodrigo Luciano Perets, argentino, defensor de Alumni (Los Hornos), 2026. La planilla escribe Peretz; coinciden nombre, club y posición. https://www.bdfa.com.ar/jugadores-RODRIGO-LUCIANO-PERETS-150196.html",
+        "BDFA ficha individual: Tomás Santiago Nahuel, argentino, defensor de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-TOMAS-SANTIAGO-NAHUEL-71874.html",
+        "BDFA ficha individual: Tiziano León Gezzani, argentino, defensor de Alumni (Los Hornos), nacido en 2008. La planilla difiere levemente en la escritura del apellido (Genazzi/Gezzani), pero coinciden nombre, edad, club y posición. https://www.bdfa.com.ar/jugadores-TIZIANO-LEON-GEZZANI-52866.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "BDFA ficha individual: Roberto Claudio Larrea, argentino, volante de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-ROBERTO-CLAUDIO-LARREA-149304.html",
+        "BDFA ficha individual: Joel Agustín Areco, argentino, volante de Alumni (Los Hornos), 2026. La planilla usa el segundo nombre como nombre de presentación. https://www.bdfa.com.ar/jugadores-JOEL-AGUSTIN-ARECO-150192.html",
+        "BDFA ficha individual: Santiago Valentín Lobos, argentino, volante de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-SANTIAGO-VALENTIN-LOBOS-52876.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "BDFA ficha individual: Santino Valentini, argentino, volante de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-SANTINO-VALENTINI-52869.html",
+        "BDFA ficha individual: Marcos Antonio Roa Ortigoza, argentino, volante de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-MARCOS-ANTONIO-ROA-ORTIGOZA-52881.html",
+        "BDFA ficha individual: Matías Cardozo, argentino, delantero de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-MATIAS-CARDOZO-86987.html",
+        "BDFA ficha individual: Leandro Joaquín Juárez, argentino, delantero de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-LEANDRO-JOAQUIN-JUAREZ-97413.html",
+        "BDFA ficha individual: Jonathan Donato Ruiz Díaz, argentino, jugador de Alumni (Los Hornos), 2026. La planilla conserva su nombre abreviado. https://www.bdfa.com.ar/jugadores-JONATHAN-DONATO-RUIZ-DIAZ-150194.html",
+        "BDFA ficha individual: Braian Rigau, argentino, jugador de Alumni (Los Hornos), 2026. https://www.bdfa.com.ar/jugadores-BRAIAN-RIGAU-135620.html"
+      ]
     },
     "atpilar": {
       "source": "https://www.sofascore.com/es-la/football/team/club-atletico-pilar/507165",
@@ -4046,7 +4162,17 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "BDFA ficha individual: Luka Martín Trumino, argentino, defensor de Atlético Pilar en 2026. https://www.bdfa.com.ar/jugadores-LUKA-MARTIN-TRUMINO-73172.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7",
+        "BDFA ficha individual: Gonzalo Ismael Almang, argentino, volante de Atlético Pilar en 2026. https://www.bdfa.com.ar/jugadores-GONZALO-ISMAEL-ALMANG-65025.html",
+        "BDFA ficha individual: Cristian Leandro Ortega, argentino, delantero de Atlético Pilar en 2026. https://www.bdfa.com.ar/jugadores-CRISTIAN-LEANDRO-ORTEGA-45026.html"
+      ]
     },
     "barrancas": {
       "source": "https://www.soloascenso.com.ar/club/barrancas-fc/1075",
@@ -4067,7 +4193,16 @@
         "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
         "Plantel 2026: DEF; uno de los máximos goleadores del equipo con 3 tantos."
       ],
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=2",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=1",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7"
+      ]
     },
     "bacity": {
       "source": "https://www.sofascore.com/es-la/football/team/buenos-aires-city/1217896",
@@ -4076,7 +4211,15 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "BDFA, plantel 2026 de bacity: nacionalidad individual publicada en la ficha del jugador. https://www.bdfa.com.ar/plantel-Buenos-Aires-City-8548.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=1"
+      ]
     },
     "controlorientado": {
       "source": "https://www.sofascore.com/es-la/football/team/control-orientado/1217894",
@@ -4085,7 +4228,29 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general según nómina de plantel 2026 en Sofascore; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-THYAGO-ADRIAN-NICOLAS-BARCOS-150193.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-BAUTISTA-DELGADO-150190.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-JOAQUIN-LEANDRO-CHAVEZ-150188.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-BENJAMIN-ALEXIS-FERREYRA-52877.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-SANTINO-CRIVELLI-150191.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=10",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-FELIPE-COBO-52867.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=12",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-ALEJANDRO-SEBASTIAN-VILLALBA-44755.html",
+        "BDFA ficha individual: nacionalidad estadounidense y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-TOMAS-IGNACIO-POLETTO-40915.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-IGNACIO-AGUSTIN-CANZANI-52872.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-JORGE-SEBASTIAN-RIVAS-106773.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-FRANCO-JOAQUIN-TORRES-150197.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-LAUTARO-CAMMI-71904.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-LAUTARO-TOMAS-RUIZ-45004.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Control Orientado (Benavídez) en 2026. https://www.bdfa.com.ar/jugadores-BRUNO-FRANCISCO-CATERINA-74295.html"
+      ]
     },
     "estrellaberisso": {
       "source": "https://www.soloascenso.com.ar/club/estrella-de-berisso/738",
@@ -4107,7 +4272,14 @@
         "Plantel 2026: MED; máximo goleador del equipo con 5 tantos.",
         "Plantel 2026: MED; goleador del equipo con 4 tantos."
       ],
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=12",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6"
+      ]
     },
     "everton": {
       "source": "https://www.soloascenso.com.ar/club/everton-la-plata/476",
@@ -4116,7 +4288,27 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=2",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-TOMAS-CARRANZA-71743.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-JOSE-ENEAS-EIJO-140758.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-LEONEL-FELIPE-73248.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-TOMAS-IBANEZ-139864.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-JOEL-ANTONIO-ALVAREZ-71756.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-DONATO-AMIGUCCI-149163.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-FACUNDO-AQUINO-MENDEZ-85505.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-CONO-LEONARDO-CANCRO-73250.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-FEDERICO-GASTON-CARO-63395.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-CIRO-MAXIMILIANO-CEJAS-63396.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-NICOLAS-GAUNA-63588.html",
+        "BDFA ficha individual: nacionalidad argentina y registro en Everton (La Plata) en 2026. https://www.bdfa.com.ar/jugadores-VALENTIN-PENALBA-56944.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3"
+      ]
     },
     "juventudbernal": {
       "source": [
@@ -4145,7 +4337,15 @@
         "Plantel 2026: MED; goleador del equipo con 2 tantos.",
         "Plantel 2026: MED; figura entre los goleadores del equipo."
       ],
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=10",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=7"
+      ]
     },
     "mandarinas": {
       "source": "https://www.soloascenso.com.ar/club/las-mandarinas-brandsen/908",
@@ -4154,7 +4354,15 @@
       "numberSource": "Dorsal estimado secuencial para evitar duplicados; no confirmado como dorsal oficial de temporada.",
       "ratingSource": "Estimación propia inicial v1; media provisional por categoría y puesto, no es OVR oficial.",
       "roleSource": "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
-      "natSource": []
+      "natSource": [
+        "BDFA, plantel 2026 de mandarinas: nacionalidad individual publicada en la ficha del jugador. https://www.bdfa.com.ar/plantel-Las-Mandarinas-7097.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=12",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=10",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=4",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=5",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11"
+      ]
     },
     "sat": {
       "source": "https://www.soloascenso.com.ar/club/social-atletico-television/703",
@@ -4176,7 +4384,16 @@
         "Delantero anunciado como incorporación de SAT desde Juventud en julio de 2026; 4 goles en SAT.",
         "Plantel 2026: MED; goleador del equipo con 2 tantos."
       ],
-      "natSource": []
+      "natSource": [
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=3",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=9",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=10",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=11",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=2",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=12",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8"
+      ]
     },
     "udprovincial": {
       "source": "https://www.soloascenso.com.ar/club/provincial-lobos/1076",
@@ -4197,7 +4414,25 @@
         "Posición general tomada de la nómina o ficha de partido 2026; rol específico pendiente de verificación.",
         "Plantel 2026: MED; aparece entre los goleadores del equipo."
       ],
-      "natSource": []
+      "natSource": [
+        "BDFA ficha individual: Thomas Lautaro Arburua, argentino, arquero vinculado a Provincial (Lobos). https://www.bdfa.com.ar/jugadores-THOMAS-LAUTARO-ARBURUA-61018.html",
+        "BDFA ficha individual: Ryan Gastón Barral, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-RYAN-GASTON-BARRAL-83425.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=10",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=12",
+        "BDFA ficha individual: Federico Leonel Antoñana, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-FEDERICO-LEONEL-ANTONANA-121424.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=6",
+        "BDFA ficha individual: Tomás Asurmendi, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-TOMAS-ASURMENDI-121422.html",
+        "BDFA ficha individual: Martín Jesús Ayastuy, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-MARTIN-JESUS-AYASTUY-121426.html",
+        "BDFA ficha individual: Valentino Banegas, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-VALENTINO-BANEGAS-40744.html",
+        "BDFA ficha individual: Franco Joel Barraza, argentino, volante de Provincial (Lobos), listado 2025-? en la ficha. https://www.bdfa.com.ar/jugadores-FRANCO-JOEL-BARRAZA-97489.html",
+        "BDFA ficha individual: Diego Bustos, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-DIEGO-BUSTOS-121976.html",
+        "BDFA ficha individual: Tobías Nicolás Uriel Contreras, argentino, delantero de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-TOBIAS-NICOLAS-URIEL-CONTRERAS-121978.html",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=8",
+        "https://www.footballmanagerblog.org/database/fm27/competitions/2000446424-argentine-torneo-promocional-amateur?playerPage=1",
+        "BDFA ficha individual: Agostino Villani, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-AGOSTINO-VILLANI-45020.html",
+        "BDFA ficha individual: Lautaro Thomas Sapaya, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-LAUTARO-THOMAS-SAPAYA-134386.html",
+        "BDFA ficha individual: Lukas Gustavo González, argentino, volante de Provincial (Lobos), 2026. https://www.bdfa.com.ar/jugadores-LUKAS-GUSTAVO-GONZALEZ-121427.html"
+      ]
     }
   },
   "completePrimera": true,
@@ -5921,8 +6156,8 @@
     }
   },
   "nationalityCoverage": {
-    "assigned": 3376,
-    "missing": 1435,
+    "assigned": 3742,
+    "missing": 1069,
     "total": 4811,
     "byClub": {
       "sanlorenzo": {
@@ -6279,7 +6514,7 @@
       },
       "alvarado": {
         "total": 22,
-        "assigned": 20
+        "assigned": 21
       },
       "nuevejulio": {
         "total": 25,
@@ -6287,11 +6522,11 @@
       },
       "atenas": {
         "total": 22,
-        "assigned": 19
+        "assigned": 21
       },
       "atsanmartinmza": {
         "total": 22,
-        "assigned": 18
+        "assigned": 21
       },
       "bmitre": {
         "total": 27,
@@ -6299,11 +6534,11 @@
       },
       "bocaunidos": {
         "total": 22,
-        "assigned": 19
+        "assigned": 20
       },
       "cipolletti": {
         "total": 26,
-        "assigned": 18
+        "assigned": 21
       },
       "defbelgranovr": {
         "total": 22,
@@ -6339,7 +6574,7 @@
       },
       "germinal": {
         "total": 22,
-        "assigned": 18
+        "assigned": 20
       },
       "gbrown": {
         "total": 22,
@@ -6539,71 +6774,71 @@
       },
       "defglew": {
         "total": 30,
-        "assigned": 0
+        "assigned": 25
       },
       "metalurgico": {
         "total": 32,
-        "assigned": 0
+        "assigned": 26
       },
       "hacoaj": {
         "total": 30,
-        "assigned": 0
+        "assigned": 15
       },
       "fcezeiza": {
         "total": 30,
-        "assigned": 0
+        "assigned": 27
       },
       "belgranozarate": {
         "total": 30,
-        "assigned": 0
+        "assigned": 25
       },
       "uribelarrea": {
         "total": 32,
-        "assigned": 0
+        "assigned": 27
       },
       "alumni": {
         "total": 30,
-        "assigned": 0
+        "assigned": 26
       },
       "atpilar": {
         "total": 30,
-        "assigned": 0
+        "assigned": 14
       },
       "barrancas": {
         "total": 31,
-        "assigned": 0
+        "assigned": 12
       },
       "bacity": {
         "total": 30,
-        "assigned": 0
+        "assigned": 26
       },
       "controlorientado": {
         "total": 30,
-        "assigned": 0
+        "assigned": 25
       },
       "estrellaberisso": {
         "total": 32,
-        "assigned": 0
+        "assigned": 10
       },
       "everton": {
         "total": 28,
-        "assigned": 0
+        "assigned": 23
       },
       "juventudbernal": {
         "total": 29,
-        "assigned": 0
+        "assigned": 10
       },
       "mandarinas": {
         "total": 30,
-        "assigned": 0
+        "assigned": 26
       },
       "sat": {
         "total": 32,
-        "assigned": 0
+        "assigned": 15
       },
       "udprovincial": {
         "total": 32,
-        "assigned": 0
+        "assigned": 22
       }
     }
   },
@@ -8339,7 +8574,7 @@
     "verifiedRatings": 1629,
     "estimatedRatings": 3182,
     "provisionalRatings": 0,
-    "playersMissingNationality": 1435,
+    "playersMissingNationality": 1069,
     "playersMissingFoot": 2774,
     "playersMissingSpecificRole": 1357,
     "playersWithoutManualAttributes": 3639

@@ -38,6 +38,12 @@ const el=await P('fkl','C','-','equilibrada'),li=await P('fkl','C','-','lirica')
 const od=await P('fkd','L','R','equilibrada'),of=await P('fkd','L','R','ofensiva');ck(of>od,'ofensivo: más gol de directo ('+of.toFixed(3)+' vs '+od.toFixed(3)+')');
 ck((await P('cor','1','2','lirica'))<=ru&&(await P('fkd','L','R','rustica'))<of,'cada filosofía mejora lo suyo, no lo ajeno');
 
+// 2b) dos pedidos seguidos (misma jugada/minuto): el segundo espera su turno, nunca se resuelve solo
+{const r=await mk('cola'+Math.random().toString(36).slice(2,6)),m=r.ms[0],tac=r.pl[m.a].tac,gk=r.pl[m.b].tac.xi[0],A=m.a,Dd=m.b;m.pend=null;m.pq=[];const sc0=[m.ga,m.gb];
+ for(const [i,k] of ['cor','fkd','fkl'].entries())T.spStart(r,m,k,0,tac.xi[9],gk,{id:9e6+i,k:k=='cor'?'cor':'fk',m:20,t:0,dm:22});
+ ck(m.pend&&m.pend.id==9e6&&m.pq.length==2,'overlap: el primero queda activo y los otros dos en cola');
+ E.act({a:'pdec',pid:A,room:r.code||Object.keys(E.rooms).find(c=>E.rooms[c]===r),id:9e6,d:'1'});E.act({a:'pdec',pid:Dd,room:Object.keys(E.rooms).find(c=>E.rooms[c]===r),id:9e6,d:'2'});
+ ck(m.pend&&m.pend.id==9e6+1&&m.pq.length==1&&m.pend.sh==null&&m.pend.dv==null,'al resolver el primero pasa el siguiente, todavía sin decidir (no se ejecutó solo)')}
 // 3) flujo en vivo: una sala con humanos, se deciden pedidos reales, sin duplicados ni bloqueos
 E.CFG.tick=4;const st={pend:{},res:{},dup:0,bad:0},rooms=[];
  for(let k=0;k<10;k++){const room='pp'+k;E.act({a:'create',pid:'a'+k,name:'A',room,uid:'ua'+k,cfg:{div:'ar1',fmt:'liga1',n:4}});['b','c','d'].forEach(x=>E.act({a:'join',pid:x+k,name:x,room,uid:'u'+x+k}));['a','b','c','d'].forEach((x,i)=>{E.listen(room,x+k,()=>{});E.act({a:'pick',pid:x+k,room,team:teams[(k*4+i)%teams.length]})});rooms.push(room)}
@@ -50,5 +56,5 @@ E.CFG.tick=4;const st={pend:{},res:{},dup:0,bad:0},rooms=[];
    E.act({a:'pdec',pid:'espectador',room,id:p.id,d:'L'})}   // quien no juega no decide
   (m.pv||[]).forEach(e=>{if(e.ak!=null&&!got.has(e.id)&&seen.has(e.ak)){got.add(e.id);st.res[e.k]=(st.res[e.k]||0)+1;if(!'gcsowl'.includes(e.x)||!e.cc||e.dc==null)st.bad++}else if(e.ak!=null&&got.has(e.id)&&0)st.dup++})})}await sleep(20)}
  console.log(JSON.stringify(st),'pedidos',seen.size,'resueltos',got.size);
- ck(seen.size>5,'se generaron pedidos de pelota parada en partidos reales');ck(got.size>=seen.size-rooms.length,'cada pedido se resolvió una sola vez (sin bloqueos)');ck(!st.bad,'decisiones inválidas ignoradas / eventos válidos');
+ ck(seen.size>5,'se generaron pedidos de pelota parada en partidos reales');const enCurso=rooms.reduce((n,room)=>n+(E.rooms[room].ms||[]).reduce((k,m)=>k+(m.pend?1:0)+(m.pq||[]).length,0),0);ck(got.size>=seen.size-enCurso-rooms.length,'cada pedido se resolvió una sola vez (sin bloqueos)');ck(!st.bad,'decisiones inválidas ignoradas / eventos válidos');
  console.log(fail?'FALLA ('+fail+')':'Todo OK');process.exit(fail?1:0)})();
