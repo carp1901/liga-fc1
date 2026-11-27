@@ -4,6 +4,7 @@
 process.env.PORT = String(39000 + Math.floor(Math.random() * 900));
 process.env.CHAT_OWNER_ID = '1000';
 process.env.ROOM_CREATE_MAX = '3';
+process.env.TITLE_IP_MAX = '100'; // para probar el tope por cuenta (30) por separado del de IP
 delete process.env.TRUST_PROXY;
 const net = require('net'), path = require('path');
 let fails = 0; const ok = (c, m) => { console.log((c ? 'OK  ' : 'FALLA ') + m); if (!c) fails++; };
@@ -95,6 +96,32 @@ const post = (url, obj, headers) => raw('POST', url, [Buffer.from(JSON.stringify
   abiertos[0].destroy(); await sleep(150);
   ok((await abrir()) === 200, 'al cerrar una, vuelve a haber lugar');
   abiertos.forEach(r => r.destroy());
+
+  console.log('\n== SEG-05: títulos offline con cuenta');
+  const D = require('./public/data'), club = D.DIVS.find(d => d.id == 'ar1').teams[0].id, tit = i => ({ tid: 'titulo' + i + Date.now().toString(36), comp: 'ar1', club, fmt: 'liga1', n: 8, pid: 'tp' + i });
+  ok((await post('/api/titulo-offline', tit(0))).status === 401, 'sin sesión: 401');
+  const tst = []; for (let i = 1; i <= 30; i++) tst.push((await post('/api/titulo-offline', tit(i), { Authorization: 'Bearer owner' })).status);
+  ok(tst.every(s => s === 200), 'con sesión: se registran (30 de 30)');
+  ok((await post('/api/titulo-offline', tit(31), { Authorization: 'Bearer owner' })).status === 429, 'el 31.º de la misma cuenta en una hora: 429');
+  ok((await post('/api/titulo-offline', tit(32), { Authorization: 'Bearer mod' })).status === 200, 'otra cuenta no queda afectada');
+
+  console.log('\n== SRV-03, SRV-05 y SRV-06');
+  const E2 = require('./public/engine'), code = 'fan' + Date.now().toString(36).slice(-4);
+  E2.act({ a: 'create', pid: 'f0', name: 'F', room: code, cfg: { div: 'ar1', fmt: 'liga1', n: 4 } });
+  const RR = E2.rooms[code]; RR.pub = 1; RR.spec = RR.spec || {};
+  for (let i = 0; i < 60; i++) RR.spec['fantasma' + i] = { name: 'x', cb: null, lost: 0, made: Date.now() - 31000 };
+  const w = E2.pubApi({ op: 'watch', pid: 'nuevo', name: 'N', room: code });
+  ok(w.room === code && !RR.spec.fantasma0 && !!RR.spec.nuevo, 'SRV-03: espectadores que no conectaron en 30 s se descartan y hay lugar para uno nuevo');
+  RR.phase = 'end'; RR.touched = Date.now();
+  server.sweep(Date.now() + 9 * 60e3); ok(!!E2.rooms[code], 'SRV-05: una sala terminada sigue a los 9 min');
+  server.sweep(Date.now() + 11 * 60e3); ok(!E2.rooms[code], 'SRV-05: a los 10 min sin nadie conectado se libera');
+  const c2 = 'err' + Date.now().toString(36).slice(-4);
+  E2.act({ a: 'create', pid: 'g0', name: 'G', room: c2, cfg: { div: 'ar1', fmt: 'liga1', n: 4 } });
+  const RE = E2.rooms[c2], err0 = console.error; let logs = 0; console.error = () => { logs++; };
+  RE.phase = 'pre'; RE.order = null; /* en pretemporada el reloj recorre order: falla en cada tick */ await sleep(3 * (+E2.CFG.tick || 1000) + 400); console.error = err0;
+  ok(RE.broken && !RE.timer && logs >= 3, 'SRV-06: una sala cuyo reloj falla 3 veces se detiene sola, con el error registrado (' + logs + ' registros)');
+  ok(Object.keys(E2.rooms).every(k => k === c2 || !E2.rooms[k].broken), 'las demás salas siguen sin error');
+  delete E2.rooms[c2];
 
   console.log('\n== store.js real (pool simulado): jerarquía de sanciones por por_id');
   delete require.cache[storePath];

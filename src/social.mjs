@@ -1,5 +1,6 @@
 import { dbQuery } from "./db.mjs";
-import { eligibleCareerSql } from "./careers.mjs";
+import { eligibleCareerSql, rankingCoaches } from "./careers.mjs";
+import Ranking from "../shared/ranking.js";
 
 const USER_RE = /^[A-Za-z0-9_.-]{3,16}$/;
 const AMG_MAX = 100;
@@ -14,22 +15,6 @@ async function friendCount(env, id) {
     [id]
   );
   return Number(result.rows[0]?.n || 0);
-}
-function pointsForCareer(c) {
-  const n = Math.max(1, Math.floor(Number(c.participantes) || 0));
-  const pos = Math.floor(Number(c.posicion) || 0);
-  const format = String(c.formato || "");
-  const result = String(c.resultado || "").toLowerCase();
-  if (format === "liga1" || format === "liga2") return pos >= 1 && pos <= n ? n - pos + 1 : 0;
-  let stage = 7;
-  if (result.includes("campeón")) stage = 0;
-  else if (result.includes("finalista")) stage = 1;
-  else if (result.includes("semifinal")) stage = 2;
-  else if (result.includes("cuartos")) stage = 3;
-  else if (result.includes("octavos")) stage = 4;
-  else if (result.includes("dieciseisavos")) stage = 5;
-  else if (result.includes("32avos")) stage = 6;
-  return Math.max(1, Math.ceil(n / Math.pow(2, stage)));
 }
 
 export async function profile(env, uid) {
@@ -91,56 +76,26 @@ export async function publicProfile(env, username) {
   const user = userResult.rows[0];
   if (!user) return { error: "No existe ese técnico" };
 
-  const [rankingResult, historyResult] = await Promise.all([
+  // SEG-04: dos rankings separados (online verificado y offline informado); el historial marca de cuál es cada carrera.
+  const [online, offline, historyResult] = await Promise.all([
+    rankingCoaches(env, "historico", "online"),
+    rankingCoaches(env, "historico", "offline"),
     dbQuery(env,
-      `SELECT u.usuario,p.club_favorito,c.torneo_id,c.formato,c.participantes,c.posicion,c.resultado,c.campeon,c.finalizado
-       FROM carreras c JOIN usuarios u ON u.id=c.usuario_id
-       LEFT JOIN perfiles p ON p.usuario_id=u.id
-       WHERE ${eligibleCareerSql("c")} ORDER BY c.finalizado DESC`, []
-    ),
-    dbQuery(env,
-      `SELECT club,club_nombre,competicion_nombre,formato,participantes,posicion,resultado,campeon,finalizado
-       FROM carreras c WHERE c.usuario_id=$1 AND ${eligibleCareerSql("c")}
+      `SELECT club,club_nombre,competicion_nombre,formato,participantes,posicion,resultado,campeon,finalizado,modalidad
+       FROM carreras c WHERE c.usuario_id=$1 AND ${eligibleCareerSql("c", "todas")}
        ORDER BY finalizado DESC LIMIT 20`,
       [user.id]
     )
   ]);
-  const byUser = new Map();
-  for (const career of rankingResult.rows) {
-    const key = career.usuario.toLowerCase();
-    const entry = byUser.get(key) || {
-      usuario: career.usuario, clubFavorito: career.club_favorito, puntos: 0,
-      torneos: 0, campeonatos: 0, podios: 0, ultimo: null
-    };
-    entry.puntos += pointsForCareer(career);
-    entry.torneos++;
-    if (career.campeon) entry.campeonatos++;
-    if ((career.formato === "liga1" || career.formato === "liga2")
-      ? Number(career.posicion) <= 3
-      : /campeón|finalista|semifinal/i.test(career.resultado || "")) entry.podios++;
-    if (!entry.ultimo || new Date(career.finalizado) > new Date(entry.ultimo)) entry.ultimo = career.finalizado;
-    if (!entry.clubFavorito && career.club_favorito) entry.clubFavorito = career.club_favorito;
-    byUser.set(key, entry);
-  }
-  const rows = [...byUser.values()].filter(entry => entry.puntos > 0)
-    .sort((a, b) => b.puntos - a.puntos || b.campeonatos - a.campeonatos
-      || b.podios - a.podios || b.torneos - a.torneos
-      || a.usuario.localeCompare(b.usuario, "es"));
-  let position = 0;
-  rows.forEach((entry, index) => {
-    if (index === 0 || entry.puntos !== rows[index - 1].puntos) position = index + 1;
-    entry.pos = position;
-  });
-  const summary = rows.find(entry => entry.usuario.toLowerCase() === user.usuario.toLowerCase())
-    || { puntos: 0, torneos: 0, campeonatos: 0, podios: 0, pos: null };
   return {
     enabled: true,
     usuario: user.usuario,
     creado: user.creado,
     clubFavorito: user.club_favorito,
     descripcion: user.descripcion || "",
-    resumen: summary,
-    historial: historyResult.rows
+    resumen: Ranking.resumenDe(online.rows, user.usuario),
+    resumenOffline: Ranking.resumenDe(offline.rows, user.usuario),
+    historial: historyResult.rows.map(row => ({ ...row, tipo: Ranking.tipoDeCarrera(row) }))
   };
 }
 

@@ -168,7 +168,7 @@ async function routeRequest(request, env) {
         return json({ error: "Demasiados intentos; probá más tarde" }, 429);
       }
       if (authPath.endsWith("/login") &&
-          (!allowAuthAttempt("login-ip:" + ip, 150) || !allowAuthAttempt("login-user:" + usernameKey, 20))) {
+          (!allowAuthAttempt("login-ip:" + ip, 150) || !allowAuthAttempt("login-user:" + ip + "|" + usernameKey, 20) /* SEG-07: IP real + usuario: desde otra IP no se bloquea una cuenta ajena */)) {
         return json({ error: "Demasiados intentos; probá más tarde" }, 429);
       }
       try {
@@ -305,8 +305,12 @@ async function routeRequest(request, env) {
       const body = await readJson(request.clone());
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
       const ip = request.headers.get("cf-connecting-ip") || "unknown";
-      const pid = String(body.pid || "").slice(0, 40);
-      if (!allowAuthAttempt("offline-title-ip:" + ip, 30) || !allowAuthAttempt("offline-title-pid:" + pid, 30)) {
+      // SEG-05: los títulos offline exigen cuenta (tope por cuenta y por IP real); siguen yendo al ranking offline, aparte del online.
+      let titleUser = null;
+      try { titleUser = await Auth.userByToken(env, Auth.tokenFromRequest(request, body)); }
+      catch (error) { console.error("Offline title auth failed:", error?.message || error); return json({ error: "No se pudo validar la sesión" }, 503); }
+      if (!titleUser) return json({ error: "Iniciá sesión para que tus títulos offline cuenten" }, 401);
+      if (!allowAuthAttempt("offline-title-ip:" + ip, 30) || !allowAuthAttempt("offline-title-user:" + titleUser.id, 30)) {
         return json({ error: "Demasiados títulos informados; probá más tarde" }, 429);
       }
       const record = Careers.offlineTitleRecord(body, Data);
@@ -348,7 +352,8 @@ async function routeRequest(request, env) {
     }
     if (request.method === "GET" && url.pathname === "/api/ranking-tecnicos") {
       const period = url.searchParams.get("periodo") === "temporada" ? "temporada" : "historico";
-      try { return json(await Careers.rankingCoaches(env, period)); }
+      const tipo = url.searchParams.get("tipo") === "offline" ? "offline" : "online";
+      try { return json(await Careers.rankingCoaches(env, period, tipo)); }
       catch (error) { console.error("Coach ranking failed:", error?.message || error); return json({ error: "Ranking no disponible" }, 503); }
     }
     if (request.method === "GET" && url.pathname === "/api/ranking-hinchas") {

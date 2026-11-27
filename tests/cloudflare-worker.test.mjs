@@ -615,6 +615,7 @@ test("public technician profile is available without authentication", async () =
   assert.equal(profile.usuario, "PerfilPublico");
   assert.equal(profile.clubFavorito, "river");
   assert.equal(profile.resumen.puntos, 0);
+  assert.equal(profile.resumenOffline.puntos, 0, "SEG-04: el perfil trae el resumen offline aparte");
   assert.deepEqual(profile.historial, []);
 });
 
@@ -903,9 +904,14 @@ test("technician ranking keeps the established points and eight-player eligibili
   const env = { __DB_QUERY__: async (sql) => { query = sql; return { rows: [], rowCount: 0 }; } };
   const result = await rankingCoaches(env, "historico");
   assert.equal(result.enabled, true);
+  assert.equal(result.tipo, "online", "por defecto, el ranking online (verificado)");
+  assert.match(query, /c\.competitivo=true AND c\.modalidad IN \('clasico','barrial'\) AND c\.origen<>'offline'/);
+  assert.doesNotMatch(query, /modalidad='offline'/, "el ranking online no incluye carreras offline");
+  const offline = await rankingCoaches({ __DB_QUERY__: async (sql) => { query = sql; return { rows: [], rowCount: 0 }; } }, "historico", "offline");
+  assert.equal(offline.tipo, "offline");
   assert.equal(Data.MIN_EQUIPOS, 8);
-  assert.match(query, new RegExp("c\\.participantes >= " + Data.MIN_EQUIPOS + "\\)"));
-  assert.doesNotMatch(query, /CASE WHEN|ELSE 10|>= ?10\b/);
+  assert.match(query, new RegExp("c\\.modalidad='offline' AND c\\.participantes >= " + Data.MIN_EQUIPOS + "\\)"));
+  assert.doesNotMatch(query, /competitivo=true|CASE WHEN|ELSE 10|>= ?10\b/, "el ranking offline no incluye carreras online");
 });
 
 test("fan ranking groups accounts by their one-time favorite club", async () => {
@@ -1704,4 +1710,60 @@ test("SRV-04: ChatHub limita las conexiones SSE simultáneas (503 al pasar el to
   assert.equal(again.status, 200, "al liberarse un lugar vuelve a aceptar");
   for (const r of readers.slice(1)) await r.cancel();
   await again.body.cancel();
+});
+
+// ---- E3: rankings separados, títulos offline con cuenta y login por IP + usuario ----
+
+test("SEG-04: /api/ranking-tecnicos separa online (verificado) de offline (informado)", async () => {
+  const careers = [
+    { usuario: "Online1", club_favorito: null, modalidad: "clasico", origen: "publica", competitivo: true, participantes: 8, formato: "liga1", posicion: 1, resultado: null, campeon: true, finalizado: "2026-03-01T00:00:00Z" },
+    { usuario: "Offline1", club_favorito: null, modalidad: "offline", origen: "offline", competitivo: false, participantes: 20, formato: "liga1", posicion: 1, resultado: null, campeon: true, finalizado: "2026-03-02T00:00:00Z" }
+  ];
+  const env = { __DB_QUERY__: async sql => {
+    const online = /competitivo=true/.test(sql), offline = /modalidad='offline' AND c\.participantes >= 8/.test(sql);
+    const rows = careers.filter(c => (online && c.modalidad !== "offline" && c.competitivo) || (offline && c.modalidad === "offline" && c.participantes >= 8));
+    return { rows, rowCount: rows.length };
+  } };
+  const get = async tipo => (await worker.fetch(new Request("https://game.test/api/ranking-tecnicos?periodo=historico" + (tipo ? "&tipo=" + tipo : "")), env)).json();
+  const on = await get(), off = await get("offline");
+  assert.equal(on.tipo, "online");
+  assert.deepEqual(on.rows.map(r => r.usuario), ["Online1"]);
+  assert.equal(off.tipo, "offline");
+  assert.deepEqual(off.rows.map(r => r.usuario), ["Offline1"]);
+  assert.equal(off.rows[0].puntos, 20);
+});
+
+test("SEG-05: los títulos offline exigen sesión y tienen tope por cuenta", async () => {
+  const token = "offline-title-token";
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(token));
+  const tokenHash = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, "0")).join("");
+  let inserts = 0;
+  const env = { __DB_QUERY__: async (sql, params) => {
+    if (sql.startsWith("SELECT u.id, u.usuario FROM sesiones")) return { rows: params[0] === tokenHash ? [{ id: 77, usuario: "TitulosTest" }] : [], rowCount: 1 };
+    if (/INSERT INTO titulos/.test(sql)) { inserts++; return { rows: [{ id: inserts }], rowCount: 1 }; }
+    return { rows: [], rowCount: 0 };
+  } };
+  const club = Data.DIVS.find(div => div.id === "ar1").teams[0].id;
+  const send = (i, tok, ip) => worker.fetch(new Request("https://game.test/api/titulo-offline", {
+    method: "POST", headers: { "content-type": "application/json", "cf-connecting-ip": ip || "203.0.113." + (i % 200) },
+    body: JSON.stringify({ tok, tid: "tituloof" + i + "x", comp: "ar1", club, fmt: "liga1", n: 8, pid: "pid" + i })
+  }), env);
+  const anon = await send(0, null);
+  assert.equal(anon.status, 401);
+  assert.match((await anon.json()).error, /Iniciá sesión/);
+  assert.equal(inserts, 0, "sin sesión no se registra nada");
+  for (let i = 1; i <= 30; i++) assert.notEqual((await send(i, token)).status, 429, "título " + i);
+  assert.equal(inserts, 30);
+  assert.equal((await send(31, token)).status, 429, "el 31.º de la misma cuenta en una hora se rechaza aunque cambie la IP");
+});
+
+test("SEG-07: el tope de login por usuario cuenta IP + usuario (no bloquea la cuenta desde otra IP)", async () => {
+  const { env } = mockChatDatabase();
+  const login = ip => worker.fetch(new Request("https://game.test/api/auth/login", {
+    method: "POST", headers: { "content-type": "application/json", "cf-connecting-ip": ip },
+    body: JSON.stringify({ usuario: "VictimaLogin", clave: "incorrecta-123" })
+  }), env);
+  for (let i = 0; i < 20; i++) assert.notEqual((await login("198.51.100.50")).status, 429, "intento " + (i + 1));
+  assert.equal((await login("198.51.100.50")).status, 429, "desde la IP atacante, el intento 21 se frena");
+  assert.notEqual((await login("198.51.100.51")).status, 429, "desde otra IP el dueño puede seguir intentando");
 });

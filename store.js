@@ -128,7 +128,7 @@ function sslFor(url){
 // opts.pool permite inyectar un pool de prueba
 function init(opts){
   opts=opts||{};
-  if(opts.pool){pool=opts.pool;configured=true}
+  if(opts.pool){pool=opts.pool;configured=true;if(typeof RK_CACHE!=='undefined')RK_CACHE.clear()}
   else{
     const url=process.env.DATABASE_URL;
     if(!url){console.log('palmarés: sin DATABASE_URL → los títulos NO se guardan');return Promise.resolve(false)}
@@ -220,7 +220,7 @@ const status=()=>!configured?'off':lastErr?'error':'ok';
 // ===================== CUENTAS (usuario + contraseña) E HISTORIAL DE CARRERAS =====================
 // Las cuentas son opcionales: quien juega de invitado no pasa por nada de esto. La contraseña se guarda con scrypt + sal (nunca en claro) y la sesión es un
 // token aleatorio del que solo se guarda el hash. Todo requiere la base de datos (DATABASE_URL); sin ella las cuentas no están disponibles.
-const crypto=require('crypto'),{MIN_EQUIPOS}=require('./public/data'),ChatOwner=require('./shared/chat-owner');   // mínimo de equipos para que una carrera offline sume al ranking (compartido con el motor)
+const crypto=require('crypto'),{MIN_EQUIPOS}=require('./public/data'),ChatOwner=require('./shared/chat-owner'),Ranking=require('./shared/ranking');   // mínimo de equipos para que una carrera offline sume al ranking (compartido con el motor)
 const USER_RE=/^[A-Za-z0-9_.-]{3,16}$/,RESERVED=/^(admin|administrador|invitado|guest|cpu|anonimo|sistema|ligafc)$/i,SESS_DAYS=90;
 const sha=x=>crypto.createHash('sha256').update(String(x)).digest('hex');
 const scryptP=(pw,salt)=>new Promise((ok,no)=>crypto.scrypt(pw,salt,64,{N:16384,r:8,p:1},(e,k)=>e?no(e):ok(k)));
@@ -363,20 +363,15 @@ async function chatModeracion(actor,target,accion,minutos,razon){
  return{error:'Acción de moderación inválida'};
 }
 // Ranking de técnicos: solo carreras nuevas marcadas por el motor del servidor como competitivas. Sin atribución retroactiva.
-function puntosTecnico(c){
- const n=Math.max(1,Math.floor(+c.participantes||0)),pos=Math.floor(+c.posicion||0),fmt=String(c.formato||''),res=String(c.resultado||'').toLowerCase();
- if(fmt=='liga1'||fmt=='liga2'){return pos>=1&&pos<=n?n-pos+1:0}
- let etapa=7;if(res.includes('campeón'))etapa=0;else if(res.includes('finalista'))etapa=1;else if(res.includes('semifinal'))etapa=2;else if(res.includes('cuartos'))etapa=3;else if(res.includes('octavos'))etapa=4;else if(res.includes('dieciseisavos'))etapa=5;else if(res.includes('32avos'))etapa=6;
- return Math.max(1,Math.ceil(n/Math.pow(2,etapa)));
-}
-async function rankingTecnicos(periodo){
+// Ranking de técnicos: dos tablas separadas (SEG-04). Reglas y puntos en shared/ranking.js (las mismas que el Worker).
+const puntosTecnico=Ranking.puntosTecnico,RK_CACHE=Ranking.cacheCorto();
+async function rankingTecnicos(periodo,tipo){
  if(!configured)return{enabled:false,rows:[]};await ensure();
- const year=new Date().getFullYear(),season=periodo=='temporada';
- const r=await pool.query(`SELECT u.usuario,p.club_favorito,c.torneo_id,c.formato,c.participantes,c.posicion,c.resultado,c.campeon,c.finalizado FROM carreras c JOIN usuarios u ON u.id=c.usuario_id LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE ((c.competitivo=true AND c.modalidad IN ('clasico','barrial') AND c.origen<>'offline') OR (c.modalidad='offline' AND c.participantes >= $3)) AND ($1::boolean=false OR EXTRACT(YEAR FROM c.finalizado)=$2) ORDER BY c.finalizado DESC`,[season,year,MIN_EQUIPOS]);
- const by=new Map();for(const c of r.rows){const key=c.usuario.toLowerCase(),x=by.get(key)||{usuario:c.usuario,clubFavorito:c.club_favorito,puntos:0,torneos:0,campeonatos:0,podios:0,ultimo:null};const pts=puntosTecnico(c);x.puntos+=pts;x.torneos++;if(c.campeon)x.campeonatos++;if((c.formato=='liga1'||c.formato=='liga2')?+c.posicion<=3:/campeón|finalista|semifinal/i.test(c.resultado||''))x.podios++;if(!x.ultimo||new Date(c.finalizado)>new Date(x.ultimo))x.ultimo=c.finalizado;if(!x.clubFavorito&&c.club_favorito)x.clubFavorito=c.club_favorito;by.set(key,x)}
- const rows=[...by.values()].filter(x=>x.puntos>0).sort((a,b)=>b.puntos-a.puntos||b.campeonatos-a.campeonatos||b.podios-a.podios||b.torneos-a.torneos||a.usuario.localeCompare(b.usuario,'es'));
- let pos=0;rows.forEach((x,i)=>{if(i==0||x.puntos!=rows[i-1].puntos)pos=i+1;x.pos=pos});
- return{enabled:true,periodo:season?'temporada':'historico',temporada:year,rows};
+ const year=new Date().getFullYear(),season=periodo=='temporada',t=Ranking.tipoRanking(tipo);
+ return RK_CACHE.get('rk|'+t+'|'+(season?year:'h'),async()=>{
+  const r=await pool.query(`SELECT u.usuario,p.club_favorito,c.torneo_id,c.formato,c.participantes,c.posicion,c.resultado,c.campeon,c.finalizado FROM carreras c JOIN usuarios u ON u.id=c.usuario_id LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE ${Ranking.eligibleCareerSql('c',t,MIN_EQUIPOS)} AND ($1::boolean=false OR EXTRACT(YEAR FROM c.finalizado)=$2) ORDER BY c.finalizado DESC`,[season,year]);
+  return{enabled:true,tipo:t,periodo:season?'temporada':'historico',temporada:year,rows:Ranking.agruparTecnicos(r.rows)};
+ });
 }
 async function rankingHinchas(){
  if(!configured)return{enabled:false,rows:[]};await ensure();
@@ -391,9 +386,10 @@ async function perfilPublico(usuario){
  if(!configured)return{enabled:false};usuario=String(usuario||'').trim();if(!USER_RE.test(usuario))return{error:'Usuario inválido'};await ensure();
  const u=await pool.query(`SELECT u.usuario,u.creado,p.club_favorito,p.descripcion FROM usuarios u LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE u.usuario_lc=$1`,[usuario.toLowerCase()]);
  if(!u.rowCount)return{error:'No existe ese técnico'};
- const [rk,h]=await Promise.all([rankingTecnicos('historico'),pool.query(`SELECT club,club_nombre,competicion_nombre,formato,participantes,posicion,resultado,campeon,finalizado FROM carreras WHERE usuario_id=(SELECT id FROM usuarios WHERE usuario_lc=$1) AND ((competitivo=true AND modalidad IN ('clasico','barrial') AND origen<>'offline') OR (modalidad='offline' AND participantes >= $2)) ORDER BY finalizado DESC LIMIT 20`,[usuario.toLowerCase(),MIN_EQUIPOS])]);
- const resumen=rk.rows.find(x=>x.usuario.toLowerCase()==u.rows[0].usuario.toLowerCase())||{puntos:0,torneos:0,campeonatos:0,podios:0,pos:null};
- return{enabled:true,usuario:u.rows[0].usuario,creado:u.rows[0].creado,clubFavorito:u.rows[0].club_favorito,descripcion:u.rows[0].descripcion,resumen,historial:h.rows};
+ const [on,off,h]=await Promise.all([rankingTecnicos('historico','online'),rankingTecnicos('historico','offline'),pool.query(`SELECT club,club_nombre,competicion_nombre,formato,participantes,posicion,resultado,campeon,finalizado,modalidad FROM carreras c WHERE usuario_id=(SELECT id FROM usuarios WHERE usuario_lc=$1) AND ${Ranking.eligibleCareerSql('c','todas',MIN_EQUIPOS)} ORDER BY finalizado DESC LIMIT 20`,[usuario.toLowerCase()])]);
+ const nombre=u.rows[0].usuario;
+ // resumen = ranking online (verificado); resumenOffline = ranking offline (informado). Cada carrera del historial dice de cuál es.
+ return{enabled:true,usuario:nombre,creado:u.rows[0].creado,clubFavorito:u.rows[0].club_favorito,descripcion:u.rows[0].descripcion,resumen:Ranking.resumenDe(on.rows,nombre),resumenOffline:Ranking.resumenDe(off.rows,nombre),historial:h.rows.map(x=>({...x,tipo:Ranking.tipoDeCarrera(x)}))};
 }
 
 // ===================== AMIGOS =====================

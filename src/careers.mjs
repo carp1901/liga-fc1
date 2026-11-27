@@ -1,13 +1,17 @@
 import { dbQuery } from "./db.mjs";
 import Data from "../public/data.js";
+import Ranking from "../shared/ranking.js";
 
 // Mínimo de equipos para que una carrera offline sume al ranking: el mismo de P2 (public/data.js), sin copias propias.
 export const MIN_EQUIPOS = Math.floor(Number(Data.MIN_EQUIPOS));
 if (!(MIN_EQUIPOS > 0)) throw new Error("MIN_EQUIPOS inválido en public/data.js");
-// Carreras que suman al ranking de técnicos: online competitivas (el motor decide «competitivo» con MIN_HUMANOS y MIN_EQUIPOS) u offline con al menos MIN_EQUIPOS equipos.
-export function eligibleCareerSql(a = "c") {
-  return "((" + a + ".competitivo=true AND " + a + ".modalidad IN ('clasico','barrial') AND " + a + ".origen<>'offline') OR (" + a + ".modalidad='offline' AND " + a + ".participantes >= " + MIN_EQUIPOS + "))";
+// Reglas del ranking de técnicos (SEG-04: online verificado y offline informado, por separado): shared/ranking.js, las mismas que Node.
+// eligibleCareerSql(alias, tipo): tipo "online", "offline" o "todas" (historial del perfil).
+export function eligibleCareerSql(a = "c", tipo = "todas") {
+  return Ranking.eligibleCareerSql(a, tipo, MIN_EQUIPOS);
 }
+const RK_CACHES = new WeakMap(); // REN-06: caché corto por entorno
+const rkCache = env => { let c = RK_CACHES.get(env); if (!c) { c = Ranking.cacheCorto(); RK_CACHES.set(env, c); } return c; };
 
 export async function addCareers(env, records) {
   if (!Array.isArray(records)) return;
@@ -60,11 +64,13 @@ export async function titleInfo(env,tid){
  return {enabled:true,tid,club:r.club,nombre:r.club_nombre,mod:r.modalidad,comp:r.competicion,compNombre:r.competicion_nombre||r.competicion,fmt:r.formato,fecha:new Date(r.finalizado).toISOString(),participantes:r.participantes,numero:same.findIndex(x=>x.torneo_id===tid)+1,de:same.length};
 }
 export async function listTitles(env,limit=100){const n=Math.max(1,Math.min(500,Math.floor(Number(limit)||100))),[a,b]=await Promise.all([dbQuery(env,"SELECT id,torneo_id,club,club_nombre,dt,modalidad,competicion,competicion_nombre,formato,participantes,verificacion,estado,finalizado FROM titulos WHERE estado='valido' ORDER BY finalizado DESC,id DESC LIMIT $1",[n]),dbQuery(env,"SELECT count(*)::int AS n FROM titulos WHERE estado='valido'",[])]);return {enabled:true,total:Number(b.rows[0]?.n||0),titulos:a.rows};}
-export function pointsForCareer(c){const n=Math.max(1,Math.floor(Number(c.participantes)||0)),pos=Math.floor(Number(c.posicion)||0),fmt=String(c.formato||""),res=String(c.resultado||"").toLowerCase();if(fmt==="liga1"||fmt==="liga2")return pos>=1&&pos<=n?n-pos+1:0;let stage=7;if(res.includes("campeón"))stage=0;else if(res.includes("finalista"))stage=1;else if(res.includes("semifinal"))stage=2;else if(res.includes("cuartos"))stage=3;else if(res.includes("octavos"))stage=4;else if(res.includes("dieciseisavos"))stage=5;else if(res.includes("32avos"))stage=6;return Math.max(1,Math.ceil(n/Math.pow(2,stage)));}
+export const pointsForCareer = Ranking.puntosTecnico;
 const eligible=eligibleCareerSql;
-export async function rankingCoaches(env,period="historico"){
- const year=new Date().getFullYear(),season=period==="temporada",r=await dbQuery(env,"SELECT u.usuario,p.club_favorito,c.torneo_id,c.formato,c.participantes,c.posicion,c.resultado,c.campeon,c.finalizado FROM carreras c JOIN usuarios u ON u.id=c.usuario_id LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE "+eligible("c")+" AND ($1::boolean=false OR EXTRACT(YEAR FROM c.finalizado)=$2) ORDER BY c.finalizado DESC",[season,year]);
- const by=new Map();for(const c of r.rows){const k=c.usuario.toLowerCase(),x=by.get(k)||{usuario:c.usuario,clubFavorito:c.club_favorito,puntos:0,torneos:0,campeonatos:0,podios:0,ultimo:null};x.puntos+=pointsForCareer(c);x.torneos++;if(c.campeon)x.campeonatos++;if((c.formato==="liga1"||c.formato==="liga2")?Number(c.posicion)<=3:/campeón|finalista|semifinal/i.test(c.resultado||""))x.podios++;if(!x.ultimo||new Date(c.finalizado)>new Date(x.ultimo))x.ultimo=c.finalizado;if(!x.clubFavorito&&c.club_favorito)x.clubFavorito=c.club_favorito;by.set(k,x);}
- const rows=[...by.values()].filter(x=>x.puntos>0).sort((a,b)=>b.puntos-a.puntos||b.campeonatos-a.campeonatos||b.podios-a.podios||b.torneos-a.torneos||a.usuario.localeCompare(b.usuario,"es"));let pos=0;rows.forEach((x,i)=>{if(i===0||x.puntos!==rows[i-1].puntos)pos=i+1;x.pos=pos;});return {enabled:true,periodo:season?"temporada":"historico",temporada:year,rows};
+export async function rankingCoaches(env,period="historico",tipo="online"){
+ const year=new Date().getFullYear(),season=period==="temporada",t=Ranking.tipoRanking(tipo);
+ return rkCache(env).get("rk|"+t+"|"+(season?year:"h"),async()=>{
+  const r=await dbQuery(env,"SELECT u.usuario,p.club_favorito,c.torneo_id,c.formato,c.participantes,c.posicion,c.resultado,c.campeon,c.finalizado FROM carreras c JOIN usuarios u ON u.id=c.usuario_id LEFT JOIN perfiles p ON p.usuario_id=u.id WHERE "+eligibleCareerSql("c",t)+" AND ($1::boolean=false OR EXTRACT(YEAR FROM c.finalizado)=$2) ORDER BY c.finalizado DESC",[season,year]);
+  return {enabled:true,tipo:t,periodo:season?"temporada":"historico",temporada:year,rows:Ranking.agruparTecnicos(r.rows)};
+ });
 }
 export async function rankingFans(env){const r=await dbQuery(env,"SELECT p.club_favorito AS club,COUNT(*)::int AS puntos FROM perfiles p JOIN usuarios u ON u.id=p.usuario_id WHERE p.club_favorito IS NOT NULL AND p.club_favorito<>'' GROUP BY p.club_favorito ORDER BY puntos DESC,p.club_favorito ASC",[]),rows=r.rows.map((x,i)=>({...x,pos:i+1,hinchas:Number(x.puntos)}));return {enabled:true,totalCuentas:rows.reduce((n,x)=>n+x.hinchas,0),rows};}

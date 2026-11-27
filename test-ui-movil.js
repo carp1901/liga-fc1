@@ -59,6 +59,23 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK  ' : 'FALLA ') + m); 
     const slot = await p2.evaluate(() => { const c = careerGet()[1]; return c && { txt: c.txt, club: c.club, tiene: !!c.state }; });
     ok(!!(slot && slot.tiene), 'al ocultar la página se guardó la carrera en la ranura 2 (' + JSON.stringify(slot) + ')');
 
+    console.log('\n== SEG-04: selector de ranking de técnicos');
+    const p3 = await ctx.newPage(); p3.on('pageerror', e => errs.push(String(e)));
+    const pedidos = [];
+    await p3.route('**/api/ranking-tecnicos*', route => { const u = new URL(route.request().url()), tipo = u.searchParams.get('tipo'); pedidos.push(tipo);
+      route.fulfill({ contentType: 'application/json', body: JSON.stringify({ enabled: true, tipo, periodo: 'historico', temporada: 2026, rows: [{ usuario: tipo == 'offline' ? 'SoloOffline' : 'SoloOnline', puntos: 9, torneos: 1, campeonatos: 1, podios: 1, pos: 1 }] }) }); });
+    await p3.goto(URL0); await p3.evaluate(() => { goM('m10'); rankingMode('tecnicos', false); });
+    await p3.waitForFunction(() => /SoloOnline/.test(document.querySelector('#trlist').textContent));
+    ok(pedidos[0] === 'online' && /verificado/.test(await p3.locator('#trinfo').textContent()), 'por defecto muestra el ranking online (verificado)');
+    await p3.locator('#trtipo [data-trt="offline"]').click();
+    await p3.waitForFunction(() => /SoloOffline/.test(document.querySelector('#trlist').textContent));
+    ok(pedidos.includes('offline') && /informado/.test(await p3.locator('#trinfo').textContent()) && await p3.locator('#trtipo [data-trt="offline"]').evaluate(b => b.classList.contains('on')), 'el selector carga el ranking offline (informado)');
+
+    console.log('\n== SEG-05: títulos offline sin sesión quedan en cola');
+    const cola = await p3.evaluate(async () => { AUTH = null; let err = null; try { await ENG.CFG.onTitle({ tid: 'colaprueba01', club: 'boca', mod: 'offline', comp: 'ar1', fmt: 'liga1', n: 8 }); } catch (e) { err = e; } return { sesion: !!(err && err.sesion), enCola: ptGet().some(x => x.tid === 'colaprueba01') }; });
+    ok(cola.sesion && cola.enCola, 'sin sesión no se envía: queda guardado para mandarlo al iniciar sesión');
+    await p3.close();
+
     console.log('\n== SRV-04: se cae la conexión con la sala');
     await p2.close(); await p.bringToFront(); // una pestaña en segundo plano tiene los temporizadores frenados
     await p.evaluate(() => { const f = { readyState: 2, close() {} }; window.ES = f; evWatch(f); f.onerror(); });
