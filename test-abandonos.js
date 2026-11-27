@@ -42,4 +42,5 @@ const abn=[];E.CFG.onAbandon=(u,r)=>abn.push(u);
  ok(/bloqueado/.test(E.pubApi({op:'play',pid:'zz',uid:'ub',name:'B',room:'x'}).error||''),'ni unirse a una');
  ok(/bloqueado/.test(E.rJoin({pid:'zz',uid:'ub',name:'B',mode:'join'}).error||''),'ni a partida aleatoria');
  const pc=E.pubApi({op:'create',pid:'zw',uid:'uw',name:'W',div:'ar1',fmt:'liga1',n:10});ok(pc.room&&pc.aviso=='Aviso de prueba','con 2 abandonos recibe el aviso al entrar');
+ const p8=E.pubApi({op:'create',pid:'zy',uid:'uy',name:'Y',div:'ar1',fmt:'liga1',n:D.MIN_HUMANOS});ok(p8.room&&!p8.error,'sala pública con el mínimo de '+D.MIN_HUMANOS+' jugadores: se crea');
  Object.values(E.rooms).forEach(x=>clearInterval(x.timer));console.log(fails?'\nFALLAS: '+fails:'\nTodo OK');process.exit(fails?1:0)})();

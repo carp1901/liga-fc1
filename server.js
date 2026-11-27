@@ -1,5 +1,5 @@
 // Servidor sin dependencias: HTTP + Server-Sent Events. Uso: node server.js (PORT opcional)
-const http=require('http'),fs=require('fs'),path=require('path'),E=require('./public/engine'),{DIVS}=require('./public/data'),store=require('./store');
+const http=require('http'),fs=require('fs'),path=require('path'),E=require('./public/engine'),{DIVS,MIN_EQUIPOS}=require('./public/data'),store=require('./store');
 const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),rooms=E.rooms;E.CFG.tick=+process.env.TICK_MS||1000;
 store.init();E.CFG.onTitle=rec=>store.register(rec);
 // Abandonos reiterados (solo con cuenta): 3 abandonos en 24 h = bloqueo de 30 min para salas públicas y partida aleatoria; al 2.º se avisa. En memoria; si hay base de datos también se registran.
@@ -19,7 +19,7 @@ function offlineRec(b){
  const clubs=cup?cup.clubs:dv?dv.teams.map(t=>t.id):all?DIVS.flatMap(d=>d.teams.map(t=>t.id)):pers||arg?Object.keys(TM):null;
  if(!clubs)return'Competición inválida';if(!clubs.includes(club)||!TM[club])return'El club no pertenece a esa competición';
  if(!(n>=4&&n<=clubs.length))return'Cantidad de equipos inválida';if(pers&&!((real||custom?n<=40:n<=20&&n%2==0)&&fmt!='copa'))return'Cantidad de equipos inválida';if(arg&&!(fmt=='copa'&&n==64))return'Cantidad de equipos inválida';
- return{tid,club,clubNombre:TM[club].name,dt:String(b.dt||'').replace(/[<>&"]/g,'').slice(0,16)||null,mod:'offline',comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:arg?'Copa Argentina':real?'Clásico realista':custom?(String(b.compNombre||'').trim()&&String(b.compNombre).trim()!='custom'?String(b.compNombre).replace(/[<>&"]/g,'').slice(0,60):'Carrera personalizada'):pers?'Clásico personalizado':'Todas las divisiones',fmt,n,competitivo:n>=(fmt=='copa'?8:10),at:Date.now(),ver:'offline-informado'};
+ return{tid,club,clubNombre:TM[club].name,dt:String(b.dt||'').replace(/[<>&"]/g,'').slice(0,16)||null,mod:'offline',comp:cup?cup.id:comp,compNombre:cup?cup.title:dv?dv.name:arg?'Copa Argentina':real?'Clásico realista':custom?(String(b.compNombre||'').trim()&&String(b.compNombre).trim()!='custom'?String(b.compNombre).replace(/[<>&"]/g,'').slice(0,60):'Carrera personalizada'):pers?'Clásico personalizado':'Todas las divisiones',fmt,n,competitivo:n>=MIN_EQUIPOS,at:Date.now(),ver:'offline-informado'};
 }
 const MIME={'.html':'text/html;charset=utf-8','.xml':'application/xml;charset=utf-8','.txt':'text/plain;charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.jpg':'image/jpeg','.webp':'image/webp','.js':'text/javascript','.css':'text/css'};
 function body(req,cb){let s='';req.on('data',d=>{s+=d;if(s.length>4096)req.destroy()});req.on('end',()=>{try{cb(JSON.parse(s))}catch(e){cb(null)}})}
