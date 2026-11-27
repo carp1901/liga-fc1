@@ -54,6 +54,8 @@ jobs:
           node test-federal-a-tanda4.js
           node test-primera-c-draft.js
           node test-promocional-amateur-draft.js
+      - name: Importador (secundarias y vocabulario de puestos)
+        run: node test-importador.js
       - name: Regenerar en limpio y comparar con lo publicado (CSV = juego)
         run: node test-planteles-sync.js
       - name: Runtime por división (base = lo publicado antes de cada división)

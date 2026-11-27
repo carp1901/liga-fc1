@@ -11,7 +11,7 @@ const ROOT = path.join(__dirname, '..');
 const RAPIDOS = [
   'test-sustituciones', 'test-auto-xi', 'test-sim2d-orientation', 'test-minimos', 'test-random', 'test-abandonos',
   'test-player-development', 'test-player-regens', 'test-career', 'test-career-development', 'test-career-regens', 'test-sim', 'test-2d-nan',
-  'test-servidor', 'test-versiones', 'test-cache-fuerza', 'test-ranking',
+  'test-servidor', 'test-versiones', 'test-cache-fuerza', 'test-ranking', 'test-importador',
   'test-plantel-calibration', 'test-squads', 'test-planteles-sync', 'test-bmetro-draft', 'test-bmetro-runtime',
   'test-federal-a-draft', 'test-federal-a-tanda2', 'test-federal-a-tanda3', 'test-federal-a-tanda4', 'test-federal-a-runtime',
   'test-primera-c-draft', 'test-promocional-amateur-draft',

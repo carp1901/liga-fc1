@@ -11,6 +11,10 @@ if(!file){console.error('Uso: node import-squads.js archivo.csv [--dry-run] [--r
 function parseCSV(s){const rows=[];let row=[],v='',q=false;for(let i=0;i<s.length;i++){const c=s[i];if(q){if(c=='"'&&s[i+1]=='"'){v+='"';i++}else if(c=='"')q=false;else v+=c}else if(c=='"')q=true;else if(c==','){row.push(v);v=''}else if(c=='\n'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v=''}else v+=c}if(v.length||row.length){row.push(v.replace(/\r$/,''));rows.push(row)}return rows}
 const POS={POR:'POR',ARQ:'POR',GK:'POR',GOALKEEPER:'POR',DEF:'DEF',DF:'DEF',DEFENDER:'DEF',MED:'MED',MC:'MED',MCD:'MED',MO:'MED',MID:'MED',MF:'MED',MIDFIELDER:'MED',DEL:'DEL',FW:'DEL',ATA:'DEL',ATTACKER:'DEL'};
 const ATTR=['pas','ctl','reg','rem','des','mar','ant','ref'];
+// Vocabulario de puestos específicos del motor (IMP-05; ver PLANTELES.md). Alias aceptados: EXD→ED, EXI→EI, MCO→MO.
+const ROLES=['POR','DFC','LI','LD','LIB','MCD','MC','MO','MP','MI','MD','EI','ED','SD','DC'],ROLE_ALIAS={EXD:'ED',EXI:'EI',MCO:'MO'},GRUPOS=['POR','ARQ','DEF','MED','DEL'];
+const roleNorm=x=>{const r=String(x||'').trim().toUpperCase();return ROLE_ALIAS[r]||r};
+const avisos=[];
 const PRIMERA=['boca','river','racing','independiente','sanlorenzo','estudiantes','velez','talleres','lanus','rosario','huracan','belgrano','argentinos','defensa','newells','union','tigre','platense','banfield','gimnasia','centralcba','rivadavia','instituto','atletico','barracas','riestra','sarmiento','aldosivi','gimnasiamza','estudiantesrc'];
 const NACIONAL=['agropecuario','allboys','almirantebrown','almagro','atlanta','centralnorte','chaco','chacarita','colegiales','colon','defensoresbelgrano','madryn','maipu','moron','estudiantesba','ferro','gimnasiajujuy','gimnasiatiro','guemes','losandes','mitre','nuevachicago','patronato','quilmes','racingcba','sanmartintuc','sanmiguel','santelmo','temperley','tristansuarez','midland','rafaela','godoycruz','sanmartinsj','ciudadbolivar','acassuso'];
 const ageAt=(birth,reference)=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(birth||'');if(!m)return null;const [y,mo,d]=m.slice(1).map(Number),[ry,rm,rd]=reference.split('-').map(Number);let age=ry-y;if(rm<mo||(rm===mo&&rd<d))age--;return age};
@@ -35,7 +39,9 @@ rows.forEach((r,i)=>{
  if(age!=null)player.age=age;if(birth)player.birthDate=birth;if(get('fuente_edad'))player.ageSource=get('fuente_edad');
  if(number!=null)player.number=number;if(get('dorsal_source'))player.numberSource=get('dorsal_source');
  if(get('pie'))player.foot=get('pie');
- if(get('posiciones_secundarias'))player.alt=get('posiciones_secundarias').split(/[;|]/).map(x=>POS[x.trim().toUpperCase()]).filter(Boolean);
+ // IMP-01: las secundarias son puestos específicos (los que compara roleFit), no grupos. Antes se convertían a grupo y se perdían.
+ if(get('posiciones_secundarias')){const alt=[];for(const raw of get('posiciones_secundarias').split(/[;|,]/).map(x=>x.trim()).filter(Boolean)){const r=roleNorm(raw);if(ROLES.includes(r)){if(!alt.includes(r))alt.push(r)}else if(GRUPOS.includes(r))avisos.push('Fila '+(i+2)+' ('+name+'): secundaria «'+raw+'» es un grupo, no un puesto; se descarta');else errors.push('Fila '+(i+2)+': posición secundaria desconocida «'+raw+'» (vocabulario en PLANTELES.md)')}if(alt.length)player.alt=alt}
+ if(get('rol_especifico')&&!ROLES.includes(roleNorm(get('rol_especifico'))))errors.push('Fila '+(i+2)+': rol_especifico desconocido «'+get('rol_especifico')+'» (vocabulario en PLANTELES.md)');
  if(get('rol_especifico'))player.specificRole=get('rol_especifico');if(get('fuente_rol'))player.roleSource=get('fuente_rol');
  const at={};ATTR.forEach(a=>{if(get(a)!==''){const n=Number(get(a));if(!Number.isFinite(n)||n<15||n>99)errors.push('Fila '+(i+2)+': atributo '+a+' fuera de rango');else at[a]=Math.round(n)}});if(Object.keys(at).length)player.at=at;
  if(get('match_rating_2026')){const n=Number(get('match_rating_2026'));if(!Number.isFinite(n)||n<0||n>10)errors.push('Fila '+(i+2)+': match_rating_2026 inválido');else player.matchRating2026=n}
@@ -45,6 +51,7 @@ rows.forEach((r,i)=>{
  const src=sources[club]||(sources[club]={source:[],consulted:[],ageSource:[],numberSource:[],ratingSource:[],roleSource:[],natSource:[]});
  [['source','fuente'],['consulted','consultado'],['ageSource','fuente_edad'],['numberSource','dorsal_source'],['ratingSource','rating_source'],['roleSource','fuente_rol'],['natSource','nat_source']].forEach(([a,b])=>{const v=get(b);if(v&&!src[a].includes(v))src[a].push(v)});
 });
+if(avisos.length)console.warn(avisos.join('\n'));
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 if(!Object.keys(out).length)throw Error('No hay jugadores válidos para importar');
 if(REQUIRE_BOTH){const required=[...PRIMERA,...NACIONAL],missing=required.filter(id=>!out[id]||out[id].length<11),extras=Object.keys(out).filter(id=>!required.includes(id));if(missing.length||extras.length)throw Error('Planteles de Primera y Primera Nacional incompletos. Faltan: '+missing.join(', ')+'; IDs ajenos: '+extras.join(', ')+'. No se modificó ningún archivo.')}else if(REQUIRE_PRIMERA){const missing=PRIMERA.filter(id=>!out[id]||out[id].length<11),extras=Object.keys(out).filter(id=>!PRIMERA.includes(id));if(missing.length||extras.length)throw Error('Primera incompleta. Faltan: '+missing.join(', ')+'; IDs ajenos: '+extras.join(', ')+'. No se modificó ningún archivo.')}

@@ -7,8 +7,29 @@ Columnas obligatorias: `club_id,nombre,posicion,rating`.
 Opcionales: `edad,pie,posiciones_secundarias,id,pas,ctl,reg,rem,des,mar,ant,ref`.
 
 - `club_id`: identificador exacto del club en `data.js` (ej. `boca`, `river`, `temperley`).
-- Posiciones: POR/GK/ARQ, DEF/DF, MED/MID/MF y DEL/FW/ATA.
-- Posiciones secundarias: separadas por punto y coma.
+- `posicion` (grupo): POR/GK/ARQ, DEF/DF, MED/MID/MF y DEL/FW/ATA.
+- `rol_especifico` (puesto que usa el motor para alinear): uno del vocabulario de abajo. Si falta, el motor usa el grupo.
+- `posiciones_secundarias`: puestos del vocabulario de abajo, separados por `;`, `|` o `,`. Un grupo (por ejemplo `MED`) no es un puesto: se descarta con un aviso.
+- `rol`: texto libre heredado de las fuentes; el juego no lo usa.
+
+### Vocabulario de puestos (IMP-05)
+
+| Código | Puesto | Grupo |
+|---|---|---|
+| POR | Arquero | POR |
+| DFC | Defensor central | DEF |
+| LI / LD | Lateral izquierdo / derecho | DEF |
+| LIB | Líbero (sin casillero en las formaciones actuales) | DEF |
+| MCD | Mediocampista defensivo | MED |
+| MC | Mediocampista central | MED |
+| MO | Mediocampista ofensivo | MED |
+| MP | Mediapunta (sin casillero en las formaciones actuales) | MED |
+| MI / MD | Volante izquierdo / derecho | MED |
+| EI / ED | Extremo izquierdo / derecho | DEL |
+| SD | Segundo delantero | DEL |
+| DC | Delantero centro | DEL |
+
+Alias aceptados: `EXD` → `ED`, `EXI` → `EI`, `MCO` → `MO`. Un puesto fuera de esta lista hace fallar la importación, con el número de fila.
 - Atributos del motor: valores entre 15 y 99.
 
 ## Importar
