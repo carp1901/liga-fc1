@@ -1,25 +1,10 @@
 import { dbQuery } from "./db.mjs";
+import ChatOwner from "../shared/chat-owner.js";
 
 const USER_RE = /^[A-Za-z0-9_.-]{3,16}$/;
-// Propietario del chat: se identifica SOLO por el id inmutable de la cuenta (usuarios.id), cargado en el secreto
-// CHAT_OWNER_ID. Nunca por nombre de usuario. Si falta o no es un entero positivo válido, nadie es propietario.
-const OWNER_ID_RE = /^[1-9][0-9]{0,15}$/;
-let ownerWarned = false;
-export function ownerId(env) {
-  const raw = String(env && env.CHAT_OWNER_ID != null ? env.CHAT_OWNER_ID : "").trim();
-  const id = Number(raw);
-  if (OWNER_ID_RE.test(raw) && Number.isSafeInteger(id)) return id;
-  if (!ownerWarned) {
-    ownerWarned = true;
-    // No se registra el valor del secreto, solo que falta o es inválido.
-    console.warn("chat: CHAT_OWNER_ID ausente o inválido; nadie tiene permisos de propietario");
-  }
-  return null;
-}
-export function isOwnerId(id, env) {
-  const owner = ownerId(env);
-  return owner !== null && id != null && String(id).trim() !== "" && Number(id) === owner;
-}
+// Propietario del chat por CHAT_OWNER_ID: la regla vive en shared/chat-owner.js (la misma que usa el servidor Node).
+export const ownerId = ChatOwner.ownerId;
+export const isOwnerId = ChatOwner.isOwnerId;
 export function isOwner(user, env) {
   return !!user && isOwnerId(user.id, env);
 }
@@ -131,7 +116,7 @@ export async function moderate(env, actor, username, action, minutes, reason) {
   if (["silenciar", "suspender", "reactivar"].includes(action) && !isOwnerId(actor, env)) {
     const current = await dbQuery(env, "SELECT por_id FROM chat_sanciones WHERE usuario_id=$1", [target.id]);
     const row = current.rows[0];
-    if (row && isOwnerId(row.por_id, env)) return { error: "Esa sanción la aplicó el propietario; solo él puede modificarla" };
+    if (row && ChatOwner.blockedBySanctionHierarchy(actor, row.por_id, env)) return { error: "Esa sanción la aplicó el propietario; solo él puede modificarla" };
   }
   const cleanReason = String(reason || "").replace(/[<>\u0000-\u001f]/g, "").slice(0, 160);
   if (action === "silenciar") {

@@ -3,7 +3,7 @@ const vm=require('vm'),fs=require('fs');const errs=[],els={},H={};
 const ctxProxy=()=>new Proxy({},{get:(t,k)=>k=='measureText'?()=>({width:10}):()=>{},set:()=>true});
 const el=()=>new Proxy({style:{},dataset:{},hidden:false,innerHTML:'',value:'',textContent:'',scrollTop:0,clientHeight:0,scrollHeight:0,getContext:ctxProxy},{get:(t,k)=>k in t?t[k]:()=>{},set:(t,k,v)=>{t[k]=v;return true}});
 const ctx={console,setInterval,setTimeout,clearInterval,Math,Date,JSON,Object,Array,Set,Number,String,Promise,localStorage:{},performance:{now:()=>Date.now()},requestAnimationFrame:()=>{},location:{reload(){}},fetch:()=>Promise.reject('x'),
- document:{querySelector:s=>els[s]||(els[s]=el()),addEventListener:(t,f)=>H[t]=f}};ctx.window=ctx;vm.createContext(ctx);
+ document:{querySelector:s=>els[s]||(els[s]=el()),querySelectorAll:()=>[],addEventListener:(t,f)=>H[t]=f}};ctx.window=ctx;vm.createContext(ctx);
 const html=fs.readFileSync('public/index.html','utf8'),sc=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].pop()[1];
 const q=s=>ctx.document.querySelector(s);
 vm.runInContext(fs.readFileSync('public/data.js','utf8'),ctx);vm.runInContext(fs.readFileSync('public/engine.js','utf8'),ctx);vm.runInContext(fs.readFileSync('public/sim2d.js','utf8'),ctx);vm.runInContext(sc,ctx);

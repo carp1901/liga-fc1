@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "node test.js && node test-auto-xi.js && node test-sim2d-orientation.js",
+    "test": "node tools/correr-tests.js",
+    "test:completo": "node tools/correr-tests.js completo",
+    "test:pendientes": "node tools/correr-tests.js pendientes",
+    "test:carga": "node test.js",
     "test:cloudflare": "node --test tests/cloudflare-worker.test.mjs tests/pages-proxy.test.mjs",
     "cf:dev": "wrangler dev"
   },

@@ -29,6 +29,7 @@ Engine.CFG.Sim = Sim2D.Sim;
 Engine.CFG.auth2dServer = false;
 
 const AUTH_ATTEMPTS = new Map();
+const ROOM_CREATE_MAX = 20; // salas privadas por IP y por hora (mismo tope que server.js)
 const CHAT_SEND_TIMES = new Map();
 let authSweepCount = 0;
 function allowAuthAttempt(key, limit, windowMs = 60 * 60 * 1000) {
@@ -531,6 +532,10 @@ async function routeRequest(request, env) {
       if (!body || typeof body !== "object") return json({ error: "Pedido inválido" }, 400);
       roomId = String(body.room || "").toLowerCase();
       if (!validRoomId(roomId)) return json({ error: "Código de sala inválido" }, 400);
+      // SRV-01: cada sala privada es un Durable Object; se limita su creación por IP (límite en memoria de la instancia).
+      if (body.a === "create" && !allowAuthAttempt("room-create:" + (request.headers.get("cf-connecting-ip") || "unknown"), ROOM_CREATE_MAX)) {
+        return json({ error: "Demasiadas salas creadas; probá más tarde" }, 429);
+      }
       const token = Auth.tokenFromRequest(request, body);
       if (token) {
         try {

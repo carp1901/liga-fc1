@@ -220,7 +220,7 @@ const status=()=>!configured?'off':lastErr?'error':'ok';
 // ===================== CUENTAS (usuario + contraseña) E HISTORIAL DE CARRERAS =====================
 // Las cuentas son opcionales: quien juega de invitado no pasa por nada de esto. La contraseña se guarda con scrypt + sal (nunca en claro) y la sesión es un
 // token aleatorio del que solo se guarda el hash. Todo requiere la base de datos (DATABASE_URL); sin ella las cuentas no están disponibles.
-const crypto=require('crypto'),{MIN_EQUIPOS}=require('./public/data');   // mínimo de equipos para que una carrera offline sume al ranking (compartido con el motor)
+const crypto=require('crypto'),{MIN_EQUIPOS}=require('./public/data'),ChatOwner=require('./shared/chat-owner');   // mínimo de equipos para que una carrera offline sume al ranking (compartido con el motor)
 const USER_RE=/^[A-Za-z0-9_.-]{3,16}$/,RESERVED=/^(admin|administrador|invitado|guest|cpu|anonimo|sistema|ligafc)$/i,SESS_DAYS=90;
 const sha=x=>crypto.createHash('sha256').update(String(x)).digest('hex');
 const scryptP=(pw,salt)=>new Promise((ok,no)=>crypto.scrypt(pw,salt,64,{N:16384,r:8,p:1},(e,k)=>e?no(e):ok(k)));
@@ -283,20 +283,20 @@ async function chatHistorial(limit,uid){
  const r=await pool.query(`SELECT m.id,m.usuario,m.mensaje,m.creado,p.club_favorito,
   COALESCE(v.likes,0)::int AS likes,COALESCE(v.dislikes,0)::int AS dislikes,
   COALESCE(mv.valor,0)::int AS mi_voto,(m.usuario_id=$2) AS mio,
-  (lower(m.usuario)=lower($3)) AS es_owner
+  COALESCE(m.usuario_id=$3,false) AS es_owner
   FROM chat_mensajes m LEFT JOIN perfiles p ON p.usuario_id=m.usuario_id
   LEFT JOIN (SELECT mensaje_id,COUNT(*) FILTER(WHERE valor=1) AS likes,COUNT(*) FILTER(WHERE valor=-1) AS dislikes FROM chat_reacciones GROUP BY mensaje_id) v ON v.mensaje_id=m.id
   LEFT JOIN chat_reacciones mv ON mv.mensaje_id=m.id AND mv.usuario_id=$2
-  WHERE m.eliminado=false ORDER BY m.id DESC LIMIT $1`,[n,uid||null,process.env.CHAT_OWNER_USERNAME||'Burzaco']);
+  WHERE m.eliminado=false ORDER BY m.id DESC LIMIT $1`,[n,uid||null,ChatOwner.ownerId(process.env)]);
  return{enabled:true,mensajes:r.rows.reverse()};
 }
 async function chatEliminar(uid,id,owner,moderador){
  if(!configured)return{error:'El chat no está disponible en este servidor'};
  id=Math.floor(+id);if(!(uid>0&&id>0))return{error:'Comentario inválido'};
  await ensure();
- const r=await pool.query(`SELECT usuario_id,lower(usuario)=lower($2) AS es_owner FROM chat_mensajes WHERE id=$1 AND eliminado=false`,[id,process.env.CHAT_OWNER_USERNAME||'Burzaco']);
+ const r=await pool.query(`SELECT usuario_id FROM chat_mensajes WHERE id=$1 AND eliminado=false`,[id]);
  if(!r.rowCount)return{error:'El comentario ya no existe'};
- const autor=Number(r.rows[0].usuario_id),esOwner=!!r.rows[0].es_owner;
+ const autor=Number(r.rows[0].usuario_id),esOwner=ChatOwner.isOwnerId(autor,process.env);
  if(esOwner&&!owner)return{error:'Solo el propietario puede eliminar sus propios comentarios'};
  if(!owner&&!moderador)return{error:'No tenés permisos para eliminar comentarios'};
  if(moderador&&autor!==Number(uid)&&esOwner)return{error:'No podés eliminar comentarios del propietario'};
@@ -346,7 +346,10 @@ async function chatModeracionNombre(actor,usuario,accion,minutos,razon){
 async function chatModeracion(actor,target,accion,minutos,razon){
  if(!configured)return{error:'El chat no está disponible en este servidor'};
  actor=Math.floor(+actor);target=Math.floor(+target);if(!(actor>0&&target>0)||actor==target)return{error:'Participante inválido'};
+ if(ChatOwner.isOwnerId(target,process.env))return{error:'No se puede sancionar al propietario'};
  await ensure();razon=String(razon||'').replace(/[<>\u0000-\u001f]/g,'').slice(0,160);
+ // Jerarquía: una sanción aplicada por el propietario (por_id) solo la puede cambiar o levantar el propietario.
+ if(['silenciar','suspender','reactivar'].includes(accion)){const cur=await pool.query(`SELECT por_id FROM chat_sanciones WHERE usuario_id=$1`,[target]);if(cur.rowCount&&ChatOwner.blockedBySanctionHierarchy(actor,cur.rows[0].por_id,process.env))return{error:'Esa sanción la aplicó el propietario; solo él puede modificarla'}}
  if(accion=='silenciar'){
   const mins=Math.max(1,Math.min(10080,Math.floor(+minutos||10))),hasta=new Date(Date.now()+mins*60000).toISOString();
   await pool.query(`INSERT INTO chat_sanciones(usuario_id,tipo,hasta,razon,por_id) VALUES($1,'mute',$2,$3,$4) ON CONFLICT(usuario_id) DO UPDATE SET tipo='mute',hasta=EXCLUDED.hasta,razon=EXCLUDED.razon,por_id=EXCLUDED.por_id,creada=now()`,[target,hasta,razon,actor]);return{ok:1,hasta};

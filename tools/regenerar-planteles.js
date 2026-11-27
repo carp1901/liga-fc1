@@ -62,3 +62,5 @@ try {
     console.log(e.csv + ':', run(e.csv));
   }
 } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
+// Si se publicó en public/, squads.js cambió: actualizar su ?v en index.html (UI-02).
+if (OUT === path.join(ROOT, 'public')) { const V = require('./versionar-estaticos'), idx = path.join(ROOT, 'public', 'index.html'), html = fs.readFileSync(idx, 'utf8'), next = V.version(html); if (next !== html) { fs.writeFileSync(idx, next); console.log('index.html: ?v actualizado'); } }

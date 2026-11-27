@@ -1671,3 +1671,19 @@ test("Worker y Node comparten los mínimos de P2 (8 humanos / 8 equipos), sin co
     assert.doesNotMatch(src, /CASE WHEN [^)]*formato='copa' THEN|ELSE 10|ELSE 8|competitivo:n>=\d|participantes >= \d/, file + " no debe tener mínimos escritos a mano");
   }
 });
+
+test("SRV-01: el Worker limita la creación de salas privadas por IP (20 por hora)", async () => {
+  const { env } = mockEnv();
+  const create = (i, ip) => worker.fetch(new Request("https://game.test/act", {
+    method: "POST", headers: { "content-type": "application/json", "cf-connecting-ip": ip },
+    body: JSON.stringify({ a: "create", room: "lim" + i + "x" + ip.split(".").pop(), pid: "p" + i, name: "DT", cfg: { div: "ar1", fmt: "liga1", n: 8 } })
+  }), env);
+  const codes = [];
+  for (let i = 0; i < 20; i++) codes.push((await create(i, "198.51.100.7")).status);
+  assert.ok(codes.every(code => code === 200), "las primeras 20 se crean: " + codes.join(","));
+  const blocked = await create(20, "198.51.100.7");
+  assert.equal(blocked.status, 429);
+  assert.match((await blocked.json()).error, /Demasiadas salas/);
+  assert.equal((await create(21, "198.51.100.8")).status, 200, "otra IP no queda afectada");
+  for (const code of Object.keys(Engine.rooms)) if (code.startsWith("lim")) Engine.removeRoom(code);
+});
