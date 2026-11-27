@@ -59,11 +59,16 @@ async function equivalencia(nombre, makeCar) {
   const caso = process.argv[process.argv.indexOf('--caso') + 1];
   if (process.argv.includes('--caso')) {
     if (caso === 'clasico') { const r1 = await equivalencia('clásico personalizado', E => E.careerNew({ k: 4, n: 6, ud: 2, fmt: 'liga1', me: { club: 'boca', cat: 0 }, picks: [['river'], [], []] })); ok(r1.car && r1.car.season === 2027, 'clásico: el cierre arma la temporada siguiente'); }
+    else if (caso === 'seguidas') { // dos carreras en el mismo proceso: antes preStrengthCache arrastraba fuerzas de la primera
+      await equivalencia('seguidas 1 (clásico)', E => E.careerNew({ k: 4, n: 6, ud: 2, fmt: 'liga1', me: { club: 'boca', cat: 0 }, picks: [['river'], [], []] }));
+      const promo = require('./public/data').DIVS.find(d => /promocional/i.test(d.name)).teams[1].id;
+      await equivalencia('seguidas 2 (realista ' + promo + ')', E => E.realNew({ me: { club: promo } }));
+    }
     else { const promo = require('./public/data').DIVS.find(d => /promocional/i.test(d.name)).teams[0].id; const r2 = await equivalencia('realista (' + promo + ')', E => E.realNew({ me: { club: promo } })); ok(r2.car && r2.car.season === 2027 && !!r2.car.rosters, 'realista: temporada siguiente con planteles propios de la carrera'); }
     process.exit(fails ? 1 : 0);
   }
   console.log('== 1) equivalencia en Node');
-  for (const c of ['clasico', 'realista']) { const r = spawnSync(process.execPath, [__filename, '--caso', c], { stdio: 'inherit' }); if (r.status !== 0) fails++; }
+  for (const c of ['clasico', 'realista', 'seguidas']) { const r = spawnSync(process.execPath, [__filename, '--caso', c], { stdio: 'inherit' }); if (r.status !== 0) fails++; }
 
   console.log('\n== 2) Chromium: el cierre corre en el Worker');
   const { chromium } = require('playwright');
