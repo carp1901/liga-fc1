@@ -1,0 +1,66 @@
+name: Planteles (CSV = juego, sin publicar)
+
+# Única validación del pipeline de datos. Nunca hace commit ni push: los archivos del juego
+# (public/squads.*) se regeneran localmente con tools/regenerar-planteles.js y entran por PR.
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'planteles/**'
+      - 'import-squads.js'
+      - 'tools/regenerar-planteles.js'
+      - 'public/squads.json'
+      - 'public/squads.js'
+      - 'public/squads-meta.json'
+      - 'public/data.js'
+      - 'test-planteles-sync.js'
+      - 'test-plantel-calibration.js'
+      - 'test-squads.js'
+      - 'test-*-draft.js'
+      - 'test-*-runtime.js'
+      - 'test-federal-a-tanda*.js'
+      - '.github/workflows/planteles.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: planteles-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Sintaxis
+        run: |
+          node --check import-squads.js
+          node --check tools/regenerar-planteles.js
+          node --check public/data.js
+      - name: CSV de cada división
+        run: |
+          node test-plantel-calibration.js
+          node test-bmetro-draft.js
+          node test-federal-a-draft.js
+          node test-federal-a-tanda2.js
+          node test-federal-a-tanda3.js
+          node test-federal-a-tanda4.js
+          node test-primera-c-draft.js
+          node test-promocional-amateur-draft.js
+      - name: Regenerar en limpio y comparar con lo publicado (CSV = juego)
+        run: node test-planteles-sync.js
+      - name: Runtime por división (base = lo publicado antes de cada división)
+        run: |
+          node tools/regenerar-planteles.js --out "$RUNNER_TEMP/regen" --snapshots "$RUNNER_TEMP/snap" --updated-at "$(node -p "require('./public/squads-meta.json').updatedAt")"
+          node test-squads.js
+          node test-bmetro-runtime.js
+          node test-federal-a-runtime.js
+          SQUADS_BASELINE_PATH="$RUNNER_TEMP/snap/antes-primera-c.json" node test-primera-c-draft.js --runtime
+          SQUADS_BASELINE_PATH="$RUNNER_TEMP/snap/antes-promocional.json" node test-promocional-amateur-draft.js --runtime

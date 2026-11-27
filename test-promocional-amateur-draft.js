@@ -46,7 +46,8 @@ if(process.argv.includes('--runtime')){
   const byPlayer=new Map(runtime[id].map(p=>[p.n,p]));
   for(const row of rows){if(row[col.club_id]!==id)continue;const player=byPlayer.get(row[col.nombre]);assert(player,'Jugador no importado: '+id+'/'+row[col.nombre]);const dorsal=row[col.dorsal]===''?null:Number(row[col.dorsal]);assert.equal(player.number??null,dorsal,'Dorsal runtime distinto al CSV: '+id+'/'+row[col.nombre]);}
  }
- const baseline=JSON.parse(require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:30*1024*1024}));
+ // Base: lo publicado antes de importar Promocional (el pipeline la deja en SQUADS_BASELINE_PATH); sin ella, origin/main como antes.
+ const baselinePath=process.env.SQUADS_BASELINE_PATH,baseline=JSON.parse(baselinePath?fs.readFileSync(baselinePath,'utf8'):require('node:child_process').execFileSync('git',['show','origin/main:public/squads.json'],{encoding:'utf8',maxBuffer:30*1024*1024}));
  for(const [id,players] of Object.entries(baseline))if(!clubs.has(id))assert.deepEqual(runtime[id],players,'Se alteró otro plantel: '+id);
 }
 console.log(process.argv.includes('--runtime')?'OK: 518 jugadores cargados en 17 clubes; las demás divisiones permanecen intactas.':'OK: 518 jugadores en 17 clubes; sin duplicados internos ni dorsales falsamente presentados como oficiales.');
