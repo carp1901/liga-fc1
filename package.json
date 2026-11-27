@@ -4,12 +4,18 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "node test.js && node test-auto-xi.js && node test-sim2d-orientation.js"
+    "test": "node test.js && node test-auto-xi.js && node test-sim2d-orientation.js",
+    "test:cloudflare": "node --test tests/cloudflare-worker.test.mjs tests/pages-proxy.test.mjs",
+    "cf:dev": "wrangler dev"
   },
   "engines": {
     "node": ">=18"
   },
   "dependencies": {
-    "pg": "^8.13.1"
+    "pg": "^8.13.1",
+    "@neondatabase/serverless": "^1.2.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
   }
 }

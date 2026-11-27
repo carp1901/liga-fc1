@@ -1,0 +1,48 @@
+name: Cloudflare Worker (tests, sin publicar)
+
+# Solo prueba: nunca publica. Se dispara a mano o por pull request.
+# "wrangler deploy --dry-run" compila el Worker y termina sin subir nada ni usar credenciales.
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'functions/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'public/api-config.js'
+      - 'public/_routes.json'
+      - 'public/_headers'
+      - 'public/engine.js'
+      - 'public/data.js'
+      - 'public/sim2d.js'
+      - 'wrangler.jsonc'
+      - 'package.json'
+      - '.github/workflows/test-cloudflare-worker.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-worker-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  worker-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --ignore-scripts --no-audit --no-fund --no-package-lock
+      - name: Sintaxis de cada módulo
+        run: for f in src/*.mjs tests/*.mjs; do node --check "$f"; done
+      - run: npm run test:cloudflare
+      - run: node test-minimos.js
+      - name: Compilar sin publicar
+        env:
+          WRANGLER_SEND_METRICS: 'false'
+        run: npx wrangler deploy --dry-run
