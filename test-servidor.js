@@ -86,6 +86,16 @@ const post = (url, obj, headers) => raw('POST', url, [Buffer.from(JSON.stringify
   server.sweep(Date.now() + 6 * 60e3);
   ok(Object.keys(E.rooms).filter(k => k.startsWith('srv')).length === 0, 'a los 6 min se liberan');
 
+  console.log('\n== SRV-04: tope de conexiones SSE del chat por IP');
+  const http = require('http'), abiertos = [];
+  const abrir = () => new Promise(res => { const rq = http.get({ host: '127.0.0.1', port: +process.env.PORT, path: '/api/chat/stream' }, r => { abiertos.push(rq); res(r.statusCode); if (r.statusCode !== 200) r.resume(); }); rq.on('error', () => res(0)); });
+  const st5 = []; for (let i = 0; i < 5; i++) st5.push(await abrir());
+  ok(st5.every(s => s === 200), 'las primeras 5 conexiones al chat se aceptan (' + st5.join(',') + ')');
+  ok((await abrir()) === 429, 'la 6.ª desde la misma IP recibe 429');
+  abiertos[0].destroy(); await sleep(150);
+  ok((await abrir()) === 200, 'al cerrar una, vuelve a haber lugar');
+  abiertos.forEach(r => r.destroy());
+
   console.log('\n== store.js real (pool simulado): jerarquía de sanciones por por_id');
   delete require.cache[storePath];
   const store = require('./store');

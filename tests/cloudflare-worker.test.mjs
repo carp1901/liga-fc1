@@ -1687,3 +1687,21 @@ test("SRV-01: el Worker limita la creación de salas privadas por IP (20 por hor
   assert.equal((await create(21, "198.51.100.8")).status, 200, "otra IP no queda afectada");
   for (const code of Object.keys(Engine.rooms)) if (code.startsWith("lim")) Engine.removeRoom(code);
 });
+
+test("SRV-04: ChatHub limita las conexiones SSE simultáneas (503 al pasar el tope)", async () => {
+  const { CHAT_MAX_CLIENTS } = await import("../src/chat-hub.mjs");
+  const hub = new ChatHub({ storage: {} });
+  const readers = [];
+  for (let i = 0; i < CHAT_MAX_CLIENTS; i++) {
+    const r = await hub.fetch(new Request("https://chat.test/stream"));
+    assert.equal(r.status, 200);
+    readers.push(r.body.getReader());
+  }
+  const over = await hub.fetch(new Request("https://chat.test/stream"));
+  assert.equal(over.status, 503);
+  await readers[0].cancel();
+  const again = await hub.fetch(new Request("https://chat.test/stream"));
+  assert.equal(again.status, 200, "al liberarse un lugar vuelve a aceptar");
+  for (const r of readers.slice(1)) await r.cancel();
+  await again.body.cancel();
+});

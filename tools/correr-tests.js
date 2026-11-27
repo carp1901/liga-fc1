@@ -16,7 +16,7 @@ const RAPIDOS = [
   'test-federal-a-draft', 'test-federal-a-tanda2', 'test-federal-a-tanda3', 'test-federal-a-tanda4', 'test-federal-a-runtime',
   'test-primera-c-draft', 'test-promocional-amateur-draft',
 ];
-const LARGOS = ['test-clasico', 'test-copa-real', 'test-2d-servidor', 'test-penales', 'test-pelotas-paradas', 'test-cliente-sse', 'test-guardados'];
+const LARGOS = ['test-clasico', 'test-copa-real', 'test-2d-servidor', 'test-penales', 'test-pelotas-paradas', 'test-cliente-sse', 'test-guardados', 'test-ui-movil', 'test-cierre-worker'];
 // Fallos conocidos y su motivo (auditoría maestra). No se ocultan: se corren con «pendientes».
 const PENDIENTES = {
   'test-copa': 'TST-02: el sorteo espera clubes que ya no entran (incluye clubes uruguayos)',

@@ -1,3 +1,5 @@
+// SRV-04: tope total de conexiones SSE del chat por instancia; al pasarlo se responde 503 y el navegador reintenta solo.
+export const CHAT_MAX_CLIENTS = 1000;
 export class ChatHub {
   constructor(state) {
     this.state = state;
@@ -6,6 +8,7 @@ export class ChatHub {
   async fetch(request) {
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/stream") {
+      if (this.clients.size >= CHAT_MAX_CLIENTS) return new Response(JSON.stringify({ error: "Chat lleno; reintentá en unos segundos" }), { status: 503, headers: { "content-type": "application/json", "retry-after": "30" } });
       let client;
       const stream = new ReadableStream({
         start: controller => {

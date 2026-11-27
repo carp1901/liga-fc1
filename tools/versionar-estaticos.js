@@ -8,10 +8,12 @@ const PUB = path.join(__dirname, '..', 'public'), INDEX = path.join(PUB, 'index.
 
 const hashOf = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 12);
 const SCRIPT_RE = /<script src="(\/?)([A-Za-z0-9_.\/-]+\.js)(?:\?v=([^"]*))?"/g;
+// Scripts que la página arranca como Web Worker (p. ej. el cierre de temporada).
+const WORKER_RE = /new Worker\('(\/?)([A-Za-z0-9_.\/-]+\.js)(?:\?v=([^']*))?'\)/g;
 
 function scan(html) {
   const out = [];
-  for (const m of html.matchAll(SCRIPT_RE)) {
+  for (const m of [...html.matchAll(SCRIPT_RE), ...html.matchAll(WORKER_RE)]) {
     const [tag, slash, file, current] = m;
     const abs = path.join(PUB, file);
     if (!fs.existsSync(abs)) throw Error('index.html referencia un script que no existe: ' + file);
@@ -20,7 +22,8 @@ function scan(html) {
   return out;
 }
 function version(html) {
-  return html.replace(SCRIPT_RE, (tag, slash, file) => `<script src="${slash}${file}?v=${hashOf(path.join(PUB, file))}"`);
+  return html.replace(SCRIPT_RE, (tag, slash, file) => `<script src="${slash}${file}?v=${hashOf(path.join(PUB, file))}"`)
+    .replace(WORKER_RE, (tag, slash, file) => `new Worker('${slash}${file}?v=${hashOf(path.join(PUB, file))}')`);
 }
 module.exports = { scan, version, hashOf };
 

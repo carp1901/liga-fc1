@@ -14,6 +14,7 @@ setInterval(()=>{const n=Date.now();for(const[k,a]of RL){const b=a.filter(t=>n-t
 // IP real para los límites: la del socket. X-Forwarded-For solo se usa con TRUST_PROXY=1 (detrás de un proxy propio) y se toma
 // el ÚLTIMO salto, el que agrega ese proxy; el primero lo puede escribir cualquiera.
 // SRV-01: tope de salas creadas por IP real y por hora; una sala en elección de clubes sin nadie conectado vence a los 5 min.
+const CHAT_SSE_PER_IP=+process.env.CHAT_SSE_PER_IP||5,CHAT_IP=new Map();
 const ROOM_CREATE_MAX=+process.env.ROOM_CREATE_MAX||20,ROOM_IDLE_PICK_MS=5*60e3;
 const TRUST_PROXY=process.env.TRUST_PROXY==='1',ipOf=req=>{if(TRUST_PROXY){const xs=String(req.headers['x-forwarded-for']||'').split(',').map(x=>x.trim()).filter(Boolean);if(xs.length)return xs[xs.length-1]}return String(req.socket.remoteAddress||'').trim()};
 function offlineRec(b){
@@ -97,7 +98,10 @@ http.createServer((req,res)=>{try{const u=new URL(req.url,'http://x');
   res.writeHead(d.error?400:200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(d));
  }).catch(()=>{res.writeHead(503);res.end(JSON.stringify({error:'Chat no disponible'}))});
  if(u.pathname=='/api/chat/stream'&&req.method=='GET'){
-  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});res.write('retry:3000\nevent: conectado\ndata:{}\n\n');CHAT_CLIENTS.add(res);req.on('close',()=>CHAT_CLIENTS.delete(res));return;
+  // SRV-04: tope de conexiones SSE del chat por IP real (cada pestaña abre una).
+  const cip=ipOf(req);if((CHAT_IP.get(cip)||0)>=CHAT_SSE_PER_IP){res.writeHead(429,{'Content-Type':'application/json','Retry-After':'30'});return res.end(JSON.stringify({error:'Demasiadas conexiones al chat desde tu red'}))}
+  CHAT_IP.set(cip,(CHAT_IP.get(cip)||0)+1);
+  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive','X-Accel-Buffering':'no'});res.write('retry:3000\nevent: conectado\ndata:{}\n\n');CHAT_CLIENTS.add(res);req.on('close',()=>{CHAT_CLIENTS.delete(res);const n=(CHAT_IP.get(cip)||1)-1;n>0?CHAT_IP.set(cip,n):CHAT_IP.delete(cip)});return;
  }
  if(u.pathname=='/api/chat'&&req.method=='POST')return body(req,b=>{if(!b)return jnChat(400,{error:'Pedido inválido'});store.userByToken(tokOf(req,b)).then(async us=>{if(!us)return jnChat(401,{error:'Iniciá sesión para escribir en el chat'});const owner=isOwnerId(us.id,process.env),moderador=owner||await store.chatEsModerador(us.id),intervalo=moderador?10000:20000,now=Date.now(),last=CHAT_LAST_SEND.get(us.id)||0,wait=intervalo-(now-last);if(!owner&&wait>0)return jnChat(429,{error:'Para evitar spam, esperá '+Math.ceil(wait/1000)+' segundos antes de enviar otro mensaje.',espera:Math.ceil(wait/1000)});if(!owner)CHAT_LAST_SEND.set(us.id,now);return store.chatEnviar(us.id,chatFilter(b.mensaje)).then(d=>{if(d.error){if(!owner)CHAT_LAST_SEND.delete(us.id);return jnChat(403,d)}chatBroadcast(d.mensaje);return jnChat(200,d)}).catch(e=>{if(!owner)CHAT_LAST_SEND.delete(us.id);throw e})}).catch(()=>jnChat(503,{error:'Chat no disponible'}));function jnChat(code,data){res.writeHead(code,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(data))}});
  if(u.pathname=='/api/chat/permisos'&&req.method=='GET')return store.userByToken(tokOf(req)).then(async us=>{if(!us){res.writeHead(401,{'Content-Type':'application/json'});return res.end(JSON.stringify({error:'Iniciá sesión'}))}const owner=isOwnerId(us.id,process.env),moderador=owner||await store.chatEsModerador(us.id);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({owner,moderador}))}).catch(()=>{res.writeHead(503);res.end()});

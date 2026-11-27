@@ -57,7 +57,7 @@ function json(data, status = 200) {
 function validRoomId(value) {
   return ROOM_RE.test(value || "");
 }
-function deltaSender(controller) {
+export function deltaSender(controller) { // exportada para tools/medir-sse.mjs
   let previous = null;
   let sent = 0;
   const encoder = new TextEncoder();
