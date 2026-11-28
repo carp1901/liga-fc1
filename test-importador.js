@@ -38,10 +38,12 @@ ok(c.status === 1 && /rol_especifico desconocido «ZZ»/.test(c.out), 'un rol_es
 const d = importar([{ n: 'Alias', p: 'DEL', rol: 'EXD' }]);
 ok(d.status === 0, 'los alias de rol_especifico (EXD) se aceptan');
 
-console.log('\n== los 6 casos reales en el juego (public/squads.json)');
+console.log('\n== los casos reales en el juego (public/squads.json)');
 const sq = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'squads.json'), 'utf8')), alt = (c, n) => ((sq[c] || []).find(p => p.n === n) || {}).alt;
-const esperado = [['atlanta', 'Franco David Cáceres', ['MO']], ['almagro', 'Matías Alejandro Laba', ['MC']], ['losandes', 'Alexis González', ['EI']], ['temperley', 'Alejandro Melo', ['MD', 'EI']], ['godoycruz', 'Felipe Cairus Arabeity', ['MO', 'MCD']], ['canuelas', 'Santino Sapio', undefined]];
+const esperado = [['atlanta', 'Franco David Cáceres', ['MO']], ['almagro', 'Matías Alejandro Laba', ['MC']], ['losandes', 'Alexis González', ['EI']], ['temperley', 'Alejandro Melo', ['MD', 'EI']], ['godoycruz', 'Felipe Cairus Arabeity', ['MO', 'MCD']], ['canuelas', 'Santino Sapio', undefined],
+  // PLA-09: las 4 secundarias aprobadas con fuente
+  ['nuevachicago', 'Alan Ruiz', ['ED']], ['sanmartintuc', 'Jorge Juárez', ['MD', 'LD']], ['lanus', 'Marcelino Moreno', ['MI']], ['lasparejas', 'Nicolás Herranz', ['MCD']]];
 for (const [c, n, e] of esperado) ok(JSON.stringify(alt(c, n)) === JSON.stringify(e), n + ' (' + c + '): ' + JSON.stringify(alt(c, n)));
 const conAlt = Object.values(sq).flat().filter(p => p.alt);
-ok(conAlt.length === 5 && conAlt.every(p => p.alt.every(r => /^(POR|DFC|LI|LD|LIB|MCD|MC|MO|MP|MI|MD|EI|ED|SD|DC)$/.test(r))), 'en todo el juego, solo 5 jugadores con secundarias y todas son puestos válidos');
+ok(conAlt.length === 9 && conAlt.every(p => p.alt.every(r => /^(POR|DFC|LI|LD|LIB|MCD|MC|MO|MP|MI|MD|EI|ED|SD|DC)$/.test(r))), 'en todo el juego, solo 9 jugadores con secundarias (5 de E4 + 4 de PLA-09) y todas son puestos válidos');
 console.log(fails ? '\nFALLAS: ' + fails : '\nTodo OK'); process.exit(fails ? 1 : 0);

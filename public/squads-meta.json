@@ -233,7 +233,8 @@
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/club-atletico-boca-juniors/kader/verein/189",
-        "posicion habitual"
+        "posicion habitual",
+        "https://en.wikipedia.org/wiki/Malcom_Braida"
       ],
       "natSource": "https://www.bocajuniors.com.ar/futbol-masculino"
     },
@@ -514,7 +515,10 @@
         "https://fcscoutdb.com/clubs/lanus",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/teams-ratings/lanus/110395"
       ],
-      "roleSource": "https://www.transfermarkt.es/ca-lanus/kader/verein/333",
+      "roleSource": [
+        "https://www.transfermarkt.es/ca-lanus/kader/verein/333",
+        "https://en.wikipedia.org/wiki/Marcelino_Moreno; secundarias: https://www.fotmob.com/es/players/561737"
+      ],
       "natSource": [
         "https://www.ligaprofesional.ar/clubes/lanus/",
         "https://www.tycsports.com/lanus.html"
@@ -579,7 +583,10 @@
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lucas-ramos/84516",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/lisandro-duarte/85560"
       ],
-      "roleSource": "https://www.transfermarkt.com.ar/ca-rosario-central/kader/verein/1417",
+      "roleSource": [
+        "https://www.transfermarkt.com.ar/ca-rosario-central/kader/verein/1417",
+        "https://www.cadena3.com/noticia/futbol/alan-rodriguez-ya-es-refuerzo-de-rosario-central-el-volante-uruguayo-fue-presentado-oficialmente_580086"
+      ],
       "natSource": "https://rosariocentral.com/plantel-masculino/"
     },
     "huracan": {
@@ -605,7 +612,10 @@
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/martin-nervo/213581",
         "https://www.ea.com/games/ea-sports-fc/ratings/player-ratings/juan-bisanz/274401"
       ],
-      "roleSource": "https://www.transfermarkt.com.ar/ca-huracan/kader/verein/2063",
+      "roleSource": [
+        "https://www.transfermarkt.com.ar/ca-huracan/kader/verein/2063",
+        "https://www.fotmob.com/es/players/1914685/thiago-perez"
+      ],
       "natSource": "https://www.tycsports.com/huracan.html"
     },
     "gimnasia": {
@@ -637,7 +647,9 @@
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/ca-gimnasia-y-esgrima-la-plata/kader/verein/1104",
-        "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/"
+        "https://www.gimnasia.org.ar/alejo-gelsomio-es-nuevo-jugador-profesional/",
+        "https://en.wikipedia.org/wiki/Nicol%C3%A1s_Barros_Schelotto",
+        "https://www.espn.com/soccer/player/_/id/397601/facundo-di-biasi"
       ],
       "natSource": "https://www.tycsports.com/gimnasia-de-la-plata.html"
     },
@@ -669,7 +681,9 @@
       ],
       "roleSource": [
         "https://www.transfermarkt.com.ar/argentinos-juniors/kader/verein/1030",
-        "https://www.transfermarkt.com.ar/facundo-carrizo/profil/spieler/1401625"
+        "https://espndeportes.espn.com/futbol/jugador/_/id/408142/gaston-bouhier",
+        "https://www.transfermarkt.com.ar/facundo-carrizo/profil/spieler/1401625",
+        "https://en.wikipedia.org/wiki/Joaqu%C3%ADn_Gho"
       ],
       "natSource": "https://www.tycsports.com/argentinos-juniors.html"
     },
@@ -695,7 +709,10 @@
         "https://www.ea.com/games/ea-sports-fc/ratings/teams-ratings/belgrano/111022",
         "https://www.ea.com/es/games/ea-sports-fc/ratings/player-ratings/franco-vazquez/207471"
       ],
-      "roleSource": "https://www.transfermarkt.com.ar/ca-belgrano-de-cordoba/kader/verein/1290",
+      "roleSource": [
+        "https://www.transfermarkt.com.ar/ca-belgrano-de-cordoba/kader/verein/1290",
+        "https://us.soccerway.com/player/ortiz-marcos/Cv8t2ZD8/"
+      ],
       "natSource": "https://www.tycsports.com/belgrano-de-cordoba.html"
     },
     "centralcba": {
@@ -1244,6 +1261,7 @@
         "https://pelotita.com.ar/equipos/236",
         "https://www.transfermarkt.com.ar/rodrigo-ramirez/profil/spieler/838388",
         "https://www.365scores.com/es/football/player/alejo-gonzalez-223452",
+        "https://www.fotmob.com/es/players/263707/alan-ruiz",
         "https://www.transfermarkt.com.ar/thiago-ocampo/profil/spieler/1447123",
         "https://www.promiedos.com.ar/team/nueva-chicago/bcai",
         "https://www.transfermarkt.com.ar/facundo-castro/profil/spieler/332252",
@@ -1325,7 +1343,8 @@
         "https://pelotita.com.ar/equipos/6",
         "https://pelotita.com.ar/equipos/6?comp=todas&from=primera-nacional",
         "Posición primaria contrastada como extremo izquierdo; normalizada a EI. Fuente: https://www.fotmob.com/es-419/players/1435010/mario-sanabria",
-        "https://www.transfermarkt.es/miguel-mellado/profil/spieler/440163"
+        "https://www.transfermarkt.es/miguel-mellado/profil/spieler/440163",
+        "https://us.soccerway.com/player/cristaldo-francisco/n5K9shy0"
       ],
       "natSource": "https://canchallena.lanacion.com.ar/equipo/chacarita-chgvt8f42t2hfrazb1sjxkutq/"
     },
@@ -1454,6 +1473,7 @@
         "https://www.transfermarkt.es/jorge-zules-caicedo/profil/spieler/610261",
         "Defensor central zurdo: https://www.transfermarkt.com.ar/ricardo-garay/profil/spieler/480419",
         "Mediocampista/interior derecho: https://www.transfermarkt.com.ar/andres-lioi/profil/spieler/563336",
+        "https://www.airedesantafe.com.ar/deportes/debuto-colon-no-se-asento-y-es-nuevo-refuerzo-un-rival-directo-la-primera-nacional-n640981",
         "https://www.transfermarkt.es/brian-guerra/profil/spieler/538619",
         "https://www.365scores.com/es/football/team/chaco-for-ever-13870/squad",
         "https://www.transfermarkt.com/santiago-villalba/profil/spieler/1186937",
@@ -1504,6 +1524,7 @@
         "https://www.mundoascenso.com.ar/plantel/469-deportivo-moron",
         "https://pelotita.com.ar/equipos/10154",
         "https://www.sofascore.com/es/football/player/emanuel-iniguez/900191",
+        "https://en.wikipedia.org/wiki/Mariano_B%C3%ADttolo",
         "https://www.transfermarkt.com.ar/emiliano-franco/profil/spieler/422402",
         "https://www.transfermarkt.com.ar/tomas-ramirez/profil/spieler/1240512",
         "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
@@ -1528,6 +1549,7 @@
         "https://pelotita.com.ar/equipos/17352",
         "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
         "https://www.soloascenso.com.ar/notas/estudiantes/el-pincha-de-caseros-sumo-un-joven-marcado-de-punta/224793",
+        "https://www.fichajes.com/jugador/matias-ezequiel-nunez/",
         "Estimación orientativa: mediocampista central (MC), inferido desde posición general MED; pendiente de ficha individual.",
         "https://www.transfermarkt.com.ar/teo-cohen/profil/spieler/1407838"
       ],
@@ -1564,7 +1586,8 @@
         "https://pelotita.com.ar/partidos/401843741",
         "https://www.transfermarkt.com.ar/nahuel-zapatiel/profil/spieler/1421611",
         "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
-        "https://www.transfermarkt.com.ar/gonzalo-puntano/profil/spieler/1276386"
+        "https://www.transfermarkt.com.ar/gonzalo-puntano/profil/spieler/1276386",
+        "https://canchallena.lanacion.com.ar/jugador/juan-franzoni-t2guyfg10wiv8b9cavmezg4q/"
       ],
       "natSource": [
         "https://canchallena.lanacion.com.ar/equipo/ca-gimnasia-y-esgrima-de-jujuy-cfoocd4w2b1dia1gmaelkt13o/",
@@ -1605,6 +1628,7 @@
       "roleSource": [
         "https://www.mundoascenso.com.ar/plantel/211-san-martin-tuc",
         "https://pelotita.com.ar/equipos/17814",
+        "https://www.lagaceta.com.ar/nota/1135227/deportes/mientras-intenta-consolidarse-san-martin-encontro-juarez-herramienta-puede-crecer.html",
         "Delantero/extremo derecho: https://www.transfermarkt.com.ar/gonzalo-rodriguez/profil/spieler/140687",
         "https://www.soloascenso.com.ar/sintesis/san-martin-tucuman-colegiales/44474 | https://www.mundodeportivo.com/resultados/futbol/copa-argentina/equipo/san-martin-de-tucuman/plantilla",
         "https://www.soloascenso.com.ar/perfil/alejandro-galvan/26137"
@@ -1801,6 +1825,7 @@
         "Delantero centro: https://www.transfermarkt.com.ar/ciro-leineker/profil/spieler/1117236",
         "https://www.transfermarkt.com.ar/franco-berges/profil/spieler/1230639",
         "https://www.fotmob.com/es/players/37709/juan-sanchez",
+        "https://www.fichajes.com/jugador/lucas-guinazu/",
         "https://abcfutbol.com.ar/2026/01/08/uno-x-uno-los-15-refuerzos-de-guemes/",
         "https://www.fotmob.com/es/players/1212165/oscar-vanegas",
         "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual."
@@ -1822,8 +1847,11 @@
       ],
       "roleSource": [
         "https://pelotita.com.ar/equipos/19145",
+        "https://www.statscrew.com/worldfootball/stats/p-rinausan001",
+        "https://www.fotmob.com/es/players/1435860/tomas-kummer",
         "https://www.fotmob.com/es/players/1710475/francisco-monticelli",
-        "Posición primaria contrastada como lateral izquierdo; normalizada a LI. Fuente: https://www.fotmob.com/es/players/1658889/luciano-viano"
+        "Posición primaria contrastada como lateral izquierdo; normalizada a LI. Fuente: https://www.fotmob.com/es/players/1658889/luciano-viano",
+        "https://global.espn.com/football/player/_/id/411476/lautaro-avila"
       ],
       "natSource": "https://canchallena.lanacion.com.ar/equipo/racing-cordoba-9xktf8lmetaxahzxgafy9yyqk/"
     },
@@ -1881,7 +1909,8 @@
         "https://www.transfermarkt.es/agustin-gimenez/profil/spieler/1372631",
         "https://www.transfermarkt.com.ar/bautista-maillier/profil/spieler/1399730",
         "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
-        "https://www.transfermarkt.com.ar/matias-cordoba/profil/spieler/1394668",
+        "https://espndeportes.espn.com/futbol/jugador/_/id/402917/matias-cordoba",
+        "https://canchallena.lanacion.com.ar/jugador/dario-sarmiento-a1m7f0ewof5suc4pvivuaudm2/",
         "https://www.lt9.com.ar/franco-garcia-es-jugador-de-colon/",
         "https://www.transfermarkt.com.ar/ivan-ojeda/profil/spieler/1413462",
         "https://www.transfermarkt.com.ar/jeronimo-buosi/profil/spieler/1455772"
@@ -1924,6 +1953,7 @@
         "https://www.transfermarkt.com.ar/csd-tristan-suarez/kader/verein/1771",
         "https://www.promiedos.com.ar/team/tristan-suarez/hbbd",
         "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
+        "https://espndeportes.espn.com/futbol/jugador/_/id/388341/kevin-colli",
         "Extremo derecho: https://www.transfermarkt.com.ar/sebastian-ramirez/profil/spieler/728245"
       ],
       "natSource": [
@@ -1968,6 +1998,7 @@
         "https://www.transfermarkt.com.ar/bartolome-velasquez/profil/spieler/1192635",
         "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
         "https://sortitoutsi.net/football-manager-data-update/team/3101457",
+        "https://canchallena.lanacion.com.ar/jugador/facundo-heredia-b63ojekhiod69slyg0laqc844/",
         "https://www.unoentrerios.com.ar/ovacion/patronato-aseguro-una-sus-promesas-n10238838.html"
       ],
       "natSource": "https://canchallena.lanacion.com.ar/equipo/patronato-6dxnbgs53o32c955668uki7cr/"
@@ -2091,6 +2122,7 @@
         "https://pelotita.com.ar/equipos/2741",
         "Estimación orientativa solicitada por el usuario; inferida desde posición general y perfil básico, pendiente de auditoría individual.",
         "https://www.365scores.com/es/football/player/tiago-marghetich-198540",
+        "https://en.wikipedia.org/wiki/Thomas_Ortega",
         "https://www.transfermarkt.com.ar/facundo-yozwiak/profil/spieler/1413766",
         "https://www.transfermarkt.com.ar/maximo-paredes/profil/spieler/1273492",
         "https://www.transfermarkt.es/santino-rodriguez/profil/spieler/1469965",
@@ -2238,6 +2270,7 @@
         "https://pelotita.com.ar/equipos/6756",
         "Defensa central: https://www.transfermarkt.com.ar/diego-viera/profil/spieler/178660",
         "Mediocentro: https://www.transfermarkt.es/felipe-cairus/profil/spieler/657421",
+        "https://espndeportes.espn.com/futbol/jugador/_/id/392255/santiago-martinez",
         "Mediocampista defensivo: https://www.fotmob.com/es-419/players/1481125/benjamin-schamine",
         "https://www.transfermarkt.com.ar/agustin-valverde/profil/spieler/1131421",
         "https://www.transfermarkt.com.ar/juan-andrada/profil/spieler/457212",
@@ -2290,8 +2323,10 @@
       ],
       "roleSource": [
         "https://www.goal.com/es-ar/equipo/san-telmo/equipo/95crjs2jrtpq2rosrgkizqk3y",
+        "https://www.fotmob.com/es-419/players/1373702",
         "Posición primaria contrastada como extremo izquierdo; normalizada a EI. Fuente: https://www.fotmob.com/es/players/1437341/inaki-larthirigoyen",
         "https://www.soloascenso.com.ar/notas/atletico-rafaela/un-delantero-se-convirtio-en-nuevo-refuerzo-de-san-telmo/229726",
+        "https://www.fichajes.com/jugador/joel-gonzalez-3/",
         "Mediocampista: https://www.zerozero.pe/jugador/nicolas-ortiz/1393659"
       ],
       "natSource": [
@@ -2509,6 +2544,8 @@
       "roleSource": [
         "https://pelotita.com.ar/equipos/10145",
         "https://www.transfermarkt.com.ar/juan-ponce-de-leon/profil/spieler/1087673",
+        "https://espndeportes.espn.com/futbol/jugador/_/id/418913/david-de-estefano",
+        "https://canchallena.lanacion.com.ar/jugador/kevin-dubini-f3x0isdvhu7qee9pvnul9w8o9/",
         "https://www.fotmob.com/es/players/1586264/valentin-serrano",
         "https://www.soccerway.com/player/monaco-manuel/EeKccIVR/",
         "https://www.sofascore.com/es-la/football/player/juan-ignacio-quattrocchi/1836759"
@@ -2564,6 +2601,7 @@
       "roleSource": [
         "https://pelotita.com.ar/equipos/9747",
         "Asignado internamente; pendiente de contraste con numeración oficial",
+        "https://espndeportes.espn.com/futbol/jugador/_/id/421300/joel-bonifacio",
         "https://www.radiorafaela.com.ar/deportes/primera-nacional-atletico-de-rafaela-sumo-a-matias-morello",
         "https://www.transfermarkt.es/gabriel-esparza/profil/spieler/322115"
       ],
@@ -3678,7 +3716,10 @@
         "Estimación propia por posición y orden del plantel; no se encontró dorsal confirmado."
       ],
       "ratingSource": "Estimación propia / FM27 referencia de escala y comparativa por rol; CA individual no disponible",
-      "roleSource": "https://www.mundoascenso.com.ar/plantel/1950-sportivo-las-parejas",
+      "roleSource": [
+        "https://www.mundoascenso.com.ar/plantel/1950-sportivo-las-parejas",
+        "https://www.mundoascenso.com.ar/plantel/1950-sportivo-las-parejas; secundarias: https://en.soccerwiki.org/player.php?pid=87258"
+      ],
       "natSource": "https://www.mundoascenso.com.ar/plantel/1950-sportivo-las-parejas"
     },
     "vilelas": {
