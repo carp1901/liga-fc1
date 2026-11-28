@@ -21,7 +21,8 @@ jobs:
       - name: Checkout migration branch
         uses: actions/checkout@v4
         with:
-          ref: cloudflare-workers-backend
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref || 'cloudflare-workers-backend' }}
+          persist-credentials: false
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
