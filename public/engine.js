@@ -503,7 +503,7 @@ function realNew(o){o=o||{};if(o.lg=='uy')return uyNew(o);const divs=CXORD.map(i
 // ---- Realista bloque 2: Primera Nacional, Primera C y Promocional Amateur se juegan por zonas (2 ruedas) + final y reducido.
 // La zona del jugador se juega en una sala normal (liga de 2 ruedas, cfg.zone/cfg.zl); la otra zona y las fases finales se simulan al cerrar la temporada.
 // Cada formato es un dato (RZ): zs = tamaños de zona, red = puestos que van al reducido. Reducidos de C (2.º a 7.º) y Promocional (2.º a 4.º): ida y vuelta, define el mejor ubicado (local la vuelta). Pendiente: interzonales.
-const RZ={ar1:{zs:[15,15]},ar5:{zs:[10,10,9,9]},ar2:{zs:[18,18],red:[2,8]},ar4:{zs:[14,14],red:[2,7]},ar6:{zs:[8,9],red:[2,4]}};
+const RZ={ar1:{zs:[15,15]},ar5:{zs:[10,9,9,9]},ar2:{zs:[18,18],red:[2,8]},ar4:{zs:[14,14],red:[2,7]},ar6:{zs:[8,9],red:[2,4]}};
 const RZL={
  ar1:[{a:1,b:8,k:'R',t:'Clasifica a los playoffs (8 por zona)',w:'z'},{a:29,b:30,k:'D',t:'Descenso a Primera Nacional (tabla anual)',w:'a'}],
  ar3:[{a:1,b:1,k:'F',t:'Ascenso directo a Primera Nacional'},{a:2,b:9,k:'R',t:'Reducido por el 2.º ascenso'},{a:21,b:22,k:'D',t:'Descenso a Primera C'}],
@@ -515,7 +515,25 @@ const RZL={
 const CLAS={ar1:'boca-river,independiente-racing,sanlorenzo-huracan,estudiantes-gimnasia,rosario-newells,banfield-lanus,belgrano-talleres,argentinos-platense,tigre-velez,union-sarmiento,atletico-centralcba,aldosivi-defensa,barracas-riestra,estudiantesrc-instituto,gimnasiamza-rivadavia',
  ar2:'allboys-nuevachicago,ferro-defensoresbelgrano,madryn-santelmo,sanmartinsj-racingcba,chaco-rafaela,sanmartintuc-gimnasiajujuy,moron-almirantebrown,estudiantesba-almagro,losandes-temperley,mitre-guemes,tristansuarez-quilmes,ciudadbolivar-agropecuario,colon-patronato,centralnorte-gimnasiatiro,godoycruz-maipu,sanmiguel-midland,colegiales-acassuso,atlanta-chacarita'};
 const CLP=Object.values(CLAS).flatMap(x=>x.split(',').map(p=>p.split('-')));
-const zsplit=(ids,zs,div)=>{const set=new Set(ids),Z=zs.map(()=>[]),pr=div&&CLAS[div]&&zs.length==2?shuf(CLAS[div].split(',').map(p=>p.split('-')).filter(p=>p.every(t=>set.has(t)))):[],used=new Set();
+/* Federal A: 4 zonas regionales (Centro, Norte, Oeste, Sur), una de 10 y tres de 9 con 37 clubes, como en la temporada real 2026.
+   «club:región/alternativa» (c, n, o, s). La pertenencia no es al azar: cada club va a su región; si una región supera su tope
+   (p. ej. por descensos del Nacional), los que sobran pasan a su región alternativa (limítrofe), primero los recién llegados.
+   Los 37 de 2026 siguen las zonas reales; los demás son clubes del interior que pueden bajar, ubicados por su ciudad. */
+const FA_REG=Object.fromEntries(('douglashaig:c/s sportivobelgrano:c/o gimchivilcoy:c/s defbelgranovr:c/s nuevejulio:c/n lasparejas:c/o escobar:c/s indchivilcoy:c/s linqueno:c/o gimcdu:c/n '+
+ 'sanmartinformosa:n/c bmitre:n/c soldeamerica:n/c sarmientolb:n/o antoniana:n/o vilelas:n/c bocaunidos:n/c tucumancentral:n/o sarmientores:n/c '+
+ 'cipolletti:o/s argmontemaiz:o/c atenas:o/c huracanlh:o/n fadep:o/n rincon:o/s atsanmartinmza:o/n costabrava:o/s juventudsl:o/c '+
+ 'olimpo:s/o alvarado:s/c kimberley:s/c villamitre:s/o germinal:s/o soldemayo:s/o gbrown:s/o santamarina:s/c circulo:s/c '+
+ 'agropecuario:c/s rafaela:c/n ciudadbolivar:c/s colon:c/n patronato:c/n union:c/n newells:c/o rosario:c/o estudiantes:c/s gimnasia:c/s sarmiento:c/o '+
+ 'atletico:n/o centralcba:n/o centralnorte:n/o chaco:n/c gimnasiajujuy:n/o gimnasiatiro:n/o guemes:n/o mitre:n/o sanmartintuc:n/o '+
+ 'gimnasiamza:o/n rivadavia:o/n maipu:o/n godoycruz:o/n sanmartinsj:o/n estudiantesrc:o/c belgrano:o/c talleres:o/c instituto:o/c racingcba:o/c '+
+ 'aldosivi:s/c madryn:s/o').split(' ').map(x=>{const[id,r]=x.split(':');return[id,r.split('/')]})),FA_BASE=new Set(Object.keys(FA_REG).slice(0,37));
+function fedZones(ids){const R=['c','n','o','s'],N=ids.length,base=Math.floor(N/4),nat=R.map(r=>ids.filter(id=>(FA_REG[id]||[])[0]==r).length),
+ ord=R.map((r,i)=>i).sort((x,y)=>nat[y]-nat[x]||x-y),cap=R.map((r,i)=>base+(ord.indexOf(i)<N%4?1:0)),Z=R.map(()=>[]),sin=[];
+ ids.forEach(id=>{const g=FA_REG[id];if(g)Z[R.indexOf(g[0])].push(id);else sin.push(id)});
+ const libre=()=>{let b=-1;Z.forEach((z,i)=>{if(cap[i]-z.length>0&&(b<0||cap[i]-z.length>cap[b]-Z[b].length))b=i});return b};
+ Z.forEach((z,i)=>{const cand=[...z.filter(id=>!FA_BASE.has(id)),...z.filter(id=>FA_BASE.has(id)).reverse()];for(const id of cand){if(z.length<=cap[i])break;const alt=R.indexOf(FA_REG[id][1]),j=Z[alt].length<cap[alt]?alt:libre();if(j<0)break;z.splice(z.indexOf(id),1);Z[j].push(id)}});
+ sin.forEach(id=>{const j=libre();Z[j<0?0:j].push(id)});return Z}
+const zsplit=(ids,zs,div)=>{if(div=='ar5')return fedZones(ids).map(z=>shuf(z));const set=new Set(ids),Z=zs.map(()=>[]),pr=div&&CLAS[div]&&zs.length==2?shuf(CLAS[div].split(',').map(p=>p.split('-')).filter(p=>p.every(t=>set.has(t)))):[],used=new Set();
  pr.forEach(([a,b])=>{const i=Z[0].length<zs[0]&&(Z[1].length>=zs[1]||rnd()<.5)?0:1,j=1-i;if(Z[i].length<zs[i]&&Z[j].length<zs[j]){Z[i].push(a);Z[j].push(b);used.add(a);used.add(b)}});
  const rest=shuf(ids.filter(t=>!used.has(t)));Z.forEach((z,i)=>{while(z.length<zs[i]&&rest.length)z.push(rest.pop())});return Z.map(z=>shuf(z))};
 const pdl=(a,b,adj)=>{const m=simGame(a,b,{mix:false,teamAdj:adj});return[m.ga,m.gb]};

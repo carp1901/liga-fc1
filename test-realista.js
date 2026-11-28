@@ -55,8 +55,18 @@ const sg=ids=>[Object.fromEntries(ids.map((id,i)=>[id,{pj:16,gf:20,ga:10,pts:30-
    const po=r.summary.cats.filter(c=>c.po);if(po.length!=6)bad++;po.forEach(c=>{const rd=c.po.red||(c.po.tor&&c.po.tor[1].rds);if(!rd.length)bad++;const L=rd[rd.length-1];if(L.m.length!=1)bad++;lines+=rd.length});
    if(r.summary.cats[5].po.promo)pr++;E.careerTitle(r.summary,'Yo');car=r.car}
   ok(!bad,'8 temporadas: Primera (playoffs), B Metro, Nacional, C y Promocional con su fase final (todas terminan en una final)');ok(pr==8,'la promoción C–Promocional se jugó las 8 veces');
-  ok(car.zones.ar1.every(z=>z.length==15)&&car.zones.ar2[0].length==18&&car.zones.ar4[1].length==14&&car.zones.ar6[0].length==8&&car.zones.ar6[1].length==9&&car.zones.ar5.length==4&&car.zones.ar5.flat().length==37&&car.zones.ar5.every(z=>z.length>=8&&z.length<=10),'zonas 15/15, 18/18, Federal A en 4 zonas con sus 37 clubes ('+car.zones.ar5.map(z=>z.length).join('/')+'), 14/14 y 8/9');
+  ok(car.zones.ar1.every(z=>z.length==15)&&car.zones.ar2[0].length==18&&car.zones.ar4[1].length==14&&car.zones.ar6[0].length==8&&car.zones.ar6[1].length==9&&car.zones.ar5.flat().length==37&&car.zones.ar5.map(z=>z.length).sort((a,b)=>b-a).join()=='10,9,9,9','zonas 15/15, 18/18, Federal A 10/9/9/9 con sus 37 clubes ('+car.zones.ar5.map(z=>z.length).join('/')+'), 14/14 y 8/9');
   tits.length=0;E.careerTitle({me:{club:'boca',champ:true,zone:'A',n:36}},'Yo');E.careerTitle({me:{club:'boca',champ:false,zone:'A',n:36}},'Yo');ok(tits.length==1&&tits[0].comp=='real'&&tits[0].compNombre=='Clásico realista'&&tits[0].fmt=='liga2'&&tits[0].n==36,'solo el campeón de la categoría informa título, como «Clásico realista»')}
+ console.log('\n== Federal A: zonas regionales (temporada real 2026)');
+ {const real=[['douglashaig','sportivobelgrano','gimchivilcoy','defbelgranovr','nuevejulio','lasparejas','escobar','indchivilcoy','linqueno','gimcdu'],
+   ['sanmartinformosa','bmitre','soldeamerica','sarmientolb','antoniana','vilelas','bocaunidos','tucumancentral','sarmientores'],
+   ['cipolletti','argmontemaiz','atenas','huracanlh','fadep','rincon','atsanmartinmza','costabrava','juventudsl'],
+   ['olimpo','alvarado','kimberley','villamitre','germinal','soldemayo','gbrown','santamarina','circulo']].map(z=>z.slice().sort().join());
+  const z0=E.realNew({me:{club:'boca'}}).zones.ar5.map(z=>z.slice().sort().join()).sort(),z1=E.realNew({me:{club:'olimpo'}}).zones.ar5.map(z=>z.slice().sort().join()).sort();
+  ok(JSON.stringify(z0)==JSON.stringify(real.slice().sort())&&JSON.stringify(z1)==JSON.stringify(z0),'2026: las 4 zonas son las reales (Centro 10, Norte 9, Oeste 9, Sur 9) y no dependen del azar');
+  let car=E.realNew({me:{club:'sanmiguel'}}),bien=true;for(let y=0;y<8;y++){const cf=E.careerCfg(car),r=E.careerClose(car,tbl(cf.teams),sg(cf.teams));if(r.error){bien=false;break}car=r.car;const Z=car.zones.ar5;
+   if(!(Z.flat().length==37&&new Set(Z.flat()).size==37&&Z.map(z=>z.length).sort((a,b)=>b-a).join()=='10,9,9,9'&&Z.flat().every(id=>car.cats[3].teams.includes(id))))bien=false}
+  ok(bien,'8 temporadas con ascensos y descensos: siempre 37 clubes en zonas 10/9/9/9')}
  console.log('\n== título para el ranking');
  {const car=E.realNew({me:{club:'boca'}});let rec=null;E.CFG.onTitle=x=>rec=x;let last=null;const room='rtit',pid='yo';
   E.act({a:'create',off:1,speed:100,room,pid,name:'Yo',cfg:{...E.careerCfg(car)}});E.listen(room,pid,v=>last=v);E.act({a:'pick',room,pid,team:'boca'});
