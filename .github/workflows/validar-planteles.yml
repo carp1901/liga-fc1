@@ -20,7 +20,7 @@ concurrency:
   group: publicar-planteles-main
   cancel-in-progress: true
 permissions:
-  contents: write
+  contents: read
 jobs:
   validar:
     runs-on: ubuntu-latest
@@ -69,14 +69,4 @@ jobs:
         run: node test-primera-c-draft.js --runtime
       - name: Auditar Primera y Primera Nacional publicadas
         run: node test-squads.js
-      - name: Guardar planteles publicados en GitHub
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/squads.json public/squads.js public/squads-meta.json
-          if git diff --cached --quiet; then
-            echo "Los archivos publicados ya están actualizados."
-          else
-            git commit -m "Publicar planteles reales de Primera y Primera Nacional 2026"
-            git push origin HEAD:main
-          fi
+      # Sin commit ni push: los datos del juego se publican solo con tools/regenerar-planteles.js (ver planteles.yml).

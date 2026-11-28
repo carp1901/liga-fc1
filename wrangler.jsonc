@@ -1,0 +1,61 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "clash-futbol-edge",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-11-19",
+  "workers_dev": false,
+  "preview_urls": false,
+  // CHAT_OWNER_ID (id numérico de usuarios.id del propietario del chat) y DATABASE_URL son SECRETOS:
+  // se cargan en el panel de Cloudflare o con "wrangler secret put", nunca acá. Sin CHAT_OWNER_ID válido nadie es propietario.
+  // SERVER_2D: "1" activa el 2D autoritativo del servidor; cualquier otro valor lo deja apagado.
+  "vars": {
+    "FRONTEND_ORIGINS": "",
+    "SERVER_2D": "0"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ROOMS",
+        "class_name": "RoomCoordinator"
+      },
+      {
+        "name": "CHAT",
+        "class_name": "ChatHub"
+      },
+      {
+        "name": "LOBBY",
+        "class_name": "LobbyCoordinator"
+      },
+      {
+        "name": "RANDOM",
+        "class_name": "RandomCoordinator"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "RoomCoordinator"
+      ]
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": [
+        "ChatHub"
+      ]
+    },
+    {
+      "tag": "v3",
+      "new_sqlite_classes": [
+        "LobbyCoordinator"
+      ]
+    },
+    {
+      "tag": "v4",
+      "new_sqlite_classes": [
+        "RandomCoordinator"
+      ]
+    }
+  ]
+}

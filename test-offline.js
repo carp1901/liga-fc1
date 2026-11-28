@@ -1,9 +1,11 @@
 // Prueba del modo offline (motor + IA) sin navegador: node test-offline.js [formato] [equipos]
-const E=require('./public/engine');E.CFG.offline=true;
+const E=require('./public/engine');E.CFG.offline=true;E.CFG.fastWaits=true; // sin navegador: nadie elige penales ni pelotas paradas, así que no se esperan (igual que test-copa)
 const fmt=process.argv[2]||'liga2',n=+process.argv[3]||6,room='off1',pid='yo';let last=null;
 console.log('crear:',E.act({a:'create',off:1,speed:100,room,pid,name:'Yo',cfg:{div:'ar1',fmt,n}}));
 E.listen(room,pid,v=>last=v);
-console.log('elegir:',E.act({a:'pick',room,pid,team:'boca'}),'| fase:',last.phase,'| equipos:',Object.keys(last.own).length);
+console.log('elegir:',E.act({a:'pick',room,pid,team:'boca'}));
+// Flujo actual: offline, después de elegir club se eligen los rivales (acá, al azar).
+console.log('rivales:',E.act({a:'rivals',room,pid,random:true}),'| fase:',last.phase,'| equipos:',Object.keys(last.own).length);
 let games=0,goals=0,max=0,seen=new Set(),t0=Date.now();
 const iv=setInterval(()=>{const v=last;if(['pre','lobby'].includes(v.phase))E.act({a:'ready',room,pid,v:true});
  if(v.res&&!seen.has(v.round)&&['lobby','end'].includes(v.phase)){seen.add(v.round);v.res.forEach(x=>{games++;goals+=x.ga+x.gb;max=Math.max(max,x.ga,x.gb)})}

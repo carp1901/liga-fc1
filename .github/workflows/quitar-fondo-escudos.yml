@@ -1,0 +1,174 @@
+name: Quitar fondo blanco de escudos
+
+# TST-07: solo lectura respecto del repositorio. No hace commit, push ni ninguna operación sobre main.
+# Procesa los escudos indicados y los entrega como artefacto descargable (con sus rutas originales,
+# public/crests/<id>.png) más un resumen en la corrida. Para incorporarlos: descargar el artefacto,
+# revisar los PNG, descomprimirlo en la raíz del repositorio y abrir un PR.
+'on':
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: 'Ids de club separados por coma (ej.: udprovincial,defbelgranovr,vilelas)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quitar-fondo-escudos
+  cancel-in-progress: false
+
+jobs:
+  quitar-fondo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar Sharp
+        run: npm install --no-save sharp
+
+      - name: Quitar fondo blanco exterior
+        env:
+          IDS: ${{ inputs.ids }}
+        run: |
+          cat > "$RUNNER_TEMP/limpiar.js" <<'NODE'
+          const fs = require('fs');
+          const sharp = require('sharp');
+
+          const ids = String(process.env.IDS || '').split(',').map(s => s.trim()).filter(Boolean);
+          if (!ids.length) throw new Error('No se indicó ningún id');
+          for (const id of ids) {
+            if (!/^[a-z0-9_]+$/.test(id)) throw new Error(`Id inválido: «${id}» (solo a-z, 0-9 y _)`);
+          }
+
+          async function limpiar(id) {
+            const archivo = `public/crests/${id}.png`;
+
+            if (!fs.existsSync(archivo)) {
+              throw new Error(`No existe ${archivo}`);
+            }
+
+            const { data, info } = await sharp(archivo)
+              .ensureAlpha()
+              .raw()
+              .toBuffer({ resolveWithObject: true });
+
+            const { width, height, channels } = info;
+            const visitados = new Uint8Array(width * height);
+            const cola = new Int32Array(width * height);
+            let inicio = 0;
+            let fin = 0;
+
+            function agregar(x, y) {
+              if (x < 0 || y < 0 || x >= width || y >= height) return;
+
+              const p = y * width + x;
+              if (visitados[p]) return;
+
+              const i = p * channels;
+              const r = data[i];
+              const g = data[i + 1];
+              const b = data[i + 2];
+
+              if (Math.min(r, g, b) < 218 ||
+                  Math.max(r, g, b) - Math.min(r, g, b) > 48) return;
+
+              visitados[p] = 1;
+              cola[fin++] = p;
+            }
+
+            for (let x = 0; x < width; x++) {
+              agregar(x, 0);
+              agregar(x, height - 1);
+            }
+
+            for (let y = 0; y < height; y++) {
+              agregar(0, y);
+              agregar(width - 1, y);
+            }
+
+            while (inicio < fin) {
+              const p = cola[inicio++];
+              data[p * channels + 3] = 0;
+
+              const x = p % width;
+              const y = Math.floor(p / width);
+
+              for (let dy = -1; dy <= 1; dy++) {
+                for (let dx = -1; dx <= 1; dx++) {
+                  if (dx || dy) agregar(x + dx, y + dy);
+                }
+              }
+            }
+
+            const salida = await sharp(data, {
+              raw: { width, height, channels }
+            }).png().toBuffer();
+
+            fs.writeFileSync(archivo, salida);
+            console.log(`CORREGIDO: ${id}; fondo exterior eliminado`);
+          }
+
+          async function main() {
+            for (const id of ids) await limpiar(id);
+          }
+
+          main().catch(error => {
+            console.error(error);
+            process.exitCode = 1;
+          });
+          NODE
+          NODE_PATH="$PWD/node_modules" node "$RUNNER_TEMP/limpiar.js"
+
+      - name: Preparar artefacto y resumen (sin tocar el repositorio)
+        run: |
+          cat > "$RUNNER_TEMP/preparar-artefacto.js" <<'NODE'
+          // Lista los PNG nuevos o modificados en public/crests (git status, solo lectura), los valida
+          // y los copia a $RUNNER_TEMP/escudos conservando la ruta original. Escribe el resumen de la corrida.
+          const fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
+          const sharp = require('sharp');
+          const OUT = path.join(process.env.RUNNER_TEMP, 'escudos');
+          const st = execFileSync('git', ['status', '--porcelain', '--untracked-files=all', '--', 'public/crests'], { encoding: 'utf8' });
+          const cambios = st.split('\n').filter(Boolean).map(l => ({ estado: l.slice(0, 2).trim() === '??' ? 'nuevo' : 'modificado', archivo: l.slice(3).trim() })).filter(c => c.archivo.endsWith('.png'));
+          const filas = [];
+          (async () => {
+            for (const c of cambios) {
+              const meta = await sharp(c.archivo).metadata();
+              if (!(meta.width > 0 && meta.height > 0) || !meta.hasAlpha || meta.format !== 'png') throw new Error(`PNG inválido: ${c.archivo}`);
+              let antes = '—';
+              if (c.estado === 'modificado') antes = String(execFileSync('git', ['cat-file', '-s', 'HEAD:' + c.archivo], { encoding: 'utf8' }).trim());
+              const destino = path.join(OUT, c.archivo);
+              fs.mkdirSync(path.dirname(destino), { recursive: true });
+              fs.copyFileSync(c.archivo, destino);
+              filas.push(`| \`${c.archivo}\` | ${c.estado} | ${antes} | ${fs.statSync(c.archivo).size} | ${meta.width}×${meta.height} |`);
+            }
+            const resumen = [
+              '## Escudos procesados (artefacto, sin commit)',
+              '',
+              cambios.length ? '| Archivo | Estado | Bytes antes | Bytes después | Medidas |\n|---|---|---:|---:|---|\n' + filas.join('\n') : 'No hubo cambios en `public/crests`.',
+              '',
+              'Para incorporarlos: descargá el artefacto de esta corrida, revisá los PNG, descomprimilo en la raíz del repositorio (las rutas son las originales) y abrí un PR.',
+            ].join('\n');
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY || '/dev/stdout', resumen + '\n');
+            console.log(`${cambios.length} PNG preparados en ${OUT}`);
+          })().catch(e => { console.error(e); process.exitCode = 1; });
+          NODE
+          NODE_PATH="$PWD/node_modules" node "$RUNNER_TEMP/preparar-artefacto.js"
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: escudos-quitar-fondo-${{ github.run_id }}
+          path: ${{ runner.temp }}/escudos/
+          retention-days: 14
+          if-no-files-found: warn

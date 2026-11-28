@@ -1,0 +1,1769 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import worker, { RoomCoordinator, ChatHub, LobbyCoordinator, RandomCoordinator } from "../src/worker.mjs";
+import Data from "../public/data.js";
+import Engine from "../public/engine.js";
+import { addCareers, addTitle, offlineTitleRecord, rankRows, pointsForCareer, rankingCoaches, rankingFans, MIN_EQUIPOS as CAREERS_MIN_EQUIPOS } from "../src/careers.mjs";
+import * as Chat from "../src/chat.mjs";
+import { server2dEnabled } from "../src/worker.mjs";
+import { readFileSync, readdirSync } from "node:fs";
+
+class MemoryStorage {
+  data = new Map();
+  alarm = null;
+  async get(key) { return this.data.get(key); }
+  async put(key, value) { this.data.set(key, structuredClone(value)); }
+  async delete(key) { return this.data.delete(key); }
+  async list(options = {}) { return new Map([...this.data.entries()].filter(([key]) => !options.prefix || key.startsWith(options.prefix))); }
+  async setAlarm(value) { this.alarm = value; }
+  async deleteAlarm() { this.alarm = null; }
+}
+
+function mockEnv() {
+  const objects = new Map();
+  const storages = new Map();
+  const lobbyObjects = new Map();
+  const lobbyStorages = new Map();
+  const randomObjects = new Map();
+  const randomStorages = new Map();
+  const env = {};
+  env.ROOMS = {
+    idFromName: name => name,
+    get: id => {
+      if (!objects.has(id)) {
+        const storage = new MemoryStorage();
+        storages.set(id, storage);
+        const instance = new RoomCoordinator({ storage }, env);
+        objects.set(id, { fetch: req => instance.fetch(req), instance });
+      }
+      return objects.get(id);
+    }
+  };
+  env.RANDOM = {
+    idFromName: name => name,
+    get: id => {
+      if (!randomObjects.has(id)) {
+        const storage = new MemoryStorage();
+        randomStorages.set(id, storage);
+        const instance = new RandomCoordinator({ storage }, env);
+        randomObjects.set(id, { fetch: req => instance.fetch(req), instance });
+      }
+      return randomObjects.get(id);
+    }
+  };
+  env.LOBBY = {
+    idFromName: name => name,
+    get: id => {
+      if (!lobbyObjects.has(id)) {
+        const storage = new MemoryStorage();
+        lobbyStorages.set(id, storage);
+        const instance = new LobbyCoordinator({ storage }, env);
+        lobbyObjects.set(id, { fetch: req => instance.fetch(req), instance });
+      }
+      return lobbyObjects.get(id);
+    }
+  };
+  return { env, storages, lobbyStorages, randomStorages };
+}
+
+const post = (url, body) => new Request(url, {
+  method: "POST",
+  headers: { "content-type": "application/json" },
+  body: JSON.stringify(body)
+});
+
+test("Worker health endpoint reports the integrated room runtime", async () => {
+  const { env } = mockEnv();
+  const response = await worker.fetch(new Request("https://game.test/health"), env);
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), {
+    ok: true, platform: "cloudflare-workers", phase: "single-room-runtime", engine: "integrated"
+  });
+});
+
+test("online engine creates a room inside its Durable Object and persists it", async () => {
+  const { env, storages } = mockEnv();
+  const create = await worker.fetch(post("https://game.test/act", {
+    a: "create", room: "testroom", pid: "player1", name: "DT",
+    cfg: { div: "ar1", fmt: "liga1", n: 8 }
+  }), env);
+
+  assert.equal(create.status, 200);
+  assert.deepEqual(await create.json(), { ok: true });
+  assert.ok(storages.get("testroom").alarm);
+
+  const state = await worker.fetch(new Request(
+    "https://game.test/__cf/rooms/state?room=testroom"
+  ), env);
+  assert.equal(state.status, 200);
+  const data = await state.json();
+  assert.equal(data.snapshot.code, "testroom");
+  assert.equal(data.snapshot.phase, "pick");
+  assert.deepEqual(data.snapshot.order, ["player1"]);
+});
+
+
+test("player actions use the original engine and survive persistence", async () => {
+  const { env } = mockEnv();
+  const room = "pickroom";
+  const team = Data.DIVS.find(div => div.id === "ar1").teams[0].id;
+
+  const create = await worker.fetch(post("https://game.test/act", {
+    a: "create", room, pid: "player1", name: "DT",
+    cfg: { div: "ar1", fmt: "liga1", n: 8 }
+  }), env);
+  assert.equal(create.status, 200);
+
+  const pick = await worker.fetch(post("https://game.test/act", {
+    a: "pick", room, pid: "player1", team
+  }), env);
+  assert.equal(pick.status, 200);
+
+  const state = await worker.fetch(new Request(
+    "https://game.test/__cf/rooms/state?room=" + room
+  ), env);
+  const data = await state.json();
+  assert.equal(data.snapshot.pl.player1.team, team);
+  assert.equal(data.snapshot.phase, "pick");
+});
+
+test("room state survives recreation of the Durable Object instance", async () => {
+  const { env, storages } = mockEnv();
+  await worker.fetch(post("https://game.test/act", {
+    a: "create", room: "persist1", pid: "player1", name: "DT",
+    cfg: { div: "ar1", fmt: "liga1", n: 8 }
+  }), env);
+
+  const restarted = new RoomCoordinator({ storage: storages.get("persist1") }, {});
+  const state = await restarted.fetch(new Request("https://game.test/room/persist1/state"));
+  assert.equal(state.status, 200);
+  const data = await state.json();
+  assert.equal(data.snapshot.phase, "pick");
+  assert.deepEqual(data.snapshot.order, ["player1"]);
+});
+
+test("client-supplied account IDs are stripped before the engine receives actions", async () => {
+  const { env } = mockEnv();
+  const response = await worker.fetch(new Request("https://game.test/act", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-clash-auth-user-id": "999999" },
+    body: JSON.stringify({
+      a: "create", room: "secure1", pid: "player1", uid: 999999, name: "DT",
+      cfg: { div: "ar1", fmt: "liga1", n: 8 }
+    })
+  }), env);
+  assert.equal(response.status, 200);
+
+  const state = await worker.fetch(new Request(
+    "https://game.test/__cf/rooms/state?room=secure1"
+  ), env);
+  const data = await state.json();
+  assert.equal(data.snapshot.pl.player1.uid, undefined);
+});
+
+
+test("session recovery and SSE preserve the frontend delta protocol", async () => {
+  const { env } = mockEnv();
+  const room = "stream01";
+  const create = await worker.fetch(post("https://game.test/act", {
+    a: "create", room, pid: "player1", name: "DT",
+    cfg: { div: "ar1", fmt: "liga1", n: 8 }
+  }), env);
+  assert.equal(create.status, 200);
+
+  const session = await worker.fetch(new Request(
+    "https://game.test/api/sesion?room=" + room + "&pid=player1"
+  ), env);
+  assert.deepEqual(await session.json(), { ok: true });
+
+  const stream = await worker.fetch(new Request(
+    "https://game.test/ev?room=" + room + "&pid=player1&v=2"
+  ), env);
+  assert.equal(stream.status, 200);
+  assert.match(stream.headers.get("content-type"), /text\/event-stream/);
+  const reader = stream.body.getReader();
+  let wire = "";
+  while (!wire.includes("data:")) {
+    const part = await reader.read();
+    assert.equal(part.done, false);
+    wire += new TextDecoder().decode(part.value);
+  }
+  const payload = wire.slice(wire.indexOf("data:") + 5).split("\n")[0];
+  const event = JSON.parse(payload);
+  assert.equal(event.__cf, "full");
+  assert.equal(event.v.code, room);
+  await reader.cancel();
+});
+
+test("teams.json remains available from the bundled game data", async () => {
+  const { env } = mockEnv();
+  const response = await worker.fetch(new Request("https://game.test/teams.json"), env);
+  assert.equal(response.status, 200);
+  const divisions = await response.json();
+  assert.ok(divisions.some(div => div.id === "ar1"));
+});
+
+
+test("CORS allows only the configured Pages origin", async () => {
+  const { env } = mockEnv();
+  env.FRONTEND_ORIGINS = "https://clash-futbol.pages.dev";
+  const allowed = await worker.fetch(new Request("https://game.test/health", {
+    headers: { origin: "https://clash-futbol.pages.dev" }
+  }), env);
+  assert.equal(allowed.status, 200);
+  assert.equal(allowed.headers.get("access-control-allow-origin"), "https://clash-futbol.pages.dev");
+
+  const preflight = await worker.fetch(new Request("https://game.test/act", {
+    method: "OPTIONS", headers: { origin: "https://clash-futbol.pages.dev" }
+  }), env);
+  assert.equal(preflight.status, 204);
+  assert.match(preflight.headers.get("access-control-allow-headers"), /Authorization/);
+
+  const blocked = await worker.fetch(new Request("https://game.test/health", {
+    headers: { origin: "https://evil.example" }
+  }), env);
+  assert.equal(blocked.status, 403);
+});
+
+test("invalid room IDs are rejected before reaching Durable Objects", async () => {
+  const { env } = mockEnv();
+  const response = await worker.fetch(post("https://game.test/act", {
+    a: "create", room: "../bad", pid: "player1", cfg: {}
+  }), env);
+  assert.equal(response.status, 400);
+});
+
+test("malformed actions and missing rooms return controlled errors", async () => {
+  const { env } = mockEnv();
+  const malformed = await worker.fetch(new Request("https://game.test/act", {
+    method: "POST", headers: { "content-type": "application/json" }, body: "{"
+  }), env);
+  assert.equal(malformed.status, 400);
+
+  const missing = await worker.fetch(new Request(
+    "https://game.test/ev?room=missing1&pid=player1"
+  ), env);
+  assert.equal(missing.status, 404);
+});
+
+
+function mockAuthDatabase() {
+  const users = [];
+  const sessions = [];
+  let nextId = 1;
+  const env = {
+    __DB_QUERY__: async (statement, params) => {
+      if (statement.startsWith("INSERT INTO usuarios")) {
+        const [usuario, usuario_lc, pass_hash] = params;
+        if (users.some(user => user.usuario_lc === usuario_lc)) return { rows: [], rowCount: 0 };
+        const user = { id: nextId++, usuario, usuario_lc, pass_hash };
+        users.push(user);
+        return { rows: [{ id: user.id, usuario: user.usuario }], rowCount: 1 };
+      }
+      if (statement.startsWith("INSERT INTO sesiones")) {
+        const [token_hash, usuario_id, vence] = params;
+        sessions.push({ token_hash, usuario_id, vence });
+        return { rows: [], rowCount: 1 };
+      }
+      if (statement.startsWith("SELECT id, usuario, pass_hash FROM usuarios")) {
+        const user = users.find(item => item.usuario_lc === params[0]);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario, pass_hash: user.pass_hash }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (statement.startsWith("UPDATE usuarios SET ultimo_ingreso")) return { rows: [], rowCount: 1 };
+      if (statement.startsWith("DELETE FROM sesiones WHERE vence<now()")) return { rows: [], rowCount: 0 };
+      if (statement.startsWith("SELECT u.id, u.usuario FROM sesiones")) {
+        const session = sessions.find(item => item.token_hash === params[0] && Date.parse(item.vence) > Date.now());
+        const user = session && users.find(item => item.id === session.usuario_id);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (statement.startsWith("DELETE FROM sesiones WHERE token_hash")) {
+        const index = sessions.findIndex(item => item.token_hash === params[0]);
+        if (index >= 0) sessions.splice(index, 1);
+        return { rows: [], rowCount: index >= 0 ? 1 : 0 };
+      }
+      throw new Error("Unexpected SQL in auth test: " + statement);
+    }
+  };
+  return { env, users, sessions };
+}
+
+test("account registration, login, token validation and logout use Neon-backed auth", async () => {
+  const { env, users, sessions } = mockAuthDatabase();
+  const registerResponse = await worker.fetch(post("https://game.test/api/auth/registro", {
+    usuario: "Tecnico01", clave: "clave-segura-123"
+  }), env);
+  assert.equal(registerResponse.status, 200);
+  const registered = await registerResponse.json();
+  assert.equal(registered.usuario, "Tecnico01");
+  assert.equal(typeof registered.token, "string");
+  assert.equal(users.length, 1);
+  assert.match(users[0].pass_hash, /^pbkdf2\$100000\$/);
+  assert.notEqual(users[0].pass_hash, "clave-segura-123");
+  assert.equal(sessions.length, 1);
+
+  const duplicate = await worker.fetch(post("https://game.test/api/auth/registro", {
+    usuario: "tecnico01", clave: "otra-clave-123"
+  }), env);
+  assert.equal(duplicate.status, 400);
+
+  const me = await worker.fetch(new Request("https://game.test/api/auth/yo", {
+    headers: { authorization: "Bearer " + registered.token }
+  }), env);
+  assert.equal(me.status, 200);
+  assert.deepEqual(await me.json(), { usuario: "Tecnico01" });
+
+  const loginResponse = await worker.fetch(post("https://game.test/api/auth/login", {
+    usuario: "TECNICO01", clave: "clave-segura-123"
+  }), env);
+  assert.equal(loginResponse.status, 200);
+  const loggedIn = await loginResponse.json();
+  assert.equal(loggedIn.usuario, "Tecnico01");
+  assert.notEqual(loggedIn.token, registered.token);
+
+  const logout = await worker.fetch(post("https://game.test/api/auth/logout", {
+    tok: loggedIn.token
+  }), env);
+  assert.equal(logout.status, 200);
+  assert.deepEqual(await logout.json(), { ok: 1 });
+
+  const invalid = await worker.fetch(new Request("https://game.test/api/auth/yo", {
+    headers: { authorization: "Bearer " + loggedIn.token }
+  }), env);
+  assert.equal(invalid.status, 401);
+});
+
+
+test("Neon health endpoint checks the configured database adapter", async () => {
+  const calls = [];
+  const env = {
+    __DB_QUERY__: async (statement, params) => {
+      calls.push({ statement, params });
+      return { rows: [{ ok: 1 }], rowCount: 1 };
+    }
+  };
+  const response = await worker.fetch(new Request("https://game.test/api/db/health"), env);
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { ok: true, database: "connected", value: 1 });
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].statement, "SELECT 1 AS ok");
+});
+
+
+test("only a validated Neon session can attribute an account to an online player", async () => {
+  const { env } = mockAuthDatabase();
+  env.ROOMS = mockEnv().env.ROOMS;
+  const registerResponse = await worker.fetch(post("https://game.test/api/auth/registro", {
+    usuario: "CuentaReal", clave: "clave-segura-456"
+  }), env);
+  assert.equal(registerResponse.status, 200);
+  const account = await registerResponse.json();
+
+  const response = await worker.fetch(new Request("https://game.test/act", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: "Bearer " + account.token,
+      "x-clash-auth-user-id": "999999"
+    },
+    body: JSON.stringify({
+      a: "create", room: "authroom", pid: "player1", uid: 888888,
+      name: "DT", cfg: { div: "ar1", fmt: "liga1", n: 8 }
+    })
+  }), env);
+  assert.equal(response.status, 200);
+
+  const state = await worker.fetch(new Request(
+    "https://game.test/__cf/rooms/state?room=authroom"
+  ), env);
+  const snapshot = (await state.json()).snapshot;
+  assert.equal(snapshot.pl.player1.uid, 1);
+  assert.notEqual(snapshot.pl.player1.uid, 888888);
+  assert.notEqual(snapshot.pl.player1.uid, 999999);
+});
+
+
+function mockSocialDatabase() {
+  const users = [];
+  const sessions = [];
+  const profiles = new Map();
+  const friendships = [];
+  let nextUserId = 1;
+  let nextFriendId = 1;
+  const env = {
+    __DB_QUERY__: async (sql, params) => {
+      if (sql.startsWith("INSERT INTO usuarios")) {
+        const [usuario, usuario_lc, pass_hash] = params;
+        if (users.some(user => user.usuario_lc === usuario_lc)) return { rows: [], rowCount: 0 };
+        const user = { id: nextUserId++, usuario, usuario_lc, pass_hash, creado: "2026-01-01T00:00:00Z" };
+        users.push(user);
+        return { rows: [{ id: user.id, usuario: user.usuario }], rowCount: 1 };
+      }
+      if (sql.startsWith("INSERT INTO sesiones")) {
+        const [token_hash, usuario_id, vence] = params;
+        sessions.push({ token_hash, usuario_id, vence });
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT id, usuario, pass_hash FROM usuarios")) {
+        const user = users.find(item => item.usuario_lc === params[0]);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario, pass_hash: user.pass_hash }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("UPDATE usuarios SET ultimo_ingreso") || sql.startsWith("DELETE FROM sesiones WHERE vence<now()")) {
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT u.id, u.usuario FROM sesiones")) {
+        const session = sessions.find(item => item.token_hash === params[0] && Date.parse(item.vence) > Date.now());
+        const user = session && users.find(item => item.id === session.usuario_id);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("DELETE FROM sesiones WHERE token_hash")) {
+        const index = sessions.findIndex(item => item.token_hash === params[0]);
+        if (index >= 0) sessions.splice(index, 1);
+        return { rows: [], rowCount: index >= 0 ? 1 : 0 };
+      }
+      if (sql.startsWith("SELECT usuario,creado FROM usuarios WHERE id=")) {
+        const user = users.find(item => item.id === Number(params[0]));
+        return { rows: user ? [{ usuario: user.usuario, creado: user.creado }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("SELECT club_favorito,descripcion FROM perfiles")) {
+        const profile = profiles.get(Number(params[0]));
+        return { rows: profile ? [{ club_favorito: profile.club_favorito, descripcion: profile.descripcion }] : [], rowCount: profile ? 1 : 0 };
+      }
+      if (sql.startsWith("INSERT INTO perfiles")) {
+        const [uid, club] = params;
+        if (profiles.has(Number(uid))) return { rows: [], rowCount: 0 };
+        profiles.set(Number(uid), { club_favorito: club, descripcion: "" });
+        return { rows: [{ club_favorito: club }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT club_favorito FROM perfiles")) {
+        const profile = profiles.get(Number(params[0]));
+        return { rows: profile ? [{ club_favorito: profile.club_favorito }] : [], rowCount: profile ? 1 : 0 };
+      }
+      if (sql.startsWith("SELECT count(*)::int AS carreras")) {
+        return { rows: [{ carreras: 0, campeonatos: 0, online: 0, clubes: 0 }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT torneo_id,club,club_nombre")) return { rows: [], rowCount: 0 };
+      if (sql.startsWith("SELECT u.id,u.usuario,u.creado,p.club_favorito,p.descripcion")) {
+        const user = users.find(item => item.usuario_lc === params[0]);
+        if (!user) return { rows: [], rowCount: 0 };
+        const profile = profiles.get(user.id);
+        return { rows: [{
+          id: user.id, usuario: user.usuario, creado: user.creado,
+          club_favorito: profile?.club_favorito || null, descripcion: profile?.descripcion || ""
+        }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT u.usuario,p.club_favorito,c.torneo_id")) return { rows: [], rowCount: 0 };
+      if (sql.startsWith("SELECT club,club_nombre,competicion_nombre")) return { rows: [], rowCount: 0 };
+      if (sql.startsWith("SELECT count(*)::int AS n FROM amistades WHERE de_id=")) {
+        const count = friendships.filter(item => item.de_id === Number(params[0]) && item.estado === "pendiente").length;
+        return { rows: [{ n: count }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT count(*)::int AS n FROM amistades WHERE (de_id=")) {
+        const uid = Number(params[0]);
+        const count = friendships.filter(item => (item.de_id === uid || item.a_id === uid) && item.estado === "aceptada").length;
+        return { rows: [{ n: count }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT id,usuario FROM usuarios WHERE usuario_lc=")) {
+        const user = users.find(item => item.usuario_lc === params[0]);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("SELECT id,de_id,a_id,estado FROM amistades")) {
+        const [a, b] = params.map(Number);
+        const row = friendships.find(item => (item.de_id === a && item.a_id === b) || (item.de_id === b && item.a_id === a));
+        return { rows: row ? [{ id: row.id, de_id: row.de_id, a_id: row.a_id, estado: row.estado }] : [], rowCount: row ? 1 : 0 };
+      }
+      if (sql.startsWith("INSERT INTO amistades")) {
+        const [from, to] = params.map(Number);
+        if (friendships.some(item => (item.de_id === from && item.a_id === to) || (item.de_id === to && item.a_id === from))) return { rows: [], rowCount: 0 };
+        const row = { id: nextFriendId++, de_id: from, a_id: to, estado: "pendiente", creada: "2026-01-02T00:00:00Z", aceptada: null };
+        friendships.push(row);
+        return { rows: [{ id: row.id }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT a.id,a.de_id,a.a_id")) {
+        const uid = Number(params[0]);
+        const rows = friendships.filter(item => item.de_id === uid || item.a_id === uid).map(item => ({
+          ...item,
+          de_usuario: users.find(user => user.id === item.de_id)?.usuario,
+          a_usuario: users.find(user => user.id === item.a_id)?.usuario
+        }));
+        return { rows, rowCount: rows.length };
+      }
+      if (sql.startsWith("SELECT de_id FROM amistades WHERE id=")) {
+        const [id, uid] = params.map(Number);
+        const row = friendships.find(item => item.id === id && item.a_id === uid && item.estado === "pendiente");
+        return { rows: row ? [{ de_id: row.de_id }] : [], rowCount: row ? 1 : 0 };
+      }
+      if (sql.startsWith("UPDATE amistades SET estado='aceptada'")) {
+        const [id, uid] = params.map(Number);
+        const row = friendships.find(item => item.id === id && item.a_id === uid && item.estado === "pendiente");
+        if (!row) return { rows: [], rowCount: 0 };
+        row.estado = "aceptada";
+        row.aceptada = "2026-01-03T00:00:00Z";
+        return { rows: [{ id }], rowCount: 1 };
+      }
+      if (sql.startsWith("DELETE FROM amistades WHERE id=")) {
+        const [id, uid] = params.map(Number);
+        const index = friendships.findIndex(item => item.id === id && (sql.includes("de_id=$2") ? item.de_id === uid : item.a_id === uid) && item.estado === "pendiente");
+        if (index < 0) return { rows: [], rowCount: 0 };
+        const [deleted] = friendships.splice(index, 1);
+        return { rows: [{ id: deleted.id }], rowCount: 1 };
+      }
+      if (sql.startsWith("DELETE FROM amistades WHERE estado='aceptada'")) {
+        const [a, b] = params.map(Number);
+        const index = friendships.findIndex(item => item.estado === "aceptada" &&
+          ((item.de_id === a && item.a_id === b) || (item.de_id === b && item.a_id === a)));
+        if (index < 0) return { rows: [], rowCount: 0 };
+        const [deleted] = friendships.splice(index, 1);
+        return { rows: [{ id: deleted.id }], rowCount: 1 };
+      }
+      throw new Error("Unexpected SQL in social test: " + sql);
+    }
+  };
+  return { env, users, profiles, friendships };
+}
+
+async function createAccount(env, username) {
+  const response = await worker.fetch(post("https://game.test/api/auth/registro", {
+    usuario: username, clave: "clave-segura-123"
+  }), env);
+  assert.equal(response.status, 200);
+  return response.json();
+}
+
+test("profile endpoint and favorite club preserve one-time selection", async () => {
+  const { env, profiles } = mockSocialDatabase();
+  const account = await createAccount(env, "PerfilUno");
+  const headers = { authorization: "Bearer " + account.token, "content-type": "application/json" };
+
+  const profile = await worker.fetch(new Request("https://game.test/api/auth/perfil", { headers }), env);
+  assert.equal(profile.status, 200);
+  const initial = await profile.json();
+  assert.equal(initial.usuario, "PerfilUno");
+  assert.equal(initial.perfilCompleto, false);
+  assert.equal(initial.clubFavorito, null);
+
+  const favorite = await worker.fetch(new Request("https://game.test/api/auth/favorito", {
+    method: "POST", headers, body: JSON.stringify({ club: "boca" })
+  }), env);
+  assert.equal(favorite.status, 200);
+  assert.deepEqual(await favorite.json(), { ok: 1, clubFavorito: "boca" });
+  assert.equal(profiles.get(1).club_favorito, "boca");
+
+  const secondChoice = await worker.fetch(new Request("https://game.test/api/auth/favorito", {
+    method: "POST", headers, body: JSON.stringify({ club: "river" })
+  }), env);
+  assert.equal(secondChoice.status, 409);
+  assert.equal((await secondChoice.json()).clubFavorito, "boca");
+
+  const invalidClub = await worker.fetch(new Request("https://game.test/api/auth/favorito", {
+    method: "POST", headers, body: JSON.stringify({ club: "not-a-club" })
+  }), env);
+  assert.equal(invalidClub.status, 400);
+});
+
+test("friends API supports request, receive, accept, list and remove", async () => {
+  const { env, friendships } = mockSocialDatabase();
+  const alice = await createAccount(env, "TecnicoA");
+  const bob = await createAccount(env, "TecnicoB");
+  const auth = token => ({ authorization: "Bearer " + token, "content-type": "application/json" });
+
+  const sent = await worker.fetch(new Request("https://game.test/api/amigos/solicitar", {
+    method: "POST", headers: auth(alice.token), body: JSON.stringify({ usuario: "TecnicoB" })
+  }), env);
+  assert.equal(sent.status, 200);
+  assert.deepEqual(await sent.json(), { ok: 1, estado: "pendiente", usuario: "TecnicoB" });
+  assert.equal(friendships.length, 1);
+
+  const bobList = await worker.fetch(new Request("https://game.test/api/amigos", {
+    headers: auth(bob.token)
+  }), env);
+  const received = await bobList.json();
+  assert.equal(received.recibidas.length, 1);
+  assert.equal(received.recibidas[0].usuario, "TecnicoA");
+
+  const accept = await worker.fetch(new Request("https://game.test/api/amigos/responder", {
+    method: "POST", headers: auth(bob.token), body: JSON.stringify({ id: 1, accion: "aceptar" })
+  }), env);
+  assert.equal(accept.status, 200);
+  assert.deepEqual(await accept.json(), { ok: 1 });
+
+  const aliceList = await worker.fetch(new Request("https://game.test/api/amigos", {
+    headers: auth(alice.token)
+  }), env);
+  const accepted = await aliceList.json();
+  assert.equal(accepted.amigos.length, 1);
+  assert.equal(accepted.amigos[0].usuario, "TecnicoB");
+
+  const remove = await worker.fetch(new Request("https://game.test/api/amigos/quitar", {
+    method: "POST", headers: auth(alice.token), body: JSON.stringify({ id: 2 })
+  }), env);
+  assert.equal(remove.status, 200);
+  assert.deepEqual(await remove.json(), { ok: 1 });
+  assert.equal(friendships.length, 0);
+});
+
+test("public technician profile is available without authentication", async () => {
+  const { env } = mockSocialDatabase();
+  const account = await createAccount(env, "PerfilPublico");
+  const favorite = await worker.fetch(post("https://game.test/api/auth/favorito", {
+    tok: account.token, club: "river"
+  }), env);
+  assert.equal(favorite.status, 200);
+
+  const response = await worker.fetch(new Request("https://game.test/api/tecnico?usuario=PerfilPublico"), env);
+  assert.equal(response.status, 200);
+  const profile = await response.json();
+  assert.equal(profile.usuario, "PerfilPublico");
+  assert.equal(profile.clubFavorito, "river");
+  assert.equal(profile.resumen.puntos, 0);
+  assert.equal(profile.resumenOffline.puntos, 0, "SEG-04: el perfil trae el resumen offline aparte");
+  assert.deepEqual(profile.historial, []);
+});
+
+
+let nextChatMockBase = 1000;
+function mockChatDatabase() {
+  const users = [], sessions = [], profiles = new Map(), messages = [], reactions = [];
+  const sanctions = new Map(), moderators = new Set(), events = [];
+  let nextUserId = nextChatMockBase, nextMessageId = 1;
+  nextChatMockBase += 100;
+  const env = {
+    // CHAT_OWNER_ID se fija en cada test con el id de la cuenta propietaria (nunca por nombre).
+    CHAT: {
+      idFromName: name => name,
+      get: () => ({ fetch: async request => {
+        const url = new URL(request.url);
+        if (url.pathname === "/broadcast") {
+          const body = await request.json();
+          events.push(body);
+          return new Response(JSON.stringify({ ok: true }));
+        }
+        if (url.pathname === "/stream") return new Response("stream");
+        return new Response("not found", { status: 404 });
+      }})
+    },
+    __DB_QUERY__: async (sql, params) => {
+      if (sql.startsWith("INSERT INTO usuarios")) {
+        const [usuario, usuario_lc, pass_hash] = params;
+        const user = { id: nextUserId++, usuario, usuario_lc, pass_hash, creado: "2026-01-01T00:00:00Z" };
+        users.push(user);
+        return { rows: [{ id: user.id, usuario }], rowCount: 1 };
+      }
+      if (sql.startsWith("INSERT INTO sesiones")) {
+        sessions.push({ token_hash: params[0], usuario_id: params[1], vence: params[2] });
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT id, usuario, pass_hash FROM usuarios")) {
+        const user = users.find(row => row.usuario_lc === params[0]);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario, pass_hash: user.pass_hash }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("SELECT u.id, u.usuario FROM sesiones")) {
+        const session = sessions.find(row => row.token_hash === params[0] && Date.parse(row.vence) > Date.now());
+        const user = session && users.find(row => row.id === session.usuario_id);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("UPDATE usuarios SET ultimo_ingreso") || sql.startsWith("DELETE FROM sesiones WHERE vence<now()")) return { rows: [], rowCount: 1 };
+      if (sql.startsWith("SELECT 1 FROM chat_moderadores")) return { rows: moderators.has(Number(params[0])) ? [{ "?column?": 1 }] : [], rowCount: moderators.has(Number(params[0])) ? 1 : 0 };
+      if (sql.startsWith("SELECT tipo,hasta FROM chat_sanciones")) {
+        const row = sanctions.get(Number(params[0]));
+        const active = row && (row.tipo === "suspension" || !row.hasta || Date.parse(row.hasta) > Date.now());
+        return { rows: active ? [{ tipo: row.tipo, hasta: row.hasta }] : [], rowCount: active ? 1 : 0 };
+      }
+      if (sql.startsWith("SELECT u.usuario,p.club_favorito FROM usuarios")) {
+        const user = users.find(row => row.id === Number(params[0]));
+        const profile = profiles.get(Number(params[0]));
+        return { rows: user ? [{ usuario: user.usuario, club_favorito: profile?.club_favorito || null }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("INSERT INTO chat_mensajes")) {
+        const row = { id: nextMessageId++, usuario_id: Number(params[0]), usuario: params[1], mensaje: params[2], creado: "2026-01-02T00:00:00Z", eliminado: false };
+        messages.push(row);
+        return { rows: [{ id: row.id, usuario: row.usuario, mensaje: row.mensaje, creado: row.creado }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT m.id,m.usuario,m.mensaje")) {
+        const uid = params[1] == null ? null : Number(params[1]);
+        const rows = messages.filter(row => !row.eliminado).slice(-Number(params[0])).map(row => ({
+          id: row.id, usuario: row.usuario, mensaje: row.mensaje, creado: row.creado,
+          club_favorito: profiles.get(row.usuario_id)?.club_favorito || null,
+          likes: reactions.filter(v => v.mensaje_id === row.id && v.valor === 1).length,
+          dislikes: reactions.filter(v => v.mensaje_id === row.id && v.valor === -1).length,
+          mi_voto: reactions.find(v => v.mensaje_id === row.id && v.usuario_id === uid)?.valor || 0,
+          mio: row.usuario_id === uid, es_owner: params[2] != null && row.usuario_id === Number(params[2])
+        }));
+        return { rows, rowCount: rows.length };
+      }
+      if (sql.startsWith("UPDATE chat_mensajes SET eliminado=true")) {
+        const row = messages.find(item => item.id === Number(params[0]));
+        if (row) row.eliminado = true;
+        return { rows: [], rowCount: row ? 1 : 0 };
+      }
+      if (sql.startsWith("DELETE FROM chat_reacciones WHERE mensaje_id=")) {
+        const before = reactions.length;
+        for (let i = reactions.length - 1; i >= 0; i--) if (reactions[i].mensaje_id === Number(params[0])) reactions.splice(i, 1);
+        return { rows: [], rowCount: before - reactions.length };
+      }
+      if (sql.startsWith("SELECT usuario_id FROM chat_mensajes")) {
+        const row = messages.find(item => item.id === Number(params[0]) && !item.eliminado);
+        return { rows: row ? [{ usuario_id: row.usuario_id }] : [], rowCount: row ? 1 : 0 };
+      }
+      if (sql.startsWith("DELETE FROM chat_reacciones WHERE mensaje_id=$1 AND usuario_id=$2 AND valor=$3")) {
+        const index = reactions.findIndex(row => row.mensaje_id === Number(params[0]) && row.usuario_id === Number(params[1]) && row.valor === Number(params[2]));
+        if (index < 0) return { rows: [], rowCount: 0 };
+        const [row] = reactions.splice(index, 1);
+        return { rows: [{ mensaje_id: row.mensaje_id }], rowCount: 1 };
+      }
+      if (sql.startsWith("INSERT INTO chat_reacciones")) {
+        const [mensaje_id, usuario_id, valor] = params.map(Number);
+        const old = reactions.find(row => row.mensaje_id === mensaje_id && row.usuario_id === usuario_id);
+        if (old) old.valor = valor;
+        else reactions.push({ mensaje_id, usuario_id, valor });
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT COUNT(*) FILTER(WHERE valor=1)")) {
+        const rows = reactions.filter(row => row.mensaje_id === Number(params[0]));
+        return { rows: [{ likes: rows.filter(row => row.valor === 1).length, dislikes: rows.filter(row => row.valor === -1).length, mi_voto: rows.find(row => row.usuario_id === Number(params[1]))?.valor || 0 }], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT u.usuario FROM chat_reacciones")) {
+        const rows = reactions.filter(row => row.mensaje_id === Number(params[0]) && row.valor === Number(params[1])).map(row => ({ usuario: users.find(user => user.id === row.usuario_id)?.usuario }));
+        return { rows, rowCount: rows.length };
+      }
+      if (sql.startsWith("SELECT id,usuario FROM usuarios WHERE usuario_lc=")) {
+        const user = users.find(row => row.usuario_lc === params[0]);
+        return { rows: user ? [{ id: user.id, usuario: user.usuario }] : [], rowCount: user ? 1 : 0 };
+      }
+      if (sql.startsWith("INSERT INTO chat_sanciones")) {
+        const [uid, tipo, hasta, razon, por_id] = sql.includes("'mute'") ? [params[0], "mute", params[1], params[2], params[3]] : [params[0], "suspension", null, params[1], params[2]];
+        sanctions.set(Number(uid), { tipo, hasta, razon, por_id });
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("SELECT por_id FROM chat_sanciones")) {
+        const row = sanctions.get(Number(params[0]));
+        return { rows: row ? [{ por_id: row.por_id }] : [], rowCount: row ? 1 : 0 };
+      }
+      if (sql.startsWith("DELETE FROM chat_sanciones")) {
+        const deleted = sanctions.delete(Number(params[0]));
+        return { rows: deleted ? [{ usuario_id: Number(params[0]) }] : [], rowCount: deleted ? 1 : 0 };
+      }
+      if (sql.startsWith("INSERT INTO chat_moderadores")) {
+        moderators.add(Number(params[0]));
+        return { rows: [], rowCount: 1 };
+      }
+      if (sql.startsWith("DELETE FROM chat_moderadores")) {
+        const deleted = moderators.delete(Number(params[0]));
+        return { rows: deleted ? [{ usuario_id: Number(params[0]) }] : [], rowCount: deleted ? 1 : 0 };
+      }
+      throw new Error("Unexpected chat SQL: " + sql);
+    }
+  };
+  return { env, users, profiles, messages, reactions, sanctions, moderators, events };
+}
+
+test("public chat history, authenticated sending, profanity filter and live event", async () => {
+  const { env, users, profiles, messages, events } = mockChatDatabase();
+  const account = await createAccount(env, "ChatUser");
+  profiles.set(users[0].id, { club_favorito: "boca" });
+  const headers = { authorization: "Bearer " + account.token, "content-type": "application/json" };
+  const sent = await worker.fetch(new Request("https://game.test/api/chat", {
+    method: "POST", headers, body: JSON.stringify({ mensaje: "Hola poronga" })
+  }), env);
+  assert.equal(sent.status, 200);
+  const payload = await sent.json();
+  assert.equal(payload.mensaje.mensaje, "Hola •••••••");
+  assert.equal(messages.length, 1);
+  assert.equal(events.at(-1).tipo, "mensaje");
+
+  const history = await worker.fetch(new Request("https://game.test/api/chat?limit=20"), env);
+  assert.equal(history.status, 200);
+  const list = await history.json();
+  assert.equal(list.enabled, true);
+  assert.equal(list.mensajes.length, 1);
+  assert.equal(list.mensajes[0].club_favorito, "boca");
+});
+
+test("chat requires login to write and favorite club to post", async () => {
+  const { env } = mockChatDatabase();
+  const account = await createAccount(env, "ChatNoClub");
+  const headers = { authorization: "Bearer " + account.token, "content-type": "application/json" };
+  const denied = await worker.fetch(new Request("https://game.test/api/chat", {
+    method: "POST", headers, body: JSON.stringify({ mensaje: "Hola" })
+  }), env);
+  assert.equal(denied.status, 403);
+  const anonymous = await worker.fetch(post("https://game.test/api/chat", { mensaje: "Hola" }), env);
+  assert.equal(anonymous.status, 401);
+});
+
+test("chat reactions, owner moderation permissions and sanctions are enforced", async () => {
+  const { env, users, profiles, messages, reactions, sanctions, moderators } = mockChatDatabase();
+  const author = await createAccount(env, "ChatAutor");
+  const user = await createAccount(env, "ChatOtro");
+  const owner = await createAccount(env, "Propietario");
+  env.CHAT_OWNER_ID = String(users[2].id);
+  profiles.set(users[0].id, { club_favorito: "boca" });
+  profiles.set(users[1].id, { club_favorito: "river" });
+  profiles.set(users[2].id, { club_favorito: "independiente" });
+  const auth = token => ({ authorization: "Bearer " + token, "content-type": "application/json" });
+
+  const sent = await worker.fetch(new Request("https://game.test/api/chat", {
+    method: "POST", headers: auth(author.token), body: JSON.stringify({ mensaje: "Buenas" })
+  }), env);
+  assert.equal(sent.status, 200);
+  const messageId = (await sent.json()).mensaje.id;
+  const voted = await worker.fetch(new Request("https://game.test/api/chat/reaccion", {
+    method: "POST", headers: auth(user.token), body: JSON.stringify({ id: messageId, valor: 1 })
+  }), env);
+  assert.equal(voted.status, 200);
+  assert.equal((await voted.json()).reaccion.likes, 1);
+  assert.equal(reactions.length, 1);
+
+  const unauthorizedMod = await worker.fetch(new Request("https://game.test/api/chat/moderar", {
+    method: "POST", headers: auth(user.token), body: JSON.stringify({ usuario: "ChatAutor", accion: "suspender" })
+  }), env);
+  assert.equal(unauthorizedMod.status, 403);
+
+  const mute = await worker.fetch(new Request("https://game.test/api/chat/moderar", {
+    method: "POST", headers: auth(owner.token), body: JSON.stringify({ usuario: "ChatAutor", accion: "silenciar", minutos: 5, razon: "spam" })
+  }), env);
+  assert.equal(mute.status, 200);
+  assert.equal(sanctions.get(users[0].id).tipo, "mute");
+
+  const suspended = await createAccount(env, "ChatSuspendido");
+  profiles.set(users[3].id, { club_favorito: "racing" });
+  sanctions.set(users[3].id, { tipo: "suspension", hasta: null });
+  const suspendedPost = await worker.fetch(new Request("https://game.test/api/chat", {
+    method: "POST", headers: auth(suspended.token), body: JSON.stringify({ mensaje: "No debería pasar" })
+  }), env);
+  assert.equal(suspendedPost.status, 403);
+  assert.match((await suspendedPost.json()).error, /suspendida/);
+  assert.equal(messages.length, 1);
+
+  const promote = await worker.fetch(new Request("https://game.test/api/chat/moderar", {
+    method: "POST", headers: auth(owner.token), body: JSON.stringify({ usuario: "ChatOtro", accion: "moderar" })
+  }), env);
+  assert.equal(promote.status, 200);
+  assert.ok(moderators.has(users[1].id));
+});
+
+test("ChatHub broadcasts live SSE events to connected clients", async () => {
+  const hub = new ChatHub({ storage: {} });
+  const streamResponse = await hub.fetch(new Request("https://chat.test/stream"));
+  const reader = streamResponse.body.getReader();
+  const first = await reader.read();
+  assert.match(new TextDecoder().decode(first.value), /event: conectado/);
+  await hub.fetch(new Request("https://chat.test/broadcast", {
+    method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ tipo: "mensaje", data: { id: 7, mensaje: "hola" } })
+  }));
+  const event = await reader.read();
+  assert.match(new TextDecoder().decode(event.value), /event: mensaje/);
+  assert.match(new TextDecoder().decode(event.value), /"id":7/);
+  await reader.cancel();
+});
+
+
+test("club palmares ranking preserves modality, season and tie rules", () => {
+  const rows = [
+    { club: "ar_boca", club_nombre: "Boca", modalidad: "clasico", competicion: "ar1", formato: "liga1", finalizado: "2026-01-01T00:00:00Z" },
+    { club: "ar_boca", club_nombre: "Boca", modalidad: "offline", competicion: "custom", formato: "copa", finalizado: "2026-02-01T00:00:00Z" },
+    { club: "ar_river", club_nombre: "River", modalidad: "clasico", competicion: "ar1", formato: "liga1", finalizado: "2026-03-01T00:00:00Z" }
+  ];
+  assert.equal(rankRows(rows, { mod: "online" }).rows[0].club, "ar_boca");
+  assert.equal(rankRows(rows, { mod: "offline" }).rows[0].club, "ar_boca");
+  assert.equal(rankRows(rows, { mod: "online", year: 2026 }).total, 2);
+});
+
+test("offline title validation keeps the existing club, format and participant constraints", () => {
+  const validClub = Data.DIVS.find(div => div.id === "ar1").teams[0].id;
+  const valid = offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: validClub, fmt: "liga1", n: 8 }, Data);
+  assert.equal(typeof valid, "object");
+  assert.equal(valid.mod, "offline");
+  assert.equal(valid.competitivo, true);
+  assert.equal(offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: "no-existe", fmt: "liga1", n: 8 }, Data), "El club no pertenece a esa competición");
+  assert.equal(offlineTitleRecord({ tid: "torneo123456", comp: "ar1", club: validClub, fmt: "liga1", n: 3 }, Data), "Cantidad de equipos inválida");
+});
+
+test("career writes are idempotent and bind the authenticated account ID", async () => {
+  const calls = [];
+  const env = { __DB_QUERY__: async (sql, params) => { calls.push({ sql, params }); return { rows: [], rowCount: 1 }; } };
+  await addCareers(env, [{ uid: 7, tid: "career-1", club: "ar_boca", mod: "offline", humanos: 1, campeon: true }]);
+  assert.equal(calls.length, 1);
+  assert.match(calls[0].sql, /ON CONFLICT\(usuario_id,torneo_id\) DO NOTHING/);
+  assert.equal(calls[0].params[0], 7);
+  assert.equal(calls[0].params[1], "career-1");
+});
+
+test("club title inserts are idempotent", async () => {
+  let sqlSeen = "";
+  const env = { __DB_QUERY__: async (sql) => { sqlSeen = sql; return { rows: [], rowCount: 0 }; } };
+  const result = await addTitle(env, { tid: "torneo123456", club: "ar_boca", clubNombre: "Boca", mod: "clasico", comp: "ar1", compNombre: "Primera", fmt: "liga1", n: 8 });
+  assert.deepEqual(result, { status: "duplicate" });
+  assert.match(sqlSeen, /ON CONFLICT\(torneo_id\) DO NOTHING/);
+});
+
+test("technician ranking keeps the established points and eight-player eligibility", async () => {
+  assert.equal(pointsForCareer({ participantes: 8, formato: "liga1", posicion: 1 }), 8);
+  assert.equal(pointsForCareer({ participantes: 8, formato: "copa", resultado: "Campeón" }), 8);
+  let query = "";
+  const env = { __DB_QUERY__: async (sql) => { query = sql; return { rows: [], rowCount: 0 }; } };
+  const result = await rankingCoaches(env, "historico");
+  assert.equal(result.enabled, true);
+  assert.equal(result.tipo, "online", "por defecto, el ranking online (verificado)");
+  assert.match(query, /c\.competitivo=true AND c\.modalidad IN \('clasico','barrial'\) AND c\.origen<>'offline'/);
+  assert.doesNotMatch(query, /modalidad='offline'/, "el ranking online no incluye carreras offline");
+  const offline = await rankingCoaches({ __DB_QUERY__: async (sql) => { query = sql; return { rows: [], rowCount: 0 }; } }, "historico", "offline");
+  assert.equal(offline.tipo, "offline");
+  assert.equal(Data.MIN_EQUIPOS, 8);
+  assert.match(query, new RegExp("c\\.modalidad='offline' AND c\\.participantes >= " + Data.MIN_EQUIPOS + "\\)"));
+  assert.doesNotMatch(query, /competitivo=true|CASE WHEN|ELSE 10|>= ?10\b/, "el ranking offline no incluye carreras online");
+});
+
+test("fan ranking groups accounts by their one-time favorite club", async () => {
+  const env = { __DB_QUERY__: async () => ({ rows: [{ club: "ar_boca", puntos: 3 }, { club: "ar_river", puntos: 1 }], rowCount: 2 }) };
+  const result = await rankingFans(env);
+  assert.equal(result.totalCuentas, 4);
+  assert.equal(result.rows[0].club, "ar_boca");
+  assert.equal(result.rows[0].hinchas, 3);
+});
+
+
+test("authenticated career endpoint accepts only validated offline career records", async () => {
+  const token = "career-token-test-unique";
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(token));
+  const tokenHash = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, "0")).join("");
+  const inserts = [];
+  const env = {
+    __DB_QUERY__: async (sql, params) => {
+      if (sql.startsWith("SELECT u.id, u.usuario FROM sesiones")) {
+        return { rows: params[0] === tokenHash ? [{ id: 42, usuario: "CarreraTest" }] : [], rowCount: 1 };
+      }
+      if (sql.startsWith("INSERT INTO carreras")) {
+        inserts.push({ sql, params });
+        return { rows: [], rowCount: 1 };
+      }
+      throw new Error("Unexpected career SQL: " + sql);
+    }
+  };
+  const club = Data.DIVS.find(div => div.id === "ar1").teams[0].id;
+  const response = await worker.fetch(post("https://game.test/api/auth/carrera", {
+    tok: token, tid: "career001", comp: "ar1", club, fmt: "liga1", n: 8,
+    pos: 1, resultado: "Campeón", campeon: true, origen: "clasico", mod: "clasico"
+  }), env);
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { ok: 1 });
+  assert.equal(inserts.length, 1);
+  assert.equal(inserts[0].params[0], 42);
+  assert.equal(inserts[0].params[4], "offline");
+  assert.equal(inserts[0].params[5], "offline");
+});
+
+
+test("public lobby creates, lists, joins and closes rooms through Durable Objects", async () => {
+  const { env } = mockEnv();
+  const entry = Data.catalog().find(item => item.clubs >= 10 && item.sizes.liga1.includes(10));
+  assert.ok(entry);
+  const create = await worker.fetch(post("https://game.test/api/pub", {
+    op: "create", pid: "host-player", uid: 999999, name: "Anfitrion", div: entry.key, fmt: "liga1", n: 10, title: "Sala de prueba"
+  }), env);
+  assert.equal(create.status, 200);
+  const created = await create.json();
+  assert.match(created.room, /^pub[a-z0-9]{5}$/);
+  const createdState = await worker.fetch(new Request("https://game.test/__cf/rooms/state?room=" + created.room), env);
+  const createdSnapshot = (await createdState.json()).snapshot;
+  assert.equal(createdSnapshot.pl["host-player"].uid, undefined);
+
+  const list = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  assert.equal(list.status, 200);
+  let rooms = await list.json();
+  assert.equal(rooms.length, 1);
+  assert.equal(rooms[0].code, created.room);
+  assert.equal(rooms[0].h, 1);
+
+  const join = await worker.fetch(post("https://game.test/api/pub", {
+    op: "play", room: created.room, pid: "second-player", name: "DT 2"
+  }), env);
+  assert.equal(join.status, 200);
+  assert.deepEqual(await join.json(), { room: created.room });
+
+  const afterJoin = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  rooms = await afterJoin.json();
+  assert.equal(rooms[0].h, 2);
+
+  const duplicateCreate = await worker.fetch(post("https://game.test/api/pub", {
+    op: "create", pid: "host-player", name: "Anfitrion", div: entry.key, fmt: "liga1", n: 10
+  }), env);
+  assert.deepEqual(await duplicateCreate.json(), { room: created.room });
+
+  const watch = await worker.fetch(post("https://game.test/api/pub", {
+    op: "watch", room: created.room, pid: "spectator-1", name: "Espectador"
+  }), env);
+  assert.equal(watch.status, 200);
+  assert.deepEqual(await watch.json(), { room: created.room });
+  const withSpectator = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  rooms = await withSpectator.json();
+  assert.equal(rooms[0].spec, 1);
+  const spectatorControl = await worker.fetch(post("https://game.test/act", {
+    a: "ready", room: created.room, pid: "spectator-1", ready: true
+  }), env);
+  assert.notEqual(spectatorControl.status, 200);
+
+  const close = await worker.fetch(post("https://game.test/api/pub", {
+    op: "close", room: created.room, pid: "host-player", name: "Anfitrion"
+  }), env);
+  assert.equal(close.status, 200);
+  assert.deepEqual(await close.json(), { ok: 1 });
+
+  const afterClose = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  assert.deepEqual(await afterClose.json(), []);
+});
+
+
+test("public lobby persists abandonment blocks for account users", async () => {
+  const { env } = mockEnv();
+  const lobby = env.LOBBY.get("global");
+  for (let i = 0; i < 3; i++) {
+    const reported = await lobby.fetch(post("https://lobby.internal/abandon", { uid: 77, room: "pub12345" }));
+    assert.equal(reported.status, 200);
+  }
+  const blocked = await lobby.fetch(post("https://lobby.internal/api", {
+    op: "create", uid: 77, pid: "blocked-player", div: "ar1", fmt: "liga1", n: 10
+  }));
+  assert.equal(blocked.status, 403);
+  assert.match((await blocked.json()).error, /bloqueado por abandonos/);
+  const randomCheck = await lobby.fetch(post("https://lobby.internal/check", { uid: 77 }));
+  assert.equal(randomCheck.status, 200);
+  assert.equal((await randomCheck.json()).blocked, true);
+});
+
+
+test("public lobby handles simultaneous room creation without duplicate IDs", async () => {
+  const { env } = mockEnv();
+  const entry = Data.catalog().find(item => item.clubs >= 10 && item.sizes.liga1.includes(10));
+  const requests = Array.from({ length: 8 }, (_, index) => worker.fetch(post("https://game.test/api/pub", {
+    op: "create", pid: "parallel-host-" + index, name: "DT " + index,
+    div: entry.key, fmt: "liga1", n: 10
+  }), env));
+  const responses = await Promise.all(requests);
+  assert.ok(responses.every(response => response.status === 200));
+  const created = await Promise.all(responses.map(response => response.json()));
+  const codes = created.map(item => item.room);
+  assert.equal(new Set(codes).size, 8);
+  const listing = await worker.fetch(new Request("https://game.test/api/salas"), env);
+  const rooms = await listing.json();
+  assert.equal(rooms.length, 8);
+  assert.deepEqual(new Set(rooms.map(room => room.code)), new Set(codes));
+});
+
+
+test("random matchmaking creates one durable MIN_HUMANOS-player queue (8) and serves it over SSE", async () => {
+  clearRandomEngineState();
+  assert.equal(Data.MIN_HUMANOS, 8);
+  assert.equal(Engine.CFG.randN, Data.MIN_HUMANOS);
+  const { env, randomStorages } = mockEnv();
+  let room = "";
+  for (let i = 0; i < Data.MIN_HUMANOS; i++) {
+    const joined = await worker.fetch(post("https://game.test/api/random", {
+      pid: "quick-" + i, name: "DT " + i
+    }), env);
+    assert.equal(joined.status, 200);
+    const result = await joined.json();
+    assert.match(result.room, /^rnd[a-z0-9]{5,9}$/);
+    if (!room) room = result.room;
+    assert.equal(result.room, room);
+  }
+  const stored = randomStorages.get("global").data;
+  assert.ok(stored.has("random-room:" + room));
+  assert.equal(stored.get("random-room:" + room).phase, "vote1");
+  const events = await worker.fetch(new Request(
+    "https://game.test/ev?room=" + room + "&pid=quick-0"
+  ), env);
+  assert.equal(events.status, 200);
+  const reader = events.body.getReader();
+  await reader.read(); // SSE retry directive precedes the initial state event.
+  const first = await reader.read();
+  const payload = new TextDecoder().decode(first.value);
+  assert.match(payload, /"phase":"vote1"/);
+  assert.match(payload, new RegExp('"need":' + Data.MIN_HUMANOS + "\\b"));
+  await reader.cancel();
+});
+
+test("random matchmaking queue survives Durable Object reconstruction", async () => {
+  clearRandomEngineState();
+  const { env, randomStorages } = mockEnv();
+  const first = await worker.fetch(post("https://game.test/api/random", { pid: "persist-a", name: "A" }), env);
+  const room = (await first.json()).room;
+  const storage = randomStorages.get("global");
+  const restarted = new RandomCoordinator({ storage }, env);
+  env.RANDOM.get = () => ({ fetch: request => restarted.fetch(request), instance: restarted });
+  const second = await worker.fetch(post("https://game.test/api/random", { pid: "persist-b", name: "B" }), env);
+  assert.equal((await second.json()).room, room);
+  assert.equal(storage.data.get("random-room:" + room).order.length, 2);
+});
+
+
+function clearRandomEngineState() {
+  for (const [code, room] of Object.entries(Engine.rooms)) {
+    if (room.rand) Engine.removeRoom(code);
+  }
+  Engine.setRandomQueueCode(null);
+}
+
+test("random matchmaking completes both 15-second votes and reaches team selection", async () => {
+  clearRandomEngineState();
+  const { env } = mockEnv();
+  const players = Array.from({ length: Data.MIN_HUMANOS }, (_, i) => "flow-" + i);
+  let roomCode = "";
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/api/random", { pid, name: pid }), env);
+    assert.equal(response.status, 200);
+    const result = await response.json();
+    roomCode ||= result.room;
+    assert.equal(result.room, roomCode);
+  }
+  assert.equal(Engine.rooms[roomCode].phase, "vote1");
+
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "rv", room: roomCode, pid, v: "clasico"
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  Engine.rooms[roomCode].t = 1;
+  await env.RANDOM.get("global").instance.alarm();
+  assert.equal(Engine.rooms[roomCode].phase, "vote2");
+  assert.equal(Engine.rooms[roomCode].rand.cat, "clasico");
+
+  const competition = Data.catalog().find(item => item.cat === "clasico" && item.random);
+  assert.ok(competition);
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "rv", room: roomCode, pid, v: competition.key
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  Engine.rooms[roomCode].t = 1;
+  await env.RANDOM.get("global").instance.alarm();
+  assert.equal(Engine.rooms[roomCode].phase, "pick");
+  assert.equal(Engine.rooms[roomCode].cfg.div, competition.key);
+
+  const division = Data.DIVS.find(item => item.id === competition.key);
+  assert.ok(division);
+  for (let i = 0; i < players.length; i++) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "pick", room: roomCode, pid: players[i], team: division.teams[i].id
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  assert.equal(Engine.rooms[roomCode].phase, "pre");
+
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "ready", room: roomCode, pid, v: true
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  assert.equal(Engine.rooms[roomCode].phase, "cer");
+  const stored = await env.RANDOM.get("global").instance.state.storage.get("random-room:" + roomCode);
+  assert.equal(stored.phase, "cer");
+});
+
+test("random matchmaking keeps legacy request throttling", async () => {
+  clearRandomEngineState();
+  const { env } = mockEnv();
+  let last;
+  for (let i = 0; i < 121; i++) {
+    last = await worker.fetch(new Request("https://game.test/api/random", {
+      method: "POST",
+      headers: { "content-type": "application/json", "cf-connecting-ip": "198.51.100.77" },
+      body: JSON.stringify({ pid: "rate-limited-player", name: "Jugador" })
+    }), env);
+    if (i < 120) assert.equal(last.status, 200);
+  }
+  assert.equal(last.status, 429);
+  assert.match((await last.json()).error, /Demasiados intentos/);
+});
+
+test("random matchmaking blocks new matches but allows reconnecting to the same active room", async () => {
+  clearRandomEngineState();
+  const { env } = mockEnv();
+  const random = env.RANDOM.get("global");
+  const joined = await random.fetch(new Request("https://random.internal/join", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-clash-auth-user-id": "77" },
+    body: JSON.stringify({ pid: "returning-account", name: "Cuenta" })
+  }));
+  const room = (await joined.json()).room;
+  const lobby = env.LOBBY.get("global");
+  for (let i = 0; i < 3; i++) {
+    await lobby.fetch(post("https://lobby.internal/abandon", { uid: 77, room }));
+  }
+  const reconnect = await random.fetch(new Request("https://random.internal/join", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-clash-auth-user-id": "77" },
+    body: JSON.stringify({ pid: "returning-account", name: "Cuenta" })
+  }));
+  assert.equal(reconnect.status, 200);
+  assert.equal((await reconnect.json()).room, room);
+
+  const newMatch = await random.fetch(new Request("https://random.internal/join", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-clash-auth-user-id": "77" },
+    body: JSON.stringify({ pid: "new-device-player", name: "Cuenta" })
+  }));
+  assert.equal(newMatch.status, 403);
+});
+
+
+test("online 8-player room starts its original match clock and streams phase changes", async () => {
+  const { env, storages } = mockEnv();
+  const room = "onlineflow8";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "online-flow-" + i);
+  for (let i = 0; i < players.length; i++) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+      ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+      ...(i === 0 ? {} : { team: division.teams[i].id })
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  // The creator also selects a club after creating the room.
+  const creatorPick = await worker.fetch(post("https://game.test/act", {
+    a: "pick", room, pid: players[0], team: division.teams[0].id
+  }), env);
+  assert.equal(creatorPick.status, 200);
+  assert.equal(Engine.rooms[room].phase, "pre");
+
+  const events = await worker.fetch(new Request(
+    "https://game.test/ev?room=" + room + "&pid=" + players[0]
+  ), env);
+  assert.equal(events.status, 200);
+  const reader = events.body.getReader();
+  await reader.read(); // retry directive
+  const initial = new TextDecoder().decode((await reader.read()).value);
+  assert.match(initial, /"phase":"pre"/);
+
+  for (const pid of players) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: "ready", room, pid, v: true
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  assert.equal(Engine.rooms[room].phase, "cer");
+  assert.equal(Engine.rooms[room].ms.length, 4);
+  // Each ready action broadcasts a state update to the connected SSE client.
+  for (let i = 0; i < players.length; i++) await reader.read();
+
+  Engine.rooms[room].t = 1;
+  await env.ROOMS.get(room).instance.persist(room);
+  // A Durable Object restart closes its old SSE stream; the browser reconnects.
+  await reader.cancel();
+  const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+  const reconnected = await restarted.fetch(new Request(
+    "https://game.test/room/" + room + "/ev?pid=" + players[0]
+  ));
+  assert.equal(reconnected.status, 200);
+  const resumedReader = reconnected.body.getReader();
+  await resumedReader.read(); // retry directive
+  const resumed = new TextDecoder().decode((await resumedReader.read()).value);
+  assert.match(resumed, /"phase":"cer"/);
+  await restarted.alarm();
+  assert.equal(Engine.rooms[room].phase, "m1");
+  assert.equal(Engine.rooms[room].ms.length, 4);
+  const update = new TextDecoder().decode((await resumedReader.read()).value);
+  assert.match(update, /"phase":"m1"/);
+  await resumedReader.cancel();
+});
+
+
+
+test("online match completes first half, second half, final whistle and records the round", async () => {
+  const { env } = mockEnv();
+  const room = "fullflow8";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "full-match-" + i);
+  const previousFastWaits = Engine.CFG.fastWaits;
+  Engine.removeRoom(room);
+  Engine.CFG.fastWaits = true;
+  try {
+    for (let i = 0; i < players.length; i++) {
+      const response = await worker.fetch(post("https://game.test/act", {
+        a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+        ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+        ...(i === 0 ? {} : { team: division.teams[i].id })
+      }), env);
+      assert.equal(response.status, 200);
+    }
+    const creatorPick = await worker.fetch(post("https://game.test/act", {
+      a: "pick", room, pid: players[0], team: division.teams[0].id
+    }), env);
+    assert.equal(creatorPick.status, 200);
+
+    for (const pid of players) {
+      const response = await worker.fetch(post("https://game.test/act", {
+        a: "ready", room, pid, v: true
+      }), env);
+      assert.equal(response.status, 200);
+    }
+    const state = Engine.rooms[room];
+    assert.equal(state.phase, "cer");
+    assert.equal(state.ms.length, 4);
+
+    // Begin the first half, then finish all four fixtures at their 45-minute limits.
+    state.t = 1;
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "m1");
+    state.ms.forEach(match => {
+      match.clock = 45;
+      match.limit = 45;
+      match.halfDone = false;
+    });
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "ht");
+    assert.ok(state.ms.every(match => match.halfDone));
+
+    // The halftime countdown starts the second half at minute 45.
+    state.t = 1;
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "m2");
+    assert.ok(state.ms.every(match => match.clock === 45 && !match.finished));
+
+    // Finish the second half at each match's 90-minute limit.
+    state.ms.forEach(match => {
+      match.clock = 90;
+      match.limit = 90;
+      match.finished = false;
+    });
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "fin");
+    assert.ok(state.ms.every(match => match.finished));
+
+    // The final whistle awards the date, then endRound records results and standings.
+    state.t = 1;
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "awd");
+    state.t = 1;
+    Engine.tickRoom(room);
+    assert.equal(state.phase, "lobby");
+    assert.equal(state.round, 1);
+    assert.equal(state.hist.length, 1);
+    assert.ok(Object.values(state.table).every(team => team.pj === 1));
+  } finally {
+    Engine.CFG.fastWaits = previousFastWaits;
+    Engine.removeRoom(room);
+  }
+});
+
+test("spectators keep read-only access and receive the live room stream after reconnecting", async () => {
+  const { env, storages } = mockEnv();
+  const entry = Data.catalog().find(item => item.clubs >= 10 && item.sizes.liga1.includes(10));
+  const created = await worker.fetch(post("https://game.test/api/pub", {
+    op: "create", pid: "spectator-host", name: "Anfitrion",
+    div: entry.key, fmt: "liga1", n: 10
+  }), env);
+  assert.equal(created.status, 200);
+  const { room } = await created.json();
+
+  const watched = await worker.fetch(post("https://game.test/api/pub", {
+    op: "watch", room, pid: "watch-only", name: "Espectador"
+  }), env);
+  assert.equal(watched.status, 200);
+
+  const session = await worker.fetch(new Request(
+    "https://game.test/api/sesion?room=" + room + "&pid=watch-only"
+  ), env);
+  assert.deepEqual(await session.json(), { ok: true });
+
+  const events = await worker.fetch(new Request(
+    "https://game.test/ev?room=" + room + "&pid=watch-only&v=2"
+  ), env);
+  assert.equal(events.status, 200);
+  const reader = events.body.getReader();
+  await reader.read(); // retry directive
+  const first = JSON.parse(new TextDecoder().decode((await reader.read()).value).replace(/^data:/, "").trim());
+  assert.equal(first.__cf, "full");
+  assert.equal(first.v.sp, true);
+  assert.equal(first.v.ns, 1);
+
+  const forbidden = await worker.fetch(post("https://game.test/act", {
+    a: "ready", room, pid: "watch-only", ready: true
+  }), env);
+  assert.equal(forbidden.status, 400);
+  assert.match((await forbidden.json()).error, /mirando esta sala/);
+  await reader.cancel();
+
+  const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+  const resumed = await restarted.fetch(new Request(
+    "https://game.test/room/" + room + "/ev?pid=watch-only&v=2"
+  ));
+  assert.equal(resumed.status, 200);
+  const resumedReader = resumed.body.getReader();
+  await resumedReader.read(); // retry directive
+  const resumedEvent = JSON.parse(new TextDecoder().decode((await resumedReader.read()).value).replace(/^data:/, "").trim());
+  assert.equal(resumedEvent.__cf, "full");
+  assert.equal(resumedEvent.v.sp, true);
+  await resumedReader.cancel();
+});
+
+
+test("AI takeover after 120 seconds survives a Durable Object restart and the original player can reclaim", async () => {
+  const { env, storages } = mockEnv();
+  const room = "abandon1";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "abandon-player-" + i);
+
+  for (let i = 0; i < players.length; i++) {
+    const response = await worker.fetch(post("https://game.test/act", {
+      a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+      ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+      ...(i === 0 ? {} : { team: division.teams[i].id })
+    }), env);
+    assert.equal(response.status, 200);
+  }
+  const creatorPick = await worker.fetch(post("https://game.test/act", {
+    a: "pick", room, pid: players[0], team: division.teams[0].id
+  }), env);
+  assert.equal(creatorPick.status, 200);
+  assert.equal(Engine.rooms[room].phase, "pre");
+
+  // Model a player who connected, then lost their connection.
+  assert.equal(Engine.listen(room, players[0], () => {}), true);
+  assert.equal(Engine.listen(room, players[0], null), true);
+  Engine.rooms[room].pl[players[0]].lost = Date.now() - 121_000;
+  await env.ROOMS.get(room).instance.persist(room);
+
+  // Reconstruct the DO: the disconnect timestamp must be part of the snapshot.
+  const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+  await restarted.alarm();
+  assert.equal(Engine.rooms[room].pl[players[0]].ai, 1);
+  assert.equal(Engine.rooms[room].pl[players[0]].bot, true);
+  assert.equal(Engine.rooms[room].pl[players[0]].name, "IA (DT 0)");
+
+  // Reconnecting the same pid invokes the engine's reclaim path.
+  const stream = await restarted.fetch(new Request(
+    "https://game.test/room/" + room + "/ev?pid=" + players[0]
+  ));
+  assert.equal(stream.status, 200);
+  assert.equal(Engine.rooms[room].pl[players[0]].ai, undefined);
+  assert.equal(Engine.rooms[room].pl[players[0]].bot, false);
+  assert.equal(Engine.rooms[room].pl[players[0]].name, "DT 0");
+  await stream.body.cancel();
+});
+
+
+test("Node engine and Cloudflare Worker produce equivalent room state for the same actions", async () => {
+  const { env, storages } = mockEnv();
+  const room = "paritycf8";
+  const baseline = "paritynd8";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "parity-player-" + i);
+  Engine.removeRoom(room);
+  Engine.removeRoom(baseline);
+
+  try {
+    for (let i = 0; i < players.length; i++) {
+      const response = await worker.fetch(post("https://game.test/act", {
+        a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+        ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+        ...(i === 0 ? {} : { team: division.teams[i].id })
+      }), env);
+      assert.equal(response.status, 200);
+    }
+    assert.equal((await worker.fetch(post("https://game.test/act", {
+      a: "pick", room, pid: players[0], team: division.teams[0].id
+    }), env)).status, 200);
+
+    const baselineSnapshot = Engine.saveRoom(room);
+    assert.ok(Engine.loadRoom(baseline, baselineSnapshot));
+
+    // Compare a deterministic action only; match simulation deliberately uses randomness.
+    const actions = [{ a: "ready", room, pid: players[0], v: true }];
+
+    for (const action of actions) {
+      const cf = await worker.fetch(post("https://game.test/act", action), env);
+      assert.equal(cf.status, 200);
+      const nodeResult = Engine.act({ ...action, room: baseline });
+      assert.equal(nodeResult, null);
+    }
+
+    const cfState = Engine.saveRoom(room);
+    const nodeState = Engine.saveRoom(baseline);
+    cfState.code = baseline;
+    cfState.touched = nodeState.touched;
+    assert.deepEqual(cfState, nodeState);
+  } finally {
+    Engine.removeRoom(room);
+    Engine.removeRoom(baseline);
+  }
+});
+
+test("pending penalty and set-piece decisions survive Durable Object persistence and restart", async () => {
+  const { env, storages } = mockEnv();
+  const room = "setpiece8";
+  const division = Data.DIVS.find(item => item.id === "ar1");
+  const players = Array.from({ length: 8 }, (_, i) => "setpiece-player-" + i);
+  const previousFastWaits = Engine.CFG.fastWaits;
+  Engine.removeRoom(room);
+  Engine.CFG.fastWaits = true;
+
+  try {
+    for (let i = 0; i < players.length; i++) {
+      const response = await worker.fetch(post("https://game.test/act", {
+        a: i === 0 ? "create" : "pick", room, pid: players[i], name: "DT " + i,
+        ...(i === 0 ? { cfg: { div: "ar1", fmt: "liga1", n: 8 } } : {}),
+        ...(i === 0 ? {} : { team: division.teams[i].id })
+      }), env);
+      assert.equal(response.status, 200);
+    }
+    await worker.fetch(post("https://game.test/act", {
+      a: "pick", room, pid: players[0], team: division.teams[0].id
+    }), env);
+    for (const pid of players) {
+      await worker.fetch(post("https://game.test/act", { a: "ready", room, pid, v: true }), env);
+    }
+
+    const match = Engine.rooms[room].ms[0];
+    const pending = [
+      { id: "pending-penalty", o: 0, tk: 1, gk: 0, rm: 75, rf: 80,
+        ev: { id: "pen-event", k: "pen", m: 12, t: 0, n: "Delantero" },
+        sh: "L", dv: null, dl: Date.now() + 60000, rdy: 0 },
+      { id: "pending-free-kick", kind: "fkd", o: 1, tk: 2, gk: 0,
+        ev: { id: "fk-event", k: "fk", m: 23, t: 1, n: "Volante", dm: 24 },
+        sh: "R", dv: null, dl: Date.now() + 20000, rdy: 0 }
+    ];
+
+    for (const decision of pending) {
+      Engine.rooms[room].ms[0].pend = structuredClone(decision);
+      await env.ROOMS.get(room).instance.persist(room);
+      const restarted = new RoomCoordinator({ storage: storages.get(room) }, env);
+      const stateResponse = await restarted.fetch(new Request("https://game.test/room/" + room + "/state"));
+      assert.equal(stateResponse.status, 200);
+      const restored = await stateResponse.json();
+      assert.deepEqual(restored.snapshot.ms[0].pend, decision);
+    }
+  } finally {
+    Engine.CFG.fastWaits = previousFastWaits;
+    Engine.removeRoom(room);
+  }
+});
+
+// ---- P1: propietario por id, jerarquía de sanciones, SERVER_2D apagado y mínimos compartidos con P2 ----
+
+function captureConsole(fn) {
+  const lines = [], saved = {};
+  for (const k of ["log", "warn", "error", "info", "debug"]) { saved[k] = console[k]; console[k] = (...a) => lines.push(a.map(String).join(" ")); }
+  try { return { value: fn(), lines }; } finally { Object.assign(console, saved); }
+}
+
+test("CHAT_OWNER_ID: solo un entero positivo válido designa propietario; el secreto nunca va al log", () => {
+  const invalid = [undefined, null, "", "   ", "0", "-5", "abc", "12a", "1.5", "1e3", "0x10", "007", "9007199254740993", "Burzaco", "secreto-zz9"];
+  const { lines } = captureConsole(() => {
+    for (const value of invalid) {
+      assert.equal(Chat.ownerId({ CHAT_OWNER_ID: value }), null, "inválido: " + value);
+      assert.equal(Chat.isOwner({ id: 1000, usuario: "Burzaco" }, { CHAT_OWNER_ID: value }), false, "nadie es propietario con " + value);
+    }
+    assert.equal(Chat.ownerId({}), null);
+    assert.equal(Chat.ownerId({ CHAT_OWNER_ID: "1000" }), 1000);
+    assert.equal(Chat.ownerId({ CHAT_OWNER_ID: " 1000 " }), 1000);
+    assert.equal(Chat.ownerId({ CHAT_OWNER_ID: 1000 }), 1000);
+  });
+  for (const line of lines) {
+    for (const value of ["secreto-zz9", "Burzaco", "9007199254740993", "12a"]) assert.ok(!line.includes(value), "el log no debe contener el valor del secreto");
+  }
+  const env = { CHAT_OWNER_ID: "1000" };
+  assert.equal(Chat.isOwner({ id: 1000, usuario: "Cualquiera" }, env), true, "el id decide");
+  assert.equal(Chat.isOwner({ id: "1000", usuario: "Cualquiera" }, env), true, "id como texto de la base");
+  assert.equal(Chat.isOwner({ id: 1001, usuario: "Burzaco" }, env), false, "el nombre no da permisos");
+  assert.equal(Chat.isOwner({ usuario: "Burzaco" }, env), false, "sin id no hay propietario");
+  assert.equal(Chat.isOwnerId("", env), false);
+  assert.equal(Chat.isOwnerId(null, env), false);
+});
+
+test("chat: una cuenta llamada como el viejo propietario no obtiene permisos; con CHAT_OWNER_ID manda el id", async () => {
+  const { env, users } = mockChatDatabase();
+  const impostor = await createAccount(env, "Burzaco");
+  const real = await createAccount(env, "DuenoReal");
+  const perms = async token => (await worker.fetch(new Request("https://game.test/api/chat/permisos", { headers: { authorization: "Bearer " + token } }), env)).json();
+  assert.deepEqual(await perms(impostor.token), { owner: false, moderador: false }, "sin CHAT_OWNER_ID nadie es propietario");
+  env.CHAT_OWNER_ID = "abc";
+  assert.equal((await perms(real.token)).owner, false, "CHAT_OWNER_ID inválido: nadie es propietario");
+  env.CHAT_OWNER_ID = String(users[1].id);
+  assert.equal((await perms(impostor.token)).owner, false, "el nombre «Burzaco» no da permisos");
+  const realPerms = await perms(real.token);
+  assert.equal(realPerms.owner, true);
+  assert.equal(realPerms.moderador, true);
+});
+
+test("chat: por_id registra al autor y un moderador no puede modificar ni levantar sanciones del propietario", async () => {
+  const { env, users, profiles, sanctions, moderators } = mockChatDatabase();
+  const owner = await createAccount(env, "Propietario");
+  const mod = await createAccount(env, "Moderador");
+  await createAccount(env, "Infractor");
+  await createAccount(env, "Otro");
+  const [ownerId, modId, targetId, otherId] = users.map(u => u.id);
+  env.CHAT_OWNER_ID = String(ownerId);
+  users.forEach(u => profiles.set(u.id, { club_favorito: "boca" }));
+  const moderate = (token, usuario, accion, extra = {}) => worker.fetch(new Request("https://game.test/api/chat/moderar", {
+    method: "POST", headers: { authorization: "Bearer " + token, "content-type": "application/json" },
+    body: JSON.stringify({ usuario, accion, ...extra })
+  }), env);
+
+  assert.equal((await moderate(owner.token, "Moderador", "moderar")).status, 200);
+  assert.ok(moderators.has(modId));
+
+  // El propietario suspende: por_id = propietario.
+  assert.equal((await moderate(owner.token, "Infractor", "suspender", { razon: "grave" })).status, 200);
+  assert.equal(sanctions.get(targetId).tipo, "suspension");
+  assert.equal(Number(sanctions.get(targetId).por_id), ownerId, "por_id identifica al propietario");
+
+  // El moderador no puede pisarla con un silencio ni levantarla.
+  const overwrite = await moderate(mod.token, "Infractor", "silenciar", { minutos: 5 });
+  assert.equal(overwrite.status, 400);
+  assert.match((await overwrite.json()).error, /propietario/);
+  const lift = await moderate(mod.token, "Infractor", "reactivar");
+  assert.equal(lift.status, 400);
+  assert.equal(sanctions.get(targetId).tipo, "suspension", "la suspensión del propietario sigue intacta");
+  assert.equal(Number(sanctions.get(targetId).por_id), ownerId);
+
+  // El moderador sí sanciona a otro: por_id = moderador; el propietario puede cambiarla o levantarla.
+  assert.equal((await moderate(mod.token, "Otro", "silenciar", { minutos: 5 })).status, 200);
+  assert.equal(sanctions.get(otherId).tipo, "mute");
+  assert.equal(Number(sanctions.get(otherId).por_id), modId, "por_id identifica al moderador");
+  assert.equal((await moderate(mod.token, "Otro", "reactivar")).status, 200, "el moderador levanta su propia sanción");
+  assert.equal(sanctions.has(otherId), false);
+
+  // Nadie sanciona al propietario, y el propietario levanta su sanción.
+  assert.equal((await moderate(mod.token, "Propietario", "silenciar", { minutos: 5 })).status, 400);
+  assert.equal(sanctions.has(ownerId), false);
+  assert.equal((await moderate(owner.token, "Infractor", "reactivar")).status, 200);
+  assert.equal(sanctions.has(targetId), false);
+});
+
+test("SERVER_2D queda apagado salvo SERVER_2D=\"1\"", async () => {
+  for (const value of [undefined, "", "0", "false", "true", "si", " 2 ", 1]) {
+    assert.equal(server2dEnabled(value === undefined ? {} : { SERVER_2D: value }), value === 1, "SERVER_2D=" + value);
+  }
+  assert.equal(server2dEnabled({ SERVER_2D: "1" }), true);
+  const { env } = mockEnv();
+  delete env.SERVER_2D;
+  await worker.fetch(new Request("https://game.test/api/salas"), env);
+  assert.equal(Engine.CFG.auth2dServer, false, "sin variable, el Worker usa el motor clásico");
+  const wr = readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8");
+  assert.match(wr, /"SERVER_2D": "0"/);
+  assert.doesNotMatch(wr, /CHAT_OWNER_USERNAME|Burzaco|"CHAT_OWNER_ID"\s*:/, "el propietario no va en vars (es un secreto)");
+});
+
+test("Worker y Node comparten los mínimos de P2 (8 humanos / 8 equipos), sin copias propias", async () => {
+  assert.equal(Data.MIN_HUMANOS, 8);
+  assert.equal(Data.MIN_EQUIPOS, 8);
+  assert.equal(CAREERS_MIN_EQUIPOS, Data.MIN_EQUIPOS);
+  assert.equal(Engine.CFG.rankMin, Data.MIN_HUMANOS);
+  assert.equal(Engine.CFG.rankMinN, Data.MIN_EQUIPOS);
+  assert.equal(Engine.CFG.randN, Data.MIN_HUMANOS);
+  const ar1 = Data.DIVS.find(d => d.id === "ar1").teams[0].id;
+  for (const [fmt, n, expected] of [["liga1", 8, true], ["copa", 8, true], ["liga1", 6, false], ["copa", 4, false]]) {
+    const rec = offlineTitleRecord({ tid: "minimos" + fmt + n + "x", comp: "ar1", club: ar1, fmt, n }, Data);
+    assert.equal(typeof rec, "object", fmt + " " + n);
+    assert.equal(rec.competitivo, expected, "título offline " + fmt + " de " + n + " equipos");
+  }
+  const { env } = mockEnv();
+  const entry = Data.catalog().find(item => item.fmts.includes("liga1") && item.sizes.liga1.includes(8) && item.sizes.liga1.includes(6));
+  assert.ok(entry);
+  const create = n => worker.fetch(post("https://game.test/api/pub", { op: "create", pid: "min-host-" + n, name: "Anf", div: entry.key, fmt: "liga1", n }), env).then(r => r.json());
+  const eight = await create(8);
+  assert.match(eight.room || "", /^pub[a-z0-9]{5}$/, "sala pública de 8: se crea");
+  const six = await create(6);
+  assert.match(six.error || "", /8 jugadores o más/, "sala pública de 6: rechazada");
+  Engine.removeRoom(eight.room);
+  // Ningún módulo del Worker conserva mínimos propios ni los antiguos de 10.
+  for (const file of readdirSync(new URL("../src/", import.meta.url))) {
+    const src = readFileSync(new URL("../src/" + file, import.meta.url), "utf8");
+    assert.doesNotMatch(src, /CASE WHEN [^)]*formato='copa' THEN|ELSE 10|ELSE 8|competitivo:n>=\d|participantes >= \d/, file + " no debe tener mínimos escritos a mano");
+  }
+});
+
+test("SRV-01: el Worker limita la creación de salas privadas por IP (20 por hora)", async () => {
+  const { env } = mockEnv();
+  const create = (i, ip) => worker.fetch(new Request("https://game.test/act", {
+    method: "POST", headers: { "content-type": "application/json", "cf-connecting-ip": ip },
+    body: JSON.stringify({ a: "create", room: "lim" + i + "x" + ip.split(".").pop(), pid: "p" + i, name: "DT", cfg: { div: "ar1", fmt: "liga1", n: 8 } })
+  }), env);
+  const codes = [];
+  for (let i = 0; i < 20; i++) codes.push((await create(i, "198.51.100.7")).status);
+  assert.ok(codes.every(code => code === 200), "las primeras 20 se crean: " + codes.join(","));
+  const blocked = await create(20, "198.51.100.7");
+  assert.equal(blocked.status, 429);
+  assert.match((await blocked.json()).error, /Demasiadas salas/);
+  assert.equal((await create(21, "198.51.100.8")).status, 200, "otra IP no queda afectada");
+  for (const code of Object.keys(Engine.rooms)) if (code.startsWith("lim")) Engine.removeRoom(code);
+});
+
+test("SRV-04: ChatHub limita las conexiones SSE simultáneas (503 al pasar el tope)", async () => {
+  const { CHAT_MAX_CLIENTS } = await import("../src/chat-hub.mjs");
+  const hub = new ChatHub({ storage: {} });
+  const readers = [];
+  for (let i = 0; i < CHAT_MAX_CLIENTS; i++) {
+    const r = await hub.fetch(new Request("https://chat.test/stream"));
+    assert.equal(r.status, 200);
+    readers.push(r.body.getReader());
+  }
+  const over = await hub.fetch(new Request("https://chat.test/stream"));
+  assert.equal(over.status, 503);
+  await readers[0].cancel();
+  const again = await hub.fetch(new Request("https://chat.test/stream"));
+  assert.equal(again.status, 200, "al liberarse un lugar vuelve a aceptar");
+  for (const r of readers.slice(1)) await r.cancel();
+  await again.body.cancel();
+});
+
+// ---- E3: rankings separados, títulos offline con cuenta y login por IP + usuario ----
+
+test("SEG-04: /api/ranking-tecnicos separa online (verificado) de offline (informado)", async () => {
+  const careers = [
+    { usuario: "Online1", club_favorito: null, modalidad: "clasico", origen: "publica", competitivo: true, participantes: 8, formato: "liga1", posicion: 1, resultado: null, campeon: true, finalizado: "2026-03-01T00:00:00Z" },
+    { usuario: "Offline1", club_favorito: null, modalidad: "offline", origen: "offline", competitivo: false, participantes: 20, formato: "liga1", posicion: 1, resultado: null, campeon: true, finalizado: "2026-03-02T00:00:00Z" }
+  ];
+  const env = { __DB_QUERY__: async sql => {
+    const online = /competitivo=true/.test(sql), offline = /modalidad='offline' AND c\.participantes >= 8/.test(sql);
+    const rows = careers.filter(c => (online && c.modalidad !== "offline" && c.competitivo) || (offline && c.modalidad === "offline" && c.participantes >= 8));
+    return { rows, rowCount: rows.length };
+  } };
+  const get = async tipo => (await worker.fetch(new Request("https://game.test/api/ranking-tecnicos?periodo=historico" + (tipo ? "&tipo=" + tipo : "")), env)).json();
+  const on = await get(), off = await get("offline");
+  assert.equal(on.tipo, "online");
+  assert.deepEqual(on.rows.map(r => r.usuario), ["Online1"]);
+  assert.equal(off.tipo, "offline");
+  assert.deepEqual(off.rows.map(r => r.usuario), ["Offline1"]);
+  assert.equal(off.rows[0].puntos, 20);
+});
+
+test("SEG-05: los títulos offline exigen sesión y tienen tope por cuenta", async () => {
+  const token = "offline-title-token";
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(token));
+  const tokenHash = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, "0")).join("");
+  let inserts = 0;
+  const env = { __DB_QUERY__: async (sql, params) => {
+    if (sql.startsWith("SELECT u.id, u.usuario FROM sesiones")) return { rows: params[0] === tokenHash ? [{ id: 77, usuario: "TitulosTest" }] : [], rowCount: 1 };
+    if (/INSERT INTO titulos/.test(sql)) { inserts++; return { rows: [{ id: inserts }], rowCount: 1 }; }
+    return { rows: [], rowCount: 0 };
+  } };
+  const club = Data.DIVS.find(div => div.id === "ar1").teams[0].id;
+  const send = (i, tok, ip) => worker.fetch(new Request("https://game.test/api/titulo-offline", {
+    method: "POST", headers: { "content-type": "application/json", "cf-connecting-ip": ip || "203.0.113." + (i % 200) },
+    body: JSON.stringify({ tok, tid: "tituloof" + i + "x", comp: "ar1", club, fmt: "liga1", n: 8, pid: "pid" + i })
+  }), env);
+  const anon = await send(0, null);
+  assert.equal(anon.status, 401);
+  assert.match((await anon.json()).error, /Iniciá sesión/);
+  assert.equal(inserts, 0, "sin sesión no se registra nada");
+  for (let i = 1; i <= 30; i++) assert.notEqual((await send(i, token)).status, 429, "título " + i);
+  assert.equal(inserts, 30);
+  assert.equal((await send(31, token)).status, 429, "el 31.º de la misma cuenta en una hora se rechaza aunque cambie la IP");
+});
+
+test("SEG-07: el tope de login por usuario cuenta IP + usuario (no bloquea la cuenta desde otra IP)", async () => {
+  const { env } = mockChatDatabase();
+  const login = ip => worker.fetch(new Request("https://game.test/api/auth/login", {
+    method: "POST", headers: { "content-type": "application/json", "cf-connecting-ip": ip },
+    body: JSON.stringify({ usuario: "VictimaLogin", clave: "incorrecta-123" })
+  }), env);
+  for (let i = 0; i < 20; i++) assert.notEqual((await login("198.51.100.50")).status, 429, "intento " + (i + 1));
+  assert.equal((await login("198.51.100.50")).status, 429, "desde la IP atacante, el intento 21 se frena");
+  assert.notEqual((await login("198.51.100.51")).status, 429, "desde otra IP el dueño puede seguir intentando");
+});

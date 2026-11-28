@@ -1,0 +1,37 @@
+name: CI (tests rápidos, sin publicar)
+
+# TST-08: corre en cada pull request y a mano. Solo prueba: no publica, no hace commit ni push y no usa secretos.
+on:
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Dependencias (sin lockfile, sin scripts de instalación)
+        run: |
+          npm install --ignore-scripts --no-audit --no-fund --no-package-lock
+          npm install --no-save --ignore-scripts --no-audit --no-fund --no-package-lock eslint@9.17.0 globals@15.14.0
+      - name: Sintaxis de todo el JavaScript
+        run: for f in public/*.js shared/*.js functions/*.js functions/api/*.js src/*.mjs tests/*.mjs tools/*.js *.js; do node --check "$f" || exit 1; done
+      - name: Linter (no-undef, incluido el script de index.html)
+        run: node tools/lint.js
+      - name: Tests rápidos (npm test)
+        run: npm test
+      - name: Tests del Worker de Cloudflare
+        run: npm run test:cloudflare

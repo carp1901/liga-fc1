@@ -7,7 +7,7 @@ on:
       - 'import-squads.js'
       - '.github/workflows/test-primera-c-draft.yml'
 permissions:
-  contents: write
+  contents: read
 jobs:
   validar-e-integrar:
     runs-on: ubuntu-latest
@@ -35,14 +35,10 @@ jobs:
           node import-squads.js planteles/borradores/primera-c-2026/tanda2-inicial.csv
           node import-squads.js planteles/borradores/primera-c-2026/tanda3-inicial.csv
           node import-squads.js planteles/borradores/primera-c-2026/tanda4-inicial.csv
+      # La base para «proteger las demás divisiones» es lo que publica el pipeline justo antes de esta división
+      # (como en planteles.yml), no main: los planteles se regeneran completos desde los CSV.
+      - name: Generar la base del pipeline
+        run: node tools/regenerar-planteles.js --out "$RUNNER_TEMP/regen" --snapshots "$RUNNER_TEMP/snap" --updated-at "$(node -p "require('./public/squads-meta.json').updatedAt")"
       - name: Auditar la integración y proteger las demás divisiones
-        run: node test-primera-c-draft.js --runtime
-      - name: Guardar runtime integrado en la rama del PR
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/squads.json public/squads.js public/squads-meta.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'Cargar planteles iniciales Primera C 2026 — cuatro tandas'
-            git push origin HEAD:${{ github.head_ref || github.ref_name }}
-          fi
+        run: SQUADS_BASELINE_PATH="$RUNNER_TEMP/snap/antes-primera-c.json" node test-primera-c-draft.js --runtime
+      # Sin commit ni push: los datos del juego se publican solo con tools/regenerar-planteles.js (ver planteles.yml).

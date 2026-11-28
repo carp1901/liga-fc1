@@ -29,7 +29,9 @@ assert.equal(cfg.playoff, 3);
 assert.equal(cfg.mixLegs, 2);
 
 const html = fs.readFileSync('public/index.html', 'utf8');
-const scripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)].map(x => x[1]).filter(x => x.trim());
+// Solo JavaScript: sin «type» o con un type JS (se excluye el bloque ld+json, que es JSON).
+const esJS = attrs => { const t = (attrs.match(/\btype\s*=\s*["']?([^"'\s>]+)/i) || [])[1]; return !t || /^(text|application)\/(javascript|ecmascript)$|^module$/i.test(t); };
+const scripts = [...html.matchAll(/<script(\s[^>]*)?>([\s\S]*?)<\/script>/gi)].filter(x => esJS(x[1] || '')).map(x => x[2]).filter(x => x.trim());
 assert.ok(scripts.length);
 scripts.forEach((source, i) => new vm.Script(source, { filename: 'public/index.html:inline-' + i }));
 console.log('OK: tamaños, byes, carrera mult categoría Mixta y sintaxis de menú.');

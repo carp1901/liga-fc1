@@ -30,7 +30,10 @@ const files = [
   'planteles/primera-2026.csv',
   ...Array.from({ length: 6 }, (_, i) => `planteles/borradores/primera-nacional-2026/bloque${i + 1}.csv`)
 ];
-const expected = [1012, 155, 171, 182, 194, 164, 160];
+// Cantidades de los CSV (fuente de verdad, decisión del 27/11/2026). Bloque 1: 156 con Cristo Lozada Echenique (All Boys, D-7).
+// Los bloques 2, 4, 5 y 6 ya tenían más filas que las fijadas antes (171/194/164/160); no se veía porque el test fallaba primero en el bloque 1.
+// Primera Nacional suma 1039, igual que el juego regenerado (test-squads, test-planteles-sync).
+const expected = [1012, 156, 173, 182, 195, 172, 161];
 let total = 0;
 for (let i = 0; i < files.length; i++) {
   const rows = parseCSV(fs.readFileSync(files[i], 'utf8'));

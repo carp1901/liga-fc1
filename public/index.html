@@ -491,7 +491,8 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
  .kobc .kcm>b{flex-basis:13px!important;width:13px!important;min-width:13px!important}
 }
 
-</style></head><body><main>
+</style><script src="/api-config.js?v=80282b48d7a2"></script>
+</head><body><main>
 <div id="menu"><div class="bd"><svg class="dd" viewBox="0 0 300 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="284" height="154" rx="3"/><path d="M150 8v154"/><circle cx="150" cy="85" r="26"/><rect x="8" y="50" width="42" height="70"/><rect x="250" y="50" width="42" height="70"/><path d="M70 120q50-60 110-40" stroke-dasharray="5 6"/><path d="M174 74l8 6-10 3"/><path d="M200 40q30 20 50 5" stroke-dasharray="5 6"/><path d="M62 52l12 12m0-12L62 64M104 98l12 12m0-12l-12 12M214 112l12 12m0-12l-12 12"/><circle cx="96" cy="60" r="6"/><circle cx="130" cy="120" r="6"/><circle cx="222" cy="64" r="6"/></g></svg>
 <h1 class="tt">CLASH FUTBOL - 2D ONLINE</h1>
 <p class="seo-intro">Simulador de fútbol 2D: jugá online con amigos o disfrutá el modo offline. Elegí clubes, armá torneos y viví tu propia carrera.</p>
@@ -529,6 +530,7 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 </div>
 <div id="ranktechpanel" class="ranking-panel" hidden>
 <h3 class="mt ranking-panel-title">Rendimiento de técnicos</h3>
+<div class="rkt" id="trtipo" role="tablist"><button data-trt="online" class="on" role="tab">Online (verificado)</button><button data-trt="offline" role="tab">Offline (informado)</button></div>
 <div class="rkb ranking-results" id="trlist"><span class="mu">Cargando…</span></div>
 <details class="ranking-tools"><summary><span>⚙ Buscar y cambiar período</span><small>opciones de visualización</small></summary><div class="ranking-tools-body">
 <div class="rkt"><button id="trseason" class="on">Temporada actual</button><button id="trhistory">Histórico</button></div>
@@ -546,12 +548,12 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 </div>
 <button class="bk" data-back="0">‹ volver</button></section>
 <section id="m11" class="sc" hidden><div class="rkb" id="fcb"></div><div class="rw"><select id="fcc"></select><button class="bt ok" id="fcg">comparar</button></div><button class="bk" data-back="10">‹ volver</button></section>
-<section id="m13" class="sc" hidden><h2 class="mt">Salas públicas</h2><p class="lb">Torneos online abiertos a cualquiera. Son competiciones de fantasía, no torneos oficiales. Para que un título sea oficial tienen que participar al menos 10 personas reales.</p>
+<section id="m13" class="sc" hidden><h2 class="mt">Salas públicas</h2><p class="lb">Torneos online abiertos a cualquiera. Son competiciones de fantasía, no torneos oficiales. Para que un título sea oficial tienen que participar al menos <span class=minH>8</span> personas con cuenta (los invitados juegan, pero no cuentan).</p>
 <div class="c2 w"><label class="lb">categoría<select id="pfc"><option value="">Todas</option><option value="clasico">Clásico</option><option value="barrial">Barrial / Regional</option></select></label><label class="lb">estado<select id="pfs"><option value="">Todos</option><option value="esperando">Esperando jugadores</option><option value="juego">En juego con vacantes</option><option value="completa">Completas (solo espectadores)</option></select></label><label class="lb">formato<select id="pff"><option value="">Todos</option><option value="liga">Liga</option><option value="copa">Mata-mata</option></select></label></div>
 <input id="pq" class="in" placeholder="Buscar sala por nombre" maxlength="30" autocomplete="off"><div id="psl"></div><p class="lb" id="pe"></p>
 <button class="bk" id="bk13">‹ volver</button></section>
 <section id="m14" class="sc" hidden><h2 class="mt">Crear sala</h2><div class="swr"><span id="sw0" class="on">🔒 Privada</span><label class="swt"><input type="checkbox" id="spub"><i></i></label><span id="sw1">🌐 Pública</span></div><p class="lb" id="swh"></p><button class="bt big" id="cmc">Modo clásico</button><button class="bt big sm" id="cmb">Torneos barriales</button><button class="bk" data-back="6">‹ volver</button></section>
-<section id="m15" class="sc" hidden><h2 class="mt">Unirse</h2><button class="bt big" id="bpub">Salas públicas</button><button class="bt big" id="bpriv">Salas privadas<small>(con código)</small></button><button class="bt big" id="brnd">Partida aleatoria<small>(10 jugadores)</small></button><button class="bk" data-back="6">‹ volver</button></section>
+<section id="m15" class="sc" hidden><h2 class="mt">Unirse</h2><button class="bt big" id="bpub">Salas públicas</button><button class="bt big" id="bpriv">Salas privadas<small>(con código)</small></button><button class="bt big" id="brnd">Partida aleatoria<small>(<span class=minH>8</span> jugadores)</small></button><button class="bk" data-back="6">‹ volver</button></section>
 <section id="m16" class="sc" hidden><h2 class="mt" id="pct">Crear sala pública</h2><p class="lb">Sin código: la sala aparece en Salas públicas y cualquiera puede unirse. Competiciones de fantasía, no oficiales.</p><label class="lb" hidden><select id="pcc"><option value="clasico">Clásico</option><option value="barrial">Barrial / Regional</option></select></label><div class="c2 w"><label class="lb">competición<select id="pcm"></select></label><label class="lb">formato<select id="pcfm"></select></label><label class="lb">jugadores<select id="pcn"></select></label></div><input id="pnm" class="in" placeholder="Nombre de la sala (opcional)" maxlength="28" autocomplete="off"><p class="lb" id="pe2"></p><button class="bt ok" id="pok">crear y entrar</button><button class="bk" data-back="14">‹ volver</button></section>
 <section id="m17" class="sc" hidden><h2 class="mt">Sala privada</h2><p class="lb">Ingresá el código que te pasó quien creó la sala.</p><div class="rw"><input id="cd" class="in" placeholder="Código de sala" maxlength="12" autocapitalize="off" autocomplete="off"><button class="bt ok" id="bj">entrar</button></div><button class="bk" data-back="15">‹ volver</button></section>
 <section id="m26" class="sc" hidden><h2 class="mt">Personalizado</h2><button class="bt big" id="bcareer">Carrera personalizada</button><button class="bt big" id="bsolo">Torneo suelto</button><button class="bk" data-back="18">‹ volver</button></section>
@@ -582,7 +584,7 @@ body:has(#m10:not([hidden])) #m10{width:100%;max-width:none;align-self:stretch;f
 </div></div>
 </main>
 <div id="shm" hidden><div class="shb"><div id="shi"></div><div class="nt" id="shn"></div><div class="rw"><button class="bt ok" id="shs">compartir</button><button class="bt ok" id="shd">descargar</button></div><button class="bk" id="shx">‹ cerrar</button></div></div>
-<script src="squads.js?v=20261108-primera-nacional"></script><script src="data.js"></script><script src="player-development.js?v=20261108-2"></script><script src="player-regens.js?v=20261108-2"></script><script src="engine.js?v=20261111-fatigue-tuning"></script><script src="sim2d.js?v=20261111-halftime-orientation"></script><script>
+<script src="squads.js?v=e1f835da7197"></script><script src="data.js?v=23a142f8f99f"></script><script src="player-development.js?v=4da08f223fef"></script><script src="player-regens.js?v=3ea1f546809a"></script><script src="engine.js?v=cdfc2cd68f0e"></script><script src="sim2d.js?v=bfcdf93c1da4"></script><script>
 const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let DV=[],TM={},S=null,room,sel=null,evAt=0,evKey='',OFF=false,CAL=[],showCal=false,SPD=1,showInfo=false,tcOpen=true,TMSG='',TMT=0;const FN=['4-4-2','4-3-3','3-5-2','4-5-1','5-3-2','4-2-3-1','4-2-2-2','3-4-3','5-4-1','4-3-1-2','4-1-4-1','4-4-1-1','3-4-2-1','5-2-3'];
 let pid;try{pid=localStorage.pid||(localStorage.pid=Math.random().toString(36).slice(2)+Date.now().toString(36))}catch(e){pid=Math.random().toString(36).slice(2)}
@@ -598,6 +600,7 @@ function crestLoad(id){if(CRS[id]!==undefined||typeof Image=='undefined')return;
 const AUTO={},OVR=(DATA.COLOR_OVERRIDES||{}),CCV='cc_v3';let CCS={};try{CCS=JSON.parse(localStorage[CCV]||'{}')}catch(e){}
 const AUTO3={};
 for(const k in CCS)if(Array.isArray(CCS[k])&&CCS[k].length>=2){AUTO[k]=[CCS[k][0],CCS[k][1]];if(CCS[k][3])AUTO3[k]=CCS[k][3]}
+document.querySelectorAll('.minH').forEach(e=>e.textContent=DATA.MIN_HUMANOS);   // mínimo de personas reales (data.js)
 const hxs=(r,g,b)=>'#'+[r,g,b].map(v=>Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0')).join('');
 let LASTCS=null;
 function crestPalette(im){LASTCS=null;const r=crestPalette0(im);if(r&&LASTCS){const t=LASTCS.find(p=>p.w>=.08*LASTCS[0].w&&cdist(p.hex,r[0])>=70&&cdist(p.hex,r[1])>=70);if(t)r[2]=t.hex}return r}
@@ -672,25 +675,25 @@ const mmss=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0'),sur=n=>n.split('
  $('#np').innerHTML=DATA.LIGA_SIZES.concat(32).map(n=>`<option value="${n}">${n} jugadores</option>`).join('')})(DATA.DIVS);
 function customSizes(){const d=$('#odv').value,div=DATA.DIVS.find(x=>x.id==d),max=d=='all'?DATA.DIVS.reduce((a,x)=>a+x.teams.length,0):(div?div.teams.length:0),fmt=$('#ofm').value,old=+$('#onp').value,src=fmt=='copa'?DATA.CUSTOM_KO_SIZES:DATA.CUSTOM_LIGA_SIZES,ns=src.filter(n=>n<=max);$('#onp').innerHTML=ns.map(n=>`<option value="${n}">${n} equipos</option>`).join('');$('#onp').value=String(ns.includes(old)?old:(ns.includes(20)?20:ns[ns.length-1]));const n=+$('#onp').value,def=Math.min(n,n>=22?16:n>=10?8:4),keep=+$('#opo').value,opts=Array.from({length:Math.max(0,n-1)},(_,i)=>i+2);$('#opo').innerHTML=opts.map(v=>`<option value="${v}">${v} clasificados</option>`).join('');$('#opo').value=String(opts.includes(keep)?keep:def);const mx=fmt=='mixto';$('#omrwrap').hidden=!mx;$('#opowrap').hidden=!mx;$('#mixhelp').hidden=!mx}
 $('#odv').onchange=customSizes;$('#ofm').onchange=customSizes;$('#onp').onchange=customSizes;customSizes();
-async function post(b){const m={pid,room,name:$('#nm').value.trim(),...b};if(OFF)return ENG.act(m);try{const r=await fetch('/act',{method:'POST',headers:authH(),body:JSON.stringify(m)});return(await r.json()).error}catch(e){return'No hay servidor. Para jugar online abrí el link del servidor; para probar usá el modo offline.'}}
+async function post(b){const m={pid,room,name:$('#nm').value.trim(),...b};if(OFF)return ENG.act(m);try{const r=await apiFetch('/act',{method:'POST',headers:authH(),body:JSON.stringify(m)});return(await r.json()).error}catch(e){return'No hay servidor. Para jugar online abrí el link del servidor; para probar usá el modo offline.'}}
 async function enter(a){room=(a=='create'?$('#cdc'):$('#cd')).value.trim().toLowerCase();try{localStorage.nm=$('#nm').value}catch(e){}
  if(!$('#nm').value.trim())return $('#er').textContent='Poné tu nombre';const cfg=a=='create'?{div:$('#dv').value,fmt:$('#fm').value,...koCfg('fm'),n:+$('#np').value}:{};
  const e=await post({a,cfg,phil:PHL});if(e){if(a=='join'&&/ya empez/.test(e)){try{const v=await pubApi({op:'vacinfo',room});if(v.vac){$('#er').textContent='';pubVac(v.vac,'#er');return}}catch(x){}}return $('#er').textContent=e}start()}
 // ---- Partida aleatoria (Bloque 2)
-const RQP=['queue','vote1','vote2'],rndCall=async b=>(await fetch('/api/random',{method:'POST',headers:authH(),body:JSON.stringify({pid,name:$('#nm').value.trim(),phil:PHL,...b})})).json();
+const RQP=['queue','vote1','vote2'],rndCall=async b=>(await apiFetch('/api/random',{method:'POST',headers:authH(),body:JSON.stringify({pid,name:$('#nm').value.trim(),phil:PHL,...b})})).json();
 function randUI(v){$('#gm').classList.add('rq');const q=v.rq,ph=v.phase,ex='<div class=row><button onclick="leaveRoom()" style="margin-left:auto">Salir</button></div>';let h;
  if(ph=='queue')h='<h2>Partida aleatoria</h2><h2 style="color:var(--so)">Buscando jugadores… '+q.n+'/'+q.need+'</h2><p class=mu>Cuando se junten '+q.need+' personas empieza la votación. En sala: '+q.names.map(esc).join(', ')+'</p>'+(q.vac?'<p class=mu>Hay una partida con '+q.vac.libres+' lugar(es) libre(s) ('+esc(q.vac.fase)+(q.vac.comp?' · '+esc(q.vac.comp)+' · liga':'')+').</p><button class="go" data-vj="'+esc(q.vac.room)+'">Unirme a esa partida</button>':'')+ex;
  else{const c1=ph=='vote1';h='<h2>'+(c1?'Votá la categoría':'Votá la competición')+' · '+q.t+'s</h2>'+(c1?'':'<p class=mu>Categoría elegida: '+(q.cat=='clasico'?'Clásico':'Barrial / Regional')+'</p>')+q.opts.map(o=>'<button class="'+(q.mine==o.id?'go':'')+'" data-rv="'+esc(o.id)+'"><b>'+esc(o.label)+'</b> · '+(q.cnt[o.id]||0)+' voto(s)<br><small>'+esc(o.sub)+'</small></button>').join('')+'<p class=mu>Si hay empate se elige al azar. Formato: liga de 1 rueda. En sala: '+q.n+'/'+q.need+'</p>'+ex}
  set('#rnd',h);$('#rnd').hidden=false}
 $('#rnd').onclick=async e=>{const b=e.target.closest('[data-rv]'),j=e.target.closest('[data-vj]');if(b)post({a:'rv',v:b.dataset.rv});else if(j){const r=await rndCall({mode:'join',room:j.dataset.vj});if(r.room){room=r.room;start()}}};
 $('#brnd').onclick=async()=>{if(!$('#nm').value.trim())return $('#er').textContent='Poné tu nombre';try{localStorage.nm=$('#nm').value}catch(e){}$('#er').textContent='';
- try{let r=await rndCall({});if(r.offer){const o=r.offer;r=await rndCall(confirm('Hay una partida aleatoria con '+o.libres+' lugar(es) libre(s): '+o.fase+(o.comp?' · '+o.comp+' · liga de 1 rueda':'')+'.\n¿Querés unirte a esa partida?')?{mode:'join',room:o.room}:{mode:'queue'})}
+ try{let r=await rndCall({});if(r.offer){const o=r.offer;r=await rndCall((await uiConfirm('Hay una partida aleatoria con '+o.libres+' lugar(es) libre(s): '+o.fase+(o.comp?' · '+o.comp+' · liga de 1 rueda':'')+'.\n¿Querés unirte a esa partida?',{si:'Unirme',no:'Esperar otra'}))?{mode:'join',room:o.room}:{mode:'queue'})}
   if(r.error)return $('#er').textContent=r.error;room=r.room;start()}catch(e){$('#er').textContent='No hay servidor. Para jugar online abrí el link del servidor.'}};
 // ---- Salas públicas (Bloque 3)
 const PFMT={liga1:'Liga (1 rueda)',liga2:'Liga (2 ruedas)',copa:'Mata-mata'},PUBST={esperando:'Esperando jugadores',juego:'En juego',completa:'Completas (solo espectadores)'},mmss2=ms=>{const s=Math.ceil(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
 let PUBL=[];
-const pubApi=async b=>(await fetch('/api/pub',{method:'POST',headers:authH(),body:JSON.stringify({pid,name:$('#nm').value.trim(),phil:PHL,...b})})).json();
-async function pubLoad(){try{const j=await(await fetch('/api/salas')).json();PUBL=Array.isArray(j)?j:null}catch(e){PUBL=null}pubDraw()}
+const pubApi=async b=>(await apiFetch('/api/pub',{method:'POST',headers:authH(),body:JSON.stringify({pid,name:$('#nm').value.trim(),phil:PHL,...b})})).json();
+async function pubLoad(){try{const j=await(await apiFetch('/api/salas')).json();PUBL=Array.isArray(j)?j:null}catch(e){PUBL=null}pubDraw()}
 const pubInfo=s=>'«'+s.name+'»\n'+s.comp+(s.region?' · '+s.region:'')+'\nFormato: '+PFMT[s.fmt]+'\nJugadores: '+s.h+'/'+s.n+(s.status=='esperando'?' (faltan '+s.free+')':'');
 function pubDraw(){const L=$('#psl');if(!L)return;if(!PUBL){L.innerHTML='<p class=lb>No hay servidor. Para ver las salas públicas abrí el link del servidor.</p>';return}
  const fc=$('#pfc').value,fs=$('#pfs').value,ff=$('#pff').value,q=$('#pq').value.trim().toLowerCase();
@@ -710,16 +713,16 @@ document.addEventListener('click',async e=>{const t=e.target.closest&&e.target.c
  try{const r=await pubApi({op:'take',room:c,team:tm});if(r.error){alert(r.error);pubLoad&&pubLoad();return}if(r.aviso)alert(r.aviso);room=r.room;start()}catch(x){alert('No hay servidor.')}});
 async function pubEnter(op,code){if(!$('#nm').value.trim())return $('#pe').textContent='Poné tu nombre';try{localStorage.nm=$('#nm').value}catch(e){}$('#pe').textContent='';
  try{const r=await pubApi({op,room:code});if(r.vac){pubVac(r.vac);return}if(r.error){$('#pe').textContent=r.error;pubLoad();return}if(r.aviso)alert(r.aviso);room=r.room;start()}catch(e){$('#pe').textContent='No hay servidor.'}}
-$('#psl').onclick=e=>{const j=e.target.closest('[data-pj]'),w=e.target.closest('[data-pw]');if(e.target.closest('[data-pc]')){$('#spub').checked=true;swUpd();pubCreateOpen($('#pfc').value||'clasico',$('#pff').value);return}if(j){const s=(PUBL||[]).find(x=>x.code==j.dataset.pj);if(s&&confirm(pubInfo(s)+'\n\n¿Querés unirte a esta sala?'))pubEnter('play',s.code)}else if(w)pubEnter('watch',w.dataset.pw)};
+$('#psl').onclick=e=>{const j=e.target.closest('[data-pj]'),w=e.target.closest('[data-pw]');if(e.target.closest('[data-pc]')){$('#spub').checked=true;swUpd();pubCreateOpen($('#pfc').value||'clasico',$('#pff').value);return}if(j){const s=(PUBL||[]).find(x=>x.code==j.dataset.pj);if(s)uiConfirm(pubInfo(s)+'\n\n¿Querés unirte a esta sala?',{si:'Unirme'}).then(y=>{if(y)pubEnter('play',s.code)})}else if(w)pubEnter('watch',w.dataset.pw)};
 ['pfc','pfs','pff'].forEach(i=>$('#'+i).onchange=pubDraw);$('#pq').oninput=pubDraw;
-function pubFormInit(){const cat=$('#pcc').value,comps=DATA.catalog().filter(e=>e.cat==cat&&e.fmts.some(f=>(e.sizes[f]||[]).some(n=>n>=10)));$('#pcm').innerHTML=comps.map(e=>'<option value="'+esc(e.key)+'">'+esc(e.cat=='barrial'?e.title:e.name)+'</option>').join('');pubFmts()}
-function pubFmts(){const e=DATA.catalog().find(x=>x.key==$('#pcm').value);if(!e)return;const keep=$('#pcfm').value,fm=e.fmts.filter(f=>(e.sizes[f]||[]).some(n=>n>=10));$('#pcfm').innerHTML=fm.map(f=>'<option value="'+f+'">'+PFMT[f]+'</option>').join('');if(fm.includes(keep))$('#pcfm').value=keep;pubSizes()}
-function pubSizes(){const e=DATA.catalog().find(x=>x.key==$('#pcm').value),f=$('#pcfm').value;if(!e||!f)return;const keep=$('#pcn').value,ns=(e.sizes[f]||[]).filter(n=>n>=10);$('#pcn').innerHTML=ns.map(n=>'<option value="'+n+'">'+n+' jugadores</option>').join('');if(ns.map(String).includes(keep))$('#pcn').value=keep}
+function pubFormInit(){const cat=$('#pcc').value,comps=DATA.catalog().filter(e=>e.cat==cat&&e.fmts.some(f=>(e.sizes[f]||[]).some(n=>n>=DATA.MIN_HUMANOS)));$('#pcm').innerHTML=comps.map(e=>'<option value="'+esc(e.key)+'">'+esc(e.cat=='barrial'?e.title:e.name)+'</option>').join('');pubFmts()}
+function pubFmts(){const e=DATA.catalog().find(x=>x.key==$('#pcm').value);if(!e)return;const keep=$('#pcfm').value,fm=e.fmts.filter(f=>(e.sizes[f]||[]).some(n=>n>=DATA.MIN_HUMANOS));$('#pcfm').innerHTML=fm.map(f=>'<option value="'+f+'">'+PFMT[f]+'</option>').join('');if(fm.includes(keep))$('#pcfm').value=keep;pubSizes()}
+function pubSizes(){const e=DATA.catalog().find(x=>x.key==$('#pcm').value),f=$('#pcfm').value;if(!e||!f)return;const keep=$('#pcn').value,ns=(e.sizes[f]||[]).filter(n=>n>=DATA.MIN_HUMANOS);$('#pcn').innerHTML=ns.map(n=>'<option value="'+n+'">'+n+' jugadores</option>').join('');if(ns.map(String).includes(keep))$('#pcn').value=keep}
 $('#pcc').onchange=pubFormInit;$('#pcm').onchange=pubFmts;$('#pcfm').onchange=pubSizes;
 $('#pok').onclick=async()=>{try{if(!$('#nm').value.trim())return $('#pe2').textContent='Poné tu nombre';try{localStorage.nm=$('#nm').value}catch(e){}$('#pe2').textContent='';
  const e=DATA.catalog().find(x=>x.key==$('#pcm').value),fmt=$('#pcfm').value,n=+$('#pcn').value;await pubLoad();
  const comp=(PUBL||[]).find(s=>s.status=='esperando'&&s.free>0&&e&&s.comp==(e.cat=='barrial'?e.title:e.name)&&s.fmt==fmt&&s.n==n);
- if(comp&&confirm('Ya hay una sala esperando jugadores con ese mismo modo:\n'+pubInfo(comp)+'\n\nAceptar = unirme a esa sala · Cancelar = crear la mía igual'))return pubEnter('play',comp.code);
+ if(comp&&await uiConfirm('Ya hay una sala esperando jugadores con ese mismo modo:\n'+pubInfo(comp),{si:'Unirme a esa sala',no:'Crear la mía igual'}))return pubEnter('play',comp.code);
  try{const r=await pubApi({op:'create',div:$('#pcm').value,fmt,n,title:$('#pnm').value.trim()});if(r.error)return $('#pe2').textContent=r.error;room=r.room;start()}catch(x){$('#pe2').textContent='No hay servidor.'}}catch(x){$('#pe2').textContent='No se pudo crear la sala. Probá de nuevo.'}};
 $('#bpriv').onclick=()=>goM('m17');
 // ---- Menú online: Crear (modo + interruptor privada/pública) y Unirse (públicas, privadas con código, aleatoria)
@@ -738,10 +741,32 @@ function specUI(v){$('#gm').classList.add('rq');const pb=v.pb||{name:'Sala'},ph=
  if(v.cfg.fmt=='copa'&&v.br)h+='<h3 class=lb>Llaves</h3>'+v.br.map((rd,i)=>'<div class=mu>Ronda '+(i+1)+': '+rd.map(t=>(t.a?esc(nm(t.a)):'?')+' vs '+(t.b?esc(nm(t.b)):'?')+(t.w?' → '+esc(nm(t.w)):'')).join(' · ')+'</div>').join('');
  if(v.res&&v.res.length&&!live)h+='<h3 class=lb>Últimos resultados</h3>'+v.res.map(x=>'<div>'+esc(nm(x.a))+' '+x.ga+' - '+x.gb+' '+esc(nm(x.b))+'</div>').join('');
  set('#rnd',h);$('#rnd').hidden=false}
+// SRV-04: si se cae la conexión con la sala, EventSource reintenta solo; si queda cerrada o no vuelve en 15 s, se avisa y se ofrece volver al menú.
+let EVLOST=null;
+function evLostUI(){if(window.ES)try{ES.close()}catch(x){}$('#gm').classList.add('rq');set('#rnd','<h2>Se perdió la conexión con la sala</h2><p class=mu>No pudimos reconectarte. Revisá tu conexión a internet.</p><div class=row><button class=go onclick="location.reload()">Reintentar</button><button onclick="leaveRoom()">Volver al menú</button></div>');$('#rnd').hidden=false}
+function evWatch(es){clearTimeout(EVLOST);EVLOST=null;es.onopen=()=>{clearTimeout(EVLOST);EVLOST=null};es.onerror=()=>{if(window.ES!==es)return;if(es.readyState===2){clearTimeout(EVLOST);EVLOST=null;evLostUI();return}if(!EVLOST)EVLOST=setTimeout(()=>{EVLOST=null;if(window.ES===es&&es.readyState!==1)evLostUI()},15000)}}
 function closedUI(w){$('#gm').classList.add('rq');set('#rnd','<h2>Sala cerrada</h2><p class=mu>'+(w=='anfitrion'?'El anfitrión cerró la sala.':'La sala se cerró porque no reunió a todos los jugadores en 5 minutos.')+'</p><div class=row><button onclick="leaveRoom()">Volver al menú</button></div>');$('#rnd').hidden=false}
-// ---- Carreras offline: 3 ranuras en localStorage (careers_v1)
+// ---- Carreras offline: 3 ranuras. GUA-01: una entrada por ranura en IndexedDB, comprimida con gzip (CompressionStream).
+// Se migra solo desde la clave vieja de localStorage (careers_v1): el original se borra recién cuando cada ranura migrada se relee bien.
+// Si IndexedDB no está disponible, se sigue usando careers_v1 en localStorage, como antes (y SLERR avisa si no hay espacio).
+// careerGet() es síncrona: devuelve la copia en memoria, que se carga una vez al abrir la página (CSTORE.whenReady).
 const CK='careers_v1',SAVEPH=['pre','lobby','end'];let CAR=null,CUR=null,NSLOT=0,SAVEDAT=0,SLERR=false,lastKey='';
-const careerGet=()=>{let a=[];try{a=JSON.parse(localStorage[CK]||'[]')}catch(x){}if(!Array.isArray(a))a=[];return[0,1,2].map(i=>a[i]&&a[i].state?a[i]:null)},careerPut=a=>{try{localStorage[CK]=JSON.stringify(a);return true}catch(x){return false}};
+const CSTORE=(()=>{const DB='clashfutbol',ST='carreras',SL=[null,null,null],gz=typeof CompressionStream=='function'&&typeof DecompressionStream=='function';let db=null,mode='idb',ready=false,q=Promise.resolve(true);
+ const valid=c=>c&&c.state?c:null,legacy=()=>{let a=[];try{a=JSON.parse(localStorage[CK]||'[]')}catch(x){}return Array.isArray(a)?a:[]};
+ const open=()=>new Promise((ok,ko)=>{if(!window.indexedDB)return ko(new Error('sin IndexedDB'));const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(ST);r.onsuccess=()=>ok(r.result);r.onerror=()=>ko(r.error);r.onblocked=()=>ko(new Error('IndexedDB bloqueada'))});
+ const get=k=>new Promise((ok,ko)=>{const r=db.transaction(ST).objectStore(ST).get(k);r.onsuccess=()=>ok(r.result);r.onerror=()=>ko(r.error)});
+ const put=(k,v)=>new Promise((ok,ko)=>{const t=db.transaction(ST,'readwrite'),s=t.objectStore(ST);if(v==null)s.delete(k);else s.put(v,k);t.oncomplete=()=>ok(true);t.onerror=t.onabort=()=>ko(t.error||new Error('escritura abortada'))});
+ const pack=async o=>{const s=JSON.stringify(o);if(!gz)return{z:0,d:s};return{z:1,d:await new Response(new Blob([s]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer()}};
+ const unpack=async v=>{if(!v)return null;if(!v.z)return JSON.parse(v.d);return JSON.parse(await new Response(new Blob([v.d]).stream().pipeThrough(new DecompressionStream('gzip'))).text())};
+ const init=(async()=>{try{db=await open();for(let i=0;i<3;i++)SL[i]=valid(await unpack(await get(i)));
+   const old=legacy();if(old.some(valid)){for(let i=0;i<3;i++){const c=valid(old[i]);if(!c||SL[i])continue;await put(i,await pack(c));const back=await unpack(await get(i));if(!back||JSON.stringify(back)!==JSON.stringify(c))throw new Error('la ranura '+(i+1)+' migrada no se pudo releer');SL[i]=back}
+    localStorage.removeItem(CK)}
+  }catch(e){console.error('Guardados: IndexedDB no disponible; se usa localStorage',e);db=null;mode='ls';const old=legacy();for(let i=0;i<3;i++)SL[i]=valid(old[i])}
+  ready=true})();
+ const write=i=>q=q.then(async()=>{await init;if(mode=='idb'){const c=SL[i];await put(i,c?await pack(c):null);return true}
+   try{localStorage[CK]=JSON.stringify(SL);return true}catch(x){return false}}).catch(e=>{console.error('No se pudo guardar la carrera',e);return false});
+ return{ready:()=>ready,whenReady:init,slots:()=>SL.slice(),put:(i,c)=>{SL[i]=valid(c);return write(i)},mode:()=>mode}})();
+const careerGet=()=>CSTORE.slots(),clone=o=>o==null?o:typeof structuredClone=='function'?structuredClone(o):JSON.parse(JSON.stringify(o));
 function careerMeta(v){const t=v.me.team,cup=!!v.cfg.cup,fmt=v.cfg.fmt,dv=DATA.DIVS.find(d=>d.id==v.cfg.div),comp=cup?v.cfg.cup:v.cfg.div=='all'?'Todas las divisiones':dv?dv.name:'';let txt,pct=v.total?Math.round(Math.min(v.round,v.total)/v.total*100):0;
  if(v.phase=='end'){pct=100;txt=CAR?(v.champ==t?'🏆 Campeón · ':'')+'temporada terminada · falta cerrarla':v.champ==t?'🏆 Campeón':'Terminada'+(v.champ?' · campeón: '+TM[v.champ].name:'')}
  else if(v.phase=='pre')txt='Pretemporada';
@@ -749,19 +774,22 @@ function careerMeta(v){const t=v.me.team,cup=!!v.cfg.cup,fmt=v.cfg.fmt,dv=DATA.D
  else{const o=[...v.table].sort((x,y)=>y.pts-x.pts||y.g-x.g||y.gf-x.gf||(y.gf-y.ga)-(x.gf-x.ga)),p=o.findIndex(q=>q.id==t)+1;txt=v.round+'/'+v.total+' fechas jugadas'+(p?' · puesto '+p+'°':'')}
  return{club:t,clubName:TM[t].name,comp,cup,comp:CAR?CAR.cats[CAR.me.cat].name+' ('+(CAR.me.cat+1)+'/'+CAR.k+')':comp,pers:!!CAR,real:!!(CAR&&CAR.mode=='real'),season:CAR?CAR.season:cup?null:(v.season||2026),txt,pct}}
 function careerSave(){const v=S;if(!OFF||!CUR||!v||!v.off||!SAVEPH.includes(v.phase)||!(v.me&&v.me.team))return false;const snap=ENG.snapshot(room);if(!snap)return false;
- const a=careerGet();a[CUR.slot]={...careerMeta(v),at:Date.now(),spd:v.spd||1,state:snap,car:CAR||null};const ok=careerPut(a);SLERR=!ok;if(ok)SAVEDAT=Date.now();return ok}
+ CSTORE.put(CUR.slot,{...careerMeta(v),at:Date.now(),spd:v.spd||1,state:snap,car:clone(CAR)||null}).then(ok=>{SLERR=!ok;if(ok)SAVEDAT=Date.now();if(S&&OFF)render()});return true}
 function careerTick(v){if(!OFF||!CUR||!v||!v.off)return;if(!SAVEPH.includes(v.phase)){lastKey='';return}const k=v.phase+'|'+v.round+'|'+v.rd+'|'+v.leg;if(k!==lastKey){lastKey=k;careerSave()}}   // autoguardado: una vez al llegar a cada momento seguro
 const SAVEBTN=()=>CUR&&S&&OFF&&SAVEPH.includes(S.phase)?'<button data-sv=1 title="Guardar carrera en la ranura '+(CUR.slot+1)+'">'+(SLERR?'⚠ sin espacio':Date.now()-SAVEDAT<3000?'✔ guardado':'💾 guardar')+'</button>':'';
 document.addEventListener('click',x=>{if(x.target.closest&&x.target.closest('[data-sv]')){careerSave();if(S)render()}});
-function slotsDraw(){const f=t=>{const d=new Date(t);return d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit'})+' '+d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'})};
+// UI-04: al salir de la app (pestaña oculta) o cerrar la página se guarda la carrera si está en un momento seguro (careerSave lo verifica).
+// visibilitychange llega antes en el móvil y le da tiempo a IndexedDB; pagehide es el último aviso.
+document.addEventListener('visibilitychange',()=>{if(document.hidden)careerSave()});window.addEventListener('pagehide',()=>careerSave());
+function slotsDraw(){if(!CSTORE.ready()){$('#slots').innerHTML='<div class=box><span class=mu>Cargando ranuras…</span></div>';CSTORE.whenReady.then(slotsDraw);return}const f=t=>{const d=new Date(t);return d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit'})+' '+d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'})};
  $('#slots').innerHTML=careerGet().map((c,i)=>!c?'<div class="box"><b>Ranura '+(i+1)+'</b> <span class=mu>· vacía</span><div class=row><button class="go" data-sn="'+i+'">Nueva carrera</button></div></div>'
   :'<div class="box"><div class=row><b>Ranura '+(i+1)+'</b><span class=mu style="margin-left:auto">guardada '+f(c.at)+'</span></div><div class=row>'+cr(c.club)+'<div><b>'+esc(c.clubName)+'</b><br><small>'+(c.cup?'Torneo barrial · 1 temporada':(c.pers?(c.real?'Modo clásico · Realista':'Carrera personalizada'):'Modo clásico')+' · Temporada '+c.season)+'</small></div></div><small>'+esc(c.comp)+' · '+esc(c.txt)+'</small><div style="height:6px;background:#2a3038;border-radius:4px;margin:6px 0"><div style="height:6px;width:'+c.pct+'%;background:var(--so,#f2b705);border-radius:4px"></div></div><div class=row><button class="go" data-sc="'+i+'">Continuar</button><button data-sd="'+i+'">Borrar</button></div></div>').join('')}
-function careerLoad(i){$('#slm').textContent='';const c=careerGet()[i];if(!c)return;if(!$('#nm').value.trim())$('#nm').value='DT';let r;try{r=ENG.restore(c.state,{pid,speed:c.spd})}catch(x){r={error:'No se pudo cargar esta carrera'}}
- if(r.error){$('#slm').textContent=r.error;return}OFF=true;SPD=c.spd||1;room=r.code;CUR={slot:i};CAR=c.car||null;lastKey='';SAVEDAT=0;SLERR=false;start()}
+function careerLoad(i){$('#slm').textContent='';const c=careerGet()[i];if(!c)return;if(!$('#nm').value.trim())$('#nm').value='DT';let r;try{r=ENG.restore(clone(c.state),{pid,speed:c.spd})}catch(x){r={error:'No se pudo cargar esta carrera'}}
+ if(r.error){$('#slm').textContent=r.error;return}OFF=true;SPD=c.spd||1;room=r.code;CUR={slot:i};CAR=clone(c.car)||null;lastKey='';SAVEDAT=0;SLERR=false;start()}
 $('#slots').onclick=x=>{const n=x.target.closest('[data-sn]'),c=x.target.closest('[data-sc]'),d=x.target.closest('[data-sd]');
  if(n){NSLOT=+n.dataset.sn;CUR={slot:NSLOT};CAR=null;lastKey='';SAVEDAT=0;SLERR=false;$('#nsl').textContent='Ranura '+(NSLOT+1)+' · elegí el modo de tu carrera';goM('m18')}
  else if(c)careerLoad(+c.dataset.sc);
- else if(d){const i=+d.dataset.sd,a=careerGet();if(!a[i])return;if(d.dataset.ok){a[i]=null;careerPut(a);slotsDraw();return}   // doble toque en vez de confirm(): los navegadores embebidos lo bloquean y el botón parecía no hacer nada
+ else if(d){const i=+d.dataset.sd,a=careerGet();if(!a[i])return;if(d.dataset.ok){CSTORE.put(i,null);slotsDraw();return}   // doble toque en vez de confirm(): los navegadores embebidos lo bloquean y el botón parecía no hacer nada
   d.dataset.ok=1;d.textContent='¿Seguro? Tocá de nuevo';setTimeout(()=>{if(d.isConnected){delete d.dataset.ok;d.textContent='Borrar'}},4000)}};
 // ---- Clásico personalizado: temporadas, ascensos y descensos (carrera offline)
 let LG='ar';try{LG=localStorage.lg==='uy'?'uy':'ar'}catch(e){}
@@ -899,12 +927,31 @@ function cxClose(){if(!CAR||!S||S.phase!='end'||!OFF||(CAR.cp&&(CAR.cp.in||CAR.c
  if(r.summary.uy2){const u=r.summary.uy2,t=id=>id?esc(TM[id].name):'—';h+='<div class=box><b>Segunda División</b><p class=mu>Campeón Competencia: '+t(u.cw)+' · Ganador playoffs: '+t(u.third)+'</p></div>'}
  h+='<p class=mu>Esta modalidad termina acá: no hay ascensos, descensos ni una segunda temporada.</p><button class=go data-rs-exit=1>Volver al menú</button>';set('#rnd',h);$('#rnd').hidden=false;const o=ENG.rooms[room];if(o){clearInterval(o.timer);delete ENG.rooms[room]}},80);return}
  $('#gm').classList.add('rq');set('#rnd','<h2>Cerrando la temporada '+CAR.season+'…</h2><p class=mu>Simulando el resto de las categorías y calculando ascensos y descensos. Puede tardar unos segundos.</p>');$('#rnd').hidden=false;
- setTimeout(async()=>{let r;try{CAR.dev=ENG.development(room);r=ENG.careerClose(CAR,S.table,S.segT,(ENG.rooms[room]&&ENG.rooms[room].champ)||S.champ||null)}catch(x){r={error:'No se pudo cerrar la temporada'}}
+ setTimeout(async()=>{let r=null,winner=null;try{CAR.dev=ENG.development(room);winner=(ENG.rooms[room]&&ENG.rooms[room].champ)||S.champ||null}catch(x){r={error:'No se pudo cerrar la temporada'}}
+  // REN-03: el cierre corre en un Web Worker y la página sigue respondiendo; si no se puede, en el hilo principal como antes.
+  if(!r){const t0=Date.now();try{r=await closeInWorker(CAR,S.table,S.segT,winner);if(r&&r.car&&r.car.rosters)DATA.loadSquads(r.car.rosters);window.__CX={via:'worker',ms:Date.now()-t0}}catch(x){console.warn('Cierre en Worker no disponible; se cierra en la página:',x&&x.message);r=null}}
+  if(!r){const t0=Date.now();try{r=ENG.careerClose(CAR,S.table,S.segT,winner)}catch(x){r={error:'No se pudo cerrar la temporada'}}window.__CX={via:'pagina',ms:Date.now()-t0}}
   if(r.error){$('#gm').classList.remove('rq');alert(r.error);return}
   const o=ENG.rooms[room];if(o){clearInterval(o.timer);delete ENG.rooms[room]}
   try{ENG.careerTitle(r.summary,$('#nm').value.trim())}catch(x){}
   if(CAR.cp)r.summary.copa={champ:CAR.cp.champ,res:CAR.cp.res};CAR=r.car;CAR.last=r.summary;const ok=await cxSeason();if(!ok){alert('No se pudo empezar la temporada siguiente');return}post({a:'pause',v:1});careerSave();render()},80)}
-function exitGm(){if(OFF||!S||S.sp||['pick','end','queue','vote1','vote2'].includes(S.phase)){leaveRoom();return}if(!confirm('¿Abandonar el torneo? La IA toma tu club y no vas a poder volver a él.'))return;post({a:'quit'});setTimeout(()=>leaveRoom(),400)}
+// Cierre de temporada en un Web Worker (public/cierre-worker.js). Carga los mismos scripts versionados que esta página.
+let CXW=null,CXN=0;
+function closeInWorker(car,table,segT,winner){return new Promise((ok,ko)=>{try{if(typeof Worker!='function')return ko(new Error('sin Worker'));if(!CXW)CXW=new Worker('cierre-worker.js?v=a7dcaa57522b')}catch(e){return ko(e)}
+ const w=CXW,id=++CXN,scripts=[...document.scripts].map(s=>s.src).filter(u=>/\/(squads|data|player-development|player-regens|engine)\.js(\?|$)/.test(u));
+ const cleanup=()=>{clearTimeout(to);w.removeEventListener('message',onm);w.removeEventListener('error',one)},fail=e=>{cleanup();try{w.terminate()}catch(x){}if(CXW===w)CXW=null;ko(e)};
+ const to=setTimeout(()=>fail(new Error('tiempo agotado')),120000),onm=e=>{if(!e.data||e.data.id!==id)return;cleanup();try{w.terminate()}catch(x){}if(CXW===w)CXW=null;e.data.ok?ok(e.data.r):ko(new Error(e.data.error))}/* un Worker nuevo por cierre: siempre parte del mismo estado (como una página recién cargada) y libera memoria */,one=e=>{e.preventDefault&&e.preventDefault();fail(new Error(e.message||'error del Worker'))};
+ w.addEventListener('message',onm);w.addEventListener('error',one);const cfg=Object.fromEntries(Object.entries(ENG.CFG).filter(([k,v])=>['number','boolean','string'].includes(typeof v)));
+ w.postMessage({id,scripts,cfg,car,table,segT,winner})})}
+// UI-01: confirmación propia en lugar de confirm(): los navegadores embebidos (WebView) pueden bloquearlo y el botón parece no hacer nada.
+// uiConfirm(texto,{si,no}) devuelve una promesa con true/false. Esc o tocar fuera = no.
+function uiConfirm(txt,o){o=o||{};return new Promise(res=>{const bg=document.createElement('div');bg.className='uicf';bg.setAttribute('role','dialog');bg.setAttribute('aria-modal','true');
+ bg.style.cssText='position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px';
+ bg.innerHTML='<div class=box style="max-width:420px;width:100%;margin:0"><p style="white-space:pre-line;margin:0 0 12px">'+esc(txt)+'</p><div class=row style="justify-content:flex-end;gap:8px"><button data-uicf=0>'+esc(o.no||'Cancelar')+'</button><button class=go data-uicf=1>'+esc(o.si||'Aceptar')+'</button></div></div>';
+ const done=v=>{document.removeEventListener('keydown',key,true);bg.remove();res(v)},key=e=>{if(e.key=='Escape'){e.preventDefault();done(false)}};
+ bg.addEventListener('click',e=>{const b=e.target.closest('[data-uicf]');if(b)done(b.dataset.uicf=='1');else if(e.target===bg)done(false)});
+ document.addEventListener('keydown',key,true);document.body.appendChild(bg);const y=bg.querySelector('[data-uicf="1"]');y&&y.focus()})}
+function exitGm(){if(OFF||!S||S.sp||['pick','end','queue','vote1','vote2'].includes(S.phase)){leaveRoom();return}uiConfirm('¿Abandonar el torneo? La IA toma tu club y no vas a poder volver a él.',{si:'Abandonar',no:'Seguir jugando'}).then(y=>{if(!y)return;post({a:'quit'});setTimeout(()=>leaveRoom(),400)})}
 let UVV=null;
 // Tablas del Realista uruguayo: Primera (Apertura, Intermedio por series, Clausura, Tabla Anual y Descenso por promedio) y Segunda (Competencia por series, Fase Regular, Tabla Anual con ascensos y playoffs).
 function uyZv(v,tb,me){const u1=!!v.cfg.uy,S0=v.segT&&v.segT[0],S1=v.segT&&v.segT[1],all=Object.values(tb),cmp=(a,b)=>b.pts-a.pts||b.g-a.g||b.gf-a.gf||(b.gf-b.ga)-(a.gf-a.ga),
@@ -952,7 +999,7 @@ function seasonUI(v){const L=CAR.last,m=L.me,nm=i=>esc(CAR.cats[i].name),res=m.r
 document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-rs-exit]')){leaveRoom();return}const t=e.target.closest&&e.target.closest('[data-cs],[data-cd]');if(!t)return;if(t.dataset.cs)cxClose();else if(CAR&&CAR.last){CAR.last=null;post({a:'pause',v:0});careerSave();if(S)render()}});
 let rq=0;let lastR=0;const sched=()=>{if(rq)return;rq=1;const go=()=>requestAnimationFrame(()=>{rq=0;lastR=performance.now();if(S)render()}),w=SPD>=3?Math.max(0,220-(performance.now()-lastR)):0;if(w>0)setTimeout(go,w);else go()};   /* con marcador rápido llegan 5+ actualizaciones por segundo: se redibuja como mucho cada ~220 ms para no alargar los cuadros y frenar el 2D */
 const SESK='lfcSes',leaveRoom=()=>{try{localStorage.removeItem(SESK)}catch(e){}location.reload()},saveSes=()=>{try{if(!OFF&&room)localStorage[SESK]=JSON.stringify({room,pid,at:Date.now()})}catch(e){}};   // al recargar la página en una sala online se vuelve a entrar a esa sala (no al menú)
-function start(){$('#menu').hidden=true;$('#gm').hidden=false;applyOrd();saveSes();if(OFF)ENG.listen(room,pid,v=>{S=v;sched()});else{if(window.ES)ES.close();const es=window.ES=new EventSource(`/ev?room=${room}&pid=${pid}`);es.onmessage=m=>{S=JSON.parse(m.data);sched()}}}
+function start(){$('#menu').hidden=true;$('#gm').hidden=false;applyOrd();saveSes();if(OFF)ENG.listen(room,pid,v=>{S=v;sched()});else{if(window.ES)ES.close();const es=window.ES=new EventSource(apiUrl(`/ev?room=${room}&pid=${pid}&v=2`));evWatch(es);es.onmessage=m=>{try{const q=JSON.parse(m.data);if(!q||typeof q!=='object')return;if(q.__cf==='full')S=q.v;else if(q.__cf==='patch'){if(!S)return;for(const p of q.d||[]){let o=S;for(let i=0;i<p.length-1&&o!=null;i++)o=o[p[i]];if(o!=null)delete o[p[p.length-1]]}for(const [p,v] of q.u||[]){if(!p.length){S=v;continue}let o=S;for(let i=0;i<p.length-1&&o!=null;i++)o=o[p[i]];if(o!=null)o[p[p.length-1]]=v}}else S=q;sched()}catch(e){console.error('Estado en vivo inválido:',e)}}}}   // v=2: el Worker manda estado completo o parches (__cf); server.js de Node manda el estado completo sin __cf
 async function offline(){OFF=true;SPD=+$('#osp').value||1;room='cpu'+Math.random().toString(36).slice(2,7);if(!$('#nm').value.trim())$('#nm').value='DT';const e=await post({a:'create',off:1,speed:+$('#osp').value,cfg:{div:$('#odv').value,fmt:$('#ofm').value,...koCfg('ofm'),n:+$('#onp').value}});if(e){OFF=false;return $('#er').textContent=e}start()}
 $('#bj').onclick=()=>enter('join');$('#bc2').onclick=()=>enter('create');$('#bo2').onclick=offline;const MENU_SCREENS=['m0','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12','m13','m14','m15','m16','m17','m18','m19','m20','m21','m22','m23','m24','m25','m26','m27','m28','m29','m30','m31'];let MENU_HISTORY=['m0'];const currentMenu=()=>MENU_SCREENS.find(i=>!$('#'+i).hidden)||null;const syncMenuBack=()=>{const current=currentMenu(),canBack=!!current&&current!=='m0'&&MENU_HISTORY.some(i=>i&&i!==current);document.querySelectorAll('#menu .sc .bk').forEach(b=>{b.hidden=!canBack||b.closest('.sc')?.id!==current})};const showMenu=n=>{MENU_SCREENS.forEach(i=>$('#'+i).hidden=i!==n);syncMenuBack()};const goM=n=>{if(!MENU_SCREENS.includes(n))return;const current=currentMenu();if(current&&current!==n)MENU_HISTORY.push(current);showMenu(n)};const goBack=()=>{const current=currentMenu();while(MENU_HISTORY.length){const previous=MENU_HISTORY.pop();if(previous&&previous!==current&&MENU_SCREENS.includes(previous)){showMenu(previous);return}}showMenu('m0')};const KO=id=>{const sel=$('#'+id),lb=sel&&sel.closest('label');if(!lb)return null;let w=lb.nextElementSibling;if(!w||!w.classList.contains('koopts')){w=document.createElement('span');w.className='koopts';w.hidden=true;w.innerHTML='<label class="lb">cada ronda<select data-ko="legs"><option value="1">Solo ida (1 partido)</option><option value="2">Ida y vuelta (global)</option></select></label><label class="lb">cruces<select data-ko="seed"><option value="rand">Al azar</option><option value="pick">Los elijo yo</option></select></label>';lb.insertAdjacentElement('afterend',w)}return{sel,w}},
  koCfg=id=>{const k=KO(id);if(!k||k.sel.value!='copa')return{};return{legs:+k.w.querySelector('[data-ko=legs]').value,seed:k.w.querySelector('[data-ko=seed]').value}};
@@ -989,15 +1036,17 @@ function openBCup(id){BCUP=id;const c=DATA.CUPS.find(x=>x.id==id),m=BM[id]||{},f
 async function enterB(a){room=(a=='create'?$('#cd9'):$('#cd')).value.trim().toLowerCase();try{localStorage.nm=$('#nm').value}catch(e){}
  if(!$('#nm').value.trim())return $('#er').textContent='Poné tu nombre';const cfg=a=='create'?{div:'cup:'+BCUP,fmt:$('#bfm').value,...koCfg('bfm'),n:+$('#bnp').value}:{};
  const e=await post({a,cfg,phil:PHL});if(e){if(a=='join'&&/ya empez/.test(e)){try{const v=await pubApi({op:'vacinfo',room});if(v.vac){$('#er').textContent='';pubVac(v.vac,'#er');return}}catch(x){}}return $('#er').textContent=e}start()}
-const rkMsg=(n,min=10)=>n>=min?'✅ Cumple el mínimo de '+min+' personas para el ranking.':'⚠️ Con menos de '+min+' personas se puede jugar, pero no suma al ranking.';
+const rkMsg=(n,min=DATA.MIN_HUMANOS)=>n>=min?'✅ Puede sumar al ranking si juegan '+min+' personas con cuenta o más.':'⚠️ Con menos de '+min+' personas con cuenta se puede jugar, pero no suma al ranking.';
 const rkHint=(sel,out)=>{$(out).textContent=rkMsg(+$(sel).value)};
-const titLine=v=>{const t=v.tit;if(!t||v.phase!='end')return'';if(v.off)return`<div class=info>${t.st=='pend'?'⏳ Enviando tu título offline al ranking…':t.st=='ok'?'🏆 Título offline sumado al ranking de tu club (los offline se muestran aparte).'+shBtn(t):t.st=='err'?'⚠️ No se pudo enviar el título offline; se reintenta cuando abras el juego con conexión.':t.why=='sin_db'?'El ranking no está disponible en este servidor.':''}</div>`;return`<div class=info>${t.st=='pend'?'⏳ Registrando el título…':t.st=='ok'?'🏆 Título registrado en el palmarés.'+shBtn(t):t.st=='err'?'⚠️ No se pudo registrar el título todavía; el servidor sigue reintentando.':t.why=='minimo'?'Este torneo no suma al ranking (menos de 10 personas).':t.why=='sin_db'?'El palmarés no está disponible en este servidor: el título no se guardó.':'Este torneo no suma al ranking.'}</div>`};
-const rkLine=v=>{const k=v.rk;if(!k||k.off)return'';return`<div class=info>${k.ok?(v.phase=='pick'?'🏅 Cumple el mínimo para ranking si se completa la sala ('+k.h+'/'+k.n+' personas, mínimo '+k.min+').':'🏅 Cumple el mínimo para ranking ('+k.h+' personas).'):'Sin ranking: sala de '+k.n+' personas (mínimo '+k.min+'). Se juega igual.'}</div>`};
+const titLine=v=>{const t=v.tit;if(!t||v.phase!='end')return'';if(v.off)return`<div class=info>${t.st=='pend'?'⏳ Enviando tu título offline al ranking…':t.st=='ok'?'🏆 Título offline sumado al ranking de tu club (los offline se muestran aparte).'+shBtn(t):t.st=='err'?(AUTH?'⚠️ No se pudo enviar el título offline; se reintenta cuando abras el juego con conexión.':'🔒 Iniciá sesión para que tus títulos offline cuenten: quedan guardados y se envían cuando entres.'):t.why=='sin_db'?'El ranking no está disponible en este servidor.':''}</div>`;return`<div class=info>${t.st=='pend'?'⏳ Registrando el título…':t.st=='ok'?'🏆 Título registrado en el palmarés.'+shBtn(t):t.st=='err'?'⚠️ No se pudo registrar el título todavía; el servidor sigue reintentando.':t.why=='minimo'?'Este torneo no suma al ranking (menos de '+DATA.MIN_HUMANOS+' personas con cuenta).':t.why=='sin_db'?'El palmarés no está disponible en este servidor: el título no se guardó.':'Este torneo no suma al ranking.'}</div>`};
+// k.h = personas con cuenta distintas (SEG-06); k.n = equipos del torneo. Mínimos: k.min personas con cuenta y k.minN equipos.
+const rkLine=v=>{const k=v.rk;if(!k||k.off)return'';return`<div class=info>${k.ok?(v.phase=='pick'?'🏅 Suma al ranking si juegan '+k.min+' personas con cuenta o más ('+k.h+' por ahora).':'🏅 Suma al ranking ('+k.h+' personas con cuenta).'):(k.n<(k.minN||k.min)?'Sin ranking: torneo de '+k.n+' equipos (mínimo '+(k.minN||k.min)+'). Se juega igual.':'Sin ranking: '+k.h+' personas con cuenta (mínimo '+k.min+'). Los invitados juegan igual, pero no cuentan.')}</div>`};
 $('#np').onchange=()=>rkHint('#np','#rk1');$('#bnp').onchange=()=>rkHint('#bnp','#rk9');rkHint('#np','#rk1');
 $('#cl7').onclick=e=>{const b=e.target.closest('[data-bcup]');if(b)openBCup(b.dataset.bcup)};$('#bc9').onclick=()=>enterB('create');
 /* ===== Títulos offline: se informan al servidor (ranking offline aparte, no verificable). Si falla la conexión se guardan y se reenvían al abrir el juego. ===== */
 const PT_K='pendTit',ptGet=()=>{try{return JSON.parse(localStorage[PT_K]||'[]')}catch(e){return[]}},ptSet=a=>{try{localStorage[PT_K]=JSON.stringify(a.slice(-20))}catch(e){}};
-const sendOff=rec=>fetch('/api/titulo-offline',{method:'POST',body:JSON.stringify({...rec,pid})}).then(r=>r.json().then(j=>({s:r.status,j}))).then(({s,j})=>{if(s==200)return j;const e=new Error(j.error||'error '+s);e.perm=s==400;throw e});
+// SEG-05: los títulos offline exigen cuenta. Sin sesión no se envían: quedan en la cola y se envían al iniciar sesión (flushPC → flushPT).
+const sendOff=rec=>!AUTH?Promise.reject(Object.assign(new Error('sin sesión'),{perm:false,sesion:true})):apiFetch('/api/titulo-offline',{method:'POST',headers:authH(),body:JSON.stringify({...rec,pid})}).then(r=>r.json().then(j=>({s:r.status,j}))).then(({s,j})=>{if(s==200)return j;const e=new Error(j.error||'error '+s);e.perm=s==400;throw e});
 ENG.CFG.onTitle=rec=>sendOff(rec).catch(e=>{if(!e.perm)ptSet([...ptGet().filter(x=>x.tid!=rec.tid),rec]);throw e});
 const flushPT=()=>{const a=ptGet();if(!a.length)return;Promise.all(a.map(rec=>sendOff(rec).then(()=>rec.tid,e=>e.perm?rec.tid:null))).then(done=>ptSet(ptGet().filter(x=>!done.includes(x.tid))))};flushPT();
 /* ===== Rankings: los datos vienen del servidor (/api/ranking); nada se calcula ni se guarda en el navegador. ===== */
@@ -1037,10 +1086,10 @@ function rkSetup(t){
 const fdate=s=>{const d=new Date(s);return isNaN(d)?'':d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'2-digit'})};
 async function rkLoad(){const n=++RKN,o=$('#rkb');o.innerHTML='<span class=mu>Cargando…</span>';
  const p=new URLSearchParams({mod:$('#rkm').value,comp:$('#rkc').value,fmt:$('#rkf').value,country:window.RK_COUNTRY||''});if($('#rkperiod').value=='temporada')p.set('year',String(new Date().getFullYear()));
- try{const r=await fetch('/api/ranking?'+p),d=await r.json();if(n!=RKN)return;
+ try{const r=await apiFetch('/api/ranking?'+p),d=await r.json();if(n!=RKN)return;
   if(!r.ok||d.error){o.textContent=d.error||'No se pudo cargar el ranking. Probá de nuevo en un rato.';return}
   if(!d.enabled){o.innerHTML='<span class=mu>El ranking no está disponible: este servidor no tiene base de datos conectada.</span>';return}
-  const note=RKT=='offline'?'<div class=nt>⚠️ Ranking offline: los títulos los informa cada dispositivo y no se pueden verificar. Se muestra siempre aparte del online.</div>':'<div class=nt>Solo cuentan torneos online terminados con 10 personas o más.</div>';
+  const note=RKT=='offline'?'<div class=nt>⚠️ Ranking offline: los títulos los informa cada dispositivo y no se pueden verificar. Se muestra siempre aparte del online.</div>':'<div class=nt>Solo cuentan torneos online terminados con '+DATA.MIN_HUMANOS+' personas con cuenta o más.</div>';
   if(d.rows.length){
    const pod=[{x:d.rows[1],c:'silver',n:'2.º'},{x:d.rows[0],c:'gold',n:'1.º'},{x:d.rows[2],c:'bronze',n:'3.º'}].filter(v=>v.x);
    const podium=`<section class="rkpod"><div class="rkpodhead"><b>Los más ganadores</b><span>${d.rows.length} clubes en la clasificación</span></div><div class="rkpodgrid">${pod.map(v=>`<div class="rkpodcard ${v.c}" data-club="${v.x.club}" role="button" tabindex="0"><span class="rkpodpos">${v.n}${v.x.empate?' · empate':''}</span>${TM[v.x.club]?cr(v.x.club,48):''}<b class="rkpodname">${esc(v.x.nombre)}</b><strong>${v.x.titulos}</strong><small>títulos</small><span class="rkpodlast">Último: ${fdate(v.x.ultimo)||'—'}</span></div>`).join('')}</div></section>`;
@@ -1059,7 +1108,7 @@ document.addEventListener('click',e=>{if(!$('#rkcountryPicker').contains(e.targe
 const MODL={clasico:'clásico online',barrial:'barrial online',offline:'offline'},FMTL=f=>f=='copa'?'Copa':'Liga',posTxt=p=>p?p.pos+'º'+(p.empate?'=':'')+' de '+p.de:'—';
 let CLUB=null,CLUBHTML='';
 const clubOpts=()=>CLUBHTML||(CLUBHTML=(()=>{const seen=new Set();return DV.map(d=>{const o=d.teams.filter(t=>!seen.has(t.id)&&seen.add(t.id)).sort((a,b)=>a.name.localeCompare(b.name,'es')).map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('');return o?`<optgroup label="${esc(d.name)}">${o}</optgroup>`:''}).join('')})());
-const clubGet=async id=>{const r=await fetch('/api/club?id='+encodeURIComponent(id)),d=await r.json();if(!r.ok||d.error)throw new Error(d.error||'error');return d};
+const clubGet=async id=>{const r=await apiFetch('/api/club?id='+encodeURIComponent(id)),d=await r.json();if(!r.ok||d.error)throw new Error(d.error||'error');return d};
 const rkErr=(o,e)=>{o.innerHTML='<span class=mu>No se pudo cargar (sin conexión con el servidor o base de datos no disponible).</span>'};
 async function openClub(id){CLUB=id;goM('m11');const o=$('#fcb');o.innerHTML='<span class=mu>Cargando…</span>';$('#fcc').innerHTML=clubOpts();$('#fcc').value=id==$('#fcc').options[0].value?$('#fcc').options[1].value:$('#fcc').options[0].value;
  try{const d=await clubGet(id);if(CLUB!=id)return;if(!d.enabled){o.innerHTML='<span class=mu>El palmarés no está disponible: este servidor no tiene base de datos conectada.</span>';return}
@@ -1122,7 +1171,7 @@ const shMsg=t=>{$('#shi').innerHTML='<span class=mu>'+t+'</span>'};
 const loadCrestImg=id=>new Promise(res=>{const ex=['png','svg','webp'],tm=setTimeout(()=>res(null),2500);let k=0;const go=()=>{if(k>=ex.length){clearTimeout(tm);return res(null)}const im=new Image(),e=ex[k];im.onload=()=>{clearTimeout(tm);res(im.naturalWidth?im:null)};im.onerror=()=>{k++;go()};im.src='/crests/'+id+'.'+e};go()});
 async function shareTitle(tid){
  $('#shm').hidden=false;SHB=null;$('#shs').hidden=$('#shd').hidden=true;$('#shn').textContent='';shMsg('Generando tarjeta…');
- try{const r=await fetch('/api/titulo?id='+encodeURIComponent(tid)),i=await r.json();if(!r.ok||i.error||!i.enabled)throw new Error(i.error||'no disponible');
+ try{const r=await apiFetch('/api/titulo?id='+encodeURIComponent(tid)),i=await r.json();if(!r.ok||i.error||!i.enabled)throw new Error(i.error||'no disponible');
   const T=TM[i.club]||{c1:'#1f5f2a',c2:'#0e3a18'};try{if(document.fonts&&document.fonts.load)await Promise.race([document.fonts.load('40px "Lilita One"'),new Promise(r=>setTimeout(r,800))])}catch(e){}
   const cv=document.createElement('canvas');cv.width=1080;cv.height=1350;drawCard(cv.getContext('2d'),i,await loadCrestImg(i.club),T.c1,T.c2);
   SHB=await new Promise((ok,no)=>cv.toBlob(b=>b?ok(b):no(new Error('toBlob')),'image/png'));SHN='clash-futbol-'+i.club+'-titulo-'+i.numero+'.png';
@@ -1142,19 +1191,19 @@ function applyAuth(){const nm=$('#nm'),b=$('#bacc');
 const setAuth=a=>{AUTH=a;try{if(a)localStorage.lfcAuth=JSON.stringify(a);else localStorage.removeItem('lfcAuth')}catch(e){}applyAuth()};
 async function authGo(kind){const u=$('#au').value.trim(),c=$('#ap').value;$('#aer').textContent='';if(!u||!c){$('#aer').textContent='Escribí usuario y contraseña';return}
  $('#alg').disabled=$('#arg').disabled=true;
- try{const r=await fetch('/api/auth/'+kind,{method:'POST',body:JSON.stringify({usuario:u,clave:c})}),j=await r.json();
+ try{const r=await apiFetch('/api/auth/'+kind,{method:'POST',body:JSON.stringify({usuario:u,clave:c})}),j=await r.json();
   if(!r.ok||j.error){$('#aer').textContent=j.error||'No se pudo completar';return}
-  $('#ap').value='';setAuth({tok:j.token,usuario:j.usuario});flushPC();const pr=await fetch('/api/auth/perfil',{headers:authH()}).then(x=>x.ok?x.json():null).catch(()=>null);if(pr&&pr.enabled&&!pr.perfilCompleto){goM('m20');perfilLoad()}else goM('m0')}
+  $('#ap').value='';setAuth({tok:j.token,usuario:j.usuario});flushPC();const pr=await apiFetch('/api/auth/perfil',{headers:authH()}).then(x=>x.ok?x.json():null).catch(()=>null);if(pr&&pr.enabled&&!pr.perfilCompleto){goM('m20');perfilLoad()}else goM('m0')}
  catch(e){$('#aer').textContent='No hay conexión con el servidor. Podés jugar como invitado.'}
  finally{$('#alg').disabled=$('#arg').disabled=false}}
 async function perfilLoad(){const o=$('#pfb');$('#pfn').textContent=AUTH?AUTH.usuario:'Mi perfil';o.innerHTML='<span class=mu>Cargando…</span>';
- try{const r=await fetch('/api/auth/perfil',{headers:authH()}),d=await r.json();
+ try{const r=await apiFetch('/api/auth/perfil',{headers:authH()}),d=await r.json();
   if(r.status==401){setAuth(null);goM('m19');$('#aer').textContent='Tu sesión venció: ingresá de nuevo.';return}
   if(!r.ok||d.error){o.innerHTML='<span class=mu>No se pudo cargar el perfil.</span>';return}
   if(!d.enabled){o.innerHTML='<span class=mu>Las cuentas no están disponibles: este servidor no tiene base de datos conectada.</span>';return}
   const fav=$('#pffav'),back=$('#pfback');back.hidden=!d.perfilCompleto;
   if(d.perfilCompleto){const id=d.clubFavorito;fav.innerHTML=`<div class=box style="display:flex;align-items:center;gap:12px">${TM[id]?cr(id,48):''}<div><b>Club favorito</b><div>${esc(TM[id]?.name||id)}</div><small class=mu>Elección fija de esta cuenta</small></div></div>`}
-  else{const ids=Object.keys(TM).filter(id=>TM[id]&&TM[id].name).sort((a,b)=>TM[a].name.localeCompare(TM[b].name,'es'));fav.innerHTML=`<div class=box><h3>Elegí tu club favorito</h3><p class=lb>Este escudo será tu avatar en el perfil. La elección se realiza una sola vez y después no se puede cambiar.</p><select id=pfclub class=in>${ids.map(id=>`<option value="${id}">${esc(TM[id].name)}</option>`).join('')}</select><button class="bt ok" id=pfsave>Confirmar club favorito</button><p class=lb id=pferr></p></div>`;$('#pfsave').onclick=async()=>{const b=$('#pfsave'),err=$('#pferr');b.disabled=true;err.textContent='Guardando…';try{const rr=await fetch('/api/auth/favorito',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({club:$('#pfclub').value})}),jj=await rr.json();if(!rr.ok||jj.error){err.textContent=jj.error||'No se pudo guardar';b.disabled=false;return}perfilLoad()}catch(e){err.textContent='No hay conexión con el servidor';b.disabled=false}}}
+  else{const ids=Object.keys(TM).filter(id=>TM[id]&&TM[id].name).sort((a,b)=>TM[a].name.localeCompare(TM[b].name,'es'));fav.innerHTML=`<div class=box><h3>Elegí tu club favorito</h3><p class=lb>Este escudo será tu avatar en el perfil. La elección se realiza una sola vez y después no se puede cambiar.</p><select id=pfclub class=in>${ids.map(id=>`<option value="${id}">${esc(TM[id].name)}</option>`).join('')}</select><button class="bt ok" id=pfsave>Confirmar club favorito</button><p class=lb id=pferr></p></div>`;$('#pfsave').onclick=async()=>{const b=$('#pfsave'),err=$('#pferr');b.disabled=true;err.textContent='Guardando…';try{const rr=await apiFetch('/api/auth/favorito',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({club:$('#pfclub').value})}),jj=await rr.json();if(!rr.ok||jj.error){err.textContent=jj.error||'No se pudo guardar';b.disabled=false;return}perfilLoad()}catch(e){err.textContent='No hay conexión con el servidor';b.disabled=false}}}
   const R=d.resumen,tile=(n,l)=>`<div><b>${n}</b>${l}</div>`;
   o.innerHTML=`<div class=fct>${tile(R.carreras,'carreras jugadas')}${tile(R.campeonatos,'campeonatos')}${tile(R.online,'online')}${tile(R.offline,'offline')}</div><h3>Historial de carreras</h3>`+
    (d.historial.length?`<table><tr><th>Fecha</th><th>Club</th><th>Competición</th><th>Resultado</th></tr>${d.historial.map(h=>`<tr><td class=mu>${fdate(h.finalizado)}</td><td>${TM[h.club]?cr(h.club,18)+' ':''}${esc(h.club_nombre||h.club)}</td><td>${esc(h.competicion_nombre||'')} <span class=mu>· ${h.formato=='copa'?'Copa':'Liga'} · ${h.modalidad=='offline'?'Offline':'Online'}</span></td><td class="${h.campeon?'pt':''}">${h.campeon?'🏆 ':''}${esc(h.resultado||'')}</td></tr>`).join('')}</table>${R.carreras>d.historial.length?`<div class=nt>Se muestran las últimas ${d.historial.length} de ${R.carreras}.</div>`:''}`:'<span class=mu>Todavía no jugaste ninguna carrera con esta cuenta. Las que termines con la sesión iniciada se guardan acá.</span>')+
@@ -1162,21 +1211,21 @@ async function perfilLoad(){const o=$('#pfb');$('#pfn').textContent=AUTH?AUTH.us
  catch(e){o.innerHTML='<span class=mu>No se pudo cargar el perfil (sin conexión con el servidor).</span>'}}
 // Carreras offline: se juegan en el celular; al terminar, si hay sesión, se informan al servidor. Si no hay conexión quedan pendientes (en este dispositivo, ligadas a esa cuenta) y se reenvían después.
 const PC_K='pendCar',pcGet=()=>{try{return JSON.parse(localStorage[PC_K]||'[]')}catch(e){return[]}},pcSet=a=>{try{localStorage[PC_K]=JSON.stringify(a.slice(-30))}catch(e){}};
-const sendCar=rec=>fetch('/api/auth/carrera',{method:'POST',headers:authH(),body:JSON.stringify(rec)}).then(r=>r.json().then(j=>({s:r.status,j}))).then(({s,j})=>{if(s==200)return j;const e=new Error(j.error||'error '+s);e.perm=s==400||s==401;throw e});
+const sendCar=rec=>apiFetch('/api/auth/carrera',{method:'POST',headers:authH(),body:JSON.stringify(rec)}).then(r=>r.json().then(j=>({s:r.status,j}))).then(({s,j})=>{if(s==200)return j;const e=new Error(j.error||'error '+s);e.perm=s==400||s==401;throw e});
 ENG.CFG.onCareer=recs=>{if(!AUTH)return;const u=AUTH.usuario;recs.forEach(rec=>{delete rec.uid;sendCar(rec).catch(e=>{if(!e.perm)pcSet([...pcGet().filter(x=>x.tid!=rec.tid),{...rec,u}])})})};
-function flushPC(){if(!AUTH)return;const u=AUTH.usuario,a=pcGet().filter(x=>x.u==u);if(!a.length)return;Promise.all(a.map(x=>{const{u:_,...rec}=x;return sendCar(rec).then(()=>x.tid,e=>e.perm?x.tid:null)})).then(done=>pcSet(pcGet().filter(x=>!(x.u==u&&done.includes(x.tid)))))}
+function flushPC(){if(!AUTH)return;flushPT();const u=AUTH.usuario,a=pcGet().filter(x=>x.u==u);if(!a.length)return;Promise.all(a.map(x=>{const{u:_,...rec}=x;return sendCar(rec).then(()=>x.tid,e=>e.perm?x.tid:null)})).then(done=>pcSet(pcGet().filter(x=>!(x.u==u&&done.includes(x.tid)))))}
 $('#bacc').onclick=()=>{if(AUTH){goM('m20');perfilLoad()}else{$('#aer').textContent='';goM('m19')}};
 $('#alg').onclick=()=>authGo('login');$('#arg').onclick=()=>authGo('registro');$('#ap').onkeydown=e=>{if(e.key=='Enter')authGo('login')};
-$('#pfx').onclick=async()=>{const t=AUTH&&AUTH.tok;setAuth(null);goM('m0');if(t)try{await fetch('/api/auth/logout',{method:'POST',headers:{Authorization:'Bearer '+t},body:'{}'})}catch(e){}};
+$('#pfx').onclick=async()=>{const t=AUTH&&AUTH.tok;setAuth(null);goM('m0');if(t)try{await apiFetch('/api/auth/logout',{method:'POST',headers:{Authorization:'Bearer '+t},body:'{}'})}catch(e){}};
 document.addEventListener('click',async e=>{const b=e.target.closest&&e.target.closest('[data-pclose]');if(!b)return;e.stopImmediatePropagation();
- if(!confirm('¿Cerrar la sala? Se saca a todos los que están esperando.'))return;
+ if(!(await uiConfirm('¿Cerrar la sala? Se saca a todos los que están esperando.',{si:'Cerrar la sala'})))return;
  try{const r=await pubApi({op:'close',room});if(r.error)alert(r.error)}catch(x){alert('No hay conexión con el servidor.')}},true);
-applyAuth();flushPC();if(AUTH){fetch('/api/auth/yo',{headers:authH()}).then(r=>{if(r.status==401)setAuth(null)},()=>{});fetch('/api/auth/perfil',{headers:authH()}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.enabled&&!d.perfilCompleto){goM('m20');perfilLoad()}}).catch(()=>{})}
+applyAuth();flushPC();if(AUTH){apiFetch('/api/auth/yo',{headers:authH()}).then(r=>{if(r.status==401)setAuth(null)},()=>{});apiFetch('/api/auth/perfil',{headers:authH()}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.enabled&&!d.perfilCompleto){goM('m20');perfilLoad()}}).catch(()=>{})}
 /* ===== Amigos (solo con cuenta): se agrega por nombre de usuario y el otro tiene que aceptar. Lista y solicitudes; lo demás (perfil, invitar, en línea) viene después. ===== */
 var AMG=null;   // {amigos:[],recibidas:[],enviadas:[]} del servidor; null = sin cargar o sin sesión
 function amgBadge(){const n=AMG&&AMG.recibidas?AMG.recibidas.length:0;$('#bamg').textContent='👥 Amigos'+(n?' ('+n+')':'')}
 function amgSync(){if(!AUTH){AMG=null;amgBadge();return}amgLoad()}
-async function amgApi(path,body){const r=await fetch('/api/amigos'+path,{method:body?'POST':'GET',headers:authH(),body:body?JSON.stringify(body):undefined}),j=await r.json();
+async function amgApi(path,body){const r=await apiFetch('/api/amigos'+path,{method:body?'POST':'GET',headers:authH(),body:body?JSON.stringify(body):undefined}),j=await r.json();
  if(r.status==401){setAuth(null);throw Object.assign(new Error('sesión'),{auth:1})}return{ok:r.ok,j}}
 async function amgLoad(){if(!AUTH)return;
  try{const r=await amgApi('');if(!AUTH)return;AMG=r.ok?(r.j.enabled===false?{off:1}:r.j):AMG;amgBadge();if(/^Sin conexión/.test($('#ame').textContent))$('#ame').textContent='';if(!$('#m21').hidden)amgDraw()}
@@ -1195,7 +1244,7 @@ $('#amx').onclick=async()=>{const u=$('#amu').value.trim();if(!u){$('#ame').text
  finally{$('#amx').disabled=false}};
 $('#amu').onkeydown=e=>{if(e.key=='Enter')$('#amx').onclick()};
 document.addEventListener('click',async e=>{const b=e.target.closest&&e.target.closest('[data-amg]');if(!b)return;e.stopImmediatePropagation();const[a,id]=b.dataset.amg.split(':');
- if(a=='quitar'&&!confirm('¿Quitar a '+(b.dataset.u||'este amigo')+' de tus amigos?'))return;
+ if(a=='quitar'&&!(await uiConfirm('¿Quitar a '+(b.dataset.u||'este amigo')+' de tus amigos?',{si:'Quitar'})))return;
  try{const path={aceptar:'/responder',rechazar:'/responder',cancelar:'/cancelar',quitar:'/quitar'}[a],r=await amgApi(path,(a=='aceptar'||a=='rechazar')?{id:+id,accion:a}:{id:+id});$('#ame').textContent=r.ok?'':(r.j.error||'No se pudo completar');await amgLoad()}
  catch(x){if(x.auth){$('#aer').textContent='Tu sesión venció: ingresá de nuevo.';goM('m19')}else $('#ame').textContent='No hay conexión con el servidor.'}},true);
 setInterval(()=>{if(AUTH&&!document.hidden)amgLoad()},60000);amgSync();
@@ -1231,16 +1280,16 @@ async function chatLoad(){
  $('#chaterr').textContent='';$('#chatmsgs').innerHTML='<span class=mu>Cargando mensajes…</span>';
  let historyError='';
  try{
-  const r=await fetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();
+  const r=await apiFetch('/api/chat?limit=100',{headers:AUTH?authH():{}}),d=await r.json();
   if(!r.ok||d.enabled===false){historyError=d.error||'El chat no está disponible en este momento.';$('#chatmsgs').textContent=historyError}
   else{$('#chatmsgs').innerHTML='';CHAT_IDS.clear();CHAT_DATA.clear();(d.mensajes||[]).forEach(chatAppend);if(!d.mensajes||!d.mensajes.length)$('#chatmsgs').innerHTML='<span class=mu>Todavía no hay mensajes. ¡Iniciá la conversación!</span>'}
  }catch(e){historyError='No se pudo conectar con el chat.';$('#chatmsgs').textContent=historyError}
  // Aunque falle el historial, siempre mostrar el acceso correspondiente y conectar el flujo en vivo.
  $('#chatwrite').hidden=!AUTH;$('#chatguest').hidden=!!AUTH;$('#chatguest').dataset.open='0';
- if(AUTH){try{const r=await fetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadminToggle').hidden=!CHAT_PERMS.moderador;$('#chatadmin').hidden=true;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true}}
+ if(AUTH){try{const r=await apiFetch('/api/chat/permisos',{headers:authH()}),p=await r.json();CHAT_PERMS=r.ok?p:{owner:false,moderador:false};$('#chatadminToggle').hidden=!CHAT_PERMS.moderador;$('#chatadmin').hidden=true;$('#chatowner').hidden=!CHAT_PERMS.owner}catch(e){CHAT_PERMS={owner:false,moderador:false};$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true}}
  else{$('#chatadminToggle').hidden=true;$('#chatadmin').hidden=true;CHAT_PERMS={owner:false,moderador:false}}
  if(CHAT_PERMS.moderador)Array.from(CHAT_DATA.values()).forEach(chatAppend);
- if(!CHAT_STREAM){CHAT_STREAM=new EventSource('/api/chat/stream');CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.addEventListener('reaccion',e=>{try{const q=JSON.parse(e.data);chatReactionUpdate(q.id,q)}catch(x){}});CHAT_STREAM.addEventListener('eliminado',e=>{try{chatRemove(JSON.parse(e.data).id)}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
+ if(!CHAT_STREAM){CHAT_STREAM=new EventSource(apiUrl('/api/chat/stream'));CHAT_STREAM.addEventListener('mensaje',e=>{try{const wasBottom=$('#chatmsgs').scrollHeight-$('#chatmsgs').scrollTop-$('#chatmsgs').clientHeight<50;chatAppend(JSON.parse(e.data));if(wasBottom)$('#chatmsgs').scrollTop=$('#chatmsgs').scrollHeight}catch(x){}});CHAT_STREAM.addEventListener('reaccion',e=>{try{const q=JSON.parse(e.data);chatReactionUpdate(q.id,q)}catch(x){}});CHAT_STREAM.addEventListener('eliminado',e=>{try{chatRemove(JSON.parse(e.data).id)}catch(x){}});CHAT_STREAM.onerror=()=>{$('#chaterr').textContent='Reconectando al chat…'}}
  if(historyError)$('#chaterr').textContent=historyError;
 }
 $('#bchat').onclick=()=>{goM('m29');chatLoad()};
@@ -1252,25 +1301,25 @@ $('#chatadminToggle').onclick=()=>{$('#chatadmin').hidden=!$('#chatadmin').hidde
 async function chatSend(){
  const input=$('#chatinput'),msg=input.value.trim();if(!msg)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para escribir.';return}
  $('#chatsend').disabled=true;$('#chaterr').textContent='';
- try{const r=await fetch('/api/chat',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({mensaje:msg})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo enviar';return}input.value='';chatAppend(d.mensaje)}
+ try{const r=await apiFetch('/api/chat',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({mensaje:msg})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo enviar';return}input.value='';chatAppend(d.mensaje)}
  catch(e){$('#chaterr').textContent='No hay conexión con el servidor.'}
  finally{$('#chatsend').disabled=false}
 }
 $('#chatsend').onclick=chatSend;$('#chatinput').onkeydown=e=>{if(e.key=='Enter')chatSend()};
-$('#chatmsgs').addEventListener('click',async e=>{const del=e.target.closest&&e.target.closest('[data-chat-delete]');if(del){const id=+del.dataset.chatDelete;if(!confirm('¿Eliminar este comentario del chat?'))return;del.disabled=true;try{const r=await fetch('/api/chat/eliminar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo eliminar';del.disabled=false;return}chatRemove(id)}catch(x){$('#chaterr').textContent='No hay conexión con el servidor.';del.disabled=false}return}const who=e.target.closest&&e.target.closest('[data-chat-who]');if(who){if(!CHAT_PERMS.moderador)return;const holder=who.closest('.chmsg').querySelector('[data-chat-who-list]'),id=who.dataset.id,valor=who.dataset.chatWho;holder.textContent='Cargando…';try{const r=await fetch('/api/chat/reaccionarios?id='+encodeURIComponent(id)+'&valor='+encodeURIComponent(valor),{headers:authH()}),d=await r.json();holder.textContent=r.ok?(d.usuarios.length?((valor==='1'?'👍 ':'👎 ')+d.usuarios.join(' · ')):'Todavía nadie reaccionó.'):(d.error||'No se pudo consultar')}catch(x){holder.textContent='No hay conexión con el servidor.'}return}
+$('#chatmsgs').addEventListener('click',async e=>{const del=e.target.closest&&e.target.closest('[data-chat-delete]');if(del){const id=+del.dataset.chatDelete;if(!(await uiConfirm('¿Eliminar este comentario del chat?',{si:'Eliminar'})))return;del.disabled=true;try{const r=await apiFetch('/api/chat/eliminar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo eliminar';del.disabled=false;return}chatRemove(id)}catch(x){$('#chaterr').textContent='No hay conexión con el servidor.';del.disabled=false}return}const who=e.target.closest&&e.target.closest('[data-chat-who]');if(who){if(!CHAT_PERMS.moderador)return;const holder=who.closest('.chmsg').querySelector('[data-chat-who-list]'),id=who.dataset.id,valor=who.dataset.chatWho;holder.textContent='Cargando…';try{const r=await apiFetch('/api/chat/reaccionarios?id='+encodeURIComponent(id)+'&valor='+encodeURIComponent(valor),{headers:authH()}),d=await r.json();holder.textContent=r.ok?(d.usuarios.length?((valor==='1'?'👍 ':'👎 ')+d.usuarios.join(' · ')):'Todavía nadie reaccionó.'):(d.error||'No se pudo consultar')}catch(x){holder.textContent='No hay conexión con el servidor.'}return}
  const b=e.target.closest&&e.target.closest('[data-chat-vote]');if(!b)return;if(!AUTH){$('#chaterr').textContent='Iniciá sesión para reaccionar.';return}
  const id=+b.dataset.chatVote,valor=+b.dataset.v;b.disabled=true;
- try{const r=await fetch('/api/chat/reaccion',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id,valor})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo registrar la reacción';return}chatReactionUpdate(id,d.reaccion)}
+ try{const r=await apiFetch('/api/chat/reaccion',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({id,valor})}),d=await r.json();if(!r.ok||d.error){$('#chaterr').textContent=d.error||'No se pudo registrar la reacción';return}chatReactionUpdate(id,d.reaccion)}
  catch(x){$('#chaterr').textContent='No hay conexión con el servidor.'}finally{b.disabled=false}
 });
 async function chatModAction(accion){
  const usuario=$('#chattarget').value.trim();if(!usuario){$('#chatmodmsg').textContent='Escribí el usuario que querés moderar.';return}
  $('#chatmodmsg').textContent='Procesando…';
- try{const r=await fetch('/api/chat/moderar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({usuario,accion,minutos:+$('#chatminutes').value,razon:$('#chatreason').value})}),d=await r.json();$('#chatmodmsg').textContent=r.ok?(accion=='silenciar'?'Participante silenciado.':accion=='suspender'?'Participante suspendido.':accion=='reactivar'?'Sanción levantada.':accion=='moderar'?'Moderador habilitado.':'Permiso de moderador retirado.'):(d.error||'No se pudo completar')}
+ try{const r=await apiFetch('/api/chat/moderar',{method:'POST',headers:{...authH(),'Content-Type':'application/json'},body:JSON.stringify({usuario,accion,minutos:+$('#chatminutes').value,razon:$('#chatreason').value})}),d=await r.json();$('#chatmodmsg').textContent=r.ok?(accion=='silenciar'?'Participante silenciado.':accion=='suspender'?'Participante suspendido.':accion=='reactivar'?'Sanción levantada.':accion=='moderar'?'Moderador habilitado.':'Permiso de moderador retirado.'):(d.error||'No se pudo completar')}
  catch(e){$('#chatmodmsg').textContent='No hay conexión con el servidor.'}
 }
 $('#chatmute').onclick=()=>chatModAction('silenciar');$('#chatunmute').onclick=()=>chatModAction('reactivar');$('#chatsuspend').onclick=()=>chatModAction('suspender');$('#chatmod').onclick=()=>chatModAction('moderar');$('#chatunmod').onclick=()=>chatModAction('desmoderar');
-let TR_PERIODO='temporada',RANK_MODE='tecnicos';
+let TR_PERIODO='temporada',TR_TIPO='online',RANK_MODE='tecnicos';
 let RANK_TAB_HISTORY=[];
 function rankingMode(mode,track=true){
  if(track&&!$('#m10').hidden&&RANK_MODE!==mode)RANK_TAB_HISTORY.push(RANK_MODE);
@@ -1297,7 +1346,7 @@ function renderFans(){
 }
 async function hinchasRankLoad(){
  $('#fanlist').innerHTML='<span class=mu>Cargando ranking…</span>';
- try{const r=await fetch('/api/ranking-hinchas'),d=await r.json();if(!r.ok||!d.enabled){$('#fanlist').textContent=d.error||'El ranking de hinchas no está disponible.';return}
+ try{const r=await apiFetch('/api/ranking-hinchas'),d=await r.json();if(!r.ok||!d.enabled){$('#fanlist').textContent=d.error||'El ranking de hinchas no está disponible.';return}
   FAN_ROWS=d.rows||[];FAN_ROWS.total=d.totalCuentas||0;
   $('#faninfo').textContent='Cada cuenta registrada con un club favorito suma exactamente 1 hincha. Total de cuentas con club elegido: '+FAN_ROWS.total+'. El club favorito queda fijo.';
   renderFans();
@@ -1319,22 +1368,24 @@ function renderTech(){
  $('#trlist').innerHTML=podium+table;
 }
 async function tecnicoRankLoad(periodo){
- TR_PERIODO=periodo;$('#trseason').classList.toggle('on',periodo=='temporada');$('#trhistory').classList.toggle('on',periodo=='historico');$('#trlist').innerHTML='<span class=mu>Cargando ranking…</span>';
- try{const r=await fetch('/api/ranking-tecnicos?periodo='+periodo),d=await r.json();if(!r.ok||!d.enabled){$('#trlist').textContent=d.error||'El ranking no está disponible en este momento.';return}
+ TR_PERIODO=periodo;document.querySelectorAll('#trtipo [data-trt]').forEach(b=>b.classList.toggle('on',b.dataset.trt==TR_TIPO));$('#trseason').classList.toggle('on',periodo=='temporada');$('#trhistory').classList.toggle('on',periodo=='historico');$('#trlist').innerHTML='<span class=mu>Cargando ranking…</span>';
+ try{const tipo=TR_TIPO,r=await apiFetch('/api/ranking-tecnicos?periodo='+periodo+'&tipo='+tipo),d=await r.json();if(tipo!==TR_TIPO)return;if(!r.ok||!d.enabled){$('#trlist').textContent=d.error||'El ranking no está disponible en este momento.';return}
   TECH_ROWS=d.rows||[];
-  $('#trinfo').textContent=(periodo=='temporada'?'Temporada '+d.temporada+'. ':'Histórico desde que se registran resultados competitivos. ')+'Cuentan torneos online elegibles y carreras offline con cuenta. Online: mínimo 10 participantes humanos; ligas de 10 o más equipos y copas de 8 o más. Offline: ligas y mixtos desde 10 equipos, copas desde 8. La puntuación actual pondera la posición final y las rondas alcanzadas.';
+  $('#trinfo').textContent=(periodo=='temporada'?'Temporada '+d.temporada+'. ':'Histórico desde que se registran resultados competitivos. ')+(tipo=='offline'?'Ranking offline (informado): carreras jugadas en el dispositivo desde '+DATA.MIN_EQUIPOS+' equipos, con cuenta. El servidor no puede verificar esos partidos, por eso va aparte del online.':'Ranking online (verificado): torneos online jugados en el servidor con '+DATA.MIN_HUMANOS+' personas con cuenta o más y '+DATA.MIN_EQUIPOS+' equipos o más (ligas, copas y mixtos).')+' La puntuación pondera la posición final y las rondas alcanzadas.';
   renderTech();
  }catch(e){$('#trlist').innerHTML='<span class=mu>No hay conexión con el servidor.</span>'}
 }
 $('#btr').onclick=()=>{RANK_TAB_HISTORY=[];goM('m10');rankingMode('tecnicos',false)};
 $('#trseason').onclick=()=>tecnicoRankLoad('temporada');
+$('#trtipo').onclick=e=>{const b=e.target.closest('[data-trt]');if(!b||b.dataset.trt==TR_TIPO)return;TR_TIPO=b.dataset.trt;tecnicoRankLoad(TR_PERIODO)};
 $('#trhistory').onclick=()=>tecnicoRankLoad('historico');
 $('#trsearch').oninput=renderTech;
 async function tecnicoProfileLoad(usuario){
  goM('m31');$('#pubtitle').textContent='Perfil de '+usuario;$('#pubprofile').innerHTML='<span class=mu>Cargando perfil…</span>';
- try{const r=await fetch('/api/tecnico?usuario='+encodeURIComponent(usuario)),d=await r.json();if(!r.ok||!d.enabled){$('#pubprofile').innerHTML='<span class=mu>'+(d.error||'No se pudo cargar el perfil.')+'</span>';return}
-  const R=d.resumen||{},hist=d.historial||[];
-  $('#pubprofile').innerHTML='<div class=box style="display:flex;align-items:center;gap:12px">'+(d.clubFavorito&&TM[d.clubFavorito]?cr(d.clubFavorito,52):'')+'<div><b style="font-size:18px">'+esc(d.usuario)+'</b><div class=mu>Técnico desde '+fdate(d.creado)+'</div><div class=mu>Club favorito: '+esc(d.clubFavorito&&TM[d.clubFavorito]?TM[d.clubFavorito].name:'Sin elegir')+'</div></div></div><div class=fct><div><b>'+(R.puntos||0)+'</b>puntos históricos</div><div><b>'+(R.torneos||0)+'</b>torneos competitivos</div><div><b>'+(R.campeonatos||0)+'</b>campeonatos</div><div><b>'+(R.podios||0)+'</b>podios</div></div><h3>Resultados competitivos recientes</h3>'+(hist.length?'<table><tr><th>Fecha</th><th>Club</th><th>Competición</th><th>Resultado</th></tr>'+hist.map(h=>'<tr><td class=mu>'+fdate(h.finalizado)+'</td><td>'+(TM[h.club]?cr(h.club,18)+' ':'')+esc(h.club_nombre||h.club)+'</td><td>'+esc(h.competicion_nombre||'')+'</td><td class="'+(h.campeon?'pt':'')+'">'+(h.campeon?'🏆 ':'')+esc(h.resultado||'')+'</td></tr>').join('')+'</table>':'<span class=mu>Todavía no tiene resultados competitivos registrados.</span>')+'<div class=nt>Este perfil público muestra resultados online elegibles y carreras offline que cumplen los mínimos de equipos.</div>';
+ try{const r=await apiFetch('/api/tecnico?usuario='+encodeURIComponent(usuario)),d=await r.json();if(!r.ok||!d.enabled){$('#pubprofile').innerHTML='<span class=mu>'+(d.error||'No se pudo cargar el perfil.')+'</span>';return}
+  // SEG-04: dos rankings separados. resumen = online (verificado); resumenOffline = offline (informado).
+  const R=d.resumen||{},RO=d.resumenOffline||{},hist=d.historial||[],rkBlk=(t,x)=>'<h3 style="margin:10px 0 4px">'+t+(x.pos?' · puesto '+x.pos+'°':'')+'</h3><div class=fct><div><b>'+(x.puntos||0)+'</b>puntos</div><div><b>'+(x.torneos||0)+'</b>torneos</div><div><b>'+(x.campeonatos||0)+'</b>campeonatos</div><div><b>'+(x.podios||0)+'</b>podios</div></div>';
+  $('#pubprofile').innerHTML='<div class=box style="display:flex;align-items:center;gap:12px">'+(d.clubFavorito&&TM[d.clubFavorito]?cr(d.clubFavorito,52):'')+'<div><b style="font-size:18px">'+esc(d.usuario)+'</b><div class=mu>Técnico desde '+fdate(d.creado)+'</div><div class=mu>Club favorito: '+esc(d.clubFavorito&&TM[d.clubFavorito]?TM[d.clubFavorito].name:'Sin elegir')+'</div></div></div>'+rkBlk('Online (verificado)',R)+rkBlk('Offline (informado)',RO)+'<h3>Resultados competitivos recientes</h3>'+(hist.length?'<table><tr><th>Fecha</th><th>Club</th><th>Competición</th><th>Resultado</th></tr>'+hist.map(h=>'<tr><td class=mu>'+fdate(h.finalizado)+(h.tipo=='offline'?' <small title="Informado por el dispositivo: no verificado">· offline</small>':' <small title="Jugado en el servidor">· online</small>')+'</td><td>'+(TM[h.club]?cr(h.club,18)+' ':'')+esc(h.club_nombre||h.club)+'</td><td>'+esc(h.competicion_nombre||'')+'</td><td class="'+(h.campeon?'pt':'')+'">'+(h.campeon?'🏆 ':'')+esc(h.resultado||'')+'</td></tr>').join('')+'</table>':'<span class=mu>Todavía no tiene resultados competitivos registrados.</span>')+'<div class=nt>Este perfil público muestra resultados online elegibles y carreras offline que cumplen los mínimos de equipos.</div>';
  }catch(e){$('#pubprofile').innerHTML='<span class=mu>No hay conexión con el servidor.</span>'}
 }
 document.addEventListener('click',e=>{const row=e.target.closest&&e.target.closest('[data-tecnico]');if(row)tecnicoProfileLoad(row.dataset.tecnico)});
@@ -1409,7 +1460,8 @@ const spdSel=v=>{const mk=v.off?[[.25,'x0,25'],[.5,'x0,5'],[1,'x1'],[1.5,'x1,5']
 const ctlRow=(v,me)=>!me.team||v.phase=='pick'?'':`<div class=row style="gap:6px;flex-wrap:wrap;align-items:center"><button data-cal=1 class="${showCal?'on':''}" title="Mostrar u ocultar el calendario de tu equipo">📅 Calendario: ${showCal?'activado':'desactivado'}</button>${v.off?`${SAVEBTN()}<button data-se=1 class="${SKE?'on':''}" title="Saltar animaciones: ceremonia inicial, entretiempo, final del partido y equipo de la fecha">⏭ Saltar animaciones: ${SKE?'sí':'no'}</button>`:''}${spdSel(v)}</div>`;
 const mlbl=(m,ph)=>ph=='psel'||ph=='pso'?'Pen.':m.finished?'Final':ph=='ht'?'ET':ph=='fin'||ph=='awd'?'Final':ph=='cer'?"0'":(m.sx&&m.addMin>0?(ph=='m1'?45:90)+'+'+m.addMin:(m.min||0))+"'";
 function matchRows(v,me,ph){const row=m=>{const mine=m.a==me.team||m.b==me.team,key=mine?'':m.a+'|'+m.b,on=mine?!SPEC:SPEC==key;return '<div data-k="'+m.a+'|'+m.b+'" class="m1 '+(mine?'me':'')+'"><button class="eyeb '+(on?'on':'')+'" data-spec="'+key+'" title="'+(mine?'Tu partido':'Espectar este partido')+'"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3.3"/></svg></button><span>'+cr(m.a,18)+' '+esc(TM[m.a].name)+'</span><b class=num>'+shownOf(m)[0]+' - '+shownOf(m)[1]+' <small style="display:inline;margin:0">('+(m.finished?'Final':ph=='ht'?'ET':ph=='fin'||ph=='awd'||ph=='psel'||ph=='pso'?'Final':ph=='cer'?"0'":(m.sx&&m.addMin>0?(ph=='m1'?45:90)+'+'+m.addMin:(m.min||0))+"'")+')</small></b><span>'+esc(TM[m.b].name)+' '+cr(m.b,18)+'</span></div>'};const Z=v.cfg.zones;if(!Z||Z.length<2)return v.ms.map(row).join('');const groups=Z.map((z,i)=>({title:'Zona '+'ABCD'[i],matches:v.ms.filter(m=>z.includes(m.a)&&z.includes(m.b))})).filter(g=>g.matches.length);const inter=v.ms.filter(m=>!Z.some(z=>z.includes(m.a)&&z.includes(m.b)));if(inter.length)groups.push({title:'Interzonales',matches:inter});return groups.map(g=>'<h3 class=lb>'+g.title+'</h3>'+g.matches.map(row).join('')).join('')}
-function render(){const v=S,me=v.me||{},ph=v.phase,n=v.cfg.n;let st='';careerTick(v);cxEndUI(v);if(CAR&&CAR.last){seasonUI(v);return}if(v.closed){closedUI(v.closed);return}if(v.sp){specUI(v);return}if(v.rq&&RQP.includes(ph)){randUI(v);return}$('#gm').classList.remove('rq');$('#rnd').hidden=true;if(v.spd)SPD=v.spd;if(SPEC&&(!v.ms.some(m=>m.a+'|'+m.b==SPEC)||!MPH.includes(ph)))SPEC=null;
+function render(){const v=S,me=v.me||{},ph=v.phase,n=v.cfg.n;let st='';if(v.broken){$('#gm').classList.add('rq');set('#rnd','<h2>La sala tuvo un error</h2><p class=mu>El partido se detuvo por un error del servidor. Las demás salas siguen funcionando.</p><div class=row><button class=go onclick="leaveRoom()">Volver al menú</button></div>');$('#rnd').hidden=false;return}   // SRV-06 (engine.js safeTick)
+ careerTick(v);cxEndUI(v);if(CAR&&CAR.last){seasonUI(v);return}if(v.closed){closedUI(v.closed);return}if(v.sp){specUI(v);return}if(v.rq&&RQP.includes(ph)){randUI(v);return}$('#gm').classList.remove('rq');$('#rnd').hidden=true;if(v.spd)SPD=v.spd;if(SPEC&&(!v.ms.some(m=>m.a+'|'+m.b==SPEC)||!MPH.includes(ph)))SPEC=null;
  if(SPECMODE&&!SPEC&&!myM()&&MPH.includes(ph)&&v.ms.length)SPEC=v.ms[0].a+'|'+v.ms[0].b;
  if(SKE&&v.off&&(v.phase=='cer'||v.phase=='ht')){const k=v.phase+'|'+v.round;if(k!==SKA){SKA=k;post({a:'skip'})}}if(v.off&&v.se!==SKE&&!SKP){SKP=1;post({a:'skipend',auto:SKE?1:0}).then(()=>{SKP=0})}
  {const g=$('#gfl');g.hidden=!GOL||v.phase=='pick'||!me.team;if(!g.hidden)set('#gfl',golHTML(v))}
@@ -1848,6 +1900,6 @@ if(GBQ.length&&(!GT||t-GT.t>=2000)){const g=GBQ.shift();GT={side:g.side,name:g.n
   else if(ph=='fin'&&m){const so=home?m.ga:m.gb,sr=home?m.gb:m.ga,rs=spec?['FINAL','#cfd8d0']:so>sr?['¡VICTORIA!','#3ddc84']:so<sr?['DERROTA','#ff6b61']:['EMPATE','#f2b705'];ovSet(`<div class=gl><div class=gt style="font-size:20px">FINAL DEL PARTIDO</div><div class=gn style="display:flex;align-items:center;gap:8px">${cr(own,22)}<span>${esc(TM[own].name)}</span><b style="font:700 22px 'Barlow Condensed',sans-serif">${so} - ${sr}</b><span>${esc(TM[oppId].name)}</span>${cr(oppId,22)}</div><div class=gs style="color:${rs[1]};font-weight:700">${rs[0]}</div></div>`)}
  else if(ph=='ht'&&m)ovSet(`<div class=gl><div class=gt>ENTRETIEMPO</div><div class=gn>${esc(TM[own].name)} ${SH[0]} - ${SH[1]} ${esc(TM[oppId].name)}</div><div class=gs>Quedan ${S.t}s${spec?'':' · cambiá tu táctica ahora'}</div></div>`);
  else ovSet('')}
-(async()=>{try{const s=JSON.parse(localStorage[SESK]||'null');if(!s||s.pid!==pid||OFF||Date.now()-s.at>6*36e5)return;const r=await(await fetch('/api/sesion?room='+encodeURIComponent(s.room)+'&pid='+encodeURIComponent(pid))).json();if(r.ok){room=s.room;start()}else localStorage.removeItem(SESK)}catch(e){}})();   // recargar en una sala online: se vuelve a la sala
+(async()=>{try{const s=JSON.parse(localStorage[SESK]||'null');if(!s||s.pid!==pid||OFF||Date.now()-s.at>6*36e5)return;const r=await(await apiFetch('/api/sesion?room='+encodeURIComponent(s.room)+'&pid='+encodeURIComponent(pid))).json();if(r.ok){room=s.room;start()}else localStorage.removeItem(SESK)}catch(e){}})();   // recargar en una sala online: se vuelve a la sala
 frame();document.addEventListener('visibilitychange',()=>{if(document.hidden&&OFF&&S&&!S.paused&&S.phase!='end')post({a:'pause',v:1})});
 </script></body></html>

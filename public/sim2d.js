@@ -15,9 +15,9 @@ GEO=[[[1,.06,0],[4,.21,.5],[4,.37,.85],[2,.49,1]],[[1,.06,0],[4,.21,.5],[3,.37,.
 
 // Roles tácticos por formación y mentalidad. Cada formación tiene 3 variantes (0 defensiva, 1 equilibrada, 2 ofensiva). Una letra por jugador, de arriba hacia abajo en cada línea:
 // L lateral · D central · X mediocentro defensivo (MCD) · C mediocampista central (MC) · M volante de banda (MI/MD) · O mediocampista ofensivo (MO) · E extremo (EXI/EXD) · S segundo delantero (SD) · 9 delantero centro (DC)
-const RS={0:{e:['MCCM','99'],d:['MXCM','S9'],o:['MCOM','99']},1:{e:['CCC','E9E'],d:['CXC','E9E'],o:['OCO','E9E']},2:{e:['MCCCM','99'],d:['MXCXM','S9'],o:['MOCOM','99']},3:{e:['MCXCM','9'],d:['MXCXM','9'],o:['ECOCE','9']},4:{e:['CCC','99'],d:['CXC','S9'],o:['COC','99']},
- 5:{e:['XC','EOE','9'],d:['XX','ECE','9'],o:['XC','EOE','9']},6:{e:['XC','OO','99'],d:['XX','MM','S9'],o:['XC','OO','99']},7:{e:['MCCM','E9E'],d:['MXCM','E9E'],o:['MCOM','E9E']},8:{e:['MCCM','9'],d:['MXXM','9'],o:['MCOM','9']},
- 9:{e:['CXC','O','S9'],d:['XCX','O','S9'],o:['OCO','O','99']},10:{e:['X','MCCM','9'],d:['X','MCCM','9'],o:['X','EOCE','9']},11:{e:['MCCM','S','9'],d:['MXCM','S','9'],o:['MCCM','S','9']},12:{e:['MCCM','OO','9'],d:['MXCM','OO','9'],o:['MCCM','OO','9']},13:{e:['CC','E9E'],d:['XC','E9E'],o:['CC','E9E']}};
+const RS={0:{e:['MCCM','S9'],d:['MXCM','S9'],o:['MCOM','S9']},1:{e:['CCC','E9E'],d:['CXC','E9E'],o:['OCO','E9E']},2:{e:['MCCCM','S9'],d:['MXCXM','S9'],o:['MOCOM','S9']},3:{e:['MCXCM','9'],d:['MXCXM','9'],o:['ECOCE','9']},4:{e:['CCC','S9'],d:['CXC','S9'],o:['COC','S9']},
+ 5:{e:['XC','EOE','9'],d:['XX','ECE','9'],o:['XC','EOE','9']},6:{e:['XC','OO','S9'],d:['XX','MM','S9'],o:['XC','OO','S9']},7:{e:['MCCM','E9E'],d:['MXCM','E9E'],o:['MCOM','E9E']},8:{e:['MCCM','9'],d:['MXXM','9'],o:['MCOM','9']},
+ 9:{e:['CXC','O','S9'],d:['XCX','O','S9'],o:['OCO','O','S9']},10:{e:['X','MCCM','9'],d:['X','MCCM','9'],o:['X','EOCE','9']},11:{e:['MCCM','S','9'],d:['MXCM','S','9'],o:['MCCM','S','9']},12:{e:['MCCM','OO','9'],d:['MXCM','OO','9'],o:['MCCM','OO','9']},13:{e:['CC','E9E'],d:['XC','E9E'],o:['CC','E9E']}};
 const RDX={L:[-.02,0,.03],D:[-.02,0,.02],X:[-.03,-.03,0],C:[-.03,0,.02],M:[-.04,0,.025],O:[-.05,0,.05],E:[-.06,0,.025],S:[-.07,-.03,0],9:[-.03,0,.01]},RNM={L:'L',D:'DEF',X:'MCD',C:'MC',M:'M',O:'MO',E:'EX',S:'SD','9':'DC'};
 const roleLayout=(f,st)=>{const G=GEO[f],out=[{r:'ARQ',rl:'ARQ',rs:0,hx:[.05,.06,.12][st],hy:.5,l:0,wl:0,wide:false,fb:false,piv:false}],sp=RS[f][['d','e','o'][st]];
  G.forEach((g,gi)=>{if(gi==0)return;const[n,x,w]=g,dg=gi==1?(n==5?'LDDDL':n==4?'LDDL':'DDD'):sp[gi-2];if(dg.length!==n)throw new Error('rol '+f+' '+gi);
@@ -309,15 +309,20 @@ class Sim{
     else if(sc.k=='att'&&sc.ph=='g'&&sc.in){tx=W/2;ty=H/2+48}}
    else if((S.koP&&B.own===S.koP)||S.ko){tx=W/2-(S.koP?(S.koP.s?-1:1)*10:0);ty=H/2+52}
    if(!(S.sc&&S.sc.k=='card'))for(let k=0;k<2;k++)for(const q of P){if(q.off)continue;const ex=tx-q.x,ey=ty-q.y,ed=dhyp(ex,ey);if(ed<R+42){if(ed>.1){tx+=ex/ed*(R+42-ed);ty+=ey/ed*(R+42-ed)}else ty+=R+42}}   // elige un lugar libre, no encima de un jugador
+   if(S.sc&&S.sc.k=='cor'){/* MOT-07: en el córner elige, entre lugares cercanos al de siempre, el más despejado, y lo mantiene (si cambiara a cada paso, oscilaría entre dos lugares sin llegar a ninguno); solo lo cambia si un jugador se le mete encima */const sc=S.sc,libre=(cx,cy)=>{let md=1e9;for(const q of P)if(!q.off){const d=dhyp(cx-q.x,cy-q.y);if(d<md)md=d}return md};
+    if(!sc.refSpot||libre(sc.refSpot.x,sc.refSpot.y)<R+30){let bx=tx,by=ty,bd=-1;for(const dx of[0,-45,45,-90,90])for(const dy of[0,-40,40,-80]){const cx=clamp(tx+dx,X0+40,X0+FW-40),cy=clamp(ty+dy*(B.y<H/2?1:-1),Y0+24,Y0+FH-24),v=Math.min(libre(cx,cy),R+60)-(Math.abs(dx)+Math.abs(dy))*.02;if(v>bd){bd=v;bx=cx;by=cy}}sc.refSpot={x:bx,y:by}}
+    tx=sc.refSpot.x;ty=sc.refSpot.y}
    r.tx=clamp(tx,X0+40,X0+FW-40);r.ty=clamp(ty,Y0+24,Y0+FH-24)}
   l1.tx=clamp(lm[0],X0+20,W/2+90);l1.ty=Y0-3;l2.tx=clamp(lm[1],W/2-90,X0+FW-20);l2.ty=Y0+FH+3;if(S.pso){l1.tx=W/2-90;l2.tx=W/2+90}   // en la tanda los jueces de línea quedan quietos
   
   {if(r.gx==null||S.n%40==0||dhyp(r.tx-r.gx,r.ty-r.gy)>70||r.sk!==(S.sc?S.sc.k:null)){r.gx=r.tx;r.gy=r.ty;r.sk=S.sc?S.sc.k:null}   // el árbitro se decide cada tanto (no persigue cada micro-movimiento) y, cuando llegó, se queda parado
    const dx=r.gx-r.x,dy=r.gy-r.y,d=dhyp(dx,dy),want=d>24?clamp((d-16)*.035+.4,0,2.1):0,tvx=d>.1?dx/d*want:0,tvy=d>.1?dy/d*want:0;
-   let ax=tvx,ay=tvy;for(const q of P){if(q.off||(S.sc&&S.sc.k=='card'&&q===S.sc.cp))continue;const qd=dhyp(r.x-q.x,r.y-q.y);if(qd<R+52&&qd>.1){const k=(R+52-qd)/(R+52)*2.4;ax+=(r.x-q.x)/qd*k;ay+=(r.y-q.y)/qd*k}}   // se hace a un lado de los jugadores en vez de pasar entre ellos
+   const lejos=!!(S.sc&&S.sc.k=='cor'&&d>60);   /* MOT-07: si el córner lo agarra dentro del racimo, el empuje de todos lados lo dejaba atrapado contra la línea de fondo; mientras va a su lugar, se abre paso */
+   let ax=tvx,ay=tvy;for(const q of P){if(q.off||(S.sc&&S.sc.k=='card'&&q===S.sc.cp))continue;const qd=dhyp(r.x-q.x,r.y-q.y);if(qd<R+52&&qd>.1){const k=(R+52-qd)/(R+52)*(lejos?.2:2.4);ax+=(r.x-q.x)/qd*k;ay+=(r.y-q.y)/qd*k}}   // se hace a un lado de los jugadores en vez de pasar entre ellos
    r.vx=(r.vx||0)+(ax-(r.vx||0))*.14;r.vy=(r.vy||0)+(ay-(r.vy||0))*.14;r.x+=r.vx;r.y+=r.vy;
-   const sep=(ox,oy,md)=>{const ddx=r.x-ox,ddy=r.y-oy,dd=dhyp(ddx,ddy);if(dd<md){if(dd>.1){r.x+=ddx/dd*(md-dd);r.y+=ddy/dd*(md-dd)}else r.x+=md}};   // separación dura: es una ficha más, no atraviesa a nadie
-   for(const q of P){if(!q.off)sep(q.x,q.y,S.sc&&S.sc.k=='cor'?48:R+13)}sep(B.x,B.y,34);
+   const sep=(ox,oy,md,rodea)=>{const ddx=r.x-ox,ddy=r.y-oy,dd=dhyp(ddx,ddy);if(dd<md){if(dd>.1){r.x+=ddx/dd*(md-dd);r.y+=ddy/dd*(md-dd);if(rodea){let ux=-ddy/dd,uy=ddx/dd;if(ux*dx+uy*dy<0){ux=-ux;uy=-uy}r.x+=ux*1.8;r.y+=uy*1.8}}else r.x+=md}};   /* «rodea» (MOT-07): yendo a su lugar en el córner, si un jugador quieto le tapa el camino, lo rodea de costado en vez de quedar empujando contra él */   // separación dura: es una ficha más, no atraviesa a nadie
+   if(lejos){const k=r.gx+','+r.gy,dn=dhyp(r.gx-r.x,r.gy-r.y);if(r.tk!==k||dn<r.best-5){r.tk=k;r.best=dn;r.trab=0}else r.trab++}else r.trab=0;   // si yendo a su lugar no se acerca en 20 pasos, está trabado contra una pared de jugadores: pasa entre ellos hasta llegar
+   if(!(lejos&&r.trab>20))for(const q of P){if(!q.off)sep(q.x,q.y,S.sc&&S.sc.k=='cor'&&!lejos?48:R+13,lejos)}sep(B.x,B.y,34);
    const sp=dhyp(r.vx,r.vy);if(sp>.25){const fx=r.fx||1,fy=r.fy||0,nx=fx+(r.vx/sp-fx)*.12,ny=fy+(r.vy/sp-fy)*.12,nn=dhyp(nx,ny)||1;r.fx=nx/nn;r.fy=ny/nn}
    r.ph=(r.ph||0)+sp*.5;r.bob=dsin(r.ph)*clamp(sp-.3,0,1)*1.3;r.x=clamp(r.x,X0+10,X0+FW-10);r.y=clamp(r.y,Y0+12,Y0+FH-12)}   // el árbitro no corre detrás de la pelota: acompaña desde lejos, en diagonal
   [l1,l2].forEach(w=>{w.x+=clamp((w.tx-w.x)*.08,-1.8,1.8);w.y+=(w.ty-w.y)*.12})}   // árbitro cerca de la jugada; jueces de línea a la altura del último defensor

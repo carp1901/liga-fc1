@@ -1,25 +1,28 @@
 name: Descargar escudos uruguayos
 
+# TST-07: solo lectura respecto del repositorio y solo manual. No hace commit, push, pull --rebase
+# ni ninguna operación sobre main. Descarga y optimiza los escudos (tools/descargar-escudos-uruguay.js)
+# y los entrega como artefacto descargable con sus rutas originales (public/crests/...), más un resumen.
+# Para incorporarlos: descargar el artefacto, revisar los PNG, descomprimirlo en la raíz y abrir un PR.
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'crests-urls.json'
-      - 'tools/descargar-escudos-uruguay.js'
-      - '.github/workflows/descargar-escudos-uruguay.yml'
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: descargar-escudos-uruguay
+  cancel-in-progress: false
 
 jobs:
   descargar:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
-
-      - name: Sincronizar repositorio antes de generar archivos
-        run: git pull --rebase origin main
+        with:
+          persist-credentials: false
 
       - name: Preparar Node
         uses: actions/setup-node@v4
@@ -32,14 +35,45 @@ jobs:
       - name: Descargar y optimizar escudos uruguayos
         run: node tools/descargar-escudos-uruguay.js
 
-      - name: Guardar escudos
+      - name: Preparar artefacto y resumen (sin tocar el repositorio)
         run: |
-          git add public/crests/uy_*.png public/crests/kimberley.png
-          if ! git diff --cached --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Actualizar escudos uruguayos y Kimberley"
-            git push
-          else
-            echo "No se detectaron escudos nuevos."
-          fi
+          cat > "$RUNNER_TEMP/preparar-artefacto.js" <<'NODE'
+          // Lista los PNG nuevos o modificados en public/crests (git status, solo lectura), los valida
+          // y los copia a $RUNNER_TEMP/escudos conservando la ruta original. Escribe el resumen de la corrida.
+          const fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
+          const sharp = require('sharp');
+          const OUT = path.join(process.env.RUNNER_TEMP, 'escudos');
+          const st = execFileSync('git', ['status', '--porcelain', '--untracked-files=all', '--', 'public/crests'], { encoding: 'utf8' });
+          const cambios = st.split('\n').filter(Boolean).map(l => ({ estado: l.slice(0, 2).trim() === '??' ? 'nuevo' : 'modificado', archivo: l.slice(3).trim() })).filter(c => c.archivo.endsWith('.png'));
+          const filas = [];
+          (async () => {
+            for (const c of cambios) {
+              const meta = await sharp(c.archivo).metadata();
+              if (!(meta.width > 0 && meta.height > 0) || !meta.hasAlpha || meta.format !== 'png') throw new Error(`PNG inválido: ${c.archivo}`);
+              let antes = '—';
+              if (c.estado === 'modificado') antes = String(execFileSync('git', ['cat-file', '-s', 'HEAD:' + c.archivo], { encoding: 'utf8' }).trim());
+              const destino = path.join(OUT, c.archivo);
+              fs.mkdirSync(path.dirname(destino), { recursive: true });
+              fs.copyFileSync(c.archivo, destino);
+              filas.push(`| \`${c.archivo}\` | ${c.estado} | ${antes} | ${fs.statSync(c.archivo).size} | ${meta.width}×${meta.height} |`);
+            }
+            const resumen = [
+              '## Escudos procesados (artefacto, sin commit)',
+              '',
+              cambios.length ? '| Archivo | Estado | Bytes antes | Bytes después | Medidas |\n|---|---|---:|---:|---|\n' + filas.join('\n') : 'No hubo cambios en `public/crests`.',
+              '',
+              'Para incorporarlos: descargá el artefacto de esta corrida, revisá los PNG, descomprimilo en la raíz del repositorio (las rutas son las originales) y abrí un PR.',
+            ].join('\n');
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY || '/dev/stdout', resumen + '\n');
+            console.log(`${cambios.length} PNG preparados en ${OUT}`);
+          })().catch(e => { console.error(e); process.exitCode = 1; });
+          NODE
+          NODE_PATH="$PWD/node_modules" node "$RUNNER_TEMP/preparar-artefacto.js"
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: escudos-uruguay-${{ github.run_id }}
+          path: ${{ runner.temp }}/escudos/
+          retention-days: 14
+          if-no-files-found: warn

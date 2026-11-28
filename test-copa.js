@@ -10,7 +10,7 @@ let fails=0;const ok=(c,m)=>{console.log((c?'OK  ':'FALLA ')+m);if(!c)fails++},s
   for(let i=0;i<50;i++){const q=E.copaSuelta().q;q.low.forEach(t=>seen.add(t));if(i==0)q.low.forEach(t=>cnt[key(t)]=(cnt[key(t)]||0)+1)}
   ok(cnt.ar2==15&&cnt.ar3==5&&cnt.ar5==8&&cnt.ar4==4&&cnt.ar6==2,'cupos por categoría: 15 Nacional, 5 B Metro, 8 Federal A, 4 C, 2 Promocional');
   ok(seen.size>45,'sorteo al azar: en 50 sorteos entraron '+seen.size+' clubes distintos del ascenso')}
- {const D=require('./public/data'),ids=D.DIVS.filter(d=>d.id!='ar1').flatMap(d=>d.teams.map(t=>t.id));let bad=0;
+ {const D=require('./public/data'),ids=D.DIVS.filter(d=>/^ar/.test(d.id)&&d.id!='ar1').flatMap(d=>d.teams.map(t=>t.id));let bad=0;
   ids.forEach(id=>{const c=E.copaSuelta(id);if(c.teams.length!=64||new Set(c.teams).size!=64||!c.teams.includes(id))bad++});
   ok(bad==0,'cualquier club del ascenso ('+ids.length+') queda dentro del sorteo, siempre con 64 distintos');
   const c1=E.copaSuelta('boca');ok(c1.teams.includes('boca')&&c1.q.low.length==34,'club de Primera: entra y el ascenso sigue en 34')}

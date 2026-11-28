@@ -21,7 +21,8 @@ jobs:
       - name: Checkout migration branch
         uses: actions/checkout@v4
         with:
-          ref: cloudflare-workers-backend
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref || 'cloudflare-workers-backend' }}
+          persist-credentials: false
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -31,4 +32,8 @@ jobs:
       - name: Run Worker + Neon integration checks
         env:
           NEON_TEST_DATABASE_URL: ${{ secrets.NEON_TEST_DATABASE_URL }}
+          # Guard (tests/neon-guard.mjs): ids de Neon del proyecto y la rama de pruebas (no nombres).
+          # Variables del repositorio, no secretos. Si faltan o no coinciden con lo que informa el servidor, el test aborta sin escribir.
+          NEON_TEST_PROJECT_ID: ${{ vars.NEON_TEST_PROJECT_ID }}
+          NEON_TEST_BRANCH_ID: ${{ vars.NEON_TEST_BRANCH_ID }}
         run: node tests/neon-worker-integration.mjs
