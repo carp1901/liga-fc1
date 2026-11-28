@@ -15,18 +15,12 @@ const RAPIDOS = [
   'test-plantel-calibration', 'test-squads', 'test-planteles-sync', 'test-bmetro-draft', 'test-bmetro-runtime',
   'test-federal-a-draft', 'test-federal-a-tanda2', 'test-federal-a-tanda3', 'test-federal-a-tanda4', 'test-federal-a-runtime',
   'test-primera-c-draft', 'test-promocional-amateur-draft',
+  'test-custom-tournaments', 'test-copa', 'test-offline', 'test-pre', 'test-pelotas-paradas-2d',
 ];
-const LARGOS = ['test-clasico', 'test-copa-real', 'test-2d-servidor', 'test-penales', 'test-pelotas-paradas', 'test-cliente-sse', 'test-guardados', 'test-ui-movil', 'test-cierre-worker'];
+const LARGOS = ['test-clasico', 'test-copa-real', 'test-2d-servidor', 'test-penales', 'test-pelotas-paradas', 'test-cliente-sse', 'test-guardados', 'test-ui-movil', 'test-cierre-worker', 'test-ui', 'test-realista'];
 // Fallos conocidos y su motivo (auditoría maestra). No se ocultan: se corren con «pendientes».
-const PENDIENTES = {
-  'test-copa': 'TST-02: el sorteo espera clubes que ya no entran (incluye clubes uruguayos)',
-  'test-custom-tournaments': 'TST-02/TOR-01: intenta compilar el bloque ld+json de index.html',
-  'test-pelotas-paradas-2d': 'TST-04: el árbitro queda entre los jugadores en ~1 de 24 córners (umbral al límite)',
-  'test-offline': 'TST-02: no envía la acción «rivals»; queda esperando',
-  'test-realista': 'TST-02: espera Federal A con 38 clubes y 171 en total (se decidió 37)',
-  'test-ui': 'TST-02: el DOM simulado no tiene classList.toggle',
-  'test-pre': 'TST-02: supone una estructura vieja del estado',
-};
+// E6: los 7 que había (TST-02/TST-04) se arreglaron y pasaron a RAPIDOS o LARGOS. Si aparece uno nuevo, va acá con su motivo.
+const PENDIENTES = {};
 
 const modo = process.argv[2] || 'rapidos';
 const lista = modo === 'pendientes' ? Object.keys(PENDIENTES) : modo === 'completo' ? [...RAPIDOS, ...LARGOS] : RAPIDOS;
@@ -44,7 +38,7 @@ for (const t of lista) {
   }
 }
 if (modo === 'pendientes') {
-  console.log('\n' + (empezaronAPasar.length ? 'Empezaron a pasar (sacarlos de PENDIENTES): ' + empezaronAPasar.join(', ') : 'Todos los pendientes siguen fallando por su motivo conocido.'));
+  console.log('\n' + (!lista.length ? 'No hay tests con fallos conocidos.' : empezaronAPasar.length ? 'Empezaron a pasar (sacarlos de PENDIENTES): ' + empezaronAPasar.join(', ') : 'Todos los pendientes siguen fallando por su motivo conocido.'));
   process.exit(empezaronAPasar.length ? 1 : 0);
 }
 console.log('\n' + (fallas ? fallas + ' FALLAS de ' + lista.length : 'Todo OK: ' + lista.length + ' tests'));
