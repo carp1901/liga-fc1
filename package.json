@@ -8,7 +8,7 @@
     "test:completo": "node tools/correr-tests.js completo",
     "test:pendientes": "node tools/correr-tests.js pendientes",
     "test:carga": "node test.js",
-    "test:cloudflare": "node --test tests/cloudflare-worker.test.mjs tests/pages-proxy.test.mjs",
+    "test:cloudflare": "node --test tests/cloudflare-worker.test.mjs tests/pages-proxy.test.mjs tests/neon-guard.test.mjs",
     "cf:dev": "wrangler dev"
   },
   "engines": {

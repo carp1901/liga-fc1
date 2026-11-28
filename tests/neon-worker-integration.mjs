@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { neon } from "@neondatabase/serverless";
 import worker, { ChatHub, LobbyCoordinator, RoomCoordinator } from "../src/worker.mjs";
 import Data from "../public/data.js";
+import { verificarDestinoNeon } from "./neon-guard.mjs";
 
 class MemoryStorage {
   constructor() { this.data = new Map(); this.alarm = null; }
@@ -19,6 +20,17 @@ class MemoryStorage {
 const databaseUrl = process.env.NEON_TEST_DATABASE_URL;
 if (!databaseUrl) throw new Error("Falta NEON_TEST_DATABASE_URL");
 const sql = neon(databaseUrl, { fullResults: true });
+// Guard: antes de cualquier escritura o eliminación, verifica en el servidor que la conexión apunta al
+// proyecto y la rama de pruebas esperados (ids, no nombres). Si no puede verificarlo, aborta sin escribir.
+let destinoVerificado = false;
+try {
+  const destino = await verificarDestinoNeon(sql, process.env);
+  destinoVerificado = true;
+  console.log(`GUARD_OK proyecto=${destino.proyecto} rama=${destino.rama}`);
+} catch (error) {
+  console.error("GUARD: " + error.message + ". No se escribió nada.");
+  process.exit(2);
+}
 const username = "cfcheck" + Date.now().toString(36).slice(-8);
 const password = "Test-" + crypto.randomUUID().slice(0, 18);
 const storages = new Map();
@@ -150,11 +162,12 @@ try {
   console.log("INTEGRATION_OK");
   for (const check of checks) console.log("PASS " + check);
 } finally {
-  if (!userId) {
+  // Doble defensa: la limpieza (DELETE) solo corre si el destino se verificó.
+  if (destinoVerificado && !userId) {
     const found = await sql.query("SELECT id FROM usuarios WHERE usuario_lc=$1", [username.toLowerCase()]);
     userId = found.rows[0]?.id;
   }
-  if (userId) {
+  if (destinoVerificado && userId) {
     await sql.query("DELETE FROM chat_reacciones WHERE mensaje_id IN (SELECT id FROM chat_mensajes WHERE usuario_id=$1) OR usuario_id=$1", [userId]);
     await sql.query("DELETE FROM chat_mensajes WHERE usuario_id=$1", [userId]);
     await sql.query("DELETE FROM chat_moderadores WHERE usuario_id=$1 OR por_id=$1", [userId]);
